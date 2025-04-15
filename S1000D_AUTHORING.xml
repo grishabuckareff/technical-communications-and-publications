@@ -1,7 +1,12 @@
+Markup example for maintenance data modules:
+
 <dmCode modelIdentCode="S1000DBIKE" systemDiffCode="AAA"
 systemCode="DA2" subSystemCode="0" subSubSystemCode="0"
 assyCode="00" disassyCode="00" disassyCodeVariant="AA"
 infoCode="041" infoCodeVariant="A" itemLocationCode="A"/>
+
+
+Markup example for training data modules:
 
 <dmCode modelIdentCode="S1000DBIKE" systemDiffCode="AAA"
 systemCode="DA2" subSystemCode="0" subSubSystemCode="0"
