@@ -96,3 +96,554 @@ The following example is for a data module written in German:
 The following example is for a data module written in German for an Austrian end user:
 <language languageIsoCode="de" countryIsoCode="AT"/>
 
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Issue information
+
+Description: The element <issueInfo> contains the issue number of the data module.
+Refer to Chap 4.7.
+
+  
+Markup element: <issueInfo>
+
+Attributes:
+- issueNumber (M), the issue number of the data module. Every approved issue of a
+data module must be allocated an incremented issue number which, with the data module
+code, uniquely identifies that instance of the data module. The initial issue must be
+numbered with the value "001", which must be incremented with every approved release
+of a data module.
+- inWork (M), the in-work number of the unreleased data module. It can be used for
+monitoring and control of intermediate drafts within a project. The initial in-work number is
+set to the value "01" and is incremented with every change to the unreleased data
+module.
+
+Child elements:
+- None
+
+
+Markup examples:
+
+These examples show the use of the attribute inWork.
+
+Note:
+For each of these, set the value of the attribute issueType of the element 
+<dmStatus> accordingly.
+
+A data module that is in work, where this is the second draft.
+<issueInfo issueNumber="000" inWork="02"/>
+
+A data module that is released for the first time
+<issueInfo issueNumber="001" inWork="00"/>
+
+A data module that is the subject of a first change to the content section and is in work
+<issueInfo issueNumber="001" inWork="01"/>
+
+A data module that has been changed and released for the second time
+<issueInfo issueNumber="002" inWork="00"/>
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Data module address items
+
+Description: The element <dmAddressItems> contains information that is
+supplementary to the data module identification but not part of the unique identifier.
+
+
+Markup element: <dmAddressItems>
+
+Attributes:
+- None
+
+Child elements:
+- <issueDate>. Refer to Para 2.1.2.1.
+- <dmTitle>. Refer to Para 2.1.2.2
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Issue date
+
+Description: The element <issueDate> contains the data module’s date of issue, which
+must be defined. This can be, for example, the input date (ie, the release to CSDB date), or the
+cut-off date for the delivery, etc. Every issue of a data module whether initially written,
+completely revised or updated by changes, must be allocated an ISO 8601 calendar date in the
+form YYYY-MM-DD.
+
+  
+Markup element: <issueDate>
+
+Attributes:
+- year (M), the year of issue given as a four-digit number
+- month (M), the month of issue given as a two-digit number
+- day (M), the day of issue given as a two-digit number
+
+Child elements:
+- None
+
+Business rule decision point BRDP-S1-00049 - Definition of the issue date:
+– Decide on the definition of the issue date.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Data module title
+
+Description: The element <dmTitle> contains the title of the data module. The data
+module title must give meaning to the Product identification and action elements of the data
+module code. Refer to Chap 3.9.5.2.1.5.
+
+  
+Markup element: <dmTitle>
+
+Attributes:
+- None
+
+Child elements:
+- <techName>. Refer to Para 2.1.2.2.1.
+- <infoName>. Refer to Para 2.1.2.2.2.
+- <infoNameVariant>. Refer to Para 2.1.2.2.3.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Technical name
+
+Description: The element <techName> content must reflect the name of the hardware or
+function. That is, it must reflect the system, subsystem or sub-subsystem concerned based on
+the Product breakdown.
+
+Examples:
+- Aircraft
+- Landing gear system
+- Hydraulic accumulator No. 2
+- Three axes trim actuator
+- Servicing
+
+
+Markup element: <techName>
+
+Attributes:
+- securityClassification (O), commercialClassification (O), 
+caveat (O) and derivativeClassificationRefId (O), the security and
+restrictive marking. Refer to Chap 3.6.
+
+Child elements:
+- None
+
+
+Markup example:
+
+<techName securityClassification="01">Steering</techName>
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Information name
+
+Description: The element <infoName> contains the information name describing the type
+of information related to the Product about which the data module has been written. It is
+recommended that the element is populated with the information code short definition
+(corresponding to the attribute infoCode in the element <dmCode>, refer to Para 2.1.1.1).
+Refer to Chap 8.4.1.
+Projects can decide to modify (or extend) the information name to one that is more suitable,
+provided the sense of the information code is maintained. If there is a variation indicated by the
+information code variant (the attribute infoCodeVariant in the element <dmCode>,
+refer to Para 2.1.1.1), the information name can be extended to describe this variation. Such an
+extension can be given by using the element <infoNameVariant>. Refer to Para 2.1.2.2.3.
+
+Example: The short definition of IC 258 is “Other procedure to clean”. A project can have a data module
+that tells the reader how to clean with water. Another data module could tell the reader how to
+clean with air. In both cases, the information name can be extended from “Other procedure to
+clean” (normally IC 258A) to “Other procedure to clean, Clean with water ” (can be IC 258B)
+and “Other procedure to clean, Clean with air ” (can be IC 258C).
+
+Note:
+The information name must not contain the characters “&”, “<”, or “>”. These characters
+will cause issues with BREX checking and XML validation.
+
+Note:
+Not all information codes within S1000D will apply to a project. Further, there can be some
+that are defined by the project and some that can be modified. Where this is the case, it is
+recommended that the project compiles a list containing the list of information codes and
+variants that can be used, together with their information names.
+
+Examples:
+- Description of how it is made (IC 041)
+- Functional test (IC 340)
+- Remove procedure, Vertical (IC 520 variant B)
+- Remove procedure, Horizontal (IC 520 variant C)
+
+The information code is set to "000" when the SNS gives the function.
+
+Examples:
+- Product, General maintenance
+- Safety and protective devices
+- Fatigue index calculations
+- Time limits
+- Principal dimensions
+- Recovering
+- Static stability
+- Mass and balance data
+- Weigh
+- Level
+- Handling
+- Scheduled servicing
+- Product safety
+
+
+Markup element: <infoName>
+
+Attributes:
+- securityClassification (O), commercialClassification (O), 
+caveat (O) and derivativeClassificationRefId (O), the security and
+restrictive marking. Refer to Chap 3.6.
+
+Child elements:
+- None
+
+Business rule decision point BRDP-S1-00052 - Allocation of the information codes and
+the information names:
+– Decide which information codes and associated information names will be used.
+
+
+Markup example:
+
+<infoName securityClassification="01">Description of how it is
+made</infoName>
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Information name variant
+
+Description: The element <infoNameVariant> contains the information name
+extension describing the variation of the information related to the Product about which the data
+module has been written.
+
+  
+Markup element: <infoNameVariant>
+
+Attributes:
+- securityClassification (O), commercialClassification (O), 
+caveat (O) and derivativeClassificationRefId (O), the security and
+restrictive marking. Refer to Chap 3.6.
+
+Child elements:
+- None
+
+  
+Markup example:
+
+This is an example where the value of attribute infoCode is "258
+" and the value of attribute infoCodeVariant is "B".
+
+<infoName>Other procedure to clean</infoName>
+
+<infoNameVariant>Clean with water</infoNameVariant>
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Status part
+
+Description: The element <dmStatus> contains information about the status of the data
+module.
+
+
+Markup element: <dmStatus>
+
+Attributes:
+- id (O), the identifier of the markup element. Refer to Chap 3.9.5.2.1.2.
+- issueType (O), the issue status of the data module. There are eight values that can be used:
+    • "new" - data modules up to and including the initial issue of the approved release
+      must have the attribute issueNumber set to the value "000" for in-work versions
+      or value "001" for the initial issue and have the attribute issueType set to the
+      value "new". Refer to default BREX rule BREX-S1-00030.
+    • "changed" - data modules that have been changed and have the changes indicated
+      within the data module using change elements and/or attributes, must have the
+      attribute issueType set to the value "changed". Refer to default BREX rule
+      BREX-S1-00032.
+    • "deleted" - deletion of a data modules is treated as a special case of update. The
+      data module itself is not physically deleted from the CSDB but marked as deleted by
+      setting the attribute issueType to the value "deleted". Refer to default BREX
+      rule BREX-S1-00031.
+    • "revised" - data modules that have been revised and that contain no change
+      elements or attributes must have the attribute issueType set to the value
+      "revised". Refer to default BREX rule BREX-S1-00033.
+    • "status" - data modules that have had their identification and status information
+      updated must have the attribute issueType set to the value "status". Refer to
+      default BREX rule BREX-S1-00034.
+    • "rinstate-status" - data modules that have been reinstated from a previously
+      deleted data module and have only the status information changed must have the
+      attribute issueType set to the value "rinstate-status". In the simplest
+      case, this status change must require setting the attribute issueType to the value
+      "rinstate-status". Refer to default BREX rule BREX-S1-00034.
+    • "rinstate-changed" - data modules that have been reinstated from a
+      previously deleted data module and have the changes indicated by change elements
+      or attributes, must have the attribute issueType set to the value "rinstate￾changed". Refer to default BREX rule BREX-S1-00032.
+    • "rinstate-revised" - data modules that have been reinstated from a
+      previously deleted data module and have the changes not indicated by change
+      elements and attributes, must have the attribute issueType set to the value
+      "rinstate-revised". Refer to default BREX rule BREX-S1-00033.
+
+Table 2 shows the permitted values of the attribute <issueType>, where "X" shows that the
+value is permitted.
+
+Table 2 Values of the issue type attribute
+____________________________________________________________________________________________
+Current issue            Next issue of data module
+                         new    changed    deleted     revised     status     rinstate-x
+____________________________________________________________________________________________
+New                                X          X          X           X 
+changed                            X          X          X           X 
+deleted                                                                          X
+revised                            X          X          X           X
+status                             X          X          X           X 
+rinstate-x                         X          X          X           X
+____________________________________________________________________________________________
+
+When work first starts on a data module, the attribute issueType is set to the value "new",
+while the issue number is set to the value "000" and in-work number to "01", using the
+attribute issueNumber and attribute inWork of element <issueInfo>. Then, when
+the data module is released, the attribute inWork is reset to the value "00", and the issue
+number incremented to indicate approved release of that instance of the data module. From
+issue "002" onwards the attribute issueType must not be set to the value "new" but is to
+reflect the release status of the instance of the data module. Examples are shown in Table 3.
+
+
+Table 3 Rules for the attributes <issueNumber>, <inWork>, and <issueType>
+____________________________________________________________________________________________
+Numbering     Rule                                      Attribute value
+____________________________________________________________________________________________
+000-01        new data module, first inWork             inWork="01" issueNumber=
+              version, status attribute                 "000" issueType="new"
+              issueType="new"
+
+000-02        new data module, second inWork            inWork="02" issueNumber=
+              version, status attribute                 "000" issueType="new"
+              issueType="new"
+
+000-NN        new data module, inWork version           inWork="NN" issueNumber=
+              "NN", status attribute                    "000" issueType="new"
+              issueType="new"
+
+001-00        first issue of data module, status        inWork="00" issueNumber=
+              attribute issueType="new"                 "001" issueType="new"
+              
+001-01        first issue of data module, first         inWork="01" issueNumber=
+              inWork version, status attribute          "001" issueType="new"
+              issueType="new"
+
+001-02        first issue of data module, second        inWork="02" issueNumber=
+              inWork version, status attribute          "001" issueType="new"
+              issueType="new"
+
+001-NN        first issue of data module, inWork        inWork="NN" issueNumber= 
+              version "NN", status attribute            "001" issueType="new"
+              issueType="new"
+
+002-00        second issue of data module, status       inWork="00" issueNumber=
+              attribute (for example)                   "002" issueType="changed"
+              issueType="changed"
+
+NNN.00        issue "NNN" of data module, status        inWork="00" issueNumber=
+              attribute (for example)                   "NNN" issueType="revised"
+              issueType="revised"
+____________________________________________________________________________________________
+
+Child elements:
+- <sourceDmIdent>. Refer to Para 2.2.1.
+- <repositorySourceDmIdent>. Refer to Para 2.2.2.
+- <security>. Refer to Para 2.2.3.
+- <derivativeClassification> Refer to Para 2.2.4.
+- <dataRestrictions>. Refer to Para 2.2.5.
+- <controlAuthorityGroup>. Refer to Para 2.2.6.
+- <logo>. Refer to Para 2.2.7.
+- <responsiblePartnerCompany>. Refer to Para 2.2.8.
+- <originator>. Refer to Para 2.2.9.
+- <applicCrossRefTableRef>. Refer to Para 2.2.10.
+- <applic>. Refer to Chap 3.9.5.3.
+- <applicRef>. Refer to Chap 3.9.5.2.1.13.
+- <techStandard>. Refer to Para 2.2.11.
+- <brexDmRef>. Refer to Para 2.2.12.
+- <qualityAssurance>. Refer to Para 2.2.13.
+- <systemBreakdownCode>. Refer to Para 2.2.14.
+- <functionalItemCode>. Refer to Para 2.2.15.
+- <functionalItemRef>. Refer to Para 2.2.16.
+- <skillLevel>. Refer to Para 2.2.17.
+- <reasonForUpdate>. Refer to Chap 3.9.5.2.1.1.
+- <productSafety>. Refer to Para 2.2.18.
+- <remarks>. Refer to Para 2.2.19.
+
+Business rule decision point BRDP-S1-00053 - Data module change/revised ratio:
+– Decide on the threshold that a data module is considered revised rather than changed.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Source data module identification
+
+Description: The element <sourceDmIdent> contains the identification of the source
+data module on which the current data module instance is based.
+
+
+Markup element: <sourceDmIdent>
+
+Attributes:
+- None
+
+Child elements:
+- <identExtension>. Refer to Chap 4.12.
+- <dmCode>. Refer to Para 2.1.1.1.
+- <language>. Refer to Para 2.1.1.2.
+- <issueInfo>. Refer to Para 2.1.1.3.
+
+  
+Markup example:
+
+<sourceDmIdent>
+  <dmCode modelIdentCode="S1000DBIKE" systemDiffCode="AAA"
+  systemCode="D00" subSystemCode="0" subSubSystemCode="0"
+  assyCode="00" disassyCode="00" disassyCodeVariant="AA"
+  infoCode="131" infoCodeVariant="A" itemLocationCode="A"/>
+  <language languageIsoCode="en" countryIsoCode="US"/>
+  <issueInfo issueNumber="004" inWork="00"/>
+</sourceDmIdent>
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Repository source data module identification
+
+Description: The element <repositorySourceDmIdent> contains the identifiers for
+additional Common Information Repository (CIR) data modules. It must be used when
+retrieving a self-contained data module from a CIR dependent data module and the associated
+CIR data module. Refer to Chap 4.13.2.
+
+  
+Markup element: <repositorySourceDmIdent>
+
+Attributes:
+- None
+
+Child elements:
+- <identExtension>. Refer to Chap 4.12.
+- <dmCode>. Refer to Para 2.1.1.1.
+- <language>. Refer to Para 2.1.1.2.
+- <issueInfo>. Refer to Para 2.1.1.3.
+
+  
+Markup example:
+
+<repositorySourceDmIdent>
+
+<dmCode modelIdentCode="S1000DBIKE" systemDiffCode="AAA"
+systemCode="00" subSystemCode="0" subSubSystemCode="0"
+assyCode="00" disassyCode="00" disassyCodeVariant="AA"
+infoCode="00E" infoCodeVariant="A" itemLocationCode="A"/>
+
+<language languageIsoCode="sx" countryIsoCode="US"/>
+
+<issueInfo inWork="00" issueNumber="004"/>
+
+</repositorySourceDmIdent>
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Security classification
+
+Description: The element <security> contains the security classification and restrictive
+marking of the complete data module and its contained or associated illustrations. For the
+permissible values for the attributes of the element <security>, refer to Chap 3.9.6.1.
+
+  
+Markup element: <security>
+
+Attributes:
+- securityClassification (M), commercialClassification (O), 
+caveat (O) and derivativeClassificationRefId (O), the security and
+restrictive marking. Refer to Chap 3.6.
+
+Child elements:
+- None
+
+Business rule decision point BRDP-S1-00054 - Use and definitions of the attributes 
+commercialClassification and caveat:
+– Decide on the use and definitions of the attributes commercialClassification
+and caveat.
+
+Business rule decision point BRDP-S1-00055 - Priorities and relationships of the
+security attributes securityClassification, 
+commercialClassification and caveat:
+– Decide on the priorities and relationships between the attributes 
+securityClassification, commercialClassification and caveat
+if they are used.
+
+  
+Markup example:
+
+  
+The following is an example of a data module that has the value of the attribute 
+securityClassification set to "04", which has been defined as secret, with a
+commercial classification of Commercial in Confidence and a caveat of United Kingdom (UK)
+Eyes Only.
+
+<security securityClassification="04"
+commercialClassification="cc51" caveat="cv51"/>
+
+The following shows a data module that has the lowest possible security classification.
+
+<security securityClassification="01"/>
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Derivative classification
+
+Description: The element <derivativeClassification> contains all derivative
+classification actions taken (eg, source material, date of action, action type) to the information
+in the complete publication.
+
+
+Markup element: <derivativeClassification>
+
+Attributes:
+- None
+
+Child elements:
+- <classificationActionGroup>. Refer to Para 2.2.4.1.
+
+Business rule decision point BRDP-S1-00558 - Use of the element 
+<derivativeClassification> within data modules:
+– Decide whether and how to use the element <derivativeClassification>.
+
+Markup example:
+
+<derivativeClassification>
+  <classificationActionGroup id="dcg-001">
+    <classificationAction year="2012" month="03" day="15"
+      actionIdentType="ai01">
+      <businessUnit>
+        <businessUnitName>ASD Couriers</businessUnitName>
+        <contactPerson><lastName>Clifford</lastName></contactPerson>
+      </businessUnit>
+      <derivativeSource>Bike security guidance book 1</derivativeSource>
+    </classificationAction>
+    <classificationAction year="2012" month="11" day="02"
+      actionIdentType="ai09">
+      <valueAfterAction year="2013" month="03" day="15"
+        actionIdentType="ai02"/> 
+        <businessUnit>
+          <businessUnitName>ASD Couriers</businessUnitName>
+          <contactPerson><lastName>Wink</lastName></contactPerson>
+        </businessUnit>
+        <derivativeSource>Bike security guidance book 2 </derivativeSource>
+    </classificationAction>
+  </classificationActionGroup>
+</derivativeClassification>
+
+The associated markup in the content section of the same data module is:
+
+<para securityClassification="03" caveat="cv55"
+derivativeClassificationRefId="dcg-001">The lighting system is faulty and will be replaced by 2013-03-15.</para>
+
+
+
+
+
+
+
+
+
+
