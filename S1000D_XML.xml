@@ -1,0 +1,2150 @@
+------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------
+
+Example Set 1: <para> + <verbatimText> (from 3.9.5.2.1.10)
+
+Example 1 – Verbatim command-line text
+
+<para>
+  <verbatimText>
+C:\>cd C:\BikeDS\the_text_xml
+
+C:\BikeDS\the_text_xml>dir data module code-S1000DBIKE-AAA-DA0-20*.* /b
+
+data module code-S1000DBIKE-AAA-DA0-20-00-0000-412A-A_000-02.XML
+data module code-S1000DBIKE-AAA-DA0-20-00-0000-520A-A_000-02.XML
+
+C:\BikeDS\the_text_xml>
+  </verbatimText>
+</para>
+
+
+📘 Explanation:
+
+    <verbatimText> preserves line breaks, tabs, spacing — crucial for code examples, logs, etc.
+
+    Can optionally be replaced with CDATA (see next example).
+
+------------------------------------------------------------------------------------------    
+
+Example 2 – Same as above, using CDATA for safety
+
+<para>
+  <verbatimText>
+    <![CDATA[
+C:\>cd C:\BikeDS\the_text_xml
+
+C:\BikeDS\the_text_xml>dir DMC-S1000DBIKE-AAA-DA0-20*.* /b
+DMC-S1000DBIKE-AAA-DA0-20-00-0000-412A-A_000-02.XML
+DMC-S1000DBIKE-AAA-DA0-20-00-0000-520A-A_000-02.XML
+
+C:\BikeDS\the_text_xml>
+    ]]>
+  </verbatimText>
+</para>
+
+
+📘 Explanation:
+
+    CDATA is safer when XML markup (like < or &) might accidentally be misinterpreted.
+
+    Especially useful in <verbatimText> when embedding XML or command-line strings.
+    
+------------------------------------------------------------------------------------------
+
+Example 3 – Verbatim XML inside CDATA
+
+<para>
+  <verbatimText>
+    <![CDATA[
+<para>For a full description of the headset,
+refer to <dmRef>
+  <dmRefIdent>
+    <dmCode modelIdentCode="S1000DBIKE"
+            systemDiffCode="AAA"
+            systemCode="DA2"
+            subSystemCode="3"
+            subSubSystemCode="0"
+            assyCode="00"
+            disassyCode="00"
+            disassyCodeVariant="AA"
+            infoCode="041"
+            infoCodeVariant="A"
+            itemLocationCode="A"/>
+  </dmRefIdent>
+</dmRef>.
+</para>
+    ]]>
+  </verbatimText>
+</para>
+
+📘 Explanation:
+
+    Demonstrates how to safely embed literal XML without the processor attempting to parse it.
+
+    Often used in training, examples, and developer notes.
+ 
+------------------------------------------------------------------------------------------   
+
+Example 4 – Escaped XML using entities
+
+<para>
+  <verbatimText>
+    &lt;para&gt;For a full description of the headset,
+    refer to &lt;dmRef&gt;&lt;dmRefIdent&gt;&lt;dmCode modelIdentCode="S1000DBIKE"
+    systemDiffCode="AAA" systemCode="DA2" subSystemCode="3"
+    subSubSystemCode="0" assyCode="00" disassyCode="00"
+    disassyCodeVariant="AA" infoCode="041" infoCodeVariant="A"
+    itemLocationCode="A"/&gt;&lt;/dmRefIdent&gt;&lt;/dmRef&gt;.&lt;/para&gt;
+  </verbatimText>
+</para>
+
+📘 Explanation:
+
+    Same as example 3, but using entity escapes (&lt;, &gt;, &amp;) instead of CDATA.
+
+    Needed when you're in contexts where CDATA sections are prohibited or discouraged.
+
+------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------
+
+Example 5: <proceduralStep> + <changeInline> with <superScript>
+
+<proceduralStep>
+  <para>
+    Use the
+    <internalRef internalRefId="seq-0001" internalRefTargetType="irtt05">wrench</internalRef>
+    to tighten the bolts to 
+    <changeInline changeType="add" reasonForUpdateRefIds="rfu-0007" changeMark="1">
+      16 lb/in<superScript>2</superScript>
+    </changeInline>.
+  </para>
+</proceduralStep>
+
+Explanation:
+
+    <proceduralStep>: A single instruction step in a procedural data module.
+
+    <para>: Descriptive paragraph text.
+
+    <internalRef>: Cross-references something internal (like a component or sequence).
+
+        internalRefId: Identifier used for linking.
+
+        internalRefTargetType: Target object type (irtt05 might refer to a tool or action).
+
+    <changeInline>: Indicates an inline change, e.g. text added or modified without replacing the whole element.
+
+        changeType="add": This content is new.
+
+        reasonForUpdateRefIds="rfu-0007": Links to a reason for change (tracked elsewhere).
+
+        changeMark="1": Visual cue like a change bar in rendered output.
+
+    <superScript>: Formats "²" (squared) in superscript.
+    
+------------------------------------------------------------------------------------------
+
+Example 6: <symbol> with <para>
+
+<para>
+  <symbol infoEntityIdent="ICN-BIKE-00123-001">
+    <para>Wrench</para>
+  </symbol>
+</para>
+
+Explanation:
+
+    <para>: A paragraph container — often a child of <proceduralStep>, <note>, etc.
+
+    <symbol>: Refers to a graphic or icon, identified by an infoEntityIdent, usually pointing to a raster or vector image in the CSDB.
+
+    Nested <para>: Provides a textual description or caption to accompany the symbol.
+
+    infoEntityIdent: ID used to locate the symbol graphic in the CSDB or external repository.
+    
+------------------------------------------------------------------------------------------
+
+Example 7: <subScript>, <superScript>, and <emphasis>
+
+<para>
+  Torque value is 16 lb/in<superScript>2</superScript>.
+  Do not exceed 1000<subScript>max</subScript>.
+  <emphasis emphasisType="bold">Failure</emphasis> to comply may result in damage.
+</para>
+
+Explanation:
+
+    <superScript>: Used for exponents, chemical notations, etc.
+
+    <subScript>: Used for formulas, variable indices, or part identifiers.
+
+    <emphasis>: Marks text with a specific style.
+
+        emphasisType="bold" (other values: italic, underline, etc.).
+
+These formatting elements are nested inline within narrative elements.
+
+------------------------------------------------------------------------------------------
+
+Example 8: <dmRef> with inline narrative
+
+<para>
+  Refer to the detailed installation in 
+  <dmRef>
+    <dmRefIdent>
+      <dmCode modelIdentCode="S1000DBIKE" systemDiffCode="AAA"
+              systemCode="DA2" subSystemCode="0" subSubSystemCode="0"
+              assyCode="00" disassyCode="00" disassyCodeVariant="AA"
+              infoCode="041" infoCodeVariant="A" itemLocationCode="A"/>
+    </dmRefIdent>
+  </dmRef>.
+</para>
+
+Explanation:
+
+    <dmRef>: A reference to another data module.
+
+    <dmRefIdent>: Contains the full structured DMCode.
+
+    This is the standard method to cross-reference technical content in other DMs.
+    
+------------------------------------------------------------------------------------------
+
+Example 9: <acronym> and <acronymTerm>
+
+<acronym id="acr-0001">
+  <acronymTerm internalRefId="acr-0001">ASD</acronymTerm>
+  <acronymDefinition>Aerospace and Defence Industries Association of Europe</acronymDefinition>
+</acronym>
+
+Explanation:
+
+    <acronym>: Defines and encapsulates an acronym usage.
+
+    <acronymTerm>: The short form (e.g. “ASD”), with internalRefId for cross-ref.
+
+    <acronymDefinition>: Full meaning of the acronym.
+
+Used once at first use; later references can use just <acronymTerm>.
+
+------------------------------------------------------------------------------------------
+
+Example 10: <inlineSignificantData> and <quantity>
+
+<para>
+  Apply <inlineSignificantData>lubricant</inlineSignificantData> to 
+  <quantity>2</quantity> bolts before installation.
+</para>
+
+Explanation:
+
+    <inlineSignificantData>: Emphasizes or marks a safety-critical or high-importance term or action (may render bold/red/etc.).
+
+    <quantity>: Represents numerical values important for interpretation (e.g., quantities, tolerances, torque).
+    
+------------------------------------------------------------------------------------------
+
+Example 11: Inline Footnote
+
+<para>
+  This paragraph includes a footnote. I would like to further define a footnote
+  <footnote id="ftn-1234" footnoteMark="num">
+    <para>A footnote is used to further define information and it is printed at the bottom of the page</para>
+  </footnote> 
+  and where the footnote is printed.
+</para>
+
+Explanation:
+
+    <footnote>: Used in flow text. id allows reference, and footnoteMark="num" indicates a superscript number.
+
+    Contents (e.g. <para>) are printed at the bottom of the page or module.
+    
+------------------------------------------------------------------------------------------
+
+Example 12: Table Footnotes (Full Table)
+
+<table frame="topbot">
+  <title>Example table with footnotes</title>
+  <tgroup cols="3">
+    <colspec colnum="1" colname="col1"/>
+    <colspec colnum="2" colname="col2"/>
+    <colspec colnum="3" colname="col3"/>
+    <thead>
+      <row rowsep="1">
+        <entry><para>Col 1 Heading</para></entry>
+        <entry><para>Col 2 Heading</para></entry>
+        <entry><para>Col 3 Heading</para></entry>
+      </row>
+    </thead>
+    <tfoot>
+      <row>
+        <entry namest="col1" nameend="col3">
+          <para>This is footer information and spans the bottom of the table. The footer can give information about the table content such as "All units are measured in inches".</para>
+        </entry>
+      </row>
+    </tfoot>
+    <tbody>
+      <row>
+        <entry>
+          <para>Row 1 entry 1 has a footnote
+            <footnote id="ftn-0001">
+              <para>This is a footnote for entry 1</para>
+            </footnote>
+          </para>
+        </entry>
+        <entry><para>Row 1 entry 2</para></entry>
+        <entry><para>Row 1 entry 3</para></entry>
+      </row>
+      <row>
+        <entry><para>Row 2 entry 1 continues on a second line</para></entry>
+        <entry><para>Row 2 entry 2</para></entry>
+        <entry>
+          <para>
+            Row 2 entry 3 uses the first footnote for the second time
+            <footnoteRef internalRefId="ftn-0001"/>
+          </para>
+        </entry>
+      </row>
+      <row rowsep="1">
+        <entry>
+          <para>Row 3 entry 1 also has a footnote
+            <footnote id="ftn-0002">
+              <para>Second footnote</para>
+            </footnote>
+          </para>
+        </entry>
+        <entry><para>Row 3 entry 2</para></entry>
+        <entry><para>Row 3 entry 3</para></entry>
+      </row>
+    </tbody>
+  </tgroup>
+</table>
+
+Explanation:
+
+    <tfoot>: Where table footnotes or descriptions are typically placed.
+
+    <footnoteRef>: Points to previously defined footnotes via internalRefId.
+    
+------------------------------------------------------------------------------------------
+
+Example 13: <footnoteRef> Used in Flow Text
+
+<para>
+  This paragraph includes the same footnote
+  <footnoteRef internalRefId="ftn-1234"/>
+  given in the previous paragraph
+</para>
+
+Explanation:
+
+    Reuses the footnote defined earlier (ftn-1234) without redefining the content.
+    
+------------------------------------------------------------------------------------------
+
+Example 14: <indexFlag> (Multi-Level Indexing)
+
+<para>
+  The most important part of the bicycle
+  <indexFlag indexLevelOne="bicycle"/> is the brake system
+  <indexFlag indexLevelTwo="brake system"/>. Only a minimum maintenance of the brake system is necessary. But, when a problem does occur, make sure you do the necessary maintenance as quickly as possible. If you do not do this the bicycle
+  <indexFlag indexLevelOne="bicycle"/> will be dangerous to use.
+</para>
+
+<para>
+  There are nine different types of brake systems. The one found on most bicycles is the cantilever
+  <indexFlag indexLevelFour="cantilever"/> brake
+  <indexFlag indexLevelThree="brake"/>.
+</para>
+
+Explanation:
+
+    <indexFlag>: Creates entries for the publication index.
+
+    indexLevelOne to indexLevelFour: Defines hierarchy of index topics.
+    
+------------------------------------------------------------------------------------------
+
+Example 15: <zoneRef> with name and LSAR indicator
+
+<zoneRef lsarData="1" zoneNumber="500">
+  <name>Left wing</name>
+</zoneRef>
+
+Explanation:
+
+    <zoneRef>: Identifies a product zone, often for location tagging or applicability.
+
+    lsarData="1": Derived from a Logistics Support Analysis Record.
+
+    <name>: Human-readable name of the zone.
+    
+------------------------------------------------------------------------------------------
+
+Example 16: <zoneRef> with ID
+
+<zoneRef id="zoneRef-210" zoneNumber="210"/>
+
+Explanation:
+
+    Standalone reference using an ID.
+
+    Common when referencing zones from other areas of the data module.
+    
+------------------------------------------------------------------------------------------
+
+Example 17: <accessPointRef> – Named, Numbered, LSAR Derived
+
+<accessPointRef accessPointNumber="2514VU" lsarData="1">
+  <name>Panel A</name>
+</accessPointRef>
+
+Explanation:
+
+    accessPointNumber: ID of the panel or door.
+
+    lsarData="1": Indicates derived from a Logistics Support Analysis Record.
+
+    <name>: Human-readable label for the access point.
+    
+------------------------------------------------------------------------------------------
+
+Example 18: <accessPointRef> – With ID Only
+
+<accessPointRef id="accessRef-210" accessPointNumber="210"/>
+
+Explanation:
+
+    id: Local ID that can be referenced.
+
+    accessPointNumber: Still present, but no <name> included.
+    
+------------------------------------------------------------------------------------------
+
+Example 19: <quantity> – Type, Value, Tolerance, Unit
+
+<para>
+  Holding nut, torque bolt to
+  <quantity quantityType="qty05">
+    <quantityGroup quantityGroupType="nominal" unitOfMeasure="N.m">
+      <quantityValue>20</quantityValue>
+      <quantityTolerance quantityToleranceType="plusorminus">2</quantityTolerance>
+    </quantityGroup>
+  </quantity>.
+</para>
+
+Explanation:
+
+    quantityType="qty05": Type (e.g., torque).
+
+    unitOfMeasure="N.m": Newton-meters.
+
+    quantityValue: The actual target value.
+
+    quantityTolerance: Acceptable deviation.
+    
+------------------------------------------------------------------------------------------
+
+Example 20: <quantity> – Two Dimensional with Angle
+
+<para>
+  Chamfer both sides of rib
+  <quantity>
+    <quantityGroup quantityGroupType="nominal">
+      <quantityValue>0.153</quantityValue>
+      <quantityTolerance quantityToleranceType="plusorminus">0.005</quantityTolerance>
+    </quantityGroup>
+    x
+    <quantityGroup quantityGroupType="nominal">
+      <quantityValue quantityUnitOfMeasure="dega">45</quantityValue>
+      <quantityTolerance quantityToleranceType="plusorminus" quantityUnitOfMeasure="mina">30</quantityTolerance>
+    </quantityGroup>
+  </quantity>.
+</para>
+
+Explanation:
+
+    Represents a spatial + angular quantity.
+
+    Uses degrees and arcminutes (dega, mina).
+    
+------------------------------------------------------------------------------------------
+
+Example 21: <quantity> – Tolerance Only
+
+<para>
+  Make sure that spacing is within
+  <quantity>
+    <quantityGroup quantityGroupType="nominal">
+      <quantityTolerance quantityToleranceType="plusorminus">0.030</quantityTolerance>
+    </quantityGroup>
+  </quantity>
+  on each side ...
+</para>
+
+Explanation:
+
+    Only deviation is defined, useful for inspections or spacing checks.
+
+    No quantityValue provided.
+    
+------------------------------------------------------------------------------------------
+
+Example 22: <accessPoint> with children
+
+<accessPoint applicRefId="appl-001">
+  <accessPointType accessPointTypeValue="accpnl01"/>
+  <zoneRef zoneNumber="210"/>
+</accessPoint>
+
+Explanation:
+
+    <accessPoint>: Describes a physical access point.
+
+    applicRefId: Links to applicability definitions.
+
+    <accessPointType>: Specifies type of access (e.g., door, panel).
+
+    <zoneRef>: Indicates where the access point is located.
+    
+------------------------------------------------------------------------------------------
+
+Example 23: <accessPointType> only
+
+<accessPointType accessPointTypeValue="accpnl01"/>
+
+Explanation:
+
+    Access point type values like accpnl01 are defined by the project.
+
+    No child elements; this is a self-contained type declaration.
+    
+------------------------------------------------------------------------------------------
+
+Example 24: <installationLocation> (coded form)
+
+<installationLocation installationLocationType="instloctyp02">245</installationLocation>
+
+
+Example 25: <installationLocation> (plain text)
+
+<installationLocation>Side console and rear pressure bulkhead plug break RH (rear cockpit)</installationLocation>
+
+
+Example 26: <installationLocation> (dimensional)
+
+<installationLocation installationLocationType="instloctyp03" unitOfMeasure="cm">199</installationLocation>
+<installationLocation installationLocationType="instloctyp04" unitOfMeasure="cm">170</installationLocation>
+<installationLocation installationLocationType="instloctyp05" unitOfMeasure="cm">57</installationLocation>
+
+Explanation:
+
+    Various styles: coded, text, and coordinates.
+
+    unitOfMeasure="cm" gives metric length info.
+
+    Location type codes (instloctyp03 = Station, 04 = Waterline, etc.) are standardized.
+    
+------------------------------------------------------------------------------------------
+
+Example 27: <functionalItemFamily>
+
+<functionalItemFamily>Connector</functionalItemFamily>
+
+Explanation:
+
+    Tags a classification or category for the item, e.g., “Connector”, “Sensor”.
+
+    No attributes or children—purely semantic classification.
+    
+------------------------------------------------------------------------------------------
+
+Example 28: <location> containing <zoneRef>
+
+<location>
+  <zoneRef zoneNumber="292"/>
+</location>
+
+Explanation:
+
+    General container indicating physical placement of a component or item.
+
+    Can contain additional markers like access points or dimensional data.
+    
+------------------------------------------------------------------------------------------
+
+Example 29: <workAreaLocationGroup> with <workLocation> containing <productItem>
+
+<workAreaLocationGroup>
+  <zoneRef zoneNumber="250"/>
+  <zoneRef zoneNumber="260"/>
+  <workLocation>
+    from <productItem productItemType="pi01" productItemName="62"/>
+    to <productItem productItemType="pi01" productItemName="63"/>
+  </workLocation>
+</workAreaLocationGroup>
+
+Explanation:
+
+    Represents a multi-zone work area.
+
+    <productItem> elements identify structural parts, here “Frames 62 to 63”.
+
+    productItemType="pi01" likely corresponds to frame.
+    
+------------------------------------------------------------------------------------------
+
+Example 30: <workArea> Simple Declaration
+
+<workArea>Nose cowl</workArea>
+
+------------------------------------------------------------------------------------------
+
+Example 31: <circuitBreakerRef>
+
+<circuitBreakerRef 
+  circuitBreakerNumber="42RT"
+  circuitBreakerType="cbt02"/>
+
+Explanation:
+
+    circuitBreakerNumber: Unique identifier for the breaker.
+
+    circuitBreakerType: From predefined set (e.g., cbt02 = electro-mechanical).
+
+    May also include circuitBreakerAction, checkSum, etc. per schema.
+    
+------------------------------------------------------------------------------------------
+
+Example 32: <circuitBreakerDescr> (basic form)
+
+<circuitBreakerDescr>
+  <circuitBreakerRef circuitBreakerNumber="42RT" circuitBreakerType="cbt02"/>
+  <name>MMR-1 (ILS+GPS)</name>
+  <circuitBreakerLocation>0867</circuitBreakerLocation>
+</circuitBreakerDescr>
+
+
+Example 33: <circuitBreakerDescr> with <internalRef>
+
+<circuitBreakerDescr>
+  <circuitBreakerRef circuitBreakerNumber="44RT" circuitBreakerType="cbt02"/>
+  <name>MMR-2 (ILS+GPS)</name>
+  <internalRef internalRefTargetType="irtt13" internalRefId="accpnl-0042"/>
+  <circuitBreakerLocation>0867</circuitBreakerLocation>
+</circuitBreakerDescr>
+
+Example 34: <circuitBreakerDescr> with <accessPointRef>
+
+<circuitBreakerDescr>
+  <circuitBreakerRef circuitBreakerNumber="800RT" circuitBreakerType="cbt02"/>
+  <name>GLIDE ANT2 SWGT RELAY</name>
+  <accessPointRef accessPointNumber="2502VU" accessPointTypeValue="accpnl02"/>
+  <circuitBreakerLocation>SSPC</circuitBreakerLocation>
+</circuitBreakerDescr>
+
+Example 35: <amperage>
+
+<amperage unitOfMeasure="A">10</amperage>
+
+📘 Explanation:
+
+    Describes electrical current load (amperes).
+
+    Typically inside <circuitBreaker> or <circuitBreakerRefGroup>.
+    
+Example 36: <circuitBreakerClass>
+
+<circuitBreakerClass circuitBreakerType="cbt01"/>
+
+📘 Explanation:
+
+    Tags the electrical/mechanical nature of the breaker.
+
+    Types are defined as cbt01–cbt99 per Chap 3.9.6.1.
+    
+Example 37: <location> with extended elements
+
+<location>
+  <zoneRef zoneNumber="121"/>
+  <accessPointRef accessPointNumber="2502VU" accessPointTypeValue="accpnl02"/>
+  <quantity>
+    <quantityGroup quantityGroupType="nominal" unitOfMeasure="cm">
+      <quantityValue>230</quantityValue>
+    </quantityGroup>
+  </quantity>
+  <installationLocation>Starboard bay panel</installationLocation>
+</location>
+
+📘 Explanation:
+
+    Aggregates all physical placement data:
+
+        zoneRef: Spatial zone
+
+        accessPointRef: Physical panel
+
+        quantity: X/Y location
+
+        installationLocation: Human-readable description
+        
+Example 38: <circuitBreakerDescrGroup> + <circuitBreakerDescrSubGroup>
+
+<circuitBreakerDescrGroup circuitBreakerAction="open">
+  <circuitBreakerDescrSubGroup>
+    <circuitBreakerDescr>
+      <circuitBreakerRef circuitBreakerType="cbt02" circuitBreakerNumber="58GA"/>
+      <name>LGCIU/BAT SPLY/SYS1</name>
+      <accessPointRef accessPointNumber="121" accessPointTypeValue="accpnl02"/>
+      <circuitBreakerLocation>43Q</circuitBreakerLocation>
+    </circuitBreakerDescr>
+  </circuitBreakerDescrSubGroup>
+</circuitBreakerDescrGroup>
+
+📘 Explanation:
+
+    Used in procedural content (e.g., <reqCondCircuitBreaker>) to group breaker actions.
+
+    circuitBreakerAction can be: open, close, verify-open, verify-close, etc.
+    
+Example 39: <reqCondCircuitBreaker> with open verification
+
+<reqCondCircuitBreaker>
+  <reqCond>Make sure the circuit breaker is open, safetied/locked and tagged:</reqCond>
+  <circuitBreakerDescrGroup circuitBreakerAction="verif-open">
+    <circuitBreakerDescrSubGroup>
+      <circuitBreakerDescr>
+        <circuitBreakerRef circuitBreakerType="cbt02" circuitBreakerNumber="800RT"/>
+        <name>GLIDE ANT2 SWGT RELAY</name>
+        <accessPointRef accessPointNumber="2502VU" accessPointTypeValue="accpnl02"/>
+        <circuitBreakerLocation>SSPC</circuitBreakerLocation>
+      </circuitBreakerDescr>
+    </circuitBreakerDescrSubGroup>
+    <footnote id="ftn-002">
+      <para>If the circuit breaker is modified by SB-A350-A-25-10-0001-00A-930A-C</para>
+    </footnote>
+  </circuitBreakerDescrGroup>
+</reqCondCircuitBreaker>
+
+📘 Explanation:
+
+    <reqCond>: States the required condition.
+
+    <circuitBreakerDescrGroup>: Groups one or more circuit breakers with a shared action (verif-open, close-order, etc.).
+
+    <circuitBreakerDescr>: Details a specific circuit breaker.
+
+    <footnote>: Additional clarification tied to the entire group.
+
+✅ Example 40: <reqCondCircuitBreaker> with multiple actions (open/close-order)
+
+<reqCondCircuitBreaker>
+  <reqCond>Open/Close the circuit breaker in the following order:</reqCond>
+  <circuitBreakerDescrGroup circuitBreakerAction="open-order">
+    <circuitBreakerDescrSubGroup>
+      <circuitBreakerDescr>
+        <circuitBreakerRef circuitBreakerAction="open" circuitBreakerType="cbt02" circuitBreakerNumber="58GA"/>
+        <name>LGCIU/BAT SPLY/SYS1</name>
+        <accessPointRef accessPointNumber="121" accessPointTypeValue="accpnl02"/>
+        <circuitBreakerLocation>43Q</circuitBreakerLocation>
+        <footnoteRemarks>
+          <footnoteRef internalRefId="ftn-001"/>
+        </footnoteRemarks>
+      </circuitBreakerDescr>
+    </circuitBreakerDescrSubGroup>
+    <circuitBreakerDescrSubGroup>
+      <circuitBreakerDescr>
+        <circuitBreakerRef circuitBreakerAction="open" circuitBreakerNumber="1WE1"/>
+        <name>ENGINE/ENG1 AND 2 FIRE EXTIG/BTL1/SQUIB/A</name>
+        <accessPointRef accessPointNumber="121" accessPointTypeValue="accpnl02"/>
+        <circuitBreakerLocation>25 R</circuitBreakerLocation>
+      </circuitBreakerDescr>
+    </circuitBreakerDescrSubGroup>
+    <circuitBreakerDescrSubGroup>
+      <circuitBreakerDescr>
+        <circuitBreakerRef circuitBreakerAction="close" circuitBreakerType="cbt02" circuitBreakerNumber="T4TWO"/>
+        <name>JUST/AN/OTHER/CB</name>
+        <accessPointRef accessPointNumber="121" accessPointTypeValue="accpnl02"/>
+        <circuitBreakerLocation>26 R</circuitBreakerLocation>
+        <footnoteRemarks>
+          <footnoteRef internalRefId="ftn-002"/>
+        </footnoteRemarks>
+      </circuitBreakerDescr>
+    </circuitBreakerDescrSubGroup>
+  </circuitBreakerDescrGroup>
+</reqCondCircuitBreaker>
+
+✅ Example 41: <functionalItemRef>
+
+<functionalItemRef functionalItemNumber="101HG1" manufacturerCodeValue="2D671"/>
+
+📘 Explanation:
+
+    Identifies a functional system or component in the product.
+
+    functionalItemNumber: Unique internal code.
+
+    manufacturerCodeValue: Associated OEM or vendor ID (CAGE/NCAGE).
+
+✅ Example 42: <controlIndicatorRef>
+
+<controlIndicatorRef controlIndicatorNumber="C01"/>
+
+📘 Explanation:
+
+    Refers to a control or indicator listed in a control/indicator repository data module.
+
+    Typically used in procedural steps, safety instructions, or interface interactions.
+    
+✅ Example 43: <reqCondDm>
+
+<reqCondDm>
+  <reqCond>The tire is removed.</reqCond>
+  <dmRef>
+    <dmRefIdent>
+      <dmCode modelIdentCode="S1000DBIKE" systemDiffCode="AAA"
+              systemCode="DA0" subSystemCode="1" subSubSystemCode="0"
+              assyCode="20" disassyCode="00" disassyCodeVariant="AA"
+              infoCode="215" infoCodeVariant="A" itemLocationCode="A"/>
+    </dmRefIdent>
+  </dmRef>
+</reqCondDm>
+
+📘 Explanation:
+
+    <reqCond>: Statement that a required condition has been met.
+
+    <dmRef>: Refers to a full Data Module that contains the detailed procedure or evaluation logic.
+
+✅ Example 44: <reqCondExternalPub>
+
+<reqCondExternalPub>
+  <reqCond>Safely discard the horn that you removed</reqCond>
+  <externalPubRef extEntityIdent="EXT-Local_Disposal_Procedures">
+    <externalPubRefIdent>
+      <externalPubTitle>Local Disposal Procedures</externalPubTitle>
+    </externalPubRefIdent>
+  </externalPubRef>
+</reqCondExternalPub>
+
+📘 Explanation:
+
+    Used when a procedure or condition is specified in a non-S1000D document.
+
+    extEntityIdent: External publication reference ID.
+
+    <externalPubTitle>: Human-readable title of the publication.
+
+✅ Example 45: <reqCondPm>
+
+<reqCondPm>
+  <reqCond>Gather the following publication.</reqCond>
+  <pmRef>
+    <pmRefIdent>
+      <pmCode modelIdentCode="FRIGATE124ALFA" pmIssuer="01233"
+              pmNumber="01234" pmVolume="01"/>
+    </pmRefIdent>
+  </pmRef>
+</reqCondPm>
+
+📘 Explanation:
+
+    <reqCondPm>: Points to another S1000D publication module (PM).
+
+    <pmCode>: Structured identifier for the publication module used to support or verify the condition.
+    
+✅ Example 46: Full <controlIndicatorRepository> and child structure
+
+<commonRepository>
+  <figure id="fig-0001">
+    <title>Bike controls and indicators</title>
+    <graphic infoEntityIdent="ICN-S1000DBIKE-AAA-D000000-0-U8025-00999-A-03-1"/>
+  </figure>
+
+  <controlIndicatorRepository>
+    <controlIndicatorGroup>
+      <internalRef internalRefId="fig-0001" internalRefTargetType="irtt01"/>
+
+      <controlIndicatorSpec controlIndicatorNumber="ci-0005">
+        <controlIndicatorKey>5</controlIndicatorKey>
+        <controlIndicatorName>Chrome bell</controlIndicatorName>
+        <controlIndicatorDescr>
+          <controlIndicatorFunction>
+            Press to sound bell. Normally used to signal a need for attention.
+          </controlIndicatorFunction>
+        </controlIndicatorDescr>
+      </controlIndicatorSpec>
+
+      <controlIndicatorSpec controlIndicatorNumber="ci-0006">
+        <controlIndicatorKey>6</controlIndicatorKey>
+        <controlIndicatorName>Platform pedals</controlIndicatorName>
+        <controlIndicatorDescr>
+          <controlIndicatorFunction>Control the acceleration of the bicycle.</controlIndicatorFunction>
+        </controlIndicatorDescr>
+      </controlIndicatorSpec>
+
+      <controlIndicatorSpec controlIndicatorNumber="ci-0007">
+        <controlIndicatorKey>7</controlIndicatorKey>
+        <controlIndicatorName>LED headlight</controlIndicatorName>
+        <controlIndicatorDescr>
+          <controlIndicatorFunction>
+            Push button to turn light 
+            <inlineSignificantData significantParaDataType="psd10">ON</inlineSignificantData> or 
+            <inlineSignificantData significantParaDataType="psd10">OFF</inlineSignificantData>.
+          </controlIndicatorFunction>
+        </controlIndicatorDescr>
+      </controlIndicatorSpec>
+
+      <controlIndicatorSpec controlIndicatorNumber="ci-0008">
+        <controlIndicatorKey>8</controlIndicatorKey>
+        <controlIndicatorName>LED taillight</controlIndicatorName>
+        <controlIndicatorDescr>
+          <controlIndicatorFunction>Lights illuminate automatically when brakes are engaged.</controlIndicatorFunction>
+        </controlIndicatorDescr>
+      </controlIndicatorSpec>
+
+    </controlIndicatorGroup>
+  </controlIndicatorRepository>
+</commonRepository>
+
+📘 Explanation:
+
+    <controlIndicatorRepository>: Root container of CIR content for controls/indicators.
+
+    <controlIndicatorGroup>: Clusters indicators for a platform/system.
+
+    <controlIndicatorSpec>: Defines one control or indicator (by number).
+
+    <controlIndicatorKey>: The visual index or legend number.
+
+    <controlIndicatorName>: Human-readable name of the indicator.
+
+    <controlIndicatorDescr>: Description block including:
+
+        <controlIndicatorFunction>: Explains behavior or usage.
+
+        <inlineSignificantData>: Emphasizes states like ON/OFF.
+
+✅ Example 47: <variablePostSet> in state-tracking logic
+
+<variablePostSet>
+  <assertion>
+    <variableRef variableName="powerApplied"/>
+    <expression>
+      <booleanValue><trueValue/></booleanValue>
+    </expression>
+  </assertion>
+</variablePostSet>
+
+📘 Explanation:
+
+    <variablePostSet>: Triggers after a step/module completes.
+
+    <assertion>: Applies a change to a variable state.
+
+    <variableRef variableName="powerApplied"/>: Sets this flag in the state table.
+
+    <expression>: The value to assign (in this case, true).
+
+Used to track conditions like “power is on,” “component replaced,” etc. after the user performs a task​
+.
+
+✅ Example 48: <dmNodeAlts> — Conditional branching
+
+<dmNodeAlts>
+  <dmNode applicRefId="wrongAnswer">
+    <proceduralStep>
+      <title>Wrong answer!</title>
+      <para>You will be given the introduction once again.</para>
+      <para>
+        Number of mistakes: 
+        <variableRef variableName="tourMistakes"/>
+      </para>
+    </proceduralStep>
+  </dmNode>
+  <dmNode applicRefId="rightAnswer">
+    <proceduralStep>
+      <title>Correct!</title>
+      <para>You can now continue with the practical part of this manual.</para>
+    </proceduralStep>
+  </dmNode>
+</dmNodeAlts>
+
+📘 Explanation:
+
+    <dmNodeAlts> groups alternative <dmNode> branches.
+
+    Each <dmNode> contains logic-specific applicRefId.
+
+    Only the first node whose applicability expression evaluates to true is processed/displayed.
+
+    <variableRef> dynamically inserts state variable values into text​
+
+    .
+
+✅ Example 49: <proceduralStepAlts> — Alternative instructions
+
+<proceduralStepAlts>
+  <proceduralStep applicRefId="apMK1">
+    <para>Wash the Bike</para>
+    <proceduralStep>
+      <para>Soak the <internalRef internalRefId="seq-0003" internalRefTargetType="irtt05"/> into <internalRef internalRefId="sup-0002" internalRefTargetType="irtt04"/> and water.</para>
+    </proceduralStep>
+    <proceduralStep>
+      <para>Clean the bicycle with the soaked sponge.</para>
+    </proceduralStep>
+    <proceduralStep>
+      <para>Flush the bicycle and make sure all <internalRef internalRefId="sup-0002" internalRefTargetType="irtt04"/> is removed.</para>
+    </proceduralStep>
+    <proceduralStep>
+      <para>Move the bicycle up and down on its tires to remove all water.</para>
+    </proceduralStep>
+  </proceduralStep>
+
+  <proceduralStep applicRefId="apMK9">
+    <para>Wash the Bike</para>
+    <proceduralStep>
+      <para>Soak the <internalRef internalRefId="seq-0003" internalRefTargetType="irtt05"/> into <internalRef internalRefId="sup-0003" internalRefTargetType="irtt04"/> and water.</para>
+    </proceduralStep>
+    <proceduralStep>
+      <para>Clean the bicycle with the soaked sponge.</para>
+    </proceduralStep>
+  </proceduralStep>
+</proceduralStepAlts>
+
+📘 Explanation:
+
+    <proceduralStepAlts> contains multiple <proceduralStep> alternatives.
+
+    Each step has its own applicRefId tied to applicability logic.
+
+    The logic engine evaluates and renders only one matching branch based on current state​
+
+    .
+
+✅ Example 50: <dmIf> with <dmThenSeq> and <dmElseSeq>
+
+<dmIf>
+  <expression>
+    <variableRef variableName="experienceLevel"/>
+    <stringOperator stringOperation="equal"/>
+    <stringValue>novice</stringValue>
+  </expression>
+  <dmThenSeq>
+    <dmNode>
+      <dialog>
+        <message>
+          <prompt>
+            <paraBasic>Inexperienced users cannot access this data.</paraBasic>
+          </prompt>
+        </message>
+      </dialog>
+    </dmNode>
+  </dmThenSeq>
+  <dmElseSeq>
+    <dmNode>
+      <dialog>
+        <message>
+          <prompt>
+            <paraBasic>Experienced users can access this data.</paraBasic>
+          </prompt>
+        </message>
+      </dialog>
+    </dmNode>
+  </dmElseSeq>
+</dmIf>
+
+📘 Explanation:
+
+    <dmIf>: Represents logic similar to an "if-then-else" statement.
+
+    <expression>: Evaluated to determine which branch to process.
+
+    <dmThenSeq>: Executed if the condition is true.
+
+    <dmElseSeq>: Executed if the condition is false​
+
+.
+
+✅ Example 51: <dmLoop> — Adjust chain loop until condition is met
+
+<variableDeclarations>
+  <variable variableName="ChainPlay" valueType="real">
+    <initialize>
+      <expression><realValue>100,0</realValue></expression>
+    </initialize>
+  </variable>
+</variableDeclarations>
+
+<dmLoop>
+  <expression>
+    <expression><variableRef variableName="ChainPlay"/></expression>
+    <numberOperator numberOperation="greaterThan"/>
+    <expression><realValue>20,0</realValue></expression>
+  </expression>
+  <dmSeq>
+    <dmNode>
+      <dmRef>
+        <!-- Reference to Adjust chain procedure -->
+      </dmRef>
+    </dmNode>
+    <dmNode>
+      <dialog>
+        <!-- Interactive measurement input -->
+      </dialog>
+    </dmNode>
+  </dmSeq>
+</dmLoop>
+
+📘 Explanation:
+
+    Initializes a real variable ChainPlay = 100.0.
+
+    While ChainPlay > 20.0, the system shows:
+
+        A procedure reference to adjust the chain.
+
+        A dialog to measure and update the chain play.
+
+    Loop condition is re-evaluated after each cycle​
+
+    .
+
+✅ Example 52: <dmSeq> — Sequential step execution
+
+<dmSeq>
+  <dmNode>
+    <proceduralStep>
+      <para>Visually inspect chain wear and alignment.</para>
+    </proceduralStep>
+  </dmNode>
+  <dmNode>
+    <proceduralStep>
+      <para>Check chain slack using ruler.</para>
+    </proceduralStep>
+  </dmNode>
+  <dmNode>
+    <proceduralStep>
+      <para>Apply lubricant to chain links.</para>
+    </proceduralStep>
+  </dmNode>
+</dmSeq>
+
+📘 Explanation:
+
+    Nodes executed top to bottom, in order.
+
+    Each <dmNode> pauses until user continues (e.g., hits “Next”)​
+
+    .
+
+✅ Example 53: <dmSeqAlts> — Alternate sequences based on product configuration
+
+<referencedApplicGroup>
+  <applic id="appl-001">
+    <assert applicPropertyIdent="BicyclePartnum" applicPropertyType="prodattr" applicPropertyValues="MC-168119"/>
+  </applic>
+  <applic id="appl-002">
+    <assert applicPropertyIdent="BicyclePartnum" applicPropertyType="prodattr" applicPropertyValues="MC-168234"/>
+  </applic>
+</referencedApplicGroup>
+
+<dmSeqAlts>
+  <dmSeq applicRefId="appl-001">
+    <dmNode>
+      <proceduralStep>
+        <para>Apply brake adjustments for model MC-168119.</para>
+      </proceduralStep>
+    </dmNode>
+  </dmSeq>
+  <dmSeq applicRefId="appl-002">
+    <dmNode>
+      <proceduralStep>
+        <para>Apply brake adjustments for model MC-168234.</para>
+      </proceduralStep>
+    </dmNode>
+  </dmSeq>
+</dmSeqAlts>
+
+📘 Explanation:
+
+    Displays only one sequence based on current applicability condition.
+
+    Driven by applicRefId, referencing defined <applic> logic​
+
+    .
+
+✅ Example 54: <externalApplication> — Launching tool with parameters
+
+<!ENTITY WireTool SYSTEM "file://Wired/Wired.exe" NDATA exe>
+
+<dmNode>
+  <externalApplication application="WireTool">
+    <paraBasic>Isolate Wiring Defect</paraBasic>
+    <send>
+      <sendName>RefDes</sendName>
+      <stringValue>52P-H004</stringValue>
+    </send>
+    <send>
+      <sendName>Pin</sendName>
+      <stringValue>4</stringValue>
+    </send>
+  </externalApplication>
+</dmNode>
+
+📘 Explanation:
+
+    Launches WireTool executable.
+
+    Sends fixed parameters for external processing.
+
+    May optionally receive values back via <receiveValue>, <receiveByName>, etc.​
+
+.
+
+✅ Example 55: <userEntry> with prompt, default, validation, and state binding
+
+<dialog submitCaption="ok01" cancelCaption="ca01">
+  <title>Bicycle checkout</title>
+  <userEntry mandatory="1" dataEntryFieldLength="3">
+    <prompt><paraBasic>Tire pressure (PSI)</paraBasic></prompt>
+    <variableRef variableName="Pressure"/>
+    <default>
+      <expression><integerValue>45</integerValue></expression>
+    </default>
+    <validate errorMessage="Tire pressure (PSI) must be 30 to 90">
+      <expression>
+        <expression>
+          <integerValue>30</integerValue>
+          <numberOperator numberOperation="lessThanOrEqual"/>
+          <variableRef variableName="Pressure"/>
+        </expression>
+        <booleanOperator booleanOperation="and"/>
+        <expression>
+          <variableRef variableName="Pressure"/>
+          <numberOperator numberOperation="lessThanOrEqual"/>
+          <integerValue>90</integerValue>
+        </expression>
+      </expression>
+    </validate>
+  </userEntry>
+</dialog>
+
+📘 Explanation:
+
+    Validates that entered pressure is between 30 and 90 PSI.
+
+    Default is prefilled with 45.
+
+    Field is mandatory before dialog can submit​
+
+    .
+
+✅ Example 56: <pushButton> launching external app
+
+<pushButton>
+  <prompt><paraBasic>Locate Tire Label</paraBasic></prompt>
+  <externalApplication application="illustrate">
+    <paraBasic>Display CGM graphic</paraBasic>
+    <send><stringValue>tirelocate.cgm</stringValue></send>
+  </externalApplication>
+</pushButton>
+
+📘 Explanation:
+
+    Launches external app with tirelocate.cgm file.
+
+    Label is "Locate Tire Label".
+
+    After closure, control returns to dialog​
+
+    .
+
+✅ Example 57: <userEntry> with default string
+
+<userEntry>
+  <prompt><paraBasic>Enter your name</paraBasic></prompt>
+  <variableRef variableName="name"/>
+  <default>
+    <expression><stringValue>Jane Doe</stringValue></expression>
+  </default>
+</userEntry>
+
+📘 Explanation:
+
+    Default user entry is "Jane Doe".
+
+    Standard for pre-filled UI fields​
+
+    .
+
+✅ Example 58: <dialog> combining user input and message response
+
+<dialog submitCaption="ok01" cancelCaption="ca01">
+  <title>Bicycle service due dates</title>
+  <message>
+    <prompt>
+      <paraBasic>Tire is due </paraBasic>
+      <variableRef variableName="TireDue"/>
+    </prompt>
+    <prompt>
+      <paraBasic>Gear changer is due </paraBasic>
+      <variableRef variableName="GearDue"/>
+    </prompt>
+  </message>
+</dialog>
+
+📘 Explanation:
+
+    Displays state variable data (TireDue, GearDue) after user input or backend processing.
+
+    Message dialogs present passive info rather than collect input​
+
+    .
+
+✅ Example 59: <dialogGroup> and layout control
+
+<dialogGroup dialogSeparator="1">
+  <userEntry>
+    <prompt><paraBasic>Enter tire model</paraBasic></prompt>
+    <variableRef variableName="TireModel"/>
+  </userEntry>
+  <pushButton>
+    <prompt><paraBasic>Check Compatibility</paraBasic></prompt>
+    <externalApplication application="compatibilityCheck"/>
+  </pushButton>
+</dialogGroup>
+
+📘 Explanation:
+
+    Groups entries horizontally or vertically depending on IETP engine.
+
+    dialogSeparator="1" adds visual divider​
+
+.
+
+✅ Example 60: <dialogAlts> — Alternate dialogs based on applicability
+
+<dialogAlts>
+  <dialog applicRefId="applic3">
+    <userEntry dataEntryFieldLength="3">
+      <prompt><paraBasic>Enter your age</paraBasic></prompt>
+      <variableRef variableName="age"/>
+    </userEntry>
+  </dialog>
+  <dialog applicRefId="applic4">
+    <userEntry dataEntryFieldLength="3">
+      <prompt><paraBasic>How old do you feel?</paraBasic></prompt>
+      <variableRef variableName="age"/>
+    </userEntry>
+  </dialog>
+</dialogAlts>
+
+📘 Explanation:
+
+    <dialogAlts> selects one dialog to present based on applicability evaluation.
+
+    Used to support product, audience, or config-specific interaction​
+
+    .
+
+✅ Example 61: <menu> with <menuChoice> and assertions
+
+<menu choiceSelection="single" choiceType="select" mandatory="1">
+  <prompt><paraBasic>Did you ever ride a bicycle?</paraBasic></prompt>
+  <menuChoice>
+    <prompt><paraBasic>Yes</paraBasic></prompt>
+    <assertion>
+      <variableRef variableName="level"/>
+      <expression><stringValue>experienced</stringValue></expression>
+    </assertion>
+  </menuChoice>
+  <menuChoice>
+    <prompt><paraBasic>No</paraBasic></prompt>
+    <noAssertions/>
+  </menuChoice>
+</menu>
+
+📘 Explanation:
+
+    Radio menu with mandatory choice.
+
+    First option assigns variable level to experienced, second does nothing​
+
+    .
+
+✅ Example 62: <receiveValue> from external app
+
+<externalApplication application="MMS">
+  <paraBasic>Receive Maintainer Name</paraBasic>
+  <receiveValue>
+    <variableRef variableName="Maintainer"/>
+  </receiveValue>
+</externalApplication>
+
+📘 Explanation:
+
+    <receiveValue> assigns the app’s return value directly to a known variable​
+
+    .
+
+✅ Example 63: <receiveByName> — Multiple named values
+
+<externalApplication application="WireTool">
+  <paraBasic>Isolate Wiring Defect</paraBasic>
+  <send>
+    <sendName>RefDes</sendName>
+    <stringValue>52P-H004</stringValue>
+  </send>
+  <send>
+    <sendName>Pin</sendName>
+    <stringValue>4</stringValue>
+  </send>
+  <receiveByName>
+    <returnedValueName>bundle</returnedValueName>
+    <variableRef variableName="RtnBundle"/>
+  </receiveByName>
+  <receiveByName>
+    <returnedValueName>wireNumber</returnedValueName>
+    <variableRef variableName="RtnWireno"/>
+  </receiveByName>
+</externalApplication>
+
+📘 Explanation:
+
+    External app returns values as name=value pairs.
+
+    <returnedValueName> matches the name; value is assigned to the listed variable​
+
+    .
+
+✅ Example 64: <menu> with audio via push buttons
+
+<dialog submitCaption="ok01" cancelCaption="ca01">
+  <title>Brake troubleshooting</title>
+  <menu choiceType="select" choiceSelection="single" mandatory="1">
+    <prompt><paraBasic>Select sound brakes are making:</paraBasic></prompt>
+
+    <menuChoice menuChoiceDefaultFlag="1">
+      <prompt><paraBasic>Squeaking</paraBasic></prompt>
+      <pushButton>
+        <prompt><paraBasic>Sample</paraBasic></prompt>
+        <externalApplication application="sound">
+          <paraBasic>Play audio sounds</paraBasic>
+          <send><stringValue>squeak.wav</stringValue></send>
+        </externalApplication>
+      </pushButton>
+      <assertion>
+        <variableRef variableName="BrakeSound"/>
+        <expression><stringValue>squeak</stringValue></expression>
+      </assertion>
+    </menuChoice>
+
+    <menuChoice menuChoiceDefaultFlag="0">
+      <prompt><paraBasic>Clanking</paraBasic></prompt>
+      <pushButton>
+        <prompt><paraBasic>Sample</paraBasic></prompt>
+        <externalApplication application="sound">
+          <paraBasic>Play audio sounds</paraBasic>
+          <send><stringValue>clank.wav</stringValue></send>
+        </externalApplication>
+      </pushButton>
+      <assertion>
+        <variableRef variableName="BrakeSound"/>
+        <expression><stringValue>clank</stringValue></expression>
+      </assertion>
+    </menuChoice>
+
+  </menu>
+</dialog>
+
+📘 Explanation:
+
+    Combines menu, assertion logic, and multimedia launch with <pushButton>.
+
+    Default choice is marked by menuChoiceDefaultFlag="1"​
+
+.
+
+✅ Example 65: <faultIsolation> with full diagnostic flow
+
+<faultIsolation>
+  <faultIsolationProcedure>
+    <fault faultCode="NYCJD04"/>
+    <faultDescr>
+      <descr>Tire does not function correctly</descr>
+    </faultDescr>
+    <isolationProcedure>
+      <preliminaryRqmts>
+        <reqCondGroup><noConds/></reqCondGroup>
+        <reqSupportEquips>
+          <supportEquipDescrGroup>
+            <supportEquipDescr id="seq-0001">
+              <name>Tire pressure gauge</name>
+              <identNumber>
+                <manufacturerCode>KZ666</manufacturerCode>
+                <partAndSerialNumber>
+                  <partNumber>BSK-TLST-001-01</partNumber>
+                </partAndSerialNumber>
+              </identNumber>
+              <reqQuantity unitOfMeasure="EA">1</reqQuantity>
+            </supportEquipDescr>
+            <supportEquipDescr>
+              <name>Specialist toolset</name>
+              <identNumber>
+                <manufacturerCode>KZ666</manufacturerCode>
+                <partAndSerialNumber>
+                  <partNumber>BSK-TLST-001</partNumber>
+                </partAndSerialNumber>
+              </identNumber>
+              <reqQuantity unitOfMeasure="EA">1</reqQuantity>
+            </supportEquipDescr>
+          </supportEquipDescrGroup>
+        </reqSupportEquips>
+        <reqSupplies><noSupplies/></reqSupplies>
+        <reqSpares><noSpares/></reqSpares>
+        <reqSafety><noSafety/></reqSafety>
+      </preliminaryRqmts>
+
+      <isolationMainProcedure>
+        <isolationStep id="stp-0001">
+          <action>
+            Use the tire pressure gauge (<internalRef internalRefId="seq-0001" internalRefTargetType="irtt05"/>)
+            to check the pressure.
+          </action>
+          <isolationStepQuestion>What is the tire pressure reading?</isolationStepQuestion>
+          <isolationStepAnswer>
+            <listOfChoices>
+              <choice nextActionRefId="stp-0002">More than 2700 hPa</choice>
+              <choice nextActionRefId="stp-0003">Between 100 hPa and 2700 hPa</choice>
+              <choice nextActionRefId="stp-0004">Less than 100 hPa</choice>
+            </listOfChoices>
+          </isolationStepAnswer>
+        </isolationStep>
+
+        <isolationProcedureEnd id="stp-0002">
+          <action>Deflate the tire until the pressure is 2700 hPa.</action>
+        </isolationProcedureEnd>
+
+        <isolationProcedureEnd id="stp-0003">
+          <action>
+            Inflate the tire as instructed in
+            <dmRef>
+              <dmRefIdent>
+                <dmCode modelIdentCode="S1000DBIKE" systemDiffCode="AAA"
+                        systemCode="DA0" subSystemCode="1" subSubSystemCode="0"
+                        assyCode="20" disassyCode="00" disassyCodeVariant="AA"
+                        infoCode="215" infoCodeVariant="A" itemLocationCode="A"/>
+              </dmRefIdent>
+            </dmRef>.
+          </action>
+        </isolationProcedureEnd>
+
+        <isolationStep id="stp-0004">
+          <action>Check the tire for damage.</action>
+          <isolationStepQuestion>Is there damage to the tire?</isolationStepQuestion>
+          <isolationStepAnswer>
+            <yesNoAnswer>
+              <yesAnswer nextActionRefId="stp-0005"/>
+              <noAnswer nextActionRefId="stp-0006"/>
+            </yesNoAnswer>
+          </isolationStepAnswer>
+        </isolationStep>
+
+        <isolationProcedureEnd id="stp-0005">
+          <action>
+            Replace the tire (see:
+            <dmRef>
+              <dmRefIdent>
+                <dmCode modelIdentCode="S1000DBIKE" systemDiffCode="AAA"
+                        systemCode="DA0" subSystemCode="1" subSubSystemCode="0"
+                        assyCode="20" disassyCode="00" disassyCodeVariant="AA"
+                        infoCode="921" infoCodeVariant="A" itemLocationCode="A"/>
+              </dmRefIdent>
+            </dmRef>).
+          </action>
+        </isolationProcedureEnd>
+
+        <isolationProcedureEnd id="stp-0006">
+          <action>
+            Replace the inner-tube (see:
+            <dmRef>
+              <dmRefIdent>
+                <dmCode modelIdentCode="S1000DBIKE" systemDiffCode="AAA"
+                        systemCode="DA0" subSystemCode="1" subSubSystemCode="0"
+                        assyCode="10" disassyCode="00" disassyCodeVariant="AA"
+                        infoCode="921" infoCodeVariant="A" itemLocationCode="A"/>
+              </dmRefIdent>
+            </dmRef>).
+          </action>
+        </isolationProcedureEnd>
+
+      </isolationMainProcedure>
+
+      <closeRqmts>
+        <reqCondGroup><noConds/></reqCondGroup>
+      </closeRqmts>
+
+    </isolationProcedure>
+  </faultIsolationProcedure>
+</faultIsolation>
+
+📘 Explanation of Key Elements:
+
+    <faultIsolation>: Root for an entire fault isolation flow.
+
+    <faultIsolationProcedure>: Contains a fault code and decision tree.
+
+    <isolationStep>: Action + question + answer logic.
+
+    <isolationProcedureEnd>: Final actions based on user decisions.
+
+    <choice> and <yesNoAnswer>: Decision routing via nextActionRefId.
+
+This entire decision tree is dynamically followed in the IETP viewer based on technician responses.
+
+✅ Example 66: <faultIsolationTest> with <testDescr>, <testParameters>, <testProcedure>
+
+<faultIsolationTest testCode="O-001" testType="Operation">
+  <testDescr>
+    <testName>Test the bulbs</testName>
+  </testDescr>
+  <testParameters from="1" to="1" unitOfMeasure="Days"/>
+  <testProcedure>
+    <refs>
+      <dmRef>
+        <dmRefIdent>
+          <dmCode modelIdentCode="S1000DLIGHTING" systemDiffCode="AAA"
+                  systemCode="D00" subSystemCode="0" subSubSystemCode="0"
+                  assyCode="00" disassyCode="00" disassyCodeVariant="AA"
+                  infoCode="341" infoCodeVariant="A" itemLocationCode="A"/>
+        </dmRefIdent>
+      </dmRef>
+    </refs>
+  </testProcedure>
+</faultIsolationTest>
+
+📘 Key Points:
+
+    testCode and testType are mandatory.
+
+    <testParameters> defines a test duration of 1 day​
+
+    .
+
+✅ Example 67: <lruItem> with nested <lru> and optional elements
+
+<lruItem>
+  <lru>
+    <name>Rear wheel</name>
+    <identNumber>
+      <manufacturerCode>KZ333</manufacturerCode>
+      <partAndSerialNumber>
+        <partNumber>WH-001</partNumber>
+      </partAndSerialNumber>
+    </identNumber>
+  </lru>
+  <faultIsolationTest testCode="T-002" testType="Visual">
+    <testDescr>
+      <testName>Visual check for wheel cracks</testName>
+    </testDescr>
+    <testParameters from="0" to="1" unitOfMeasure="Hours"/>
+    <testProcedure>
+      <refs>
+        <dmRef>
+          <dmRefIdent>
+            <dmCode modelIdentCode="S1000DBIKE" systemDiffCode="AAA"
+                    systemCode="DA0" subSystemCode="1" subSubSystemCode="0"
+                    assyCode="10" disassyCode="00" disassyCodeVariant="AA"
+                    infoCode="301" infoCodeVariant="A" itemLocationCode="A"/>
+          </dmRefIdent>
+        </dmRef>
+      </refs>
+    </testProcedure>
+  </faultIsolationTest>
+</lruItem>
+
+✅ Example 68: <repair> referencing external publication
+
+<repair>
+  <refs>
+    <externalPubRef extEntityIdent="EXT-External_repair_manual">
+      <externalPubRefIdent>
+        <externalPubTitle>External repair publication</externalPubTitle>
+      </externalPubRefIdent>
+    </externalPubRef>
+  </refs>
+</repair>
+
+📘 Explanation:
+
+    Repair task points to external non-S1000D doc​
+
+    .
+
+✅ Example 69: <possibleCauseGroup> with <lru>, <wiringPossibleCause>, <sru>
+
+<possibleCauseGroup>
+  <lru id="pc1">
+    <name>ACTUATOR-AIR INTAKE FLAP</name>
+    <functionalItemRef functionalItemNumber="516KB"/>
+  </lru>
+  <wiringPossibleCause id="pc2">
+    <wiringPossibleCauseFrom>
+      <functionalItemRef functionalItemNumber="59KD">
+        <name>ECB-APU ELECTRONIC CONTROL BOX</name>
+      </functionalItemRef>
+      <contactIdentification contactIdent="AC/3"/>
+    </wiringPossibleCauseFrom>
+    <wiringPossibleCauseTo>
+      <functionalItemRef functionalItemNumber="4926VC"/>
+      <contactIdentification contactIdent="1"/>
+    </wiringPossibleCauseTo>
+  </wiringPossibleCause>
+  <otherPossibleCause id="pc3">Lubrication of the NLG</otherPossibleCause>
+  <sru id="pc4">
+    <identNumber>
+      <manufacturerCode>KT666</manufacturerCode>
+      <partAndSerialNumber>
+        <partNumber>TIRES-010101</partNumber>
+      </partAndSerialNumber>
+    </identNumber>
+  </sru>
+</possibleCauseGroup>
+
+📘 Explanation:
+
+    Collects all suspected contributors to a fault:
+
+        LRU hardware
+
+        Wiring
+
+        SRUs (shop-replaceable units)
+
+        Other textual causes​
+
+.
+
+✅ Example 70: <diagnosticProcess> and nested <repair> and <locateAndRepairLruItem>
+
+<diagnosticProcess>
+  <diagnosticsReason>Insufficient torque from pedal due to jammed derailleur.</diagnosticsReason>
+  <repair>
+    <refs>
+      <dmRef>
+        <dmRefIdent>
+          <dmCode modelIdentCode="S1000DBIKE" systemDiffCode="AAA"
+                  systemCode="DA0" subSystemCode="1" subSubSystemCode="0"
+                  assyCode="20" disassyCode="00" disassyCodeVariant="AA"
+                  infoCode="921" infoCodeVariant="A" itemLocationCode="A"/>
+        </dmRefIdent>
+      </dmRef>
+    </refs>
+  </repair>
+  <locateAndRepairLruItem>
+    <lru>
+      <name>Rear derailleur</name>
+      <identNumber>
+        <manufacturerCode>KZ888</manufacturerCode>
+        <partAndSerialNumber>
+          <partNumber>RD-200X</partNumber>
+        </partAndSerialNumber>
+      </identNumber>
+    </lru>
+  </locateAndRepairLruItem>
+</diagnosticProcess>
+
+📘 Key Elements:
+
+    <diagnosticsReason>: Human-readable summary of cause.
+
+    <repair>: Refers to a DM containing corrective action.
+
+    <locateAndRepairLruItem>: Identifies the faulty line-replaceable unit (LRU)​
+
+    .
+
+✅ Example 71: <detectedFault> + <isolateDetectedFault>
+
+<detectedFault id="flt-0002" faultCode="NYCJD00">
+  <faultDescr>
+    <descr>The rear wheel does not operate correctly</descr>
+  </faultDescr>
+  <detectionInfo detectionType="Major">
+    <detectedLruItem>
+      <lru>
+        <name>Tire</name>
+        <identNumber>
+          <manufacturerCode>KT666</manufacturerCode>
+          <partAndSerialNumber>
+            <partNumber>TIRES-010101</partNumber>
+          </partAndSerialNumber>
+        </identNumber>
+      </lru>
+    </detectedLruItem>
+  </detectionInfo>
+  <isolateDetectedFault>
+    <lruItem>
+      <lru>
+        <name>Rear wheel</name>
+        <identNumber>
+          <manufacturerCode>KZ333</manufacturerCode>
+          <partAndSerialNumber>
+            <partNumber>WH-001</partNumber>
+          </partAndSerialNumber>
+        </identNumber>
+      </lru>
+    </lruItem>
+  </isolateDetectedFault>
+</detectedFault>
+
+✅ Example 72: <observedFault> + <contextAndIsolationInfo>
+
+<observedFault faultCode="NYCJD02" id="flt-0001">
+  <faultDescr>
+    <descr>The lights are set to the dim position.</descr>
+  </faultDescr>
+  <contextAndIsolationInfo>
+    <isolationInfo>
+      <lruItem>
+        <lru>
+          <name>Dimmer control unit</name>
+        </lru>
+      </lruItem>
+    </isolationInfo>
+  </contextAndIsolationInfo>
+</observedFault>
+
+📘 Key Elements:
+
+    <observedFault>: Not machine-detected, but human-observed.
+
+    <contextAndIsolationInfo>: Explains situational context and diagnostic source​
+
+    .
+
+✅ Example 73: <correlatedFault> and <bitMessage>
+
+<correlatedFault id="CFS0001">
+  <basicCorrelatedFaults>
+    <bitMessage>
+      <fault faultCode="100FC01"/>
+      <faultDescr>
+        <descr>The pedal mechanism is jammed</descr>
+      </faultDescr>
+    </bitMessage>
+    <bitMessage>
+      <fault faultCode="200FC01"/>
+      <faultDescr>
+        <descr>The derailleur is jammed</descr>
+      </faultDescr>
+    </bitMessage>
+  </basicCorrelatedFaults>
+  <isolateDetectedFault>
+    <lruItem>
+      <lru>
+        <name>Bicycle chain</name>
+        <identNumber>
+          <manufacturerCode>KZ120</manufacturerCode>
+          <partAndSerialNumber>
+            <partNumber>Tchain-120</partNumber>
+          </partAndSerialNumber>
+        </identNumber>
+      </lru>
+    </lruItem>
+  </isolateDetectedFault>
+  <remarks>
+    <simplePara>Prepare the derailleur to reset the transmission chain.</simplePara>
+  </remarks>
+</correlatedFault>
+
+✅ Key Takeaways:
+
+    <bitMessage>: Digital fault messages (e.g., from built-in tests).
+
+    <correlatedFault>: Links multiple messages to one root issue.
+
+    <basicCorrelatedFaults>: Container for all correlated bitMessages​
+
+.
+
+✅ Example 70: <diagnosticProcess> and nested <repair> and <locateAndRepairLruItem>
+
+<diagnosticProcess>
+  <diagnosticsReason>Insufficient torque from pedal due to jammed derailleur.</diagnosticsReason>
+  <repair>
+    <refs>
+      <dmRef>
+        <dmRefIdent>
+          <dmCode modelIdentCode="S1000DBIKE" systemDiffCode="AAA"
+                  systemCode="DA0" subSystemCode="1" subSubSystemCode="0"
+                  assyCode="20" disassyCode="00" disassyCodeVariant="AA"
+                  infoCode="921" infoCodeVariant="A" itemLocationCode="A"/>
+        </dmRefIdent>
+      </dmRef>
+    </refs>
+  </repair>
+  <locateAndRepairLruItem>
+    <lru>
+      <name>Rear derailleur</name>
+      <identNumber>
+        <manufacturerCode>KZ888</manufacturerCode>
+        <partAndSerialNumber>
+          <partNumber>RD-200X</partNumber>
+        </partAndSerialNumber>
+      </identNumber>
+    </lru>
+  </locateAndRepairLruItem>
+</diagnosticProcess>
+
+📘 Key Elements:
+
+    <diagnosticsReason>: Human-readable summary of cause.
+
+    <repair>: Refers to a DM containing corrective action.
+
+    <locateAndRepairLruItem>: Identifies the faulty line-replaceable unit (LRU)​
+
+    .
+
+✅ Example 71: <detectedFault> + <isolateDetectedFault>
+
+<detectedFault id="flt-0002" faultCode="NYCJD00">
+  <faultDescr>
+    <descr>The rear wheel does not operate correctly</descr>
+  </faultDescr>
+  <detectionInfo detectionType="Major">
+    <detectedLruItem>
+      <lru>
+        <name>Tire</name>
+        <identNumber>
+          <manufacturerCode>KT666</manufacturerCode>
+          <partAndSerialNumber>
+            <partNumber>TIRES-010101</partNumber>
+          </partAndSerialNumber>
+        </identNumber>
+      </lru>
+    </detectedLruItem>
+  </detectionInfo>
+  <isolateDetectedFault>
+    <lruItem>
+      <lru>
+        <name>Rear wheel</name>
+        <identNumber>
+          <manufacturerCode>KZ333</manufacturerCode>
+          <partAndSerialNumber>
+            <partNumber>WH-001</partNumber>
+          </partAndSerialNumber>
+        </identNumber>
+      </lru>
+    </lruItem>
+  </isolateDetectedFault>
+</detectedFault>
+
+✅ Example 72: <observedFault> + <contextAndIsolationInfo>
+
+<observedFault faultCode="NYCJD02" id="flt-0001">
+  <faultDescr>
+    <descr>The lights are set to the dim position.</descr>
+  </faultDescr>
+  <contextAndIsolationInfo>
+    <isolationInfo>
+      <lruItem>
+        <lru>
+          <name>Dimmer control unit</name>
+        </lru>
+      </lruItem>
+    </isolationInfo>
+  </contextAndIsolationInfo>
+</observedFault>
+
+📘 Key Elements:
+
+    <observedFault>: Not machine-detected, but human-observed.
+
+    <contextAndIsolationInfo>: Explains situational context and diagnostic source​
+
+    .
+
+✅ Example 73: <correlatedFault> and <bitMessage>
+
+<correlatedFault id="CFS0001">
+  <basicCorrelatedFaults>
+    <bitMessage>
+      <fault faultCode="100FC01"/>
+      <faultDescr>
+        <descr>The pedal mechanism is jammed</descr>
+      </faultDescr>
+    </bitMessage>
+    <bitMessage>
+      <fault faultCode="200FC01"/>
+      <faultDescr>
+        <descr>The derailleur is jammed</descr>
+      </faultDescr>
+    </bitMessage>
+  </basicCorrelatedFaults>
+  <isolateDetectedFault>
+    <lruItem>
+      <lru>
+        <name>Bicycle chain</name>
+        <identNumber>
+          <manufacturerCode>KZ120</manufacturerCode>
+          <partAndSerialNumber>
+            <partNumber>Tchain-120</partNumber>
+          </partAndSerialNumber>
+        </identNumber>
+      </lru>
+    </lruItem>
+  </isolateDetectedFault>
+  <remarks>
+    <simplePara>Prepare the derailleur to reset the transmission chain.</simplePara>
+  </remarks>
+</correlatedFault>
+
+✅ Key Takeaways:
+
+    <bitMessage>: Digital fault messages (e.g., from built-in tests).
+
+    <correlatedFault>: Links multiple messages to one root issue.
+
+    <basicCorrelatedFaults>: Container for all correlated bitMessages​
+
+.
+
+✅ Example 74: <identAndStatusSection> for a SCORM Content Package Module
+
+<identAndStatusSection>
+  <scormContentPackageAddress>
+    <scormContentPackageIdent>
+      <scormContentPackageCode modelIdentCode="DEE1B"
+                                scormContentPackageNumber="01132"
+                                scormContentPackageIssuer="C0419"
+                                scormContentPackageVolume="00"/>
+      <language countryIsoCode="US" languageIsoCode="sx"/>
+      <issueInfo inWork="00" issueNumber="003"/>
+    </scormContentPackageIdent>
+    <scormContentPackageAddressItems>
+      <issueDate day="01" month="08" year="2008"/>
+      <scormContentPackageTitle>Air vehicle maintenance training - Landing gear system</scormContentPackageTitle>
+    </scormContentPackageAddressItems>
+  </scormContentPackageAddress>
+
+  <scormContentPackageStatus>
+    <security securityClassification="01"/>
+    <responsiblePartnerCompany enterpriseCode="C0419"/>
+    <brexDmRef>
+      <dmRef>
+        <dmRefIdent>
+          <dmCode modelIdentCode="MODELIC" systemDiffCode="AAAA"
+                  systemCode="A00" subSystemCode="0" subSubSystemCode="0"
+                  assyCode="0000" disassyCode="00" disassyCodeVariant="AAA"
+                  infoCode="022" infoCodeVariant="A" itemLocationCode="A"/>
+        </dmRefIdent>
+      </dmRef>
+    </brexDmRef>
+    <scormContentPackageMedia scormContentPackageMediaCode="DKS:1" scormContentPackageMediaType="CD-ROM"/>
+    <qualityAssurance>
+      <unverified/>
+    </qualityAssurance>
+    <personSkill skillLevelCode="sk01"/>
+  </scormContentPackageStatus>
+
+  <lom:lom>
+    <lom:general>
+      <lom:identifier>
+        <lom:entry>3D16197F-4BA0-4F5C-BF57-CD3C8BA61148</lom:entry>
+      </lom:identifier>
+      <lom:title>
+        <lom:string>Air vehicle maintenance training - Landing gear system</lom:string>
+      </lom:title>
+      <lom:description>
+        <lom:string>Air vehicle maintenance training - Landing gear system</lom:string>
+      </lom:description>
+      <lom:keyword>
+        <lom:string>Air vehicle maintenance training, Landing gear system</lom:string>
+      </lom:keyword>
+    </lom:general>
+    <lom:lifeCycle>
+      <lom:version>
+        <lom:string language="en">2007.06.17.12.12.15.737</lom:string>
+      </lom:version>
+      <lom:status>
+        <lom:source>LOMv1.0</lom:source>
+        <lom:value>final</lom:value>
+      </lom:status>
+    </lom:lifeCycle>
+    <lom:metaMetadata>
+      <lom:identifier>
+        <lom:catalog>GUID</lom:catalog>
+        <lom:entry>3D16197F-4BA0-4F5C-BF57-CD3C8BA61148</lom:entry>
+      </lom:identifier>
+      <lom:metadataSchema>LOMv1.0</lom:metadataSchema>
+      <lom:metadataSchema>SCORM_CAM_v1.3</lom:metadataSchema>
+    </lom:metaMetadata>
+  </lom:lom>
+</identAndStatusSection>
+
+📘 Explanation of Key Elements:
+
+    <identAndStatusSection>: Standard wrapper for all metadata and status.
+
+    <scormContentPackageAddress>: Identification block for SCORM content.
+
+    <scormContentPackageCode>: SCORM package-level code ID.
+
+    <language> and <issueInfo>: Required metadata fields for version control.
+
+    <scormContentPackageStatus>:
+
+        Includes security classification (01), media type, and BREX ruleset reference.
+
+        Optional fields: <qualityAssurance>, <personSkill> for role qualification.
+
+    <lom:lom>: Learning Object Metadata (LOM) block used to enhance SCORM compliance with discoverability and training metadata.
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

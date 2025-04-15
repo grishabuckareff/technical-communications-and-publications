@@ -1,0 +1,372 @@
+Main Landing Gear Brake Assembly Replacement
+
+From: AMM BOEING 777 LANDING GEAR.PDF and HYDRAULICS.PDF
+S1000D DMC: 32-41-00-04-00A-720A-P
+
+This task involves:
+
+    Hydraulic line disconnection and reconnection
+
+    Torque-sensitive structural and pressure fittings
+
+    Cleaning and inspection for heat damage, O-ring wear, and brake disk thickness
+
+    Multiple required tools and protective equipment
+
+    Aircraft configuration, brake release, and post-installation system bleed
+
+
+S1000D-Compliant Task (Including CAUTION, WARNING, NOTE)
+
+<dmodule xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://www.s1000d.org/S1000D_4-1/xml/issue"
+         xsi:schemaLocation="http://www.s1000d.org/S1000D_4-1/xml/issue s1000d_4-1.xsd">
+
+  <identAndStatusSection>
+    <dmAddress>
+      <dmIdent>
+        <modelIdentCode>777</modelIdentCode>
+        <systemDiffCode>00</systemDiffCode>
+        <systemCode>32</systemCode>
+        <subSystemCode>41</subSystemCode>
+        <subSubSystemCode>00</subSubSystemCode>
+        <assyCode>04</assyCode>
+        <disassyCode>00A</disassyCode>
+        <disassyCodeVariant>A</disassyCodeVariant>
+        <infoCode>720</infoCode>
+        <infoCodeVariant>A</infoCodeVariant>
+        <itemLocationCode>P</itemLocationCode>
+      </dmIdent>
+      <issueInfo>
+        <issueNumber>001</issueNumber>
+        <inWork>01</inWork>
+      </issueInfo>
+    </dmAddress>
+    <dmStatus>
+      <security>01</security>
+      <responsiblePartnerCompany>Boeing</responsiblePartnerCompany>
+      <originator>Landing Gear Engineering</originator>
+      <applicability>
+        <applic>777-300ER</applic>
+      </applicability>
+      <language country="US">en</language>
+    </dmStatus>
+  </identAndStatusSection>
+
+  <content>
+    <procedure>
+      <preliminaryRqmts>
+        <preliminaryRqmtsDescr>Aircraft parked, hydraulic system depressurized, gear door safety locks installed, and tire chocks in place.</preliminaryRqmtsDescr>
+        <safety>
+          <warning>
+            Depressurize the hydraulic system before disconnecting any lines. High-pressure fluid can cause serious injury.
+          </warning>
+          <caution>
+            Use clean caps and plugs on hydraulic lines to prevent contamination of the brake system.
+          </caution>
+          <note>
+            If replacing only one brake, ensure brake pairing compatibility as defined in AMM 32-41-00.
+          </note>
+        </safety>
+      </preliminaryRqmts>
+
+      <mainProcedure>
+        <step>
+          <para>Ensure hydraulic systems are depressurized (Ref: AMM 29-00-00-870-801).</para>
+        </step>
+        <step>
+          <para>Remove the wheel assembly per task 32-42-00-010-801.</para>
+        </step>
+        <step>
+          <para>Disconnect hydraulic lines (INLET and OUTLET) from the brake manifold. Cap all open lines.</para>
+        </step>
+        <step>
+          <para>Remove bolts securing brake to axle flange (Qty 6, P/N: BACC10AM12).</para>
+        </step>
+        <step>
+          <para>Carefully pull brake assembly away from axle. Support with sling or lift stand.</para>
+        </step>
+        <step>
+          <para>Inspect brake heat pack for wear, glaze, or scoring. Refer to limit tables in AMM 32-41-01.</para>
+        </step>
+        <step>
+          <para>Install replacement brake assembly. Align anti-rotation tangs with axle slot.</para>
+        </step>
+        <step>
+          <para>Install and torque mounting bolts in a star pattern to 280 in-lb. Apply torque seal.</para>
+        </step>
+        <step>
+          <para>Reconnect hydraulic lines using new O-rings (MS28775-222). Torque per AMM 20-50-00.</para>
+        </step>
+        <step>
+          <para>Perform brake functional test and bleed system per task 32-41-00-710-801.</para>
+        </step>
+      </mainProcedure>
+
+      <closeProcedure>
+        <step>
+          <para>Reinstall wheel assembly and torque axle nut to spec.</para>
+        </step>
+        <step>
+          <para>Restore hydraulic system pressure. Check for leaks at brake manifold.</para>
+        </step>
+        <step>
+          <para>Record brake serial number, date installed, and torque seal color code in maintenance log.</para>
+        </step>
+      </closeProcedure>
+    </procedure>
+  </content>
+</dmodule>
+
+
+Behind the Scenes — Writer’s Inputs & Decisions
+
+Engineering Sources Required
+
+__________________________________________________________________________________________________________________________
+ Document	                              |   Used For
+__________________________________________|_______________________________________________________________________________
+ Landing Gear Assembly Drawings           |	  Brake flange dimensions, mounting pattern, anti-rotation tab placement
+__________________________________________|_______________________________________________________________________________
+ Hydraulic Schematics (Ch. 29)	          |   Brake manifold pressure/return routing and valve logic
+__________________________________________|_______________________________________________________________________________
+ AMM 32-41-00 / 20-50-00	              |   Torque specs, system bleed procedure
+__________________________________________|_______________________________________________________________________________
+ CMM (Goodrich, Honeywell, or Collins)    |	  Internal brake pack inspection criteria, O-ring compatibility
+__________________________________________|_______________________________________________________________________________
+ IPC 32-41-00	                          |   P/N verification, brake variants by shipset (alternate materials)
+__________________________________________|_______________________________________________________________________________
+ FMEAs / Safety Data	                  |   Risk profile for pressure disconnects, hydraulic fluid spray arc
+__________________________________________|_______________________________________________________________________________
+ Tire-Wheel Interface Data	              |   Compatibility and removal sequence (AMM 32-42-00)
+__________________________________________|_______________________________________________________________________________
+
+
+Key Authoring Considerations
+
+__________________________________________________________________________________________________________________________
+ Consideration                            |   Details
+__________________________________________|_______________________________________________________________________________
+ Hydraulic Isolation	                  |   Precise procedural reference to correct isolation task — prevents damage or injury
+__________________________________________|_______________________________________________________________________________
+ Torque & Fastener Detail	              |   Every fastener must be traceable to standard torque specs or callouts
+__________________________________________|_______________________________________________________________________________
+ System Bleed Integrity	                  |   Brake reinstallation must include full bleed (air in line = brake delay or failure)
+__________________________________________|_______________________________________________________________________________
+ Record-Keeping & Part Traceability	      |   Serial, batch, and installation log needed for safety oversight
+__________________________________________|_______________________________________________________________________________
+ Contamination Risk Management            |	  Multiple CAUTION tags — writers must emphasize cleanroom discipline on hydraulic systems
+__________________________________________|_______________________________________________________________________________ 
+ Axle Slot/Index Alignment	              |   Misalignment leads to brake skew, pad overheating, or binding
+__________________________________________|_______________________________________________________________________________
+
+
+Illustrations Typically Needed
+
+__________________________________________________________________________________________________________________________
+ Visual Type	                          |   Description
+__________________________________________|_______________________________________________________________________________
+ Axle/Brake Mounting	                  |   Side view with torque values and anti-rotation tang callouts
+__________________________________________|_______________________________________________________________________________
+ Hydraulic Line Routing	                  |   Inlet/Outlet port locations and protective cap procedures
+__________________________________________|_______________________________________________________________________________
+ Fastener Torque Table	                  |   Tabular breakdown: bolt P/N, torque value, tool size
+__________________________________________|_______________________________________________________________________________
+ System Bleed Flowchart	                  |   Post-replacement bleed logic (to validate removal of air from lines)
+__________________________________________|_______________________________________________________________________________
+
+
+
+__________________________________________________________________________________________________________________________
+
+
+
+🔩 Forward Passenger Door – Removal and Installation Procedure
+
+From: AMM BOEING 777 FUSELAGE.PDF and DOORS.PDF
+ATA Chapter: 52
+S1000D DMC: 52-11-00-04-00A-720A-P
+
+This task is heavy on:
+
+    Structural interface and tolerances
+
+    Manual latch handle positioning and safety locking
+
+    Pneumatic assist/damper removal (if present)
+
+    Door rigging and re-centering
+
+    Weight & alignment balancing during reinstall
+
+    Specialized hoist and restraint gear
+
+
+⚠️ S1000D-Compliant Task (Including CAUTION, WARNING, NOTE)
+
+<dmodule xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://www.s1000d.org/S1000D_4-1/xml/issue"
+         xsi:schemaLocation="http://www.s1000d.org/S1000D_4-1/xml/issue s1000d_4-1.xsd">
+
+  <identAndStatusSection>
+    <dmAddress>
+      <dmIdent>
+        <modelIdentCode>777</modelIdentCode>
+        <systemDiffCode>00</systemDiffCode>
+        <systemCode>52</systemCode>
+        <subSystemCode>11</subSystemCode>
+        <subSubSystemCode>00</subSubSystemCode>
+        <assyCode>04</assyCode>
+        <disassyCode>00A</disassyCode>
+        <disassyCodeVariant>A</disassyCodeVariant>
+        <infoCode>720</infoCode>
+        <infoCodeVariant>A</infoCodeVariant>
+        <itemLocationCode>P</itemLocationCode>
+      </dmIdent>
+      <issueInfo>
+        <issueNumber>001</issueNumber>
+        <inWork>01</inWork>
+      </issueInfo>
+    </dmAddress>
+    <dmStatus>
+      <security>01</security>
+      <responsiblePartnerCompany>Boeing</responsiblePartnerCompany>
+      <originator>Structures Engineering - Doors</originator>
+      <applicability>
+        <applic>777-300ER</applic>
+      </applicability>
+      <language country="US">en</language>
+    </dmStatus>
+  </identAndStatusSection>
+
+  <content>
+    <procedure>
+      <preliminaryRqmts>
+        <preliminaryRqmtsDescr>Aircraft parked, door handle latched, pneumatic assist deactivated, and fuselage support structure braced if necessary.</preliminaryRqmtsDescr>
+        <safety>
+          <warning>
+            Do not remove door without proper restraint equipment. The door weighs over 180 lbs and may fall, causing serious injury.
+          </warning>
+          <caution>
+            Door removal without rigging assist can cause hinge bushing damage or misalignment. Use hoist and spreader bar tool PN: DOOR-LIFT-777.
+          </caution>
+          <note>
+            The door is removed as a full assembly, including hinge arms, cams, and interior trim. Disconnect wiring harnesses before load-bearing steps.
+          </note>
+        </safety>
+      </preliminaryRqmts>
+
+      <mainProcedure>
+        <step>
+          <para>Open the forward passenger door fully and install gust lock per AMM 52-11-00-860-801.</para>
+        </step>
+        <step>
+          <para>Disconnect electrical wiring harnesses at junction box JB52-FWD.</para>
+        </step>
+        <step>
+          <para>Mark hinge arm positions relative to fuselage with scribe or wax pencil for realignment.</para>
+        </step>
+        <step>
+          <para>Install spreader bar and hoist with sling support. Apply slight lift to offload hinges.</para>
+        </step>
+        <step>
+          <para>Remove hinge pin retention bolts and extract hinge pins using alignment guide tool.</para>
+        </step>
+        <step>
+          <para>With pins removed, slowly lower the door assembly onto foam cradle or dolly.</para>
+        </step>
+        <step>
+          <para>Inspect hinge bushings, cams, and fuselage mount points for cracks, corrosion, or distortion.</para>
+        </step>
+        <step>
+          <para>Reverse procedure for installation. Align door with reference marks and install hinge pins. Apply torque: 95 in-lb. (Ref: AMM 20-50-00).</para>
+        </step>
+        <step>
+          <para>Reconnect electrical harnesses and verify pin lock tab engagement.</para>
+        </step>
+        <step>
+          <para>Close door slowly and confirm flush alignment with fuselage skin and latch cycle timing.</para>
+        </step>
+      </mainProcedure>
+
+      <closeProcedure>
+        <step>
+          <para>Remove lift rig and torque safety cables.</para>
+        </step>
+        <step>
+          <para>Perform pressurization seal test per AMM 52-11-00-720-801 if applicable.</para>
+        </step>
+        <step>
+          <para>Log door serial number, removal reason, and reinstall date in aircraft structural component record.</para>
+        </step>
+      </closeProcedure>
+    </procedure>
+  </content>
+</dmodule>
+
+
+
+🧠 Behind the Scenes — Writer’s Inputs & Decisions
+
+✍️ Engineering Sources Required
+
+__________________________________________________________________________________________________________________________
+ Document 	                              |   Used For
+__________________________________________|_______________________________________________________________________________
+ Door Assembly Drawing                    |
+ (Top-Level & Exploded)	                  |   Defines hinge geometry, bolt pattern, bearing dimensions
+__________________________________________|_______________________________________________________________________________
+ IPC 52-11-00	                          |   Panel configuration (with/without pneumatic assist), part IDs
+__________________________________________|_______________________________________________________________________________
+ Lift Fixture Engineering Drawing	      |   Ensures hoist point center-of-gravity matches load plan
+__________________________________________|_______________________________________________________________________________
+ Electrical Wiring Diagram (ATA 92)	      |   Identifies harness and connector labels (JB52-FWD)
+__________________________________________|_______________________________________________________________________________
+ Fuselage Skin Flush Criteria	          |   Defines maximum offset at door-skin interface
+__________________________________________|_______________________________________________________________________________
+ Torque Tables (AMM 20-50-00)	          |   Applies to hinge bolt reinstallation and electrical connector grounding
+__________________________________________|_______________________________________________________________________________
+ Seal Pressure Test Procedure	          |   If reinstall triggers door pressurization leak test
+__________________________________________|_______________________________________________________________________________
+
+
+🛠️ Key Authoring Considerations
+
+__________________________________________________________________________________________________________________________
+ Consideration	                          |   Details
+__________________________________________|_______________________________________________________________________________
+ Weight & Handling Risk	                  |   The door exceeds 180 lbs and has asymmetrical mass → requires balance tools
+__________________________________________|_______________________________________________________________________________ 
+ Bushing & Hinge Tolerances	              |   Small misalignments cause door sag, binding, or latch timing failure
+__________________________________________|_______________________________________________________________________________
+ Seal Alignment	                          |   Improper reinstall could affect pressurization seals — mandatory test follow-up
+__________________________________________|_______________________________________________________________________________
+ Crack Inspection	                      |   Highly loaded zone — writers must include SRM references if damage found
+__________________________________________|_______________________________________________________________________________
+ Marking Points	                          |   Realignment needs reference marks or digital jigs to avoid "floating" reinstall
+__________________________________________|_______________________________________________________________________________
+ Interior Trim Compatibility	          |   Depending on version, certain seats, monuments, or trims must be removed first
+__________________________________________|_______________________________________________________________________________
+
+
+
+🖼️ Illustrations Typically Needed
+
+__________________________________________________________________________________________________________________________
+ Visual Type	                          |   Description
+__________________________________________|_______________________________________________________________________________
+ Door Hinges & Pins	                      |   Exploded detail with pin removal sequence
+__________________________________________|_______________________________________________________________________________
+ Hoist/Cradle Positioning	              |   Shows sling attachment and fuselage clearance margins
+__________________________________________|_______________________________________________________________________________
+ Latch Assembly Side View	              |   Optional view showing latch engagement at reclose
+__________________________________________|_______________________________________________________________________________
+ Flush Measurement Diagram	              |   Skin offset inspection post-install (±0.030 in typically)
+__________________________________________|_______________________________________________________________________________
+
+
+
+
+
+
+
