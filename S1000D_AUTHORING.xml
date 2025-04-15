@@ -1,0 +1,10 @@
+<dmCode modelIdentCode="S1000DBIKE" systemDiffCode="AAA"
+systemCode="DA2" subSystemCode="0" subSubSystemCode="0"
+assyCode="00" disassyCode="00" disassyCodeVariant="AA"
+infoCode="041" infoCodeVariant="A" itemLocationCode="A"/>
+
+<dmCode modelIdentCode="S1000DBIKE" systemDiffCode="AAA"
+systemCode="DA2" subSystemCode="0" subSubSystemCode="0"
+assyCode="00" disassyCode="00" disassyCodeVariant="AA"
+infoCode="041" infoCodeVariant="A" itemLocationCode="A"
+learnCode="T12" learnEventCode="C"/>
