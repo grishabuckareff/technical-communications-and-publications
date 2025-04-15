@@ -1,3 +1,40 @@
+Data module code
+
+Description: The element <dmCode> contains the data module code and forms part of the
+unique identifier of a data module. All data modules are allocated a data module code.
+The data module code provides four top-level pieces of information:
+- The identification of the Product, or part of the Product, about which the data module has
+been written, using the model identifier, the system difference code, the standard
+numbering system, the disassembly code and the disassembly code variant
+- The identification of the information type, using the information code and the information
+code variant
+- The identification of the location at which the information in the data module is appropriate,
+using the item location code
+- The identification of the type of learning content in learning data modules. Refer to
+Chap 4.3.
+Establishing the data module code requires a data module coding strategy. Refer to Chap 4.3.
+
+
+Markup element: <dmCode>
+
+Attributes:
+- modelIdentCode (M), the model identifier or project name. Refer to Chap 4.3.1.
+- systemDiffCode (M), the system difference code. Refer to Chap 4.3.2.
+- systemCode (M), the system code (part of the SNS). Refer to Chap 4.3.3.
+- subSystemCode (M), the subsystem code (part of the SNS). Refer to Chap 4.3.3.
+- subSubSystemCode (M), the sub-subsystem code (part of the SNS). Refer to
+Chap 4.3.3.
+- assyCode (M), the assembly code (part of the SNS). Refer to Chap 4.3.3.
+- disassyCode (M), the disassembly code. Refer to Chap 3.8 and Chap 4.3.4.
+- disassyCodeVariant (M), the disassembly code variant. Refer to Chap 4.3.5.
+- infoCode (M), the information code. Refer to Chap 4.3.6.
+- infoCodeVariant (M), the information code variant. Refer to Chap 4.3.7.
+- itemLocationCode (M), the item location code. Refer to Chap 4.3.8.
+- learnCode (O), the learn code. Refer to Chap 4.3.9 and Chap 8.5.
+- learnEventCode (O), the learn event code. Refer to Chap 3.9.5.2.13 and
+Chap 4.3.10
+
+
 Markup example for maintenance data modules:
 
 <dmCode modelIdentCode="S1000DBIKE" systemDiffCode="AAA"
@@ -13,6 +50,27 @@ systemCode="DA2" subSystemCode="0" subSubSystemCode="0"
 assyCode="00" disassyCode="00" disassyCodeVariant="AA"
 infoCode="041" infoCodeVariant="A" itemLocationCode="A"
 learnCode="T12" learnEventCode="C"/>
+
+
+Language
+
+Description: The element <language> is used to describe the language in which the data
+module is written.
+
+
+Markup element: <language>
+
+Attributes:
+- languageIsoCode (M), the two alpha characters from International Standards
+Organization (ISO) 639. Simplified languages are coded by using additional codes similar
+to, and not in conflict with, ISO 639 codes. For example, languageIsoCode="sx"
+means a Simplified Technical English® (ASD-STE100) data module and 
+languageIsoCode="ra" means a rationalized French data module.
+- countryIsoCode (M), the two alpha characters from ISO 3166 to denote the country
+where the language is spoken
+
+
+Markup examples:
 
 The following example is for a data module written in the default language:
 <language languageIsoCode="sx" countryIsoCode="US"/>
