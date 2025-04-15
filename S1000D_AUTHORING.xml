@@ -14,6 +14,9 @@ using the item location code
 Chap 4.3.
 Establishing the data module code requires a data module coding strategy. Refer to Chap 4.3.
 
+Child elements:
+- None
+
 
 Markup element: <dmCode>
 
@@ -51,7 +54,8 @@ assyCode="00" disassyCode="00" disassyCodeVariant="AA"
 infoCode="041" infoCodeVariant="A" itemLocationCode="A"
 learnCode="T12" learnEventCode="C"/>
 
-
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  
 Language
 
 Description: The element <language> is used to describe the language in which the data
@@ -69,6 +73,9 @@ languageIsoCode="ra" means a rationalized French data module.
 - countryIsoCode (M), the two alpha characters from ISO 3166 to denote the country
 where the language is spoken
 
+Child elements:
+- None
+
 
 Markup examples:
 
@@ -84,3 +91,8 @@ The following example is for a data module written in French:
 
 The following example is for a data module written in German:
 <language languageIsoCode="de" countryIsoCode="DE"/>
+
+
+The following example is for a data module written in German for an Austrian end user:
+<language languageIsoCode="de" countryIsoCode="AT"/>
+
