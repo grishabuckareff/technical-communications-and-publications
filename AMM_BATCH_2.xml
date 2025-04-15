@@ -1,16 +1,17 @@
 Main Landing Gear Brake Assembly Replacement
+S1000D DMC: 32-41-00-04-00A-720A-P
 
 This task involves:
 
-    Hydraulic line disconnection and reconnection
+    - Hydraulic line disconnection and reconnection
 
-    Torque-sensitive structural and pressure fittings
+    - Torque-sensitive structural and pressure fittings
 
-    Cleaning and inspection for heat damage, O-ring wear, and brake disk thickness
+    - Cleaning and inspection for heat damage, O-ring wear, and brake disk thickness
 
-    Multiple required tools and protective equipment
+    - Multiple required tools and protective equipment
 
-    Aircraft configuration, brake release, and post-installation system bleed
+    - Aircraft configuration, brake release, and post-installation system bleed
 
 
 S1000D-Compliant Task (Including CAUTION, WARNING, NOTE)
@@ -59,7 +60,7 @@ S1000D-Compliant Task (Including CAUTION, WARNING, NOTE)
             DEPRESSURIZE THE HYDRAULIC SYSTEM BEFORE DISCONNECTING ANY LINES. HIGH-PRESSURE FLUID CAN CAUSE SERIOUS INJURY.
           </warning>
           <caution>
-            Use clean caps and plugs on hydraulic lines to prevent contamination of the brake system.
+            USE CLEAN CAPS AND PLUGS ON HYDRAULIC LINES TO PREVENT CONTAMINATION OF THE BRAKE SYSTEM.
           </caution>
           <note>
             If replacing only one brake, ensure brake pairing compatibility as defined in AMM 32-41-00.
