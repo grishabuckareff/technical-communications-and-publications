@@ -1,8 +1,5 @@
 Main Landing Gear Brake Assembly Replacement
 
-From: AMM BOEING 777 LANDING GEAR.PDF and HYDRAULICS.PDF
-S1000D DMC: 32-41-00-04-00A-720A-P
-
 This task involves:
 
     Hydraulic line disconnection and reconnection
@@ -25,7 +22,7 @@ S1000D-Compliant Task (Including CAUTION, WARNING, NOTE)
   <identAndStatusSection>
     <dmAddress>
       <dmIdent>
-        <modelIdentCode>777</modelIdentCode>
+        <modelIdentCode></modelIdentCode>
         <systemDiffCode>00</systemDiffCode>
         <systemCode>32</systemCode>
         <subSystemCode>41</subSystemCode>
@@ -44,10 +41,10 @@ S1000D-Compliant Task (Including CAUTION, WARNING, NOTE)
     </dmAddress>
     <dmStatus>
       <security>01</security>
-      <responsiblePartnerCompany>Boeing</responsiblePartnerCompany>
+      <responsiblePartnerCompany></responsiblePartnerCompany>
       <originator>Landing Gear Engineering</originator>
       <applicability>
-        <applic>777-300ER</applic>
+        <applic></applic>
       </applicability>
       <language country="US">en</language>
     </dmStatus>
@@ -59,7 +56,7 @@ S1000D-Compliant Task (Including CAUTION, WARNING, NOTE)
         <preliminaryRqmtsDescr>Aircraft parked, hydraulic system depressurized, gear door safety locks installed, and tire chocks in place.</preliminaryRqmtsDescr>
         <safety>
           <warning>
-            Depressurize the hydraulic system before disconnecting any lines. High-pressure fluid can cause serious injury.
+            DEPRESSURIZE THE HYDRAULIC SYSTEM BEFORE DISCONNECTING ANY LINES. HIGH-PRESSURE FLUID CAN CAUSE SERIOUS INJURY.
           </warning>
           <caution>
             Use clean caps and plugs on hydraulic lines to prevent contamination of the brake system.
