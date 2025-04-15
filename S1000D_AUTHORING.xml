@@ -13,3 +13,16 @@ systemCode="DA2" subSystemCode="0" subSubSystemCode="0"
 assyCode="00" disassyCode="00" disassyCodeVariant="AA"
 infoCode="041" infoCodeVariant="A" itemLocationCode="A"
 learnCode="T12" learnEventCode="C"/>
+
+The following example is for a data module written in the default language:
+<language languageIsoCode="sx" countryIsoCode="US"/>
+
+The following example is for a data module written in Simplified Technical English with Oxford
+English spelling:
+<language languageIsoCode="sx" countryIsoCode="GB"/>
+
+The following example is for a data module written in French:
+<language languageIsoCode="fr" countryIsoCode="FR"/>
+
+The following example is for a data module written in German:
+<language languageIsoCode="de" countryIsoCode="DE"/>
