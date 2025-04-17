@@ -1,4 +1,59 @@
-Data module code
+2 Identification and status section
+
+Description: The element <identAndStatusSection> contains the identification and
+status of a data module, which are captured in the two parts, identification and status.
+
+  
+Markup element: <identAndStatusSection>
+
+Attributes:
+- None
+
+Child elements:
+- <dmAddress>. Refer to Para 2.1.
+- <dmStatus>. Refer to Para 2.2.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.1 Identification part
+
+Description: The element <dmAddress> contains the unique identification and additional
+information supporting the data module.
+
+  
+Markup element: <dmAddress>
+
+Attributes:
+- None
+
+Child elements:
+- <dmIdent>. Refer to Para 2.1.1.
+- <dmAddressItems>. Refer to Para 2.1.2.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.1.1 Data module identification
+
+Description: The element <dmIdent> contains the unique identification of the data module.
+
+  
+Markup element: <dmIdent>
+
+Attributes:
+- None
+
+Child elements:
+- <identExtension>, the additional parameters establish a unique identification of a
+data module in those cases when data module code, issue and inwork numbers together
+with the language and country are insufficient to form a universally unique identity. The
+element establishes a producer unique subdomain for identification. Refer to Chap 4.12.
+- <dmCode>. Refer to Para 2.1.1.1.
+- <language>. Refer to Para 2.1.1.2.
+- <issueInfo>. Refer to Para 2.1.1.3
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.1.1.1 Data module code
 
 Description: The element <dmCode> contains the data module code and forms part of the
 unique identifier of a data module. All data modules are allocated a data module code.
@@ -56,7 +111,7 @@ learnCode="T12" learnEventCode="C"/>
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
   
-Language
+2.1.1.2 Language
 
 Description: The element <language> is used to describe the language in which the data
 module is written.
@@ -98,7 +153,7 @@ The following example is for a data module written in German for an Austrian end
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-Issue information
+2.1.1.3 Issue information
 
 Description: The element <issueInfo> contains the issue number of the data module.
 Refer to Chap 4.7.
@@ -143,7 +198,7 @@ A data module that has been changed and released for the second time
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-Data module address items
+2.1.2 Data module address items
 
 Description: The element <dmAddressItems> contains information that is
 supplementary to the data module identification but not part of the unique identifier.
@@ -160,7 +215,7 @@ Child elements:
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-Issue date
+2.1.2.1 Issue date
 
 Description: The element <issueDate> contains the data module’s date of issue, which
 must be defined. This can be, for example, the input date (ie, the release to CSDB date), or the
@@ -184,7 +239,7 @@ Business rule decision point BRDP-S1-00049 - Definition of the issue date:
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-Data module title
+2.1.2.2 Data module title
 
 Description: The element <dmTitle> contains the title of the data module. The data
 module title must give meaning to the Product identification and action elements of the data
@@ -203,7 +258,7 @@ Child elements:
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-Technical name
+2.1.2.2.1 Technical name
 
 Description: The element <techName> content must reflect the name of the hardware or
 function. That is, it must reflect the system, subsystem or sub-subsystem concerned based on
@@ -234,7 +289,7 @@ Markup example:
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-Information name
+2.1.2.2.2 Information name
 
 Description: The element <infoName> contains the information name describing the type
 of information related to the Product about which the data module has been written. It is
@@ -309,7 +364,7 @@ made</infoName>
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-Information name variant
+2.1.2.2.3 Information name variant
 
 Description: The element <infoNameVariant> contains the information name
 extension describing the variation of the information related to the Product about which the data
@@ -338,7 +393,7 @@ This is an example where the value of attribute infoCode is "258
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-Status part
+2.2 Status part
 
 Description: The element <dmStatus> contains information about the status of the data
 module.
@@ -474,7 +529,7 @@ Business rule decision point BRDP-S1-00053 - Data module change/revised ratio:
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-Source data module identification
+2.2.1 Source data module identification
 
 Description: The element <sourceDmIdent> contains the identification of the source
 data module on which the current data module instance is based.
@@ -505,7 +560,7 @@ Markup example:
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-Repository source data module identification
+2.2.2 Repository source data module identification
 
 Description: The element <repositorySourceDmIdent> contains the identifiers for
 additional Common Information Repository (CIR) data modules. It must be used when
@@ -542,7 +597,7 @@ infoCode="00E" infoCodeVariant="A" itemLocationCode="A"/>
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-Security classification
+2.2.3 Security classification
 
 Description: The element <security> contains the security classification and restrictive
 marking of the complete data module and its contained or associated illustrations. For the
@@ -589,7 +644,7 @@ The following shows a data module that has the lowest possible security classifi
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-Derivative classification
+2.2.4 Derivative classification
 
 Description: The element <derivativeClassification> contains all derivative
 classification actions taken (eg, source material, date of action, action type) to the information
@@ -640,7 +695,7 @@ derivativeClassificationRefId="dcg-001">The lighting system is faulty and will b
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-Classification action group
+2.2.4.1 Classification action group
   
 Description: The element <classificationActionGroup> contains the set of
 classification actions that can be referred to using the attribute 
@@ -655,7 +710,7 @@ Child element:
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-Classification action
+2.2.4.2 Classification action
 
 Description: The element <classificationAction> contains the classification
 action.
@@ -674,7 +729,7 @@ Child elements:
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-Value after action
+2.2.4.2.1 Value after action
 
 Description: The element <valueAfterAction> contains a secondary classification
 action to occur on secondary date.
@@ -691,7 +746,7 @@ Child elements:
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-Derivative source
+2.2.4.2.2 Derivative source
 
 Description: The element <derivativeSource> contains a string that identifies the
 material from which the classification is derived.
@@ -705,7 +760,7 @@ Child elements:
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-Data restrictions
+2.2.5 Data restrictions
 
 Description: The element <dataRestrictions> contains the instructions and
 information, applicable to the data module, that relate to the use, storage and handling. This
@@ -733,7 +788,7 @@ Child elements:
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-Restriction instructions
+2.2.5.1 Restriction instructions
 
 Description: The element <restrictionInstructions> contains the instructions
 that must be followed when data restrictions apply.
@@ -761,7 +816,7 @@ Child elements:
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-Data distribution
+2.2.5.1.1 Data distribution
 
 Description: The element <dataDistribution> contains the instructions for
 distribution of a data module.
@@ -784,14 +839,14 @@ Child elements:
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-Export control
+2.2.5.1.2 Export control
 
 Description: The element <exportControl> contains the information regarding export
 control of the data module. Refer to Chap 3.9.5.1.1
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-Data handling
+2.2.5.1.3 Data handling
 
 Description: The element <dataHandling> contains any handling instructions, including
 storage, that are specific to the data module.
@@ -814,7 +869,7 @@ Child elements:
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-Data destruction
+2.2.5.1.4 Data destruction
 
 Description: The element <dataDestruction> contains any destruction instructions
 that are specific to the data module and that must be applied.
@@ -837,7 +892,7 @@ Child elements:
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-Data disclosure
+2.2.5.1.5 Data disclosure
 
 Description: The element <dataDisclosure> contains any special instructions with
 regard to the dissemination and disclose of the data module.
@@ -860,7 +915,7 @@ Child elements:
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-Supersedure
+2.2.5.1.6 Supersedure
 
 Description: The element <supersedure> contains a notice that the data module
 supersedes other data modules. For example, the requirements that must be applied to a data
@@ -886,7 +941,7 @@ Child elements:
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-Restriction information
+2.2.5.2 Restriction information
 
 Description: The element <restrictionInfo> contains any other information that is
 related to data restrictions, such as copyright information, policy references and other
@@ -913,7 +968,7 @@ Child elements:
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-Copyright
+2.2.5.2.1 Copyright
 
 Description: The element <copyright> contains the copyright information.
 There are two methods for populating copyright information for a particular data module. 
@@ -998,7 +1053,7 @@ Method 2: Reference to a specific copyright data module(s):
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-Copyright paragraph
+2.2.5.2.2 Copyright paragraph
 
 Description: The element <copyrightPara> contains the copyright statement itself or
 provides a cross-reference to another data module that contains the statement.
@@ -1025,7 +1080,7 @@ Child elements:
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-Policy reference
+2.2.5.2.3 Policy reference
 
 Description: The element <policyStatement> contains the reference to the security
 policy information.
@@ -1048,7 +1103,7 @@ Child elements:
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-Data conditions
+2.2.5.2.4 Data conditions
 
 Description: The element <dataConds> contains any information on any special
 conditions that can apply to the data module. For example, the security classification of a data
@@ -1073,7 +1128,7 @@ Child elements:
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-Control authority group
+2.2.6 Control authority group
 
 Description: The element <controlAuthorityGroup> is a container element for the
 control authority information.
@@ -1128,7 +1183,7 @@ Markup example:
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-Control authority
+2.2.6.1 Control authority
 
 Description: The element <controlAuthority> is used to identify the authority or
 organization that is responsible for the content.
@@ -1163,7 +1218,7 @@ Child elements:
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-Control Authority Text
+2.2.6.1.1 Control Authority Text
 
 Description: The element <controlAuthorityText> contains the text 
 that is related to the type of the controlling authority.
@@ -1179,7 +1234,23 @@ Child elements:
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-Responsible partner company
+2.2.7 Logo
+
+Description: The element <logo> contains the reference to the manufacturer’s, project’s or
+sponsor’s logotype.
+
+  
+Markup element: <logo>
+
+Attributes:
+- None
+
+Child elements:
+- <symbol>. Refer to Chap 3.9.5.2.1.10.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  
+2.2.8 Responsible partner company
 
 Description: The element <responsiblePartnerCompany> contains the company,
 organization or authority responsible for the data module. Only one entry is permitted.
@@ -1221,7 +1292,7 @@ mandatory for the project.
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-Enterprise/manufacturer/supplier name
+2.2.8.1 Enterprise/manufacturer/supplier name
 
 Description: The element <enterpriseName> contains the name of the enterprise/
 manufacturer/supplier, which is responsible for the data.
@@ -1242,7 +1313,7 @@ Markup example:
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-Originator
+2.2.9 Originator
 
 Description: The element <originator> contains the identifier of the originating
 company or organization responsible for the production of the data module. The originator’s
@@ -1271,7 +1342,7 @@ If the name is used it must be done consistently and be mandatory for the projec
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-Applicability cross-reference table reference
+2.2.10 Applicability cross-reference table reference
 
 Description: The element <applicCrossRefTableRef> contains a pointer to the
 Applicability Cross-reference Table (ACT) data module that applies to the data module. Refer
@@ -1288,7 +1359,7 @@ Child elements:
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-Technical standard
+2.2.11 Technical standard
 
 Description: The element <techStandard> contains the authorized technical standard
 and associated data to be entered, describing the information basis used to write the data
@@ -1313,7 +1384,7 @@ Child elements:
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-Authority block and technical publications information
+2.2.11.1 Authority block and technical publications information
 
 Description: The element <authorityInfoAndTp> contains both the authority block
 information and the technical publications baseline when it is appropriate to use both.
@@ -1329,8 +1400,8 @@ Child elements:
 - <techPubBase>. Refer to Para 2.2.11.3.
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-Authority information
+  
+2.2.11.2 Authority information
 
 Description: The element <authorityInfo> contains the authority that owns the source
 data from which the data module is written. If codes are used, they are determined by the
@@ -1347,7 +1418,7 @@ Child elements:
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-Publication baseline number
+2.2.11.3 Publication baseline number
 
 Description: The element <techPubBase> contains the technical publication baseline to
 which the data module is written. The publication baseline number represents the technical
@@ -1370,7 +1441,7 @@ Child elements:
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-Authority exceptions
+2.2.11.4 Authority exceptions
 
 Description: The element <authorityExceptions> contains deviations of the data
 module content from the standard given in the authority block for configurations.
@@ -1387,7 +1458,7 @@ Child elements:
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-Product configuration
+2.2.11.4.1 Product configuration
 
 Description: The element <productConfiguration> contains a reference to the
 Product configuration as defined for production in the authority block. Any deviation from that
@@ -1405,7 +1476,7 @@ Child elements:
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-Excluded modification
+2.2.11.4.2 Excluded modification
 
 Description: The element <excludedModification> contains an indication that the
 modification is not covered even though it was actually required.
@@ -1421,7 +1492,7 @@ Child elements:
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-Additional modification
+2.2.11.4.3 Additional modification
 
 Description: The element <additionalModification> contains an indication that a
 modification is additionally covered.
@@ -1437,7 +1508,7 @@ Child elements:
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-Retrofit
+2.2.11.4.4 Retrofit
 
 Description: The element <retrofit> contains a reference to post-delivery changes that
 are usually performed in accordance with a retrofit order, (eg, pre-or post-modification).
@@ -1453,7 +1524,7 @@ Child elements:
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-Modification
+2.2.11.4.5 Modification
 
 Description: The element <modification> contains the identification of the retrofit
 order.
@@ -1483,7 +1554,7 @@ Child elements:
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-Modification title
+2.2.11.4.6 Modification title
 
 Description: The element <modificationTitle> contains the title of the modification.
 
@@ -1498,7 +1569,7 @@ Child elements:
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-Authority notes
+2.2.11.5 Authority notes
 
 Description: The element <authorityNotes> contains additional information that can
 be necessary to explain preceding entries. Whenever a data module is only applicable to one
@@ -1564,7 +1635,7 @@ Child elements:
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-Unverified
+2.2.13.1 Unverified
 
 Description: The element <unverified> identifies that the data module has not yet been
 first verified.
@@ -1591,7 +1662,7 @@ Markup example:
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-First verification
+2.2.13.2 First verification
 
 Description: The element <firstVerification> identifies a data module which has
 been first verified. Refer to Chap 3.7.
@@ -1611,7 +1682,7 @@ Child elements:
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-Second verification
+2.2.13.3 Second verification
 
 Description: The element <secondVerification> identifies a data module which has
 been second verified. Data modules cannot be only second-verified. They must also be first
@@ -1639,7 +1710,7 @@ Markup example:
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-System breakdown code
+2.2.14 System breakdown code
 
 Description: The element <systemBreakdownCode> contains a code that captures the
 physical breakdown for those projects that are producing data modules that are in line with
@@ -1657,19 +1728,303 @@ Child elements:
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 2.2.15 Functional item code
+
 Description: The element <functionalItemCode> contains a code that represents the
 functional breakdown.
+
+  
 Markup element: <functionalItemCode>
+
 Attributes:
 - None
+
 Child elements:
 - None
 
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
+2.2.16 Functional item reference
 
+Description: The element <functionalItemRef> contains a reference to the
+functional item’s CIR data module.
+A functional item can be used to uniquely identify an item that performs a function, 
+in a system that is part of a Product.
+For example, a functional item can be the third pump in a hydraulic system of a Product.
+Depending on the Product instance, this functional item can be mechanical or electrical, and
+so, can perform the function of a hydraulic pump.
+The functional item is also known as the reference designator.
 
+  
+Markup element: <functionalItemRef>
 
+Attributes:
+- applicRefId (O), the applicability information by referencing the element 
+<applic>. Refer to Chap 3.9.5.3.
+- id (O), the identifier of the markup element. Refer to Chap 3.9.5.2.1.2.
+- changeType (O), changeMark (O) and reasonForUpdateRefIds (O), the
+change indications. Refer to Chap 3.9.5.2.1.1.
+- functionalItemNumber (M), the functional item number identifier. Refer to
+Chap 3.9.5.2.7.
+- functionalItemType (O), the functional item type. The attribute can have one of
+the following values:
+  • "fit01" thru "fit99". Refer to Chap 3.9.6.1.
+- installationIdent (O), the installation identifier.
+- contextIdent (O), the context identification (eg, the vendor’s part number allocated
+to a next higher assembly). This identifier is used in combination with the attribute 
+manufacturerCodeValue to ensure the uniqueness of the manufacturer’s
+equipment data.
+- manufacturerCodeValue (O), the CAGE code of the functional item designer.
+Since there is no standardized method for assigning functional item numbers, the CAGE
+code of the functional item designer ensures the uniqueness of a functional item number.
+- itemOriginator (O), the originator of the functional item. This is used to indicate the
+origin of the equipment (eg, if the equipment is an aircraft manufacturer equipment).
+- controlAuthorityRefs (O), the control authority information by referencing the
+element <controlAuthority>. Refer to Para 2.2.6.1.
+- securityClassification (O), commercialClassification (O), 
+caveat (O) and derivativeClassificationRefId (O), the security and
+restrictive marking. Refer to Chap 3.6.
 
+Child elements:
+- <name> (O), gives the name of the functional item. Refer to Chap 3.9.5.2.1.10.
+- <shortName> (O). Refer to Chap 3.9.5.2.1.10.
+- <refs> (O), references providing a link to the functional item. Refer to Chap 3.9.5.2.1.2.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.2.17 Skill level
+
+Description: The element <skillLevel> contains the skill level to which the data module
+has been written.
+
+  
+Markup element: <skillLevel>
+
+Attributes:
+- skillLevelCode (M), the actual code. The attribute can have one of the following
+values:
+  • "sk01" thru "sk99". Refer to Chap 3.9.6.1.
+
+Child elements:
+- None
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.2.18 Product safety
+
+Description: The element <productSafety> contains an indication when a data module
+is transmitting information that affects the safety of the Product’s users. The element 
+<productSafety> can be empty or can contain textual information describing the
+urgency for processing the information in the data module and handling of the data module
+When third parties now operate the Product.
+
+  
+Markup element: <productSafety>
+
+Attributes:
+- safetyLabel (M), contains a short description of the type of safety issue or a category
+selected from industry standard safety labels.
+
+Child elements:
+- None
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.2.19 Remarks
+
+Description: The element <remarks> can contain general remarks.
+
+  
+Markup element: <remarks>
+
+Attributes:
+- applicRefId (O), the applicability information by referencing the element 
+<applic>. Refer to Chap 3.9.5.3.
+- controlAuthorityRefs (O), the control authority information by referencing the
+element <controlAuthority>. Refer to Para 2.2.6.1.
+
+Child elements:
+- <simplePara> (O). Refer to Chap 3.9.5.2.1.10.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+3 Example
+
+<identAndStatusSection>
+  <dmAddress>
+    <dmIdent>
+    <dmCode modelIdentCode="S1000DBIKE" systemDiffCode="AAA"
+    systemCode="DA2" subSystemCode="3" subSubSystemCode="0"
+    assyCode="00" disassyCode="00" disassyCodeVariant="AA"
+    infoCode="720" infoCodeVariant="A" itemLocationCode="A">
+    </dmCode>
+    <language countryIsoCode="US" languageIsoCode="sx"></language>
+    <issueInfo issueNumber="005" inWork="00"/>
+    </dmIdent>
+    <dmAddressItems>
+      <issueDate year="2012" month="07" day="31"/>
+        <dmTitle>
+          <techName securityClassification="01">Headset</techName>
+          <infoName securityClassification="01">Install procedure</infoName>
+        </dmTitle>
+    </dmAddressItems>
+  </dmAddress>
+  <dmStatus>
+    <security securityClassification="01"
+    commercialClassification="cc51" caveat="cv51"
+    derivativeClassificationRefId="dcg-001"/>
+    <dataRestrictions>
+      <restrictionInstructions>
+        <dataDistribution>To be made available to all S1000D users.</dataDistribution>
+        <exportControl>
+          <exportRegistrationStmt>
+            <simplePara>Export of this data module to all countries that are the residence of organizations that are users of S1000D is permitted. Storage of this data module is to be at the discretion of the organization.</simplePara>
+          </exportRegistrationStmt>
+        </exportControl>
+        <dataHandling>There are no specific handling instructions for this data module.</dataHandling>
+        <dataDestruction>Users may destroy this data module in accordance with their own local procedures.</dataDestruction>          <dataDisclosure>There are no dissemination limitations that apply to this data module.</dataDisclosure>
+        </restrictionInstructions>
+        <restrictionInfo>
+         <copyright>
+          <copyrightPara>
+            <emphasis>Copyright (C) 2016</emphasis> by each of the following organizations:
+            <randomList>                
+              <listItem>
+                <para>Aerospace, Security and Defence Industries Association of Europe - ASD.</para>
+              </listItem>
+              <listItem>
+                <para>Ministries of Defence of the member countries of ASD.</para>
+              </listItem>
+            </randomList>
+          </copyrightPara>
+          <copyrightPara>
+            <emphasis>Limitations of liability:</emphasis>
+          </copyrightPara>
+          <copyrightPara>
+             <randomList>
+              <listItem>
+                <para>This material is provided "As is" and neither ASD nor any person who has contributed to the creation, revision or maintenance of the material makes any representations or warranties, express or implied, including but not limited to, warranties of merchantability or fitness for any particular purpose.</para>
+              </listItem>
+              <listItem>
+                <para>Neither ASD nor any person who has contributed to the creation, revision or maintenance of this material shall be liable for any direct, indirect, special or consequential damages or any other liability arising from any use of this material.</para>
+              </listItem>
+              <listItem>
+                <para>Revisions to this document may occur after its issuance. The user is responsible for determining if revisions to the material contained in this document have occurred and are applicable.</para>
+              </listItem>
+            </randomList>
+          </copyrightPara>
+        </copyright>
+        <policyStatement>S1000D-SC-2016-017-002-00 Steering Committee TOR</policyStatement>
+        <dataConds>There are no known conditions that would change the data restrictions for, or security classification of, this data module.</dataConds>
+      </restrictionInfo>
+    </dataRestrictions>
+      <controlAuthorityGroup>
+        <controlAuthority id="controlAuthority-001"
+        controlAuthorityType="cat01" controlAuthoritySource="FAA"
+        controlAuthorityValue="2005-23-17">
+          <controlAuthorityText>
+            <para>Text related to an AD - Airworthiness Directive (cat01)</para>
+          </controlAuthorityText>
+          <symbol infoEntityIdent="FLAGNOTEINDICATOR"/>
+        </controlAuthority>
+        <controlAuthority id="controlAuthority-002"
+        controlAuthorityType="cat06" controlAuthoritySource="FAA"
+        controlAuthorityValue="22-CMR-99">
+          <controlAuthorityText>
+            <para>Text related to a CMR - Certification Maintenance Requirement (cat06)</para>
+          </controlAuthorityText>
+          <symbol infoEntityIdent="FLAGNOTEINDICATOR"/>
+        </controlAuthority>
+        <controlAuthority id="controlAuthority-003"
+        controlAuthorityType="cat10" controlAuthoritySource="ZAP"
+        controlAuthorityValue="RII"/>
+        <controlAuthority id="controlAuthority-004"
+        controlAuthorityType="cat05" controlAuthoritySource="FAA"
+        controlAuthorityValue="28-AWL-03: CDCCL"/>
+        <controlAuthority id="controlAuthority-005"
+        controlAuthorityType="cat13" controlAuthoritySource="ZAP"
+        controlAuthorityValue="POL-9999"/>
+      </controlAuthorityGroup>
+      <logo>
+        <symbol infoEntityIdent="ICN-S3627-S1000D094-001-01"/>
+      </logo>
+      <responsiblePartnerCompany enterpriseCode="B6865">
+      <enterpriseName>AEROSPACE AND DEFENCE INDUSTRIES ASSOCIATION OF EUROPE</enterpriseName></responsiblePartnerCompany>
+      <originator enterpriseCode="B6865">
+        <enterpriseName>AEROSPACE AND DEFENCE INDUSTRIES ASSOCIATION OF EUROPE</enterpriseName></originator>
+        <applicCrossRefTableRef>
+          <dmRef>
+            <dmRefIdent>
+              <dmCode modelIdentCode="S1000DBIKE"
+              systemDiffCode="AAA" systemCode="D00" subSystemCode="0"
+              subSubSystemCode="0" assyCode="00" disassyCode="00"
+              disassyCodeVariant="AA" infoCode="00W" infoCodeVariant="A"
+              itemLocationCode="D">
+              </dmCode>
+            </dmRefIdent>
+          </dmRef>
+        </applicCrossRefTableRef>
+        <applic>
+          <displayText>
+            <simplePara>Mountain bicycle and (Mountain storm Mk1 or Brook trekker Mk9)</simplePara>
+          </displayText>
+          <evaluate andOr="and">
+            <assert applicPropertyIdent="type" applicPropertyType="prodattr" applicPropertyValues="Mountain bicycle"/>
+            <evaluate andOr="or">
+              <evaluate andOr="and">
+                <assert applicPropertyIdent="model" applicPropertyType="prodattr" applicPropertyValues="Mountain storm"/>
+                  <assert applicPropertyIdent="version" applicPropertyType="prodattr" applicPropertyValues="Mk1"/>
+              </evaluate>
+              <evaluate andOr="and">
+                <assert applicPropertyIdent="model" applicPropertyType="prodattr" applicPropertyValues="Brook trekker"/>
+                <assert applicPropertyIdent="version" applicPropertyType="prodattr" applicPropertyValues="Mk9"/>
+              </evaluate>
+            </evaluate>
+          </evaluate>
+        </applic>
+        <techStandard>
+          <authorityInfoAndTp>
+            <authorityInfo>20010131</authorityInfo>
+            <techPubBase>Bike book</techPubBase>
+          </authorityInfoAndTp>
+        <authorityExceptions/>
+<authorityNotes/>
+</techStandard>
+<brexDmRef>
+<dmRef><dmRefIdent><dmCode modelIdentCode="S1000DBIKE"
+systemDiffCode="AAA" systemCode="D00" subSystemCode="0"
+subSubSystemCode="0" assyCode="00" disassyCode="00"
+disassyCodeVariant="AA" infoCode="022" infoCodeVariant="A"
+itemLocationCode="D"/>
+<issueInfo issueNumber="005" inWork="00"/>
+</dmRefIdent></dmRef></brexDmRef>
+<qualityAssurance>
+<firstVerification verificationType="tabtop"/>
+</qualityAssurance>
+<systemBreakdownCode>BY143</systemBreakdownCode>
+<functionalItemCode>AAI2392</functionalItemCode>
+<functionalItemRef functionalItemNumber="101HG1"
+manufacturerCodeValue="2D671"/>
+<skillLevel skillLevelCode="sk02"/>
+<reasonForUpdate updateReasonType="urt02">
+<reasonForUpdatePara>Revised to cover the requirements of
+<externalPubRef>
+<refs>
+<externalPubRefIdent>
+<externalPubCode>ModXYZ</externalPubCode>
+<externalPubTitle>Headset bolt torque values.</externalPubTitle>
+</externalPubRefIdent>
+</externalPubRef>
+</refs>
+</reasonForUpdatePara>
+</reasonForUpdate>
+<productSafety safetyLabel="Alert">THIS SERVICE BULLETIN DATASET
+HAS BEEN DELIVERED TO THE OPERATORS OF RECORD OF THE AFFECTED
+AIRPLANES. IF AN AFFECTED AIRPLANE HAS BEEN LEASED OR SOLD, SEND
+THE SERVICE BULLETIN TO THE NEW OPERATOR.</productSafety>
+<remarks><simplePara>This is a complete markup example of an
+identification and status section</simplePara></remarks>
+</dmStatus>
+</identAndStatusSection>
 
 
 
