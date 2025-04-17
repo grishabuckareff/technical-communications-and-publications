@@ -638,8 +638,425 @@ The associated markup in the content section of the same data module is:
 <para securityClassification="03" caveat="cv55"
 derivativeClassificationRefId="dcg-001">The lighting system is faulty and will be replaced by 2013-03-15.</para>
 
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Classification action group
+  
+Description: The element <classificationActionGroup> contains the set of
+classification actions that can be referred to using the attribute 
+derivativeClassificationRefId within the element <businessUnit>.
 
 
+Attributes:
+- id (O), the identifier of the markup element. Refer to Chap 3.9.5.2.1.2.
+
+Child element:
+- <classificationAction>. Refer to Para 2.2.4.2
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Classification action
+
+Description: The element <classificationAction> contains the classification
+action.
+
+  
+Attributes:
+- actionIdentType (M), the classification action. Refer to Chap 3.9.6.1.
+- year (M), the year of issue given as a four-digit number
+- month (M), the month of issue given as a two-digit number
+- day (M), the day of issue given as a two-digit number
+
+Child elements:
+- <valueAfterAction>. Refer to Para 2.2.4.2.1.
+- <businessUnit>. Refer to Chap 3.9.5.2.11.6.
+- <derivativeSource>. Refer to Para 2.2.4.2.2.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Value after action
+
+Description: The element <valueAfterAction> contains a secondary classification
+action to occur on secondary date.
+
+  
+Attributes:
+- actionIdentType (M), the classification action. Refer to Chap 3.9.6.1.
+- year (M), the year of issue given as a four-digit number
+- month (M), the month of issue given as a two-digit number
+- day (M), the day of issue given as a two-digit number
+
+Child elements:
+- None
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Derivative source
+
+Description: The element <derivativeSource> contains a string that identifies the
+material from which the classification is derived.
+
+  
+Attributes:
+- None
+
+Child elements:
+- None
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Data restrictions
+
+Description: The element <dataRestrictions> contains the instructions and
+information, applicable to the data module, that relate to the use, storage and handling. This
+element can contain applicability information. Projects must ensure that all data restriction
+information and information is in line with the project requirements.
+
+  
+Markup element: <dataRestrictions>
+
+Attributes:
+- applicRefId (O), the applicability information by referencing the element 
+<applic>. Refer to Chap 3.9.5.3.
+- id (O), the identifier of the markup element. Refer to Chap 3.9.5.2.1.2.
+- changeType (O), changeMark (O) and reasonForUpdateRefIds (O), the
+change indications. Refer to Chap 3.9.5.2.1.1.
+- controlAuthorityRefs (O), the control authority information by referencing the
+element <controlAuthority>. Refer to Para 2.2.6.1.
+- securityClassification (O), commercialClassification (O), 
+caveat (O) and derivativeClassificationRefId (O), the security and
+restrictive marking. Refer to Chap 3.6.
+
+Child elements:
+- <restrictionInstructions>. Refer to Para 2.2.5.1.
+- <restrictionInfo>. Refer to Para 2.2.5.2.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Restriction instructions
+
+Description: The element <restrictionInstructions> contains the instructions
+that must be followed when data restrictions apply.
+
+  
+Markup element: <restrictionInstructions>
+
+Attributes:
+- id (O), the identifier of the markup element. Refer to Chap 3.9.5.2.1.2.
+- changeType (O), changeMark (O) and reasonForUpdateRefIds (O), the
+change indications. Refer to Chap 3.9.5.2.1.1.
+- controlAuthorityRefs (O), the control authority information by referencing the
+element <controlAuthority>. Refer to Para 2.2.6.1.
+- securityClassification (O), commercialClassification (O), 
+caveat (O) and derivativeClassificationRefId (O), the security and
+restrictive marking. Refer to Chap 3.6.
+
+Child elements:
+- <dataDistribution>. Refer to Para 2.2.5.1.1.
+- <exportControl>. Refer to Para 2.2.5.1.2.
+- <dataHandling>. Refer to Para 2.2.5.1.3.
+- <dataDestruction>. Refer to Para 2.2.5.1.4.
+- <dataDisclosure>. Refer to Para 2.2.5.1.5.
+- <supersedure>. Refer to Para 2.2.5.1.6.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Data distribution
+
+Description: The element <dataDistribution> contains the instructions for
+distribution of a data module.
+
+  
+Markup element: <dataDistribution>
+
+Attributes:
+- id (O), the identifier of the markup element. Refer to Chap 3.9.5.2.1.2.
+- changeType (O), changeMark (O) and reasonForUpdateRefIds (O), the
+change indications. Refer to Chap 3.9.5.2.1.1.
+- controlAuthorityRefs (O), the control authority information by referencing the
+element <controlAuthority>. Refer to Para 2.2.6.1.
+- securityClassification (O), commercialClassification (O), 
+caveat (O) and derivativeClassificationRefId (O), the security and
+restrictive marking. Refer to Chap 3.6.
+
+Child elements:
+- None
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Export control
+
+Description: The element <exportControl> contains the information regarding export
+control of the data module. Refer to Chap 3.9.5.1.1
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Data handling
+
+Description: The element <dataHandling> contains any handling instructions, including
+storage, that are specific to the data module.
+
+  
+Markup element: <dataHandling>
+
+Attributes:
+- id (O), the identifier of the markup element. Refer to Chap 3.9.5.2.1.2.
+- changeType (O), changeMark (O) and reasonForUpdateRefIds (O), the
+change indications. Refer to Chap 3.9.5.2.1.1.
+- controlAuthorityRefs (O), the control authority information by referencing the
+element <controlAuthority>. Refer to Para 2.2.6.1.
+- securityClassification (O), commercialClassification (O), 
+caveat (O) and derivativeClassificationRefId (O), the security and
+restrictive marking. Refer to Chap 3.6.
+
+Child elements:
+- None
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Data destruction
+
+Description: The element <dataDestruction> contains any destruction instructions
+that are specific to the data module and that must be applied.
+
+  
+Markup element: <dataDestruction>
+
+Attributes:
+- id (O), the identifier of the markup element. Refer to Chap 3.9.5.2.1.2.
+- changeType (O), changeMark (O) and reasonForUpdateRefIds (O), the
+change indications. Refer to Chap 3.9.5.2.1.1.
+- controlAuthorityRefs (O), the control authority information by referencing the
+element <controlAuthority>. Refer to Para 2.2.6.1.
+- securityClassification (O), commercialClassification (O), 
+caveat (O) and derivativeClassificationRefId (O), the security and
+restrictive marking. Refer to Chap 3.6.
+
+Child elements:
+- None
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Data disclosure
+
+Description: The element <dataDisclosure> contains any special instructions with
+regard to the dissemination and disclose of the data module.
+
+  
+Markup element: <dataDisclosure>
+
+Attributes:
+- id (O), the identifier of the markup element. Refer to Chap 3.9.5.2.1.2.
+- changeType (O), changeMark (O) and reasonForUpdateRefIds (O), the
+change indications. Refer to Chap 3.9.5.2.1.1.
+- controlAuthorityRefs (O), the control authority information by referencing the
+element <controlAuthority>. Refer to Para 2.2.6.1.
+- securityClassification (O), commercialClassification (O), 
+caveat (O) and derivativeClassificationRefId (O), the security and
+restrictive marking. Refer to Chap 3.6.
+
+Child elements:
+- None
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Supersedure
+
+Description: The element <supersedure> contains a notice that the data module
+supersedes other data modules. For example, the requirements that must be applied to a data
+module with regard to supersedure notices.
+
+  
+Markup element: <supersedure>
+
+Attributes:
+- id (O), the identifier of the markup element. Refer to Chap 3.9.5.2.1.2.
+- changeType (O), changeMark (O) and reasonForUpdateRefIds (O), the
+change indications. Refer to Chap 3.9.5.2.1.1.
+- controlAuthorityRefs (O), the control authority information by referencing the
+element <controlAuthority>. Refer to Para 2.2.6.1.
+- securityClassification (O), commercialClassification (O), 
+caveat (O) and derivativeClassificationRefId (O), the security and
+restrictive marking. Refer to Chap 3.6.
+
+Child elements:
+- textual characters. Refer to Chap 3.9.1.
+- <subScript>. Refer to Chap 3.9.5.2.1.10.
+- <superScript>. Refer to Chap 3.9.5.2.1.10.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Restriction information
+
+Description: The element <restrictionInfo> contains any other information that is
+related to data restrictions, such as copyright information, policy references and other
+conditions, for example, the content and extent of restriction information to include in a data
+module.
+
+  
+Markup element: <restrictionInfo>
+
+Attributes:
+- id (O), the identifier of the markup element. Refer to Chap 3.9.5.2.1.2.
+- changeType (O), changeMark (O) and reasonForUpdateRefIds (O), the
+change indications. Refer to Chap 3.9.5.2.1.1.
+- controlAuthorityRefs (O), the control authority information by referencing the
+element <controlAuthority>. Refer to Para 2.2.6.1.
+- securityClassification (O), commercialClassification (O), 
+caveat (O) and derivativeClassificationRefId (O), the security and
+restrictive marking. Refer to Chap 3.6.
+
+Child elements:
+- <copyright>. Refer to Para 2.2.5.2.1.
+- <policyStatement>. Refer to Para 2.2.5.2.3.
+- <dataConds>. Refer to Para 2.2.5.2.4.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Copyright
+
+Description: The element <copyright> contains the copyright information.
+There are two methods for populating copyright information for a particular data module. 
+These are:
+- by including the copyright information directly in data modules
+- by reference to a specific data module that contains the copyright information
+Both methods are permitted.
+
+Note
+When deciding on which method to use when there are likely to be changes to copyright
+information, using a single copyright data module means any changes would be made in
+one place.
+
+  
+Markup element: <copyright>
+
+Attributes:
+- id (O), the identifier of the markup element. Refer to Chap 3.9.5.2.1.2.
+- changeType (O), changeMark (O) and reasonForUpdateRefIds (O), the
+change indications. Refer to Chap 3.9.5.2.1.1.
+- controlAuthorityRefs (O), the control authority information by referencing the
+element <controlAuthority>. Refer to Para 2.2.6.1.
+- securityClassification (O), commercialClassification (O), 
+caveat (O) and derivativeClassificationRefId (O), the security and
+restrictive marking. Refer to Chap 3.6.
+
+Child elements:
+- <copyrightPara>. Refer to Para 2.2.5.2.2.
+Business rule decision point BRDP-S1-00065 - Use of the element <copyright> and
+source of copyright information:
+– Decide whether and how to use the element <copyright>. Any copyright information
+must be obtained from the relevant authority.
+Business rule decision point BRDP-S1-00066 - Method of populating copyright
+information (in each data module or in a consolidated data module):
+– Decide whether to populate copyright information in each data module or whether to cross-reference to a copyright data module.
+
+Note
+While choosing the population method, assess the impact of changes to copyright
+information on updating of data modules.
+
+  
+Markup example:
+
+Method 1: Recording copyright information directly in a data module. Note the use of the
+copyright character entity &copy; to get the required symbol "©".
+
+<copyrightPara>
+  <emphasis>Copyright &copy; 2016</emphasis> by each of the following organizations:
+    <randomList>
+    <listItem>
+      <para>Aerospace, Security and Defence Industries Association of Europe - ASD.</para>
+    </listItem>
+    <listItem>
+      <para>Ministries of Defence of the member countries of ASD.</para>
+    </listItem>
+  </randomList>
+</copyrightPara>
+
+Method 2: Reference to a specific copyright data module(s):
+
+<copyright>
+  <copyrightPara>For Copyright information, refer to
+    <dmRef>
+      <dmRefIdent>
+        <dmCode modelIdentCode="S1000DBIKE" systemDiffCode="A"
+        systemCode="00" subSystemCode="0" subSubSystemCode="0"
+        assyCode="00" disassyCode="00" disassyCodeVariant="A"
+        infoCode="021" infoCodeVariant="A" itemLocationCode="D"/>
+      </dmRefIdent>
+    </dmRef> 
+    and
+    <dmRef>
+      <dmRefIdent>
+        <dmCode modelIdentCode="S1000D" systemDiffCode="A"
+        systemCode="00" subSystemCode="0" subSubSystemCode="0"
+        assyCode="00" disassyCode="01" disassyCodeVariant="A"
+        infoCode="021" infoCodeVariant="A" itemLocationCode="D" />
+      </dmRefIdent>
+    </dmRef>
+  </copyrightPara>
+</copyright>
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Copyright paragraph
+
+Description: The element <copyrightPara> contains the copyright statement itself or
+provides a cross-reference to another data module that contains the statement.
+
+  
+Markup element: <copyrightPara>
+
+Attributes:
+- applicRefId (O), the applicability information by referencing the element 
+<applic>. Refer to Chap 3.9.5.3.
+- id (O), the identifier of the markup element. Refer to Chap 3.9.5.2.1.2.
+- changeType (O), changeMark (O) and reasonForUpdateRefIds (O), the
+change indications. Refer to Chap 3.9.5.2.1.1.
+- controlAuthorityRefs (O), the control authority information by referencing the
+element <controlAuthority>. Refer to Para 2.2.6.1.
+
+Child elements:
+- textual characters. Refer to Chap 3.9.1.
+- <emphasis>. Refer to Chap 3.9.5.2.1.10.
+- <subScript>. Refer to Chap 3.9.5.2.1.10.
+- <superScript>. Refer to Chap 3.9.5.2.1.10.
+- <dmRef>. Refer to Chap 3.9.5.2.1.2.
+- <randomList>. Refer to Chap 3.9.5.2.1.3.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Policy reference
+
+Description: The element <policyStatement> contains the reference to the security
+policy information.
+
+  
+Markup element: <policyStatement>
+
+Attributes:
+- id (O), the identifier of the markup element. Refer to Chap 3.9.5.2.1.2.
+- changeType (O), changeMark (O) and reasonForUpdateRefIds (O), the
+change indications. Refer to Chap 3.9.5.2.1.1.
+- controlAuthorityRefs (O), the control authority information by referencing the
+element <controlAuthority>. Refer to Para 2.2.6.1.
+- securityClassification (O), commercialClassification (O), 
+caveat (O) and derivativeClassificationRefId (O), the security and
+restrictive marking. Refer to Chap 3.6.
+
+Child elements:
+- None
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+  
 
 
 
