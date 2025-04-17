@@ -1048,6 +1048,198 @@ Child elements:
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
+Data conditions
+
+Description: The element <dataConds> contains any information on any special
+conditions that can apply to the data module. For example, the security classification of a data
+module can be required to be changed when aggregated with other data modules with similar
+conditions.
+
+  
+Markup element: <dataConds>
+
+Attributes:
+- id (O), the identifier of the markup element. Refer to Chap 3.9.5.2.1.2.
+- changeType (O), changeMark (O) and reasonForUpdateRefIds (O), the
+change indications. Refer to Chap 3.9.5.2.1.1.
+- controlAuthorityRefs (O), the control authority information by referencing the
+element <controlAuthority>. Refer to Para 2.2.6.1.
+- securityClassification (O), commercialClassification (O), 
+caveat (O) and derivativeClassificationRefId (O), the security and
+restrictive marking. Refer to Chap 3.6.
+
+Child elements:
+- None
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Control authority group
+
+Description: The element <controlAuthorityGroup> is a container element for the
+control authority information.
+Regulatory agencies and manufacturers agree on certain information and exact wording in
+technical manuals. This wording must not be changed or deleted by the owner or operator. This
+wording must be visible to the mechanic as part of the procedure.
+
+  
+Markup element: <controlAuthorityGroup>
+
+Attributes:
+- applicRefId (O), the applicability information by referencing the element 
+<applic>. Refer to Chap 3.9.5.3.
+- id (O), the identifier of the markup element. Refer to Chap 3.9.5.2.1.2.
+- changeType (O), changeMark (O) and reasonForUpdateRefIds (O), the
+change indications. Refer to Chap 3.9.5.2.1.1.
+- securityClassification (O), commercialClassification (O), 
+caveat (O) and derivativeClassificationRefId (O), the security and
+restrictive marking. Refer to Chap 3.6.
+
+Child elements:
+- <controlAuthority>. Refer to Para 2.2.6.1.
+
+Markup example:
+<controlAuthorityGroup>
+  <controlAuthority id="controlAuthority-001"
+  controlAuthorityType="cat01" controlAuthoritySource="FAA"
+  controlAuthorityValue="2005-23-17">
+    <controlAuthorityText>
+      <para>Text related to an AD - Airworthiness Directive (cat01)</para>
+    </controlAuthorityText>
+    <symbol infoEntityIdent="FLAGNOTEINDICATOR"/>
+  </controlAuthority>
+  <controlAuthority id="controlAuthority-002"
+  controlAuthorityType="cat06" controlAuthoritySource="FAA"
+  controlAuthorityValue="22-CMR-99">
+    <controlAuthorityText>
+      <para>Text related to a CMR - Certification Maintenance Requirement (cat06)</para>
+    </controlAuthorityText>
+    <symbol infoEntityIdent="FLAGNOTEINDICATOR"/>
+  </controlAuthority>
+  <controlAuthority id="controlAuthority-003"
+  controlAuthorityType="cat10" controlAuthoritySource="ZAP"
+  controlAuthorityValue="RII"/>
+  <controlAuthority id="controlAuthority-004"
+  controlAuthorityType="cat05" controlAuthoritySource="FAA"
+  controlAuthorityValue="28-AWL-03: CDCCL"/>
+  <controlAuthority id="controlAuthority-005"
+  controlAuthorityType="cat13" controlAuthoritySource="ZAP"
+  controlAuthorityValue="POL-9999"/>
+</controlAuthorityGroup>
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Control authority
+
+Description: The element <controlAuthority> is used to identify the authority or
+organization that is responsible for the content.
+Within the content section, when an element is affected by a controlling authority, the attribute 
+controlAuthorityRefs is used to provide a link to the <controlAuthority>
+structure.
+
+  
+Markup element: <controlAuthority>
+
+Attributes:
+- applicRefId (O), the applicability information by referencing the element 
+<applic>. Refer to Chap 3.9.5.3.
+- id (O), the identifier of the markup element. Refer to Chap 3.9.5.2.1.2.
+- changeType (O), changeMark (O) and reasonForUpdateRefIds (O), the
+change indications. Refer to Chap 3.9.5.2.1.1.
+- securityClassification (O), commercialClassification (O), 
+caveat (O) and derivativeClassificationRefId (O), the security and
+restrictive marking. Refer to Chap 3.6.
+- controlAuthorityType (M), Control authority type identifies the classification of
+the data. The attribute controlAuthorityType can have one of the following values:
+    • "cat01" thru "cat99". Refer to Chap 3.9.6.1.
+- controlAuthoritySource (O), Control authority source identifies the regulatory
+agency that controls the content.
+- controlAuthorityValue (O), Control authority value identifies the full citation of
+the applicable regulation.
+
+Child elements:
+- <controlAuthorityText>. Refer to Para 2.2.6.1.1.
+- <dmRef>. Refer to Chap 3.9.5.2.1.2.
+- <symbol>. Refer to Chap 3.9.5.2.1.10.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Control Authority Text
+
+Description: The element <controlAuthorityText> contains the text 
+that is related to the type of the controlling authority.
+
+  
+Markup element: <controlAuthorityText>
+
+Attributes:
+- None
+
+Child elements:
+- <para>. Refer to Chap 3.9.5.2.1.10.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Responsible partner company
+
+Description: The element <responsiblePartnerCompany> contains the company,
+organization or authority responsible for the data module. Only one entry is permitted.
+The responsible partner company must indicate the company or organization responsible for
+the data module. In many projects there can be two or more partner companies and, in these
+cases, the organization must designate which company is the responsible for which data
+modules. Only the responsible partner company is indicated within the data module.
+
+Note
+A responsible partner company can be defined as one of the companies or organization
+making up a consortium pursuing a common project. Each of these partner companies is
+responsible for a certain share of the total project effort, however, only one is designated
+as responsible for the population of the CSDB.
+This company or organization must be indicated by either the name of the company and/or the
+company’s CAGE code, which is the preferred method. For information control numbers that
+are not CAGE code based, and the SNS for non-chapterized parts data modules, a project
+specific single alphanumeric character code as defined in Chap 4.4. However, if a responsible
+partner company has an enterprise code, then that code must be used. Refer to default BREX
+rule BREX-S1-00035.
+
+  
+Markup element: <responsiblePartnerCompany>
+
+Attributes:
+- id (O), the identifier of the markup element. Refer to Chap 3.9.5.2.1.2.
+- enterpriseCode (O), containing the CAGE code of the enterprise.
+
+Child elements:
+- <enterpriseName>, string with the enterprise name. Refer to Para 2.2.8.1.
+
+Business rule decision point BRDP-S1-00070 - Use of the element 
+<enterpriseName> and/or the attribute enterpriseCode for the responsible
+partner company:
+– Decide whether to use the element <enterpriseName> and/or the attribute 
+enterpriseCode to capture the name and CAGE code, respectively, of the
+responsible partner company. If the name is used it must be done consistently and be
+mandatory for the project.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Enterprise/manufacturer/supplier name
+
+Description: The element <enterpriseName> contains the name of the enterprise/
+manufacturer/supplier, which is responsible for the data.
+
+  
+Markup element: <enterpriseName>
+
+Attributes:
+- None
+
+Child elements:
+- None
+
+  
+Markup example:
+
+<enterpriseName>Amphenol Ltd</enterpriseName>
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
 
@@ -1055,6 +1247,26 @@ Child elements:
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
 
   
 
