@@ -1210,6 +1210,7 @@ Attributes:
 Child elements:
 - <enterpriseName>, string with the enterprise name. Refer to Para 2.2.8.1.
 
+
 Business rule decision point BRDP-S1-00070 - Use of the element 
 <enterpriseName> and/or the attribute enterpriseCode for the responsible
 partner company:
@@ -1241,12 +1242,428 @@ Markup example:
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
+Originator
+
+Description: The element <originator> contains the identifier of the originating
+company or organization responsible for the production of the data module. The originator’s
+code is indicated with the company name, the CAGE code, which is the preferred method, or
+both. Normally, the originator is defined as the designated design authority of the Product.
+However, projects must nominate the originators. If a responsible partner company has an
+enterprise code, then that code must be used.
+
+  
+Markup element: <originator>
+
+Attributes:
+- id (O), the identifier of the markup element. Refer to Chap 3.9.5.2.1.2.
+- enterpriseCode (O), containing the CAGE code of the enterprise. Refer to
+Para 2.2.8.
+
+Child elements:
+- <enterpriseName>, string with the enterprise name. Refer to Para 2.2.8.1.
 
 
+Business rule decision point BRDP-S1-00071 - Use of the element 
+<enterpriseName> and/or the attribute enterpriseCode for the originator:
+– Decide whether to use the element <enterpriseName> and/or the attribute 
+enterpriseCode to capture the name and CAGE code respectively, of the originator.
+If the name is used it must be done consistently and be mandatory for the project.
 
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
+Applicability cross-reference table reference
 
+Description: The element <applicCrossRefTableRef> contains a pointer to the
+Applicability Cross-reference Table (ACT) data module that applies to the data module. Refer
+to Chap 3.9.5.3.1, Chap 4.14, and Chap 7.8.
 
+  
+Markup element: <applicCrossRefTableRef>
+
+Attributes:
+- None
+
+Child elements:
+- <dmRef>. Refer to Chap 3.9.5.2.1.2.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Technical standard
+
+Description: The element <techStandard> contains the authorized technical standard
+and associated data to be entered, describing the information basis used to write the data
+module. The information basis can be described by giving, for example, the modification or
+drawing standard including amendments, alterations, etc, or a publication baseline. Technical
+standard, in this context, is defined as the technical design and development level of the
+technical information of the Product, on which the data module has been based. This element
+contains authority block or technical publications baseline number or both.
+
+  
+Markup element: <techStandard>
+
+Attributes:
+- None
+
+Child elements:
+- <authorityInfoAndTp>. Refer to Para 2.2.11.1.
+- <authorityInfo>. Refer to Para 2.2.11.2.
+- <techPubBase>. Refer to Para 2.2.11.3.
+- <authorityExceptions>. Refer to Para 2.2.11.4.
+- <authorityNotes>. Refer to Para 2.2.11.5.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Authority block and technical publications information
+
+Description: The element <authorityInfoAndTp> contains both the authority block
+information and the technical publications baseline when it is appropriate to use both.
+
+  
+Markup element: <authorityInfoAndTp>
+
+Attributes:
+- None
+
+Child elements:
+- <authorityInfo>. Refer to Para 2.2.11.2.
+- <techPubBase>. Refer to Para 2.2.11.3.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Authority information
+
+Description: The element <authorityInfo> contains the authority that owns the source
+data from which the data module is written. If codes are used, they are determined by the
+project.
+
+  
+Markup element: <authorityInfo>
+
+Attributes:
+- None
+
+Child elements:
+- None
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Publication baseline number
+
+Description: The element <techPubBase> contains the technical publication baseline to
+which the data module is written. The publication baseline number represents the technical
+build standard of the Product, which defines the technical standard by reference to a certain
+point in time. This is achieved by declaring a "Cut-off date" or milestone and listing the drawing
+set standard, relevant modification documents, etc, issued prior to the Cut-off or milestone date
+and used as source material for producing data modules. The technical standard so defined,
+ensures that all data modules are to the same standard. Projects can also decide to use this
+element to record the delivery number of the Logistics Support Analysis Record (LSAR) to
+which the data module is written.
+
+  
+Markup element: <techPubBase>
+
+Attributes:
+- None
+
+Child elements:
+- None
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Authority exceptions
+
+Description: The element <authorityExceptions> contains deviations of the data
+module content from the standard given in the authority block for configurations.
+
+  
+Markup element: <authorityExceptions>
+
+Attributes:
+- None
+
+Child elements:
+- <productConfiguration>. Refer to Para 2.2.11.4.1.
+- <retrofit>. Refer to Para 2.2.11.4.4.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Product configuration
+
+Description: The element <productConfiguration> contains a reference to the
+Product configuration as defined for production in the authority block. Any deviation from that
+configuration or standard is shown by inserting the modification number.
+
+  
+Markup element: <productConfiguration>
+
+Attributes:
+- None
+
+Child elements:
+- <excludedModification>. Refer to Para 2.2.11.4.2.
+- <additionalModification>. Refer to Para 2.2.11.4.3.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Excluded modification
+
+Description: The element <excludedModification> contains an indication that the
+modification is not covered even though it was actually required.
+
+  
+Markup element: <excludedModification>
+
+Attributes:
+- None
+
+Child elements:
+- None
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Additional modification
+
+Description: The element <additionalModification> contains an indication that a
+modification is additionally covered.
+
+  
+Markup element: <additionalModification>
+
+Attributes:
+- None
+
+Child elements:
+- None
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Retrofit
+
+Description: The element <retrofit> contains a reference to post-delivery changes that
+are usually performed in accordance with a retrofit order, (eg, pre-or post-modification).
+
+  
+Markup element: <retrofit>
+
+Attributes:
+- None
+
+Child elements:
+- <modification>. Refer to Para 2.2.11.4.5.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Modification
+
+Description: The element <modification> contains the identification of the retrofit
+order.
+
+  
+Markup element: <modification>
+
+Attributes:
+- id (O), the identifier of the markup element. Refer to Chap 3.9.5.2.1.2.
+- changeType (O), changeMark (O) and reasonForUpdateRefIds (O), the
+change indications. Refer to Chap 3.9.5.2.1.1.
+- modificationType (M), the type of modification in terms of pre, post and pre and
+post. The attribute can have one of the following values:
+  • "post" (D) - indicates that the data is to a standard that is after the modification given
+  • "pre" - indicates that the data is the initial standard, or to a previous modification
+  standard than the one given
+  • "prandpo" - indicates that the data is to a standard that satisfies both a standard
+  before and after the modification given
+- controlAuthorityRefs (O), the control authority information by referencing the
+element <controlAuthority>. Refer to Para 2.2.6.1.
+- securityClassification (O), commercialClassification (O), 
+caveat (O) and derivativeClassificationRefId (O), the security and
+restrictive marking. Refer to Chap 3.6.
+
+Child elements:
+- <modificationTitle>. Refer to Para 2.2.11.4.6.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Modification title
+
+Description: The element <modificationTitle> contains the title of the modification.
+
+  
+Markup element: <modificationTitle>
+
+Attributes:
+- None
+
+Child elements:
+- None
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Authority notes
+
+Description: The element <authorityNotes> contains additional information that can
+be necessary to explain preceding entries. Whenever a data module is only applicable to one
+or a range of serial numbers, this is stated here. It is recommended that, where applicable, the
+titles of documents be given under authority exceptions. The notes are also used for recording
+deficiency reports, special technical orders, service bulletins, explanations of excluded and
+additional modifications, and similar documents.
+
+  
+Markup element: <authorityNotes>
+
+Attributes:
+- None
+
+Child elements:
+- None
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.2.12 Business rules reference
+
+Description: The element <brexDmRef> contains a pointer to the business rules data
+module (BREX data module) that applies to the data module. For a detailed description of the
+BREX module and related aspects, refer to Chap 4.10.
+
+  
+Markup element: <brexDmRef>
+
+Attributes:
+- None
+
+Child elements:
+- <dmRef>. Refer to Chap 3.9.5.2.1.2.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.2.13 Quality assurance
+
+Description: The element <qualityAssurance> contains details of the status of the
+QA process as required by the project. The data module must be identified as either being
+unverified or verified. This element can contain applicability information to indicate the
+applicability of the QA information. This applicability information must be a subset of the
+mandatory applicability settings for the complete data module. This applies equally to the
+element <qualityAssurance> and all its subelements.
+The element <qualityAssurance> enables applicability filtering of the data upon
+publication. When there is more than one occurrence of the element 
+<qualityAssurance>, each must have different applicability statements to enable
+applicability filtering of the data upon publication.
+
+  
+Markup element: <qualityAssurance>
+
+Attributes:
+- applicRefId (O), the applicability information by referencing the element 
+<applic>. Refer to Chap 3.9.5.3.
+- controlAuthorityRefs (O), the control authority information by referencing the
+element <controlAuthority>. Refer to Para 2.2.6.1.
+
+Child elements:
+- <unverified>. Refer to Para 2.2.13.1.
+- <firstVerification>. Refer to Para 2.2.13.2.
+- <secondVerification>. Refer to Para 2.2.13.3.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Unverified
+
+Description: The element <unverified> identifies that the data module has not yet been
+first verified.
+
+  
+Markup element: <unverified>
+
+Attributes:
+- None
+
+Child elements:
+- None
+
+  
+Business rule decision point BRDP-S1-00077 - Exchange of draft data modules:
+– Decide whether the project will allow the exchange of draft data modules.
+
+  
+Markup example:
+
+<qualityAssurance>
+  <unverified/>
+</qualityAssurance>
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+First verification
+
+Description: The element <firstVerification> identifies a data module which has
+been first verified. Refer to Chap 3.7.
+
+  
+Markup element: <firstVerification>
+
+Attributes:
+- verificationType (M). The attribute can have one of the following values:
+  • "tabtop" - used to indicate that the first verification was carried out on a desktop
+  • "onobject" - used to indicate that the first verification was carried out at the Product
+  • "ttandoo" - used to indicate that the first verification was carried out at the Product
+  and on a desktop
+
+Child elements:
+- None
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Second verification
+
+Description: The element <secondVerification> identifies a data module which has
+been second verified. Data modules cannot be only second-verified. They must also be first
+verified. Refer to Chap 3.7.
+
+  
+Markup element: <secondVerification>
+
+Attributes:
+- verificationType (M). The attribute can have one of the following values:
+  • "tabtop" - used to indicate that the second verification was carried out on a desktop
+  • "onobject" - used to indicate that the second verification was carried out at the Product
+  • "ttandoo" - used to indicate that the second verification was carried out at the
+  Product and on a desktop
+
+Child elements:
+- None
+
+Markup example:
+
+<qualityAssurance>
+  <firstVerification verificationType="onobject"/>
+  <secondVerification verificationType="ttandoo"/>
+</qualityAssurance>
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+System breakdown code
+
+Description: The element <systemBreakdownCode> contains a code that captures the
+physical breakdown for those projects that are producing data modules that are in line with
+some logistic databases.
+
+  
+Markup element: <systemBreakdownCode>
+
+Attributes:
+- id (O), the identifier of the markup element. Refer to Chap 3.9.5.2.1.2.
+
+Child elements:
+- None
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.2.15 Functional item code
+Description: The element <functionalItemCode> contains a code that represents the
+functional breakdown.
+Markup element: <functionalItemCode>
+Attributes:
+- None
+Child elements:
+- None
 
 
 
