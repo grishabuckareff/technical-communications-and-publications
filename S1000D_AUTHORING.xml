@@ -1,3 +1,262 @@
+Chapter 3.9.5
+Authoring - Data modules
+
+S1000D-A-20-10-0000-00D-024C-D
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+1 General
+
+This chapter gives the user brief definitions to some of the most common XML terms used in
+this specification. The markup examples that are included in the chapter are XML markup
+examples. For the terminology, definitions and the use of XML, refer to REC-xml-20081126.
+
+The chapter is further broken down to give definitions and guidance on using the XML to create
+data modules.
+
+Chap 3.9.5.1 gives the definitions and guidance for the identification and status section of all
+types of data modules.
+
+The definitions and guidance for the common constructs and information types are given in
+Chap 3.9.5.2.
+
+Chap 3.9.5.3 gives the rules for applicability.
+
+Throughout these chapters, attributes are marked as mandatory or optional. The definitions for
+these are:
+- mandatory (M) if the attribute must be included in the context concerned, as enforced by
+the Schema structure or otherwise
+- optional (O) if the attribute is not enforced by the Schema structure, ( ie, can be omitted in
+the context concerned )
+
+XML elements are written in Courier New 12 in blue within brackets preceded by the
+word "element", (eg, element <applic>).
+
+Attributes are written in Courier New 12 in black without quotation marks and brackets
+preceded by the word "attribute", (eg, attribute internalRefId).
+
+Values given in the text are written in Courier New 12 in blue within quotation marks
+preceded by the word "value", (eg, value "Value_1").
+
+XML examples are written in Courier New 11 in black.
+
+
+Example:
+
+<language languageIsoCode="sx" countryIsoCode="US"/><language
+languageIsoCode="de" countryIsoCode="AT"/><reasonForUpdate
+id="rfu-001" updateHighlight="1"
+updateReasonType="urt02">
+  <simpleRefPara>The tool set is changed.</simpleRefPara>
+</reasonForUpdate>
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2 XML terminology and definitions
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.1 Element
+
+An element is a component of an XML instance, defined by the Schema and is identified in the
+document by descriptive markup, usually a start-tag and end-tag.
+
+For example: <para>…</para>. There is also a type of element called an empty element
+which does not comprise an end-tag.
+
+  
+Example:
+
+<security securityClassification="01"/>.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.2 Generic identifier
+
+A generic identifier is a name of an element or "tag-name".
+
+  
+Example: The generic identifier of the element <para> is para.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.3 Attribute
+
+An attribute is a value that can be applied to an element.
+
+Example: The values for day, month and year are numeric attributes of the <issueDate>
+element <issueDate day="30" month="07" year="2000"/>.
+
+Attributes are either mandatory (they must be given a value) or optional. Some attributes
+require a typed value, while other attribute values are selectable from a list. Certain attributes
+have a default value which is applied automatically if a value for the attribute is not specified.
+
+In most cases attributes can have only one allowable value at a time. However, there are a few
+attributes that can have one or more allowable values at the same time. When more than one
+value is given, the values must be separated by space characters.
+
+
+Example: Attribute itemCharacteristic can have one value defining the parent
+element as related to electrostatic discharge:
+
+<proceduralStep itemCharacteristic="ic02">… text …</proceduralStep>
+
+Example: Attribute itemCharacteristic can also have two values defining the parent
+element as related to electrostatic discharge and with a quality assurance effect:
+
+<proceduralStep itemCharacteristic="ic02 ic03">… text …</proceduralStep>
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.4 Tag
+
+The start of an element is marked by a start-tag and the end by an end-tag (unless the element
+is an empty element). An element start-tag is comprised of a less-than sign [<], then the
+generic identifier, then, if required, a set of attributes followed by a greater-than sign [>].
+
+Example: The start-tag of a paragraph is <para>.
+
+An element end-tag is comprised of a less-than sign [<] followed by a slash [/], then the generic
+identifier and finally a greater-than sign [>].
+
+
+Example: The end-tag of a paragraph is </para>.
+
+In XML markup empty tags are represented like this <security
+securityClassification="01"/> or like this <unverified></unverified>.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.5 XML Schemas
+
+The XML Schema controls which elements can appear in an XML instance and in which order.
+The Schema also defines the rules for attributes and entities and provides data type constraints
+which describe valid units of data.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.6 Data type string
+
+String data is any character(s) entered between the start-tag and end-tag of an element (plain
+text) and characters between quotes that make up the value of an attribute.
+
+  
+Example: <para>This is plain text data.</para>.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.7 Entity
+
+An entity is a character string which, in the final data module output, will be replaced by a
+character, symbol or an external file.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  
+2.7.1 Character entities
+
+Some characters required for data modules are not available on a computer keyboard, for
+example, degrees, fractions and Greek letters. These characters are made available on XML
+systems by substituting a character entity for the required character. Most XML systems allow
+an inserted character entity to be displayed on the screen as it will appear to the reader. When
+entering a character entity, it must be preceded by [&] and followed by [;], for example, in XML,
+the characters inserted for degrees [º] will be &deg;.
+
+It is important to remember that, in XML, character entities are case sensitive, so using an initial
+uppercase letter will affect the final character shown in the data module.
+
+  
+Example: &Sigma; (uppercase S) = Σ, and &sigma; (lowercase letter s) = σ.
+
+  
+Table 2 details some of the more common character entities currently in use. For a complete
+list, refer to the S1000D data module Schemas.
+
+Table 2 Commonly used character entities - Example
+_______________________________________________________________________________________________________
+Entity    Character     XML           Ent file       Entity      Character      XML           Ent file
+_______________________________________________________________________________________________________
+alpha         α        &#x03B1;        ISOgrk3        micro         μ         &#x00B5;         ISOnum
+amp           &        &#38;#38;       ISOnum         mu            μ         &#x03BC;         ISOgrk3
+beta          β        &#x03B2;        ISOgrk3        ndash         –         &#x2013;         ISOpub
+bull          •        &#x2022;        ISOpub         ne            ≠         &#x2260;         ISOtech
+deg           °        &#x00B0;        ISOnum         ohm           Ω         &#x2126;         ISOnum
+Delta         Δ        &#x0394;        ISOgrk3        Omega         Ω         &#x03A9;         ISOgrk3
+delta         δ        &#x03B4;        ISOgrk3        percnt        %         &#x0025;         ISOnum
+divide        ÷        &#x00F7;        ISOnum         Phi           Φ         &#x03A6;         ISOgrk3
+epsis         ε        &#x220A;        ISOgrk3        phis          φ         &#x03C6;         ISOgrk3
+eta           η        &#x03B7;        ISOgrk3        pi            π         &#x03C0;         ISOgrk3
+equiv         ≡        &#x2261;        ISOtech        plusmn        ±         &#x00B1;         ISOnum
+gamma         γ        &#x03B3;        ISOgrk3        prop          ∝         &#x221D;         ISOtech
+ge            ≥        &#x2265;        ISOtech        psi           ψ         &#x03C8;         ISOgrk3
+gt            >        &#x003E;        ISOnum         quot          "         &#x0022;         ISOnum
+infin         ∞        &#x221E;        ISOtech        radic         √         &#x221A;         ISOtech
+Lambda        Λ        &#x039B;        ISOgrk3        rho           ρ         &#x03C1;         ISOgrk3
+lambda        λ        &#x03BB;        ISOgrk3        Sigma         Σ         &#x03A3;         ISOgrk3
+le            ≤        &#x2264;        ISOtech        sigma         σ         &#x03C3;         ISOgrk3
+lt            <        &#38;#60;       ISOnum         Theta         Θ         &#x0398;         ISOgrk3
+mdash         —        &#x2014;        ISOpub         theta         θ         &#x03B8;         ISOgrk3
+_______________________________________________________________________________________________________
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.7.2 External system entities
+
+For illustrations and symbols, a system entity is inserted into the XML instance normally carried
+out by the system.
+
+2.8 Use of some special characters
+
+The following rules apply:
+- Hyphen [-] is used in the data module code, ICN, publication module code, CSN and as a
+separator in normal text, (eg, between the element <techName> and the element 
+<infoName> on data module titles).
+- Vertical bar [ | ] is used in the markup to separate values and intervals in, for example, the
+attribute applicPropertyValues
+- Tilde [~] is used in the markup to separate values within a range in, for example, the
+attribute applicPropertyValues
+- Space [ ] is used as a single space character (using spacebar on the keyboard) to
+substitute numbers in, for example, the CSN (Space = ASCII 32 (hexadecimal code 20)).
+
+Note
+  These special characters are normally inserted by the formatting application and must not
+  to be entered by the author.
+
+Note
+  For the entry of XML elements and attributes which can be used as hyperlinks in the IETP
+  (eg, CSN, part numbers, NSN), any spaces must be entered from the keyboard using the
+  spacebar. Do not use XML character entities for these elements and attributes.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.9 Constraints
+
+There are elements in the Schemas that are used under constraints that are described by the
+content of their attributes.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  
+2.9.1 Constrained element
+
+A constrained element has an attribute, or attributes, that has a value, or combination of values,
+which must be unique within the data module. The constraint indicates which attribute, or
+combination of attributes, contains the unique value, refer to Fig 1.
+
+2.9.2 Constrained attribute
+An attribute, or attributes, that have a value, or combination of values, which must be unique
+within the data module, refer to Fig 2.
+
+2.9.3 Unique attribute value
+The constraints indicate which attribute, or combination of attributes, must contain the unique
+value, refer to Fig 3.
+
+2.9.4 Constrained element and it attributes
+Example
+The element <functionalPhysicalAreaIdent> has attributes 
+systemDiffCode, systemCode, subSystemCode, subSubSystemCode, 
+assyCode, disassyCode and disassyCodeVariant, the combination of which
+must be unique within the data module. Refer to Fig 4.
+
+  
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 Chapter 3.9.5.1
@@ -2070,6 +2329,8 @@ Child elements:
 
 Chapter 3.9.5.1.1
 Identification and status section - Export control
+
+S1000D-A-40-30-0000-00C-024C-D
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
