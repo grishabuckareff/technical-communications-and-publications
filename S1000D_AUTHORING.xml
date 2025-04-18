@@ -2228,6 +2228,8 @@ Chap 3.9.5.2.1.
 Chapter 3.9.5.2.1
 Content section - Common constructs
 
+S1000D-A-40-50-0000-00B-024C-D
+
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 1 General
@@ -2275,6 +2277,8 @@ The rules for the presentation of the content are given in Chap 6.2 and Chap�
 
 Chapter 3.9.5.2.1.1
 Common constructs - Change marking
+
+S1000D-A-40-50-0000-00C-024C-D
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -2410,7 +2414,6 @@ Note
   of this element in a single occurrence of <reasonForUpdate> are not used to
   record individual changes made within the data module.
 
-
 Business rule decision point BRDP-S1-00089 - Standard sentences for reasons for
 update:
 – Decide whether standard sentences for reasons for update are to be used.
@@ -2424,9 +2427,129 @@ Business rule decision point BRDP-S1-00091 - Use of applicability information:
 – Decide whether it is permissible to differentiate reasons for update based on Product
 configuration.
 
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.3 Reason for amendment
+
+Description: When the element <reasonForAmendment> is used, it records the reason
+for the amendment to either a complete figure, or of individual illustration sheets 
+of a multi￾sheet figure. The element can contain free text and/or its child elements 
+to record the reason. 
+
+If the change markup is used on the element <figure> then the 
+change attributes on the element <graphic> of multi-sheet figures must not be used. 
+Refer to default BREX rule BREX-S1-00043. This does not prevent the use of the element 
+<reasonForAmendment> on a single illustration sheet of multi-sheet figures to indicate
+changes in the illustration itself.
+
+If change marking indication is required on individual illustration sheets of a multi-sheet figure,
+then the appropriate change markup must be applied to the element <graphic>, and the
+change markup on the element <figure> must not be used.
+A single occurrence of the element <reasonForAmendment> is used for each individual
+change.
+
+The element <reasonForUpdate> that is referenced by the element <figure> or the
+element <graphic> is used as described in Para 2.2, and contains general reasons why the
+figure (or illustration sheet) has been added, modified or deleted.
+
+  
+Markup element: <reasonForAmendment>
+
+Attributes:
+- applicRefId (O), the applicability information by referencing the element 
+<applic>. Refer to Chap 3.9.5.3.
+- controlAuthorityRefs (O), the control authority information by referencing the
+element <controlAuthority>. Refer to Chap 3.9.5.1.
+
+Child elements:
+- <functionalItemRef>. Refer to Chap 3.9.5.1.
+- <circuitBreakerRef>. Refer to Chap 3.9.5.2.1.10.
+- <controlIndicatorRef>. Refer to Chap 3.9.5.2.1.10.
+- <inlineSignificantData>. Refer to Chap 3.9.5.2.1.10.
+- <quantity>. Refer to Chap 3.9.5.2.1.10.
+- <zoneRef>*. Refer to Chap 3.9.5.2.1.10.
+- <accessPointRef>*. Refer to Chap 3.9.5.2.1.10.
+- <identNumber>*. Refer to Chap 3.9.5.2.1.9.
+- <internalRef>. Refer to Chap 3.9.5.2.1.2.
+- <indexFlag>*. Refer to Chap 3.9.5.2.1.10.
+- <changeInline>.Refer to Para 2.4.2.
+- <emphasis>. Refer to Chap 3.9.5.2.1.10.
+- <symbol>. Refer to Chap 3.9.5.2.1.10.
+- <subScript>. Refer to Chap 3.9.5.2.1.10.
+- <superScript>. Refer to Chap 3.9.5.2.1.10.
+- <dmRef>. Refer to Chap 3.9.5.2.1.2.
+- <pmRef>*. Refer to Chap 3.9.5.2.1.2.
+- <externalPubRef>. Refer to Chap 3.9.5.2.1.2.
+- <footnote>. Refer to Chap 3.9.5.2.1.10.
+- <footnoteRef>*. Refer to Chap 3.9.5.2.1.10.
+- <acronym>. Refer to Chap 3.9.5.2.1.10.
+- <acronymTerm>. Refer to Chap 3.9.5.2.1.10.
+- <caption>*. Refer to Chap 3.9.5.2.1.4.
+- <captionGroup>*. Refer to Chap 3.9.5.2.1.4.
+- <verbatimText>. Refer to Chap 3.9.5.2.1.10.
+- <sequentialList>. Refer to Chap 3.9.5.2.1.3.
+- <randomList>. Refer to Chap 3.9.5.2.1.3.
+- <definitionList>. Refer to Chap 3.9.5.2.1.3.
+
+Note
+  The elements marked with an asterisk (*) are not available in all data modules. 
+  Refer to Chap 3.9.5.2.1.10.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.4 Making changes to text
+
+Text can be changed by changing a complete element or by changing the text within the
+element, which is known as inline change. In both cases, the attribute issueType of the
+element <dmStatus> is set to the value "changed".
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.4.1 Changing a complete element
+
+When an element is added, modified or deleted, its change marking attribute values are set to
+indicate the display requirements and the type of change.
+All elements that contain the following attributes:
 
 
+Attributes:
 
+- changeMark (O), indicates whether the display of a change bar, mark or other visual
+indication next to the entire content of an element being added, deleted or modified is
+intended. The attribute can have one of the following values:
+  • "1" - Yes, the display of a change bar, mark or other visual indication is intended
+  • "0" - No, the display of a change bar, mark or other visual indication is not intended
+
+Note
+  If the attribute changeMark is not used, then there is no display of a change bar,
+  mark or other visual indication intended.
+
+- changeType (O), the type of the change. The attribute can have one of the following
+values:
+  • "add" - the element is added
+  • "modify" - the element is changed
+  • "delete" - the element is deleted
+
+Note
+  The attribute changeType can apply to any element and not especially to the
+  element where the change occurs. Depending on the type of the change, propagation
+  rules defining the change marking inheritance from the upper element to the lower can
+  differ:
+  - Elements marked with the value "modify" are allowed to contain elements
+  marked with values "add", "modify" or "delete"
+  - Elements marked with the value "delete": There is no need to set the change
+  attributes on the element’s children because this is implied. Any change markings
+  on child elements are ignored by the presentation system.
+  - Elements marked with value "add": There is no need to set the change attributes
+  on the element’s children because this is implied. Any change markings on child
+  elements are ignored by the presentation system.
+
+Note
+  If this attribute is not used, and the attribute changeMark is used, the change is
+  assumed to be an addition.
+
+- reasonForUpdateRefIds (O), this attribute is used to link to the appropriate
+occurrence of the element <reasonForUpdate>. Refer to Para 2.1.3.
 
 
 
