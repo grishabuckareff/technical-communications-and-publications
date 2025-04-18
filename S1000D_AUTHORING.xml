@@ -2410,13 +2410,16 @@ Note
   of this element in a single occurrence of <reasonForUpdate> are not used to
   record individual changes made within the data module.
 
+
 Business rule decision point BRDP-S1-00089 - Standard sentences for reasons for
 update:
 – Decide whether standard sentences for reasons for update are to be used.
+
 Business rule decision point BRDP-S1-00090 - Use of reason for update in conjunction
 with the production process:
 – Decide whether the element <reasonForUpdate> is used during the production
 process.
+
 Business rule decision point BRDP-S1-00091 - Use of applicability information:
 – Decide whether it is permissible to differentiate reasons for update based on Product
 configuration.
