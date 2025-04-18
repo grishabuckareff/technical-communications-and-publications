@@ -1852,20 +1852,20 @@ Child elements:
 <identAndStatusSection>
   <dmAddress>
     <dmIdent>
-    <dmCode modelIdentCode="S1000DBIKE" systemDiffCode="AAA"
-    systemCode="DA2" subSystemCode="3" subSubSystemCode="0"
-    assyCode="00" disassyCode="00" disassyCodeVariant="AA"
-    infoCode="720" infoCodeVariant="A" itemLocationCode="A">
-    </dmCode>
-    <language countryIsoCode="US" languageIsoCode="sx"></language>
-    <issueInfo issueNumber="005" inWork="00"/>
+      <dmCode modelIdentCode="S1000DBIKE" systemDiffCode="AAA"
+      systemCode="DA2" subSystemCode="3" subSubSystemCode="0"
+      assyCode="00" disassyCode="00" disassyCodeVariant="AA"
+      infoCode="720" infoCodeVariant="A" itemLocationCode="A">
+      </dmCode>
+      <language countryIsoCode="US" languageIsoCode="sx"></language>
+      <issueInfo issueNumber="005" inWork="00"/>
     </dmIdent>
     <dmAddressItems>
       <issueDate year="2012" month="07" day="31"/>
-        <dmTitle>
-          <techName securityClassification="01">Headset</techName>
-          <infoName securityClassification="01">Install procedure</infoName>
-        </dmTitle>
+      <dmTitle>
+        <techName securityClassification="01">Headset</techName>
+        <infoName securityClassification="01">Install procedure</infoName>
+      </dmTitle>
     </dmAddressItems>
   </dmAddress>
   <dmStatus>
@@ -1881,149 +1881,152 @@ Child elements:
           </exportRegistrationStmt>
         </exportControl>
         <dataHandling>There are no specific handling instructions for this data module.</dataHandling>
-        <dataDestruction>Users may destroy this data module in accordance with their own local procedures.</dataDestruction>          <dataDisclosure>There are no dissemination limitations that apply to this data module.</dataDisclosure>
-        </restrictionInstructions>
-        <restrictionInfo>
-         <copyright>
+        <dataDestruction>Users may destroy this data module in accordance with their own local procedures.</dataDestruction>          
+        <dataDisclosure>There are no dissemination limitations that apply to this data module.</dataDisclosure>
+      </restrictionInstructions>
+      <restrictionInfo>
+        <copyright>
           <copyrightPara>
             <emphasis>Copyright (C) 2016</emphasis> by each of the following organizations:
-            <randomList>                
-              <listItem>
-                <para>Aerospace, Security and Defence Industries Association of Europe - ASD.</para>
-              </listItem>
-              <listItem>
-                <para>Ministries of Defence of the member countries of ASD.</para>
-              </listItem>
-            </randomList>
-          </copyrightPara>
+              <randomList>                
+                <listItem>
+                  <para>Aerospace, Security and Defence Industries Association of Europe - ASD.</para>
+                </listItem>
+                <listItem>
+                  <para>Ministries of Defence of the member countries of ASD.</para>
+                </listItem>
+              </randomList>
+            </copyrightPara>
           <copyrightPara>
             <emphasis>Limitations of liability:</emphasis>
-          </copyrightPara>
-          <copyrightPara>
-             <randomList>
-              <listItem>
-                <para>This material is provided "As is" and neither ASD nor any person who has contributed to the creation, revision or maintenance of the material makes any representations or warranties, express or implied, including but not limited to, warranties of merchantability or fitness for any particular purpose.</para>
-              </listItem>
-              <listItem>
-                <para>Neither ASD nor any person who has contributed to the creation, revision or maintenance of this material shall be liable for any direct, indirect, special or consequential damages or any other liability arising from any use of this material.</para>
-              </listItem>
-              <listItem>
-                <para>Revisions to this document may occur after its issuance. The user is responsible for determining if revisions to the material contained in this document have occurred and are applicable.</para>
-              </listItem>
-            </randomList>
-          </copyrightPara>
-        </copyright>
-        <policyStatement>S1000D-SC-2016-017-002-00 Steering Committee TOR</policyStatement>
-        <dataConds>There are no known conditions that would change the data restrictions for, or security classification of, this data module.</dataConds>
-      </restrictionInfo>
-    </dataRestrictions>
-      <controlAuthorityGroup>
-        <controlAuthority id="controlAuthority-001"
-        controlAuthorityType="cat01" controlAuthoritySource="FAA"
-        controlAuthorityValue="2005-23-17">
-          <controlAuthorityText>
-            <para>Text related to an AD - Airworthiness Directive (cat01)</para>
-          </controlAuthorityText>
-          <symbol infoEntityIdent="FLAGNOTEINDICATOR"/>
-        </controlAuthority>
-        <controlAuthority id="controlAuthority-002"
-        controlAuthorityType="cat06" controlAuthoritySource="FAA"
-        controlAuthorityValue="22-CMR-99">
-          <controlAuthorityText>
-            <para>Text related to a CMR - Certification Maintenance Requirement (cat06)</para>
-          </controlAuthorityText>
-          <symbol infoEntityIdent="FLAGNOTEINDICATOR"/>
-        </controlAuthority>
-        <controlAuthority id="controlAuthority-003"
-        controlAuthorityType="cat10" controlAuthoritySource="ZAP"
-        controlAuthorityValue="RII"/>
-        <controlAuthority id="controlAuthority-004"
-        controlAuthorityType="cat05" controlAuthoritySource="FAA"
-        controlAuthorityValue="28-AWL-03: CDCCL"/>
-        <controlAuthority id="controlAuthority-005"
-        controlAuthorityType="cat13" controlAuthoritySource="ZAP"
-        controlAuthorityValue="POL-9999"/>
-      </controlAuthorityGroup>
-      <logo>
-        <symbol infoEntityIdent="ICN-S3627-S1000D094-001-01"/>
-      </logo>
-      <responsiblePartnerCompany enterpriseCode="B6865">
-      <enterpriseName>AEROSPACE AND DEFENCE INDUSTRIES ASSOCIATION OF EUROPE</enterpriseName></responsiblePartnerCompany>
-      <originator enterpriseCode="B6865">
-        <enterpriseName>AEROSPACE AND DEFENCE INDUSTRIES ASSOCIATION OF EUROPE</enterpriseName></originator>
-        <applicCrossRefTableRef>
-          <dmRef>
-            <dmRefIdent>
-              <dmCode modelIdentCode="S1000DBIKE"
-              systemDiffCode="AAA" systemCode="D00" subSystemCode="0"
-              subSubSystemCode="0" assyCode="00" disassyCode="00"
-              disassyCodeVariant="AA" infoCode="00W" infoCodeVariant="A"
-              itemLocationCode="D">
-              </dmCode>
-            </dmRefIdent>
-          </dmRef>
-        </applicCrossRefTableRef>
-        <applic>
-          <displayText>
-            <simplePara>Mountain bicycle and (Mountain storm Mk1 or Brook trekker Mk9)</simplePara>
-          </displayText>
-          <evaluate andOr="and">
-            <assert applicPropertyIdent="type" applicPropertyType="prodattr" applicPropertyValues="Mountain bicycle"/>
-            <evaluate andOr="or">
-              <evaluate andOr="and">
-                <assert applicPropertyIdent="model" applicPropertyType="prodattr" applicPropertyValues="Mountain storm"/>
-                  <assert applicPropertyIdent="version" applicPropertyType="prodattr" applicPropertyValues="Mk1"/>
-              </evaluate>
-              <evaluate andOr="and">
-                <assert applicPropertyIdent="model" applicPropertyType="prodattr" applicPropertyValues="Brook trekker"/>
-                <assert applicPropertyIdent="version" applicPropertyType="prodattr" applicPropertyValues="Mk9"/>
-              </evaluate>
+        </copyrightPara>
+        <copyrightPara>
+            <randomList>
+            <listItem>
+              <para>This material is provided "As is" and neither ASD nor any person who has contributed to the creation, revision or maintenance of the material makes any representations or warranties, express or implied, including but not limited to, warranties of merchantability or fitness for any particular purpose.</para>
+            </listItem>
+            <listItem>
+              <para>Neither ASD nor any person who has contributed to the creation, revision or maintenance of this material shall be liable for any direct, indirect, special or consequential damages or any other liability arising from any use of this material.</para>
+            </listItem>
+            <listItem>
+              <para>Revisions to this document may occur after its issuance. The user is responsible for determining if revisions to the material contained in this document have occurred and are applicable.</para>
+            </listItem>
+          </randomList>
+        </copyrightPara>
+      </copyright>
+      <policyStatement>S1000D-SC-2016-017-002-00 Steering Committee TOR</policyStatement>
+      <dataConds>There are no known conditions that would change the data restrictions for, or security classification of, this data module.</dataConds>
+    </restrictionInfo>
+  </dataRestrictions>
+  <controlAuthorityGroup>
+    <controlAuthority id="controlAuthority-001"
+    controlAuthorityType="cat01" controlAuthoritySource="FAA"
+    controlAuthorityValue="2005-23-17">
+      <controlAuthorityText>
+        <para>Text related to an AD - Airworthiness Directive (cat01)</para>
+      </controlAuthorityText>
+      <symbol infoEntityIdent="FLAGNOTEINDICATOR"/>
+    </controlAuthority>
+    <controlAuthority id="controlAuthority-002"
+    controlAuthorityType="cat06" controlAuthoritySource="FAA"
+    controlAuthorityValue="22-CMR-99">
+      <controlAuthorityText>
+        <para>Text related to a CMR - Certification Maintenance Requirement (cat06)</para>
+      </controlAuthorityText>
+      <symbol infoEntityIdent="FLAGNOTEINDICATOR"/>
+    </controlAuthority>
+    <controlAuthority id="controlAuthority-003"
+    controlAuthorityType="cat10" controlAuthoritySource="ZAP"
+    controlAuthorityValue="RII"/>
+    <controlAuthority id="controlAuthority-004"
+    controlAuthorityType="cat05" controlAuthoritySource="FAA"
+    controlAuthorityValue="28-AWL-03: CDCCL"/>
+    <controlAuthority id="controlAuthority-005"
+    controlAuthorityType="cat13" controlAuthoritySource="ZAP"
+    controlAuthorityValue="POL-9999"/>
+  </controlAuthorityGroup>
+  <logo>
+    <symbol infoEntityIdent="ICN-S3627-S1000D094-001-01"/>
+  </logo>
+  <responsiblePartnerCompany enterpriseCode="B6865">
+    <enterpriseName>AEROSPACE AND DEFENCE INDUSTRIES ASSOCIATION OF EUROPE</enterpriseName>
+  </responsiblePartnerCompany>
+  <originator enterpriseCode="B6865">
+    <enterpriseName>AEROSPACE AND DEFENCE INDUSTRIES ASSOCIATION OF EUROPE</enterpriseName></originator>
+      <applicCrossRefTableRef>
+        <dmRef>
+          <dmRefIdent>
+            <dmCode modelIdentCode="S1000DBIKE"
+            systemDiffCode="AAA" systemCode="D00" subSystemCode="0"
+            subSubSystemCode="0" assyCode="00" disassyCode="00"
+            disassyCodeVariant="AA" infoCode="00W" infoCodeVariant="A"
+            itemLocationCode="D">
+            </dmCode>
+          </dmRefIdent>
+        </dmRef>
+      </applicCrossRefTableRef>
+      <applic>
+        <displayText>
+          <simplePara>Mountain bicycle and (Mountain storm Mk1 or Brook trekker Mk9)</simplePara>
+        </displayText>
+        <evaluate andOr="and">
+          <assert applicPropertyIdent="type" applicPropertyType="prodattr" applicPropertyValues="Mountain bicycle"/>
+          <evaluate andOr="or">
+            <evaluate andOr="and">
+              <assert applicPropertyIdent="model" applicPropertyType="prodattr" applicPropertyValues="Mountain storm"/>
+              <assert applicPropertyIdent="version" applicPropertyType="prodattr" applicPropertyValues="Mk1"/>
+            </evaluate>
+            <evaluate andOr="and">
+              <assert applicPropertyIdent="model" applicPropertyType="prodattr" applicPropertyValues="Brook trekker"/>
+              <assert applicPropertyIdent="version" applicPropertyType="prodattr" applicPropertyValues="Mk9"/>
             </evaluate>
           </evaluate>
-        </applic>
-        <techStandard>
-          <authorityInfoAndTp>
-            <authorityInfo>20010131</authorityInfo>
-            <techPubBase>Bike book</techPubBase>
-          </authorityInfoAndTp>
+        </evaluate>
+      </applic>
+      <techStandard>
+        <authorityInfoAndTp>
+          <authorityInfo>20010131</authorityInfo>
+          <techPubBase>Bike book</techPubBase>
+         </authorityInfoAndTp>
         <authorityExceptions/>
-<authorityNotes/>
-</techStandard>
-<brexDmRef>
-<dmRef><dmRefIdent><dmCode modelIdentCode="S1000DBIKE"
-systemDiffCode="AAA" systemCode="D00" subSystemCode="0"
-subSubSystemCode="0" assyCode="00" disassyCode="00"
-disassyCodeVariant="AA" infoCode="022" infoCodeVariant="A"
-itemLocationCode="D"/>
-<issueInfo issueNumber="005" inWork="00"/>
-</dmRefIdent></dmRef></brexDmRef>
-<qualityAssurance>
-<firstVerification verificationType="tabtop"/>
-</qualityAssurance>
-<systemBreakdownCode>BY143</systemBreakdownCode>
-<functionalItemCode>AAI2392</functionalItemCode>
-<functionalItemRef functionalItemNumber="101HG1"
-manufacturerCodeValue="2D671"/>
-<skillLevel skillLevelCode="sk02"/>
-<reasonForUpdate updateReasonType="urt02">
-<reasonForUpdatePara>Revised to cover the requirements of
-<externalPubRef>
-<refs>
-<externalPubRefIdent>
-<externalPubCode>ModXYZ</externalPubCode>
-<externalPubTitle>Headset bolt torque values.</externalPubTitle>
-</externalPubRefIdent>
-</externalPubRef>
-</refs>
-</reasonForUpdatePara>
-</reasonForUpdate>
-<productSafety safetyLabel="Alert">THIS SERVICE BULLETIN DATASET
-HAS BEEN DELIVERED TO THE OPERATORS OF RECORD OF THE AFFECTED
-AIRPLANES. IF AN AFFECTED AIRPLANE HAS BEEN LEASED OR SOLD, SEND
-THE SERVICE BULLETIN TO THE NEW OPERATOR.</productSafety>
-<remarks><simplePara>This is a complete markup example of an
-identification and status section</simplePara></remarks>
-</dmStatus>
+        <authorityNotes/>
+      </techStandard>
+      <brexDmRef>
+        <dmRef>
+          <dmRefIdent>
+            <dmCode modelIdentCode="S1000DBIKE"
+            systemDiffCode="AAA" systemCode="D00" subSystemCode="0"
+            subSubSystemCode="0" assyCode="00" disassyCode="00"
+            disassyCodeVariant="AA" infoCode="022" infoCodeVariant="A"
+            itemLocationCode="D"/>
+            <issueInfo issueNumber="005" inWork="00"/>
+          </dmRefIdent>
+        </dmRef>
+      </brexDmRef>
+      <qualityAssurance>
+        <firstVerification verificationType="tabtop"/>
+      </qualityAssurance>
+      <systemBreakdownCode>BY143</systemBreakdownCode>
+      <functionalItemCode>AAI2392</functionalItemCode>
+      <functionalItemRef functionalItemNumber="101HG1" manufacturerCodeValue="2D671"/>
+      <skillLevel skillLevelCode="sk02"/>
+      <reasonForUpdate updateReasonType="urt02">
+        <reasonForUpdatePara>Revised to cover the requirements of
+          <externalPubRef>
+            <refs>
+              <externalPubRefIdent>
+                <externalPubCode>ModXYZ</externalPubCode>
+                <externalPubTitle>Headset bolt torque values.</externalPubTitle>
+              </externalPubRefIdent>
+            </refs>
+          </externalPubRef>
+        </reasonForUpdatePara>
+      </reasonForUpdate>
+      <productSafety safetyLabel="Alert">THIS SERVICE BULLETIN DATASET HAS BEEN DELIVERED TO THE OPERATORS OF RECORD OF THE AFFECTED AIRPLANES. IF AN AFFECTED AIRPLANE HAS BEEN LEASED OR SOLD, SEND THE SERVICE BULLETIN TO THE NEW OPERATOR.</productSafety>
+      <remarks>
+        <simplePara>This is a complete markup example of an identification and status section</simplePara>
+      </remarks>
+    </dmStatus>
 </identAndStatusSection>
 
 
