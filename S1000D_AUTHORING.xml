@@ -1,3 +1,824 @@
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Chapter 3.9.3
+Authoring - Warnings, cautions and notes
+
+S1000D-A-20-10-0000-00C-024C-D
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+1 General
+
+Definitions and rules for warnings, cautions and notes are given here.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+1.1 Warnings
+
+Warnings are used in data modules and technical publications to alert the user that possible
+hazards are associated with the materials/processes/procedures/limits. These can cause death
+or injury in any form if the instructions in the operational or procedural task are not followed
+precisely. Warnings describe the hazards and the possible impact.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+1.2 Cautions
+
+Cautions are used in data modules and technical publications to alert the user that damage to
+the Product is possible if the instructions in the operational or procedural task are not followed
+precisely. Cautions describe the hazards and possible impact.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+1.3 Notes
+
+Notes are used in data modules and technical publications to provide the user with additional
+information, which is helpful but does not belong to the immediate subject. Operational and
+procedural tasks can be made easier by the use of notes, but when used, they do not take the
+place of operational or procedural information.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+1.4 Safety conditions
+
+Warnings and cautions that apply to the whole instruction must be contained or referenced in
+the Preliminary requirements - Safety conditions. Refer to Chap 3.9.5.2.1.9.
+Warnings must precede cautions, and cautions must precede notes.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+1.5 General warnings, cautions and notes
+
+Warnings cautions and notes that apply to the Product or part thereof can be captured in
+descriptive data modules using the information code 012 (General warnings and cautions and
+related safety data).
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+1.6 Presentation
+
+Examples of the presentation of warnings, cautions and notes are given in Chap 6.2.2.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2 Content
+
+Warnings and cautions can be located:
+- in one or more separate descriptive data modules using the information code 012 in the
+data module code. Refer to Para 1.5.
+- in Preliminary requirements (element <preliminaryRqmts>) - Safety conditions
+(element <reqSafety>) of a procedural data module. Refer to Para 1.4.
+- within operational and maintenance procedures at the element level of a data module.
+Warnings and cautions must be placed directly preceding the paragraph to which they
+pertain.
+- in an internal collection (within the data module using the element 
+<warningsAndCautions>) or in an external collection (referring to a common
+information repository using the element <warningsAndCautionsRef>). Refer to Para 2.4.
+
+Notes can be placed either before or after the paragraph to which they pertain or in the
+Preliminary requirements - Safety conditions of a procedural data module. Refer to Para 1.4.
+
+Business rule decision point BRDP-S1-00030 - Use of general warnings, cautions and
+notes as separate data modules:
+– Decide whether to produce general warnings, cautions and notes in separate descriptive
+data modules.
+
+Business rule decision point BRDP-S1-00031 - Use of warning and/or caution
+collections:
+– Decide whether to use warning and/or caution collections, internal or external.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  
+2.1 Warnings
+  
+Description: The element <warning> is used to contain hazard information that can cause
+personal injury or death.
+Warnings in data modules must always precede the text where the hazard arises (for details
+see below) and must always precede cautions and notes.
+
+Warnings of a general nature which are applicable throughout a procedure can precede the
+instruction to save repeating the warning before each of the individual steps of the maintenance
+task where the hazard arises. Refer to Para 2.1.2.
+
+The default heading WARNING must begin the warning followed by symbols, if any. Refer to
+Chap 6.2.2 for examples.
+
+Note
+  The default heading WARNING is not entered in the data modules when data modules are
+  written in an XML editor or a What You See Is What You Get (WYSIWYG)-editor with an
+  automatic function for presentation of legends. If not, the author must make sure that the
+  default heading is included.
+
+Warnings must not be numbered. Warnings must be the first item within that step/para.
+
+Note
+  There are two methods to present warnings. Refer to Chap 6.2.2.
+
+Note
+  Warnings must not be used for purely descriptive information (eg, data modules with
+  information code 040). This does not prohibit the use of warnings in a descriptive data
+  module for the production of content such as a summary of warnings.
+
+Note
+  Warnings in business rules document data modules are strongly discouraged. The
+  attribute brSeverityLevel must be used instead.
+  
+The following rule must be followed:
+- Warnings that pertain to parent elements are also applicable to all of their child elements.
+
+  
+Markup element: <warning>
+
+Attributes:
+- applicRefId (O), the applicability information by referencing the element 
+<applic>. Refer to Chap 3.9.5.3.
+- id (O), the identifier of the markup element. Refer to Chap 3.9.5.2.1.2.
+
+Note
+  The attribute id is required when authoring a warning and caution collection. Refer to
+  Para 2.4.
+
+- changeType (O), changeMark (O) and reasonForUpdateRefIds (O), the
+change indications. Refer to Chap 3.9.5.2.1.1.
+- warningType (O), the type of warning (eg, Electric shock, Chemical substance)
+- internalRefId (O), the target id. Refer to Chap 3.9.5.2.1.2.
+- vitalWarningFlag (O), the indicator whether the warning is vital. The attribute 
+vitalWarningFlag can have one of the following values:
+  • "0" - a non-vital warning
+  • "1" - a vital warning
+
+Note
+  If the attribute vitalWarningFlag is used, the meaning of value "1" must be
+  clearly stated. Compliance with country legislation and rules must be ensured.
+  
+- controlAuthorityRefs (O), the control authority information by referencing the
+element <controlAuthority>. Refer to Chap 3.9.5.1.
+- securityClassification (O), commercialClassification (O), 
+caveat (O) and derivativeClassificationRefId (O), the security and
+restrictive marking. Refer to Chap 3.6.
+
+Child elements:
+- <symbol>. Refer to Chap 3.9.5.2.1.10.
+- <warningAndCautionPara> . Refer to Para 2.1.2.
+
+Business rule decision point BRDP-S1-00032 - Use of the attribute 
+vitalWarningFlag:
+– Decide whether and how to use the attribute vitalWarningFlag.
+
+Business rule decision point BRDP-S1-00033 - Use of the attribute warningType:
+– Decide whether and how to use the attribute warningType.
+
+  
+Markup example:
+
+<warning>
+  <warningAndCautionPara>Do not ride with a cracked stem.</warningAndCautionPara>
+</warning>
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.1.1 Symbol
+
+The element <symbol> must be populated in accordance with Chap 3.9.5.2.1.10.
+Warnings and cautions can be emphasized with one or more symbols using the element 
+<symbol>. It is recommended to use International Organization for Standardization (ISO)
+pictograms.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.1.2 Warning and caution para
+  
+Description: The element <warningAndCautionPara> contains the warning or
+caution text.
+
+
+Markup element: <warningAndCautionPara>
+
+Attributes:
+- applicRefId (O), the applicability information by referencing the element 
+<applic>. Refer to Chap 3.9.5.3.
+- id (O), the identifier of the markup element. Refer to Chap 3.9.5.2.1.2.
+
+Note
+  The attribute id is required when authoring a warning and caution collection. Refer to Para 2.4.
+
+- changeType (O), changeMark (O) and reasonForUpdateRefIds (O), the
+change indications. Refer to Chap 3.9.5.2.1.1.
+- controlAuthorityRefs (O), the control authority information by referencing the
+element <controlAuthority>. Refer to Chap 3.9.5.1.
+- securityClassification (O), commercialClassification (O), 
+caveat (O) and derivativeClassificationRefId (O), the security and
+restrictive marking. Refer to Chap 3.6.
+
+Child elements:
+- <attentionRandomList>. Refer to Para 2.1.2.2.
+- The child elements of the group attentionText applicable to the actual data module
+type. Refer to Para 2.1.2.1.
+
+  
+Markup example:
+
+<warningAndCautionPara>If you operate the front brake without the rear brake you can cause a crash.</warningAndCautionPara>
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  
+2.1.2.1 The group attentionText
+  
+The content of the group attentionText varies depending on the data module type, but
+the name of the group is the same for all data module types. The full (maximum) content of the
+group attentionText is shown in Fig 3.
+
+The content of the three different warning/caution/note paragraph types are detailed in Fig 4.
+The figure provides the element name, which data module types the element is available in,
+and which child elements are available in that context.
+
+The description of the content of the child elements is given in Chap 3.9.5.2.1.10.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  
+2.1.2.2 Attention random list
+
+Description: The element <attentionRandomList> contains the list items.
+There are two types of attention random lists:
+- simple - recognized by the value "pf01" of the attribute listItemPrefix giving just
+an indented item without a prefix
+- unordered - the lists recognized by the value "pf03" or "pf07" of the attribute 
+listItemPrefix giving the following prefix: [-] or [●], respectively
+The difference between a simple random list and an unordered random list becomes visible
+when presented. Refer to Chap 6.2.2.
+Only one level of attention random lists is allowed.
+
+  
+Markup element: <attentionRandomList>
+
+Attributes:
+- applicRefId (O), the applicability information by referencing the element 
+<applic>. Refer to Chap 3.9.5.3.
+- id (O), the identifier of the markup element. Refer to Chap 3.9.5.2.1.2.
+- changeType (O), changeMark (O) and reasonForUpdateRefIds (O), the
+change indications. Refer to Chap 3.9.5.2.1.1.
+- listItemPrefix (O), the indicator whether the list is a simple list or an unordered
+list, thus giving the prefix for presentation. Refer to Chap 3.9.6.1. The attribute 
+listItemPrefix can have one of the following values:
+  • "pf01" - no prefix (just an indenture)
+  • "pf03" - prefix [-] used in notes only
+  • "pf07" - prefix [●] used in warnings and cautions only
+
+Note
+  One of the prefix values "pf01", "pf03" or "pf07" must be chosen instead of the
+  default prefix value "pf02".
+  
+- controlAuthorityRefs (O), the control authority information by referencing the
+element <controlAuthority>. Refer to Chap 3.9.5.1.
+- securityClassification (O), commercialClassification (O), 
+caveat (O) and derivativeClassificationRefId (O), the security and
+restrictive marking. Refer to Chap 3.6.
+
+Child elements:
+- <attentionRandomListItem>. Refer to Para 2.1.2.2.1.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.1.2.2.1 Attention random list item
+
+Description: The element <attentionRandomListItem> contains one list item of an
+attention random list.
+Each list item can consist of one or more paragraphs.
+
+Note
+  To enable more than one paragraph, the Schema allows a list item to contain one or more
+  paragraphs. Use the child element <attentionListItemPara> if your list item
+  has more than one paragraph.
+
+
+Markup element: <attentionRandomListItem>
+
+Attributes:
+- applicRefId (O), the applicability information by referencing the element 
+<applic>. Refer to Chap 3.9.5.3.
+- id (O), the identifier of the markup element. Refer to Chap 3.9.5.2.1.2.
+- changeType (O), changeMark (O) and reasonForUpdateRefIds (O), the
+change indications. Refer to Chap 3.9.5.2.1.1.
+- controlAuthorityRefs (O), the control authority information by referencing the
+element <controlAuthority>. Refer to Chap 3.9.5.1.
+securityClassification (O), commercialClassification (O) 
+caveat (O) and derivativeClassificationRefId (O), the security and
+restrictive marking. Refer to Chap 3.6.
+
+Child elements:
+- <attentionListItemPara>. Refer to Para 2.1.2.2.2.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  
+2.1.2.2.2 Attention list item para
+
+Description: The element <attentionListItemPara> contains the list item
+paragraphs.
+
+
+Markup element: <attentionListItemPara>
+
+Attributes:
+- applicRefId (O), the applicability information by referencing the element 
+<applic>. Refer to Chap 3.9.5.3.
+- id (O), the identifier of the markup element. Refer to Chap 3.9.5.2.1.2.
+- changeType (O), changeMark (O) and reasonForUpdateRefIds (O), the
+change indications. Refer to Chap 3.9.5.2.1.1.
+- controlAuthorityRefs (O), the control authority information by referencing the
+element <controlAuthority>. Refer to Chap 3.9.5.1.
+- securityClassification (O), commercialClassification (O), 
+caveat (O) and derivativeClassificationRefId (O), the security and
+restrictive marking. Refer to Chap 3.6.
+
+Child elements:
+- Includes the child elements of the group attentionText applicable to the actual data
+module type. Refer to Para 2.1.2.1.
+
+  
+Markup example:
+  
+<attentionRandomList listItemPrefix="pf07">
+  <attentionRandomListItem>
+    <attentionListItemPara>First attention random list bullit first paragraph</attentionListItemPara>
+    <attentionListItemPara>First attention random list bullit second aragraph</attentionListItemPara>
+  </attentionRandomListItem>
+  <attentionRandomListItem>
+    <attentionListItemPara>Second attention random list bullit first paragraph.</attentionListItemPara>
+  </attentionRandomListItem>
+</attentionRandomList>
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.2 Cautions
+
+Description: The element <caution> contains hazard information that can cause damage
+to the Product.
+
+Cautions in data modules must always precede the text where the hazard arises and must
+always precede notes.
+
+Cautions of a general nature, however, which are applicable throughout an instruction, can
+precede the instruction to save repeating the caution before each of the individual steps of the
+maintenance task where the hazard arises. Refer to Para 2.1.2.
+  
+The default heading CAUTION must begin the caution followed by symbols, if any. Refer to
+Chap 6.2.2 for examples.
+
+Note
+  The default heading CAUTION is not entered in the data modules when data modules are
+  written in an XML editor or a WYSIWYG-editor with an automatic function for presentation
+  of legends. If not, the author must make sure that the default heading is included.
+
+Cautions must not be numbered. Cautions must be the first item within that step/para if there
+are no warnings, because warnings must always precede cautions.
+  
+The scope of cautions follows the same rules as for warnings. Refer to Para 2.1.
+
+Note
+  There are two methods to present cautions. Refer to Chap 6.2.2.
+
+Note
+  Cautions must not be used for purely descriptive information (eg, data modules with
+  information code 040). This does not prohibit the use of cautions in a descriptive data
+  module for the production of content such as a summary of cautions.
+
+Note
+  Cautions in business rules document data modules are strongly discouraged. The attribute 
+  brSeverityLevel must be used instead.
+
+The content of the element <caution> is given by a combination of the same child
+elements and attributes as used by the element <warning> except for the absence of the
+attribute vitalWarningFlag. Refer to Para 2.1.
+
+  
+Markup element: <caution>
+
+Attributes:
+- applicRefId (O), the applicability information by referencing the element 
+<applic>. Refer to Chap 3.9.5.3.
+- id (O), the identifier of the markup element. Refer to Chap 3.9.5.2.1.2.
+
+Note
+  The attribute id is required when authoring a warning and caution collection. Refer to Para 2.4.
+
+- changeType (O), changeMark (O) and reasonForUpdateRefIds (O), the
+change indications. Refer to Chap 3.9.5.2.1.1.
+- cautionType (O), the type of caution
+- internalRefId (O), the target id. Refer to Chap 3.9.5.2.1.2.
+- controlAuthorityRefs (O), the control authority information by referencing the
+element <controlAuthority>. Refer to Chap 3.9.5.1.
+- securityClassification (O), commercialClassification (O), 
+caveat (O) and derivativeClassificationRefId (O), the security and
+restrictive marking. Refer to Chap 3.6.
+
+Child elements:
+- <symbol>. Refer to Chap 3.9.5.2.1.10.
+- <warningAndCautionPara>. Refer to Para 2.1.2.
+
+Business rule decision point BRDP-S1-00034 - Use of the attribute cautionType:
+– Decide whether and how to use the attribute cautionType.
+
+  
+Markup example:
+
+<caution>
+  <warningAndCautionPara>Do not use a
+    <internalRef internalRefId="seq-0001" internalRefTargetType="irtt05"></internalRef>
+    that has high pressure. A water hose that has high pressure can
+    cause some parts to become loose or full of water.</warningAndCautionPara>
+</caution>
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  
+2.3 Notes
+  
+Description: The element <note> contains additional information that can be useful to the
+user.
+  
+Normally, notes in data modules must follow the text to which they refer. In certain
+circumstances, it can be necessary to allow for notes to precede the text to which they refer to.
+In this case, projects must declare the use of notes in their business rules.
+
+Notes must always follow warnings and cautions.
+Notes of a general nature, which are applicable throughout an instruction, can precede the
+instruction to save repeating the note throughout the instruction.
+
+The production of notes as individual data modules is not recommended.
+The default heading Note must begin the note. If the notes are numbered, then the default
+heading Note X must begin the note. Refer to examples in Chap 6.2.2
+
+Note
+  The default heading Note is not entered in the data modules when data modules are
+  written in an XML editor or a WYSIWYG-editor with an automatic function for presentation
+  of legends. If not, the author must make sure that the default heading is included.
+
+If there is more than one note they can, by project decision, be numbered to enable cross￾references 
+to be made to them within the text.
+A note can comprise of:
+- symbols
+- one or more paragraphs
+- one or more random (unordered) lists at one level only
+- one sequential (ordered) list at one level only
+
+It is however recommended to keep notes as simple as possible.
+The use of attention sequential lists and attention random lists is discouraged. Refer to
+Para 2.3.2 and Para 2.1.2.2.
+
+There can be instances where notes are applicable to complete steps/paras or substeps/
+subparas, including their substeps/subparas. In those circumstances, notes must be the first
+item within that step/para provided there are no warnings or cautions. Otherwise warnings and
+cautions take precedence. Notes must follow the step/para number and title, if any, and
+precede any text.
+
+The scope of notes follows the same rules as for warnings. Refer to Para 2.1.
+The content of the element <note> is given by a combination of the same child elements and
+attributes as for the element <warning> (refer to Para 2.1), except for the absence of the
+attribute vitalWarningFlag and the addition of sequential lists.
+
+  
+Markup element: <note>
+
+Attributes:
+- applicRefId (O), the applicability information by referencing the element 
+<applic>. Refer to Chap 3.9.5.3.
+- id (O), the identifier of the markup element. Refer to Chap 3.9.5.2.1.2.
+- changeType (O), changeMark (O) and reasonForUpdateRefIds (O), the
+change indications. Refer to Chap 3.9.5.2.1.1.
+- noteType (O), the type of note
+- internalRefId (O), the target id of the note. Refer to Chap 3.9.5.2.1.2.
+- controlAuthorityRefs (O), the control authority information by referencing the
+element <controlAuthority>. Refer to Chap 3.9.5.1 .
+- securityClassification (O), commercialClassification (O), 
+caveat (O) and derivativeClassificationRefId (O), the security and
+restrictive marking. Refer to Chap 3.6.
+
+Child elements:
+- <symbol>. Refer to Chap 3.9.5.2.1.10.
+and one of the following is required:
+- <notePara>. Refer to Para 2.3.1.
+- <attentionSequentialList>. Refer to Para 2.3.2.
+- <attentionRandomList>. Refer to Para 2.1.2.2.
+
+Business rule decision point BRDP-S1-00035 - Use of the attribute noteType:
+– Decide whether and how to use the attribute noteType.
+
+  
+Markup example:
+<note>
+  <notePara>The stem must point forward in alignment with the wheel.</notePara>
+</note>
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  
+2.3.1 Note para
+
+Description: The element <notePara> contains the note text.
+
+  
+Markup element: <notePara>
+
+Attributes:
+- Includes the same set of attributes as the element <attentionListItemPara>.
+Refer to Para 2.1.2.2.2.
+
+Child elements:
+- <attentionSequentialList>. Refer to Para 2.3.2.
+- <attentionRandomList>. Refer to Para 2.1.2.2.
+- The child elements of the group attentionText applicable to the actual data module
+type. Refer to Para 2.1.2.1.
+
+  
+Markup example:
+
+<notePara>It is not necessary to remove the handlebar for this procedure.</notePara>
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.3.2 Attention sequential list
+  
+Description: The element <attentionSequentialList> contains an attention
+sequential (ordered) list in a note. An attention sequential list, when presented, 
+has numbersbefore the list items. Refer to Chap 6.2.2.
+
+In the attention sequential list, a list item can consist of one or more paragraphs.
+A sequential list, when presented, is numbered with arabic numerals. Refer to Chap 6.2.2.
+
+Only one attention sequential list is allowed in a Note.
+Attention sequential lists are limited to one level.
+
+  
+Markup element: <attentionSequentialList>
+
+Attributes:
+- Includes the same set of attributes as the element <attentionListItemPara>.
+Refer to Para 2.1.2.2.2.
+
+Child elements:
+- <title>. Refer to Chap 3.9.5.2.1.5.
+- <attentionSequentialListItem>. Refer to Para 2.3.2.1.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.3.2.1 Attention sequential list item
+  
+Description: The element <attentionSequentialListItem> contains one list
+item of an attention sequential list item and can consist of one or more paragraphs.
+
+  
+Markup element: <attentionSequentialListItem>
+
+Attributes:
+- Includes the same set of attributes as the element 
+<attentionRandomListItem>. Refer to Para 2.1.2.2.1.
+
+Child elements:
+- <attentionListItemPara>. Refer to Para 2.1.2.2.2.
+- <attentionRandomList>. Refer to Para 2.1.2.2.
+
+  
+Markup example:
+
+<attentionSequentialList>
+  <attentionSequentialListItem>
+    <attentionListItemPara>First list item paragraph</attentionListItemPara>
+  </attentionSequentialListItem>
+  <attentionSequentialListItem>
+    <attentionListItemPara>Second list item paragraph.</attentionListItemPara>
+  </attentionSequentialListItem>
+</attentionSequentialList>
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  
+2.4 Warning and caution collections
+  
+Warnings and cautions can be collected within the data module where they are used (refer to
+Para 2.4.1) or within a warning or a caution common information repository in case of warning
+and caution externalization. Refer to Para 2.4.2.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.4.1 Internal collection
+  
+When collected within the data module where the warnings and cautions occur, the element 
+<warningsAndCautions> must be used.
+
+Description: The element <warningsAndCautions> contains the collection of
+warnings and cautions used within a data module. Each warning or caution is authored
+separately within the element <warningsAndCautions>. Warnings and cautions can
+thus be authored once in a data module and then referenced as needed.
+
+The collection (element <warningsAndCautions>) must not include warnings or
+cautions that do not occur within the data module.
+
+Note
+  The collection can be used in combination with warnings and cautions that are authored
+  individually at the element level of a data module. The collection is useful to store common
+  (or multi-use) alerts while local (or single-use) alerts can be authored as needed.
+
+The collection of warnings and cautions is referenced by the use of the attributes 
+warningRefs or cautionRefs, respectively, which are permitted on the following
+elements:
+- <brLevelledPara>. Refer to Chap 4.10.1.
+- <crewDrill>. Refer to Chap 3.9.5.2.6.
+- <crewDrillStep>. Refer to Chap 3.9.5.2.6.
+- <crewRefCard>. Refer to Chap 3.9.5.2.6.
+- <checkListPara>. Refer to Chap 3.9.5.2.14.
+- <checkListStep>. Refer to Chap 3.9.5.2.14.
+- <descrCrew>. Refer to Chap 3.9.5.2.6.
+- <description>. Refer to Chap 3.9.5.2.2.
+- <entry>. Refer to Chap 3.9.5.2.1.6.
+- <isolationProcedureEnd>. Refer to Chap 3.9.5.2.4.
+- <isolationStep>. Refer to Chap 3.9.5.2.4.
+- <levelledPara>. Refer to Chap 3.9.5.2.2.
+- <proceduralStep>. Refer to Chap 3.9.5.2.3.
+- <safetyRqmts>. Refer to Chap 3.9.5.2.1.9.
+- <sb>. Refer to Chap 3.9.5.2.15.
+- <sbTopicContent>. Refer to Chap 3.9.5.2.15.
+- <scoContent>. Refer to Chap 3.9.5.2.17.
+
+The attribute warningRefs is populated with the identification (attribute id) assigned to
+the applicable warning within the collection (element <warningsAndCautions>).
+
+The attribute cautionRefs is populated with the identification (attribute id) assigned to
+the applicable caution within the collection (element <warningsAndCautions>).
+
+  
+Markup element: <warningsAndCautions>
+
+Attributes:
+- id (O), the identifier of the markup element. Refer to Chap 3.9.5.2.1.2.
+- changeType (O), changeMark (O) and reasonForUpdateRefIds (O), the
+change indications. Refer to Chap 3.9.5.2.1.1.
+- controlAuthorityRefs (O), the control authority information by referencing the
+element <controlAuthority>. Refer to Chap 3.9.5.1.
+- securityClassification (O), commercialClassification (O), 
+caveat (O) and derivativeClassificationRefId (O), the security and
+restrictive marking. Refer to Chap 3.6.
+
+Child elements:
+- <warning>, whose attribute id must be used when authored within the collection.
+Refer to Para 2.1.
+- <caution>, whose attribute id must be used when authored within the collection.
+Refer to Para 2.2.
+
+  
+Markup example:
+
+<warningsAndCautions>
+  <warning id="warn-0001">
+    <warningAndCautionPara>The first warning in the collection of warnings and cautions, used multiple times within the data module.</warningAndCautionPara>
+  </warning>
+  <warning id="warn-0002">
+    <warningAndCautionPara>The second warning in the collection of warnings and cautions, used multiple times within the data module.</warningAndCautionPara>
+  </warning>
+  <caution id="caut-0001">
+    <warningAndCautionPara>The first caution in the collection of warnings and cautions, used multiple times within the data module.</warningAndCautionPara>
+  </caution>
+</warningsAndCautions>
+...
+<reqSafety>
+  <safetyRqmts warningRefs="warn-0001" cautionRefs="caut-0001">
+    <warning>
+      <warningAndCautionPara>Some other warning, not included in the collection.</warningAndCautionPara>
+    </warning>
+  </safetyRqmts>
+</reqSafety>
+...
+<table>
+  <tgroup cols="2">
+    <tbody>
+      <row>
+        <entry warningRefs="warn-0001 warn-0002" cautionRefs="caut-0001"></entry>
+        <entry>
+          <caution>
+            <warningAndCautionPara>A caution that is used only once and authored in the applicable table entry.</warningAndCautionPara>
+          </caution>
+        </entry>
+      </row>
+    </tbody>
+  </tgroup>
+</table>
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  
+2.4.2 External collection
+
+When collected into a warning and/or caution common information repository, the element 
+<warningsAndCautionsRef> must be used.
+  
+Description: The element <warningsAndCautionsRef> contains the references to
+the warnings or cautions, which are valid for this data module and stored externally into a
+warning and/or caution common information repository.
+
+
+Markup element: <warningsAndCautionsRef>
+
+Attributes:
+- id (O), the identifier of the markup element. Refer to Chap 3.9.5.2.1.2.
+- changeType (O), changeMark (O) and reasonForUpdateRefIds (O), the
+change indications. Refer to Chap 3.9.5.2.1.1.
+- controlAuthorityRefs (O), the control authority information by referencing the
+element <controlAuthority>. Refer to Chap 3.9.5.1.
+- securityClassification (O), commercialClassification (O), 
+caveat (O) and derivativeClassificationRefId (O), the security and
+restrictive marking. Refer to Chap 3.6.
+
+Child elements:
+- <warningRef>, references a warning stored in a warning common information
+repository. Refer to Chap 3.9.5.2.1.13.
+- <cautionRef>, references a caution stored in a caution common information
+repository. Refer to Chap 3.9.5.2.1.13.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  
+3 Examples
+  
+The following example shows the element <warningsAndCautionsRef> in a
+procedural data module and the accompanying warning and caution common information
+repositories.
+
+
+The procedural data module:
+
+<content>
+  <warningsAndCautionsRef>
+    <warningRef id="warn-0001" warningIdentNumber="warning-001">
+      <dmRef>
+        <dmRefIdent>
+          <dmCode modelIdentCode="S1000DLIGHTING"
+          systemDiffCode="AAA" systemCode="D00" subSystemCode="0"
+          subSubSystemCode="0" assyCode="00" disassyCode="01"
+          disassyCodeVariant="AA" infoCode="012" infoCodeVariant="A"
+          itemLocationCode="A"/>
+        </dmRefIdent>
+      </dmRef>
+    </warningRef>
+    <cautionRef id="caut-0001" cautionIdentNumber="caution-001">
+      <dmRef>
+        <dmRefIdent>
+          <dmCode modelIdentCode="S1000DLIGHTING"
+          systemDiffCode="AAA" systemCode="D00" subSystemCode="0"
+          subSubSystemCode="0" assyCode="00" disassyCode="02"
+          disassyCodeVariant="AA" infoCode="012" infoCodeVariant="A"
+          itemLocationCode="A"/>
+        </dmRefIdent>
+      </dmRef>
+    </cautionRef>
+    <cautionRef id="caut-0002" cautionIdentNumber="caution-002">
+      <dmRef>
+        <dmRefIdent>
+          <dmCode modelIdentCode="S1000DLIGHTING"
+          systemDiffCode="AAA" systemCode="D00" subSystemCode="0"
+          subSubSystemCode="0" assyCode="00" disassyCode="02"
+          disassyCodeVariant="AA" infoCode="012" infoCodeVariant="A"
+          itemLocationCode="A"/>
+        </dmRefIdent>
+      </dmRef>
+    </cautionRef>
+  </warningsAndCautionsRef>
+  <procedure>
+    <preliminaryRqmts>
+...    
+<safetyRqmts cautionRefs="caut-0001 caut-0002" warningRefs="warn-0001"></safetyRqmts>
+    
+The warning common information repository data module:
+
+<content>
+  <commonRepository>
+    <warningRepository>
+      <warningSpec>
+        <warningIdent warningIdentNumber="warning-001"></warningIdent>
+        <warningAndCautionPara>Make sure that the bulb is cool before you replace it.</warningAndCautionPara>
+      </warningSpec>
+      <warningSpec>
+        <warningIdent warningIdentNumber="warning-002"></warningIdent>
+        <warningAndCautionPara>Make sure the light glass is not broken before handling it.</warningAndCautionPara>
+      </warningSpec>
+...
+    </warningRepository>
+  </commonRepository>
+</content>
+    
+The caution common information repository data module:
+
+<content>
+  <commonRepository>
+    <cautionRepository>
+      <cautionSpec>
+        <cautionIdent cautionIdentNumber="caution-001"></cautionIdent>
+        <warningAndCautionPara>Do not touch the glass of the bulb.</warningAndCautionPara>
+      </cautionSpec>
+      <cautionSpec>
+        <cautionIdent cautionIdentNumber="caution-002"></cautionIdent>
+        <warningAndCautionPara>Make sure that the glass is clean before installing it on the light.</warningAndCautionPara>
+      </cautionSpec>
+...
+    </cautionRepository>
+  </commonRepository>
+</content>
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 Chapter 3.9.5
 Authoring - Data modules
 
