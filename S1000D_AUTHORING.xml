@@ -2207,6 +2207,138 @@ Chap 3.9.5.2.1.
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
+Chapter 3.9.5.2.1
+Content section - Common constructs
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+1 General
+
+The content of a data module must be structured in accordance with the appropriate Schema
+and must be authored in line with the requirements given in the following:
+- warnings cautions and notes (refer to Chap 3.9.3)
+- security classification (refer to Chap 3.9.5.1)
+- change marking (refer to Chap 3.9.5.2.1.1)
+- referencing (refer to Chap 3.9.5.2.1.2)
+- lists (refer to Chap 3.9.5.2.1.3)
+- captions (refer to Chap 3.9.5.2.1.4)
+- titles (refer to Chap 3.9.5.2.1.5)
+- tables (refer to Chap 3.9.5.2.1.6)
+- figures, multimedia and foldouts (refer to Chap 3.9.5.2.1.7)
+- hotspots (refer to Chap 3.9.5.2.1.8)
+- preliminary requirements (refer to Chap 3.9.5.2.1.9)
+- paragraphs (refer to Chap 3.9.5.2.1.10)
+- simple paragraphs (refer to Chap 3.9.5.2.1.10)
+- controlled content (refer to Chap 3.9.5.2.1.11)
+- common information (refer to Chap 3.9.5.2.1.12)
+- externalization (refer to Chap 3.9.5.2.1.13)
+- descriptive information (refer to Chap 3.9.5.2.2)
+- procedural information (refer to Chap 3.9.5.2.3)
+- fault information (refer to Chap 3.9.5.2.4)
+- maintenance planning information (refer to Chap 3.9.5.2.5)
+- crew/operator information (refer to Chap 3.9.5.2.6)
+- parts information (refer to Chap 3.9.5.2.7)
+- battle damage assessment and repair information (refer to Chap 3.9.5.2.8)
+- wiring information (refer to Chap 3.9.5.2.9)
+- process data module (refer to Chap 3.9.5.2.10)
+- common information repository data module (refer to Chap 3.9.5.2.11)
+- container data module (refer to Chap 3.9.5.2.12)
+- learning data module (refer to Chap 3.9.5.2.13)
+- maintenance checklists and inspections (refer to Chap 3.9.5.2.14)
+- service bulletin data module (refer to Chap 3.9.5.2.15)
+- front matter (refer to Chap 3.9.5.2.16)
+- SCO content data module (refer to Chap 3.9.5.2.17)
+- applicability (refer to Chap 3.9.5.3)
+- attributes (refer to Chap 3.9.6)
+- training information (refer to Chap 3.9.7)
+The rules for the presentation of the content are given in Chap 6.2 and Chap 6.3.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Chapter 3.9.5.2.1.1
+Common constructs - Change marking
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+1 General
+
+Indicating changes to CSDB objects is achieved by using the change markup provided by the
+Schemas. The types of changes are insertions, deletions and modifications for elements and/or
+text.
+
+Tables, figures and warnings and cautions have special rules. Refer to Para 2.5, Para 2.6 and
+Para 2.7, respectively.
+
+Note
+The Data Dispatch Note (DDN) and Comment (COM) Schemas include the change
+markup only within the identification and status section.
+
+With the exception of the DDN and COM, each CSDB object records the reasons for the
+changes in their identification and status section. Since reasons for changes are included in all
+the explanations of change in this chapter, the subject is explained first. Refer to Para 2.2.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2 Using change markup
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.1 General rules
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.1.1 Use limitations
+
+The use of the change markup is limited to indicate technical changes only. Change markup
+must only be used to indicate changes since the previous issue of a data module and not
+between increments of the attribute inWork. Any changes indicated in the previous issue
+must be deleted for the upissue.
+
+Note
+The previous issue of the data module remains stored in the CSDB with the change
+markup at that issue.
+
+Editorial changes must not use change markup. Refer to default BREX rule BREX-S1-00044.
+
+Data modules that have the value of the attribute issueNumber of the element 
+<issueInfo> set to "001" and the value of the attribute issueType of the element 
+<dmStatus> set to "new" must not use change markup. Refer to default BREX rule BREX￾S1-00013 and BREX-S1-00036.
+
+Generated TOC, LOT, LOF and references must not have changes applied or indicated.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.1.2 Recording reasons for change
+
+All elements that contain the change markup use a reason for update. Refer to Para 2.2 and
+default BREX rule BREX-S1-00038. However, graphics and multimedia can also use a reason
+for amendment. Refer to Para 2.3.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.1.3 Linking reasons for update
+
+The details of the changes made within the content section of a data module are recorded in
+the identification and status section. Linking the change to the reason for change is achieved by
+using the attribute reasonForUpdateRefIds of the element that is changed and the
+attribute id of the element <reasonForUpdate>.
+When the content of an element is changed, the value of its attribute 
+reasonForUpdateRefIds is set to the same value as the attribute id of the element 
+<reasonForUpdate>.
+
+When the content of more than one element are affected by the same change, the value for
+each of the elements' attribute reasonForUpdateRefIds are set to the same value as
+the attribute id of the element <reasonForUpdate>.
+
+When the content of more than one element is affected by different changes, the elements
+affected by one change have the value for each of those elements’ attribute 
+reasonForUpdateRefIds set to the same value as the attribute id of one occurrence
+of the element <reasonForUpdate>. The elements affected by a different change have
+the value for each of those elements’ attribute reasonForUpdateRefIds set to the
+same value as the attribute id of a separate occurrence of the element 
+<reasonForUpdate>.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
 
