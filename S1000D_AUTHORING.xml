@@ -1,3 +1,19 @@
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Chapter 3.9.5.1
+Data modules - Identification and status section
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+1 General
+
+The identification and status section gives all the identification elements required to address
+and control the data module. It also provides the status elements for information on the
+security, quality and technical status together with the applicability of the overall data module
+content.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 2 Identification and status section
 
 Description: The element <identAndStatusSection> contains the identification and
@@ -2029,6 +2045,122 @@ Child elements:
     </dmStatus>
 </identAndStatusSection>
 
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Chapter 3.9.5.1.1
+Identification and status section - Export control
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+1 General
+
+This chapter contains information and guidance on the use of export controls. These controls
+are required to contain a statement regarding the regulations that apply to the data contained
+within a data module. The controls also contain an indicator that shows which government
+gives authority to the regulations defined. This information can be required by companies,
+government departments and their delivery systems to control the release of data to authorized
+users. In addition, it can be required by authorized users so they can further control transmittal
+and use of the data, as required by many export control regulations.
+When using export controls, projects must consider the requirements of their statutory
+government and the end data users and their data management requirements. Other items to
+consider are the display of this data within the user interface. Projects are responsible to
+ensure that the export controls applied are correct for the data content and that they comply
+with the relevant regulations pertaining to export controls.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2 Export control
+
+Description: The element <exportControl> is used to define any government
+regulations concerning access to the data module.
+
+
+Markup element: <exportControl>
+
+Attributes:
+- id (O), the identifier of the markup element. Refer to Chap 3.9.5.2.1.2.
+- changeType (O), changeMark (O) and reasonForUpdateRefIds (O), the
+change indications. Refer to Chap 3.9.5.2.1.1.
+- exportRegulationType (O), the identification of the regulation type that governs
+the use of the data contained in the data module
+- governmentAuthority (O), the identification of the government that controls the
+use of the data contained in the data module. It is recommended to use the two character
+country code as defined in International Standards Organisation (ISO) 3166-1.
+- controlAuthorityRefs (O), the control authority information by referencing the
+element <controlAuthority>. Refer to Chap 3.9.5.1.
+- securityClassification (O), commercialClassification (O), 
+caveat (O) and derivativeClassificationRefId (O), the security and
+restrictive marking. Refer to Chap 3.6.
+
+Child elements:
+- <exportRegistrationStmt>. Refer to Para 2.1.
+- <exportRegistrationCode>. Refer to Para 2.2.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.1 Export registration statement
+
+Description: The element <exportRegistrationStmt> is used to specify either a
+full or a partial export registration statement describing the export status of the data module
+content.
+
+  
+Markup element: <exportRegistrationStmt>
+
+Attributes:
+- exportRole (O), the description of whether this statement is a full statement or a
+partial statement. Valid values are:
+  • "full"
+  • "partial"
+
+Child elements:
+- <simplePara>. Refer to Chap 3.9.5.2.1.10.
+- <dmRef>. Refer to Chap 3.9.5.2.1.2.
+
+Note
+The element <dmRef> in this context is used to refer to export policy statements that
+have been externalized into a separate data module that uses IC 025.
+
+Note
+The content of the statement is made up of a choice of a combination of multiple instances
+of the child elements.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.2 Export registration code
+
+Description: The element <exportRegistrationCode> is used to indicate a coded
+value representing an export control property that applies to the content of the data module.
+
+
+Markup element: <exportRegistrationCode>
+
+Attributes:
+- exportRegulationCodeType (O), the type of the regulation code. In the case of
+Export Administration Regulations (EAR), the value of the attribute can be "ECCN". In the
+case of International Traffic in Arms Regulations (ITAR), the value can be a program code
+related to the Project.
+
+Child elements:
+- None
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+3 Example
+
+The following example shows an export control statement:
+
+<exportControl exportRegulationType="EAR">
+  <exportRegistrationStmt exportRole="partial">
+    <simplePara>This information contains technology controlled under EAR. Transfer of this data to a foreign person without export approval is expressly prohibited.</simplePara>
+  </exportRegistrationStmt>
+  <exportRegistrationStmt exportRole="full">
+    <simplePara>Export of this technology is controlled under the United States Export Administration Regulations (EAR) (15 CFR 730-774). An export license may be required before it is used for development, production or use by foreign persons from specific countries. The controller of this data has the individual responsibility to abide by all export laws.</simplePara>
+  </exportRegistrationStmt>
+  <exportRegistrationCode exportRegulationCodeType="ECCN">1E001</exportRegistrationCode>
+  <exportRegistrationCode exportRegulationCodeType="ECCN">5A101</exportRegistrationCode>
+  <exportRegistrationCode exportRegulationCodeType="ECCN">9A991</exportRegistrationCode>
+</exportControl>
 
 
 
@@ -2037,6 +2169,31 @@ Child elements:
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
 
 
 
