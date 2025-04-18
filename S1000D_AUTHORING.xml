@@ -75,6 +75,7 @@ element establishes a producer unique subdomain for identification. Refer to Cha
 
 Description: The element <dmCode> contains the data module code and forms part of the
 unique identifier of a data module. All data modules are allocated a data module code.
+
 The data module code provides four top-level pieces of information:
 - The identification of the Product, or part of the Product, about which the data module has
 been written, using the model identifier, the system difference code, the standard
@@ -85,7 +86,26 @@ code variant
 using the item location code
 - The identification of the type of learning content in learning data modules. Refer to
 Chap 4.3.
+
 Establishing the data module code requires a data module coding strategy. Refer to Chap 4.3.
+
+
+Markup element: <dmCode>
+
+Attributes:
+- modelIdentCode (M), the model identifier or project name. Refer to Chap 4.3.1.
+- systemDiffCode (M), the system difference code. Refer to Chap 4.3.2.
+- systemCode (M), the system code (part of the SNS). Refer to Chap 4.3.3.
+- subSystemCode (M), the subsystem code (part of the SNS). Refer to Chap 4.3.3.
+- subSubSystemCode (M), the sub-subsystem code (part of the SNS). Refer to Chap 4.3.3.
+- assyCode (M), the assembly code (part of the SNS). Refer to Chap 4.3.3.
+- disassyCode (M), the disassembly code. Refer to Chap 3.8 and Chap 4.3.4.
+- disassyCodeVariant (M), the disassembly code variant. Refer to Chap 4.3.5.
+- infoCode (M), the information code. Refer to Chap 4.3.6.
+- infoCodeVariant (M), the information code variant. Refer to Chap 4.3.7.
+- itemLocationCode (M), the item location code. Refer to Chap 4.3.8.
+- learnCode (O), the learn code. Refer to Chap 4.3.9 and Chap 8.5.
+- learnEventCode (O), the learn event code. Refer to Chap 3.9.5.2.13 and Chap 4.3.10.
 
 Child elements:
 - None
@@ -98,8 +118,7 @@ Attributes:
 - systemDiffCode (M), the system difference code. Refer to Chap 4.3.2.
 - systemCode (M), the system code (part of the SNS). Refer to Chap 4.3.3.
 - subSystemCode (M), the subsystem code (part of the SNS). Refer to Chap 4.3.3.
-- subSubSystemCode (M), the sub-subsystem code (part of the SNS). Refer to
-Chap 4.3.3.
+- subSubSystemCode (M), the sub-subsystem code (part of the SNS). Refer to Chap 4.3.3.
 - assyCode (M), the assembly code (part of the SNS). Refer to Chap 4.3.3.
 - disassyCode (M), the disassembly code. Refer to Chap 3.8 and Chap 4.3.4.
 - disassyCodeVariant (M), the disassembly code variant. Refer to Chap 4.3.5.
@@ -107,8 +126,7 @@ Chap 4.3.3.
 - infoCodeVariant (M), the information code variant. Refer to Chap 4.3.7.
 - itemLocationCode (M), the item location code. Refer to Chap 4.3.8.
 - learnCode (O), the learn code. Refer to Chap 4.3.9 and Chap 8.5.
-- learnEventCode (O), the learn event code. Refer to Chap 3.9.5.2.13 and
-Chap 4.3.10
+- learnEventCode (O), the learn event code. Refer to Chap 3.9.5.2.13 and Chap 4.3.10
 
 
 Markup example for maintenance data modules:
@@ -144,7 +162,7 @@ to, and not in conflict with, ISO 639 codes. For example, languageIsoCode="sx"
 means a Simplified Technical English® (ASD-STE100) data module and 
 languageIsoCode="ra" means a rationalized French data module.
 - countryIsoCode (M), the two alpha characters from ISO 3166 to denote the country
-where the language is spoken
+where the language is spoken.
 
 Child elements:
 - None
@@ -187,8 +205,7 @@ numbered with the value "001", which must be incremented with every approved rel
 of a data module.
 - inWork (M), the in-work number of the unreleased data module. It can be used for
 monitoring and control of intermediate drafts within a project. The initial in-work number is
-set to the value "01" and is incremented with every change to the unreleased data
-module.
+set to the value "01" and is incremented with every change to the unreleased data module.
 
 Child elements:
 - None
@@ -199,8 +216,9 @@ Markup examples:
 These examples show the use of the attribute inWork.
 
 Note:
-For each of these, set the value of the attribute issueType of the element 
-<dmStatus> accordingly.
+  For each of these, set the value of the attribute issueType of the element 
+  <dmStatus> accordingly.
+
 
 A data module that is in work, where this is the second draft.
 <issueInfo issueNumber="000" inWork="02"/>
@@ -327,14 +345,14 @@ clean” (normally IC 258A) to “Other procedure to clean, Clean with water ”
 and “Other procedure to clean, Clean with air ” (can be IC 258C).
 
 Note:
-The information name must not contain the characters “&”, “<”, or “>”. These characters
-will cause issues with BREX checking and XML validation.
+  The information name must not contain the characters “&”, “<”, or “>”. These characters
+  will cause issues with BREX checking and XML validation.
 
 Note:
-Not all information codes within S1000D will apply to a project. Further, there can be some
-that are defined by the project and some that can be modified. Where this is the case, it is
-recommended that the project compiles a list containing the list of information codes and
-variants that can be used, together with their information names.
+  Not all information codes within S1000D will apply to a project. Further, there can be some
+  that are defined by the project and some that can be modified. Where this is the case, it is
+  recommended that the project compiles a list containing the list of information codes and
+  variants that can be used, together with their information names.
 
 Examples:
 - Description of how it is made (IC 041)
@@ -473,8 +491,8 @@ When work first starts on a data module, the attribute issueType is set to the v
 while the issue number is set to the value "000" and in-work number to "01", using the
 attribute issueNumber and attribute inWork of element <issueInfo>. Then, when
 the data module is released, the attribute inWork is reset to the value "00", and the issue
-number incremented to indicate approved release of that instance of the data module. From
-issue "002" onwards the attribute issueType must not be set to the value "new" but is to
+number incremented to indicate approved release of that instance of the data module. 
+From issue "002" onwards the attribute issueType must not be set to the value "new" but is to
 reflect the release status of the instance of the data module. Examples are shown in Table 3.
 
 
@@ -1024,8 +1042,8 @@ information (in each data module or in a consolidated data module):
 – Decide whether to populate copyright information in each data module or whether to cross-reference to a copyright data module.
 
 Note
-While choosing the population method, assess the impact of changes to copyright
-information on updating of data modules.
+  While choosing the population method, assess the impact of changes to copyright
+  information on updating of data modules.
 
   
 Markup example:
@@ -1278,10 +1296,11 @@ cases, the organization must designate which company is the responsible for whic
 modules. Only the responsible partner company is indicated within the data module.
 
 Note
-A responsible partner company can be defined as one of the companies or organization
-making up a consortium pursuing a common project. Each of these partner companies is
-responsible for a certain share of the total project effort, however, only one is designated
-as responsible for the population of the CSDB.
+  A responsible partner company can be defined as one of the companies or organization
+  making up a consortium pursuing a common project. Each of these partner companies is
+  responsible for a certain share of the total project effort, however, only one is designated
+  as responsible for the population of the CSDB.
+
 This company or organization must be indicated by either the name of the company and/or the
 company’s CAGE code, which is the preferred method. For information control numbers that
 are not CAGE code based, and the SNS for non-chapterized parts data modules, a project
@@ -2124,8 +2143,8 @@ The element <dmRef> in this context is used to refer to export policy statements
 have been externalized into a separate data module that uses IC 025.
 
 Note
-The content of the statement is made up of a choice of a combination of multiple instances
-of the child elements.
+  The content of the statement is made up of a choice of a combination of multiple instances
+  of the child elements.
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -2190,8 +2209,7 @@ following information types:
 - Maintenance planning information, refer to Chap 3.9.5.2.5
 - Crew/Operator information, refer to Chap 3.9.5.2.6
 - IPD information, refer to Chap 3.9.5.2.7
-- Battle damage assessment and repair information (to be included in a future change), refer
-to Chap 3.9.5.2.8
+- Battle damage assessment and repair information (to be included in a future change), refer to Chap 3.9.5.2.8
 - Wiring data, refer to Chap 3.9.5.2.9
 - Process data module, refer to Chap 3.9.5.2.10
 - Common information repository data module, refer to Chap 3.9.5.2.11
@@ -2270,8 +2288,8 @@ Tables, figures and warnings and cautions have special rules. Refer to Para 2.5,
 Para 2.7, respectively.
 
 Note
-The Data Dispatch Note (DDN) and Comment (COM) Schemas include the change
-markup only within the identification and status section.
+  The Data Dispatch Note (DDN) and Comment (COM) Schemas include the change
+  markup only within the identification and status section.
 
 With the exception of the DDN and COM, each CSDB object records the reasons for the
 changes in their identification and status section. Since reasons for changes are included in all
@@ -2295,8 +2313,8 @@ between increments of the attribute inWork. Any changes indicated in the previou
 must be deleted for the upissue.
 
 Note
-The previous issue of the data module remains stored in the CSDB with the change
-markup at that issue.
+  The previous issue of the data module remains stored in the CSDB with the change
+  markup at that issue.
 
 Editorial changes must not use change markup. Refer to default BREX rule BREX-S1-00044.
 
@@ -2340,12 +2358,68 @@ same value as the attribute id of a separate occurrence of the element
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
+2.2 Reason for update
 
+Description: The element <reasonForUpdate>, within the identification and status
+section, records the reasons for developing and issuing the data module (issue number 001) or
+the changes made to the data module since previous issue (ie, issue number 002 and
+upwards). The element <reasonForUpdate> in data modules can be used to generate
+the highlights data module. Examples of highlight statements are:
+- New. Developed to support situation X
+- Revised to incorporate modification XYZ
+- Deleted. Data module no longer required
 
+  
+Markup element: <reasonForUpdate>
 
+Attributes:
+- applicRefId (O), the applicability information by referencing the element 
+<applic>. Refer to Chap 3.9.5.3.
+- id (O), the identifier of the markup element. Refer to Chap 3.9.5.2.1.2.
+- updateReasonType (O), indicates the type of the reason for update that it applies to,
+and is configurable. Refer to Chap 3.9.6.1. If this attribute is not used, a technical change
+is implied. The attribute can have one of the following values:
+  • "urt01" - the changes are editorial (and therefore there must be no change markers
+  in the data module that relate to this reason for update). There must be no technical
+  changes in an element that relate to this reason for update.
+  • "urt02" - the changes are technical. Provided that the data module is not revised,
+  there must be change markers that relate to this reason for update.
+  • "urt03" - the changes are related to markup only. If these changes affect the
+  technical content of the data module, and the data module is of issue type changed,
+  the changes that relate to this reason for update must be marked.
+  • "urt04" - the changes are to applicability markings only. If these changes do not
+  affect the technical content (or the issue type is other than changed), there must be no
+  change markings in the data module that relate to this reason for update.
+  • "urt05" - the changes are to referencing markings only. If these changes do not
+  affect the technical content (or the issue type is other than changed), there must be no
+  change markings in the data module that relate to this reason for update.
+- updateHighlight (O), indicates whether the reason for update must appear in the
+highlights data module. The attribute can have one of the following values:
+  • "1"-Yes, the reason for update must appear in the highlights data module
+  • "0" - No, the reason for update must not appear in the highlights data module
+  Refer to default BREX rule BREX-S1-00039.
+- controlAuthorityRefs (O), the control authority information by referencing the
+element <controlAuthority>. Refer to Chap 3.9.5.1.
 
+Child elements:
+- <simplePara>. Refer to Chap 3.9.5.2.1.10.
+- <simpleRefPara>. Refer to Chap 3.9.5.2.1.10.
 
+Note
+  Both these elements are used to record the details of the change. Multiple occurrences
+  of this element in a single occurrence of <reasonForUpdate> are not used to
+  record individual changes made within the data module.
 
+Business rule decision point BRDP-S1-00089 - Standard sentences for reasons for
+update:
+– Decide whether standard sentences for reasons for update are to be used.
+Business rule decision point BRDP-S1-00090 - Use of reason for update in conjunction
+with the production process:
+– Decide whether the element <reasonForUpdate> is used during the production
+process.
+Business rule decision point BRDP-S1-00091 - Use of applicability information:
+– Decide whether it is permissible to differentiate reasons for update based on Product
+configuration.
 
 
 
