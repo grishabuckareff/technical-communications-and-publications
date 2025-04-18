@@ -241,21 +241,26 @@ A constrained element has an attribute, or attributes, that has a value, or comb
 which must be unique within the data module. The constraint indicates which attribute, or
 combination of attributes, contains the unique value, refer to Fig 1.
 
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 2.9.2 Constrained attribute
 An attribute, or attributes, that have a value, or combination of values, which must be unique
 within the data module, refer to Fig 2.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 2.9.3 Unique attribute value
 The constraints indicate which attribute, or combination of attributes, must contain the unique
 value, refer to Fig 3.
 
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  
 2.9.4 Constrained element and it attributes
 Example
 The element <functionalPhysicalAreaIdent> has attributes 
 systemDiffCode, systemCode, subSystemCode, subSubSystemCode, 
 assyCode, disassyCode and disassyCodeVariant, the combination of which
 must be unique within the data module. Refer to Fig 4.
-
   
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
