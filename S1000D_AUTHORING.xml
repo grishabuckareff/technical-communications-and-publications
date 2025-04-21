@@ -3892,6 +3892,27 @@ the highlights data module. Examples of highlight statements are:
   
 Markup element: <reasonForUpdate>
 
+
+  
+                                                                    |                                                    |
+                                              ...................   |                                                    |
+                                              : =               :   |  ..............................     __________     |
+                                          ....:    simplePara  |-|..|..: subOrSuperScriptElemGroup  |-|--|  _/:=-   |-|--|
+                                          :   : -->             :   |    \.........................../     \________/    | 
+                                          :   :.................:   |                        \/                          |
+                                          :                  \/     |                   0 ... ∞                          |
+                                          :             0 ... ∞     |
+                                          :
+                                          :
+                                          :
+ __________________    |   __________     :
+| reasonForUpdate |-|--|--|  _/:=-   |-|..:
+|__________________|   |   \________/     :
+                                          :
+                                          :
+                                          :
+  
+
 Attributes:
 - applicRefId (O), the applicability information by referencing the element 
 <applic>. Refer to Chap 3.9.5.3.
@@ -4746,8 +4767,8 @@ Markup element: <internalRef>
 |   internalRef |-|----| -.-.-.- |-|-|...: subOrSuperScriptElemGroup |-|--| _/:=-   |-|--|                        |                                                                  |    
 |________________|  |   \_______/         \........................../     \_______/     |    _________________   |
                     |                                             \/                     |   | =               |  |
-                    |                                                                    |---|    superScript  |  |
-                    |                                        0 ... ∞                         | -->             |  |
+                    |                                        0 ... ∞                     |---|    superScript  |  |
+                    |                                                                        | -->             |  |
                     |                                                                        |_________________|  |
                     | _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ | 
 
@@ -5199,7 +5220,8 @@ Markup element: <dmRef>
             |                    .....................:  |
             |_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ |
 
-                                        ICN-B6865-S1000D0018-001-01
+                              ICN-B6865-S1000D0018-001-01
+            
             Fig 2 Element <dmRef>
 
 
