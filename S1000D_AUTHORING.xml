@@ -4735,6 +4735,26 @@ described in Chap 7.7.4.
   
 Markup element: <internalRef>
 
+                     _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+                    |                                                                                             |
+                    | internalRefTypeType                                                                         |
+                    |                                                                          _______________    |
+                    |                                                                        | =               |  |
+                    |                                                                    |---|    subScript    |  |
+ ________________   |                                                                    |   | -->             |  |
+| =              |  |   _________         ...........................      _________     |   |_________________|  |
+|   internalRef |-|----| -.-.-.- |-|-|...: subOrSuperScriptElemGroup |-|--| _/:=-   |-|--|                        |                                                                  |    
+|________________|  |   \_______/         \........................../     \_______/     |    _________________   |
+                    |                                             \/                     |   | =               |  |
+                    |                                                                    |---|    superScript  |  |
+                    |                                        0 ... ∞                         | -->             |  |
+                    |                                                                        |_________________|  |
+                    | _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ | 
+
+                                                                                        ICN-B6865-S1000D0017-001-01
+                    Fig 1 Element <internalRef>
+
+
 Hotspot areas within graphics can also be cross-referenced from within a data module and
 back by using the element <internalRef>. A graphical hotspot can also point at another
 graphical hotspot within the same graphic. Refer to Chap 3.9.5.2.1.8 for details.
@@ -5169,7 +5189,7 @@ Markup element: <dmRef>
             |                     _________________      |
             |                |___|    dmRefIdent |+|.    |
             |                |   | -->            |      |
-            |                    |________________|      |
+            |                |   |________________|      |
  _________  |   _________.   |   ......................  |
 | dmRef |-|---| -.-.-.- |-|-|...: dmRefAddressItems |+|  |
 |________|  |   \_______/.   :   .....................:  |
