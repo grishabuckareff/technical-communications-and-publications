@@ -1,0 +1,5833 @@
+L0: COMPLETE AIRCRAFT SYSTEM
+
+START → Initialize System State (Cold/Dark or Ground Power)
+
+IF Ground Power Connected THEN
+    → Power Electrical Bus
+    → Power Avionics (Partial)
+ELSE IF Battery Start THEN
+    → Power Essential Buses Only
+
+→ Crew Initiates APU Start IF:
+        - APU Fuel Available
+        - Battery Voltage Nominal
+        - ECS Load Acceptable
+
+→ ON APU START COMPLETE:
+    → Power Main AC Bus
+    → Engage ECS (if Ground Cooling enabled)
+
+→ Verify Hydraulic Quantity/Pressure
+
+IF Required THEN
+    → Power EMPs for Gear/Control Checks
+
+
+GLOBAL SYSTEM LOOP: FLIGHT PHASES
+
+WHILE Aircraft Power On AND Mission Not Complete:
+    → Run System Loops in Parallel:
+
+        [Electrical Power Network]
+        [Hydraulic Power Loop]
+        [Pneumatic & Bleed Air Flow]
+        [Avionics Data Network]
+        [Flight Control Logic]
+        [ECS Pressurization Control]
+        [Fuel Distribution]
+        [Cabin System Operations]
+        [Fire & Smoke Monitoring]
+        [Environmental Feedback Handler]
+        [Maintenance Logging & BITE]
+
+
+[L1] ELECTRICAL POWER SYSTEM (ATA 24)
+
+→ Monitor AC/DC Bus Status
+
+IF Single Generator Operation OR Emergency Power THEN
+    → Invoke Load Shedding Logic:
+        → Disconnect Non-Essential Loads (IFE, Galleys, Some Fans)
+
+→ IF Multiple Generators Available THEN
+    → Synchronize (Voltage, Phase, Frequency)
+    → Paralleling Logic (via GCUs/BPCUs)
+    → Engage Bus Tie Breakers IF Needed
+
+→ Monitor Harmonics, Power Quality
+→ Trigger Alerts if Threshold Exceeded
+→ Feedback to Avionics via BITE
+
+→ Supply Power to:
+    - Avionics LRU Power Modules
+    - Hydraulic EMPs
+    - ECS Control Systems
+    - Actuator Electronics (EHAs/EMAs)
+    - Sensors, Displays, Warning Systems
+
+→ IF Overvoltage, Undervoltage, Overload THEN
+    → Trip Generator OR Shed Load
+    → Log Event to CMS
+
+
+[L1] HYDRAULIC SYSTEM (ATA 29)
+
+→ Check System Quantity, Pressure, Temperature
+
+IF Pressure < Threshold THEN
+    → Start EDP or EMP
+    → Monitor Flow Demand vs Supply
+
+→ IF Actuator Load Spike (e.g. Gear Deploy) THEN
+    → Check for Pressure Drop
+    → Use Accumulator if Present
+
+→ IF Leak Detected THEN
+    → Determine Location (Main vs Branch)
+    → IF Branch Leak THEN
+        → Isolate Using Elec-Controlled Valve
+    → ELSE IF Main Leak THEN
+        → Declare System Loss
+        → Activate Redundant System
+
+→ IF High Temp Detected THEN
+    → Check Fuel Flow to Heat Exchanger
+    → Alert Crew via ECAM/EICAS
+
+→ Supply Power To:
+    - Flight Control Surfaces
+    - Landing Gear Mechanisms
+    - Nose Wheel Steering
+    - Thrust Reversers
+    - Brakes
+
+
+[L1] PNEUMATIC / BLEED AIR SYSTEM (ATA 36, 21, 30)
+
+→ Select Bleed Source (APU, Engine HP/LP, Ground Cart)
+
+→ Regulate via PRSOVs and Precoolers
+    → Monitor Pressure & Temp Sensors
+    → Feedback Loop with FADEC/EEC
+
+→ IF Duct Overheat OR Leak Detected THEN
+    → Close Isolation Valves (Elec)
+    → Log Event to Avionics
+
+→ Provide Air To:
+    - ECS Packs (Conditioned Air)
+    - Engine Start System (ATS)
+    - Wing and Engine Anti-Ice
+    - Water Tank Pressurization
+    - Hydraulic Reservoir Pressurization
+
+→ Monitor Engine Performance Penalty
+→ Limit Bleed Extraction Based on Thrust Demand
+
+
+[L1] AVIONICS & DATA NETWORK (ATA 22, 23, 31, 34)
+
+→ Power Up Core LRUs: FMC, FCC, ADIRU, AFDX Switches
+
+LOOP:
+    → Read Sensors (ADIRU, GPS, Pressure, Flaps, Gear)
+
+    → Process Input:
+        → Apply Timing Constraints (Latency Limits)
+        → Validate Data (Parity, CRC, Range Checks)
+        → Route Data via ARINC 429 / AFDX® Virtual Links
+
+    → Feed Outputs To:
+        - PFD/ND Displays
+        - FCCs (for FBW)
+        - AFS (Autopilot)
+        - FMS (Positioning & VNAV)
+        - Warning Systems (GPWS, TCAS, Stall)
+        - CMS (Fault Reporting)
+
+→ IF Bus Load High OR CRC Error Detected:
+    → Reallocate Bandwidth OR Flag LRU
+    → Degrade Functionality if Needed (e.g., Revert to Backup Sensor)
+
+
+[L1] FLIGHT CONTROL SYSTEM (ATA 27)
+
+→ Determine Control Mode (Manual or FBW)
+
+IF FBW THEN
+    → Stick Input → FCC → Control Law
+
+    → Read ADIRU, Flap Position, Gear, AoA, Mach
+    → Apply Normal Law Logic (with Envelope Protection)
+
+    LOOP:
+        → Command Actuators (via ACEs)
+        → Monitor Surface Position Sensors (RVDT/LVDT)
+        → Compare to Commanded
+        → Feedback Loop to FCC
+
+    → IF Sensor Failure OR FCC Fault THEN
+        → Revert to Alternate/Direct Law
+        → Reconfigure Gains, Disable Protections
+        → Alert Crew via ECAM/EICAS
+
+
+[L1] ECS / PRESSURIZATION (ATA 21)
+
+→ Bleed Air → Pack Valve → ACM → Mixing Unit
+
+→ Adjust Trim Air Valves Based on Zone Temp Requests
+
+→ Monitor Cabin Altitude
+    → Use CPC to Command Outflow Valve (Elec)
+    → IF Rapid Depressurization THEN
+        → Initiate Emergency Descent Logic
+        → Deploy Pax Oxygen
+
+→ IF Overheat, Valve Fault, Fan Fail THEN
+    → Shut Down Affected Pack
+    → Rebalance Remaining Airflow
+
+
+[L1] FUEL SYSTEM (ATA 28)
+
+→ Monitor Fuel Quantity via Probes (to FQIC)
+
+→ LOOP:
+    → Supply Engines (via Boost Pumps)
+    → Transfer Fuel Between Tanks
+    → Balance Fuel Laterally
+
+→ IF Fuel Leak OR Imbalance THEN
+    → Alert Crew
+    → Isolate Pump/Valve
+    → Manual Crossfeed Activation
+
+→ Dependency on Electrical Power for Pumps, Sensors
+→ Dependency on Pneumatic System (some tank pressurization)
+
+
+[L1] LANDING GEAR SYSTEM (ATA 32)
+
+→ Gear Lever DOWN THEN
+    → Command Hydraulic Actuators
+    → Monitor Lock Sensors
+    → Update Gear Status to Avionics
+
+→ On Ground Contact:
+    → Enable Nosewheel Steering
+    → Arm Spoilers (FBW logic)
+    → Enable Brakes (Hydraulic/Electric)
+
+→ IF Gear Fail to Extend:
+    → Use Alternate Gravity Extension Path
+
+
+[L1] FIRE & SMOKE DETECTION (ATA 26)
+
+→ Monitor Loop Integrity (Engines, APU, Cargo, Lav)
+
+→ IF Overheat Detected:
+    → Display Warnings on ECAM/EICAS
+    → Arm Fire Bottles
+
+→ IF Fire Handle Pulled:
+    → Cut Fuel, Hyd, Elec, Bleed to Zone
+    → Fire Squib Logic Activated
+    → Discharge Halon (Timer Controlled)
+
+→ Continuous Monitoring via BITE
+
+
+[L1] ENVIRONMENTAL INFLUENCE LOGIC
+
+→ Monitor Altitude, Temp, Pressure, Icing
+
+→ Adjust:
+    - Engine Thrust Limit
+    - ECS Pack Performance
+    - FBW Gain Scheduling
+    - Hydraulic Reservoir Pressurization
+    - ADIRU Calibration
+
+→ Turbulence Detected THEN
+    → Engage Gust Damping Logic (FBW)
+    → Monitor Structural Load Limits
+
+→ EMI Detected OR Suspected THEN
+    → Verify Shielding Integrity (Maintenance Action)
+    → Log Interference Event
+
+
+[L1] MAINTENANCE & LOGISTICS
+
+→ Log Fault Codes via BITE to CMS
+
+→ IF Fault Threshold Met:
+    → Generate MEL Entry
+    → Guide Troubleshooting via AMM/WDM
+
+→ IF Required LRU Not Available THEN
+    → Aircraft May Be Grounded (AOG)
+
+→ Check Configuration (Part Number, Software Version)
+→ Update Software Via Ground Loader if Required
+
+→ Ensure Tooling/GSE Calibration Valid
+
+
+[L2–L5]: REPRESENTATIVE TREE NODE EXPANSION
+
+ELECTRICAL SYSTEM (L1)
+└── GCU (L2)
+    ├── Power Input Filter (L3)
+    │   └── Inductors, MOVs (L4–L5)
+    ├── Control Logic Board (L3)
+    │   └── Microcontrollers, EEPROMs (L5)
+    └── Communication Interface (L3)
+        └── CAN Transceivers, Bus Couplers (L5)
+
+FLIGHT CONTROL (L1)
+└── FCC (L2)
+    ├── Processor Module (L3)
+    │   └── CCAs, Memory (L4)
+    ├── Data Interface (L3)
+    │   └── ARINC 664 PHYs, Switch Logic (L5)
+    └── Control Law Software (L3)
+        └── Config-Managed Software Load (L5)
+
+
+MASTER CFG: FLIGHT SYSTEM EXECUTION TREE
+
+[L0] COMPLETE AIRCRAFT
+└── INIT_SYSTEM_STATE()
+    ├── IF external_power_connected:
+    │       → POWER_ON(ground_services)
+    ├── ELIF battery_voltage_ok:
+    │       → POWER_ON(essential_buses)
+    ├── APU_START_CONDITION_CHECK()
+    │       → fuel_available AND ECS_load_low AND battery_power_nominal
+    └── SYSTEMS_START_SEQUENCE()
+            → power_distribution_check()
+            → hydraulic_pressure_check()
+            → sensor_self_test()
+            → avionics_LRU_boot()
+
+LOOP WHILE aircraft_status != 'shutdown':
+    ├── UPDATE_FLIGHT_PHASE()  # Taxi, Takeoff, Climb, Cruise, Descent, Landing
+    ├── SYSTEM_CONTROLLER_CYCLE()
+    │   ├── electrical_power_controller()
+    │   ├── hydraulic_power_controller()
+    │   ├── pneumatic_distribution_controller()
+    │   ├── avionics_data_router()
+    │   ├── flight_control_logic()
+    │   ├── ECS_environment_regulator()
+    │   ├── fuel_balancing_controller()
+    │   ├── flight_phase_transition_monitor()
+    │   └── health_monitoring_controller()
+    └── CONTROL_LOGIC_HANDLER()
+        ├── FBW_envelope_protection()
+        ├── failure_mode_trigger_check()
+        ├── load_shedding_logic()
+        ├── software_integrity_watcher()
+        └── reversionary_mode_selector()
+
+
+[L1] ELECTRICAL POWER SYSTEM (ATA 24)
+
+electrical_power_controller():
+    ├── READ bus_voltage, frequency
+    ├── IF single_generator_online:
+    │       → SHED_LOAD(non_essential_buses)
+    │       → LOG_EVENT('SINGLE_GEN_OP')
+    ├── IF generator_parallel_operation:
+    │       → synchronize_phase_voltage_frequency()
+    │       → distribute_load_balancing()
+    ├── IF fault_detected_in_bus_tie:
+    │       → OPEN bus_tie_breaker
+    ├── power_distribution_map:
+    │   ├── AC MAIN → TRU → DC MAIN
+    │   ├── DC MAIN → ESS DC / Battery Bus
+    │   └── feedback_path: voltage_sensor → GCU → CMS
+    ├── IF THD (total harmonic distortion) > threshold:
+    │       → FLAG_POWER_QUALITY()
+    ├── bus_status_heartbeat():
+    │   └── monitor & report to avionics_bus_monitor
+    └── IF EICAS/ECAM reports "ELEC BUS FAULT":
+            → trigger contingency_bus_logic()
+
+
+[L1] HYDRAULIC SYSTEM (ATA 29)
+
+hydraulic_power_controller():
+    ├── READ: quantity, pressure, return_temp, accumulator_charge
+    ├── IF actuator_demand_peak:
+    │       → pull_from_accumulator()
+    │       → throttle_EMP_flowrate()
+    ├── detect_leak():
+    │   ├── IF pressure_loss_downstream AND fluid_loss:
+    │       → isolate_branch_valve()
+    │   ├── ELSE:
+    │       → system_shutdown()
+    ├── redundancy_matrix():
+    │   ├── green_sys feeds L+R elevator, rudder, gear
+    │   ├── yellow_sys feeds slats, spoilers, brakes
+    │   └── blue_sys feeds rudder, emergency brake, RAT deployment
+    ├── temp_response():
+    │   ├── IF fluid_too_hot:
+    │   │       → verify fuel_heat_exchanger_cooling()
+    │   ├── IF fluid_too_cold:
+    │   │       → warmup_cycle_using_recirc()
+    └── pressure_check_loop()
+        ├── sensor input → CMS → maintenance_log
+        └── active monitoring during flight_control_cycle()
+
+
+[L1] BLEED AIR SYSTEM (ATA 36, 21, 30)
+
+pneumatic_distribution_controller():
+    ├── priority_routing():
+    │   ├── engine_start > ECS > anti-ice > reservoir pressurization
+    ├── pressure_regulation_loop():
+    │   ├── input: engine_stage_pressure → pre-cooler → PRSOV
+    │   ├── controlled by: sensor → controller → actuator
+    ├── leak_detection_handler():
+    │   ├── overheat_loop_current > limit → fault → isolate
+    │   └── redundant path eval: alternate PRSOV → bleed valve switch
+    ├── HP_vs_LP_bleed_logic():
+    │   └── based on N2 rpm, EGT, thrust setting
+    ├── interface_to_FADEC():
+    │   └── bleed_demand_msg → FADEC → limit_if_EGT_margin_low
+    └── dependency_map:
+        ├── ECS → bleed pressure
+        ├── anti-ice → temperature-controlled flow
+        └── air-driven_pump (ADP) → bleed flow proportional logic
+
+
+[L1] AVIONICS & NETWORK SYSTEM (ATA 22/23/31/34)
+
+avionics_data_router():
+    ├── inputs: ARINC 429 words / AFDX messages / CAN frames
+    ├── monitor CRC/parity/time-tag
+    ├── dispatch_logic():
+    │   ├── FMC data → ND, CDU, AFS
+    │   ├── ADIRU data → FCCs, displays, GPWS
+    │   └── sensor data → DCU → CMS
+    ├── latency_guard():
+    │   └── check update_period (e.g., ≤20ms for FBW)
+    ├── redundancy_checker():
+    │   └── detect sensor disagreement → select fallback
+    └── version_control_guard():
+        ├── software_loader_version == config_manifest
+        └── software mismatch → inhibit_LRU_function()
+
+
+[L1] FLIGHT CONTROL SYSTEM (FBW) (ATA 27)
+
+flight_control_logic():
+    ├── receive: stick/pedal input (analog → digitized)
+    ├── calculate_normal_law_command():
+    │   └── apply gains, rate limits, AoA limiter, roll law
+    ├── surface_command_pipeline():
+    │   ├── FCC → ACE → actuator_cmd (ARINC or analog PWM)
+    │   ├── actuator → LVDT feedback → ACE → FCC
+    │   └── FCC monitors latency/error/reliability
+    ├── fault_monitor():
+    │   ├── loss_of_ADIRU or surface mismatch
+    │   ├── trigger alternate_law()
+    └── AP/A-THR integration:
+        ├── if AFS_mode_active → override pilot input
+        └── autothrust target → EEC via digital engine bus
+
+
+[L1] ECS / PRESSURIZATION
+
+ECS_environment_regulator():
+    ├── zone_temp_controller():
+    │   ├── input: duct_temp_sensor, cabin_temp_sensor
+    │   └── output: trim_air_valve_cmd
+    ├── pack_performance_monitor():
+    │   ├── monitor ACM speed, bleed supply
+    │   └── flag shutdown if limits exceeded
+    ├── pressurization_controller():
+    │   ├── CPC reads cabin_altitude → modulates outflow valve
+    │   ├── failure triggers safety_valves
+    └── recirculation_air_controller():
+        └── recirc fan logic based on load_shed_condition()
+
+
+FAILURE MODE LOGIC
+
+failure_mode_trigger_check():
+    ├── IF bus_loss_detected:
+    │   → shed_non_essential
+    │   → power_essential_buses via alternate source
+    ├── IF hydraulic_leak:
+    │   → isolate, switch to alternate_sys
+    ├── IF sensor_data_corrupt OR latency_timeout:
+    │   → drop data, use redundant path
+    ├── IF control_law_violation:
+    │   → revert_to_alternate_law
+    └── IF fire_loop_fault:
+        → inhibit loop
+        → require cockpit verification before fire bottle arming
+        
+
+SOFTWARE & CONFIGURATION DEPENDENCIES
+
+software_integrity_watcher():
+    ├── verify checksum of LRU load
+    ├── confirm configuration ID matches aircraft baseline
+    ├── flag any ICD mismatch during AFDX or 429 comm
+    └── IF mismatch THEN:
+        → isolate LRU from network
+        → inhibit dependent functions
+
+
+END-OF-MISSION SEQUENCE
+
+IF wheels_on_ground AND engines_shutdown:
+    ├── activate APU or ground power
+    ├── begin data download to CMS
+    ├── shutdown selected avionics
+    ├── initiate cooling cycles (for avionics bays)
+    └── log all faults for deferred maintenance action
+
+
+TOP-LEVEL CFG (L0): AIRCRAFT SYSTEM OPERATIONAL CONTROL FLOW
+
+START
+│
+├── [Initialize Power-Up Sequence]
+│   ├─ Check Battery Bus Status → IF FAIL → EXIT ("No Power Available")
+│   ├─ Enable Essential Buses
+│   ├─ Power Avionics Boot Systems
+│   └─ Await Ground Power or APU Start
+│
+├── [Power Distribution Logic]
+│   ├─ IF APU Available THEN
+│   │     ├─ Start APU → Monitor APU GEN ONLINE
+│   │     ├─ Close APU GEN Contactors → Power Buses
+│   │     └─ Transition Bus Power Source to APU
+│   └─ IF EXT Power Connected THEN
+│         ├─ Validate Power Quality
+│         ├─ Close EXT PWR Contactors
+│         └─ Maintain GPU as Primary (until engine start)
+│
+├── [Start Engine Sequence]
+│   ├─ Command Start Valve OPEN → IF Bleed Pressure < Threshold → FAIL
+│   ├─ Engage ATS (pneumatic) → Begin N2 Rotation
+│   ├─ Monitor Engine Parameters (N2, Fuel Flow, EGT)
+│   ├─ Fuel ON + Ignition ON → Controlled by FADEC
+│   └─ Engine Stabilizes → Transfer GEN Load to IDG → Close BTBs
+│
+├── [Enter Flight Phase Loop]
+│   └─ WHILE (FlightPhase ≠ SHUTDOWN)
+│       ├─ Execute Flight Phase Transitions:
+│       │     ├─ IF Takeoff THEN
+│       │     │     ├─ Full Hydraulic System Check
+│       │     │     ├─ Enable Nosewheel Steering Lockout
+│       │     │     └─ Condition: ECS Packs to OFF (Bleed Priority)
+│       │     ├─ IF Cruise THEN
+│       │     │     ├─ Monitor Load Shed Triggers
+│       │     │     ├─ Balance Fuel Tanks → LOOP until Balanced
+│       │     │     └─ Maintain Pack Performance (monitor ram air temp)
+│       │     └─ IF Approach/Landing THEN
+│       │           ├─ Arm Spoilers
+│       │           ├─ Deploy Landing Gear (IF Hyd OK) → ELSE Use Alternate
+│       │           └─ Confirm Gear Down/Locked (3 Green)
+│       │
+│       ├─ Monitor System Status (Loop)
+│       │     ├─ Electrical: Check Power Quality → IF Drop Detected → Load Shed
+│       │     ├─ Hydraulics: Monitor Pressure & Temp → IF Overheat → Isolate Circuit
+│       │     ├─ Pneumatics: Detect Bleed Overheat → CLOSE PRSOV → Route Alternate
+│       │     └─ FBW: Evaluate Sensor Inputs → IF ADIRU Disagree → Degrade Control Law
+│       │
+│       ├─ Environmental Compensation (Parallel)
+│       │     ├─ Adjust Pressurization based on Altitude (Auto)
+│       │     ├─ Regulate Pack Output → Temp Controllers (Zone by Zone)
+│       │     ├─ Monitor Ice Conditions → Auto-Enable Wing & Engine Anti-Ice
+│       │     └─ IF Contamination (e.g., Dust) THEN Reduce Pack Inlet Mass Flow
+│       │
+│       └─ Fault Isolation / Recovery Logic (Embedded)
+│             ├─ IF Generator Offline THEN → Auto Transfer Bus → IF No Source → Deploy RAT
+│             ├─ IF Hydraulic Leak Detected → Isolate Valve → IF Redundant Path OK → CONTINUE
+│             ├─ IF ECS Pack Shutdown → Use Alternate Pack or Adjust Flow Rate
+│             └─ IF Data Bus Timeout Detected → Switch to Redundant Data Source
+│
+├── [Shutdown Sequence]
+│   ├─ Idle Engines → Spool Down Monitoring
+│   ├─ Transfer Power to APU or GPU → Disconnect IDGs
+│   ├─ Depower Buses Sequentially
+│   └─ Log Faults to CMS → Store Maintenance Events
+│
+END
+
+-----------------------------------------------------------------------------------------
+
+ELECTRICAL POWER DISTRIBUTION (ATA 24):
+
+[Power Distribution Logic]
+├─ IF (Bus Voltage Drop > Threshold) THEN
+│   ├─ Identify Bus Load Level
+│   ├─ IF (Overload = TRUE) THEN
+│   │     └─ Execute Load Shedding:
+│   │         ├─ Cut Galley Bus
+│   │         ├─ Disconnect IFE Systems
+│   │         ├─ Disable Recirc Fans
+│   │         └─ Power Conserve Mode
+│   └─ ELSE Continue Monitoring
+
+
+HYDRAULIC LOGIC & FAILURE ISOLATION (ATA 29):
+
+[Hydraulic Health Monitor Loop]
+├─ FOR EACH System in (Green, Yellow, Blue)
+│   ├─ Check Reservoir Level & Pressure
+│   ├─ IF (Low Pressure) THEN
+│   │     ├─ Check for Leak (Compare Input vs. Output Flow)
+│   │     ├─ Activate Isolation Valve → Reroute Flow
+│   │     └─ Display Caution on EICAS/ECAM
+│   ├─ IF (Overtemp) THEN
+│   │     ├─ Increase Cooling Demand (Fuel HX, Ram Air Valve)
+│   │     ├─ IF Temp > Limit THEN Shut Pump
+│   │     └─ Flag to Maintenance System
+│   └─ ELSE CONTINUE Normal Operation
+
+
+FBW CONTROL LAW SWITCHING (ATA 27/22):
+
+[Control Law Determination]
+├─ Inputs: Stick Inputs, ADIRU Data, Flap/Slat Position, Mach
+├─ Check Sensor Validity
+│   ├─ IF (ADIRU 1 ≠ ADIRU 2) AND (ADIRU 3 ≠ Both) THEN
+│   │     ├─ Trigger "NAV IR Disagree"
+│   │     └─ Revert to Alternate Law
+│   ├─ ELSE IF (All ADIRUs Invalid) THEN
+│   │     └─ Revert to Direct Law
+│   └─ ELSE Stay in Normal Law
+
+
+PNEUMATIC ISOLATION & BLEED AIR HANDOVER (ATA 36):
+
+[Pneumatic Distribution]
+├─ FOR EACH Engine
+│   ├─ Monitor Bleed Pressure
+│   ├─ IF (Overpressure OR Overtemp) THEN
+│   │     ├─ Close PRSOV
+│   │     ├─ Open Crossbleed → Use APU
+│   │     └─ Display "BLEED FAULT ENG X"
+│   └─ ELSE Maintain Flow to ECS and Anti-Ice
+
+
+FAULT PROPAGATION & RECONFIGURATION (CROSS-SYSTEM):
+
+[Fault Cascade Management]
+├─ IF (Generator Failure) THEN
+│   ├─ Attempt Bus Reallocation → IF No Source → Deploy RAT
+│   ├─ Shed Non-Essential Loads
+│   └─ Display "ELEC GEN LOST"
+│
+├─ IF (Hydraulic System Degraded) THEN
+│   ├─ Check Control Surface Mapping
+│   ├─ Shift Controls to Backup System
+│   └─ Alert: "HYD SYS X LO PR"
+│
+├─ IF (Sensor Disagree) THEN
+│   ├─ Cross-check Redundant Data
+│   ├─ Invalidate Faulty Source
+│   └─ Switch FBW law based on residual sensors
+
+
+META-CONTROL: ENVIRONMENTAL RESPONSE LOGIC (CROSS-DEPENDENCY)
+
+[Environmental Condition Monitor]
+├─ IF (OAT < 5°C) AND (Visible Moisture) THEN
+│   ├─ Enable Engine Anti-Ice
+│   ├─ Enable Wing Anti-Ice
+│   ├─ ECS → Adjust Pack Temp to prevent window fog
+│   └─ Display "ANTI-ICE ON"
+│
+├─ IF (Cabin Altitude > 10,000 ft) THEN
+│   ├─ Trigger Cabin Altitude Warning
+│   ├─ Deploy Passenger Oxygen (Auto)
+│   └─ Reconfigure ECS for Emergency Descent
+
+
+-----------------------------------------------------------------------------------------
+
+[L1] MAJOR SYSTEMS
+
+1. AIRFRAME / STRUCTURE
+
+→ Provide Mounting/Load Paths to All Systems
+→ IF Flight Loads Detected THEN Monitor Structural Stress
+
+→ FOR EACH L2 STRUCTURE COMPONENT:
+    - Frames
+    - Stringers
+    - Panels
+    - Bulkheads
+    → Evaluate Load, Fatigue, Expansion
+
+
+2. PROPULSION SYSTEM
+
+→ IF Engine Start Initiated THEN
+    → Supply Start Air (via Bleed System)
+    → Supply Fuel (from Fuel System)
+    → Provide Electrical Signal to Igniters
+
+    LOOP UNTIL N2 >= 58% AND Fuel Flow Stable:
+        → Monitor EGT, N1, N2, Oil Pressure
+
+    IF All Parameters Nominal THEN
+        → Complete Engine Start Sequence
+
+→ IF Throttle Moved THEN
+    → EEC Adjusts Fuel Metering
+    → Engine Accelerates
+    → IDG Produces AC Power → Electrical Bus
+    → EDP Pressurizes Hydraulic Bus
+    → Bleed Air → ECS, Anti-Ice, Start System
+
+
+3. AVIONICS
+
+→ Power FMC, FCC, ADIRU, Displays
+
+→ LOOP FOREVER:
+    → Read Sensor Data (ADIRU, GPS, Nav)
+    → IF Mode = "Autopilot" THEN
+        → Generate Commands → Flight Control System
+        → Feedback Loop (Position, Rate, AoA)
+    → IF Maintenance Triggered THEN
+        → Report Faults to CMS
+
+→ IF Communication Required THEN
+    → Power Radio + SATCOM → Transmit/Receive
+
+
+4. FLIGHT CONTROL SYSTEM
+
+→ IF FBW Active THEN
+    → Read Pilot Inputs → FCC
+    → Process Through Control Laws
+    → Command Actuators (EHAs, EMAs, Hyd)
+
+→ LOOP WHILE IN AIR:
+    → Monitor Surface Deflection vs Command
+    → Adjust for Flight Envelope Protection
+
+→ IF Autopilot Engaged THEN
+    → Follow Guidance From FCC
+
+→ IF Control Law Degradation THEN
+    → Revert to Alternate/Direct Law
+
+
+5. LANDING GEAR SYSTEM
+
+→ IF Gear Lever Down AND WOW = False THEN
+    → Command Hydraulic Actuators → Extend Gear
+    → Unlock Uplocks
+    → Monitor Position Sensors
+    → Confirm Gear Down and Locked
+
+→ ON TOUCHDOWN:
+    → Deploy Ground Spoilers (If Conditions Met)
+    → Enable Braking (Auto or Manual)
+    → Enable Nosewheel Steering
+
+
+6. HYDRAULIC SYSTEM
+
+→ IF Engine Running THEN
+    → EDP Drives Pressure Loop
+
+→ IF Electric Backup Required THEN
+    → Start EMP
+
+→ FOR Each Hydraulic Line:
+    → Check Pressure, Fluid Temp, Leaks
+
+→ IF RAT Deployed THEN
+    → Supply Backup Hydraulic Power
+
+→ Provide Power To:
+    - Flight Controls
+    - Landing Gear
+    - Thrust Reversers
+    - Brakes
+
+
+7. ELECTRICAL SYSTEM
+
+→ INITIATE POWER PRIORITY SEQUENCE:
+    1. External Power
+    2. APU Generator
+    3. Engine-Driven Generators (IDGs)
+    4. RAT Generator
+    5. Batteries
+
+→ Distribute to AC/DC Buses via GCUs and BPCUs
+
+→ IF Bus Voltage/Frequency Nominal THEN
+    → Supply Power to:
+        - Avionics
+        - Pumps
+        - ECS Controllers
+        - IFE
+        - Cabin Systems
+        - Fire Protection
+
+→ IF Overload OR Generator Fail THEN
+    → Shed Non-Essential Loads
+    → Reconfigure Bus Tie Logic
+
+
+8. ECS / PRESSURIZATION
+
+→ IF Bleed Air Available AND Pack ON THEN
+    → Drive ACM → Cool Air
+    → Mix Recirculated + Cooled Air
+
+→ IF Cabin Altitude > Threshold THEN
+    → Command Outflow Valve
+    → Modulate Airflow Out
+
+→ LOOP:
+    → Maintain Target Cabin Pressure and Temp
+    → Adjust Trim Air Valves
+
+
+9. FUEL SYSTEM
+
+→ LOOP:
+    → Monitor Fuel Quantity per Tank
+    → Activate Boost/Transfer Pumps if Needed
+    → Balance Tanks Automatically or Manually
+
+→ IF Refueling THEN
+    → Open Refuel Valves
+    → Monitor Tank Fill Sensors
+
+→ Supply Fuel to Engines/APU as Needed
+
+
+10. CABIN SYSTEMS
+
+→ Power Cabin Lights, PSUs, Water/Waste Pumps, Galley Devices
+
+→ IF Emergency THEN
+    → Activate Oxygen Deployment Logic
+    → Supply Chemical/Gaseous Oxygen
+
+→ Monitor Waste Tank Levels
+→ Heat Drain Masts if Needed
+
+→ Monitor Cabin Environment → ECS
+→ Respond to Pax Inputs via PSU
+
+→ Power IFE, Display Alerts, Play Media
+
+
+GLOBAL INTERDEPENDENCY FLOW (Logical)
+
+IF Electrical Bus Fails THEN
+    → Loss of Avionics, Pumps, Sensors, CMS
+
+IF Hydraulic System Pressure Loss THEN
+    → Disable Flight Control Surfaces (unless EHA/EMA powered)
+    → Affect Landing Gear Deployment
+
+IF Bleed Air Leaks THEN
+    → Shutdown Packs
+    → ECS Offline
+    → Cabin Pressurization Fail
+
+IF ADIRU Fails THEN
+    → Lost Attitude, Airspeed, Navigation Data
+    → Autopilot Disabled
+    → Control Laws Switch to Alternate
+
+IF Avionics Cooling Fails THEN
+    → Progressive LRU Overheat
+    → Trigger BITE
+    → Autoshutdown
+
+IF One Engine Fails THEN
+    → Reconfigure Electrical, Hydraulics, Pneumatics to Available Sources
+
+IF Fire Detected THEN
+    → Cut Fuel, Hydraulics, Bleed to Zone
+    → Trigger Squib
+    → Notify Flight Crew
+
+-----------------------------------------------------------------------------------------
+
+[L2 → L5] Decomposition Logic Sample (Avionics)
+
+FMS (L2)
+    └── FMC (L3)
+        ├── CPU Board (L4)
+        │   └── ICs, Caps, Resistors (L5)
+        └── Power Supply Module (L4)
+            └── Transformer, MOSFET, Filters (L5)
+
+ADIRU (L3)
+    ├── Air Data Module (L4)
+    │   └── Pressure Sensor Chips, Signal Conditioner (L5)
+    ├── Inertial Sensing Unit (L4)
+    │   └── Accelerometers, Gyros (L5)
+    └── Power Converter (L4)
+        └── Rectifier, Caps, Filters (L5)
+
+-----------------------------------------------------------------------------------------
+
+END STATE
+
+→ Flight Phases Completed
+→ APU Start
+→ Shut Down Engines
+→ Disconnect Power Sources
+→ Save Fault Logs to CMS
+→ End of Mission
+→ SHUTDOWN
+
+-----------------------------------------------------------------------------------------
+
+1. Electrical Power Distribution and Load Management
+
+[Electrical Power Initialization]
+├─ Check Battery Voltage
+│   ├─ IF Voltage ≥ Minimum Threshold THEN
+│   │   ├─ Connect Battery to Battery Bus
+│   │   ├─ Power Essential DC Bus
+│   │   └─ Display Battery Status on Electrical Synoptic
+│   └─ ELSE
+│       └─ Alert: "Battery Voltage Low" → Maintenance Action Required
+├─ Assess External Power Availability
+│   ├─ IF External Power Connected THEN
+│   │   ├─ Verify Power Quality
+│   │   ├─ IF Power Quality Acceptable THEN
+│   │   │   ├─ Close External Power Contactor
+│   │   │   ├─ Energize AC Transfer Buses
+│   │   │   └─ Display External Power Status
+│   │   └─ ELSE
+│   │       └─ Alert: "External Power Quality Unacceptable"
+│   └─ ELSE
+│       └─ Proceed to APU Start Sequence
+├─ APU Start Sequence
+│   ├─ Initiate APU Start
+│   ├─ Monitor APU Parameters (RPM, EGT)
+│   ├─ IF APU Reaches Operational Speed THEN
+│   │   ├─ Close APU Generator Contactor	
+│   │   ├─ Transfer Electrical Load to APU Generator
+│   │   └─ Display APU Generator Status
+│   └─ ELSE
+│       └─ Alert: "APU Start Failure" → Refer to AMM for Troubleshooting
+├─ Engine Start and Generator Integration
+│   ├─ Start Engines Sequentially
+│   ├─ Monitor Engine Parameters
+│   ├─ IF Engine Parameters Normal THEN
+│   │   ├─ Engage Integrated Drive Generators (IDGs)
+│   │   ├─ Transfer Electrical Load from APU to IDGs
+│   │   └─ Disconnect APU Generator
+│   └─ ELSE
+│       └─ Alert: "Engine Start Abnormal" → Execute Engine Shutdown Procedure
+└─ Continuous Electrical Monitoring
+    ├─ Monitor Bus Voltages and Frequencies
+    ├─ IF Anomalies Detected THEN
+    │   ├─ Identify Faulty Bus or Component
+    │   ├─ Isolate Faulty Section
+    │   ├─ Shed Non-Essential Loads as Necessary
+    │   └─ Alert Flight Crew via EICAS/ECAM
+    └─ ELSE
+        └─ Maintain Normal Electrical Operations
+
+
+2. Hydraulic System Operation and Failure Management
+
+[Hydraulic System Initialization]
+├─ Check Hydraulic Reservoir Levels
+│   ├─ IF Levels Within Limits THEN
+│   │   ├─ Pressurize Hydraulic Systems A, B, and Standby
+│   │   ├─ Monitor System Pressures
+│   │   └─ Display Hydraulic Status
+│   └─ ELSE
+│       └─ Alert: "Hydraulic Reservoir Low" → Maintenance Action Required
+├─ Normal Hydraulic Operations
+│   ├─ Supply Hydraulic Power to Flight Controls, Landing Gear, Brakes
+│   ├─ Monitor System Pressures and Temperatures Continuously
+│   └─ IF Parameters Deviate from Norms THEN
+│       ├─ Identify Affected System
+│       ├─ Execute Appropriate Isolation or Redundancy Procedures
+│       └─ Alert Flight Crew via EICAS/ECAM
+├─ Hydraulic Leak Detection and Response
+│   ├─ Monitor Fluid Quantities and Pressure Drops
+│   ├─ IF Leak Suspected THEN
+│   │   ├─ Identify Leak Source
+│   │   ├─ Isolate Affected Hydraulic Line or Component
+│   │   ├─ Activate Standby Hydraulic System if Necessary
+│   │   └─ Alert: "Hydraulic Leak Detected" → Land at Nearest Suitable Airport
+│   └─ ELSE
+│       └─ Continue Normal Operations
+└─ Hydraulic Overheat Management
+    ├─ Monitor Hydraulic Fluid Temperatures
+    ├─ IF Overheat Condition Detected THEN
+    │   ├─ Reduce Hydraulic System Load
+    │   ├─ Increase Cooling via Heat Exchangers
+    │   ├─ IF Temperature Remains High THEN
+    │   │   ├─ Shut Down Affected Hydraulic System
+    │   │   ├─ Activate Standby System
+    │   │   └─ Alert: "Hydraulic Overheat" → Maintenance Action Required
+    │   └─ ELSE
+    │       └─ Continue Monitoring
+    └─ ELSE
+        └─ Maintain Normal Hydraulic Operations
+        
+        
+3. Flight Control System Logic and Reconfiguration
+
+[Flight Control System Initialization]
+├─ Power Up Flight Control Computers (FCCs)
+│   ├─ Perform Built-In Tests (BIT)
+│   ├─ IF BIT Pass THEN
+│   │   ├─ Initialize Control Laws
+│   │   ├─ Display Flight Control Status
+│   │   └─ Proceed to Flight Control Surface Checks
+│   └─ ELSE
+│       └─ Alert: "FCC BIT Failure" → Refer to AMM for Troubleshooting
+├─ Normal Flight Control Operations
+│   ├─ Process Pilot Inputs via Control Columns and Pedals
+│   ├─ Translate Inputs into Surface Movements via Actuators
+│   ├─ Provide Feedback to Pilots through Control Feel Systems
+│   └─ Monitor System Health Continuously
+├─ Flight Control Law Reversion
+│   ├─ Monitor Sensor Inputs (ADIRUs, Air Data Computers)
+│   ├─ IF Sensor Discrepancies Detected THEN
+│   │   ├─ Revert from Normal to Alternate Control Laws
+│   │   ├─ Adjust Control Surface Authority and Protections
+│   │   ├─ Alert: "Flight Control Law Reversion" → Pilot Awareness Required
+│   └─ ELSE
+│       └─ Maintain Normal Control Laws
+├─ Autopilot Engagement and Monitoring
+│   ├─ Engage Autopilot as Commanded
+│   ├─ Monitor Autopilot Performance and Inputs
+│   ├─ IF Autopilot Malfunction Detected THEN
+│   │   ├─ Disengage Autopilot
+│   │   ├─ Revert to Manual Flight Control
+│   │   └─ Alert: "Autopilot Disengaged" → Pilot Control Required
+│   └─ ELSE
+│       └─ Continue Autopilot Operations
+└─ Flight Control Surface Malfunction Management
+    ├─ Detect Surface Position via LVDT/RVDT Sensors
+    ├─ Compare Commanded vs Actual Surface Positions
+    ├─ IF Deviation Exceeds Threshold THEN
+    │   ├─ Confirm Actuator Response Time
+    │   ├─ Check Hydraulic/Electrical Power Availability
+    │   ├─ IF Power Available AND No Response THEN
+    │   │   ├─ Declare Surface Jam or Actuator Fault
+    │   │   ├─ Engage Backup Control Path (Redundant Actuator or Alternate FCC)
+    │   │   ├─ Alert: "Flight Control Surface Malfunction"
+    │   │   ├─ Reconfigure Control Laws (e.g., remove faulty axis)
+    │   │   └─ Display Fault Status on ECAM/EICAS
+    │   └─ ELSE
+    │       ├─ Declare Input Signal or Sensor Fault
+    │       ├─ Isolate Faulty Sensor Channel
+    │       └─ Revert to Alternate Sensor Path
+    └─ ELSE
+        └─ Maintain Normal Surface Operation
+
+
+4. Environmental Control System (ECS) and Cabin Pressure Management
+
+[Environmental Control System Initialization]
+├─ Enable Bleed Air Supply to Packs
+├─ Monitor Bleed Air Temp/Pressure
+├─ IF Parameters Within Range THEN
+│   ├─ Open Pack Valves
+│   ├─ Start Air Cycle Machines (ACMs)
+│   ├─ Begin Cabin Air Distribution
+│   └─ Display Cabin Temp and Pack Status
+└─ ELSE
+    └─ Alert: "ECS Pack Start Inhibited" → Investigate Bleed Source
+
+[Cabin Pressurization Control]
+├─ Monitor Cabin Altitude, Rate of Climb, Delta Pressure (ΔP)
+├─ IF Cabin Altitude Exceeds Scheduled Profile THEN
+│   ├─ Modulate Outflow Valve (OFV)
+│   ├─ IF Outflow Valve Fails to Respond THEN
+│   │   ├─ Switch to Backup Controller
+│   │   ├─ IF Manual Mode Available THEN
+│   │   │   ├─ Allow Pilot Manual Control
+│   │   │   └─ Monitor Delta Pressure and Cabin Altitude Continuously
+│   │   └─ ELSE
+│   │       └─ Alert: "Cabin Pressure Control Fault" → Emergency Descent May Be Required
+│   └─ ELSE
+│       └─ Maintain Scheduled Cabin Altitude Profile
+└─ IF Cabin Altitude > 14,000 ft THEN
+    ├─ Deploy Passenger Oxygen (Auto or Manual Trigger)
+    └─ Alert: "Cabin Altitude Warning" → Pilot Response Checklist
+    
+
+5. Fire Detection and Suppression Logic
+
+[Fire Detection Initialization]
+├─ Monitor Engine/APU/Cargo Bay Fire Loops
+├─ IF Loop Integrity Verified THEN
+│   └─ Arm Detection Logic
+├─ ELSE
+│   └─ Alert: "Fire Detection Loop Fault"
+
+[Fire Warning Logic]
+├─ IF Dual-Loop Fire Detection Activated THEN
+│   ├─ IF Both Loops Detect Fire THEN
+│   │   ├─ Trigger Fire Warning
+│   │   ├─ Illuminate Fire Handles
+│   │   ├─ Enable Squib Arming Circuits
+│   │   └─ Log Fault to Central Maintenance System (CMS)
+│   └─ ELSE
+│       └─ Wait for Confirmation (Second Loop or Time-Out Logic)
+└─ ELSE (Single Loop Active)
+    └─ Trigger Fire Warning on Single Detection
+
+[Fire Suppression]
+├─ IF Pilot Pulls Fire Handle THEN
+│   ├─ Shut Down Fuel (Fuel Shutoff Valve)
+│   ├─ Isolate Hydraulic System (Hyd Valve Close)
+│   ├─ Disconnect Generator (Elec Contactor Open)
+│   ├─ IF Agent Discharge Button Pressed THEN
+│   │   ├─ Fire Squib (Elec Pulse to Squib Circuit)
+│   │   ├─ Release Agent into Designated Zone
+│   │   ├─ Monitor Pressure Transducer (Confirm Discharge)
+│   │   └─ Start Timer for Secondary Bottle (if fitted)
+│   └─ ELSE
+│       └─ Standby for Agent Release Command
+└─ IF Fire Warning Persists AFTER Discharge THEN
+    └─ Alert: "Fire Extinguishing Unsuccessful" → Emergency Landing Checklist
+    
+
+6. Landing Gear Retraction/Extension and Brake Logic
+
+[Gear Retraction Sequence]
+├─ Pilot Commands Gear Up
+├─ Check Weight-on-Wheels = FALSE
+├─ IF Uplocks Released AND Door Sequencing Valid THEN
+│   ├─ Energize Hydraulic Retraction Actuator
+│   ├─ Monitor Gear Up Position Sensors
+│   ├─ IF Gear Up AND Doors Closed THEN
+│   │   └─ Gear Status = UP
+│   └─ ELSE
+│       └─ Alert: "Gear Not Up/Locked" → Manual Override Logic Engaged
+
+[Gear Extension Sequence]
+├─ Pilot Commands Gear Down
+├─ IF Normal Hydraulic System Available THEN
+│   ├─ Energize Gear Down Actuator
+│   ├─ Sequence Gear Doors via Electro-Hydraulic Control
+│   └─ Confirm Down-Locked via Proximity Sensors
+└─ ELSE
+    ├─ Deploy Alternate Gear Extension (Manual/Free-Fall)
+    └─ Monitor Gear Down Indicators
+
+[Brake System Logic]
+├─ Monitor Brake Pedal Displacement (Via Transducers)
+├─ Send Signal to Brake Control Unit (BCU)
+├─ IF Hydraulic Pressure Available THEN
+│   ├─ Modulate Brake Pressure Proportionally
+│   ├─ Monitor Wheel Speed Sensors
+│   ├─ Engage Anti-Skid Protection (if applicable)
+│   └─ Display Brake Temperature & Status on MFD
+└─ IF Hydraulic Pressure Loss THEN
+    ├─ Use Alternate Brake Source (e.g., Accumulator)
+    └─ Alert: "Brake Pressure Low"
+
+
+7. Fuel System Management & Fault Isolation Logic
+
+[Fuel System Initialization]
+├─ Monitor Fuel Tank Levels (via FQIC → Probes)
+├─ Check Pump Power Availability (AC Bus Monitoring)
+├─ IF FQIC Reports Valid Data THEN
+│   └─ Enable Tank-to-Engine Feed Configuration Logic
+└─ ELSE
+    └─ Alert: "Fuel Quantity Indication Fault"
+
+[Engine Feed Logic]
+├─ FOR Each Engine
+│   ├─ Determine Feed Tank (e.g., Left/Right Wing Tank)
+│   ├─ IF Fuel Pressure < Threshold THEN
+│   │   ├─ Activate Backup Pump (if available)
+│   │   └─ Alert: "Fuel Pump Low Pressure"
+│   ├─ Open Shutoff Valve (Commanded from Cockpit or Fire Handle Logic)
+│   ├─ Monitor Flow Rate & Pressure
+│   └─ IF Pressure Restored THEN
+│       └─ Continue Normal Feed
+│       ELSE
+│       └─ Alert: "Fuel Supply Fault to Engine"
+
+[Fuel Transfer/Sequencing Logic]
+├─ IF Tank Imbalance > Threshold THEN
+│   ├─ Activate Transfer Pump from Heavy to Light Tank
+│   ├─ Open Associated Transfer Valve
+│   ├─ Monitor In-Transit Fuel Quantity
+│   └─ IF Balanced THEN
+│       └─ Stop Transfer & Close Valve
+└─ ELSE
+    └─ Maintain Current Feed Configuration
+
+[Crossfeed Operation]
+├─ IF Crossfeed Enabled (Manual or Auto) THEN
+│   ├─ Open Crossfeed Valve
+│   ├─ Confirm Valve Position via Feedback Sensor
+│   └─ Monitor Pressure Drop Across Tanks
+└─ ELSE
+    └─ Keep Valve Closed (Isolation Mode)
+
+[Leak Detection & Isolation]
+├─ Compare Fuel Flow to Engine vs Tank Depletion Rate
+├─ IF Discrepancy > Threshold THEN
+│   ├─ Alert: "Possible Fuel Leak"
+│   ├─ Isolate Affected Feed Line (Close Shutoff Valve)
+│   ├─ Crossfeed Engine from Opposite Tank (if possible)
+│   └─ Monitor New Balance & Flow Stability
+└─ ELSE
+    └─ Continue Normal Monitoring
+    
+
+8. Autoflight System Logic (Autopilot/Flight Director/Autothrust)
+
+[Autoflight Initialization]
+├─ Receive FMS Inputs (Route, Speed, Altitude Targets)
+├─ Monitor MCP/FCU Selections (Pilot Interface)
+├─ Validate Sensor Inputs (ADIRU, Air Data, RA, IRS, GPS)
+├─ IF All Inputs Valid THEN
+│   ├─ Initialize FCC Internal Mode Logic
+│   └─ Display FD Command Bars on PFD
+└─ ELSE
+    └─ Alert: "AFS Sensor Fault" → Revert to Manual Flight
+
+[Autopilot Engagement Logic]
+├─ Pilot Presses AP Engage Button
+├─ Verify Engagement Conditions:
+│   ├─ AP Not Already Engaged
+│   ├─ No Major Fault in FCC, Servo Channels
+│   ├─ Valid Data from ADIRUs and Air Data
+│   ├─ Trim in Tolerance
+├─ IF All Conditions TRUE THEN
+│   ├─ Engage Servo Loops
+│   ├─ Display AP Status (Green/White on FMA)
+│   └─ Autopilot In Control of Pitch/Roll Axis
+└─ ELSE
+    └─ Reject Engagement with ECAM/EICAS Message
+
+[Autothrust Mode Logic]
+├─ Pilot Selects A/THR ON (or FMS triggers it)
+├─ Monitor Engine EEC/FADEC Status
+├─ IF Mode is SPEED THEN
+│   └─ Use Thrust Lever Angle + Speed Error to Generate N1/N2 Command
+├─ IF Mode is THRUST (CLB, GA, TOGA) THEN
+│   └─ Command Fixed N1 Target Based on Mode
+├─ Validate Mode Transitions (Alpha Floor, Retard, ARM, IDLE)
+└─ Monitor Deviation Between Thrust Command & Actual
+
+[Mode Reversion & Fault Handling]
+├─ IF AP or A/THR Disconnect (via pilot or fault) THEN
+│   ├─ Annunciate Reversion on FMA
+│   ├─ Sound Disconnect Aural Alert
+│   └─ Revert to Manual Control (Stick + Levers)
+├─ IF FCC Internal Fault THEN
+│   ├─ Transfer Control to Alternate FCC (if dual system)
+│   └─ Reconfigure Available Modes
+└─ IF No Valid AP Mode THEN
+    └─ Alert: "Autopilot Disconnect" with Visual/Aural Cue
+
+
+9. Navigation and Position Management Logic
+
+[Navigation Initialization]
+├─ Power Up ADIRUs, GPS, and Radio Nav Receivers
+├─ Initialize IRS Alignment (Latitude/Longitude)
+├─ Load Flight Plan into FMS (from CDU or Uplink)
+├─ Cross-Check Navigation Sources:
+│   ├─ GPS Position
+│   ├─ IRS Position
+│   └─ Radio Nav Fixes (DME/DME, VOR/DME)
+└─ IF All Sources Within Tolerance THEN
+    └─ Set Navigation Mode to GPS PRIMARY
+└─ ELSE
+    └─ Set Mode to IRS-DME Updating or DR Only
+
+[In-Flight Navigation Updates]
+├─ Continuously Blend Sensor Inputs
+├─ Compare Calculated vs Measured Positions
+├─ IF Discrepancy > Limit THEN
+│   ├─ Reject Faulty Source
+│   ├─ Recompute using Remaining Sensors
+│   └─ Alert: "Nav Discrepancy – Reverting to IRS Backup"
+└─ ELSE
+    └─ Maintain Normal Update Rate
+
+[Radio Navigation Tuning & Capture]
+├─ IF Auto-Tuning Enabled THEN
+│   ├─ FMS Commands Tuning of VOR/ILS Frequencies
+│   ├─ Monitor Signal Strength & Identification Code
+│   └─ Verify Course Intercept Parameters
+├─ IF ILS Capture THEN
+│   ├─ Confirm Localizer & Glideslope Lock
+│   ├─ Transition FCC to Approach Mode
+│   └─ Arm Auto-Land Sequence (if configured)
+└─ IF Signal Lost Mid-Approach THEN
+    └─ Revert to Missed Approach Procedure (if applicable)
+
+[Navigation Display & Redundancy]
+├─ Display Nav Path, Waypoints, Sensors on ND
+├─ IF Sensor Source Fault THEN
+│   ├─ Degrade Display Symbol (X or Flag)
+│   └─ Switch to Alternate Source (if available)
+└─ Cross-Compare PFD/ND Data for Both Pilots
+
+
+10. Cabin Systems Logic (Environmental Control, Lighting, IFE, Oxygen)
+
+[Cabin Systems Initialization]
+├─ Power-On Sequence Triggered (AC/DC Cabin Buses Online)
+├─ Initialize:
+│   ├─ Lighting Control Modules (Main, Emergency)
+│   ├─ IFE Server & Distribution Nodes
+│   ├─ PSU Modules (Reading Light, O2 Logic)
+│   ├─ Potable Water & Waste Controllers
+│   └─ Cabin Temperature Controllers (Zone Specific)
+├─ Verify Essential Buses Online → Enable Critical Functions
+└─ Enable Galley Power (If Not Load-Shed State)
+
+[IFE & Passenger Interface Activation]
+├─ Boot IFE Server
+│   ├─ Establish Network Routing to Seat Units
+│   ├─ Load Configuration Profiles
+│   └─ Monitor Link Integrity to Seat Electronics Boxes
+├─ LOOP over each Seat Unit:
+│   ├─ Check Power Availability
+│   ├─ Establish Content Link
+│   └─ Initialize UI and Monitor Health
+└─ IF Any Unit Faults → Log Fault in CMS/BITE
+
+[Cabin Lighting Logic]
+├─ Read Light Level Sensor / Time of Day
+├─ IF Automatic Mode Enabled THEN
+│   ├─ Adjust Sidewall, Overhead, Ambient Lighting
+│   └─ Trigger Sleep/Wake Scenes on Flight Phase
+├─ Emergency Lighting Logic:
+│   ├─ Monitor Main Bus Voltage
+│   └─ IF Voltage Lost THEN
+│       └─ Trigger Auto-On from Emergency Battery Packs
+└─ Flight Attendant Manual Override Possible at All Times
+
+[Oxygen System Monitoring]
+├─ Monitor Cabin Altitude via CPCs
+├─ IF Cabin Altitude > 14,000 ft THEN
+│   ├─ Command PSU Door Release (Elec Signal)
+│   └─ IF Chemical System:
+│       └─ Auto-Ignite Chemical O2 Generators
+│       ELSE (Gaseous System)
+│       └─ Command Valve Opening to Supply Line
+└─ Monitor Pressure and Deployment Status
+
+[Water/Waste Logic]
+├─ Monitor Tank Levels, Pump Status, Heaters
+├─ IF Freeze Risk Detected THEN
+│   └─ Activate Line & Tank Heaters (Elec Power Check)
+├─ Waste System Flush:
+│   ├─ Monitor Flush Switch Activation
+│   ├─ Activate Flush Valve
+│   └─ Trigger Vacuum Generator (Elec Load Monitor)
+└─ Monitor Waste Tank Full Status → Alert Crew if Needed
+
+
+11. Ice Protection Logic (ATA 30 – Thermal/Pneumatic/Electrical)
+
+[Anti-Ice System Initialization]
+├─ Check Bleed Air Availability (Engines or APU)
+├─ Monitor Essential Elec Buses for Probe/Windshield Heat
+├─ Pilot Selects Anti-Ice ON (or Auto Mode Triggers Based on AoA, TAT, Weather Radar)
+├─ Initialize:
+│   ├─ Wing Anti-Ice Valves (Open via Solenoid Signal)
+│   ├─ Engine Cowl Anti-Ice (Command PRSOV to Direct Flow)
+│   ├─ Probe Heat Controllers (Self-Test on Startup)
+│   └─ Windshield Heat Controllers (Power-On, Current Monitor)
+
+[Active Anti-Ice Control Loop]
+├─ LOOP over Active Zones:
+│   ├─ Monitor Surface Temperature Sensors
+│   ├─ Monitor Bleed Air Pressure/Temperature
+│   ├─ IF Temperature Below Threshold:
+│   │   └─ Maintain Valve Open / Power On
+│   └─ ELSE
+│       └─ Pulse-Off or Modulate Airflow/Power
+├─ Fault Handling:
+│   ├─ Detect Open/Short Circuit (Probe Heat)
+│   ├─ Detect Valve Feedback Mismatch
+│   └─ IF Abnormal → Alert: "Anti-Ice Fault"
+└─ Auto Shutdown on Duct Overheat (via Bleed Overheat Loop)
+
+[Auto Mode Engagement]
+├─ Auto Anti-Ice Triggered IF:
+│   ├─ AoA > Threshold
+│   ├─ TAT in Icing Range
+│   ├─ Visible Moisture Detected (from Radar/Weather Logic)
+├─ Ensure Bleed Air Reserve for ECS Remains Adequate
+└─ Prioritize Engine Anti-Ice Over Wing in Limited Supply Scenario
+
+
+12. Sensor Fusion & Fault Isolation Logic (FBW / CMS / FMS)
+
+[Sensor Input Aggregation]
+├─ Aggregate Inputs from:
+│   ├─ 3× ADIRUs (Redundancy for Attitude, Air Data)
+│   ├─ 2× Radio Altimeters
+│   ├─ GPS Receivers (Blending Logic)
+│   ├─ AoA Sensors
+│   └─ Air Data Probes (Pitot, Static)
+├─ Initialize Sensor Voting Logic
+
+[Cross-Validation and Fault Voting]
+├─ FOR each critical sensor type:
+│   ├─ Compare Redundant Channels
+│   ├─ IF Discrepancy > Threshold THEN
+│   │   ├─ Mark Channel as Suspect
+│   │   └─ Cross-Vote with Other Two
+│   ├─ IF 2 Agree → Use Consensus
+│   └─ IF All Disagree → Revert to Least Drift Source or Default Backup (DR Mode)
+
+[Fault Propagation Containment]
+├─ Flag Faulty Sensor in CMS
+├─ Propagate Degraded Mode Notification to:
+│   ├─ PFD (Annunciation)
+│   ├─ FCC (Modify Control Laws)
+│   └─ FMS (Adjust Navigation Accuracy Logic)
+└─ IF Sensor Fails Mid-Flight:
+    └─ Reallocate Data Weight in Sensor Fusion Loop
+
+[Sensor Subsystem Reconfiguration]
+├─ Reassign Inputs (e.g., switch from ADIRU 1 to 2)
+├─ Use DCU (Data Concentrator Unit) Backup Channels
+└─ Allow Pilot Manual Reversion to Alternate Source (if Available)
+
+
+13. Fire Detection & Suppression Logic (ATA 26)
+
+[System Initialization]
+├─ Power-On Fire Detection Loops (Engines, APU, Cargo, Lav)
+├─ Confirm Loop Integrity (Resistance Check)
+├─ Enable Fire Handle Armed Logic
+├─ Squib Readiness Check (Battery Bus Verification)
+
+[Active Monitoring Loop]
+├─ Loop Monitor for:
+│   ├─ Overheat Trigger (Eng/APU Ducts)
+│   ├─ Fire Loop Discrepancy (Dual-Loop Sensors)
+│   ├─ Smoke Detection (Cargo, Lav)
+├─ IF Fire Detected:
+│   ├─ Trigger Alert (Visual/Aural on EICAS/ECAM)
+│   ├─ Light Fire Handle / Pushbutton
+│   └─ Arm Suppression Logic
+└─ Wait for Pilot Action
+
+[Suppression Activation]
+├─ Pilot Pulls Fire Handle:
+│   ├─ Electrically (or Mechanically) Cuts:
+│   │   ├─ Fuel Shutoff Valve
+│   │   ├─ Hydraulic Shutoff Valve
+│   │   └─ Bleed Air Valve
+│   └─ Arms Squib Firing Circuit
+├─ Pilot Commands Bottle Discharge:
+│   ├─ Fire Squib (Direct Battery Bus Signal)
+│   ├─ Confirm Pressure Drop in Bottle
+│   └─ Monitor Temperature Decrease in Zone
+└─ IF Fire Persists:
+    └─ Fire Loop Remains Active → Trigger Re-Discharge Timer (Cargo)
+    
+    
+14. Landing Gear Retraction, Extension & Steering Logic (ATA 32)
+
+[Landing Gear Control Logic Initialization]
+├─ On Power-Up:
+│   ├─ Verify LGCIU (Landing Gear Control & Indication Unit) Online
+│   ├─ Confirm WOW (Weight-On-Wheels) Sensors Valid
+│   └─ Initialize Gear & Door Position Sensors (Discrete Inputs)
+
+[Gear Retraction Logic]
+├─ Trigger: Pilot Moves Gear Lever to "UP"
+├─ Preconditions:
+│   ├─ Aircraft Airborne (WOW = Air)
+│   ├─ Airspeed > Retraction Minimum
+│   └─ No gear lock fault detected
+├─ Execute Retraction Sequence:
+│   ├─ Open Gear Doors (Hydraulic Actuators)
+│   ├─ Retract Gear Legs (Hydraulic Actuators)
+│   ├─ Monitor Proximity Sensors for "Up" Position
+│   ├─ Close Doors After Gear Up
+│   └─ Confirm All Indicators Show Gear = UP, Doors = CLOSED
+└─ IF Any Step Fails → Inhibit Sequence & Trigger Warning
+
+[Gear Extension Logic]
+├─ Trigger: Pilot Moves Gear Lever to "DOWN"
+├─ Preconditions:
+│   └─ Hydraulic Pressure Sufficient (Check System Source)
+├─ Execute Extension Sequence:
+│   ├─ Open Gear Doors (if applicable)
+│   ├─ Extend Gear (Main + Nose)
+│   ├─ Engage Downlocks
+│   ├─ Monitor Gear & Door Proximity Sensors
+│   └─ Annunciate "Gear Down & Locked" (Green)
+└─ IF Extension Fails → Allow Manual or Alternate Extension Logic
+
+[Alternate Extension (Emergency Gravity Drop)]
+├─ Trigger: Manual Handle / Electrical Command
+├─ Actions:
+│   ├─ Release Uplocks Electrically/Mechanically
+│   ├─ Use Gravity + Aerodynamic Forces to Deploy Gear
+│   ├─ Spring-Loaded Locks Engage
+└─ Monitor Gear Status → Display Gear Down if Locks Engaged
+
+[Nosewheel Steering Control Logic]
+├─ Active on Ground Only (WOW = Ground)
+├─ Input Sources:
+│   ├─ Rudder Pedals (Fine Control)
+│   └─ Tiller Input (Large Angle Control)
+├─ Control:
+│   ├─ Sends Command to Steering Control Valve (Hydraulic)
+│   └─ Valve Actuates Nosewheel Actuator
+├─ Limits:
+│   ├─ Speed-Dependent Gain Reduction (High Speed = Limited Angle)
+│   └─ Inhibit Steering if Disagreement > Threshold (Sensor Fault)
+└─ Fault Logic:
+    └─ Revert to Free-Caster Mode if Servo Failure Detected
+    
+    
+15. Electrical Load Shedding & Power Reconfiguration Logic
+
+[Power-Up Configuration]
+├─ Verify Generator Availability:
+│   ├─ IDG 1, IDG 2, APU Gen, External Power
+├─ Power Hierarchy Priority (Normal Mode):
+│   ├─ IDGs > APU Gen > External Power > Batteries
+├─ BPCU Evaluates:
+│   ├─ Voltage/Frequency OK
+│   └─ Synchronization Phase Matching
+
+[Bus Tie Logic]
+├─ BTBs (Bus Tie Breakers) Monitor Power Sources
+├─ Conditions:
+│   ├─ If Generator Fails → Open Tie to Isolate Fault
+│   ├─ If Only One Gen → Tie Buses to Maintain Coverage
+├─ Auto-Logic:
+│   ├─ Tie Closes Automatically if Source Fails
+│   ├─ BTB Trips Open if Fault Detected (Current, Differential)
+└─ Manual Override Possible via Overhead Panel
+
+[Load Shedding Logic]
+├─ Triggered if:
+│   ├─ Operating on Single Generator
+│   ├─ RAT Power Active (Emergency Mode)
+├─ Load Categories:
+│   ├─ Essential (Avionics, FCCs, ADIRU, ECS Fans, Flight Deck Lighting)
+│   ├─ Shedable (IFE, Galleys, Some Pumps, Cabin Lighting)
+│   ├─ Emergency Only (Battery Bus + DC ESS)
+├─ Sequence:
+│   ├─ Shed Lowest Priority Loads First
+│   ├─ Maintain Essential Loads As Long As Possible
+│   └─ Reactivate Loads if Generator Power Restored
+
+[Emergency Bus Logic (RAT Deployment)]
+├─ RAT Deployed IF:
+│   ├─ Both IDGs Lost
+│   ├─ APU Gen Not Available
+├─ Powers:
+│   ├─ AC ESS Bus
+│   ├─ DC ESS via ESS TRU
+├─ Sequence:
+│   ├─ AC ESS Bus Reenergized
+│   └─ Avionics Core Remain Online
+└─ If RAT Fails → Battery Bus Only (Time-Limited Ops)
+
+
+16. Aircraft Reversion Modes & Degraded Operation Logic
+
+[Normal Operation]
+├─ All Systems Operating
+├─ FCCs in Normal Law
+├─ Redundancy Levels All Available
+├─ All Displays Full Functionality
+
+[Reversion Triggers]
+├─ Triggered by:
+│   ├─ ADIRU Failure
+│   ├─ Hydraulic System Failure
+│   ├─ Electrical Power Loss
+│   ├─ Data Bus Fault
+├─ FCCs Evaluate:
+│   ├─ Available Inputs
+│   ├─ Available Control Paths
+├─ Decide on:
+│   ├─ Alternate Law (Partial Protections)
+│   ├─ Direct Law (No Envelope Protections)
+├─ Avionics Switch to Degraded Display Modes:
+│   ├─ Decluttered UI
+│   ├─ Inhibit Non-Essential Warnings
+└─ Pilot Alerted Visually + Aural Tone
+
+[Reversion Mode Loops]
+├─ Monitor Sensor & Actuator Status in Real-Time
+├─ Loop:
+│   ├─ IF Redundancy Regained → Restore Higher Law
+│   └─ IF Further Degradation → Transition to Backup Control Mode
+└─ Final Mode: Mechanical Backup (Pitch Trim, Rudder Only)
+
+
+17. Maintenance Mode & Ground Test Mode FSMs
+
+[Ground Power Applied → Maintenance Mode Entry]
+├─ Initiated via MCDU / Maintenance Panel
+├─ Selectable Test Modes:
+│   ├─ Avionics BITE Self-Test
+│   ├─ Hydraulic System Pressure Test
+│   ├─ Fuel Quantity Calibration
+│   └─ Electrical Bus Integrity Test
+
+[Built-In Test Equipment (BITE) Logic]
+├─ Each LRU Runs Internal BITE on Startup
+├─ Monitors:
+│   ├─ Power Supply Health
+│   ├─ Internal Temperature
+│   ├─ Communication Link Status
+├─ Results Sent to:
+│   ├─ CMS (Central Maintenance System)
+│   └─ Displayed via MCDU or Ground Station Interface
+└─ Loop Until Test Complete or Fault Isolated
+
+[Post-Maintenance Reconfiguration]
+├─ Software Part Number Validation
+├─ Loadable Software Part (LSP) Verification
+├─ Match Configuration Control Database
+└─ IF Mismatch → Lockout System Until Corrected
+
+
+18. Flight Envelope Protection Logic (FBW / FCC Domain)
+
+[Initialize Control Law State Machine]
+├─ Input: ADIRU Data, Flap/Slat Configuration, Flight Phase
+├─ IF All ADIRUs Valid → Enter Normal Law
+├─ ELSE IF Partial ADIRU → Alternate Law
+├─ ELSE IF All ADIRUs Invalid OR FCC Fault → Direct Law
+
+[Normal Law Active]
+├─ Sub-Modes:
+│   ├─ Ground Mode (WOW = Ground)
+│   │   └─ Controls are direct
+│   ├─ Flight Mode (Airborne)
+│   │   ├─ Pitch = G-Command + AoA Stability
+│   │   ├─ Roll = Roll Rate Command
+│   │   └─ Yaw = Yaw Damping + Turn Coordination
+│   └─ Flare Mode (Radio Alt < 50 ft AGL)
+│       └─ Linear pitch down trim based on RA descent rate
+
+├─ Protections:
+│   ├─ AoA Limit (Soft Stop + Override Gradient)
+│   ├─ Load Factor Limit (e.g., +2.5g/-1g clean)
+│   ├─ Bank Angle Protection (e.g., limits at 67°, auto-return to 33°)
+│   ├─ Pitch Attitude Limit (e.g., ±30°)
+│   ├─ High Speed Protection (overspeed pitch-up)
+│   ├─ Low Speed Protection (auto pitch-down, thrust call)
+└─ Feedback Loop:
+    └─ Surface commands updated every 10–20 ms (FCC cycle rate)
+
+[Alternate Law Transition]
+├─ Triggered by:
+│   ├─ 1 or 2 ADIRUs invalid
+│   ├─ FCC Channel Loss
+│   ├─ Sensor Disagreement (e.g., AoA sensors split > tolerance)
+├─ Modes:
+│   ├─ Reduced pitch law (G command only)
+│   ├─ Direct yaw
+│   ├─ Bank protection lost
+│   └─ AoA/overspeed protections degraded or removed
+├─ Pilot Notification: ECAM Alert + FMA Mode Change
+
+[Direct Law]
+├─ Triggered by:
+│   ├─ All FCCs in fallback
+│   ├─ Severe ADIRU failure
+│   └─ Electrical reversion
+├─ Mode:
+│   └─ Stick deflection → Surface deflection (linear)
+├─ No protections; flight control response is raw and linear
+└─ Requires pilot trim input manually
+
+[Abnormal Attitude Law]
+├─ Triggered by:
+│   ├─ Aircraft exceeds envelope (e.g., >50° pitch, >110° bank)
+├─ Enforces recovery logic:
+│   ├─ Pitch-down commands
+│   ├─ Roll-leveling
+│   ├─ Autothrust inhibition
+└─ Reverts to Alternate Law after recovery
+
+
+19. Brake System Control Logic (Normal, Alternate, Emergency)
+
+[Normal Brake Mode]
+├─ Trigger: WOW = Ground, Hyd System (Green) Pressurized
+├─ Inputs:
+│   ├─ Brake Pedal Position Sensors
+│   ├─ Anti-skid Computer Input (Wheel Speed Sensors)
+├─ Control:
+│   ├─ Electro-Hydraulic Valve Commands Pressure to Brakes
+│   ├─ Anti-Skid System Modulates Pressure to Prevent Lock
+└─ Monitors:
+    ├─ Temperature Sensors (Overheat Alert if > Threshold)
+    └─ Wear Pins (Indication to CMS)
+
+[Alternate Brake Mode]
+├─ Triggered by:
+│   ├─ Green Hydraulic System Failure
+│   └─ Yellow Hydraulic System Available
+├─ Uses alternate electro-hydraulic control valve set
+├─ Maintains basic pressure modulation
+└─ Anti-skid retained if DC power available
+
+[Emergency Brake Mode]
+├─ Trigger:
+│   ├─ Loss of all hydraulic pressure
+│   └─ Electrical fault
+├─ System reverts to:
+│   ├─ Accumulator pressure only
+│   └─ Manual pedal-to-pressure modulation
+└─ No anti-skid → increased stopping distance, risk of tire burst
+
+[Auto-Brake Logic]
+├─ Pilot Preselects (LO/MED/MAX/RTO)
+├─ Armed during:
+│   ├─ Landing rollout (Radar Altitude < 100 ft + Thrust Idle)
+│   └─ RTO if TOGA power applied then aborted
+├─ Control:
+│   ├─ Commanded deceleration rate
+│   └─ Integrates Brake Command with Spoiler Deployment
+└─ Disarms on:
+    ├─ Manual brake application
+    └─ Brake system fault
+
+
+20. Central Maintenance System Fault Tree Evaluation (CMS / ACMS)
+
+[Fault Collection Initialization]
+├─ All LRUs send:
+│   ├─ Fault Codes
+│   ├─ Sensor Discrepancy Data
+│   ├─ Built-In Test (BITE) Status
+├─ Collected via:
+│   ├─ Data Concentrator Units (DCUs)
+│   └─ CMS Gateway Computer
+
+[Fault Correlation & Logic Evaluation]
+├─ Time-stamp All Events
+├─ Dependency Trees Built:
+│   ├─ Fault in Sensor A → Impacted System B
+│   └─ Multiple Symptoms Triangulated to Root Cause
+├─ Examples:
+│   ├─ EGT High + Fuel Flow Low → Suspect Combustor
+│   ├─ Right FCC Fault + Rudder Deflection Freeze → Suspect Rudder Servo
+└─ Interactive Drill-Down via MCDU or Maintenance Panel
+
+[Fault Reporting Flow]
+├─ Fault Prioritization:
+│   ├─ Class 1 = Safety-Critical
+│   ├─ Class 2 = Dispatch Relevant
+│   ├─ Class 3 = Deferred Maintenance
+├─ Reports:
+│   ├─ Sent via ACARS (Health Monitoring)
+│   └─ Downloadable via Ethernet/Portable Test Device
+
+[Conditional Logic for Deferred Fault]
+├─ IF Fault Class = 2 or 3 AND Redundancy Available:
+│   ├─ Suppress Warning
+│   └─ Flag for Deferred Maintenance Entry
+└─ ELSE IF Class 1 or Redundancy Not Available:
+    └─ Trigger Alert + Maintenance Required Message
+
+
+21. Data Bus Arbitration & Fault Tolerance FSM (AFDX / ARINC 429)
+
+[Bus Initialization Phase]
+├─ Verify End System Addressing (MAC/IP for AFDX)
+├─ Start Health Monitoring (Heartbeat)
+├─ Establish Virtual Links (VLs) → Scheduled Bandwidth Allocation
+
+[Transmission Arbitration Logic]
+├─ AFDX:
+│   ├─ Full-Duplex Ethernet
+│   ├─ Time-Triggered + Redundancy Paths
+├─ ARINC 429:
+│   ├─ Point-to-point (TX-RX)
+│   ├─ 12.5 or 100 kHz clock
+├─ Prioritize:
+│   ├─ FBW Command VLs
+│   ├─ Sensor Data Streams
+│   └─ Maintenance/Logging (Low Priority)
+
+[Redundant Path Reconciliation]
+├─ Systems read both Red A & Blue B AFDX VLs
+├─ Compare Data Values:
+│   ├─ If Agree → Use Primary (Red)
+│   ├─ If Disagree → Use Valid Flag & Check CRC
+│   └─ Alert if Inconsistency Persists > Threshold Time
+
+[Bus Failure Detection]
+├─ Bus Watchdog Timer Expires
+├─ Missing Expected Data Packet
+├─ Status Word with "Failure" or "No Data"
+└─ Triggers:
+    ├─ Fallback to Alternate Bus/Source
+    ├─ Alert via Avionics/CMS
+
+
+22. Environmental Awareness Integration: Autoland & Low-Visibility Operation
+
+[Autoland Activation Logic]
+├─ Preconditions:
+│   ├─ Valid ILS Dual Frequency Lock
+│   ├─ Both Radio Altimeters Valid
+│   ├─ Dual FCCs Healthy
+│   └─ Winds < Limits (Crosswind/Tailwind)
+├─ Monitored Parameters:
+│   ├─ Localizer & Glide Slope Deviation
+│   ├─ Airspeed, Pitch, Bank
+│   └─ Vertical Speed
+
+[Autoland Sequence]
+├─ At 1500 ft AGL:
+│   ├─ A/P1 + A/P2 Engaged (Dual Channel)
+│   └─ FLARE mode armed
+├─ At 400 ft AGL:
+│   ├─ Land Mode Captures
+│   └─ FCCs begin pitch/roll/flare control
+├─ At 50 ft:
+│   └─ Flare Initiated
+├─ At Touchdown:
+│   ├─ Thrust Idle Commanded (A-THR Disconnect)
+│   ├─ Ground Spoilers Deployed
+│   └─ Auto-Brakes Applied
+
+[Fault Handling During Autoland]
+├─ Any FCC/Rad Alt/ILS Fault:
+│   └─ Autoland Abort → Manual Intervention Required
+├─ Aural + Visual "Autoland Fault" Alert
+├─ Rollout Guidance Limited to 15–20 sec Post-Touchdown
+
+[Low-Vis Ground Rollout Logic]
+├─ Monitors:
+│   ├─ IRS Heading Drift
+│   ├─ Lateral Acceleration
+├─ Guidance Based on:
+│   └─ Localizer + Wheel Speed + Rudder Steering Feedback
+
+
+23. Propulsion System Degradation Response Logic (EEC/FADEC)
+
+[Engine Initialization]
+├─ Inputs:
+│   ├─ Thrust Lever Position
+│   ├─ Air Data (OAT, Pressure Altitude)
+│   ├─ Engine Parameters (N1/N2, EGT, Fuel Flow)
+├─ Modes:
+│   ├─ Ground Idle
+│   ├─ Flight Idle
+│   └─ Climb/Cruise/Max Rated
+
+[Real-Time Monitoring Loop (50–100ms)]
+├─ Monitor:
+│   ├─ Engine RPMs (N1/N2)
+│   ├─ EGT Trends vs Limits
+│   ├─ Fuel Flow Stability
+│   └─ Vibration
+├─ Detect:
+│   ├─ Surge/Stall (RPM Oscillation, Pressure Drop)
+│   ├─ Flameout (RPM Drop + EGT Drop)
+│   ├─ Overtemp (EGT Exceedance + Rate of Rise)
+├─ IF Abnormal Detected → Execute Mitigation Path
+
+[Surge/Stall Logic]
+├─ Initial Symptoms:
+│   ├─ N2/N1 Oscillation
+│   ├─ Sharp drop in compressor pressure ratio
+├─ EEC Response:
+│   ├─ Momentary Fuel Cutback
+│   ├─ Bleed Valve Modulation (open surge valve)
+│   └─ Variable Stator Vane (VSV) repositioning
+├─ Recheck Stability (within ~1 sec)
+└─ IF Unstable → Engine De-rate or Shutdown
+
+[Flameout Detection]
+├─ Symptoms:
+│   ├─ N2 deceleration
+│   ├─ EGT Drop
+│   └─ No Ignition Feedback
+├─ EEC Auto-Restart Attempt (if conditions permit)
+│   ├─ Open Fuel Shutoff Valve
+│   ├─ Activate Ignition Channels A/B
+│   └─ Spin Engine via ATS or Windmill
+└─ IF Restart Fails:
+    └─ Lockout Fuel, Log Fault, Notify Crew (ECAM/EICAS)
+
+[Overtemp Management]
+├─ Detect:
+│   └─ EGT > Max Limit (e.g., 950°C for > 5 sec)
+├─ Mitigation:
+│   ├─ Reduce Fuel Flow
+│   ├─ Command De-rated Mode
+│   └─ Alert to Crew
+├─ IF Limit Violated Persistently:
+│   └─ Shutdown Command (if critical thresholds met)
+
+[Control Mode Fallbacks]
+├─ Primary Mode: Full Authority Digital Control (EEC with full sensor suite)
+├─ Alternate Mode:
+│   ├─ On sensor failure → Uses fallback logic, default trims
+│   └─ Reduced performance but functional
+├─ Manual Mode:
+│   └─ EEC fails completely → Manual throttle linkage engages (if fitted)
+
+
+24. ECS Pack Controller Logic + Overtemp/Recycle Response
+
+[Pack Initialization]
+├─ Inputs:
+│   ├─ Bleed Air Pressure/Temp
+│   ├─ Zone Temp Setpoints (Cockpit/Cabin)
+│   ├─ Aircraft Phase (TO/CLB/CRZ/DES)
+├─ Outputs:
+│   ├─ Flow Control Valve (FCV)
+│   ├─ Turbine Speed Command (ACM)
+│   └─ Trim Air Valve Position
+
+[Cooling Logic Loop (~500ms)]
+├─ Regulate Output Air Temp via:
+│   ├─ Mixing of hot bleed + cold ACM output
+│   └─ Trim Air (adds bleed downstream)
+├─ Monitors:
+│   ├─ Ram Air Flow (for heat exchange)
+│   ├─ ACM Turbine Speed & Temp
+│   ├─ Pack Outlet Temp
+│   └─ Zone Demand
+├─ Adjusts:
+│   ├─ Pack Valve Aperture
+│   ├─ Trim Air Valves
+│   └─ Fan Speeds (Recirc, Avionics Cooling)
+
+[Overtemp Detection]
+├─ Symptoms:
+│   ├─ Pack Outlet Temp > Limit (~90°C)
+│   ├─ Ram Air Temp High
+│   ├─ Bleed Air Temp Too High (>200°C)
+├─ Response:
+│   ├─ Close Pack Valve Momentarily (Recycle)
+│   ├─ Alert Crew (PACK HOT)
+│   └─ Auto-Shutdown if Unsafe Conditions Persist
+└─ Logging:
+    └─ Sends Fault to CMS + Alerts on EICAS/ECAM
+
+[Recycle Sequence]
+├─ Close Flow Control Valve
+├─ Wait for cooldown (~30–60 sec)
+├─ Restart ACM + Reopen FCV gradually
+└─ IF Overtemp Returns > 3 times:
+    └─ Pack Declared Failed → Manual Shutdown Required
+
+[Mode Dependency]
+├─ In TOGA: Packs may auto-shutoff to maximize engine thrust
+├─ On Single Pack Operation: Load balancing & cabin temp smoothing logic alters
+├─ ECS Ties to:
+│   ├─ Avionics Cooling
+│   ├─ Pressurization Control (OFV modulated)
+│   └─ Temperature Control System (Zone regulators)
+
+
+25. Cascading Fault Example: Electrical → Flight Control → Fuel
+
+[Step 1: IDG Failure Detected]
+├─ GCU trips → IDG offline
+├─ AC Bus 1 loses primary source
+├─ BPCU attempts to reconfigure bus:
+│   ├─ Tie AC Bus 1 to AC Bus 2 (if healthy)
+│   └─ Reprioritize APU Gen if online
+└─ IF No Backup → Bus 1 Offline
+
+[Step 2: Loss of AC Bus 1]
+├─ Impacted Systems:
+│   ├─ One Channel of FCC (e.g., FCC1)
+│   ├─ Left Side Avionics Displays (PFD1, ND1)
+│   ├─ L-Hydraulic EMPs (if powered from AC1)
+│   ├─ Left Fuel Boost Pump (AC1)
+├─ Dependency logic initiates:
+│   ├─ FCC1 falls back to backup power (DC-DC conversion or ESS Bus)
+│   ├─ FCC2 assumes primary FBW control
+│   └─ Fuel System alerts: L ENG LO PR if L pump fails and no crossfeed
+
+[Step 3: FBW Redundancy Logic Activated]
+├─ FCC Voting Logic Re-checks Inputs
+│   ├─ ADIRU Redundancy Confirmed
+│   └─ Control Law Reversion NOT required (yet)
+├─ Actuator Signals now routed via:
+│   └─ Alternate FCC Channel or Backup ACE
+
+[Step 4: Fuel System Degradation Detected]
+├─ EEC senses Fuel Flow Instability → Command Backup Pump ON (if available)
+├─ IF No pump available:
+│   └─ Fuel Crossfeed Logic Activated (Elec Valve)
+│       ├─ Open Crossfeed Valve
+│       ├─ Command Opposite Boost Pump to Increase Flow
+│       └─ Monitor for symmetrical engine feed
+
+[Step 5: Crew Alerts Triggered]
+├─ EICAS/ECAM:
+│   ├─ ELEC GEN 1 FAULT
+│   ├─ L FUEL PUMP LO PRESS
+│   ├─ L ENG FUEL PRESS LO
+│   └─ (If downstream faults) → FLT CTL CH1 OFFLINE
+└─ CMS Records:
+    └─ Multi-System Correlation: Root = ELEC Loss → Cross-domain degradation
+
+
+26. Cascading Fault Example: Pneumatic → Hydraulic → Flight Control
+
+[Initiating Fault: Pneumatic Bleed Leak]
+├─ Source:
+│   └─ Engine bleed duct rupture (e.g., hot air leak at wing root)
+├─ Detection:
+│   ├─ Duct overheat loop triggers
+│   └─ Avionics display warning (e.g., BLEED DUCT LEAK L)
+├─ Immediate Response:
+│   └─ Isolation valve closes (auto or pilot-directed)
+
+[Secondary Impact: Hydraulic Line Exposure]
+├─ High-temp bleed air impinges on hydraulic lines (System A)
+├─ Effects:
+│   ├─ Degrades seals
+│   ├─ Causes thermal expansion or rupture
+│   └─ Hydraulic fluid leakage initiates
+
+[Tertiary System Degradation: Hydraulic Pressure Loss]
+├─ Monitored by pressure/quantity sensors
+├─ System A begins to deplete
+├─ Standby system may auto-engage for rudder or flaps (if enabled)
+├─ Affected Actuators:
+│   └─ Flight controls powered solely by System A become sluggish or inop
+├─ Crew actions:
+│   └─ Use cross-system redundancy (System B or standby) where possible
+
+[Quaternary Dependency: Flight Control Mode Reversion]
+├─ FBW logic detects actuator inop / asymmetry
+├─ Possible reversion:
+│   ├─ From Normal Law → Alternate Law (Airbus-style logic)
+│   ├─ Or degraded augmentation/disconnect (Boeing-style logic)
+├─ Impacts:
+│   ├─ Reduced protection/envelope control
+│   └─ Pilot required to compensate manually
+
+[Quinary Risk: Emergency Gear/Flap Deployment]
+├─ With hydraulic pressure loss, gear/flap actuation depends on:
+│   ├─ Gravity drop (if enabled)
+│   ├─ Alternate electrical/hydraulic backups
+├─ If pneumatic system also impacted APU or RAT deployment (e.g., due to heat damage):
+│   └─ Redundancy chain degrades further
+
+
+27. Feedback Loop Distortion: Avionics Sensor Drift → Flight Control Law Error → Stability Loss
+
+[Initiating Condition: Sensor Drift]
+├─ Long-term drift in an ADIRU component:
+│   ├─ Airspeed over-read (pitot or pressure transducer bias)
+│   ├─ Miscalculated Mach or AoA
+├─ Not immediately out-of-spec → passes BITE thresholds
+├─ Gradual mismatch between sensors (e.g., 3 ADIRUs)
+
+[Impact on FBW Flight Control Laws]
+├─ FCC applies sensor fusion logic:
+│   ├─ Detects disagreement
+│   ├─ Uses voting or filtering (depending on architecture)
+├─ If drift is within voting threshold:
+│   └─ False value may be used preferentially
+├─ Control Law Effect:
+│   ├─ Artificial limits may engage too early or late
+│   ├─ AoA limiting or load alleviation logic becomes faulty
+│   └─ Elevator deflection commands subtly degrade stability
+
+[Flight Dynamics Effect]
+├─ Pitch instability during high-AoA maneuvers
+├─ Autopilot may disengage (if stability thresholds crossed)
+├─ Pilot may notice:
+│   ├─ Over-sensitive or sluggish response
+│   └─ Spurious stall warnings / buffet onset
+
+[Feedback Loop Corruption]
+├─ FCC perceives problem → applies greater command
+├─ Aircraft response incorrect → ADIRU reads wrong feedback
+├─ Closed-loop system begins to amplify rather than dampen
+
+[Recovery Mechanism]
+├─ Crew disables affected ADIRU manually (if identified)
+├─ FCC reverts to degraded law (Alternate or Direct)
+├─ Manual trimming or gain adjustment becomes necessary
+
+
+28. Environmental Trigger Chain: Cold Soak → Hydraulic Sluggishness → Braking Degradation → Runway Excursion Risk
+
+[Starting Condition: Cold Soak During Cruise]
+├─ Extended cruise in sub-freezing temps
+├─ Hydraulic fluid cools despite reservoir heaters
+├─ Viscosity increases → flow resistance rises
+
+[On Descent and Landing Prep]
+├─ Gear extension and flight control movement:
+│   └─ Sluggish hydraulic response detected
+├─ Possible pressurization delay in accumulators
+├─ Nose gear steering or gear sequencing slow
+
+[Final Approach Phase]
+├─ Speedbrake extension slow or partial
+├─ Flap/slat sequencing delays
+├─ Landing gear indicators may lag
+
+[Touchdown]
+├─ Brake pedal input results in delayed response
+├─ Autobrake system:
+│   ├─ Commands brake pressure
+│   └─ Hydraulic system slow to respond
+
+[Compounding Factors]
+├─ If anti-skid misreads low decel → releases brakes
+├─ Spoilers deploy late → poor weight-on-wheels sensing
+├─ APU bleed cold → ECS fogs windscreen → pilot visibility compromised
+
+[Risk Outcome]
+├─ Overrun of runway due to deceleration lag
+├─ Aircraft veers due to asymmetric brake pressure
+├─ Corrective crew input delayed by sensor/actuator mismatch
+
+[Mitigation]
+├─ Pre-landing cold soak checklist
+├─ Hydraulic warm-up cycles on descent
+├─ Ground spoilers armed manually
+├─ APU pre-activation to warm bleed system
+
+
+29. Interlocking Control Logics Across Multiple FCCs and System Buses
+
+[System Boot]
+├─ FCC1, FCC2, FCC3 initialize in parallel
+│   └─ Load configuration tables from non-volatile memory (NVM)
+│       ├─ Includes sensor routing, actuator mapping, channel priorities
+
+[Control Arbitration Initialization]
+├─ IF all FCCs report "green" BITE
+│   └─ Enter NOMINAL MODE
+│       └─ Each FCC independently computes control commands
+│           └─ Cross-check outputs via inter-FCC data bus
+│               └─ If delta within limit → vote for average output
+│               └─ ELSE → majority voting to select trusted FCC
+├─ ELSE IF one FCC fails self-test
+│   └─ Faulty FCC isolated
+│   └─ Remaining FCCs reconfigure logic:
+│       └─ Dual channel operation → increased watchdog strictness
+│       └─ System enters DEGRADED REDUNDANCY MODE
+
+[Data Path: Pilot Input to Surface Actuation]
+├─ Stick/Yoke/Pedal Inputs (Sensor Network)
+│   └─ Routed to all FCCs (shared sensors or via DCU)
+│       └─ Inputs timestamped → synchronized across FCCs
+├─ FCCs apply:
+│   ├─ Gain schedules (based on speed, config)
+│   ├─ Envelope protections (AoA, bank, load factor)
+│   ├─ Flight Phase logic (takeoff, climb, cruise, approach, landing)
+│   └─ Autopilot bias if engaged
+
+[Output Path: FCC Command → Actuator]
+├─ FCC computes command
+│   └─ Sends to Actuator Control Electronics (ACE) over dedicated bus
+│       └─ IF dual-channel actuators:
+│           └─ One ACE acts, one monitors
+│           └─ Feedback loop confirms actuator position via LVDT/RVDT
+│               └─ Disagreement triggers reversion logic
+
+[Failure Detection Loop]
+├─ Continuous cross-monitoring of:
+│   ├─ Sensor validity
+│   ├─ FCC-to-FCC handshake heartbeat
+│   ├─ Timing jitter
+│   ├─ Actuator position feedback
+├─ IF anomaly detected
+│   └─ Reconfigure:
+│       ├─ Fault isolate affected element (sensor/FCC/actuator)
+│       ├─ Enter ALTERNATE LAW
+│       ├─ Override pilot command if flight envelope exceeded
+│       └─ Log event to CMS
+
+
+30. Software Load Mismatches During In-Field LRU Replacement
+
+[Maintenance Event]
+├─ Faulty FCC (or CDU, DCU, etc.) removed
+├─ Replacement unit sourced from warehouse stock
+├─ Mechanic installs unit → power applied
+
+[Startup Configuration Check]
+├─ LRU queries aircraft-wide configuration ID
+│   ├─ via data bus or hardwired discretes
+│   └─ Checks for version compatibility
+
+[Conditional: Configuration Mismatch]
+├─ IF LRU software version ≠ aircraft config
+│   ├─ Behavior depends on design:
+│   │   ├─ Strict: Refuses to boot, displays CONFIG ERROR
+│   │   └─ Permissive: Boots with fallback logic
+│   └─ Potential consequences:
+│       ├─ Misinterprets sensor input formats (e.g., data scale shift)
+│       ├─ Misroutes outputs (e.g., wrong actuator channel)
+│       └─ Triggers invalid fault codes → cascades to CMS, fails BITEs
+
+[Secondary Effects]
+├─ IF multiple LRUs involved (e.g., FCC + AFS + CDU)
+│   └─ Cross-system mismatch occurs:
+│       ├─ FMC command to AFS rejected due to format error
+│       ├─ PFD data flags show "FAIL"
+│       └─ Autopilot disconnects due to command timing fault
+
+[Mitigation Path]
+├─ Technician downloads correct software via:
+│   ├─ Portable Maintenance Access Terminal (PMAT)
+│   ├─ Ethernet/AFDX connection
+│   └─ Secure load from airline's software configuration control server
+
+[Configuration Recovery Loop]
+├─ IF successful load:
+│   └─ Restart LRU
+│   └─ Run power-up BITEs
+│   └─ Clear faults from CMS log
+├─ ELSE:
+│   └─ Aircraft enters MEL dispatch restriction
+│       └─ System marked inop until matching software is loaded
+
+
+31. Real-Time Power Quality Oscillations Affecting LRU Resets
+
+[Baseline Condition: Normal Bus Operation]
+├─ 115V AC Bus nominal: 400Hz ±1Hz, voltage within 112–118V
+├─ LRUs operate with internal power supplies & DC regulation
+
+[Trigger Event: Large Load Application]
+├─ Cabin crew activates multiple galley inserts simultaneously
+│   └─ Ovens + chillers → surge current drawn from Galley Bus
+├─ Simultaneously: Wing Anti-Ice activates (high demand)
+
+[Electrical Response]
+├─ GCU/BPCU detects voltage sag
+│   └─ Adjusts generator field excitation
+│   └─ IF overload threshold passed:
+│       └─ Load shedding logic initiates
+│           ├─ Disconnects Galley Bus
+│           └─ Maintains Essential Buses
+
+[Impact on Sensitive LRUs]
+├─ Some LRUs on shared power paths:
+│   ├─ May momentarily receive undervoltage (<95V)
+│   └─ Internal DC-DC converter resets
+│       ├─ Cold start boot occurs
+│       └─ ~2–5 second recovery lag
+
+[Specific System Impacts]
+├─ Avionics displays may flicker → resets PFD/ND
+├─ ADIRU reboot causes transient NAV FLAG
+├─ FCC enters "Cross-Channel Timeout" if timing threshold exceeded
+├─ CMS logs power quality event
+
+[Protective Measures]
+├─ High-criticality LRUs powered from isolated essential buses
+│   └─ Equipped with hold-up capacitors
+├─ Reset-threshold detection logic prevents cascading reboots
+
+[Maintenance Feedback]
+├─ Event detected by Electrical Monitoring Unit (EMU)
+│   └─ Records waveform & fault code
+│   └─ Accessible via PMAT or maintenance laptop
+
+
+32. Environmental Failures: EMI & Sensor Shielding Logic
+
+[Environmental Stimulus: External EMI Source]
+├─ Lightning Strike / HIRF / Onboard Power Spike
+│   └─ Induces transient currents in wiring bundles and airframe
+
+[Signal Pathway Analysis]
+├─ EMI enters via:
+│   ├─ Poorly shielded cable harness (e.g., ARINC 429 bus)
+│   ├─ Poor bonding between structural elements
+│   └─ Compromised grounding point in electronics bay
+
+[Impact Assessment]
+├─ IF voltage transient exceeds threshold at sensor input:
+│   └─ Sensor enters fail-safe mode OR reports invalid data
+│   └─ Output replaced by out-of-range values (e.g., -9999)
+├─ IF LRU input protection circuitry damaged:
+│   └─ Internal electronics latch or burn (permanent fault)
+
+[Downstream Consequences]
+├─ ADIRU: Incorrect or frozen attitude data → PFD shows "ATT FAIL"
+├─ FCC: Invalid AoA input → triggers Alternate Law or disables AP
+├─ FMS: Position jumps or freezes → lateral NAV deviation
+├─ DCU: BITE reports multiple sensor channels failed
+
+[Protection Layers]
+├─ Layer 1: Cable shielding (braid, foil, drain wire)
+│   └─ Dependent on cable routing & installation QA
+├─ Layer 2: LRU input filters (LC filter, TVS diodes)
+│   └─ Protect electronics from voltage spikes
+├─ Layer 3: Sensor logic detects invalid input
+│   └─ Rejects data outside physical bounds
+│   └─ Declares sensor "failed" and reverts to alternate channel
+
+[Recovery Path]
+├─ IF input voltage stabilizes:
+│   └─ Some LRUs auto-recover after timeout (e.g., 10 seconds)
+├─ ELSE IF persistent:
+│   └─ Fault latched → requires maintenance reset
+├─ Post-Event:
+│   └─ Maintenance Terminal logs HIRF event
+│   └─ Checks shielding integrity & re-routes if needed
+
+
+33. Cabin Systems Interactions: PSU → Oxygen → Avionics
+
+[Trigger Event: Rapid Cabin Depressurization]
+├─ Cabin altitude rises > 14,000 ft (detected by CPC via ADIRU data)
+│   └─ Triggers:
+│       ├─ Cabin altitude aural/visual warnings
+│       ├─ Emergency descent procedures (AP mode or pilot)
+│       └─ Automatic oxygen mask deployment
+
+[PSU Activation Logic]
+├─ CPC sends discrete signal to:
+│   ├─ PSU electro-latch (Elec-powered) → opens mask compartment
+│   ├─ Oxygen generator igniter (Elec or mechanical pull)
+│   └─ Internal PSU fan (Elec) activates for airflow
+
+[Data Interlink]
+├─ PSU deployment reported to:
+│   ├─ Avionics (via CMS or dedicated signal)
+│   ├─ Displays: “OXY MASK DEPLOYED” advisory
+│   └─ Cabin crew indicators
+
+[Oxygen System Logic]
+├─ Chemical generators burn for ~12 mins once triggered
+├─ Gaseous system (if used) opens valve → flow via pressure reg.
+├─ System pressure sensor → Avionics reports qty & status
+
+[Feedback Loops]
+├─ Avionics logs:
+│   ├─ Event timestamp
+│   ├─ Zone of deployment
+│   └─ Generator activation current trace
+├─ If crew masks used:
+│   ├─ Microphone routing switches from cockpit mic → mask mic
+│   └─ Interphone system reroutes via mask logic
+│       └─ Potential impedance or volume adjustment loop
+
+[Interdependencies]
+├─ ECS switches to high-flow mode (if available)
+│   ├─ Increases air mass for crew during descent
+├─ FCC/AP may auto-initiate descent profile
+│   └─ Dependent on baro data, flight mode logic, and FD commands
+
+[Recovery Path]
+├─ System latched until reset on ground
+│   ├─ Chemical generators require replacement
+│   └─ PSU hatches rearmed manually
+
+
+34. Advanced Bus Arbitration (AFDX®): Deterministic QoS Failures
+
+[Baseline: AFDX® Network Initialization]
+├─ Virtual links (VLs) established between LRUs
+│   ├─ Defined max bandwidth
+│   ├─ Assigned traffic class (critical, essential, standard)
+│   └─ Managed by AFDX® switches with predefined routing
+
+[Trigger Event: Excessive Data Generation]
+├─ Faulty LRU (e.g., data concentrator) spams bus with:
+│   └─ High-rate sensor data OR repeated error reports
+├─ Total bandwidth on shared VL exceeds allocation
+
+[Bus Arbitration Logic]
+├─ AFDX® Switch logic:
+│   ├─ Traffic policing:
+│   │   └─ Drops frames exceeding VL bandwidth
+│   ├─ QoS enforcement:
+│   │   └─ High-priority VLs serviced first
+├─ Receiving LRU buffer overflow risk:
+│   ├─ Buffers fill → frames dropped
+│   └─ Trigger internal buffer overrun fault
+
+[Downstream Effects]
+├─ FCC misses critical timing window for sensor data
+│   ├─ Declares data "invalid"
+│   └─ Reverts to alternate sensor or fails mode
+├─ Display Units show frozen values (e.g., NAV FLAG)
+├─ EICAS/ECAM alerts: “DATA SOURCE FAIL” or “BUS CONGESTION”
+
+[Diagnostic Path]
+├─ CMS or Avionics technician reviews:
+│   ├─ Switch traffic logs
+│   ├─ LRU transmit frequency
+│   └─ Virtual link error counters
+├─ Confirm overused VL or frame rate violation
+
+[Mitigation]
+├─ Software patch applied to offending LRU
+│   └─ Reduces frame rate or limits error message spam
+├─ Rebalancing of VLs across different switches
+│   └─ Done via config table in switch EEPROM
+├─ If failure persisted in flight:
+│   └─ Dispatch limitation applied until resolved
+
+
+35. Thermal Loadback & Avionics Thermal Throttling Logic
+
+[Initial Condition: Nominal Cooling Flow]
+├─ ECS supplies conditioned air to Avionics Bay
+│   └─ Distributed via ducts → zonal fans → rack-level plenums
+├─ LRUs equipped with:
+│   ├─ Internal temperature sensors (PCB-mounted)
+│   ├─ Cooling flow detectors (optional)
+│   └─ BITE systems monitoring thermal margins
+
+[Trigger: Cooling Failure Detected]
+├─ IF ECS Pack fails OR recirculation fan fails:
+│   └─ Airflow drops below cooling threshold
+│   └─ Detected via temperature rise or flow sensors
+
+[LRU-Level Thermal Management Logic]
+├─ IF T_internal > Warning Threshold:
+│   └─ Log warning to CMS
+│   └─ Display maintenance advisory (e.g., “FMC TEMP HIGH”)
+├─ IF T_internal > Derating Threshold:
+│   └─ Reduce processing frequency (CPU throttling)
+│   └─ Reduce output refresh rate (e.g., display frame rate)
+├─ IF T_internal > Shutdown Threshold:
+│   └─ Gracefully shut down subsystem
+│   └─ Trigger alert to Avionics (e.g., “NAV SYS FAIL”)
+
+[System-Level Cascading Effects]
+├─ Display Unit shutdown → pilot loses PFD/ND
+│   └─ System tries reversion logic: show PFD on alternate DU
+├─ FCC throttling → slower FBW loop response
+│   └─ May force degraded control law
+├─ IRS shutdown → loss of inertial reference
+│   └─ Affects AP, FMS, Navigation displays
+
+[Feedback Loops]
+├─ Temperature logged continuously to CMS
+├─ Maintenance log includes:
+│   ├─ Duration above threshold
+│   └─ Cooling system status at event time
+├─ In some systems, ECS reacts by:
+│   └─ Rebalancing airflow to affected zone (dependent on controller logic)
+
+[Recovery Logic]
+├─ IF ECS flow restored AND T_internal < Recovery Threshold:
+│   └─ System auto-resumes function
+├─ ELSE:
+│   └─ LRU requires power cycle and manual reset
+
+
+36. Structural-Mount Feedback During High-Load Regimes (Wing-Root Sensing → FCC Logic)
+
+[Baseline: Structural Load Monitoring]
+├─ Wing-root strain gauges and pressure sensors embedded in:
+│   ├─ Wing box structure
+│   └─ Spar root attachments
+├─ Data fed to:
+│   └─ Structural Health Monitoring Unit (SHMU)
+│   └─ Direct inputs to FCCs in some architectures
+
+[High-Load Condition Detected]
+├─ Load Factor > 2.5g OR
+├─ Root strain > pre-set threshold
+├─ SHMU evaluates:
+│   └─ Persistent vs transient overstress
+│   └─ Wing flexure trends (fatigue risk)
+
+[Trigger Actions]
+├─ SHMU logs potential overstress event
+│   └─ Flags as post-flight inspection item
+├─ IF stress > Threshold_A:
+│   └─ FCC command limits adjusted (e.g., restrict aileron deflection)
+├─ IF stress > Threshold_B (Severe Turbulence):
+│   └─ FCC switches to "Turbulence Damping" mode
+│   └─ Tightens rate-limits on control surface actuation
+│   └─ Overrides pilot input at extremes
+
+[Dependencies]
+├─ FCC depends on:
+│   └─ Real-time strain sensor data
+├─ Load alleviation logic depends on:
+│   └─ Spoiler effectiveness
+│   └─ Accurate Mach and Altitude (ADIRU)
+├─ Display system reports:
+│   └─ “CONTROL LAW MODIFIED: LOAD LIMIT” to pilots
+
+[Failure Mode]
+├─ Sensor malfunction → Unused or flagged
+│   └─ FCC assumes max structural margin (conservative)
+├─ SHMU failure → Structure assumed nominal
+│   └─ Structural protection not applied unless manual
+
+
+37. Command Arbitration Logic: Manual Pilot Input vs Autopilot Commands
+
+[Baseline: Autopilot Engaged]
+├─ FCC in “Track AP Commands” Mode
+│   ├─ Receives pitch/roll command from AFS
+│   ├─ Sends output to actuator controllers
+│   ├─ Reads stick/pedal input channels continuously
+
+[Trigger Event: Pilot Sidestick Movement Detected]
+├─ IF input exceeds threshold deflection or force:
+│   └─ FCC initiates “Manual Override Detection” logic
+├─ ELSE:
+│   └─ Small trim input passed through to AP logic
+
+[Arbitration Logic]
+├─ IF Manual Override confirmed:
+│   └─ FCC disconnects AP channel (pitch/roll/both)
+│   └─ Triggers aural “AUTOPILOT OFF” warning
+│   └─ Illuminates amber AP OFF light on FCU
+├─ ELSE:
+│   └─ Stick movement interpreted as trim or ignored
+
+[Special Modes]
+├─ “Soft Disconnect” Mode (in some aircraft)
+│   ├─ Allows smooth transition of control authority
+│   └─ Thrust may remain under A/THR (depending on mode)
+├─ “Dual Input” Condition:
+│   ├─ Both pilots apply sidestick inputs
+│   └─ FCC blends inputs OR issues “DUAL INPUT” warning
+│       └─ Depends on FBW law in use (Normal vs Alternate)
+
+[Failure Cases]
+├─ Stick force sensor malfunction:
+│   └─ FCC may miss manual override → delayed disconnect
+├─ AP fails to disengage → Pilot commands overridden
+│   └─ Deemed critical: triggers hard disconnect + fault alert
+
+
+38. Autoland Logic Arbitration & Mode Transitions
+
+[Initial Condition: Approach Phase Initiated]
+├─ FMS sends descent profile to FCCs
+├─ ILS signals detected (LOC + GS)
+├─ Radio Altimeter data validated (<1500 ft AGL)
+
+[Engage Autoland Mode]
+├─ Pilot arms APPR mode on FCU
+│   └─ FCC evaluates:
+│       ├─ LOC + GS lock status
+│       ├─ Radio Altimeter availability (redundant)
+│       ├─ Flap/Slat config
+│       ├─ Gear Down status
+│       └─ AP Channel availability (usually 2 or 3)
+├─ IF all conditions met:
+│   └─ Autoland armed (“LAND 3” or equivalent annunciated)
+│   └─ FCC synchronizes all channels and begins precision descent tracking
+
+[Active Control Phase]
+├─ During final descent (1000 ft to flare):
+│   └─ Autothrust tracks GS speed targets
+│   └─ Elevator, rudder, and throttle finely modulate path
+├─ Rollout logic engaged at touchdown:
+│   └─ Rudder steers via Nose Wheel Steering (if applicable)
+│   └─ Ground Spoilers armed for automatic deployment
+
+[Failure Detection and Mode Degradation]
+├─ IF one AP Channel fails:
+│   └─ Downgrade annunciation: “LAND 2”
+├─ IF two AP Channels fail:
+│   └─ Autoland disengages → Manual Landing Required
+│   └─ Aural + Visual Alert
+├─ IF Radio Altimeter data lost:
+│   └─ Revert to Baro altitude, limits CAT III engagement
+├─ IF LOC or GS signal degraded:
+│   └─ Go-around required (TOGA auto-thrust logic triggered)
+
+[Go-Around Logic]
+├─ Pilot presses TOGA button
+├─ FCC disengages AP and pitch up
+├─ Autothrust increases to takeoff thrust
+├─ Lateral logic reverts to heading/track mode
+
+[Dependencies]
+├─ FMS (for approach phase logic)
+├─ ILS signal quality (external)
+├─ Radio Altimeters (triple sensors)
+├─ FCC synchronization (data buses, CPU timing)
+├─ FBW authority (control surface actuation)
+├─ Auto-brake system and Thrust Reverser status
+├─ Brake-to-vacate logic (if installed)
+
+
+39. Fuel Transfer Interlocks Controlled by Flight Control/Autopilot Modes
+
+[Initial Condition: Cruise Mode Established]
+├─ FMS determines center of gravity (CG) envelope
+├─ Fuel Quantity Indicating Computer (FQIC) calculates tank usage
+├─ FCC evaluates trim tank transfer window (based on CG target)
+
+[Trim Tank Transfer Logic (if equipped)]
+├─ IF trim tank usage enabled:
+│   └─ Aft transfer begins from horizontal stabilizer to center tank
+│   └─ Trim air pressure or dedicated pump used
+│   └─ Transfer interlocked with:
+│       ├─ Autopilot status (must be engaged)
+│       ├─ FBW mode (Normal or Alternate only)
+│       ├─ Weather/turbulence input (no moderate+ turbulence)
+├─ CG limit dynamically tracked
+│   └─ If CG approaches aft limit → stop transfer
+
+[Crossfeed Interlock Logic]
+├─ If one engine’s fuel feed line is compromised:
+│   └─ Crossfeed valve opens to supply from opposite tank
+│   └─ Only if:
+│       ├─ Crossfeed switch commanded
+│       └─ Differential pressure within acceptable bounds
+├─ Crossfeed lockout if:
+│   └─ Fuel temperature outside safe limits
+│   └─ Engine fire detected (prevents feeding fire)
+│   └─ Associated tank sensor error present
+
+[Failure & Recovery Logic]
+├─ Fuel imbalance detected by FQIC:
+│   └─ Asymmetry > Threshold:
+│       ├─ Automatic crossfeed recommended (message to ECAM/EICAS)
+│       └─ Trim transfer locked out to prevent further imbalance
+├─ FQIC fault → Pilot must manage transfer manually
+├─ Sensor discrepancy → Voting logic selects reliable probe set
+├─ Transfer valve position feedback monitored continuously
+
+[Dependencies]
+├─ Fuel pumps (AC-powered)
+├─ Tank sensors (voltage-based capacitance)
+├─ Trim tank pressurization (pneumatic or electric)
+├─ Crossfeed valve actuators (electrical)
+├─ FQIC health and bus communication with FCCs, CMS
+
+
+40. Cascading Failure Tree: Pitot Blockage → AoA Miscomp → Stall Warning → FBW Protection Degrade
+
+[Initial Condition: Climb Phase Under FBW Normal Law]
+├─ All 3 Pitot and Static sources functioning
+├─ AoA vanes providing angle-of-attack
+├─ FCCs reading from ADIRUs → calculating CAS, Mach, Altitude
+
+[Trigger Event: One Pitot Tube Blocked (Ice, Contamination)]
+├─ ADIRU detects CAS discrepancy between inputs
+├─ Triggers:
+│   ├─ ECAM/EICAS message: “ADR 1 DISAGREE”
+│   ├─ Flags CAS on PFD (red XXs)
+│   └─ Switch to alternate data source
+
+[Protection Logic Reaction]
+├─ IF two sources disagree → FCC engages air data voting logic
+├─ IF only one source remaining:
+│   └─ FBW protection logic degrades:
+│       ├─ Alpha Protection → INOP
+│       ├─ Speed Protection → INOP
+│       ├─ Alternate Law engaged
+├─ FCC may trigger:
+│   └─ Stall Warning (if AoA sensor over-threshold)
+│   └─ Overspeed Warning (if Mach > threshold on remaining source)
+
+[Failure Cascade]
+├─ Stall Warning activates:
+│   ├─ Aural “STALL”
+│   └─ Stick shaker (if installed)
+├─ FCC may override pilot pitch down input (if Normal Law still active)
+├─ If FBW is in Alternate:
+│   └─ Pilot responsible for stall avoidance (no alpha floor)
+
+[Recovery]
+├─ Pitot Heat status checked
+├─ ADR switched to backup (if 3 installed)
+├─ Manual reversion logic triggered (e.g., backup speed scale via AoA)
+
+[Dependencies]
+├─ Pitot tube integrity (environmental)
+├─ AoA vane reliability
+├─ ADIRU internal logic
+├─ FBW protection law tables (software)
+├─ Flight warning system logic
+├─ Sensor de-icing (electrical heaters)
+
+
+41. Cabin Environmental Interdependencies (Lavatory Waste → ECS → Pressurization Loop Feedback)
+
+[Initial Condition: Cabin at Cruise Altitude (~35,000 ft)]
+├─ Pressurization maintaining cabin altitude (~8000 ft)
+├─ ECS packs conditioning bleed air from engines
+├─ Air supplied to:
+│   ├─ Cockpit
+│   ├─ Passenger Cabin
+│   └─ Lavatories (via dedicated ducts)
+
+[Lavatory Waste System]
+├─ Toilet flush creates vacuum using dedicated pump or differential pressure
+│   └─ Differential based on cabin-to-ambient pressure ratio
+├─ Waste tank has:
+│   ├─ Overboard vent line (to outflow duct)
+│   ├─ Drain mast (may be heated)
+│   └─ Pressure equalization lines
+
+[Failure Case: Waste System Leak or Blockage]
+├─ Leak into outflow duct:
+│   └─ ECS airflow path becomes contaminated
+│   └─ Odor/sanitation hazard (sensed by crew, passengers)
+├─ Overpressure due to clogged drain:
+│   └─ Waste tank pressure rises
+│   └─ May damage waste system seals
+├─ Vacuum pump overcurrent (blocked flow) triggers:
+│   ├─ Circuit breaker trip
+│   └─ ECAM/EICAS message “LAV WASTE SYS FAULT”
+
+[Pressurization Loop Interference]
+├─ Waste overboard vent connects to pressure-controlled ducts
+├─ If ducting is blocked:
+│   └─ Inhibits pressure gradient management
+│   └─ May result in outflow valve control instability (hunting)
+├─ Cabin Pressure Controller senses fluctuations
+│   └─ Attempts to compensate → feedback oscillation possible
+
+[Dependencies]
+├─ Waste tank vent path integrity
+├─ ECS return airflow routing
+├─ Drain mast heater (AC-powered)
+├─ Cabin Pressure Controller feedback tuning
+├─ Crew procedural awareness (QRH action may include isolating lav)
+
+[Recovery Logic]
+├─ IF Waste system fault:
+│   └─ Isolate via shutoff valve
+│   └─ Revert to manual pressurization control (if needed)
+├─ ECS filter change deferred until landing (if contamination detected)
+
+
+42. Digital Maintenance Mode Logic: LRU Interrogation, Fault Isolation, Redundancy Switching
+
+[Initial Condition: Aircraft Parked, External Power Applied]
+├─ Maintenance Laptop or Dedicated Test Panel connected to MCDU or CMS port
+├─ CMS communicates via data buses with LRUs across aircraft
+
+[Fault Data Collection]
+├─ CMS initiates LRU interrogation cycle:
+│   ├─ Requests BITE logs from:
+│       ├─ FCCs
+│       ├─ FQIC
+│       ├─ EECs
+│       ├─ ADIRUs
+│       └─ Hydraulic Controllers, etc.
+│   └─ Queries last fault occurrence, flight phase, duration
+
+[LRU-Level BITE Processing]
+├─ Each LRU runs internal diagnostics on:
+│   ├─ Input signal ranges
+│   ├─ Output driver status
+│   ├─ Power supply health
+│   ├─ Communication integrity (bus sync, parity errors)
+├─ LRU stores:
+│   ├─ Fault code (bitwise)
+│   ├─ Timestamp
+│   └─ Fault isolation depth (e.g., “output channel A failed open”)
+
+[CMS Fault Interpretation]
+├─ CMS cross-references:
+│   ├─ Reported faults
+│   ├─ Flight phase
+│   ├─ Other LRU inputs
+├─ Runs fault correlation logic:
+│   └─ E.g., if:
+│       ├─ EEC 1 reports “fuel metering valve stuck”
+│       └─ Fuel Control Unit reports “command received but no valve movement”
+│       → Suggest fault in actuator not command logic
+
+[Redundancy Pathway Trigger]
+├─ IF LRU fault confirmed:
+│   └─ System logic may:
+│       ├─ Reconfigure data path (e.g., switch ADIRU 1 → 2)
+│       ├─ Disable faulty sensor channel
+│       ├─ Mark LRU as “NO GO” for dispatch
+│       └─ Raise MEL code
+
+[Dependencies]
+├─ CMS software version
+├─ LRU BITE firmware
+├─ Bus communication (ARINC, AFDX®)
+├─ Power continuity
+├─ Ground cooling/ventilation for electronics
+
+[Recovery]
+├─ LRU physically replaced
+├─ CMS clears fault code (if transient)
+├─ Functional test run (BITE or manual input/output verification)
+
+
+43. Thrust Asymmetry Management Logic (Engine-Out → Rudder Trim Command → FBW Feedback)
+
+[Initial Condition: Takeoff Roll]
+├─ Both EECs report normal thrust
+├─ FCCs compute expected yaw moment
+├─ No rudder bias applied yet
+
+[Trigger Event: Engine 2 Flameout Detected]
+├─ EEC 2 reports:
+│   ├─ N1/N2 drop
+│   ├─ EGT decay
+│   └─ No fuel flow
+├─ FADEC switches to windmill mode
+
+[Thrust Asymmetry Detection Logic]
+├─ FCC monitors:
+│   ├─ Engine thrust mismatch (> pre-set threshold)
+│   ├─ Aircraft yaw rate (gyros)
+│   ├─ Sideslip angle (beta vane)
+├─ Once confirmed:
+│   └─ Yaw compensation logic activates
+
+[Automatic Rudder Bias Command]
+├─ FCC sends:
+│   ├─ Rudder actuator deflection command (Hydraulic or EMA/EHA powered)
+│   ├─ Rudder trim applied progressively (limited rate)
+├─ Pilot sees:
+│   ├─ Rudder pedal displacement
+│   ├─ PFD message (e.g., “ENG OUT → RUDDER TRIM ACTIVE”)
+
+[Flight Law Adaptation]
+├─ FBW may revert to alternate control law:
+│   └─ Changes gain scheduling for asymmetric thrust
+│   └─ Disables certain protections (e.g., roll rate limiting)
+
+[Autopilot Response]
+├─ If AP engaged:
+│   └─ May disengage automatically
+│   └─ If engaged → tracks lateral path using asymmetric thrust table
+
+[Dependencies]
+├─ EEC data output (ARINC or CAN)
+├─ FCC logic processing
+├─ Rudder actuator power source (Hydraulic/Electric)
+├─ Beta vane accuracy
+├─ FBW law reconfiguration software
+
+[Recovery]
+├─ Engine relight attempted (if safe)
+├─ Yaw control maintained via FBW or pilot input
+├─ Autopilot re-engaged (if permitted)
+├─ Dispatch may be possible with engine-out MEL under ETOPS constraint
+
+
+44. Avionics Cooling Failure → Progressive LRU Degradation → Forced Auto-shutdown Logic
+
+[Initial Condition: Normal Flight, ECS Operational]
+├─ Avionics bay cooling provided by:
+│   ├─ ECS mix of conditioned & ambient air
+│   └─ Dedicated recirculation fan (AC powered)
+├─ Cooling air routed to:
+│   ├─ Avionics rack plenums
+│   ├─ Rear E&E bay
+│   └─ Specific cooling ports of high-power LRUs (via ducting)
+
+[Trigger: Recirculation Fan Failure or Duct Blockage]
+├─ Fan motor failure (detected via BITE or electrical draw)
+├─ Blocked duct due to:
+│   ├─ Maintenance error
+│   ├─ Foreign object
+│   └─ Over-pressurization collapse
+├─ Result: Reduced airflow through racks
+
+[System Feedback Detection Logic]
+├─ LRU internal temperature sensors detect rising temps
+│   └─ Sensors integrated in:
+│       ├─ FMC
+│       ├─ ADIRU
+│       ├─ FCC
+│       └─ CDU/Display Units
+├─ BITE logic in each LRU evaluates:
+│   ├─ Ambient temp rise rate
+│   └─ Temp absolute threshold
+
+[Progressive Shutdown Logic (Triggered Internally)]
+├─ If TEMP_HIGH_WARN threshold reached:
+│   ├─ LRU raises internal warning (flags to CMS)
+├─ If TEMP_HIGH_CRITICAL:
+│   ├─ LRU:
+│       └─ Enters degraded mode (e.g., disables high-draw functions)
+│       └─ May suspend bus transmission (reduce heat)
+│       └─ If heat persists → self-shutdown
+
+[Aircraft-Level Feedback]
+├─ CMS or ECAM/EICAS alerts:
+│   └─ “AVIONICS COOLING LOW” or “LRU TEMP HIGH”
+├─ May trigger:
+│   ├─ AUTO switching of navigation source (e.g., IRS 2 if IRS 1 offline)
+│   ├─ Auto de-selection of degraded data source
+├─ Pilots instructed to:
+│   ├─ Monitor system status
+│   ├─ Possibly open avionics cooling override valves (if available)
+│   └─ Land at nearest suitable airport if critical avionics at risk
+
+[Dependencies]
+├─ Recirc fan power (AC ESS Bus)
+├─ ECS pack airflow availability
+├─ Internal LRU thermal protection logic
+├─ Airframe duct routing & seal integrity
+
+[Recovery]
+├─ On ground:
+│   ├─ Replace fan or clear duct
+│   ├─ Run BITEs to reset heat flags
+│   └─ Requalify LRU performance
+├─ In flight:
+│   └─ Use alternate data paths or redundant LRUs (if available)
+
+
+45. High-Altitude ECS Instability → Cabin Pressure Oscillation → Outflow Valve Hysteresis
+
+[Initial Condition: Cruise Flight at FL370]
+├─ Cabin pressurization controlled by:
+│   ├─ Cabin Pressure Controller (CPC)
+│   ├─ Outflow Valve (electrically controlled, modulated motor)
+├─ CPC inputs:
+│   ├─ Barometric altitude (from ADIRU or Air Data)
+│   ├─ Cabin altitude (from pressure sensors)
+│   ├─ Rate of climb/descent (calculated)
+│   └─ Manual baro setting or auto logic
+
+[Trigger: Outflow Valve Lag or Sensor Drift]
+├─ CPC commands outflow valve modulation based on:
+│   └─ Target cabin altitude
+├─ If:
+│   ├─ Sensor data is stale/delayed (bus lag, sensor aging)
+│   ├─ Actuator hysteresis exists (delayed or stuck valve)
+├─ Result:
+│   └─ Over- or under-correction of valve position
+│   └─ Pressure overshoot or undershoot → cabin oscillation
+
+[System Feedback]
+├─ Passengers/crew feel:
+│   └─ “Ear popping”, sinus pressure, discomfort
+├─ System logs:
+│   └─ CPC fault or “CAB ALT RATE” warning
+├─ Possible ECAM message:
+│   └─ “CABIN ALTITUDE INSTABILITY”
+
+[Auto-to-Manual Reversion Logic]
+├─ If CPC detects:
+│   ├─ Control output exceeds safe rate
+│   ├─ Output command not matching feedback
+├─ Triggers:
+│   └─ Reversion to manual pressurization control
+│       ├─ Valve position held
+│       ├─ Manual rocker switch available on overhead panel
+
+[Dependencies]
+├─ Outflow Valve actuator motor (DC powered)
+├─ Cabin pressure sensors (Elec powered, data bus integrity)
+├─ CPC software logic (limit tolerances, delay filters)
+├─ ECS pack outlet pressure/temperature regulation
+
+[Recovery]
+├─ Manual control to stabilize cabin pressure
+├─ Land and:
+│   ├─ Replace pressure sensors (if failed)
+│   ├─ Test CPC (via maintenance panel diagnostics)
+│   └─ Lubricate/test valve actuator
+
+
+46. Fire Detection Fault → Generator Isolation → Dual-Zone Shutdown Logic
+
+[Initial Condition: Engine 1 Running Normally]
+├─ EEC controlling engine
+├─ IDG 1 generating electrical power
+├─ Hydraulic pump (EDP) powered by engine
+├─ Fire Detection Loop:
+│   ├─ Dual-element thermal loop (Firewire)
+│   └─ Powered by hot battery bus
+
+[Trigger: Fire Detection Loop Trip]
+├─ Overheat sensed (or loop fault misinterpreted)
+├─ Fire Warning triggered
+├─ Fire Handle illuminates (red)
+├─ ECAM/EICAS:
+│   └─ “ENG 1 FIRE”
+
+[Logic Triggered on Fire Handle Pull]
+├─ Fuel Shutoff Valve (FSOV 1) closes
+├─ Hydraulic Shutoff Valve (HSOV 1) closes
+├─ Bleed Air Valve closes (to isolate pneumatic source)
+├─ Generator field relay opens:
+│   └─ IDG 1 disconnected from bus
+├─ Fire bottle(s) armed for discharge
+
+[Interdependency: Generator Bus Protection]
+├─ If fault was *not* real:
+│   ├─ IDG 1 disabled → bus load transferred
+│   ├─ If bus tie logic fails:
+│       └─ Bus 1 becomes unpowered
+│   ├─ Can affect:
+│       └─ Flight control computers
+│       └─ Avionics displays (unless cross-wired)
+├─ APU generator may auto-engage (if airborne and auto-start logic present)
+
+[Dependencies]
+├─ Hot battery bus continuity
+├─ Fire handle switch wiring integrity
+├─ Contactors for generator field relay
+├─ EICAS/ECAM annunciation logic
+
+[Recovery]
+├─ Fault confirmed false:
+│   ├─ Land ASAP
+│   ├─ Inspect fire detection loop (continuity, insulation)
+│   └─ Reset contactors manually via maintenance panel
+├─ Fire confirmed:
+│   └─ Bottle discharged
+│   └─ Engine shut down
+│   └─ MEL/CDL applied
+
+
+47. Normal Mode Operational Logic: APU Start Sequencing → Electrical/Bleed Load Balancing
+
+[Trigger: APU START switch selected ON]
+├─ [Preconditions Checked by APU ECU (Electronic Control Unit)]
+│   ├─ Battery voltage ≥ minimum threshold
+│   ├─ APU door commanded OPEN
+│   ├─ APU inlet/exhaust clear (via door position sensor)
+│   └─ No existing APU fault logged
+
+[Stage 1: Starter Engagement]
+├─ Starter motor energized (DC power from battery bus or ground power)
+├─ APU fuel valve opens (solenoid valve via ECU control)
+├─ Ignition energized
+├─ ECU monitors:
+│   ├─ N1/N2 spool-up rate
+│   ├─ EGT rise
+│   └─ Oil pressure
+
+[Stage 2: Self-sustaining Speed Reached]
+├─ At ~50% N1 (model-dependent):
+│   └─ Ignition de-energized
+│   └─ Starter disengaged
+│   └─ ECU transitions to RUN mode
+
+[Stage 3: Load Acceptance]
+├─ ECU determines:
+│   ├─ Generator ready to accept electrical load
+│   ├─ Bleed valve may open (if selected)
+│   └─ Aircraft altitude < APU bleed max limit (for some models)
+
+├─ Depending on aircraft config:
+│   ├─ Electrical:
+│   │   └─ APU Gen contactor closed (via BPCU)
+│   │   └─ Automatically powers one or both main AC buses
+│   ├─ Bleed:
+│   │   └─ PRSOV opens, APU bleed routed to manifold
+│   │   └─ Cross-bleed valve opens (if engine start needed)
+
+[Dependencies]
+├─ APU ECU internal logic
+├─ Battery voltage / DC power
+├─ Starter relay control logic
+├─ APU fuel system health (fuel pump, valves)
+├─ BPCU & generator bus logic
+├─ ECS pack status (for bleed load regulation)
+├─ Airplane altitude/ambient pressure
+
+[Recovery (Fault or Abort)]
+├─ ECU aborts start if:
+│   ├─ EGT overlimit
+│   ├─ N1 fails to increase
+│   ├─ Oil pressure fails to rise
+├─ BITE log entry created
+├─ ECAM/EICAS displays:
+│   └─ “APU AUTO SHUTDOWN” + cause
+
+
+48. Failure Cascade: Autobrake + Anti-skid Failure → Brake Lockup Scenario
+
+[Initial Condition: Autobrake ARMED, RTO or DECEL selected]
+├─ Inputs to Autobrake Control Unit:
+│   ├─ Wheel speed sensors (per wheel)
+│   ├─ Aircraft weight-on-wheels signal
+│   ├─ Brake pressure feedback
+│   └─ Pilot brake pedal position (for override logic)
+
+[Trigger: Touchdown Detected]
+├─ WOW signal confirms weight on wheels
+├─ Thrust Levers retarded to IDLE (or reverse idle)
+├─ Autobrake activates via control unit:
+│   └─ Commands metered brake pressure via control valves
+│       └─ Sends discrete signal to hydraulic brake control module
+
+[Failure Mode 1: Anti-skid Sensor Fault]
+├─ One wheel’s speed sensor signal becomes noisy or drops
+├─ Anti-skid logic:
+│   ├─ Applies reduced pressure to prevent lock
+│   └─ But cannot detect real slip → loss of brake authority on that wheel
+
+[Failure Mode 2: Autobrake ECU Channel Desync]
+├─ Dual-channel control logic detects mismatch between:
+│   ├─ Measured deceleration vs expected rate
+│   └─ Brake pressure vs commanded value
+├─ Triggers:
+│   └─ “AUTOBRAKE DISARM” light
+│   └─ Transfer to manual braking (if pilot not applying brakes → delay)
+
+[Failure Mode 3: Hydraulic Source Drop]
+├─ Hydraulic system powering brakes drops (e.g., Yellow)
+├─ Switch to alternate hydraulic system (e.g., accumulator or alternate)
+├─ If switch logic fails:
+│   └─ No pressure reaches brakes
+│   └─ ECAM/EICAS: “BRAKE PRESSURE LOW”
+
+[Outcome]
+├─ Deceleration delayed or ineffective
+├─ Risk of runway overrun or tire lockup (flat-spotting)
+├─ Brake temperatures rise disproportionately
+├─ Tire failure if dragging occurs
+
+[Recovery]
+├─ Manual braking applied
+├─ Revert to alternate brake system (if available)
+├─ Post-flight: Maintenance checks
+│   ├─ Wheel speed sensors
+│   ├─ Anti-skid controller BITE
+│   ├─ Brake wear pins
+│   └─ Brake control valve test
+
+
+49. ARINC 429 Data Corruption → Display Source Switching (Automatic Reversion Logic)
+
+[Normal Condition: EFIS PFD/ND Displaying NAV/FLIGHT INFO]
+├─ Data inputs from:
+│   ├─ ADIRUs (attitude, air data)
+│   ├─ FMC (route, constraints)
+│   ├─ FCC (autopilot mode/status)
+│   ├─ WXR, TCAS, EGPWS (overlays)
+
+[Trigger: Corruption or Loss of Data Word]
+├─ EFIS display system detects:
+│   ├─ Parity error in ARINC 429 word
+│   ├─ “Label missing” (no update within timeout)
+│   ├─ Status word flag = FAIL or TEST
+
+[Display Source Switching Logic]
+├─ System logic reacts:
+│   ├─ Removes corrupted symbology (e.g., pitch/roll disappears)
+│   ├─ Triggers red “ATT FAIL” or “SPD” flag
+├─ Automatic reversion logic:
+│   └─ Attempts alternate source (e.g., ADIRU 2 instead of 1)
+│       └─ May result in switching from primary to secondary bus
+├─ Flight crew alerted:
+│   └─ ECAM/EICAS: “NAV DATA SOURCE DISAGREE”
+
+[If All Sources Disagree or Fail]
+├─ Displays revert to degraded mode:
+│   ├─ “STBY” instrument required
+│   └─ Flight continues in “Direct Law” or “Alternate NAV”
+
+[Dependencies]
+├─ ADIRU data validity
+├─ ARINC 429 bus timing and integrity
+├─ Display Unit processing capacity
+├─ Network redundancy (dual or triple feeds)
+├─ Configuration control: Matching software interface versions
+
+[Recovery]
+├─ Flight crew can manually select alternate source (via EFIS CP)
+├─ Maintenance downloads BITE logs from:
+│   ├─ Display Units
+│   ├─ ADIRUs
+│   └─ Bus Interface Units (BIUs)
+├─ Investigate wiring faults, software version mismatches
+
+
+50. RAT Deployment Logic → Emergency Hydraulic & Electrical Power Activation
+
+[Normal Condition: Aircraft Powered by Generators (IDG/APU)]
+├─ AC Buses 1 & 2 → Power Flight Control, Avionics, Pumps
+├─ RAT remains stowed in fuselage housing
+
+[Trigger: Dual Generator Failure or Loss of Both AC Buses]
+├─ Automatic RAT Deployment Triggered:
+│   ├─ Sensed loss of AC BUS 1 and AC BUS 2
+│   ├─ System verifies flight phase (in-air) via weight-on-wheels
+│   └─ No manual inhibit selected
+
+[RAT Deployment Logic]
+├─ Hydraulic Actuator releases RAT doors
+├─ RAT spins up from airstream (airspeed-dependent)
+├─ Generator or hydraulic pump engages via torque clutch
+├─ System checks:
+│   ├─ Electrical Bus powered (e.g., AC ESS Bus)
+│   └─ Hydraulic system pressurized (Green system on Airbus, Center system on Boeing)
+
+[Outputs / Alerts]
+├─ ECAM/EICAS: “EMER ELEC PWR ONLY” or “RAT DEPLOYED”
+├─ RAT status on electrical/hydraulic synoptic page
+├─ Reconfiguration of electrical bus priority (emergency config)
+├─ Flight controls powered in degraded FBW law (Direct Law or Alternate Law)
+
+[Dependencies]
+├─ Airspeed ≥ minimum RAT deployment threshold
+├─ Mechanical integrity of deployment actuator and torque shaft
+├─ Electrical control signal path to RAT actuator
+├─ Hydraulic/electrical bus interface wiring
+├─ RAT generator health (brushes, windings)
+├─ Avionics able to reconfigure power routing
+
+[Recovery / Manual Intervention]
+├─ Manual RAT deployment switch (cockpit) available
+├─ Alternate emergency checklist for “ELEC EMER CONFIG” followed
+├─ Post-landing:
+│   ├─ RAT reset requires ground crew manual stow procedure
+│   └─ BITE data pulled from electrical and RAT control modules
+
+
+51. Fuel Crossfeed Logic → Cross-Tank Balancing & Failure Containment
+
+[Normal Condition: Wing Tank Pumps Supply Fuel to Respective Engines]
+├─ Left tank → Left engine
+├─ Right tank → Right engine
+├─ Crossfeed valve CLOSED
+
+[Trigger: Imbalance Detected or Pump Failure]
+├─ Fuel quantity delta exceeds threshold (e.g., 500 lbs)
+├─ Pump fault detected (low output pressure, overheat)
+├─ Engine shut down (inoperative engine)
+
+[Crossfeed Valve Logic]
+├─ Crossfeed valve command issued (Elec → actuator)
+├─ Valve transitions OPEN
+├─ Fuel from opposite tank supplies both engines (or one engine)
+├─ Quantity monitored for balance
+├─ Automatic re-close logic may apply if balance restored
+
+[Alerts / Safety Interlocks]
+├─ EICAS/ECAM: “FUEL IMBALANCE” or “USE X-FEED”
+├─ Crossfeed inhibited:
+│   ├─ If engine fire pushbutton activated
+│   └─ If tank overfill condition detected
+
+[Dependencies]
+├─ Electrical power to valve actuator
+├─ Fuel pressure sensors for crossfeed flow confirmation
+├─ Crossfeed valve position sensors
+├─ FMC/FMS fuel monitoring and prediction model
+├─ Flight crew adherence to abnormal checklist logic
+
+[Recovery / Manual Intervention]
+├─ Manual valve operation via fuel control panel
+├─ Visual quantity monitoring via ECAM/EICAS or fuel synoptic
+├─ Maintenance download:
+│   ├─ Crossfeed valve motor status
+│   ├─ Fault logs (pressure differential, valve latency)
+
+
+52. Ground to Flight Mode Transition → Multi-System Logic Reconfiguration
+
+[Normal Ground Mode Condition]
+├─ Landing gear: compressed
+├─ WoW = TRUE
+├─ Ground logic active:
+│   ├─ Autobrake armed only
+│   ├─ Thrust reversers enabled
+│   ├─ Ground spoilers active
+│   ├─ Pressurization in ground schedule
+│   ├─ FCCs in ground mode logic
+│   ├─ Flight directors inhibited
+
+[Trigger: Takeoff Detected]
+├─ Weight-off-wheels (WoW → FALSE)
+├─ Airspeed > 50 kts AND
+├─ Pitch angle AND rate consistent with rotation
+
+[Transition Logic: Ground → Flight Mode]
+├─ Inhibits reversers & ground spoilers
+├─ Enables pitch/roll/yaw FBW full authority
+├─ Flight control laws shift to “Normal Law”
+├─ Autobrake logic disarms
+├─ Pressurization begins takeoff-to-climb delta-P ramp
+├─ Autothrottle mode transitions from TOGA to CLIMB
+
+[Alerts / Outputs]
+├─ EICAS/ECAM flags:
+│   ├─ "TO CONFIG NORMAL"
+│   ├─ "LANDING GEAR NOT UP"
+│   ├─ “PITCH TRIM” if out of range
+├─ Pressurization page shows "CLIMB"
+├─ Spoilers retract
+├─ FCCs log mode transition for BITE
+
+[Dependencies]
+├─ Valid WoW sensor inputs (multiple gear legs)
+├─ Air data system accuracy (airspeed)
+├─ FCC consistency and agreement on mode switch
+├─ FBW sensors’ initialization check complete
+├─ Autobrake armed & spoiler handle position
+├─ Avionics status healthy
+
+[Recovery / Manual Intervention]
+├─ Flight crew can override certain logics (e.g., flight spoilers deploy with speedbrake)
+├─ If WoW sensor fails:
+│   ├─ Flight may be locked in “Ground” mode
+│   ├─ Reversion to backup inertial/G-load-based transition logic
+├─ Maintenance:
+│   ├─ Gear proximity sensors
+│   ├─ FCC transition event logs
+
+
+53. Dual Hydraulic Failure → Alternate Gear Extension & FBW Law Degradation
+
+[Normal Hydraulic System Operation]
+├─ Green, Yellow, Blue (or L, C, R) systems pressurized
+├─ Each powers:
+│   ├─ Flight control actuators
+│   ├─ Landing gear
+│   ├─ Brakes
+│   ├─ Nosewheel steering
+│   ├─ Flaps/slats
+│   ├─ Thrust reversers
+
+[Trigger: Dual Hydraulic Failure Detected]
+├─ System logic detects:
+│   ├─ Pressure < threshold in two systems
+│   ├─ Reservoir quantity low
+├─ BITE flags failure in:
+│   ├─ Pumps
+│   ├─ Valves
+│   ├─ Fuses
+
+[Automatic Logic Reactions]
+├─ Reversion of FBW to “Alternate” or “Direct Law”
+├─ Disables spoilers (dependent on hydraulic availability)
+├─ Engages mechanical or electric backup pitch trim
+├─ Arms alternate gear extension:
+│   ├─ Gear doors unlocked
+│   ├─ Gravity + air drag deploys gear
+│   ├─ Lock springs hold gear down
+
+[Outputs / Alerts]
+├─ ECAM/EICAS:
+│   ├─ “HYD G/Y FAILURE”
+│   ├─ “ALT GEAR EXTEND ARM”
+├─ Hydraulic synoptic shows loss of pressure/flow
+├─ Braking system shifts to alternate/emergency logic
+
+[Dependencies]
+├─ Functional alternate extension system (cables, springs)
+├─ Gravity and airspeed sufficient for gear deployment
+├─ Electrical power to control valves/switches
+├─ FBW system integrity in degraded mode
+├─ Actuator status (some surfaces dual/triple-fed)
+
+[Recovery / Manual Intervention]
+├─ Crew uses “ALT GEAR” handle in cockpit
+├─ Confirm gear down via visual indicators/periscope
+├─ Reduce airspeed for extension (Vlo limit)
+├─ Post-landing inspection of all affected systems
+
+
+54. Cabin Pressurization Schedule Failure → Overpressure/Outflow Valve Override Logic
+
+[Normal Cabin Pressurization Operation]
+├─ Cabin pressure regulated according to flight profile
+├─ Outflow valves modulate to maintain target cabin altitude and pressure differential
+├─ Cabin pressure controller (CPC) manages automatic adjustments
+
+[Trigger: Pressurization Schedule Failure Detected]
+├─ Discrepancy between commanded and actual cabin pressure
+├─ Cabin altitude rate of change exceeds normal limits
+├─ Pressure differential approaching structural limits
+
+[Automatic Logic Reactions]
+├─ Override automatic outflow valve control
+├─ Command outflow valves to modulate manually to prevent overpressure
+├─ Limit cabin altitude rate of change to protect occupants
+
+[Outputs / Alerts]
+├─ EICAS/ECAM warnings:
+│   ├─ "CABIN PRESSURE"
+│   ├─ "AUTO PRESS FAIL"
+├─ Cabin altitude and differential pressure displayed on status page
+├─ Master caution alert triggered
+
+[Dependencies]
+├─ Functional outflow valves and actuators
+├─ Reliable cabin pressure sensors
+├─ Electrical power to pressurization control system
+├─ Integrity of cabin structure to withstand pressure loads
+
+[Recovery / Manual Intervention]
+├─ Flight crew switches to manual pressurization mode
+├─ Manually adjust outflow valves using dedicated controls
+├─ Monitor cabin pressure indicators closely
+├─ Prepare for emergency descent if unable to control cabin pressure
+├─ Maintenance action:
+│   ├─ Inspect and test pressurization control components
+│   ├─ Review fault logs for root cause analysis
+
+
+55. ADIRU Failover Paths → Redundant Data Source Selection Logic
+
+[Normal ADIRU Operation]
+├─ Primary ADIRU provides data to flight control and display systems
+├─ Secondary ADIRU in standby mode, monitoring primary unit
+├─ Flight data cross-checked between multiple sources for consistency
+
+[Trigger: ADIRU Failure Detected]
+├─ Loss of data output from primary ADIRU
+├─ Discrepancy between ADIRU outputs exceeding tolerance
+├─ Built-In Test Equipment (BITE) indicates fault
+
+[Automatic Logic Reactions]
+├─ Isolate faulty ADIRU from data bus
+├─ Switch to secondary ADIRU as data source
+├─ Reconfigure flight displays to indicate data source change
+├─ Engage comparator monitoring between remaining units
+
+[Outputs / Alerts]
+├─ EICAS/ECAM messages:
+│   ├─ "ADIRU FAIL"
+│   ├─ "NAV DATA INVALID"
+├─ Flags on affected flight instruments indicating unreliable data
+├─ Master caution alert activated
+
+[Dependencies]
+├─ Functional redundant ADIRUs or Inertial Reference Systems (IRS)
+├─ Valid air data sensor inputs (pitot tubes, static ports)
+├─ Reliable data bus communication pathways
+├─ Electrical power to navigation systems
+
+[Recovery / Manual Intervention]
+├─ Flight crew cross-verifies data with standby instruments
+├─ Select alternate navigation modes if required
+├─ Follow QRH procedures for unreliable airspeed or attitude indications
+├─ Maintenance action:
+│   ├─ Perform diagnostic tests on failed ADIRU
+│   ├─ Replace or repair faulty unit as necessary
+
+
+56. Galley Load-Shedding under APU Power → Electrical Load Management Logic
+
+[Normal Electrical Operation with Engine Generators]
+├─ All electrical buses powered
+├─ Galley equipment and in-flight entertainment (IFE) systems operational
+├─ Electrical load within generator capacity
+
+[Trigger: Transition to APU Power]
+├─ Engine generators offline
+├─ APU generator supplying electrical power
+├─ Electrical load demand assessment initiated
+
+[Automatic Load-Shedding Logic]
+├─ Identify non-essential loads:
+│   ├─ Galley equipment (ovens, coffee makers)
+│   ├─ IFE systems
+│   ├─ Cabin mood lighting
+├─ Sequentially disconnect non-essential loads to prevent APU overload
+├─ Monitor electrical load to ensure stability within APU limits
+
+[Outputs / Alerts]
+├─ EICAS/ECAM messages:
+│   ├─ "ELEC LOADSHED"
+│   ├─ "APU GEN ON"
+├─ Status indications showing shed systems
+├─ Advisory alerts if load-shedding unsuccessful
+
+[Dependencies]
+├─ Functional Electrical Load Management System (ELMS)
+├─ Reliable communication between ELMS and circuit breakers
+├─ Accurate load sensing and monitoring equipment
+├─ Operational APU with sufficient power output
+
+[Recovery / Manual Intervention]
+├─ Flight crew notified of load-shedding status
+├─ Option to manually restore critical non-essential loads if capacity allows
+├─ Monitor APU performance and electrical load indicators
+├─ Maintenance action:
+│   ├─ Inspect ELMS for faults
+│   ├─ Verify integrity of load-shedding relays and circuit breakers
+
+
+57. RAT Deployment Triggered by Dual Engine Generator Failure → Emergency Power Logic Chain
+
+[Normal Operation – Engines Supplying Electrical Power]
+├─ Both IDGs (Integrated Drive Generators) online
+├─ AC buses fully powered
+├─ RAT stowed in fuselage compartment
+
+[Trigger: Dual IDG Failure Detected]
+├─ Engine 1 and 2 IDGs fault or disconnect
+├─ Main AC buses unpowered
+├─ Battery and APU generator (if online) assessed as fallback
+
+[Emergency Logic Initiates]
+├─ Flight control computers detect loss of primary power
+├─ RAT deployment command sent via electrical or mechanical trigger
+├─ RAT doors open → turbine deploys into airstream
+├─ RAT generator begins producing power
+
+[System Prioritization under RAT Power]
+├─ Electrical:
+│   ├─ AC ESS bus powered
+│   ├─ DC ESS bus powered via TRU (if needed)
+├─ Hydraulic:
+│   ├─ Blue system hydraulic pressure maintained (if applicable)
+├─ Flight Control:
+│   ├─ FBW computers operate in degraded mode (Direct Law or Alternate Law)
+├─ Avionics:
+│   ├─ Minimum required navigation and communication powered
+│   ├─ Displays revert to essential instruments
+
+[Alerts / Indications]
+├─ EICAS/ECAM:
+│   ├─ "ELEC EMER GEN ON"
+│   ├─ "RAT OUT"
+├─ RAT deployment animation on synoptic pages
+├─ Loss of non-essential systems
+
+[Dependencies]
+├─ Correct RAT deployment logic (mechanical release or electric signal)
+├─ Airstream sufficient to spin RAT
+├─ RAT generator health and mechanical integrity
+├─ TRUs for DC bus continuity
+├─ Battery for interim power before RAT spool-up
+
+[Recovery Options]
+├─ APU start (if available) to restore full bus capability
+├─ If IDG power returns → system automatically switches back
+├─ Post-flight: maintenance to inspect RAT deployment, stow mechanisms
+
+
+58. Fuel Crossfeed Sequencing → Automatic Logic for Engine Feed Preservation
+
+[Normal Fuel Feed Configuration]
+├─ Left engine fed from left tank
+├─ Right engine fed from right tank
+├─ Crossfeed valve closed
+
+[Trigger: Fuel Imbalance or Pump Failure Detected]
+├─ One pump (or entire side) fails
+├─ Fuel level discrepancy exceeds limit (e.g., 500–1000 lbs)
+├─ Pressure drop detected in feed line
+
+[Crossfeed Logic Activation]
+├─ Crossfeed valve opens (automatic or pilot-commanded)
+├─ Opposite tank feeds both engines through open manifold
+├─ Maintains symmetrical fuel burn to prevent imbalance
+
+[Logic Path]
+├─ Detect imbalance → Verify pressure differential
+├─ Crossfeed opens only if:
+│   ├─ Opposite tank has sufficient quantity
+│   ├─ Both pumps in that tank are functional
+├─ Maintains priority to ensure:
+│   ├─ Minimum feed pressure
+│   ├─ No backflow or overpressure in opposite line
+
+[Alerts / Crew Actions]
+├─ EICAS/ECAM:
+│   ├─ "FUEL IMBALANCE"
+│   ├─ "CROSSFEED OPEN"
+├─ Fuel synoptic displays crossfeed path
+├─ QRH instructs crew to manually control crossfeed valve if auto fails
+
+[Dependencies]
+├─ Functional crossfeed valve and actuator
+├─ Fuel quantity sensors and logic computers
+├─ Functional fuel pumps in source tank
+├─ Valve command lines and electrical bus power
+
+[Recovery / Post-Flight Action]
+├─ Crossfeed closed manually once normal balance restored
+├─ Maintenance:
+│   ├─ Verify valve function
+│   ├─ Download FQIS/FMS fault logs
+
+
+59. Ground Mode Detection Failure → Inhibitions Not Triggered → Flight Spoiler Deployment on Ground
+
+[Ground Mode Normal Logic]
+├─ Weight-on-Wheels (WOW) sensors active (on all gear legs)
+├─ Ground spoilers inhibited unless:
+│   ├─ Thrust levers idle
+│   ├─ WOW active
+├─ Reversers and spoilers deployed based on ground logic
+
+[Trigger: WOW Sensor Failure or Disagreement]
+├─ One or more WOW sensors fail or provide conflicting status
+├─ FCC cannot verify aircraft is on ground
+├─ Ground Mode logic not entered or partially entered
+
+[Failure Effects]
+├─ Ground spoilers deploy while taxiing or after touchdown
+├─ Potential asymmetrical spoiler deployment
+├─ System may interpret phase as "in air" → inhibit reversers or speed brakes
+├─ Autobrake logic may disengage unexpectedly
+
+[Alert & Logic Responses]
+├─ ECAM/EICAS:
+│   ├─ "WOW MISMATCH"
+│   ├─ "SPOILER FAULT"
+├─ Flight control page shows active spoiler surface
+├─ Fault logged to FCC BITE
+
+[Dependencies]
+├─ Reliable WOW sensors (normally proximity or squat switches)
+├─ Signal integrity to flight control computers
+├─ Electrical bus power for spoiler actuators
+├─ Software logic tables in FCC for flight phase detection
+
+[Recovery Path]
+├─ Pilot selects manual spoilers to retract
+├─ Disable spoilers via cockpit controls
+├─ Post-flight:
+│   ├─ Check sensor status in BITE menu
+│   ├─ Inspect harnesses, connectors, signal converters
+
+
+60. Cabin Smoke Detection → Ventilation Override + Pack Shutdown Logic
+
+[Normal ECS Operation]
+├─ Packs supply conditioned air to cabin and flight deck
+├─ Recirculation fans active
+├─ Outflow valve modulates for pressurization control
+├─ Avionics bay cooling via dedicated duct/fan loop
+
+[Trigger: Smoke Detection in Cabin or Avionics]
+├─ Smoke sensor in cabin ceiling or avionics bay → TRIP
+├─ Signal to Air Conditioning Controllers (ACCs) and Cabin Pressure Controllers (CPCs)
+├─ Advisory sent to Avionics or Cabin Smoke Detection Units
+
+[Ventilation Override Logic Activated]
+├─ Automatically:
+│   ├─ Shuts down affected pack(s) (e.g., left pack for avionics smoke)
+│   ├─ Inhibits recirculation fans (to stop smoke redistribution)
+│   ├─ Opens avionics overboard exhaust valve (if closed)
+│   ├─ Increases cabin outflow rate to expel contaminated air
+├─ Optional (pilot-commanded):
+│   ├─ Switches to emergency ventilation
+│   ├─ Opens ram air valve for fresh airflow (if above 10,000 ft depressurization not a concern)
+
+[Display Alerts]
+├─ ECAM/EICAS:
+│   ├─ "SMOKE LAV/AIR COND/AVIONICS"
+│   ├─ "PACK 1 OFF" / "PACK 2 OFF"
+├─ Synoptic:
+│   ├─ Shows pack flow paths and recirc fan status
+│   ├─ Smoke warning symbols appear in affected zones
+
+[Dependencies]
+├─ Functional smoke detectors (powered by DC ESS/BATT bus)
+├─ ECS controller health (ACCs, CPCs)
+├─ Pack valve operability (bleed air valves)
+├─ Functional outflow and ram air valves
+├─ Recirc fan power supply and switching logic
+
+[Recovery Options]
+├─ Pilot can manually restore airflow after smoke source cleared
+├─ Switch packs OFF then ON (if needed)
+├─ Use alternate ventilation mode (emergency ram air)
+├─ Post-flight:
+│   ├─ Download smoke detection BITE logs
+│   ├─ Inspect pack ducts, sensors, fans for contamination
+
+
+61. Avionics Cooling Fan Failure → System Overheat Logic → Forced LRU Shutdown
+
+[Normal Avionics Cooling Path]
+├─ Avionics bay fans draw ECS air or ambient cabin air
+├─ Air circulates over LRU racks → exhausts overboard or to mixing unit
+├─ Cooling system status monitored by ECS controller or CMS
+
+[Trigger: Fan Failure or Insufficient Cooling Flow Detected]
+├─ Fan current drop / speed below threshold (sensed by CMS or ECS controller)
+├─ Temperature sensor (in rack or airflow) exceeds setpoint (e.g., >70°C)
+├─ LRU thermal sensor triggers overtemp warning
+
+[System Response]
+├─ Step 1:
+│   ├─ Alert crew: "AVIONICS FAN FAULT" / "AVIONICS OVERHEAT"
+├─ Step 2:
+│   ├─ Inhibit non-essential avionics power
+│   ├─ Shut down high-power LRUs (IFE servers, display units, SATCOM, etc.)
+├─ Step 3:
+│   ├─ Switch to alternate air path (e.g., backup fan or overboard vent)
+├─ If alternate cooling unavailable:
+│   ├─ Forced shutdown of all non-critical avionics
+│   ├─ Possible dispatch limitation imposed
+
+[Dependencies]
+├─ Cooling fans and motors (AC/DC powered)
+├─ Temperature sensors at critical rack zones
+├─ Power control modules within CMS/ECS
+├─ Overheat detection in LRUs themselves (local shutdown logic)
+
+[Recovery Options]
+├─ Crew switches to alternate fan mode (if not automatic)
+├─ Reduce avionics load (dim displays, power down non-essential systems)
+├─ Post-flight:
+│   ├─ Replace fan assembly
+│   ├─ Download CMS logs
+│   ├─ Check duct blockages or airflow restrictions
+
+
+62. Overpressure in Hydraulic System → Relief Valve Activation + Pump Shutdown Logic
+
+[Normal Hydraulic Operation]
+├─ System pressure regulated to ~3000 psi by pump controls
+├─ Actuators modulate based on demand → return line carries fluid back to reservoir
+├─ Pressure transducers report values to CMS/Flight Control Computer
+
+[Trigger: Overpressure Detected]
+├─ Sensor reading exceeds threshold (e.g., 3600 psi)
+├─ Relief valve begins venting to reservoir (to avoid component rupture)
+├─ Excessive duration or repeated spikes trigger logic escalation
+
+[Logic Chain Response]
+├─ Relief valve opens (mechanically or electrically actuated)
+├─ System controller logs pressure exceedance
+├─ If pressure not restored:
+│   ├─ Automatic shutdown of offending pump (EDP/EMP)
+│   ├─ Display caution: "HYD XXX OVHT" / "HYD XXX PRESSURE HIGH"
+│   ├─ Optional: hydraulic system isolation via shutoff valve
+
+[Alerting]
+├─ EICAS/ECAM:
+│   ├─ "HYD XXX PRESSURE HIGH"
+│   ├─ "HYD PUMP OFF"
+├─ Hydraulic synoptic:
+│   ├─ Pressure bar shows red or pegged
+│   ├─ Relief valve indicator may flash
+
+[Dependencies]
+├─ Functional pressure sensors
+├─ Relief valve operability (spring or solenoid-based)
+├─ Pump shutdown control line integrity
+├─ Software limits configured in FCC or Hyd Controller
+
+[Recovery Options]
+├─ Rely on alternate hydraulic system (triplex redundancy)
+├─ Flight in degraded control mode (if FBW)
+├─ Post-flight:
+│   ├─ Replace relief valve if stuck or leaking
+│   ├─ Inspect for root cause (valve jam, actuator lock, air ingestion)
+
+
+63. Dual ADC (Air Data Computer) Disagreement → Reversion to Backup Air Data Mode
+
+[Normal Air Data Operation]
+├─ ADIRU1, ADIRU2, (ADIRU3 if installed) feed:
+│   ├─ PFDs, ND, FMS, FCC, EGPWS, TCAS, Stall Warning, CPC
+├─ Each receives:
+│   ├─ Pitot pressure (via probes)
+│   ├─ Static pressure
+│   ├─ Total Air Temperature (TAT)
+
+[Trigger: Data Mismatch Detected]
+├─ FCCs or Data Concentrator Units compare inputs
+├─ Threshold exceeded (e.g., >15 kt CAS difference for 5 seconds)
+├─ Failure flags triggered (e.g., "ADIRU DISAGREE", "CHECK AIRSPEED")
+
+[Control Logic]
+├─ Step 1:
+│   ├─ Faulty source flagged (cross-compare logic)
+│   ├─ Faults displayed on PFD ("SPD FLAG", "ALT FLAG")
+├─ Step 2:
+│   ├─ Automatic switch to alternate ADIRU (if configured)
+│   ├─ Flight Control Laws reconfigure:
+│       ├─ Normal → Alternate (if insufficient air data)
+│       ├─ Limits protections (AoA, Overspeed, etc.) removed
+├─ Step 3:
+│   ├─ Pilot may select alternate source manually via reversion switches
+│   ├─ Synthetic airspeed may be engaged (based on GPS groundspeed, pitch angle)
+
+[Alerts]
+├─ PFD:
+│   ├─ Red flags ("SPD", "ALT", "MACH")
+├─ EICAS/ECAM:
+│   ├─ "AIR DATA INCONSISTENT"
+│   ├─ "CHECK PFD AIRSPEED"
+
+[Dependencies]
+├─ Pitot-static integrity (blockage → erroneous ADC input)
+├─ Data validation logic in FCCs/EFIS
+├─ Functional standby instruments or integrated backup display
+├─ Software cross-comparison logic thresholds
+
+[Recovery Options]
+├─ Use standby airspeed indicator / backup display
+├─ Engage alternate ADIRU or backup air data source
+├─ Declutter non-essential displays to focus on reliable data
+├─ Post-flight:
+│   ├─ Compare recorded ADC values
+│   ├─ Check pitot-static system, ADC self-test logs
+
+
+64. Cabin Pressure Controller Failure → Manual Pressurization Override
+
+[Normal Cabin Pressurization]
+├─ Two CPCs (Controller 1 active, Controller 2 standby)
+├─ Inputs:
+│   ├─ Altitude (from ADC)
+│   ├─ Rate of climb/descent
+│   ├─ Aircraft weight-on-wheels signal
+│   ├─ Landing elevation (from FMS or manual input)
+├─ Output:
+│   ├─ Modulates Outflow Valve (motor-driven)
+│   ├─ Keeps ΔP within structural and comfort limits
+
+[Trigger: CPC Fault Detected]
+├─ Active CPC fails (self-monitoring or invalid input)
+├─ System attempts auto-switch to standby CPC
+├─ If both CPCs fail → "AUTO FAIL" condition triggered
+
+[Control Logic]
+├─ Step 1:
+│   ├─ Manual mode switch activated (pilot or automatic fallback)
+├─ Step 2:
+│   ├─ Outflow valve motor switch now directly controlled by flight deck
+│   ├─ Pilot adjusts valve position manually to control cabin pressure
+
+[Alerts]
+├─ ECAM/EICAS:
+│   ├─ "CABIN PRESSURE AUTO FAIL"
+│   ├─ "PRESS MANUAL MODE"
+├─ Cabin Altitude / ΔP shown on synoptic
+
+[Dependencies]
+├─ Manual outflow valve switch functional
+├─ Electric motor on outflow valve operational
+├─ Pilot situational awareness (prevent over/under pressurization)
+
+[Recovery Options]
+├─ Use alternate CPC (if fault was transient)
+├─ Remain in manual mode for rest of flight
+├─ Monitor cabin altitude closely:
+│   ├─ Maintain cabin <10,000 ft
+│   ├─ Monitor ΔP < structural limits (~9.0 psi)
+├─ Post-flight:
+│   ├─ CPC diagnostics
+│   ├─ Outflow valve control integrity check
+
+
+65. In-Flight Engine Restart Logic → ATS + Fuel + Ignition Coordination
+
+[Trigger: In-Flight Engine Flameout]
+├─ Causes:
+│   ├─ Fuel starvation
+│   ├─ Flameout due to turbulence, weather
+│   ├─ Bird ingestion, mechanical failure
+
+[Condition Assessment]
+├─ Windmilling RPM (N2 > 12%):
+│   ├─ Attempt windmill restart (no starter air required)
+├─ If N2 < 12%:
+│   ├─ Starter Air Required (from APU or cross-bleed)
+│   ├─ ATS engages
+
+[Restart Sequence]
+├─ Step 1:
+│   ├─ Open Engine Start Valve (via cockpit or auto)
+│   ├─ ATS receives bleed air (Pneumatic logic → PRSOV/Isolation Valve open)
+├─ Step 2:
+│   ├─ N2 accelerates to ~15–20%
+├─ Step 3:
+│   ├─ Fuel Flow initiated (FMU command)
+├─ Step 4:
+│   ├─ Ignition ON (Exciter → Igniter Plug sparks)
+├─ Step 5:
+│   ├─ Engine stabilizes
+│   ├─ EEC resumes normal control
+
+[Monitored Parameters]
+├─ N2 acceleration rate
+├─ EGT rise (should occur within ~20s)
+├─ Oil pressure build
+├─ Engine vibration
+├─ Stabilized idle
+
+[Abort Logic]
+├─ EGT overlimit
+├─ Starter limit exceeded (~5 mins)
+├─ N2 stagnation
+├─ Ignition fail
+
+[Dependencies]
+├─ Pneumatic source (cross-bleed/APU)
+├─ Fuel system pressurized (boost pump ON)
+├─ Ignition system operational
+├─ Bleed air valves (PRSOV, isolation) open
+
+[Recovery Options]
+├─ Retry with alternate source (e.g., APU bleed if cross-bleed fails)
+├─ Divert if restart fails
+├─ Post-flight:
+│   ├─ Retrieve EEC restart data
+│   ├─ Investigate cause of flameout
+
+
+66. Ground Spoiler Auto-Deploy Logic ➝ Landing Detection + Deceleration Conditions
+
+[Normal Condition: Spoilers ARMED before landing (Pilot Action)]
+├── Aircraft in flight
+├── Landing gear DOWN
+├── Thrust Levers approaching IDLE
+├── WOW sensors = FALSE
+
+[Trigger: Transition to Ground Phase Detected]
+├── One or more of:
+│   ├─ WOW sensors = TRUE
+│   ├─ Wheel spin-up (main gear) exceeds deployment threshold
+│   └─ Radar Altitude < 6 ft + sink rate present
+
+[Deploy Spoiler Logic]
+├── IF:
+│   ├─ Spoiler Handle = ARMED
+│   ├─ Thrust Levers = IDLE or Reverse
+│   ├─ Hydraulic Pressure Available
+│   └─ Landing Detected (from logic above)
+│
+├── THEN:
+│   ├─ Command Ground Spoiler Deployment via ACE (Actuator Control Electronics)
+│   ├─ Monitor Surface Position Feedback from RVDTs
+│   └─ Flag "SPOILERS DEPLOYED" status to ECAM/EICAS
+
+[Failure Path / Override Logic]
+├── IF:
+│   └─ Any condition above NOT met
+│
+├── THEN:
+│   └─ Ground spoilers remain stowed or deploy partially (depending on config)
+│
+├── Manual Deployment:
+│   └─ Spoiler lever can be manually moved to deploy
+
+[Recovery Path]
+├── Flight crew verifies:
+│   ├─ Hydraulic pressure
+│   ├─ Status of WOW sensors (via maintenance page)
+│   └─ BITE reports from ACE or flight control system
+
+
+67. RAT Auto-Deployment Logic ➝ Power Failure → Emergency Gen + Hyd Activation
+
+[Normal Condition: Aircraft operating on Main Generators]
+├── AC BUS 1 and/or AC BUS 2 powered by IDG/APU
+├── RAT stowed in fuselage bay
+├── Hydraulic and electrical loads met by primary systems
+
+[Trigger: Loss of Primary Electrical Sources]
+├── Monitored by:
+│   ├─ Generator Control Units (GCUs)
+│   ├─ Bus Power Control Units (BPCUs)
+│   └─ Avionics Electrical Load Management System
+├── Detects:
+│   ├─ Loss of both IDGs (left + right)
+│   ├─ APU Generator offline/unavailable
+│   ├─ AC ESS Bus unpowered
+│   └─ No external power connected
+
+[RAT Deployment Logic]
+├── IF:
+│   ├─ AC ESS Bus = unpowered
+│   ├─ AND no main generators active
+│
+├── THEN:
+│   ├─ Issue RAT DEPLOY Command (auto via electrical system logic)
+│   ├─ RAT physically deploys into airstream (air-driven)
+│   ├─ RAT Generator energizes AC ESS Bus
+│   └─ RAT-driven Hydraulic Pump energizes Hydraulic System (usually Green or Blue)
+│
+├── ECAM/EICAS Displays:
+│   ├─ "EMER ELEC PWR ONLY"
+│   └─ "RAT DEPLOYED"
+
+[Recovery / Reversion]
+├── APU Start In-Air (if conditions allow) ➝ restores AC power
+├── Manual RAT deploy option (cockpit guarded switch)
+├── RAT remains deployed for remainder of flight
+
+[Dependencies]
+├── Airspeed (RAT must spin fast enough to generate power)
+├── RAT deployment actuator reliability
+├── Hydraulic fluid and pressure availability (if hydraulic pump used)
+├── Wiring + contactor health (AC ESS Bus feed integrity)
+
+
+68. Electrical Bus Tie Reconfiguration After Generator Loss
+
+[Normal Condition: Dual Generator Operation]
+├── IDG1 powers AC BUS 1
+├── IDG2 powers AC BUS 2
+├── AC ESS Bus sourced from AC BUS 1 (or AC BUS 2 if alternate selected)
+├── BTBs open (electrical separation for redundancy)
+
+[Trigger: Generator Failure Detected]
+├── Monitored by:
+│   ├─ GCU under/over voltage/frequency monitoring
+│   ├─ BPCU command logic
+├── Detects:
+│   ├─ Gen Fault (Loss of output, tripped, disconnected)
+│   └─ Bus undervoltage (AC BUS 1/2)
+
+[Bus Tie Reconfiguration Logic]
+├── IF:
+│   ├─ IDG1 fails ➝ AC BUS 1 = unpowered
+│
+├── THEN:
+│   ├─ BPCU closes BTB1 ➝ connects AC BUS 1 to AC BUS 2
+│   └─ Ensures continued power to AC ESS Bus
+│
+├── ELSE IF:
+│   ├─ IDG2 fails ➝ AC BUS 2 = unpowered
+│
+├── THEN:
+│   ├─ BPCU closes BTB2 ➝ connects AC BUS 2 to AC BUS 1
+│   └─ Ensures continued power to AC ESS Bus
+│
+├── IF both IDGs lost:
+│   └─ RAT deploys or APU autostart logic initiates (see CFG #67)
+
+[Failure Path Logic]
+├── IF:
+│   ├─ BTB fails to close due to fault
+│
+├── THEN:
+│   └─ Bus remains unpowered ➝ System enters degraded mode
+│   └─ Essential loads powered via alternate feeds or load shedding occurs
+
+[Recovery]
+├── Flight crew attempts:
+│   ├─ Manual BTB closure (via overhead panel)
+│   ├─ Starts APU
+├── Maintenance checks:
+│   ├─ GCU fault logs
+│   ├─ BTB contactor state
+│   └─ Bus voltage history from CMS/BITE
+
+[Dependencies]
+├── BPCU software logic
+├── Contactor health (BTB open/close capability)
+├── Accurate generator fault detection
+├── Correct bus priority configuration (ESS bus sourcing logic)
+
+
+69. Thrust Reverser Inhibit Logic (In-Air Condition Protection)
+
+[Normal Condition: Aircraft In-Air or On-Ground (Differentiated)]
+├── Reverser Stowed (hydraulic or electrical locks engaged)
+├── T/R lever armed but inhibited unless on-ground
+├── Auto-inhibit logic active in-air
+
+[Trigger: Pilot Commands Reverser Deployment]
+├── Reverser handle lifted or throttle pulled into reverse detent
+├── T/R Actuation Control Logic receives command
+
+[Reverser Inhibit Logic]
+├── System Checks:
+│   ├─ Weight-on-Wheels (WOW) sensors = airborne
+│   ├─ Radio Altimeter altitude > threshold (e.g., 10–50 ft)
+│   ├─ Air/Ground Signal = AIR
+│   └─ Thrust Lever Position = IDLE (or above)
+│
+├── IF:
+│   ├─ Aircraft in AIR mode
+│
+├── THEN:
+│   └─ Inhibit Reverser Deployment
+│   └─ Generate ECAM/EICAS Message: "REVERSER INHIBITED"
+│
+├── ELSE IF:
+│   ├─ Valid Ground Status
+│   ├─ Thrust Lever = IDLE
+│
+├── THEN:
+│   ├─ Unlock hydraulic/electric actuator locks
+│   ├─ Command sleeve/doors deployment
+│   └─ Monitor deploy position sensors
+│
+├── Protection Logic:
+│   ├─ Latches prevent unlock command unless ground status verified
+│   ├─ FCC/FADEC cross-check air/ground condition
+│   └─ EEC (Engine Control) logic independently inhibits thrust reversal in flight
+
+[Dependencies]
+├── WOW sensor accuracy
+├── FCC and EEC software agreement on air/ground status
+├── FADEC response time
+├── Reverser actuator integrity (lock sensors, deploy sensors)
+
+
+70. Autobrake Deceleration Mode Logic
+
+[Precondition: Aircraft Touchdown or Rejected Takeoff]
+├── Pilot arms autobrake selector (RTO, LO, MED, MAX)
+├── Braking command logic armed but inactive
+
+[Trigger: Main Gear WOW = Ground + Thrust Levers = Idle]
+├── System validates:
+│   ├─ WOW status = valid
+│   ├─ Thrust levers = idle
+│   └─ Ground Spoilers = deployed (optional depending on logic)
+
+[Autobrake Logic Execution]
+├── IF:
+│   ├─ Mode = RTO
+│   └─ Ground detected during takeoff roll
+│   └─ Thrust Levers = Idle or Reverse
+│
+├── THEN:
+│   ├─ Maximum brake pressure applied
+│   └─ Anti-skid modulates based on wheel speed
+│
+├── ELSE IF:
+│   ├─ Mode = LO/MED/MAX
+│   └─ Aircraft touchdown detected
+│
+├── THEN:
+│   ├─ Apply proportional braking force (predefined decel rate)
+│   ├─ Adjust pressure via Brake Control Units (BCUs)
+│   └─ Monitor deceleration rate; feedback loop adjusts brake pressure
+│
+├── Manual Brake Override Logic:
+│   ├─ Pilot pedal input cancels autobrake
+│   ├─ ECAM/EICAS shows “AUTOBRAKE DISARMED”
+│
+├── Fault/Abort:
+│   ├─ Loss of WOW or pedal input before touchdown → Autobrake inhibits
+
+[Dependencies]
+├── Anti-skid sensor accuracy (wheel speed)
+├── WOW sensors
+├── Hydraulic brake pressure
+├── Brake Temperature Monitoring System (BTMS)
+
+
+71. Nose Wheel Steering Fault Reversion
+
+[Normal Condition: Nose Wheel Steering Active]
+├── Tiller control via hydraulic servo-valve or electro-hydraulic actuator
+├── Rudder pedal inputs translated to steering commands
+├── Full steering angle authority available
+
+[Trigger: NWS Fault Detected]
+├── Monitored by:
+│   ├─ BITE in steering control unit
+│   ├─ Position feedback loop mismatch
+│   ├─ Sensor failure (steering angle, hydraulic pressure, actuator)
+│   ├─ Manual override or hydraulic system degradation
+
+[Fault Reversion Logic]
+├── IF:
+│   ├─ Minor fault detected
+│
+├── THEN:
+│   └─ System switches to degraded mode:
+│       ├─ Limits steering angle
+│       └─ Uses alternate sensor/control channel
+│
+├── ELSE IF:
+│   ├─ Severe fault or dual-channel failure
+│
+├── THEN:
+│   └─ Autodisconnect NWS system
+│   └─ Crew notified: “NWS FAULT” / “STEERING DISCONNECT”
+│   └─ Revert to rudder + differential braking only
+
+[Manual Mode]
+├── Tiller or pedals may retain function via backup
+├── Rudder authority at high speeds only (>60 kts)
+├── Differential braking (manual) becomes primary method
+
+[Dependencies]
+├── Hydraulic pressure (if hydraulically actuated)
+├── Steering Control Module
+├── NWS actuator health
+├── Rudder/brake systems functioning
+
+
+72. Emergency Generator Load Shedding Sequence (RAT-Driven Electrical Reconfiguration)
+
+[Trigger: Loss of All AC Power Sources]
+├── Engine IDGs: OFFLINE
+├── APU Generator: OFFLINE
+├── External Power: DISCONNECTED
+├── Battery: ENABLED
+├── RAT Deployment Triggered Automatically
+
+[Emergency Generator Activation]
+├── RAT drives emergency hydraulic and electrical generator
+├── Emergency Bus energized
+
+[Load Shedding Logic Initiated]
+├── System identifies power available = EMERGENCY GEN only
+├── Activate predefined load-shedding tiers:
+│
+├── Tier 1: Retained (Essential Systems)
+│   ├─ FCC / FBW Primary Channels
+│   ├─ ADIRUs
+│   ├─ EFIS / PFDs / NDs (1 per pilot min)
+│   ├─ EICAS/ECAM
+│   ├─ Engine FADEC (min)
+│   ├─ VHF #1 Communication
+│
+├── Tier 2: Shed
+│   ├─ Cabin Lighting
+│   ├─ Galleys
+│   ├─ IFE
+│   ├─ Windshield Heat (partial)
+│   ├─ Cargo/utility systems
+│
+├── Tier 3: Final Cuts
+│   ├─ Battery Bus Isolation (after 5–30 min timer)
+│   ├─ DC Shed Bus disconnect (if overload continues)
+
+[Flight Deck Alerts]
+├── ECAM/EICAS Message: “EMERGENCY ELECTRICAL CONFIG”
+├── RAT deployed indicator
+├── BATT ON and BUS TIE OPEN lights
+
+[Dependencies]
+├── RAT deployment success
+├── Emergency generator output (voltage/frequency control)
+├── BPCU load-shedding logic and software config
+├── Essential Bus health (wiring, CBs, contactors)
+
+
+73. Cabin Pressurization Schedule Change (Air-to-Ground Detection)
+
+[Normal Condition: Flight]
+├── Cabin Pressure Controller (CPC) maintains delta-P
+├── Cabin altitude = function of cruise altitude, descent rate
+├── Outflow Valve modulates to keep cabin climb rate smooth
+
+[Trigger: Landing Detected (Air-to-Ground Transition)]
+├── Weight-on-Wheels = Ground
+├── Thrust Levers = IDLE or Reverse
+├── Radio Altimeter < 50 ft AGL
+├── Aircraft pitch attitude = Ground attitude
+├── Optional input: Brake application / wheel spin-up
+
+[Pressurization Schedule Shift]
+├── System logic transitions CPC to Ground Mode:
+│   ├─ Fully opens Outflow Valve
+│   ├─ Sets cabin altitude = ambient (zero pressure diff)
+│   ├─ Enables door opening (structural safety)
+│
+├── Cabin Rate = Limited to ~300–500 fpm
+├── Prevents barotrauma, structural stress
+
+[Failure Modes]
+├── Outflow Valve fails = “CAB ALT HIGH” warning
+├── WOW sensor stuck in Air mode = CPC does not transition
+├── Manual override possible
+
+[Dependencies]
+├── Air Data (ambient pressure, altitude)
+├── WOW sensors
+├── Outflow Valve actuator and controller
+├── Electrical power to CPC
+
+
+74. EICAS/ECAM Cascading Warning Inhibit Logic
+
+[Trigger Phase: Takeoff / Go-Around Initiated]
+├── Aircraft acceleration detected (> 80 knots)
+├── Thrust Lever position = TOGA or FLEX
+├── Flight Mode Annunciation = Takeoff/Climb
+
+[Alert Inhibit Logic Enabled]
+├── EICAS/ECAM suppresses certain messages:
+│   ├─ Status messages (non-critical)
+│   ├─ Advisory cautions (e.g., “PACK OFF”)
+│   ├─ Maintenance alerts
+│
+├── Exceptions: These still show immediately
+│   ├─ FIRE
+│   ├─ ENGINE FAIL
+│   ├─ CONFIG (e.g., flap/slat/stab out of range)
+│   ├─ PRESSURIZATION FAIL
+│   ├─ SMOKE
+
+[Re-enable Logic]
+├── Above 1500 ft AGL or
+├── 1–2 minutes after takeoff (phase timer expires)
+├── Climb phase confirmed (AutoFlight mode = CLB)
+├── OR Pilot presses “CANCEL INHIBIT” manually
+
+[Visual/Auditory Management]
+├── Messages remain in memory log
+├── Aural warning suppressed unless critical
+├── "EICAS MEM" flag shown if alerts pending
+
+[Dependencies]
+├── EGPWS/RA for altitude logic
+├── AutoFlight for phase detection
+├── Engine parameters (thrust position)
+├── Alert priority database
+
+
+75. Flap/Slat Load Relief Logic (Overspeed Auto-Retraction Control)
+
+[Normal Condition: Flaps Extended (e.g., Flap 30)]
+├── System monitors:
+│   ├─ Airspeed (CAS from ADIRUs)
+│   ├─ Flap Position
+│   ├─ Flap Load Relief Threshold (e.g., 180 KIAS @ Flap 30)
+├── FCCs or Dedicated Slat/Flap Control Computers (SFCCs) manage logic
+
+[Trigger: CAS > Flap Limit Speed]
+├── CAS exceeds relief threshold for current flap setting
+├── Valid ADIRU inputs
+├── FCC/SFCC confirms sustained overspeed (e.g., >2 sec threshold)
+
+[Load Relief Sequence]
+├── Retracts flaps to next lower setting:
+│   ├─ Flap 30 ➝ Flap 25
+│   ├─ Flap 25 ➝ Flap 20
+├── Slats typically not retracted (except on select designs)
+├── Flap lever stays at selected position (no physical movement)
+├── EICAS/ECAM/Status: “FLAP RELIEF ACTIVE” or “FLAP OVSPD”
+
+[Return to Selected Position]
+├── CAS drops below limit + hysteresis buffer
+├── After timeout delay (e.g., 5 seconds)
+├── FCC/SFCC re-extends flaps to original selected position
+
+[Dependencies]
+├── Valid airspeed data (multiple ADIRUs for cross-check)
+├── SFCC/FCC software logic + flap actuator health
+├── Hydraulics to power flap retraction
+├── Flap position sensors (RVDT/LVDT)
+├── Crew alerting logic
+
+[Failure Modes]
+├── Flap motor jam = no relief possible = ECAM “FLAP ASYM”
+├── Erroneous airspeed (e.g., probe icing) = false retraction
+├── Sensor mismatch = inhibit relief (safety conservative)
+
+[Recovery]
+├── Manual override via flap lever
+├── Speed reduction below limit resumes normal extension
+├── Maintenance review of flap retraction history via BITE logs
+
+
+76. Hydraulic System Priority Valve Sequencing Logic
+
+[Hydraulic System Pressure Monitoring]
+├── Each system (Green, Blue, Yellow) monitored for:
+│   ├─ Supply pressure (via sensors)
+│   ├─ Return pressure
+│   ├─ Reservoir quantity and temperature
+│   └─ Pump output status (EDP, EMP, RAT-driven)
+
+[Trigger: Pressure < Priority Threshold]
+├── Detected by:
+│   ├─ Dedicated pressure sensors
+│   └─ SFCC/FCC/Braking Control Unit input
+├── Threshold = ~1850–2000 psi (typical)
+
+[Priority Valve Actuation]
+├── Electrically or hydraulically controlled
+├── Logic executed by:
+│   ├─ Hydraulic Monitoring Computers
+│   └─ System-specific control units
+├── Closes valves to isolate:
+│   ├─ Gear extension/retraction
+│   ├─ Nosewheel steering
+│   ├─ Thrust reversers
+│   └─ Cargo door actuators
+
+[Critical Loads Maintained]
+├── Flight Control Actuators
+├── Spoilers/speedbrakes
+├── Ram Air Turbine pump circuit (if active)
+├── Accumulator precharge maintained
+
+[System Recovery]
+├── Pressure returns to nominal
+├── Time delay + hysteresis threshold
+├── Priority valve reopens
+├── Full function restored
+
+[Dependencies]
+├── Pressure sensor validity
+├── Control power (Elec buses)
+├── Fault-free control valves
+├── Redundancy logic for sensor disagreement
+
+[Failure Cases]
+├── Valve fails closed → inhibited non-critical function
+├── Sensor drift → false pressure drop → unnecessary isolation
+├── Wiring or CB fault → no actuation → overload
+
+
+77. Cross-Channel FADEC Sync and Arbitration Logic
+
+[Engine Start Initialization]
+IF Channel A AND Channel B pass Power-Up BIT THEN
+    FADEC enters NORMAL dual-channel mode
+ELSE
+    FAIL detected → revert to single-channel operation
+
+[In Normal Mode]
+DO UNTIL FADEC shutdown
+    Channel A ↔ Channel B exchange:
+        - Thrust Lever Angle (TLA)
+        - Engine Parameters (N1, N2, EGT, FF)
+        - Health monitoring (sensors, outputs)
+        - Computed control signals
+    IF Channel mismatch (e.g., >5% N1 command delta) THEN
+        → Enter Arbitration
+
+[Arbitration Logic]
+    CASE Discrepancy Origin:
+        WHEN Sensor Input Drift:
+            Majority vote (2-of-3 sensor rule)
+        WHEN Internal Processing Fault:
+            Faulted channel is downgraded to MONITOR
+        WHEN Output Control Fault:
+            Affected channel is locked out
+    END CASE
+    Active channel continues controlling:
+        - Fuel Metering Valve
+        - Variable Stator Vanes
+        - Ignition
+        - Bleed valves
+        - Idle schedule logic
+
+[Automatic Channel Switching]
+IF Active channel failure detected THEN
+    → FADEC automatically switches to standby channel
+    → Alerts sent to CMS/ECAM/EICAS
+
+[Dependencies]
+├── Reliable sensor data (analog + digital)
+├── Electrical power to both channels
+├── Communication link health (cross-talk)
+├── Internal timer/watchdog health
+
+[Failure Consequences]
+├── Dual channel failure → engine shutdown
+├── Loss of communication → forced single-channel operation
+├── Incorrect arbitration logic → incorrect engine control
+
+
+78. Auto-Speedbrake Inhibit During Go-Around
+
+[Armed State (Pre-Landing)]
+├── Pilot arms speedbrake lever to ARMED detent
+├── System monitors:
+│   ├─ Thrust lever position (Throttle Resolver Angle)
+│   ├─ Radio Altitude (from RA sensors)
+│   ├─ Weight-on-Wheels (WOW)
+│   ├─ Wheel spin-up (main gear)
+│   └─ Air/ground transition logic
+
+[Trigger: Landing Detected]
+IF
+    (WOW = Ground) AND
+    (Throttle < Idle Detent) AND
+    (Wheel Spin-up > threshold RPM) AND
+    (Radio Altitude < 10 ft)
+THEN
+    → Deploy spoilers automatically
+
+[Trigger: Go-Around Detected]
+IF
+    (Thrust Lever > Climb Power Detent) OR
+    (TOGA button pressed)
+THEN
+    → Inhibit Auto-Spoiler Logic
+    → Retract spoilers (if previously deployed)
+    → Alert crew via EICAS/ECAM ("SPEEDBRAKES RETRACTED")
+
+[Dependencies]
+├── Thrust lever sensor integrity
+├── Air/ground logic validity (from WOW + RA)
+├── Speedbrake actuator health
+├── FCC/FCC2 control logic
+
+[Failure Conditions]
+├── Faulty WOW → false air mode → incorrect deployment
+├── TOGA logic fails → spoilers remain extended → climb rate reduction
+├── Actuator jam → mechanical lockout during G/A
+
+
+79. IRS Realignment Workflow & Failure Modes
+
+[System Power-Up]
+├── IRS Mode Selector set to OFF → ON
+├── System enters "Align Mode"
+├── Begin Power-Up Built-In Test (PBIT)
+│   ├─ Gyro/accelerometer health
+│   ├─ Internal clock and memory check
+│   ├─ Data bus communication checks
+│   └─ Power supply integrity
+├── If PASS → proceed
+├── If FAIL → fault logged, alignment inhibited
+
+[Ground Alignment Start]
+├── IRS requires:
+│   ├─ Aircraft parked (no motion – accelerometers)
+│   ├─ Position input from FMS/CDU or pilot entry
+│   ├─ Stable DC and AC power
+│   └─ Ambient temperature within limits
+├── Alignment timer starts (e.g., 7–17 min depending on latitude)
+
+[During Alignment]
+├── IRS calculates:
+│   ├─ Latitude, Longitude
+│   ├─ True North reference (Earth rotation rate)
+│   └─ Vertical gravity vector
+├── Position sent to:
+│   ├─ FMS
+│   ├─ Navigation Display (ND)
+│   ├─ FCCs (for attitude)
+│   └─ Autopilot
+
+[Alignment Complete]
+├── Mode automatically transitions to NAV
+├── IRS outputs:
+│   ├─ Attitude (pitch, roll, heading)
+│   ├─ Position
+│   ├─ Velocity (3 axes)
+│   └─ Acceleration (3 axes)
+
+[Failure Modes]
+├── Aircraft motion during alignment:
+│   → IRS detects acceleration ≠ 0 → Aborts alignment
+│   → Requires restart
+├── Power interruption:
+│   → IRS resets → alignment must restart
+├── Disagreement between IRS units:
+│   → Fault logged
+│   → Data rejection by FMS or FCC (depending on disagreement magnitude)
+├── Drift beyond limits (in-flight realignment not allowed)
+
+[Dependencies]
+├── Clean power supply (AC and DC)
+├── Accurate position entry
+├── No motion on ground
+├── Valid sensor data
+
+[Degradation Paths]
+├── Triple → Dual → Single IRS voting
+├── IRS Fault triggers fallback to Radio Nav or GPS update sources (if hybrid)
+
+
+80. Engine Anti-Ice Valve Override Logic
+
+[Manual EAI Activation]
+IF Pilot selects EAI switch ON THEN
+    Command FADEC → open EAI valve
+    Precondition: 
+        - Bleed Air available
+        - FADEC & Valve control logic functional
+
+[Automatic Activation (Optional)]
+IF
+    TAT < +10°C AND
+    Visible Moisture Detected (from weather radar or ADIRU humidity sensors) AND
+    Airborne status = TRUE
+THEN
+    FADEC auto-commands EAI valve open
+
+[Valve Command Execution]
+DO UNTIL switch = OFF or logic reverses
+    FADEC → sends signal to EAI valve actuator
+    Valve position monitored via feedback sensor
+    Display indication (ON, OPEN, FAULT)
+
+[Override / Inhibit Conditions]
+IF
+    Bleed air temp > safety threshold (e.g., 450°F) OR
+    Valve actuator fault detected OR
+    FADEC detects pressure drop downstream OR
+    Fire handle pulled (engine shutdown) OR
+    EAI feedback disagree > timeout
+THEN
+    → Valve remains closed or commanded closed
+    → FADEC logs failure
+    → Crew alerted (EICAS/ECAM, valve fault message)
+
+[Dependencies]
+├── FADEC software logic
+├── Bleed air system status
+├── Air data sensors (TAT, AoA, etc.)
+├── Electrical power (valve actuation, FADEC)
+├── Inlet temperature sensors
+
+[Failure Modes]
+├── Valve fails closed → inlet icing risk
+├── Valve fails open → engine performance penalty, hot surface damage
+├── Feedback sensor failure → ambiguous status → alerts
+
+
+81. APU Fire Detection → Auto Shutdown + Discharge Sequence
+
+[Monitoring Loop (APU running)]
+WHILE APU_RPM > Threshold
+    MONITOR APU Fire Loops A & B
+    ├─ Loop resistance
+    ├─ Temperature rise rate
+    └─ Integrity (open/short detection)
+    
+[Trigger: Fire Detected]
+IF Loop A AND Loop B both indicate fire
+THEN
+    → Signal sent to APU Fire Control Unit (FCU)
+    → FCU initiates emergency shutdown sequence
+    ├─ Closes fuel shutoff valve
+    ├─ Closes bleed air valve
+    ├─ Closes APU inlet door
+    └─ De-energizes starter/generator field
+
+[Auto-Discharge Conditions]
+IF Aircraft is:
+    - Unattended on ground (no weight-on-wheels override)
+    - APU is operating
+    THEN
+        → FCU auto-fires squib
+        → Bottle discharges into APU compartment
+        → Timer records discharge time
+        → APU INOP + FIRE EXTINGUISHED alerts issued
+
+[Manual Override]
+IF pilot presses APU FIRE switch
+THEN
+    → Fire sequence triggers manually
+    → Valve closures + squib fire (if not already fired)
+
+[Dependencies]
+├── Dual-loop integrity
+├── Electrical power (essential DC/battery bus)
+├── FCU software logic
+├── Squib line health (continuity monitored)
+├── Fire bottle pressure (checked during preflight)
+
+[Failure Modes]
+├── Loop failure → single-loop warning only
+├── Squib open → no extinguishing
+├── Faulted shutdown valve → fuel continues to APU
+
+
+82. Nose Gear Steering Servo Command Loss → Centerlock Fail-Safe
+
+[Normal Steering Operation]
+IF 
+    Ground Mode = TRUE AND
+    Tiller angle input present AND
+    Hydraulic Pressure = NOMINAL AND
+    Steering Servo Feedback OK
+THEN
+    ├─ Accept tiller (or rudder pedal) commands
+    ├─ Send electrical command (FBW or mech input) to Steering Servo Valve
+    ├─ Position Nose Wheel as commanded
+    └─ Feedback loop (potentiometer or resolver) confirms actual angle
+
+[Fault Detection Logic]
+MONITOR
+    - Servo motor current draw
+    - Steering position sensor feedback
+    - Hydraulic actuator pressure feedback
+    - Command-to-position agreement
+IF
+    Discrepancy > tolerance OR
+    Control signal lost (cable break, power loss) OR
+    Hydraulic leak detected
+THEN
+    → Log "NWS Fault"
+    → Inhibit further steering input
+
+[Fail-Safe Logic]
+IF NWS Fault detected
+THEN
+    ├─ Deactivate Steering Servo Valve
+    ├─ Spring/damper returns nose wheel to center
+    ├─ Steering "Centerlock" engages (mechanical or software override)
+    └─ Pilot alerted (EICAS/ECAM + CAS message)
+
+[Reversion Handling]
+IF Centerlock Active
+    ├─ Rudder pedal steering disabled (if normally active)
+    ├─ Differential braking must be used for directional control
+    └─ Dispatch limited – maintenance action required
+
+[Dependencies]
+├── Hydraulic system (if hydro-mech)
+├── Electrical system (if FBW or EMAs)
+├── Steering actuator health
+├── Feedback sensors
+├── Air/Ground logic (WOW sensors, gear proximity sensors)
+
+
+83. Cabin Pressure Dump Logic (Manual and Auto Modes)
+
+[Normal Auto Mode]
+IF
+    Cabin Mode Selector = AUTO
+THEN
+    Cabin Pressure Controller (CPC) modulates:
+        ├─ Outflow Valve position based on:
+            - Cabin altitude target (based on flight altitude input)
+            - Rate-of-climb/descent limits
+            - Pressure differential limits
+        └─ Uses Air Data input (ADIRU) for altitude reference
+
+[Manual Dump Command]
+IF Pilot presses DUMP button (CABIN PRESS panel)
+THEN
+    ├─ CPC commands outflow valve FULL OPEN
+    ├─ Cabin altitude increases rapidly (controlled by dump rate limiter)
+    ├─ Cabin differential pressure monitored (e.g., max ∆P override = 9.1 psi)
+    └─ Alerts displayed (EICAS/ECAM)
+
+[Emergency Depressurization (Manual Mode)]
+IF
+    Mode Selector = MAN AND
+    DUMP switch held OPEN
+THEN
+    ├─ Manual motor drives outflow valve open
+    ├─ Bypasses automated control
+    └─ Faster dump possible (limited by valve speed)
+
+[Inhibit Conditions]
+IF
+    Aircraft Altitude < 14,000 ft AND
+    Dump initiated inadvertently
+THEN
+    └─ CPC may inhibit full valve opening to prevent passenger discomfort
+
+[Fail-Safe / Feedback]
+IF
+    Outflow Valve stuck OR CPC fault
+THEN
+    ├─ Manual mode required
+    └─ Valve position monitored via potentiometer or encoder
+
+[Dependencies]
+├── Air Data (Altitude, Rate)
+├── Electrical power (CPC, Valve motors)
+├── Cabin Altitude Sensor
+├── Valve position feedback
+├── Manual override functionality
+
+
+84. Cargo Fire Detection Cascade: Loop Faults, Delay Timers, Bottle Redundancy
+
+[Detection Logic]
+LOOP_A = Monitor temperature resistance (rate and absolute)
+LOOP_B = Same as above
+
+IF LOOP_A AND LOOP_B = FIRE
+    THEN Fire Confirmed
+    → Send signal to Fire Detection Controller (FDC)
+
+IF LOOP_A = FIRE OR LOOP_B = FIRE
+    THEN:
+    → Begin 30-sec timer
+    → If second loop confirms within time → Confirmed Fire
+    ELSE → Fault Alert Only (Single Loop Fault)
+
+[Fire Confirmed]
+→ Trigger:
+    - Master Warning
+    - Cargo Fire annunciators
+    - Aural alert
+    - Message on EICAS/ECAM
+
+[Arming / Bottle Discharge Logic]
+IF Pilot selects ARM
+THEN:
+    → Arms bottle squibs
+    → Waits for flight condition confirmation
+
+IF AIRBORNE AND fire confirmed THEN
+    → First Bottle DISCHARGES IMMEDIATELY
+    → Start Timer (typically 30–60 mins)
+    → SECOND bottle discharges after delay (sustained suppression)
+
+IF ON GROUND THEN
+    → Bottle discharge requires manual trigger
+
+[Redundancy / Monitoring]
+IF LOOP Fault detected (open/short)
+    → FIRE detection only possible on remaining loop
+    → Maintenance alert issued
+    → Dispatch may be prohibited (ETOPS)
+
+[Dependencies]
+├── Dual sensor loop integrity
+├── FDC logic and timers
+├── Squib continuity circuit
+├── Power from Essential DC Bus
+├── Accurate loop placement (installation dependency)
+
+[Failure Modes]
+├── No squib fire → No suppression
+├── Valve stuck closed → Bottle ineffective
+├── False loop detection → Nuisance discharge risk
+
+
+85. Brake Overheat and Fuse Plug Meltdown Logic
+
+[Brake Heating Sequence]
+IF
+    Aircraft landing OR rejected takeoff (RTO)
+AND
+    Brakes applied heavily (pilot or auto-brake)
+AND
+    Brake temp ↑ rapidly
+THEN
+    └─ Brake energy converted to heat
+        └─ Wheel/brake assembly absorbs kinetic energy
+        └─ Thermal conduction to fuse plug
+
+[Monitoring Path]
+→ Brake Temperature Sensor (digital or analog, LRU)
+    └─ Signal sent to:
+        - Brake Control Unit (BCU)
+        - EICAS/ECAM for display
+        - CMS for maintenance logging
+
+[Threshold Warning Logic]
+IF Brake Temp > Warning Limit (e.g., 300°C)
+THEN
+    ├─ BRAKE TEMP advisory/caution posted
+    └─ Advisory to delay takeoff (cool-down period)
+
+[Fuse Plug Melt Logic]
+IF Fuse Plug Temp > Threshold (e.g., 500°C)
+THEN
+    ├─ Plug melts
+    └─ Tire pressure vented via relief holes
+        → Prevents wheel explosion
+        → Aircraft may become temporarily un-dispatchable
+
+[Dependencies]
+├── Brake temperature sensor accuracy
+├── Proper inflation pressure (affects thermal absorption)
+├── Correct wheel/fuse plug installation (maintenance dependency)
+├── Wheel material properties
+
+
+86. Generator Field Trip Logic (GCU Overvoltage, Underfrequency, Phase Faults)
+
+[Normal Operation]
+GCU monitors:
+    - Voltage Output (115V AC ± tolerance)
+    - Frequency (400 Hz nominal)
+    - Phase Sequence (A-B-C)
+    - Load Sharing (in paralleling)
+    - Field Excitation Current
+
+[Protection Conditions]
+IF 
+    Voltage > Overvoltage Threshold (e.g., 125V)
+    OR Frequency < Underfrequency Limit (e.g., 380Hz)
+    OR Reverse Current Detected
+    OR Phase reversal detected
+THEN
+    ├─ Generator FIELD TRIPPED
+    └─ Generator is disconnected from bus
+
+[Field Trip Outcomes]
+→ Contactors (e.g., GCB) open
+→ GCU locks out generator until reset
+→ Master caution triggered
+→ Generator OFF displayed on EICAS/ECAM
+
+[Re-engagement Logic]
+IF 
+    Fault clears AND pilot resets generator
+THEN
+    ├─ GCU allows field excitation again
+    ├─ Generator brought back online
+    └─ Contactors reclose if bus is healthy
+
+[Dependencies]
+├── GCU health
+├── AC Power bus logic
+├── Phase detection and synchronizing logic (if paralleling)
+├── Pilot/auto-reset procedures
+
+
+87. Alternate Flap Extension via Electric Backup Motor (Slat Priority, Time-Based Cutoff)
+
+[Alternate Extension Sequence]
+IF 
+    Hydraulic System(s) = Low Pressure
+AND
+    Flap Lever moved from UP
+THEN
+    └─ Activate Alternate Flap Control Mode
+
+[Slat Priority Logic]
+Step 1:
+    → Electrically drive Slat Actuators
+    → Monitor Slat Position Feedback (resolver or LVDT)
+    → Wait until full extension verified
+
+Step 2:
+    → After Slats fully deployed
+    → Drive Flap Electric Motors (through transmission shafts)
+    → Monitor flap asymmetry sensors and position encoders
+
+[Time-Based Cutoff Protection]
+IF 
+    Total Flap Motor Run Time > Limit (e.g., 5 mins)
+THEN
+    └─ Cut power to motor (prevent thermal overload)
+    → Requires maintenance reset
+
+[Failure Handling]
+IF
+    Motor current spike OR asymmetry detected
+THEN
+    ├─ Stop extension
+    ├─ Alert pilot (asymmetry caution)
+    └─ Lock system for inspection
+
+[Dependencies]
+├── Electrical power from Essential or STBY buses
+├── Position sensors (resolver/encoder)
+├── Flap asymmetry detection logic
+├── Motor thermal protection
+├── Pilot inputs (Flap selector control logic)
+
+
+88. Thrust Reverser Inhibit Logic in Flight Phase
+
+[Arming Condition]
+IF
+    Aircraft On Ground (WOW = TRUE)
+AND
+    Throttle at or near Idle
+AND
+    Reverser Levers pulled
+THEN
+    └─ Issue Deploy Command to Thrust Reverser Actuators
+
+[Inhibit Logic]
+IF
+    WOW = FALSE
+OR
+    Radio Altitude > 10–30 ft (depending on aircraft)
+OR
+    Airspeed > 80 knots (configurable)
+THEN
+    ├─ Inhibit Reverser Deployment
+    ├─ Block hydraulic actuation signals
+    └─ Trigger "REV UNARMED" or equivalent EICAS message
+
+[Redundant Sensing]
+→ Dual WOW switches on main gear
+→ Radio altimeter input to Reverser Control Unit
+→ Throttle Resolver Angle from EECs
+→ Latch logic prevents momentary WOW false positives
+
+[Deployment Logic]
+IF
+    WOW = TRUE AND RA < 6 ft
+AND
+    Reverser Levers pulled
+AND
+    Throttle idle detected
+THEN
+    └─ Unlock Reverser Doors
+    └─ Command deployment (hydraulic or electric actuator)
+
+[Dependencies]
+├── Gear WOW sensor integrity
+├── Radio Altitude feed
+├── EEC integrity
+├── Hydraulic system (if powered reverser)
+├── Reverser lock sensors and mechanical linkages
+
+
+89. Auto-Brake Logic (Arming, Activation, Disarming, Re-Arming)
+
+[Autobrake Arming]
+IF
+    Aircraft in flight
+AND
+    Speedbrake armed
+AND
+    Auto-brake switch = ON (selected level: LOW, MED, MAX, RTO)
+THEN
+    └─ Arm Autobrake Logic
+
+[RTO Activation Path]
+IF
+    Speed > 85 knots
+AND
+    Thrust Levers moved to IDLE or REVERSE
+AND
+    No manual brake pressure
+THEN
+    └─ Apply MAX braking force automatically
+
+[Landing Activation Path]
+IF
+    WOW = TRUE
+AND
+    Wheel spin-up detected
+AND
+    Ground Spoilers deployed
+AND
+    No manual braking
+THEN
+    └─ Apply braking force per selected level (decel ramp)
+
+[Disarm Logic]
+IF
+    Pilot applies manual brake pressure
+OR
+    Autobrake fault (sensor input loss, control loop error)
+OR
+    Autobrake switch moved OFF
+THEN
+    ├─ Disengage autobrake
+    └─ Display "AUTOBRAKE DISARM" message
+
+[Dependencies]
+├── Wheel speed sensors
+├── WOW logic
+├── Ground spoiler status
+├── Brake system pressure feedback
+├── Auto-brake control module and switch panel
+
+
+90. Rudder Travel Limiting Logic (Speed-Dependent Authority Reduction)
+
+[Rudder Travel Authority Mapping]
+SELECT CASE True
+    WHEN Airspeed < 160 KIAS THEN Full rudder deflection (~25°)
+    WHEN Airspeed BETWEEN 160 AND 250 KIAS THEN Limit rudder progressively
+    WHEN Airspeed > 250 KIAS THEN Max rudder deflection ~5–10°
+
+[Input Logic]
+→ Receive Airspeed from ADIRU
+→ Receive Configuration Input (Flaps Extended = Allow greater deflection)
+→ WOW input (on ground = full authority)
+
+[Travel Limiter Control]
+IF
+    Airspeed increases
+THEN
+    └─ Signal travel limiter actuator to physically restrict pedal linkage or servo input
+
+[Override Logic]
+IF
+    Manual input exceeds travel limit AND override switch armed
+THEN
+    └─ Mechanical stop override (only for ground tests or maintenance)
+
+[Failure Path]
+IF
+    RTLU failure
+OR
+    Sensor input lost
+THEN
+    └─ Freeze limiter at last known safe setting
+    └─ EICAS message posted: "RUDDER TRAVEL LIMITER"
+
+[Dependencies]
+├── Reliable Airspeed from ADIRU
+├── Flap/slat position sensors
+├── RTLU actuator integrity
+├── Control cable routing (for hybrid systems)
+
+
+91. Manual Landing Gear Extension Logic and Interlocks
+
+[Manual Extension Trigger]
+IF
+    Hydraulic Pressure LOW (Green/YELLOW System)
+AND
+    Normal Extension Fails
+THEN
+    └─ Activate Manual Gear Extension Procedure
+
+[Mechanical Sequence]
+IF
+    Manual Release Handle Pulled
+THEN
+    ├─ Uplocks Disengage (spring-loaded)
+    ├─ Gear doors open (gravity or springs)
+    └─ Gear drops under gravity + aerodynamic assist
+
+[Sequencing Logic]
+→ Nose gear and main gear must drop independently  
+→ Downlocks must engage mechanically (audible/physical detent)  
+→ Position sensors detect downlock for indication
+
+[Interlock Logic]
+IF
+    Manual extension activated
+THEN
+    ├─ Lockout normal hydraulic control
+    ├─ Deactivate electrical retraction circuits
+    └─ Display "GEAR EXT MANUAL" EICAS message
+
+[Failure Paths]
+IF
+    Uplocks jam OR doors stuck
+THEN
+    └─ Gear fails to extend
+    └─ Requires checklist response: assess visual indicators, divert
+
+[Dependencies]
+├── Mechanical linkages and cables
+├── Spring/damper integrity
+├── Downlock sensors (for cockpit confirmation)
+├── Physical access to crank or lever
+
+
+92. Wing Anti-Ice Zone Isolation Logic (Temp Sensor + Valve Fault Handling)
+
+[Normal Operation]
+IF
+    Anti-Ice Switch = ON
+AND
+    Bleed Pressure Available
+THEN
+    ├─ Open Wing Anti-Ice Valves (WAI L/R)
+    ├─ Monitor duct temp and pressure
+    └─ Maintain continuous flow to piccolo tubes
+
+[Zone Fault Detection]
+IF
+    Temp > Threshold (e.g., 350°F)
+OR
+    Leak Detection = TRUE
+OR
+    Valve Feedback ≠ Commanded State
+THEN
+    ├─ Close WAI Valve to affected zone
+    ├─ Log fault in CMS
+    └─ Trigger "ANTI ICE WING" or "WING LEAK" Warning
+
+[Isolation Logic]
+→ Each wing has independently controlled valves  
+→ Sensors placed before and after valve monitor overtemp/leak  
+→ Cross-check with duct pressure to validate heat delivery
+
+[Dependencies]
+├── Bleed Air integrity (engine/APU)
+├── Temp sensors & leak loop integrity
+├── WAI valve health and feedback loop
+├── Avionics bus for message/warning distribution
+
+
+93. Electrical Load Shedding Priority Matrix
+
+[Monitoring Logic]
+WHILE Aircraft Powered
+    IF AC Bus Undervoltage
+    OR Generator Loss Detected
+    THEN Trigger Load Shedding Logic
+
+[Load Shedding Priority Matrix]
+SELECT Load_Level FROM Electrical_Consumers
+ORDER BY
+    Criticality DESC,
+    Redundancy Availability ASC,
+    Power Demand ASC
+
+[Shedding Actions]
+IF Only 1 Generator Online THEN
+    ├─ Shed Galley and Cabin Power
+    ├─ Shed IFE Power
+    ├─ Shed Utility Outlets
+    └─ Preserve:
+        • Avionics Bus 1/2
+        • Flight Controls
+        • FADEC
+        • Essential Lights
+        • Nav/Comms
+
+[Reconfiguration Logic]
+IF Second Generator Restored THEN
+    ├─ Resupply Previously Shed Loads
+    └─ Monitor Voltage/Frequency Stability Before Reconnect
+
+[Failure Paths]
+IF Bus Tie Fails
+AND Generator Not Synchronized
+THEN
+    └─ Prevent Bus Paralleling
+    └─ Limit power to isolated bus only
+
+[Dependencies]
+├── Generator/Bus Voltage Sensors
+├── Load Management Logic in BPCUs
+├── Real-time Feedback from GCUs
+├── Essential/Non-Essential Bus Separation
+
+
+94. Alternate Brake System Activation Logic
+
+[Brake System Health Monitoring]
+IF
+    Normal Brake System Hydraulic Pressure < Threshold (e.g., < 1500 psi)
+THEN
+    └─ Trigger Alternate Brake Mode
+
+[Alternate Activation Logic]
+IF
+    Alternate Hydraulic System Pressure Available
+THEN
+    ├─ Route brake pedal input to Alternate Brake Valve
+    ├─ Enable alternate metering valve
+    ├─ Retain anti-skid functionality if powered
+    └─ Display "BRAKE SOURCE: ALTERNATE" (EICAS/ECAM)
+
+[Anti-Skid Retention Check]
+IF
+    Electrical Power Available to Anti-Skid Unit
+AND
+    Wheel Speed Sensor Inputs Valid
+THEN
+    └─ Anti-Skid remains active (alternate logic path)
+ELSE
+    └─ Degrade to Manual Braking Only (no anti-skid protection)
+
+[Reversion Flow]
+IF
+    Alternate Pressure ALSO Lost
+THEN
+    └─ Use Brake Accumulator Pressure (residual braking)
+    └─ Manual-only, no anti-skid
+    └─ Alert: "BRAKE PRESS LOW" or similar
+
+[Dependencies]
+├── Hydraulic System Sensors (pressure transducers)
+├── Brake Control Unit (BCU)
+├── Electrical Bus supplying anti-skid system
+├── Brake selector valve (Normal → Alternate)
+├── Accumulator charge pressure and check valves
+
+
+95. EICAS/ECAM Message Filtering and Hierarchy
+
+[Message Generation]
+IF
+    LRU Reports Fault
+OR
+    Parameter Exceeds Limit (temp, pressure, voltage, etc.)
+THEN
+    └─ Generate Message → Send to Central Maintenance Computer (CMC)
+
+[Filtering & Prioritization]
+FOR Each Message
+    IF
+        • Immediate safety-of-flight threat
+        → CLASSIFY AS WARNING
+        → RED Display, Aural Alert
+    ELSE IF
+        • Requires timely crew action
+        → CLASSIFY AS CAUTION
+        → AMBER Display, No Aural
+    ELSE
+        • System status/information
+        → CLASSIFY AS ADVISORY
+        → WHITE/GREEN Display, Logged
+
+[Message Suppression Logic]
+IF
+    Same Fault Reported Repeatedly Within Time Threshold
+    → FILTER OUT DUPLICATES (de-clutter)
+    → Aggregate similar warnings (e.g., multiple fuel pump low pressures = “FUEL PUMP SYS LOW”)
+
+[Checklist Triggers]
+IF
+    Warning or Caution
+THEN
+    └─ Load Relevant Electronic Checklist (if available)
+    └─ Highlight current step based on fault source (crosslinked with CMC database)
+
+[Dependencies]
+├── Health Monitoring Modules in each LRU
+├── CMC Logic Filters & Message Tree Tables
+├── Display Units (PFD, EICAS/ECAM screens)
+├── Audio Alerts routed via Audio Management Unit
+
+
+96. ILS Autoland Fail Detection ➝ Mode Reversion Logic (Triple Channel Monitoring)
+
+[Normal Condition: Autoland Mode Active During Approach]
+├─ Autopilot: Triple Channel (e.g., CMD A, CMD B, CMD C)
+├─ Guidance Inputs from:
+│   ├─ Localizer (LOC) signal (VHF)
+│   ├─ Glideslope (GS) signal (UHF)
+│   ├─ Radio Altimeters (multiple, for height callouts + flare logic)
+│   └─ IRS/GPS cross-check (for position sanity)
+├─ Aircraft below 1500 ft RA
+├─ AFDS status: LAND 3 (Full redundancy)
+
+[Trigger: Sensor Fault or Channel Disagreement]
+├─ System detects:
+│   ├─ LOC or GS signal drop-out or erratic behavior
+│   ├─ Autopilot channel divergence (≥ defined threshold)
+│   ├─ RA signal mismatch or invalid
+│   └─ Cross-monitoring logic flags channel fault
+
+[Autoland Mode Reversion Logic]
+├─ System logic responds:
+│   ├─ Downgrades LAND 3 ➝ LAND 2 ➝ NO AUTOLAND depending on fault severity
+│   ├─ Disconnects affected AP channel(s)
+│   ├─ Displays status on FMA (Flight Mode Annunciator):
+│   │   ├─ “LAND 2” ➝ Dual Channel Redundant
+│   │   ├─ “NO AUTOLAND” ➝ Reverts to manual landing logic
+│   └─ Triggers MASTER CAUTION or Aural Alert if loss of autoland capability is detected
+
+[Flight Crew Alerted]
+├─ ECAM/EICAS/FMA:
+│   ├─ “AUTOLAND FAULT”
+│   ├─ “AP CHAN A/B/C FAIL”
+│   ├─ “RA DISAGREE” or “ILS FAULT”
+│   └─ LAND capability annunciator changes
+
+[If All Redundancy is Lost]
+├─ Reversion to:
+│   ├─ Manual landing guidance
+│   └─ Single-channel autopilot or hand-flown approach
+├─ Autobrake remains armed (if available), but flare/roll-out guidance disengages
+
+[Dependencies]
+├─ Localizer & Glideslope signal integrity
+├─ Radio Altimeter (RA) accuracy
+├─ AP channel synchronization (auto-disconnect on fault)
+├─ FMA status annunciators and alerting logic
+├─ FCC comparator logic and thresholds
+├─ Flight phase detection (RA + gear down logic)
+
+[Recovery]
+├─ Flight crew performs:
+│   ├─ Manual reversion procedure (per QRH)
+│   ├─ Disengage APs if required
+│   └─ Cross-check visual approach cues and manual throttle
+├─ Maintenance action:
+│   ├─ Review FDR/BITE logs from:
+│   │   ├─ FCCs
+│   │   ├─ RA modules
+│   │   ├─ ILS receivers
+│   └─ Perform ILS receiver sensitivity/continuity tests
+
+
+97. Radio Altimeter Fault ➝ Flare Logic Degradation in Autoland
+
+[Normal Condition: Autoland Active with Valid RA Inputs]
+├─ RA 1, RA 2, (RA 3 if fitted) supply continuous height data
+├─ Used by:
+│   ├─ Flare capture logic (~40–60 ft AGL)
+│   ├─ Rollout guidance
+│   └─ Height callouts & landing phase detection
+├─ System verifies agreement within defined delta (~5–10 ft)
+
+[Trigger: Radio Altimeter Disagreement or Fault]
+├─ System detects:
+│   ├─ RA mismatch beyond threshold
+│   ├─ Signal dropout or invalid data (e.g., frozen height, erratic jumps)
+│   └─ Failure flags from RA receiver units
+
+[Flare Logic Reversion]
+├─ Autoland logic reverts:
+│   ├─ Flare arm logic inhibited or degraded
+│   ├─ Pitch flare profile may not initiate
+│   ├─ System downgrades to LAND 2 or NO AUTOLAND
+│   └─ Manual flare required by pilot
+
+[Flight Crew Alerted]
+├─ Warnings triggered:
+│   ├─ “RA DISAGREE”
+│   ├─ “NO AUTOLAND”
+│   └─ Caution: “FLARE FAULT” (if fitted)
+
+[Dependencies]
+├─ Antenna alignment and calibration
+├─ Aircraft configuration (gear down, flaps)
+├─ FCC RA integrity monitoring logic
+├─ Valid RA output to FCCs and displays
+
+[Recovery]
+├─ Maintenance retrieves BITE logs from:
+│   ├─ RA Units
+│   └─ FCCs
+├─ Perform ground RA self-test
+├─ Check antenna placement (ice/damage/misalignment)
+
+
+98. Autobrake Arming ➝ Conditional Inhibit Logic
+
+[Normal Condition: Autobrake Selector Set to "MED"/"MAX"/etc.]
+├─ System logic checks:
+│   ├─ Gear down
+│   ├─ Wheel speed zero or < rollout threshold
+│   ├─ Brake pedal not pressed
+│   ├─ Anti-skid system healthy
+│   ├─ Hydraulic pressure in brake system confirmed
+
+[Trigger: Inhibit Condition Detected]
+├─ Conditions that disarm autobrake:
+│   ├─ Pilot brake pedal input before touchdown
+│   ├─ Brake system hydraulic pressure loss
+│   ├─ Anti-skid failure
+│   ├─ System detected fault (e.g., failed arming solenoid)
+│   └─ Selector switch moved to OFF
+
+[Autobrake Disarm Logic]
+├─ System sets autobrake status to DISARMED
+├─ Alert sent to flight deck:
+│   ├─ “AUTO BRAKE DISARMED”
+│   └─ EICAS/ECAM caution or status advisory
+
+[Dependencies]
+├─ Brake pressure sensors
+├─ Pedal position transducers
+├─ Autobrake Control Unit (ABCU)
+├─ Aircraft configuration (gear, spoilers)
+
+[Recovery]
+├─ Pilot applies manual braking
+├─ Maintenance:
+│   ├─ Check brake hydraulic pressures
+│   ├─ Review ABCU fault logs
+│   ├─ Inspect wiring to pedal transducers & selector switch
+
+
+99. Nose Wheel Steering Fault ➝ Reversion to Tiller-Only or Differential Braking
+
+[Normal Condition: NWS Active]
+├─ Tiller input enabled (taxi)
+├─ Rudder pedals active below 60 kts
+├─ Steering servo valve commands hydraulic pressure to actuator
+├─ System monitors:
+│   ├─ Steering angle feedback
+│   ├─ Rudder pedal transducers
+│   └─ Position sensors & limit logic
+
+[Trigger: Fault Condition Detected]
+├─ Possible causes:
+│   ├─ Feedback sensor discrepancy
+│   ├─ Servo valve failure
+│   ├─ Rudder pedal position sensor failure
+│   ├─ Hydraulic leak or low pressure
+│   └─ Loss of steering computer data
+
+[Reversion Logic]
+├─ Pedal steering authority lost
+├─ System inhibits further servo input from pedals
+├─ Tiller remains active (if fault not total)
+├─ Pilot notified:
+│   ├─ “STEERING FAULT”
+│   └─ Status advisory: “USE TILLER” or “STEER FAULT”
+
+[Dependencies]
+├─ Hydraulic System (typically Green or Yellow)
+├─ Steering Control Module
+├─ Pedal Sensor health
+├─ Position feedback sensors
+
+[Recovery]
+├─ Revert to:
+│   ├─ Tiller steering only
+│   └─ Differential braking for directional control
+├─ Maintenance checks:
+│   ├─ Sensor alignment
+│   ├─ Steering computer BITE
+│   └─ Hydraulic line integrity
+
+
+100. Air Data Sensor Disagreement → Autopilot Reversion & Display Flag Logic
+
+[Normal Condition: FCC Receiving Valid & Consistent Air Data Inputs]
+├─ Airspeed, Mach, Altitude inputs from:
+│  ├─ ADIRU 1 (Captain-side)
+│  ├─ ADIRU 2 (First Officer-side)
+│  └─ ADIRU 3 (Standby/ISFD or backup)
+
+[Trigger: Air Data Disagreement Detected]
+├─ System compares:
+│  ├─ CAS, Mach, Alt from ADIRU 1 vs. ADIRU 2
+│  └─ Optional third-source validation from ADIRU 3
+├─ Triggers include:
+│  ├─ Static pressure or pitot data mismatch
+│  ├─ Faulty AoA data (if integrated)
+│  └─ One source lagging/frozen (no update within timeout)
+
+[System Response: Autopilot Reversion Logic]
+├─ If disagreement confirmed:
+│  ├─ Triggers automatic **Autopilot Disconnect**
+│  ├─ Deactivates **Auto-Throttle** (if data feeds common source)
+│  ├─ Removes invalid data from EFIS display symbology
+│  └─ Flags affected readouts with:
+│     ├─ “SPD” or “ALT” in amber
+│     └─ “CHECK AIR DATA” on ECAM/EICAS
+
+[Display Flag Logic]
+├─ EFIS/PFD reacts:
+│  ├─ Removes invalid airspeed tapes or replaces with amber “XXX”
+│  ├─ Triggers red or amber SPD/ALT flags (depending on aircraft type)
+│  ├─ Disables trend vectors (pitch/IAS)
+│  └─ Inhibits protections linked to AoA/Mach/Airspeed (e.g., stall warning)
+
+[Recovery & Crew Action Path]
+├─ Flight crew can:
+│  ├─ Cross-check with standby instruments / ISFD
+│  ├─ Manually select alternate ADIRU source (via EFIS CP or Air Data selector)
+│  └─ Rely on alternate law (if FBW aircraft)
+└─ Flight continues with degraded automation or raw data navigation
+
+[Dependencies]
+├─ Pitot-static system integrity (heating, probes, plumbing)
+├─ ADIRU internal health monitoring
+├─ Bus communication integrity (e.g., ARINC 429 or AFDX)
+├─ FCC air data validity logic (filters, consensus logic)
+└─ Proper configuration of Air Data Source selection logic
+
+[Recovery]
+├─ Maintenance downloads BITE logs from:
+│  ├─ FCCs
+│  ├─ ADIRUs
+│  └─ EFIS displays / EICAS
+├─ Technician action items:
+│  ├─ Review recorded data for pressure mismatch
+│  ├─ Check pitot/static plumbing & probe heating
+│  └─ Validate probe/ADIRU calibration and connector integrity
+
+
+101. AoA Discrepancy → Stall Warning Inhibition & Flight Control Law Downgrade
+
+[Normal Condition: All AoA Sensors Within Valid Tolerance]
+├─ Inputs from:
+│  ├─ AoA Sensor 1 (Captain-side)
+│  ├─ AoA Sensor 2 (First Officer-side)
+│  └─ Optional AoA Sensor 3 (Backup or synthetic)
+├─ FCC compares angle-of-attack for:
+│  ├─ Stall warning triggering
+│  ├─ Alpha Protection (FBW logic)
+│  └─ Autopilot pitch control references
+
+[Trigger: AoA Discrepancy Detected]
+├─ Significant divergence between AoA sensors (e.g., > 5° sustained)
+├─ One sensor flagged as erroneous (based on deviation and response time)
+├─ Possible triggers:
+│  ├─ Probe icing (partial)
+│  ├─ Physical blockage
+│  └─ Sensor internal failure
+
+[System Response]
+├─ FCC triggers:
+│  ├─ Stall warning logic inhibition (audio + visual alerts disabled)
+│  ├─ Autopilot disengagement (if pitch references affected)
+│  ├─ FBW law downgrade:
+│     ├─ Loss of Alpha Prot
+│     ├─ Reversion to Alternate or Direct Law
+│  └─ Triggers ECAM/EICAS alert:
+│     └─ “AOA SENSOR DISAGREE” or “CHECK AoA INPUTS”
+
+[Display Effects]
+├─ Stall warning indications inhibited
+├─ Flight envelope protections removed (FBW only)
+├─ PFD may display amber AoA flags (if shown)
+└─ Pitch limit indicators (PLI) suppressed
+
+[Dependencies]
+├─ Sensor calibration & alignment
+├─ Electrical power to AoA vanes (internal heater, signal output)
+├─ FCC data validation logic
+├─ Data bus health (ARINC/AFDX)
+└─ Stall warning system logic coherence
+
+[Recovery]
+├─ Manual pitch control required (visual attitude or ISFD)
+├─ Use of pitch attitude + thrust tables
+├─ Maintenance downloads BITE logs from:
+│  ├─ AoA sensors
+│  ├─ FCCs
+│  └─ Stall warning computers
+
+
+102. Baro Setting Mismatch → Altitude Error Protection Logic
+
+[Normal Condition: Matched Baro Setting Across EFIS Systems]
+├─ Inputs from:
+│  ├─ Captain & FO baro knobs (EFIS panels)
+│  ├─ FMS baro input (some models)
+│  └─ ADIRU internal processing
+├─ Used by:
+│  ├─ PFD Altitude tape
+│  ├─ Autopilot Alt Hold & Capture
+│  ├─ Cabin pressure schedule logic
+│  └─ Terrain warning systems (EGPWS altitude comparison)
+
+[Trigger: Baro Mismatch Detected]
+├─ Cross-compare shows delta > predefined threshold (e.g., 0.02 inHg / 7 hPa)
+├─ FCC identifies:
+│  ├─ Autopilot capture discrepancies
+│  ├─ Altitude disagreement (CAPT vs FO vs ISFD)
+├─ May result from:
+│  ├─ Incorrect setting during transition level
+│  ├─ Uncoordinated changeover
+│  └─ Baro encoder failure
+
+[System Response]
+├─ Triggers EFIS Alert:
+│  └─ “BARO SET DISAGREE”
+├─ May inhibit automatic altitude capture
+├─ EGPWS adjusts thresholds or flags invalid altitude
+├─ FMS VNAV path reverts to open climb/descent
+
+[Dependencies]
+├─ EFIS baro selector operation
+├─ ADIRU response to baro inputs
+├─ FMS altitude logic consistency
+├─ Pressure altitude encoder (for transponder)
+└─ Configuration files for baro modes (IN/HPA, STD logic)
+
+[Recovery]
+├─ Pilot compares baro settings across all displays
+├─ Reset/align to ATC clearance
+├─ Re-sync standby altimeter if equipped
+├─ Maintenance checks baro encoder outputs and knob resolution
+
+
+103. Pitot Probe Blockage → Airspeed Data Filtering & Flight Envelope Protection Reversion
+
+[Normal Condition: Pitot Inputs Stable & Valid]
+├─ Pitot tubes feeding:
+│  ├─ ADIRU 1 → PFD1
+│  ├─ ADIRU 2 → PFD2
+│  └─ ADIRU 3 → Backup/ISFD
+├─ Data used for:
+│  ├─ Speed tape
+│  ├─ Stall warnings
+│  ├─ FBW logic (speed stability, protections)
+│  ├─ Auto-throttle inputs
+│  └─ FMS path & VNAV logic
+
+[Trigger: Pitot Blockage or Failure]
+├─ FCC detects:
+│  ├─ Inconsistent CAS readings between sources
+│  ├─ Frozen or erratic value
+│  ├─ Mismatch with GPS groundspeed (if available)
+├─ Pitot heat system fault may contribute
+├─ Blockage from:
+│  ├─ Ice accretion (if heat fails)
+│  ├─ Contamination (insects, dirt)
+│  └─ Water ingestion
+
+[System Response]
+├─ Triggers “UNRELIABLE AIRSPEED” flag or checklist
+├─ FBW logic disables:
+│  ├─ Stall protections
+│  ├─ Overspeed protections
+├─ AP and A/THR disconnect
+├─ EFIS speed tape replaced with amber “XXX” or blank
+├─ Flight control law may downgrade (Alternate/Direct)
+├─ EICAS/ECAM warnings posted
+
+[Dependencies]
+├─ Pitot heat system functional
+├─ Correct probe installation (angle, routing)
+├─ Sensor validity monitoring (ADIRU internal)
+├─ GPS vs airspeed cross-check (if available)
+└─ UAS detection logic (within FCCs)
+
+[Recovery]
+├─ Flight crew uses UAS pitch/thrust tables
+├─ Disables A/THR
+├─ Reverts to attitude flying
+├─ Maintenance inspects:
+│  ├─ Pitot tube for obstruction
+│  ├─ Heating element resistance & current
+│  ├─ Wiring and relays
+
+
+104. Radio Altimeter Discrepancy → Autoland Abort Logic
+
+[Normal Condition: RA Data Consistent Between Left & Right]
+├─ Inputs from:
+│  ├─ Radio Altimeter 1 → Autopilot Channel 1
+│  ├─ Radio Altimeter 2 → Autopilot Channel 2
+│  └─ Optional RA 3 (Triplex systems – Boeing 777/787)
+├─ Data used for:
+│  ├─ Autoland flare and touchdown control
+│  ├─ Ground proximity systems (GPWS, EGPWS)
+│  ├─ Flight director guidance in final approach
+│  └─ Thrust reduction logic (Retard Mode)
+
+[Trigger: RA Discrepancy or Invalid Signal]
+├─ Detected when:
+│  ├─ Difference > allowable threshold (e.g., ±6 ft below 100 ft AGL)
+│  ├─ One RA signal is invalid (e.g., dropout, frozen, noisy)
+├─ System detects:
+│  ├─ Flare phase active
+│  └─ Land 3 / Land 2 status active in autoland logic
+
+[System Response]
+├─ RA monitor logic flags fault
+├─ Autopilot disengages (or reverts to single channel mode)
+├─ Mode annunciator changes from:
+│  ├─ LAND 3 → NO AUTOLAND
+│  └─ LAND 2 → NO AUTOLAND
+├─ Triggers ECAM/EICAS/EFIS warning:
+│  └─ “AUTOLAND FAULT – RA MISMATCH”
+├─ Pilot assumes manual landing control
+
+[Display Effects]
+├─ PFD autopilot flare cues may disappear
+├─ EFIS displays red “AUTOLAND” cross or advisory
+├─ GPWS/EGPWS continues using best available RA
+
+[Dependencies]
+├─ RA antenna integrity (fuselage belly)
+├─ Accurate terrain reflection (no slush/snow attenuation)
+├─ Clean electrical signal return path
+├─ FCC autoland monitor logic
+└─ Avionics power buses stable
+
+[Recovery]
+├─ Pilot continues with visual/manual landing
+├─ Fault retained in RA LRU BITE memory
+├─ Maintenance downloads failure logs
+├─ Bench-test or replace affected RA transceiver
+
+
+105. Inertial Reference Alignment Fault → GPS Reversion & Track Deviation Alerts
+
+[Normal Condition: IRS Units Aligned & Blending]
+├─ IRS 1, 2, (3) aligned using:
+│  ├─ Latitude/longitude from GPS or pilot input
+│  ├─ Known airport reference
+├─ Data used for:
+│  ├─ Attitude (PFD)
+│  ├─ Heading (ND, EFIS)
+│  ├─ Position data (FMS navigation)
+│  ├─ Air Data Inertial Reference (ADIRU output)
+├─ Blended with GPS for precision
+
+[Trigger: IRS Alignment Fault or Drift Detected]
+├─ Detected by:
+│  ├─ IRS system itself (internal monitors)
+│  ├─ Excessive divergence from GPS track
+│  ├─ Misalignment during ground start-up
+├─ Common causes:
+│  ├─ Incorrect position input
+│  ├─ Vibration or shock damage
+│  └─ Power interruption mid-alignment
+
+[System Response]
+├─ FMS alerts:
+│  └─ “IRS POSITION ERROR” or “NAV DRIFT ALERT”
+├─ FMS de-selects faulty IRS unit from NAV solution
+├─ ND shows:
+│  ├─ “MAP NOT AVAIL” or “NAV DR”
+├─ AP or AFS reverts to HDG/TRK SEL (manual)
+├─ Position displayed switches to:
+│  ├─ GPS-derived only
+│  └─ Hybrid (if available – 777/787/737MAX)
+├─ Possible loss of VNAV guidance
+
+[Display Effects]
+├─ MAP display may disappear or freeze
+├─ Magenta line may deviate or snap
+├─ PFD retains attitude via AHRS backup
+
+[Dependencies]
+├─ GPS signal integrity
+├─ IRU laser gyro health
+├─ Pilot input accuracy during INIT POS
+├─ FMS logic for drift isolation
+
+[Recovery]
+├─ Manual heading or route guidance
+├─ Realign IRS on ground (if possible)
+├─ Replace faulty IRU if failure is persistent
+├─ Confirm GPS and ADIRU outputs during troubleshooting
+
+
+106. EFIS Failure → Primary Flight Display Reversion Logic
+
+[Normal Condition: All EFIS Display Units Operational]
+├─ Captain and FO PFDs sourced from:
+│  ├─ Respective Symbol Generators (SGs)
+│  ├─ FCC and FMS for data
+├─ Backup Display (ISFD or Standby AI) powered and aligned
+├─ Data used includes:
+│  ├─ Attitude
+│  ├─ Airspeed
+│  ├─ Altitude
+│  ├─ Heading
+│  ├─ Flight Director cues
+
+[Trigger: EFIS PFD Failure]
+├─ Failure causes:
+│  ├─ Display Unit failure (LCD or power loss)
+│  ├─ Symbol Generator failure
+│  ├─ Data bus loss (ARINC 429 or AFDX)
+│  └─ FCC fault
+
+[System Response]
+├─ PFD blank or frozen
+├─ EFIS logic initiates reversion:
+│  ├─ Merges data onto ND or EICAS (in some types)
+│  ├─ Redirects PFD data to ISFD (Integrated Standby Flight Display)
+├─ Triggers EFIS reversion advisory:
+│  └─ “PFD FAIL – USE STANDBY INSTRUMENTS”
+├─ Autopilot may disengage if FD data lost
+
+[Display Effects]
+├─ ISFD becomes primary attitude source
+├─ Manual control based on standby pitch/roll/airspeed/altitude
+├─ May lose FD cues
+
+[Dependencies]
+├─ Standby instrument power (BAT BUS or HOT BUS)
+├─ Symbol Generator redundancy logic
+├─ FMS ↔ SG ↔ PFD data chain
+├─ Pilot awareness/training
+
+[Recovery]
+├─ Fly using ISFD and ND if available
+├─ Reset EFIS Display Unit (circuit breaker or power cycle)
+├─ Maintenance BITE on SG and EFIS DU
+├─ Check for power supply anomalies
+
+
+
+
+
+
+
