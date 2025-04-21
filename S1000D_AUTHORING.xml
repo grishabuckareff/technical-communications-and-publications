@@ -4074,8 +4074,7 @@ Note
 
 Markup example:
 
-<proceduralStep changeType="add" changeMark="1"
-reasonForUpdateRefIds="rfu-0005">
+<proceduralStep changeType="add" changeMark="1" reasonForUpdateRefIds="rfu-0005">
   <para>Remove the four bolts (<internalRef internalRefId="spa-0023" internalRefTargetType="irtt06"/>).</para>
 </proceduralStep>
 
@@ -4157,7 +4156,10 @@ Markup example:
 
 <proceduralStep>
   <para>Use the <internalRef internalRefId="seq-0001" internalRefTargetType="irtt05">wrench</internalRef> to tighten the bolts to
-<changeInline changeType="add" reasonForUpdateRefIds="rfu-0007" changeMark="1">16 lb/in<superScript>2</superScript></changeInline>.</para>
+    <changeInline changeType="add" reasonForUpdateRefIds="rfu-0007" changeMark="1">16 lb/in
+      <superScript>2</superScript>
+    </changeInline>.
+  </para>
 </proceduralStep>
 
 The change markup shows that the text "16 lb/in2" has been added.
