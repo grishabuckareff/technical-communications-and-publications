@@ -819,6 +819,334 @@ The caution common information repository data module:
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
+Chapter 3.9.4
+Authoring - Front matter
+
+S1000D-A-60-10-0000-00A-024C-D
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+1 General
+
+This chapter contains the basic rules and guidance for authoring front matter in a data module
+environment. Front matter data modules can be created automatically or manually by an
+author, or by a mix of automation and authoring. 
+By using the dedicated Front matter Schema the below listed front matter data modules 
+can be automatically created.
+The detailed rules and guidance for using the Front matter Schema are given in
+Chap 3.9.5.2.16. 
+
+The Front matter Schema is currently designed for:
+- Title page - TITLE
+- Table of contents - TOC
+- List of effective pages - LOEP
+- List of effective data modules - LOEDM
+- Highlights - HIGH with or without updating instructions
+
+The remaining front matter data modules must use the Descriptive Schema except for
+Applicability Cross-reference Table (ACT), Conditions Cross-reference Table (CCT) and
+Products Cross-reference Table (PCT) which have their own Schemas.
+
+Each publication or volume thereof can have a set of front matter as given in Chap 5.3.1.1.
+Refer to BRDP-S1-00460.
+
+Examples for page-oriented front matter are given in Chap 6.2.3.1 if not otherwise stated.
+
+Issue number and date must be the same for the publication and all new or re-issued front
+matter data modules.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+      
+2 Front matter
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+2.1 Title page
+
+The title page contains, if applicable, the following information:
+- Product, project or any commercial name (optional). 
+This information must be agreed upon
+between the publication producer and the customer.
+- publication title/volume
+- publication module code
+- page identification = data module code
+- issue number and issue date of the publication
+- project’s logotype (optional)
+- security classification
+- restriction instructions (optional)
+- barcode (optional)
+- publisher (publishing authority)
+- manufacturer’s information (optional)
+
+The Front matter Schema allows for capturing more information than listed above, which by
+project decision can be presented on the title page or be available for interactive presentation.
+Refer to Chap 3.9.5.2.16.
+
+Issue date of the publication (issue date of the title page data module) and security markings
+follow the rules for page layout. Refer to Chap 6.2.1.
+
+The security marking must represent the highest classified information in the publication or
+volume.
+
+The title page must be reissued with each issue.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.2 List of effective pages
+
+The List of Effective Pages (LOEP), if used, identifies each page in the page-oriented
+publication contents by giving the:
+- data module code
+- page number
+- issue date and/or issue number
+- applicability (optional)
+All new (additional) or changed pages must be marked with:
+- N = New page
+- C = Changed page
+Where:
+"N" indicates a new page. This means that this page is an additional page compared with the
+last issue of the publication.
+"C" indicates a changed page. This means that this page has some form of technical or
+editorial (including layout and new date) change compared with the last issue of the publication.
+The LOEP must present the issue number and date of the actual publication.
+
+If a project decides to use LOEP instead of List of Effective Data Modules (LOEDM), the LOEP
+must be reissued with each issue of the publication.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+      
+2.3 List of effective data modules
+
+The LOEDM must list all data modules included in the publication by giving the:
+- data module title (<techName> - <infoName> , <infoNameVariant> )
+- data module code
+- issue date and/or issue number
+- number of pages (optional)
+- applicability (optional)
+All new (additional) or changed data modules must be marked with:
+- N = New data module
+- C = Changed or revised data module
+Where:
+"N" indicates a new data module. This means that this data module is an additional data
+module compared with the last issue of the publication.
+"C" indicates a changed or revised data module. This means that this data module has some
+form of technical or editorial (including layout and new date) change compared with the last
+issue of the publication.
+
+Note
+  N and C must be considered from a publication issue view.
+
+The entries must be listed in the order in which they appear in the publication.
+
+The LOEDM must present the issue number and date of the actual publication.
+
+The LOEDM must be reissued with each issue. By project decision the LOEDM can be
+replaced by an LOEP.
+
+Business rule decision point BRDP-S1-00037 - Use of LOEP or LOEDM:
+– Decide whether to use the LOEP or the LOEDM.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.4 Change record
+
+The change record is intended to provide a continuous record of the state of each individual
+copy of the publication. The change record must only be reissued when all of the initial change
+record predefined issues are filled in.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  
+2.5 Highlights
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.5.1 General
+
+The highlights give the reasons for the changes of the data modules in each issue, 
+using the content of the elements <reasonForUpdate>. 
+The highlights must give the:
+- data module code
+- reason for change
+The highlights must not list the changes in:
+- Title page
+- List of effective pages
+- List of effective data modules
+- Change record
+- Table of contents
+The entries must be listed in the order in which they appear in the publication.
+The highlights data module must present the issue number and date of the actual publication.
+When used, the highlights is issued with each issue of the publication or volume.
+
+Note
+  The initial issue (first issue) of a publication does not need a highlight data module.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.5.2 Highlights with updating instructions
+
+A variant of a highlights data module is a "highlights with updating instructions" data module for
+paper publications. This variant includes instructions for the updating of the publication. 
+In addition to the list of highlights (refer to Para 2.5.1), a table giving the following information
+must be added:
+- data module code
+- data module title (<techName> - <infoName> , <infoNameVariant> )
+- issue date or issue number
+- number of pages (optional)
+- applicability (optional)
+
+All data modules which are removed from previous issue and to be inserted in the new issue
+must be marked:
+- R = Remove data module
+- I = Insert data module
+
+Business rule decision point BRDP-S1-00042 - Use of Highlights with updating
+instructions:
+– Decide whether to use Highlights with updating instructions.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.6 Access illustration
+
+Access illustrations are a set of illustrations that can be included to support the navigation of
+the publication. Access illustrations must be used in an IETP only.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.7 List of abbreviations
+
+The List of Abbreviations (LOA) lists the non-standard abbreviations used in a publication. 
+An example of a LOA is given in Chap 5.2.1.18.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  
+2.8 List of terms
+
+The List of Terms (LOT) lists the non-standard terms used in a publication. 
+An example of a is given in Chap 5.2.1.18.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.9 List of symbols
+
+The List of Symbols (LOS) lists the non-standard symbols used in a publication. 
+An example of a LOS is given in Chap 5.2.1.18.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.10 Technical standard record
+
+Incorporated technical changes can be presented in a Technical Standard Record (TSR). 
+The list is presented as an informal table.
+TSR must not be used in the IPD.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.11 Table of contents
+
+The Table of Contents (TOC) must list all data modules and publications 
+included in the publication by giving the:
+- data module/publication module/external publication title (<techName> - 
+<infoName> , <infoNameVariant> /<pmTitle>/
+<externalPubTitle>)
+- data module/publication module/external publication code
+- issue date and/or issue number
+- number of pages (optional)
+- applicability (optional)
+The entries must be presented in the order in which they appear in the publication.
+The TOC must not include the front matter data modules Title page, LOEDM, LOEP, Change
+Record (CR) or TOC itself.
+The entries in the TOC can be hierarchically subdivided. Refer to Chap 3.9.5.2.16.
+If the publication is divided with tab dividers a TOC also can be given to each chapter or part.
+
+Recommendation: It is recommended to prepare and include a Table of contents data module
+in the publication when a LOEP is used.
+
+Business rule decision point BRDP-S1-00046 - Use of linear or hierarchically subdivided
+Table of contents:
+– Decide whether to use a linear or a hierarchically subdivided Table of contents.
+
+Business rule decision point BRDP-S1-00305 - Data modules within a publication listed
+in the Table of contents:
+– Decide whether the listed publications within the Table of contents also have to be listed by
+their individual data modules.
+
+Business rule decision point BRDP-S1-00307 - Inclusion of the number of pages in the
+Table of contents:
+– Decide whether to include the number of pages in the Table of contents entries.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.12 List of applicable specifications and documentation
+
+Specifications and documents which are necessary to read or follow when using the publication
+can be presented in a List of Applicable Specifications and Documentation (LOASD). 
+An example of a LOASD is given in Chap 5.2.1.18.
+LOASD must not be used in the IPD.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.13 List of support equipment
+
+The List of Support Equipment (LOSE) lists the required support equipment necessary 
+to perform the tasks described in the publication.
+LOSE must not be used in the IPD.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.14 List of supplies
+
+The List of Supplies (LOSU) lists the required supplies necessary 
+to perform the tasks described in the publication.
+LOSU must not be used in the IPD.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.15 List of spares
+
+The List of Spares (LOSP) lists the required spares necessary 
+to perform the tasks described in the publication.
+LOSP must not be used in the IPD.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.16 List of illustrations
+
+The List of Illustrations (LOI) lists all illustrations contained in the publication and includes:
+- ICN
+- Title
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.17 Product cross-reference table
+
+The Product Cross-reference Table (PCT) lists the products concerned by the publication. 
+Each product is associated with the corresponding product sets and other data related 
+to the operation of the product.
+The general mechanisms of the PCT are described in Chap 4.14.3.
+There is a dedicated data module Schema for the PCT. Refer to Chap 3.9.5.3.3.
+A display example is available in Chap 6.2.3.1.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  
+2.18 Conditions cross-reference table
+
+The Conditions Cross-reference Table (CCT) lists the technical conditions impacting 
+the publication. Each technical condition is associated with a status according 
+to products and other data related to the technical condition itself.
+The general mechanisms of the CCT are described in Chap 4.14.2.
+There is a dedicated data module Schema for the CCT. Refer to Chap 3.9.5.3.2.
+A display example is available in Chap 6.2.3.1.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  
+2.19 Applicability cross-reference table
+
+The general mechanisms of the Applicability Cross-reference Table (ACT) 
+are described in Chap 4.14.1.
+There is a dedicated data module Schema for the ACT. Refer to Chap 3.9.5.3.1. 
+A display example is available in Chap 6.2.3.1.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 Chapter 3.9.5
 Authoring - Data modules
 
@@ -1025,6 +1353,8 @@ ________________________________________________________________________________
 For illustrations and symbols, a system entity is inserted into the XML instance normally carried
 out by the system.
 
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------  
+  
 2.8 Use of some special characters
 
 The following rules apply:
@@ -1082,7 +1412,106 @@ The element <functionalPhysicalAreaIdent> has attributes
 systemDiffCode, systemCode, subSystemCode, subSubSystemCode, 
 assyCode, disassyCode and disassyCodeVariant, the combination of which
 must be unique within the data module. Refer to Fig 4.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+3 XML Schema representation
+
+In S1000D some chapters include graphical representations of the XML Schemas fragments.
+This method allows the author to learn the schema structure of S1000D progressively.
+When reading the graphical representations it is important that the reader understands that an
+element can be mandatory when its optional parent element is used.
+
+
+Element structure
+  ___________________
+-| mandatoryElement |-|-      An element that must be included in the markup
+  ___________________| 
+
+  ................... 
+-: optionalElement |-|-       An element that the Schema allows but does not mandate
+  ..................|
+
+
+Element content
+  ________________
+ | =              |
+-|      techName  |           Element with textual content (the "paragraph" symbol in the
+ |  -->           |           upper left of the element box indicates that it is either a pure
+ |________________|           textual element or a mixed content element).
+            
+  ________________
+-|    issueDate   |           Empty element
+ | -->            |
+ |________________|
+
+
+Element occurrence 
+indicators
+  _______________
+-|    dmTitle   |+|           Element with subelements indicated by the "+" symbol.
+ | -->           |            Subelements can be presented in another figure.
+ |______________ |              
+
+  _______________
+ | =             |
+-|     techName  |            Required (M) and non-repeatable, (once and only once)   
+ | -->           |
+ |_______________|
   
+  .............. 
+.: =             :
+ :     infoName  :            Optional (O) and non-repeatable, (zero or one time)
+ : -->           :          
+ ............... :
+
+  ________________
+-|    spareDescr |+|          Required and repeatable (one or more times)
+ | -->            |
+ |________________|
+             \/
+        1 ... ∞
+
+  .................
+.:    reqPersons |+|          Optional and repeatable (zero or more times)
+ : -->            :
+ :................:
+             \/
+        1 ... ∞
+
+
+Connector
+  ________      |
+-| -.-.-.- |-|--|              Sequence of branches, mandatory. The contained elements (if
+  ________      :              present) must be in the order listed in the branches of the
+                               connector.
+
+  - - - - -     |
+-| -.-.-.- |-|--|              Sequence of branches, optional and repeatable. The contained
+  - - - - -     :..            branches (if present) must be in the order listed in the branches
+   0 ... ∞                     of the connector.
+
+  _________     |        
+-| _/:=-   |-|--|             Choice of branches, mandatory. One and only branch is    
+  _________     |             allowed from the defined branches of the choice.
+
+  - - - - -     |-
+-| _/:=-   |-|--|             Choice of branches, optional and repeatable. Zero to many              
+  - - - - -     |             branches in any order is allowed from the defined branches of 
+    0 ... ∞                   the choice.
+      
+  ________      |        
+-| _/:=-  |-|-- |             Choice of branches, mandatory and repeatable. One to many
+  ________      |_            branches in any order is allowed from the defined branches of 
+                              the choice.
+
+
+Groups 
+(do not appear in an XML instance)
+   ______________
+-| textElemGroup  |-|-        Group of elements. Used in maintaining the Schemas.
+   ______________
+
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 Chapter 3.9.5.1
@@ -3611,8 +4040,7 @@ Note
   If the attribute changeMark is not used, then there is no display of a change bar,
   mark or other visual indication intended.
 
-- changeType (O), the type of the change. The attribute can have one of the following
-values:
+- changeType (O), the type of the change. The attribute can have one of the following values:
   • "add" - the element is added
   • "modify" - the element is changed
   • "delete" - the element is deleted
@@ -3638,22 +4066,952 @@ Note
 - reasonForUpdateRefIds (O), this attribute is used to link to the appropriate
 occurrence of the element <reasonForUpdate>. Refer to Para 2.1.3.
 
+Note
+  When deleting an element, authors must ensure that any references to that element are
+  not adversely affected by the deletion. Refer to default BREX rules BREX-S1-00041 and
+  BREX-S1-00042.
 
 
+Markup example:
+
+<proceduralStep changeType="add" changeMark="1"
+reasonForUpdateRefIds="rfu-0005">
+  <para>Remove the four bolts (<internalRef internalRefId="spa-0023" internalRefTargetType="irtt06"/>).</para>
+</proceduralStep>
+
+The change markup shows that the element is added and a change bar, mark or other visual
+indication is intended to be displayed. The corresponding reason for update would be:
+
+<reasonForUpdate id="rfu-0005" updateReasonType="urt02"
+updateHighlight="1">
+  <simplePara>Updated to include the requirements of Brook Trekker Modification PO-RT1/ON (extended length bottom-bracket shaft bolts).</simplePara>
+</reasonForUpdate>
+
+The example shows that the reason for update indicates a technical change, because the
+attribute updateReasonType is set to the value "urt02". 
+It is also intended that the reason for update appears in the highlights data module, 
+because the attribute updateHighlight is set to the value "1".
+
+Note
+  There is no need to set the change attributes on the element’s child because this is implied. 
+  Any change markings on child elements are ignored by the presentation system.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.4.2 Changing text inline
+
+Description: The element <changeInline> must be used for changed data modules
+when changing parts of text within elements. 
+The element <changeInline> must not be used to indicate that a complete element 
+has been added, modified or deleted. Refer to default BREX rule BREX-S1-00040.
+
+  
+Markup element: <changeInline>
+
+Attributes:
+- id (O), the identifier of the markup element. Refer to Chap 3.9.5.2.1.2.
+- changeType (O), changeMark (O), and reasonForUpdateRefIds (O), the
+change indications. Refer to Para 2.4.1.
+- controlAuthorityRefs (O), the control authority information by referencing the
+element <controlAuthority>. Refer to Chap 3.9.5.1.
+- securityClassification (O), commercialClassification (O), 
+caveat (O) and derivativeClassificationRefId (O), the security and
+restrictive marking. Refer to Chap 3.6.
+
+Child elements:
+- <functionalItemRef>. Refer to Chap 3.9.5.1.
+- <circuitBreakerRef>. Refer to Chap 3.9.5.2.1.10.
+- <controlIndicatorRef>. Refer to Chap 3.9.5.2.1.10.
+- <inlineSignificantData>. Refer to Chap 3.9.5.2.1.10.
+- <quantity>. Refer to Chap 3.9.5.2.1.10.
+- <zoneRef>*. Refer to Chap 3.9.5.2.1.10.
+- <accessPointRef>*. Refer to Chap 3.9.5.2.1.10.
+- <identNumber>*. Refer to Chap 3.9.5.2.1.9.
+- <internalRef>. Refer to Chap 3.9.5.2.1.2.
+- <indexFlag>*. Refer to Chap 3.9.5.2.1.10.
+- <changeInline>. Refer to Para 2.4.2.
+- <emphasis>. Refer to Chap 3.9.5.2.1.10.
+- <symbol>. Refer to Chap 3.9.5.2.1.10.
+- <subScript>. Refer to Chap 3.9.5.2.1.10.
+- <superScript>. Refer to Chap 3.9.5.2.1.10.
+- <dmRef>. Refer to Chap 3.9.5.2.1.2.
+- <pmRef>*. Refer to Chap 3.9.5.2.1.2.
+- <externalPubRef>. Refer to Chap 3.9.5.2.1.2.
+- <footnote>. Refer to Chap 3.9.5.2.1.10.
+- <footnoteRef>*. Refer to Chap 3.9.5.2.1.10.
+- <acronym>. Refer to Chap 3.9.5.2.1.10.
+- <acronymTerm>. Refer to Chap 3.9.5.2.1.10.
+- <caption>*. Refer to Chap 3.9.5.2.1.4.
+- <captionGroup>*. Refer to Chap 3.9.5.2.1.4.
+- <verbatimText>. Refer to Chap 3.9.5.2.1.10.
+- <sequentialList>. Refer to Chap 3.9.5.2.1.3.
+- <randomList>. Refer to Chap 3.9.5.2.1.3.
+- <definitionList>. Refer to Chap 3.9.5.2.1.3.
+
+Note
+  The elements marked with an asterisk (*) are not available in all data modules. 
+  Refer to Chap 3.9.5.2.1.10.
+
+  
+Markup example:
+
+<proceduralStep>
+  <para>Use the <internalRef internalRefId="seq-0001" internalRefTargetType="irtt05">wrench</internalRef> to tighten the bolts to
+<changeInline changeType="add" reasonForUpdateRefIds="rfu-0007" changeMark="1">16 lb/in<superScript>2</superScript></changeInline>.</para>
+</proceduralStep>
+
+The change markup shows that the text "16 lb/in2" has been added.
+It is also intended that the change is indicated by displaying a change bar, mark or other visual indication. 
+The corresponding reason for update would be:
+
+<reasonForUpdate id="rfu-0007" updateReasonType="urt02" updateHighlight="1">
+  <simplePara>The torque value is added</simplePara>
+</reasonForUpdate>
+
+The change markup shows that the reason for update indicates a technical change, because
+the attribute updateReasonType is set to the value "urt02". 
+It is also intended that the reason for update appears in the highlights data module, 
+because the attribute updateHighlight is set to the value "1".
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.5 Special rules for marking changes in tables
+
+There are five ways to change mark a table. By marking the individual elements, the project
+gets flexibility at presentation. For the presentation of changes to tables, refer to Chap 6.2.2.
+Tables can be change marked on:
+- the complete table only and not the table title. Refer to Para 2.5.1.
+- the title of a table only. Refer to Para 2.5.2.
+- the complete table and the table title. Refer to Para 2.5.3.
+- individual rows only within a table. Refer to Para 2.5.4.
+- individual rows and the table title. Refer to Para 2.5.5.
+
+Business rule decision point BRDP-S1-00092 - Use of change marks for tables:
+– Decide whether and how to use change marks for tables.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  
+2.5.1 Marking only the complete table
+
+Marking the complete table supports the standard page-oriented presentation. 
+An alternative is to mark the table title line only. Refer to Para 2.5.2.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.5.1.1 Adding
+
+When a complete table is added, set appropriate values to the attributes of the element 
+<table>.
 
 
+Markup example:
+
+<table id="tab-0003" changeType="add" changeMark="1" reasonForUpdateRefIds="rfu-0001">
+  <title>Title</title>
+  ...
+</table>
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  
+2.5.1.2 Modifying
+  
+When a complete table is modified, set appropriate values to the attributes of the element <table>.
+
+  
+Markup example:
+
+<table id="tab-0003" changeType="modify" changeMark="1" reasonForUpdateRefIds="rfu-0002">
+  <title>Title</title>
+  ...
+</table> 
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.5.1.3 Deleting
+
+When a complete table is deleted, set appropriate values to the attributes of the element <table>.
+
+  
+Markup example:
+
+<table id="tab-0003" changeType="delete" changeMark="1" reasonForUpdateRefIds="rfu-0003">
+  <title>Title</title>
+  ...
+</table>
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  
+2.5.2 Marking only the table title
+  
+Marking only the table title line supports the standard page-oriented presentation. An
+alternative is to mark the complete table. Refer to Para 2.5.1.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.5.2.1 Adding
+  
+When only a table title is added, set appropriate values to the attributes of the element <title> within the element <table>.
+
+  
+Markup example:
+
+<table id="tab-0004">
+  <title changeType="add" changeMark="1" reasonForUpdateRefIds="rfu-0004">Title added</title>
+  ...
+</table>
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  
+2.5.2.2 Modifying
+
+When only a table title is modified, set appropriate values to the attributes of the element <title> within the element <table>.
+
+  
+Markup example:
+
+<table id="tab-0004">
+  <title changeType="modify" changeMark="1" reasonForUpdateRefIds="rfu-0005">Title modified</title>
+  ...
+</table>
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  
+2.5.2.3 Deleting
+
+When only a table title is deleted, set appropriate values to the attributes of the element <title> within the element <table>.
+
+  
+Markup example:
+
+<table id="tab-0004">
+  <title changeType="delete" changeMark="1" reasonForUpdateRefIds="rfu-0006">Title</title>
+  ...
+</table>
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.5.3 Marking a complete table and the table title
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.5.3.1 Adding
+
+When a whole table and its title are added, set appropriate values to the attributes of the element <table>.
+
+  
+Markup example:
+<table id="tab-0005" changeType="add" changeMark="1" reasonForUpdateRefIds="rfu-0007">
+  <title>Title added</title>
+  ...
+</table>
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.5.3.2 Modifying
+  
+Tables and their titles can be modified for the same reason or for different reasons.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  
+2.5.3.2.1 Same reason
+  
+When a table and its title are modified for the same reason, set appropriate values to the attributes of the element <table>.
+
+  
+Markup example:
+
+<table id="tab-0005" changeType="modify" changeMark="1" reasonForUpdateRefIds="rfu-0008">
+  <title>Title modified</title>
+  ...
+</table>
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.5.3.2.2 Different reasons
+
+When a table and its title are modified for different reasons, set appropriate values to the attributes of the element <table> and the element <title>.
+
+  
+Markup example:
+
+<table id="tab-0005" changeType="modify" changeMark="1" reasonForUpdateRefIds="rfu-0009">
+  <title changeType="modify" changeMark="1" reasonForUpdateRefIds="rfu-0010">Title modified</title>
+  ...
+</table>
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.5.3.3 Deleting
+
+When a whole table and its title are deleted, set appropriate values to the attributes of the element <table>. Refer to Para 2.5.1.3.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.5.4 Marking only individual rows within a table
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.5.4.1 Adding
+When a row is added, set appropriate values to the attributes of the element <row>.
 
 
+Markup example:
+
+<table id="tab-0006">
+  <title>Title</title>
+  <tgroup cols="3">
+    <tbody>
+      <row changeType="add" changeMark="1" reasonForUpdateRefIds="rfu-0011">
+        <entry><para>This paragraph has been added.</para></entry>
+        ...
+      </row>
+      ...
+    </tbody>
+  </tgroup>
+</table>
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.5.4.2 Modifying
+
+When a row is modified, set appropriate values to the attributes of the element <row>.
+
+  
+Markup example:
+
+<table id="tab-0006">
+  <title>Title</title>
+  <tgroup cols="3">
+    <tbody>
+      <row changeType="modify" changeMark="1" reasonForUpdateRefIds="rfu-0012">
+        <entry><para>This paragraph has been modified.</para></entry>
+        ...
+      </row>
+      ...
+    </tbody>
+  </tgroup>
+</table>
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.5.4.3 Deleting
+
+When a row is deleted, set appropriate values to the attributes of the element <row>.
+
+  
+Markup example:
+
+<table id="tab-0006">
+  <title>Title</title>
+  <tgroup cols="3">
+    <tbody>
+      <row changeType="delete" changeMark="1" reasonForUpdateRefIds="rfu-0013">
+        <entry><para>This paragraph has been deleted.</para></entry>
+        ...
+      </row>
+      ...
+    </tbody>
+  </tgroup>
+</table>
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.5.5 Marking individual rows within a table and the table title
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.5.5.1 Adding
+
+When an individual row and the table title are added, set appropriate values to the attributes of the element <title> and the element <row>.
+
+  
+Markup example:
+
+<table id="tab-0007">
+  <title changeType="add" changeMark="1" reasonForUpdateRefIds="rfu-0014">Title added</title>
+  <tgroup cols="4">
+    <tbody>
+      <row changeType="add" changeMark="1" reasonForUpdateRefIds="rfu-0015">
+        <entry><para>This paragraph has been added.</para></entry>
+        ...
+      </row>
+      ...
+    </tbody>
+  </tgroup>
+</table>
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.5.5.2 Modifying
+
+When a row and the table title are modified, set appropriate values to the attributes of the element <title> and the element <row>.
+
+  
+Markup example:
+
+<table id="tab-0007">
+  <title changeType="modify" changeMark="1" reasonForUpdateRefIds="rfu-0016">Title modified</title>
+  <tgroup cols="4">
+    <tbody>
+      <row changeType="modify" changeMark="1" reasonForUpdateRefIds="rfu-0017">
+        <entry><para>This paragraph has been modified.</para></entry>
+        ...
+      </row>
+    ...
+    </tbody>
+  </tgroup>
+</table>
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.5.5.3 Deleting
+
+When a row and the table title are deleted, set appropriate values to the attributes of the element <title> and the element <row>.
+
+  
+Markup example:
+
+<table id="tab-0007">
+  <title changeType="delete" changeMark="1" reasonForUpdateRefIds="rfu-0018">Title deleted</title>
+  <tgroup cols="4">
+    <tbody>
+      <row changeType="delete" changeMark="1" reasonForUpdateRefIds="rfu-0019">
+        <entry><para>This paragraph has been deleted.</para></entry>
+        ...
+      </row>
+      ...
+    </tbody>
+  </tgroup>
+</table>
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  
+2.6 Special rules for marking change in figures
+
+There are three ways to change mark a figure. By marking the individual elements, the project
+gets flexibility at presentation. For the presentation of changes to figures, refer to Chap 6.2.2.
+Figures can be change marked on:
+- the figure only. Refer to Para 2.6.1.
+- the title of a figure only. Refer to Para 2.6.2.
+- the figure and the figure title. Refer to Para 2.6.3.
+
+Business rule decision point BRDP-S1-00093 - Use of change marks for figures:
+– Decide whether and how to use change marks for figures.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  
+2.6.1 Marking the complete figure only
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.6.1.1 Adding
+  
+When a figure is added, its title is also added, because the element <title> is mandatory
+within the element <figure>. Set appropriate values to the attributes of the element <figure>.
+
+  
+Markup example:
+
+<figure id="fig-0003" changeType="add" changeMark="1" reasonForUpdateRefIds="rfu-0001">
+  <title>Title</title>
+  <graphic infoEntityIdent="ICN-S3627-S1000D0800-001-01"/>
+</figure>
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.6.1.2 Modifying
+
+When a figure only is modified, set appropriate values to the attributes of the element <figure>.
 
 
+Markup example:
+
+<figure id="fig-0003">
+  <title>Title</title>
+  <graphic infoEntityIdent="ICN-S3627-S1000D0800-002-01" changeType="modify" changeMark="1" reasonForUpdateRefIds="rfu-0002"/>
+</figure>
+2.6.1.3 Deleting
+When a whole figure is deleted, set appropriate values to the attributes of the element 
+<figure>.
 
 
+Markup example:
+
+<figure id="fig-0003" changeType="delete" changeMark="1" reasonForUpdateRefIds="rfu-0003">
+  <title>Title</title>
+  <graphic infoEntityIdent="ICN-S3627-S1000D0800-003-01"/>
+</figure>
+
+Note
+  The graphic is still upissued.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  
+2.6.2 Marking only the figure title
+
+Marking only the figure title will support the standard page-oriented presentation.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  
+2.6.2.1 Adding
+
+Figure titles are mandatory within the element <figure> and can only be added with the figure. Refer to Para 2.6.1.1.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  
+2.6.2.2 Modifying
+
+When a figure title is modified, set appropriate values to the attributes of the element <title> within the element <figure>.
+
+  
+Markup example:
+
+<figure id="fig-0003">
+  <title changeType="modify" changeMark="1" reasonForUpdateRefIds="rfu-0004">Title modified</title>
+  <graphic infoEntityIdent="ICN-S3627-S1000D0800-003-01"/>
+</figure>
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.6.2.3 Deleting
+
+Figure titles cannot be deleted without deleting the complete figure. Refer to Para 2.6.1.3.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.6.3 Marking complete figures
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.6.3.1 Adding
+  
+When the figure is added, its title is also added, because the element <title> is mandatory
+within the element <figure>. Refer to Para 2.6.1.1.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.6.3.2 Modifying
+
+Figures and their titles can be modified for the same reason or for different reasons.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.6.3.2.1 Same reason
+  
+When a figure and its title are modified for the same reason, 
+set appropriate values to the attributes of the element <figure>.
+
+  
+Markup example:
+
+<figure id="fig-0007" changeType="modify" changeMark="1" reasonForUpdateRefIds="rfu-0005">
+  <title>Title modified</title>
+  <graphic infoEntityIdent="ICN-S3627-S1000D0800-003-01">
+</figure>
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.6.3.2.2 Different reasons
+
+When a figure and its title are modified for different reasons, 
+set appropriate values to the attributes of the element <figure> and the element <title>.
+
+  
+Markup example:
+
+<figure id="fig-0007" changeType="modify" changeMark="1" reasonForUpdateRefIds="rfu-0006">
+  <title changeType="modify" changeMark="1" reasonForUpdateRefIds="rfu-0007">Title modified</title>
+  <graphic infoEntityIdent="ICN-S3627-S1000D0800-003-01"/>
+</figure>
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.6.3.3 Deleting
+
+When a figure and its title are deleted, set appropriate values to the attributes of the element <figure>.
+
+  
+Markup example:
+
+<figure id="fig-0007" changeType="delete" changeMark="1" reasonForUpdateRefIds="rfu-0008">
+  <title>Title</title>
+  <graphic infoEntityIdent="ICN-S3627-S1000D0800-004-01"/>
+</figure>
+
+Note
+  The graphic is still upissued.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.6.4 Marking sheets in a multisheet figure
+
+When a sheet (or sheets) of a figure are changed, values for the attributes of the element 
+<graphic> that contain the sheet are set in the same way as the element <figure>.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.7 Special rules for indicating changes in warnings and cautions
+
+It is essential that the user reads a complete warning and caution when performing 
+the maintenance task. Therefore, change marks must be applied to the complete warning 
+or caution and not to individual words or paragraphs that they contain.
 
 
+Markup example:
+The following example shows how to markup a warning that has changed.
+
+<warning changeMark="1" changeType="modify" reasonForUpdateRefIds="rfu-0022">
+  <warningAndCautionPara>Do not drink the oil or allow it to spill on your skin. It can kill you.</warningAndCautionPara>
+</warning>
+
+The change markup shows that the element has been modified and a change bar, 
+mark or other visual indication is intended to be displayed. 
+The corresponding reason for update would be:
+
+<reasonForUpdate id="rfu-0022" updateHighlight="1" updateReasonType="urt02">
+  <simplePara>Warning changed in accordance with the new requirements of HAZMAT001.</simplePara>
+</reasonForUpdate>
+
+The change markup shows that the reason for update indicates a technical change because
+the attribute updateReasonType is set to the value "urt02". It is also intended that the
+reason for update appears in the highlights data module, because the attribute 
+updateHighlight is set to the value "1".
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Chapter 3.9.5.2.1.2
+Common constructs - Referencing
+
+S1000D-A-40-50-0000-00D-024C-D
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+1 General
+
+The rules, definitions and handling of references and cross-references from an author's point of
+view are given below. Details about the available elements and attributes and how to use and
+populate them are also given.
+The rules for the presentation of references and cross-references in page-oriented publications
+and IETP are given in Chap 6.2 and in Chap 6.3, respectively.
+
+References are used to direct the reader to another document or to a certain place within the
+document. Thus, there are two types of references used in S1000D:
+- Cross-references - Internal references (eg, to other places within the same data module).
+Refer to Para 2.1.
+- References - External references:
+  • Refer to Para 2.2 for a general description of the references to other data modules.
+  • Refer to Para 2.3 for a general description of the references from SCO content data
+  modules to portions of a destination data module.
+  • Refer to Para 2.5 for a general description of references to publication modules.
+  • Refer to Para 2.6 for a general description of references to other external documents.
+  • Refer to Para 2.7 for rules regarding the presentation of references in the reference
+  table of the data module.
+  • Refer to Para 2.8 for rules regarding the use of "inline" references to other documents.
+  In IETP, references and cross-references are usually realized as links. To support
+  establishment of such links, the reference elements are provided with five XLink attributes.
+
+These attributes are not aimed to be manually populated by an author. 
+For guidance and Examples, refer to Chap . 7.7.4.
+
+References given in the SCO content data modules (using the SCO content Schema) 
+include an XPath linking mechanism. For guidance and examples, refer to Chap 7.7.5.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2 Use of references
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  
+2.1 Cross-references within a data module
+
+Description: The element <internalRef> is used to markup a cross-reference from one
+point in a data module to another point in the same data module. 
+This is achieved by linking the attribute internalRefId to the target attribute id, refer to Para 2.1.1.
+The identification of cross-references is described in Para 2.1.1, and the linking mechanism is
+described in Chap 7.7.4.
+
+  
+Markup element: <internalRef>
+
+Hotspot areas within graphics can also be cross-referenced from within a data module and
+back by using the element <internalRef>. A graphical hotspot can also point at another
+graphical hotspot within the same graphic. Refer to Chap 3.9.5.2.1.8 for details.
+Cross-references can be made to any element that has its attribute id populated.
+
+When cross-referring to an alternate element (<figureAlts>, 
+<levelledParaAlts>, etc), use the attribute id of this element rather than its child
+element (<figure>, <levelledPara>, etc).
+This chapter gives the rules for coding cross-references to:
+- figures
+- tables
+- multimedia
+- supplies
+- support equipment
+- spares
+- material set lists
+- paragraphs
+- steps in procedures, fault isolation, etc
+- graphics (sheets)
+- multimedia objects
+- hotspots
+- parameters
+- work locations
+- single material or material sets
+- access points
+- zones
+
+Cross-references to paragraphs, steps, figures, sheets, hotspots, multimedia, multimedia
+objects and tables must be preceded with the prefixes "Para", "Step", "Fig", "Fig, Sheet", "Fig [ ]", 
+"Fig, Object" and "Table", respectively, when presented. The prefix must include 
+the number of the target, for example, the paragraph, step or figure number. 
+These cross￾references can be followed by a title by project decision.
+  
+Note
+  The prefixes are normally not entered in the data modules when data modules are written,
+  since many tools automatically generate the prefixes, either by analyzing the reference or
+  by using the attribute internalRefTargetType. Also refer to the business rule
+  decision points below.
+
+There are several methods that can be used to include and present the title or other supporting
+information for the cross-reference:
+- Include the information as textual content in the element <internalRef>.
+  
+  Note
+    The element <internalRef> can have textual content including subscripts and
+    superscripts.
+- Include the information in the attribute targetTitle.
+
+The title of the target, if given, in the element <title> in <levelledPara>, 
+<proceduralStep>, <figure>, <multimedia> or <table>, or in the attribute 
+hotspotTitle can also be used for presentation.
+
+Note
+  Presentation of the titles (by project decision) depends on the presentation system and its settings.
+
+For all the methods listed above, the following rules apply:
+- Any textual content of the element <internalRef> must be presented. Any
+information given in the attribute targetTitle is disregarded in a page-oriented
+presentation but can be used as a tooltip in a viewer application.
+- Cross-references to supplies, support equipment, spares, material sets and zones must be
+presented by the textual content of the target child element <shortName> or, if there is
+no element <shortName>, by the textual content of the element <name>. 
+For an alternative presentation of zones, refer to Chap 6.2.2.
+If the project has decided to use and present any of the "identifiers" given in the elements 
+<reqSupplies>, <reqSupportEquips> and <reqSpares>, respectively,
+(eg, the NATO stock number, the functional item number, or the CSN), the identifier must
+be included in the textual content of the element <internalRef> in the delivered data
+modules. The "identifiers" can be derived from the content of these three elements.
+When the element <internalRef> is populated, only the textual content of this
+element is presented, not the content of the element <shortName> or the element <name>.
+  Note
+    Any information given in the attribute targetTitle can be used as a tooltip in a viewer application.
+- Cross-references to parameters, work locations and access points must be presented by
+the textual content of the attribute parameterName, and the child elements 
+<workArea> and <name>, respectively. For an alternative presentation of access points, refer to Chap 6.2.2.
+If the project has decided to use and present any of the "identifiers" given in the element 
+<workLocation> (eg, the installation location, the coordinates on the Product, or an
+item on the Product), the identifier must be included in the textual content of the element 
+<internalRef> in the delivered data modules. The "identifiers" can be derived from
+the content of the element <workLocation>.
+
+When the element <internalRef> is populated, only the textual content of this
+element is presented. Refer to Chap 6.2.2 for details.
+
+  Note
+    Make sure that either the element <workArea> or the element <internalRef> is populated.
+
+  Note
+    Any information given in the attribute targetTitle can be used as a tooltip in a viewer application.
+- Cross-references to hotspots must be presented by the value of the attribute 
+referredFragment of the element <internalRef>, or by the value of the
+target attribute applicationStructureName if there is no attribute 
+referredFragment.
+
+When the element <internalRef> is populated, only the textual content of this
+element is presented. Refer to Chap 6.2.2 for details.
+  Note
+    Any information given in the target hotspot attribute hotspotTitle can be used
+    as a tooltip in a viewer application.
+
+For details on presentation of cross-references using target types "irtt01" thru "irtt17", refer to Chap 6.2.2.
+The author must in all cases enter all "separators" like comma [,], spaces [ ], parenthesis [(], [)],
+"and" and "or".
 
 
+Table 2 Cross-references - Examples
+_______________________________________________________________________________________________________
+Cross-reference to         Method of presentation          Note
+_______________________________________________________________________________________________________
+Para <levelledPara>        Para 3.2.1 (for                 This method is the usual
+                           <levelledPara> at               method in documents
+                           third level)                    using side heads.
+ 
+A number of paragraphs     Para 2.1 and Para 3.4 
+
+Table                      Table 3 
+
+Figure as a whole          Fig 1 
+
+A number of figures        Fig 1, Fig 3 and Fig 5
+as a whole           
+
+Illustration sheet         Fig 2, Sheet 3                  An alternative method of
+of a multi-sheet figure                                    presenting the cross-reference 
+                                                           is Fig 2.3.
+
+Cross-reference to         Fig 1 [2]                       Callout (Item) 2 in Fig 1
+a callout in a 
+figure (hotspot)
+
+Cross-reference to         Fig 6 [1], Fig 6 [3],
+several callouts           Fig 6 [5]
+in the same figure
+_______________________________________________________________________________________________________
+
+Attributes:
+- internalRefId (O), the target id. Refer to Para 2.1.1.
+- internalRefTargetType (O), the type of destination of the reference. The
+attribute internalRefTargetType can have one of the following values:
+  • "irtt01" thru "irtt99". Refer to Chap 3.9.6.1. Refer to default BREX rules
+  BREX-S1-00045 thru BREX-S1-00060.
+- referredFragment (O), the cross-reference to an item number of a hotspot in an
+illustration within the data module. Refer to Chap 3.9.5.2.1.8.
+- targetTitle (O), a human-readable tooltip to be displayed when for instance the
+cursor is hovering over the target identifier in a viewer application. For details, refer to the
+rules given above.
+- applicRefId (O), the applicability information by referencing the element 
+<applic>. Refer to Chap 3.9.5.3.
+- changeType (O), changeMark (O) and reasonForUpdateRefIds (O), the
+change indications. Refer to Chap 3.9.5.2.1.1.
+- controlAuthorityRefs (O), the control authority information by referencing the
+element <controlAuthority>. Refer to Chap 3.9.5.1.
+
+Note
+  The element <internalRef> also includes five attributes normally populated by the
+  authoring application to make use of the W3C XLink mechanism. Refer to Chap 7.7.4.
+
+Child elements:
+- <subScript>. Refer to Chap 3.9.5.2.1.
+- <superScript>. Refer to Chap 3.9.5.2.1.
+
+Business rule decision point BRDP-S1-00094 - Extent of cross-referencing:
+– Decide on the extent of cross-referencing within data modules and the methods used for
+populating the various attributes.
+
+Business rule decision point BRDP-S1-00095 - Use of the element <internalRef> in titles:
+– Use of the element <internalRef> in titles is strongly discouraged. However, decide
+whether to use cross-references in titles.
+
+Business rule decision point BRDP-S1-00096 - Use of the attribute targetTitle:
+– Decide whether to use the attribute targetTitle. When used (populated), it is a
+tooltip in a viewer application.
+
+Business rule decision point BRDP-S1-00098 - Use of the textual content of the element 
+<internalRef> in cross-references:
+– Decide whether to use the textual content of the element <internalRef>. When
+used (populated), it must be presented.
+
+Business rule decision point BRDP-S1-00099 - Use of the "identifiers" given in the
+elements <reqSupportEquips>, <reqSupplies>, <reqSpares> or <workLocation>:
+– Decide whether to use any of the "identifiers" given in the elements 
+<reqSupportEquips>, <reqSupplies>, <reqSpares> or 
+<workLocation> as the presented link (textual content of the element 
+<internalRef>), or as a tooltip in a viewer application (value of the attribute 
+targetTitle).
+
+  Note
+    The "identifiers" can be derived from the content of the child elements or the attributes
+    of the four elements.
+
+Business rule decision point BRDP-S1-00100 - Use of the attribute 
+internalRefTargetType:
+– Decide whether to use the attribute internalRefTargetType, which values to use
+and allocate suitable definitions to the values. Refer to Chap 3.9.6.1.
 
 
+Markup examples:
+
+Example 1: Cross-reference to a levelled paragraph in a descriptive data module. 
+The element <internalRef> is empty, and the value of the attribute internalRefTargetType
+is "irtt07". The project has decided not to present any titles for paragraph cross￾references.
+
+<para>For more information, refer to <internalRef internalRefId="par-0074" internalRefTargetType="irtt07"/>.</para>
+
+- Presentation - Page-oriented:
+"For more information, refer to Para 3."
+- Comment: The building of the link, the generation of the prefix "Para", together with the
+relevant paragraph number "3", is defined by the stylesheet". The attribute 
+targetTitle is not populated.
+
+Example 2: Cross-reference to a levelled paragraph in a descriptive data module. 
+The element <internalRef> is empty, and the value of the attribute internalRefTargetType
+is "irtt07". The project has decided to present titles for paragraph cross-references.
+
+<para>For more information, refer to <internalRef internalRefId="par-0074" internalRefTargetType="irtt07"/>.</para>
+
+- Presentation - Page-oriented:
+"For more information, refer to Para 3 - All you need to know about cross-references."
+- Comment: The building of the link, the generation of the prefix "Para", together with the
+relevant paragraph number "3", is defined by the stylesheet. The title of the target element
+("All you need to know about cross-references") is derived from the target element and
+presented after the prefix (preceded by a space). The attribute targetTitle is not
+populated.
+
+  Note
+    Presentation of the title is dependent on the presentation system.
+
+Example 3: Cross-reference to a table. The element <internalRef> is empty, and the
+attribute value is "irtt02". The project has decided not to present any titles for table cross￾references.
+
+<para>To get the latest time table for the express trains to Linkoeping, 
+      refer to <internalRef internalRefId="tab-4711" internalRefTargetType="irtt02"/>.
+</para>
+
+- Presentation - Page-oriented:
+"To get the latest time table for the express trains to Linkoeping, refer to Table 7."
+- Comment: The building of the link, the generation of the prefix "Table ", together with the
+relevant table number "7", is defined by the stylesheet. The attribute targetTitle is
+not populated.
+
+Example 4: Cross-reference to a table in a descriptive data module. 
+The element <internalRef> has content and the attribute internalRefTargetType is not given.
+
+<para>To identify power supply leads, refer to <internalRef internalRefId="tab-0081">Power supply lead identification</internalRef>.</para>
+
+- Presentation - Page-oriented:
+"To identify power supply leads, refer to Table 6 Power supply lead identification."
+- Comment: The building of the link, the generation of the prefix "Table ", together with the
+relevant table number "6" is defined by the stylesheet. There is textual content ("Power supply lead identification") 
+in the element <internalRef> which must be presented (after the prefix). The attribute internalRefTargetType is not populated, 
+but the presentation system must recognize the target type based on the target element.
+
+Example 5: Cross-reference to a levelled paragraph in a descriptive data module. 
+The attribute targetTitle has content, and the value of the attribute internalRefTargetType is "irtt07".
+
+<para>All necessary information related to the weight variants, their maximum weights 
+      and the modifications associated with the aircraft type is given in 
+      <internalRef internalRefId="par-0123" internalRefTargetType="irtt07" targetTitle="Weight variant information list"/>.
+</para>
+
+- Presentation - Page-oriented:
+"All necessary information related to the weight variants, their maximum weights and the
+modifications associated with the aircraft type is given in Para 4."
+- Comment: The building of the link, the generation of the prefix "Para ", together with the
+relevant paragraph number "4", is defined by the stylesheet. The attribute 
+targetTitle is populated but is not shown in a page-oriented presentation. The value
+of the attribute targetTitle can be used as a tooltip in a viewer application.
+
+Example 6: Cross-reference to a figure. The attribute targetTitle has content, 
+and the value of the attribute internalRefTargetType is "irtt01".
+
+<para>Refer to <internalRef internalRefId="fig-0084" internalRefTargetType="irtt01" targetTitle="Wing rib stations"/>.</para>
+
+- Presentation - Page-oriented:
+"Refer to Fig 5."
+- Comment: The building of the link, the generation of the prefix "Fig", together with the
+figure number "5", is defined by the stylesheet. The attribute targetTitle is
+populated but is not shown in a page-oriented presentation. The value of the attribute 
+targetTitle can be used as a tooltip in a viewer application.
 
   
 
