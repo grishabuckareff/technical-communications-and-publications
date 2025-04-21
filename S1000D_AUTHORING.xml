@@ -5015,14 +5015,171 @@ figure number "5", is defined by the stylesheet. The attribute targetTitle is
 populated but is not shown in a page-oriented presentation. The value of the attribute 
 targetTitle can be used as a tooltip in a viewer application.
 
+Example 7: Cross-reference to a hotspot. The element <internalRef> is empty, 
+and the value of the attribute internalRefTargetType is "irtt11". 
+The attribute referredFragment is not populated.
+
+<para>Tighten the nut <internalRef internalRefId="fig-1234-hot-0935" internalRefTargetType="irtt11"/>.</para>
+
+- Presentation - Page-oriented:
+"Tighten the nut, Fig 6 [25]".
+- Comment: The building of the link, the generation of the prefix "Fig", together with the
+figure number "6", and the value of the target attribute 
+applicationStructureName within square brackets "[25]" is defined by the stylesheet.
+
+The attribute targetTitle is not populated. The markup of the destination 
+for the internal reference contains:
+
+<hotspot id="fig-1234-hot-0935"
+applicationStructureIdent="hot0935"
+applicationStructureName="25" hotspotType="CALLOUT"
+hotspotTitle="25 - Under cover lock">
+</hotspot>
+
+For more markup examples of hotspot linking, refer to Chap 3.9.5.2.1.8.
+
+Example 8: Cross-reference to a single sheet of a multi-sheet figure. 
+The element <internalRef> is empty, and the value of the attribute internalRefTargetType
+is "irtt09". The project has decided to present titles for figure cross-references.
+
+<para>Refer to <internalRef internalRefId="gra-1245" internalRefTargetType="irtt09"/>.</para>
+
+- Presentation - Page-oriented:
+"Refer to Fig 7, Sheet 2 The eminent Publishing WG in action."
+- Comment: The building of the link, the generation of the prefix "Fig", together with the
+figure number "7", the word "Sheet" and the relevant target sheet number is defined by the stylesheet.
+The project has decided to present the titles for figure cross-references. The attribute 
+targetTitle is not populated. The figure title "The eminent Publishing WG in action"
+is derived from the child element <title> of the element <figure>, and is
+presented after the prefix (preceded by a space) as decided by the project.
+
+Example 9: Cross-reference to support equipment. The short name "Voltmeter" is given 
+in the preliminary requirements. The author has included a tooltip.
+
+<para>Connect a <internalRef internalRefId="seq-2435" internalRefTargetType="irtt05" targetTitle="Voltmeter (range 0-100V)"/> to pin 34 and pin 38.</para>
+
+- Presentation - Page-oriented:
+"Connect a Voltmeter to pin 34 and pin 38."
+- Comment: The <shortName> ("Voltmeter") given in the table Support equipment (in
+the element <reqSupportEquips>) is presented. The information given in the
+attribute targetTitle ("Voltmeter (range 0-100V)") can be used as a tooltip 
+in a viewer application.
+
+Example 10: Cross-reference to special support equipment. The element <shortName> is not given.
+
+<para>In the cockpit, on the center pedestal, install the <internalRef internalRefId="seq-1867" internalRefTargetType="irtt05"/> on the slat/flap control lever.</para>
+
+- Presentation - Page-oriented:
+"In the cockpit, on the center pedestal, install the Locking tool-flap slat control lever
+(98L27801001000) on the slat/flap control lever."
+- Comment: The project follows the default rules and presents the name as given in the
+element <name> ("Locking tool-flap slat control lever (98L27801001000)") within the
+table Support equipment (in the element <reqSupportEquips>) of the preliminary
+requirements.
+
+Example 11: Cross-reference to a supply. The element <shortName> is populated.
+
+<para>Lightly lubricate with <internalRef internalRefId="sup-3010" internalRefTargetType="irtt04"/>.</para>
+
+- Presentation - Page-oriented:
+"Lightly lubricate with Common grease Type 1."
+- Comment: The project follows the default rules and presents the name ("Common grease
+Type 1") given in the element <shortName> within the table Consumables, materials
+and expendables (in the element <reqSupplies>).
+
+Example 12: Cross-reference to an access point. The project has decided to present 
+the content of the attributes accessPointNumber and accessPointTypeValue. The element <name> is not populated.
+
+<para>Open <internalRef internalRefId="acp-0122" internalRefTargetType="irtt16"/>.</para>
+
+- Presentation - Page-oriented:
+"Open Access Panel 521 AT."
+- Comment: As there is no value given in the element <name>, the alternate rules are
+used, and the content of the attribute accessPointTypeValue (value "accpnl02" = Panel) 
+followed by the content of the attribute accessPointNumber (value "521 AT") 
+is presented after the prefix "Access ".  
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.1.1 Identification of internal references (cross-references)
+
+Usually, in an IETP a cross-reference will appear as a link, as described in Para 2.1. However,
+there is also a number of possible implicit links in a data module which are not explicitly
+authored as cross-references. Examples are references from some content location to an
+applicability annotation located in the status section, or a reference from some content location
+to a change note in the element <reasonForUpdate>, also located in the status section.
+To enable these references/links within the data module, the targets of the links must be
+uniquely identified which is achieved by providing the possible target elements with dedicated
+identification attributes. These are always named id. To establish a link, the element from
+where the link starts (source element) is provided with a corresponding attribute which is
+populated with the identity given by the attribute id of the target element. Link source
+attributes have names like xxxRefId.
+In most implementations of S1000D, population of the element identities (ie, the id attributes)
+is cared for automatically.
+
+Business rule decision point BRDP-S1-00101 - Define the format of the cross-reference
+attributes id and internalRefId:
+– Decide whether the values of the cross-reference attributes id and internalRefId
+must be prefixed by alpha characters that identify the type of the target element. Example:
+  • Structure: Prefix followed by a hyphen and a four-digit number to make it unique within
+  the data module (eg, "par"-"0001")
+• Prefixes:
+- "fig" for figures and alternates
+- "tab" for tables
+- "mma" for multimedia and alternates
+- "sup" for supplies
+- "seq" for support equipment
+- "spa" for spares
+- "par" for levelled paragraphs and alternates
+- "stp" for steps of procedure, fault isolation, etc, and alternates
+- "gra" for graphics (multiple sheets)
+- "mmo" for multimedia objects
+- "hot" for hotspots (eg, "fig-0001-hot-0002")
+- "pme" for parameters
+- "zon" for zones
+- "wla" for work locations
+- "mat" for single material or material sets
+- "msl" for material set lists
+- "acp" for access points
+
+  Note
+    The four-digit number has no connection to, for example, the figure or table number
+    which is generated for data module presentation. For example, the value of the
+    attribute id can be "fig-0345" for "Fig 1". Refer to Para 2.1.
+
+  Note
+    Refer to Chap 3.9.5.2.1.10 for the equivalent business rule decision point regarding
+    footnotes. Example: "ftn-0001".
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.2 References to data modules
+
+Description: The element <dmRef> contains the necessary information items to build a link
+to a destination data module. It contains the identification of the destination data module as well
+as information to control presentation and behavior of the reference/link to the data module or a
+fragment of the data module.
+
   
+Markup element: <dmRef> 
 
+             _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _  
+            |                                            |
+            | dmRefElemType                              |
+            |                     _________________      |
+            |                |___|    dmRefIdent |+|.    |
+            |                |   | -->            |      |
+            |                    |________________|      |
+ _________  |   _________.   |   ......................  |
+| dmRef |-|---| -.-.-.- |-|-|...: dmRefAddressItems |+|  |
+|________|  |   \_______/.   :   .....................:  |
+            |                :   ......................  |
+            |                :...:    behavior        :  |
+            |                    : -->                :  |
+            |                    .....................:  |
+            |_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ |
 
-
-
-  
-
-  
+            Fig 2 Element <dmRef>
 
 
 
