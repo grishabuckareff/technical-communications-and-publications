@@ -821,7 +821,7 @@ DMC: 53-30-00-07-00A-720A-P
   <identAndStatusSection>
     <dmAddress>
       <dmIdent>
-        <modelIdentCode>777</modelIdentCode>
+        <modelIdentCode></modelIdentCode>
         <systemDiffCode>00</systemDiffCode>
         <systemCode>53</systemCode>
         <subSystemCode>30</subSystemCode>
@@ -840,10 +840,10 @@ DMC: 53-30-00-07-00A-720A-P
     </dmAddress>
     <dmStatus>
       <security>01</security>
-      <responsiblePartnerCompany>Boeing</responsiblePartnerCompany>
+      <responsiblePartnerCompany></responsiblePartnerCompany>
       <originator>Structures Engineering</originator>
       <applicability>
-        <applic>777-200LR</applic>
+        <applic></applic>
       </applicability>
       <language country="US">en</language>
     </dmStatus>
@@ -907,10 +907,8 @@ Task 1: Passenger Oxygen System – PSU Oxygen Mask Deployment Test
 
 System: ATA 25 – Equipment/Furnishings
 Component: Passenger Service Unit (PSU) – Drop-Down Oxygen Masks
-Manual Source: AMM BOEING 777 CABIN SYSTEMS.PDF
 S1000D DMC: 25-35-00-06-00A-720A-P
 Location: Passenger Cabin Overhead – Zones 100–900
-Applicability: Boeing 777-200LR / 300ER
 
 
 A. Reverse-Engineered Authoring Breakdown
@@ -918,32 +916,32 @@ A. Reverse-Engineered Authoring Breakdown
 __________________________________________________________________________________________________________________________
  Source	                                  |   Purpose
 __________________________________________|_______________________________________________________________________________
- ATA 35-00 Oxygen System Overview	      |   Logical interaction of valves, squibs, lines, PSUs
+ ATA 35-00 Oxygen System Overview	        |   Logical interaction of valves, squibs, lines, PSUs
 __________________________________________|_______________________________________________________________________________
- ATA 25 Equipment Arrangement	          |   PSU locations, ceiling access, electrical routing
+ ATA 25 Equipment Arrangement	            |   PSU locations, ceiling access, electrical routing
 __________________________________________|_______________________________________________________________________________
  Component Manual (e.g., B/E Aerospace)	  |   Squib specs, deployment angle, lanyard tension
 __________________________________________|_______________________________________________________________________________
- Cabin Test Procedures	                  |   Non-destructive simulation of squib activation
+ Cabin Test Procedures	                   |   Non-destructive simulation of squib activation
 __________________________________________|_______________________________________________________________________________
- FIM / BIT Diagnostic Linkage	          |   CMS triggers, failure detection logic (non-EICAS)
+ FIM / BIT Diagnostic Linkage	            |   CMS triggers, failure detection logic (non-EICAS)
 __________________________________________|_______________________________________________________________________________
- Safety Database	                      |   Squib discharge precautions, pressure and chemical hazards
+ Safety Database	                         |   Squib discharge precautions, pressure and chemical hazards
 __________________________________________|_______________________________________________________________________________
 
 
 B. Technical & Safety Considerations
 
 __________________________________________________________________________________________________________________________
- Step	                                  |   Justification
+ Step	                                    |   Justification
 __________________________________________|_______________________________________________________________________________
  Power down	                              |   Prevents accidental squib firing during connector handling
 __________________________________________|_______________________________________________________________________________
- Use mechanical tool	                  |   Ensures masks are deployed without damaging latches or initiating real chemical O₂ flow
+ Use mechanical tool	                     |   Ensures masks are deployed without damaging latches or initiating real chemical O₂ flow
 __________________________________________|_______________________________________________________________________________
  Verify lanyard tension	                  |   Masks must drop to usable height; tether must fully extract
 __________________________________________|_______________________________________________________________________________
- Reset latch	                          |   Required after test to return PSU to operational status
+ Reset latch	                             |   Required after test to return PSU to operational status
 __________________________________________|_______________________________________________________________________________
 
 
@@ -958,7 +956,7 @@ DMC: 25-35-00-06-00A-720A-P
   <identAndStatusSection>
     <dmAddress>
       <dmIdent>
-        <modelIdentCode>777</modelIdentCode>
+        <modelIdentCode></modelIdentCode>
         <systemDiffCode>00</systemDiffCode>
         <systemCode>25</systemCode>
         <subSystemCode>35</subSystemCode>
@@ -977,10 +975,10 @@ DMC: 25-35-00-06-00A-720A-P
     </dmAddress>
     <dmStatus>
       <security>01</security>
-      <responsiblePartnerCompany>Boeing</responsiblePartnerCompany>
+      <responsiblePartnerCompany></responsiblePartnerCompany>
       <originator>Cabin Safety Systems Engineering</originator>
       <applicability>
-        <applic>777-200LR</applic>
+        <applic></applic>
       </applicability>
       <language country="US">en</language>
     </dmStatus>
@@ -1022,15 +1020,15 @@ DMC: 25-35-00-06-00A-720A-P
 D. Alignment with ENG BLEED LEAK Task
 
 __________________________________________________________________________________________________________________________
- Item	                                  |   Status
+ Item	                                    |   Status
 __________________________________________|_______________________________________________________________________________
  Fault trigger?	                          |   CMS / cabin crew report
 __________________________________________|_______________________________________________________________________________
- Pre-check logic?	                      |   Yes — panel access, system armed state
+ Pre-check logic?	                        |   Yes — panel access, system armed state
 __________________________________________|_______________________________________________________________________________
- Safety block?	                          |   Yes — electrical + chemical hazards noted
+ Safety block?	                           |   Yes — electrical + chemical hazards noted
 __________________________________________|_______________________________________________________________________________
- Log/tracking?	                          |   Mask system test logs required per airline procedure
+ Log/tracking?	                           |   Mask system test logs required per airline procedure
 __________________________________________|_______________________________________________________________________________
 
 
@@ -1042,10 +1040,8 @@ Task: Cargo Fire Detection Loop Replacement – Aft Cargo Bay
 
 System: ATA 26 – Fire Protection
 Component: Smoke Detection Loop (Thermistor Type)
-Manual Source: AMM BOEING 777 FIRE PROTECTION.PDF
 S1000D DMC: 26-22-00-04-00A-720A-P
 Location: Aft Cargo Bay Ceiling – Zone 775
-Applicability: Boeing 777-200LR / 300ER
 
 
 A. Reverse-Engineered Authoring Inputs
@@ -1053,16 +1049,19 @@ A. Reverse-Engineered Authoring Inputs
 __________________________________________________________________________________________________________________________
  Source                                   |	  Used For
 __________________________________________|_______________________________________________________________________________
- ATA 26 System Diagram	                  |   Identifies dual-loop architecture and interconnect routing
+ ATA 26 System Diagram	                   |   Identifies dual-loop architecture and interconnect routing
 __________________________________________|_______________________________________________________________________________
  CMM from Sensor OEM                      |
  (e.g., Meggitt, Kidde)	                  |   Thermistor lead specs, loop resistance limits
 __________________________________________|_______________________________________________________________________________
- EWIS Harness Map	Connector routing and pinout
-
- EICAS Fire Message Tree	AFT CARGO FIRE DETECT triggers
- Fault Isolation Manual (FIM)	Path from resistance fault to loop replacement
- Zone Safety Restrictions	Hazardous materials, wiring bundling near heat zones
+ EWIS Harness Map	                        |   Connector routing and pinout
+__________________________________________|_______________________________________________________________________________
+ EICAS Fire Message Tree	                 |   AFT CARGO FIRE DETECT triggers
+__________________________________________|_______________________________________________________________________________
+ Fault Isolation Manual (FIM)	            |   Path from resistance fault to loop replacement
+__________________________________________|_______________________________________________________________________________
+ Zone Safety Restrictions	                |   Hazardous materials, wiring bundling near heat zones
+__________________________________________|_______________________________________________________________________________
  
 
 B. Engineering Justification
