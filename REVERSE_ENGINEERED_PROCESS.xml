@@ -271,10 +271,8 @@ Task: Flight Deck Window Heat Controller Replacement
 
 System: ATA 30 – Ice and Rain Protection
 Component: Captain’s Side Window Heat Control Unit (WHCU)
-Manual Source: AMM BOEING 777 ICE AND RAIN PROTECTION.PDF
 S1000D DMC: 30-41-00-04-00A-720A-P
 Location: Overhead Electronic Compartment, Rack E3
-Applicability: Boeing 777-200LR / 300ER
 
 
 A. Reverse-Engineering the Authoring Process
@@ -352,7 +350,7 @@ DMC: 30-41-00-04-00A-720A-P
   <identAndStatusSection>
     <dmAddress>
       <dmIdent>
-        <modelIdentCode>777</modelIdentCode>
+        <modelIdentCode></modelIdentCode>
         <systemDiffCode>00</systemDiffCode>
         <systemCode>30</systemCode>
         <subSystemCode>41</subSystemCode>
@@ -371,10 +369,10 @@ DMC: 30-41-00-04-00A-720A-P
     </dmAddress>
     <dmStatus>
       <security>01</security>
-      <responsiblePartnerCompany>Boeing</responsiblePartnerCompany>
+      <responsiblePartnerCompany></responsiblePartnerCompany>
       <originator>Flight Deck Systems Engineering</originator>
       <applicability>
-        <applic>777-200LR</applic>
+        <applic></applic>
       </applicability>
       <language country="US">en</language>
     </dmStatus>
@@ -421,13 +419,13 @@ D. Additional Engineering Notes
 Element	Engineering Justification
 
 __________________________________________________________________________________________________________________________
- Connector ID Tags	                      |   Prevents misrouting between WHCU zones (Captain vs FO)
+ Connector ID Tags	                       |   Prevents misrouting between WHCU zones (Captain vs FO)
 __________________________________________|_______________________________________________________________________________
- BIT Test	                              |   Uses internal WHCU feedback loop to confirm current is reaching element
+ BIT Test	                                |   Uses internal WHCU feedback loop to confirm current is reaching element
 __________________________________________|_______________________________________________________________________________
- Thermal Limit Checks	                  |   EICAS alert logic triggers if heat exceeds 110°C or fails to reach 45°C
+ Thermal Limit Checks	                    |   EICAS alert logic triggers if heat exceeds 110°C or fails to reach 45°C
 __________________________________________|_______________________________________________________________________________
- RFI Shielding	                          |   WHCU must be torqued down to ensure EMI shielding continuity with aircraft structure
+ RFI Shielding	                           |   WHCU must be torqued down to ensure EMI shielding continuity with aircraft structure
 __________________________________________|_______________________________________________________________________________
 
 
@@ -438,10 +436,8 @@ Task: Generator Control Unit (GCU) Replacement
 
 System: ATA 24 – Electrical Power
 Component: GCU for Left Engine IDG
-Manual Source: AMM BOEING 777 ELECTRICAL POWER.PDF
 S1000D DMC: 24-22-00-04-00A-720A-P
 Location: Aft Equipment Center, Electrical Rack E7
-Applicability: Boeing 777-200LR / 300ER
 
 
 A. Reverse-Engineering the Authoring Process
