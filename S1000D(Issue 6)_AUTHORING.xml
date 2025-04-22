@@ -267,12 +267,46 @@ Markup element: <imfAddressItems>
                         |                                                                                                                    |
                         |__ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __|
 
+                                                                                                                   ICN-B6865-S1000D0931-001-01
+                        Fig 5 Element <imfAddressItems>
 
 
+Attributes:
+- None
+
+Child elements:
+- <icnTitle>. Refer to Para 2.1.1.3.1.
+- <legacyIdentGroup>. Refer to Para 2.1.1.3.2.
+- <issueDate>. Refer to Chap 3.9.5.1.
+- <icnKeywordGroup> Refer to Para 2.1.1.3.4.
 
 
+2.1.1.3.1 ICN title
 
+Description: The element <icnTitle> contains the title of the ICN object to which the ICN
+metadata file is related. This title is a generic title of the ICN object aimed to support
+management of the object. It is not necessarily relevant in any specific context where the ICN
+object is used, such as in the element <figure>.
 
+  
+Markup element: <icnTitle>
+
+Attributes:
+- None
+
+Child elements:
+- <subScript>. Refer to Chap 3.9.5.2.1.10.
+- <superScript>. Refer to Chap 3.9.5.2.1.10.
+
+Business rule decision point BRDP-S1-00557 - Reuse of the generic ICN title in data
+modules:
+– Decide if the generic ICN title given in the ICN metadata file can be used to populate figure
+and multimedia titles in data modules.
+
+  
+Markup example:
+
+<icnTitle>Engine X<subScript>5</subScript></icnTitle>
 
 
 
