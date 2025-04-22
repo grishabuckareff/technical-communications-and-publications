@@ -209,19 +209,24 @@ Description: The element <imfAddressItems> contains information that is
 supplementary to the ICN metadata file identification, but not part of the unique identifier.
 
   
-Markup element: <imfAddressItems>
-
-
-
-                                               ____________
-                                              | =          |     .............................
-                                           |--| icnTitle  |-|----: subOrSuperScriptElemGroup  |-|--| _/
-                                           |  | -->        |      \........................../
-                                           |  |____________|                              \/
-                                           |                                         0 ... ∞
-                                           |
-                                           |
-                                           |
+Markup element: <imfAddressItems>              
+                                                                __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __
+                                                               |                                                                       |
+                                                               |   icnTitleElemType                                                    |
+                                                               |                                                                       |
+                                                               |                                                      ____________     |
+                                                               |                                                     | =          |    |
+                                                               |                                                  |--| subScript  |    |
+                                                               |                                                  |  | -->        |    |
+                                               ____________    |                                                  |  |____________|    |
+                                              | =          |   |   ............................      ________     |                    |
+                                           |--| icnTitle  |-|--|--: subOrSuperScriptElemGroup  |-|--| _/:=-  |-|--|                    |
+                                           |  | -->        |   |   \........................../      \______/     |   ______________   |
+                                           |  |____________|   |                           \/                     |  | =            |  |
+                                           |                   |                      0 ... ∞                     |--| superScript  |  |
+                                           |                   |                                                     | -->          |  |
+                                           |                   |                                                     |______________|  |
+                                           |                   |__ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __|
                                            |
                                            |
                                            |
