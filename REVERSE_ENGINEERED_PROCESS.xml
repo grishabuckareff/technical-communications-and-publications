@@ -1182,11 +1182,20 @@ __________________________________________|_____________________________________
 
 
 B. Engineering and Procedural Justification
-Step	Reason
-Lockout flight control power	Prevents surface movement and voltage through sensor bus
-Remove wing access panel	Provides clearance to unbolt sensor and test for rotational play
-Orientation mark before removal	Ensures correct angular offset for sensor alignment during install
-CMS BIT after install	Validates signal range, dropout tolerance, and surface agreement
+
+__________________________________________________________________________________________________________________________
+ Step	                                    |   Reason
+__________________________________________|_______________________________________________________________________________
+ Lockout flight control power	            |   Prevents surface movement and voltage through sensor bus
+__________________________________________|_______________________________________________________________________________
+ Remove wing access panel	                |   Provides clearance to unbolt sensor and test for rotational play
+__________________________________________|_______________________________________________________________________________
+ Orientation mark before removal	         |   Ensures correct angular offset for sensor alignment during install
+__________________________________________|_______________________________________________________________________________
+ CMS BIT after install	                   |   Validates signal range, dropout tolerance, and surface agreement
+__________________________________________|_______________________________________________________________________________
+
+
 C. S1000D-Compliant Task
 
 DMC: 27-51-00-04-00A-720A-P
@@ -1198,7 +1207,7 @@ DMC: 27-51-00-04-00A-720A-P
   <identAndStatusSection>
     <dmAddress>
       <dmIdent>
-        <modelIdentCode>777</modelIdentCode>
+        <modelIdentCode></modelIdentCode>
         <systemDiffCode>00</systemDiffCode>
         <systemCode>27</systemCode>
         <subSystemCode>51</subSystemCode>
@@ -1217,10 +1226,10 @@ DMC: 27-51-00-04-00A-720A-P
     </dmAddress>
     <dmStatus>
       <security>01</security>
-      <responsiblePartnerCompany>Boeing</responsiblePartnerCompany>
+      <responsiblePartnerCompany></responsiblePartnerCompany>
       <originator>Flight Controls Engineering</originator>
       <applicability>
-        <applic>777-300ER</applic>
+        <applic></applic>
       </applicability>
       <language country="US">en</language>
     </dmStatus>
@@ -1260,8 +1269,20 @@ DMC: 27-51-00-04-00A-720A-P
 </dmodule>
 
 D. Integration Notes
-Area	Alignment
-Fault-driven logic	F/ASYM DETECTED triggers CMS → BIT → AMM task callout
-Sensor system integration	Data routed to ACEs; cross-referenced with flap actuator motion for fault detection
-Mechanical vs electrical interface	Removal requires mechanical alignment and electrical continuity validation
-EICAS/CMS post-validation	Matches ENG BLEED LEAK and GCU tasks for CMS usage and final condition check
+
+__________________________________________________________________________________________________________________________
+ Area	                                    |   Alignment
+__________________________________________|_______________________________________________________________________________
+ Fault-driven logic	                      |   F/ASYM DETECTED triggers CMS → BIT → AMM task callout
+__________________________________________|_______________________________________________________________________________
+ Sensor system integration	               |   Data routed to ACEs; cross-referenced with flap actuator motion for fault detection
+__________________________________________|_______________________________________________________________________________
+ Mechanical vs electrical interface	      |   Removal requires mechanical alignment and electrical continuity validation
+__________________________________________|_______________________________________________________________________________
+ EICAS/CMS post-validation	               |   Matches ENG BLEED LEAK and GCU tasks for CMS usage and final condition check
+__________________________________________|_______________________________________________________________________________
+
+
+
+
+
