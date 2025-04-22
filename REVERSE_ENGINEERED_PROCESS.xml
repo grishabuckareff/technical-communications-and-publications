@@ -1083,7 +1083,7 @@ DMC: 26-22-00-04-00A-720A-P
   <identAndStatusSection>
     <dmAddress>
       <dmIdent>
-        <modelIdentCode>777</modelIdentCode>
+        <modelIdentCode></modelIdentCode>
         <systemDiffCode>00</systemDiffCode>
         <systemCode>26</systemCode>
         <subSystemCode>22</subSystemCode>
@@ -1102,10 +1102,10 @@ DMC: 26-22-00-04-00A-720A-P
     </dmAddress>
     <dmStatus>
       <security>01</security>
-      <responsiblePartnerCompany>Boeing</responsiblePartnerCompany>
+      <responsiblePartnerCompany></responsiblePartnerCompany>
       <originator>Fire Protection Engineering</originator>
       <applicability>
-        <applic>777-300ER</applic>
+        <applic></applic>
       </applicability>
       <language country="US">en</language>
     </dmStatus>
@@ -1158,18 +1158,29 @@ Task 2: Flap Asymmetry Sensor Removal and Replacement
 
 System: ATA 27 – Flight Controls
 Component: Outboard Flap Asymmetry Position Sensor
-Manual Source: AMM BOEING 777 FLIGHT CONTROLS.PDF
 S1000D DMC: 27-51-00-04-00A-720A-P
 Location: Left Wing Rear Spar, Zone 575
-Applicability: Boeing 777-200LR / 300ER
+
+
 A. Reverse-Engineered Authoring Inputs
-Source	Used For
-ATA 27 System Layout	Position of outboard flap actuators, sensor interface
-CMM (e.g., Moog or BAE)	Sensor range, calibration, mounting detail
-Flight Control Fault Tree	FLT CTRL F/ASYM DETECTED alert trigger logic
-EWIS Routing & Sensor Bus Map	Sensor connector ID, wire routing to ACE (Actuator Control Electronics)
-Standard Practices Ch. 20	Fastener torque, EMI shielding, grounding verification
-Flight Test Reports	Benchmarks for allowable voltage range and fail-safe conditions
+
+__________________________________________________________________________________________________________________________
+ Source	                                  |   Used For
+__________________________________________|_______________________________________________________________________________
+ ATA 27 System Layout	                    |   Position of outboard flap actuators, sensor interface
+__________________________________________|_______________________________________________________________________________
+ CMM (e.g., Moog or BAE)	                 |   Sensor range, calibration, mounting detail
+__________________________________________|_______________________________________________________________________________
+ Flight Control Fault Tree	               |   FLT CTRL F/ASYM DETECTED alert trigger logic
+__________________________________________|_______________________________________________________________________________
+ EWIS Routing & Sensor Bus Map	           |   Sensor connector ID, wire routing to ACE (Actuator Control Electronics)
+__________________________________________|_______________________________________________________________________________
+ Standard Practices Ch. 20	               |   Fastener torque, EMI shielding, grounding verification
+__________________________________________|_______________________________________________________________________________
+ Flight Test Reports	                     |   Benchmarks for allowable voltage range and fail-safe conditions
+__________________________________________|_______________________________________________________________________________
+
+
 B. Engineering and Procedural Justification
 Step	Reason
 Lockout flight control power	Prevents surface movement and voltage through sensor bus
