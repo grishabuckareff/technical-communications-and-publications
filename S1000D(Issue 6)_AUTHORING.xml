@@ -1,5 +1,65 @@
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
+Chapter 3.9.2.7
+Illustration rules and multimedia - ICN metadata file
+
+S1000D-A-20-20-0000-00E-024C-D
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+1 General
+
+In order to allow proper management of illustrations and multimedia objects in the CSDB there
+is a possibility to store and exchange metadata information about an ICN object, ie an
+illustration or a multimedia object, in an ICN metadata file.
+
+The ICN metadata file is connected to its corresponding ICN object by the identity, which is
+derived from the ICN concerned.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2 ICN metadata file
+
+The ICN metadata file contains metadata related to an ICN object, ie, illustration or multimedia
+object. For information about coding of the file, refer to Para 2.3
+
+
+Description: The element <icnMetadataFile> contains the whole ICN metadata file.
+The ICN metadata file is not a data module so it has its own definition. Like data modules, the
+
+ICN metadata file is split into two parts:
+- the identification and status section
+- the content
+
+  
+Markup element: <icnMetadataFile>
+
+                           __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __
+                          |                                                        |
+                          |   icnMetaDataFileElemType                              |
+                          |                                                        |
+                          |                      .....................             |
+                          |                  ....: rdf:Description  |+|            |
+                          |                  :   : -->               :             |
+                          |                  :   :...................:             |
+   ___________________    |   __________     :   ____________________________      |
+  | icnMetadataFile  |-|--|--| -.-.-.-  |-|--:--| imfIdentAndStatusSection  |+|    |
+  |___________________|   |   \________/     :  | -->                        |     |
+                          |                  :  |____________________________|     |
+                          |                  :  ................                   |
+                          |                  :..: imfContent  |+|                  |
+                          |                     : -->          :                   |          
+                          |                     :..............:                   |
+                          |__ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __|
+                                                              
+                                                         ICN-B6865-S1000D0927-001-01
+                          
+                          Fig 1 Element <icnMetadataFile>
+
+
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 Chapter 3.9.3
 Authoring - Warnings, cautions and notes
 
