@@ -179,7 +179,7 @@ ________________________________________________________________________________
 
 
 
-🔩 Forward Passenger Door – Removal and Installation Procedure
+Forward Passenger Door – Removal and Installation Procedure
 
 From: AMM BOEING 777 FUSELAGE.PDF and DOORS.PDF
 ATA Chapter: 52
@@ -193,14 +193,14 @@ This task is heavy on:
 
     Pneumatic assist/damper removal (if present)
 
-    Door rigging and re-centering
+    Door rigging and recentering
 
     Weight & alignment balancing during reinstall
 
     Specialized hoist and restraint gear
 
 
-⚠️ S1000D-Compliant Task (Including CAUTION, WARNING, NOTE)
+S1000D-Compliant Task (Including CAUTION, WARNING, NOTE)
 
 <dmodule xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xmlns="http://www.s1000d.org/S1000D_4-1/xml/issue"
@@ -303,10 +303,9 @@ This task is heavy on:
 </dmodule>
 
 
+Behind the Scenes — Writer’s Inputs & Decisions
 
-🧠 Behind the Scenes — Writer’s Inputs & Decisions
-
-✍️ Engineering Sources Required
+Engineering Sources Required
 
 __________________________________________________________________________________________________________________________
  Document 	                              |   Used For
@@ -328,7 +327,7 @@ __________________________________________|_____________________________________
 __________________________________________|_______________________________________________________________________________
 
 
-🛠️ Key Authoring Considerations
+Key Authoring Considerations
 
 __________________________________________________________________________________________________________________________
  Consideration	                          |   Details
@@ -348,7 +347,7 @@ __________________________________________|_____________________________________
 
 
 
-🖼️ Illustrations Typically Needed
+Illustrations Typically Needed
 
 __________________________________________________________________________________________________________________________
  Visual Type	                          |   Description
