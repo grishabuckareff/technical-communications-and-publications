@@ -57,6 +57,33 @@ Markup element: <icnMetadataFile>
                           Fig 1 Element <icnMetadataFile>
 
 
+Attributes:
+- id (O), the identifier of the markup element. Refer to Chap 3.9.5.2.1.2.
+
+Child elements:
+- <rdf:description>
+- <imfIdentAndStatusSection>. Refer to Para 2.1.
+- <imfContent>. Refer to Para 2.2.
+
+Note
+  Control authority references must not be used in ICN metadata.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.1 ICN metadata file identification and status section
+
+Description: The element <imfIdentAndStatusSection> contains the identification
+elements of the ICN metadata file and its status information.
+
+  
+Markup element: <imfIdentAndStatusSection>
+
+
+                                                   |
+ _____________________________      __________     |
+| imfIdentAndStatusSection  |-|----| -.-.-.-  |-|--|
+|____________________________|      \________/     |
+                                                   |
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
