@@ -3,7 +3,6 @@
 Task: Pneumatic Duct Structural Repair – Titanium Bleed Duct
 
 System: ATA 36 – Pneumatics
-Manual Source: STRUCTURAL REPAIR MANUAL (SRM) and cross-reference to AMM
 Component: Titanium Bleed Air Duct, 3.25-inch OD
 Location: Cargo bay ceiling Zone 240
 S1000D DMC: 36-21-00-07-00A-720A-P
@@ -16,28 +15,28 @@ Writer’s Data Sources
 __________________________________________________________________________________________________________________________
  Source	                                  |   Purpose
 __________________________________________|_______________________________________________________________________________
- Boeing SRM Chapter 51 and 36	          |   Limits on scratches, cracks, dents; blending profiles and max removal depth
+ Boeing SRM Chapter 51 and 36	            |   Limits on scratches, cracks, dents; blending profiles and max removal depth
 __________________________________________|_______________________________________________________________________________
  OEM Titanium Material Sheet (Ti-6Al-4V)  |   Grain structure, oxidation temp, blend radius specs
 __________________________________________|_______________________________________________________________________________
  Engineering Deviation Memo (if needed)	  |   If defect exceeds blend-out limits, an RDA is required
 __________________________________________|_______________________________________________________________________________
- Aircraft Zoning Diagram	              |   Physical location of duct segment and routing constraints
+ Aircraft Zoning Diagram	                 |   Physical location of duct segment and routing constraints
 __________________________________________|_______________________________________________________________________________
- Special Tooling Catalog	              |   Permitted abrasives, edge tools, measuring gauges
+ Special Tooling Catalog	                 |   Permitted abrasives, edge tools, measuring gauges
 __________________________________________|_______________________________________________________________________________
 
 
 B. Technical Justification
 
 __________________________________________________________________________________________________________________________
- Step	                                  |   Engineering Rationale
+ Step	                                    |   Engineering Rationale
 __________________________________________|_______________________________________________________________________________                                         |
- Mark and measure flaw	                  |   Ensures alignment with SRM limits (length, depth, angle)
+ Mark and measure flaw	                   |   Ensures alignment with SRM limits (length, depth, angle)
 __________________________________________|_______________________________________________________________________________
- Use defined blend angle	              |   Reduces stress concentration and preserves duct wall thickness
+ Use defined blend angle	                 |   Reduces stress concentration and preserves duct wall thickness
 __________________________________________|_______________________________________________________________________________
- Measure wall thickness post-blend	      |   Confirms structural integrity and leak resistance
+ Measure wall thickness post-blend	       |   Confirms structural integrity and leak resistance
 __________________________________________|_______________________________________________________________________________
  Use approved polish and sealant          |	  Prevents oxidation at high temps during operation
 __________________________________________|_______________________________________________________________________________
@@ -54,7 +53,7 @@ DMC: 36-21-00-07-00A-720A-P
   <identAndStatusSection>
     <dmAddress>
       <dmIdent>
-        <modelIdentCode>777</modelIdentCode>
+        <modelIdentCode></modelIdentCode>
         <systemDiffCode>00</systemDiffCode>
         <systemCode>36</systemCode>
         <subSystemCode>21</subSystemCode>
@@ -73,10 +72,10 @@ DMC: 36-21-00-07-00A-720A-P
     </dmAddress>
     <dmStatus>
       <security>01</security>
-      <responsiblePartnerCompany>Boeing</responsiblePartnerCompany>
+      <responsiblePartnerCompany></responsiblePartnerCompany>
       <originator>Structures Engineering</originator>
       <applicability>
-        <applic>777-300ER</applic>
+        <applic></applic>
       </applicability>
       <language country="US">en</language>
     </dmStatus>
@@ -126,7 +125,6 @@ Task: EICAS Fault Isolation – ENG BLEED LEAK Message
 System: ATA 36 – Pneumatics, ATA 31 – Indications
 Trigger: EICAS alert: ENG L BLEED LEAK or ENG R BLEED LEAK
 Output: Isolate and verify leak source; prepare for duct or valve inspection
-Manual Source: AMM BOEING 777 PNEUMATIC.PDF, EICAS Interface Logic Charts, CMS Logic Diagrams
 S1000D DMC: 36-21-00-08-00A-720A-T (T = Troubleshooting)
 
 
@@ -141,11 +139,11 @@ __________________________________________|_____________________________________
 __________________________________________|_______________________________________________________________________________
  ATA 36 Functional Diagrams	              |   Shows valve logic, thermal switches, leak loops
 __________________________________________|_______________________________________________________________________________
- EICAS Alert Hierarchy Charts	          |   Establishes priority, persistence, and flight-deck crew actions
+ EICAS Alert Hierarchy Charts	            |   Establishes priority, persistence, and flight-deck crew actions
 __________________________________________|_______________________________________________________________________________ 
- Bleed Duct Zone Temperature Maps	      |   Clarifies where thermal switches are located and how fast they react
+ Bleed Duct Zone Temperature Maps	        |   Clarifies where thermal switches are located and how fast they react
 __________________________________________|_______________________________________________________________________________ 
- AMM Diagnostic Tasks	                  |   Related tasks for leak testing, valve cycling, and duct access
+ AMM Diagnostic Tasks	                    |   Related tasks for leak testing, valve cycling, and duct access
 __________________________________________|_______________________________________________________________________________
  Warning & Caution Database	              |   Standardized language for thermal, pressurized, and toxic gas risks
 __________________________________________|_______________________________________________________________________________ 
@@ -165,15 +163,15 @@ The ENG BLEED LEAK message triggers when:
 B. EICAS Fault Isolation Procedure – Technical Rationale
 
 __________________________________________________________________________________________________________________________
- Segment	                              |   Why It Matters
+ Segment	                                 |   Why It Matters
 __________________________________________|_______________________________________________________________________________
  Message Validation	                      |   Ensures warning isn't a sensor fault or false transient
 __________________________________________|_______________________________________________________________________________
- Zone Identification	                  |   Directs technician to correct duct segment or valve
+ Zone Identification	                     |   Directs technician to correct duct segment or valve
 __________________________________________|_______________________________________________________________________________
- Sequential Valve Control	              |   Used to confirm which segment has thermal rise when re-pressurized
+ Sequential Valve Control	                |   Used to confirm which segment has thermal rise when re-pressurized
 __________________________________________|_______________________________________________________________________________
- Post-Failure BIT Test	                  |   Determines whether valve position feedback disagrees with expected state
+ Post-Failure BIT Test	                   |   Determines whether valve position feedback disagrees with expected state
 __________________________________________|_______________________________________________________________________________
  
  
@@ -188,7 +186,7 @@ DMC: 36-21-00-08-00A-720A-T
   <identAndStatusSection>
     <dmAddress>
       <dmIdent>
-        <modelIdentCode>777</modelIdentCode>
+        <modelIdentCode></modelIdentCode>
         <systemDiffCode>00</systemDiffCode>
         <systemCode>36</systemCode>
         <subSystemCode>21</subSystemCode>
@@ -207,10 +205,10 @@ DMC: 36-21-00-08-00A-720A-T
     </dmAddress>
     <dmStatus>
       <security>01</security>
-      <responsiblePartnerCompany>Boeing</responsiblePartnerCompany>
+      <responsiblePartnerCompany></responsiblePartnerCompany>
       <originator>Pneumatic Systems Engineering</originator>
       <applicability>
-        <applic>777-200LR</applic>
+        <applic></applic>
       </applicability>
       <language country="US">en</language>
     </dmStatus>
@@ -254,15 +252,15 @@ DMC: 36-21-00-08-00A-720A-T
 
 D. Integration Notes
 __________________________________________________________________________________________________________________________
- Topic	                                  |   Engineering Basis
+ Topic	                                   |   Engineering Basis
 __________________________________________|_______________________________________________________________________________
- Message priority	                      |   BLEED LEAK is a Level 2 caution — suppressible in dispatch, but must be cleared in maintenance
+ Message priority	                        |   BLEED LEAK is a Level 2 caution — suppressible in dispatch, but must be cleared in maintenance
 __________________________________________|_______________________________________________________________________________
  Thermal switches                         |   Located at duct wall in critical routing zones (zone 220, 240, etc.). May trip on hot clamp leaks or pack overheat bleed-back
 __________________________________________|_______________________________________________________________________________
- CMS logic	                              |   Position sensors in valves report to CMS; mismatch triggers dual-layer BIT alerts
+ CMS logic	                               |   Position sensors in valves report to CMS; mismatch triggers dual-layer BIT alerts
 __________________________________________|_______________________________________________________________________________
- Crew action vs ground action	          |   Crew closes valve via panel. Maintenance performs deeper fault logic isolation with power-on and active control
+ Crew action vs ground action	            |   Crew closes valve via panel. Maintenance performs deeper fault logic isolation with power-on and active control
 __________________________________________|_______________________________________________________________________________
 
 
