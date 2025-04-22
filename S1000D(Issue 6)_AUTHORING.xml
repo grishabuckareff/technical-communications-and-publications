@@ -280,6 +280,7 @@ Child elements:
 - <issueDate>. Refer to Chap 3.9.5.1.
 - <icnKeywordGroup> Refer to Para 2.1.1.3.4.
 
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 2.1.1.3.1 ICN title
 
@@ -308,7 +309,88 @@ Markup example:
 
 <icnTitle>Engine X<subScript>5</subScript></icnTitle>
 
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
+2.1.1.3.2 Legacy identifications of ICN
+Description: The element <legacyIdentGroup> contains legacy identifications of the
+ICN when such exist.
+Markup element: <legacyIdentGroup>
+Attributes:
+- None
+Child elements:
+- <legacyIdent>. Refer to Para 2.1.1.3.3.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  
+2.1.1.3.3 Legacy ICN identification
+
+Description: The element <legacyIdent> contains one legacy identity of the ICN.
+
+
+Markup element: <legacyIdent>
+
+Attributes:
+- legacyOrigin (O), an annotation indicating from where the legacy identification
+originates
+
+Child elements:
+- None
+
+  
+Markup example:
+
+<legacyIdent legacyOrigin="ILLDB">Ill-2014-08-04_12345</legacyIdent>
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.1.1.3.4 List of ICN keywords
+
+Description: The element <icnKeywordGroup> contains one or several keywords that
+classify the ICN object in various respects. The keywords can be used for characterizing the
+ICN object in order to facilitate efficient searching for it in a CSDB.
+
+  
+Markup element: <icnKeywordGroup>
+
+Child elements:
+- <icnKeyword>. Refer to Para 2.1.1.3.5.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  
+2.1.1.3.5 ICN keyword
+
+Description: The element <icnKeyword> contains a single keyword that classifies the
+ICN object in various respects and can be used to find the object when it is stored in a
+repository of ICN objects.
+
+
+Markup element: <icnKeyword>
+
+Attributes:
+- None
+
+Child elements:
+- None
+
+  
+Markup example:
+
+<icnKeywordGroup>
+  <icnKeyword>Hawk</icnKeyword>
+  <icnKeyword>Cockpit</icnKeyword>
+</icnKeywordGroup>
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  
+2.1.2 ICN metadata file status section
+
+Description: The element <imfStatus> contains the status information pertinent to the
+ICN object. It is understood that these metadata are similarly valid for the ICN metadata file.
+This implies, for example, that if an ICN object is classified, then the metadata contained in a
+corresponding ICN metadata file must also be regarded classified.
+
+  
+Markup element: <imfStatus>
 
   
 
