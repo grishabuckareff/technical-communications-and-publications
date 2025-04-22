@@ -15,7 +15,7 @@ Writer’s Data Sources
 __________________________________________________________________________________________________________________________
  Source	                                  |   Purpose
 __________________________________________|_______________________________________________________________________________
- Boeing SRM Chapter 51 and 36	            |   Limits on scratches, cracks, dents; blending profiles and max removal depth
+ SRM Chapter 51 and 36	                   |   Limits on scratches, cracks, dents; blending profiles and max removal depth
 __________________________________________|_______________________________________________________________________________
  OEM Titanium Material Sheet (Ti-6Al-4V)  |   Grain structure, oxidation temp, blend radius specs
 __________________________________________|_______________________________________________________________________________
@@ -282,18 +282,18 @@ Writer’s Source Data
 __________________________________________________________________________________________________________________________
  Source	                                  |   Purpose
 __________________________________________|_______________________________________________________________________________
- ATA 30 System Diagram	                  |   Shows signal flow from power supply → WHCU → sensor → window heating elements
+ ATA 30 System Diagram	                   |   Shows signal flow from power supply → WHCU → sensor → window heating elements
 __________________________________________|_______________________________________________________________________________
  Rack Installation Layout (from ATA 25)   |	  WHCU physical location, cooling airflow routing
 __________________________________________|_______________________________________________________________________________
  OEM Controller Data                      |  
  (e.g., Astronics, Securaplane)	          |    Pinouts, fault logic, BIT interface, mounting bracket
 __________________________________________|_______________________________________________________________________________
- FIM / Fault Isolation Guide	          |   Provides paths that lead to controller replacement after faults like W/S CAPT HEAT FAIL
+ FIM / Fault Isolation Guide	             |   Provides paths that lead to controller replacement after faults like W/S CAPT HEAT FAIL
 __________________________________________|_______________________________________________________________________________
  Aircraft Electrical Wiring Manual (EWIS) |   Pinout confirmations for multi-plug connectors and relay routing
 __________________________________________|_______________________________________________________________________________
- Standard Practices – Avionics	          |   Safe handling, ESD grounding, torque values
+ Standard Practices – Avionics	           |   Safe handling, ESD grounding, torque values
 __________________________________________|_______________________________________________________________________________
 
 
@@ -327,15 +327,15 @@ This task is built with precision and requires:
 B. Engineering Considerations for Each Step
 
 __________________________________________________________________________________________________________________________
- Step	                                  |   Why It’s Done
+ Step	                                    |   Why It’s Done
 __________________________________________|_______________________________________________________________________________
- Power-off config	                      |   Prevents ESD and transient spikes to controller
+ Power-off config	                        |   Prevents ESD and transient spikes to controller
 __________________________________________|_______________________________________________________________________________
- Connector ID	                          |   Misconnection can send current to standby sensor or wrong window
+ Connector ID	                            |   Misconnection can send current to standby sensor or wrong window
 __________________________________________|_______________________________________________________________________________
- Mount bracket alignment	              |   Misaligned module can obstruct rack airflow or block other LRU
+ Mount bracket alignment	                 |   Misaligned module can obstruct rack airflow or block other LRU
 __________________________________________|_______________________________________________________________________________
- Functional test	                      |   Confirms EICAS no longer shows window heat failure
+ Functional test	                         |   Confirms EICAS no longer shows window heat failure
 __________________________________________|_______________________________________________________________________________
 
 
@@ -447,17 +447,17 @@ Writer’s Source Inputs
 __________________________________________________________________________________________________________________________
  Source	                                  |   Purpose
 __________________________________________|_______________________________________________________________________________
- ATA 24 Functional Diagram	              |   GCU connections to IDG, bus tie logic, CBs, and EICAS
+ ATA 24 Functional Diagram	               |   GCU connections to IDG, bus tie logic, CBs, and EICAS
 __________________________________________|_______________________________________________________________________________
- EICAS Alert Tree (Electrical)	          |   Message triggers: ELEC GEN L or GEN OFF BUS
+ EICAS Alert Tree (Electrical)	           |   Message triggers: ELEC GEN L or GEN OFF BUS
 __________________________________________|_______________________________________________________________________________
- Fault Isolation Manual (FIM)	          |   Confirms GCU removal is correct outcome for certain BIT flags
+ Fault Isolation Manual (FIM)	            |   Confirms GCU removal is correct outcome for certain BIT flags
 __________________________________________|_______________________________________________________________________________
- OEM Unit Manual (e.g., UTC Aerospace)	  |   Connector orientation, internal fault flags, torque specs
+ OEM Unit Manual (e.g., UTC Aerospace)	   |   Connector orientation, internal fault flags, torque specs
 __________________________________________|_______________________________________________________________________________
- Wiring Manual (EWIS)	                  |   Confirms pin-to-pin routing from GCU to GEN and BPCU
+ Wiring Manual (EWIS)	                    |   Confirms pin-to-pin routing from GCU to GEN and BPCU
 __________________________________________|_______________________________________________________________________________
- Rack Layout & Cooling Limits	          |   Airflow clearance, mounting bracket safety spacing
+ Rack Layout & Cooling Limits	            |   Airflow clearance, mounting bracket safety spacing
 __________________________________________|_______________________________________________________________________________
 
 
@@ -510,7 +510,7 @@ DMC: 24-22-00-04-00A-720A-P
   <identAndStatusSection>
     <dmAddress>
       <dmIdent>
-        <modelIdentCode>777</modelIdentCode>
+        <modelIdentCode></modelIdentCode>
         <systemDiffCode>00</systemDiffCode>
         <systemCode>24</systemCode>
         <subSystemCode>22</subSystemCode>
@@ -532,7 +532,7 @@ DMC: 24-22-00-04-00A-720A-P
       <responsiblePartnerCompany>Boeing</responsiblePartnerCompany>
       <originator>Electrical Power Engineering</originator>
       <applicability>
-        <applic>777-300ER</applic>
+        <applic></applic>
       </applicability>
       <language country="US">en</language>
     </dmStatus>
@@ -576,13 +576,13 @@ DMC: 24-22-00-04-00A-720A-P
 Summary and Integration
 
 __________________________________________________________________________________________________________________________
- Element	                              |   Matches Fault Isolation Format
+ Element	                                 |   Matches Fault Isolation Format
 __________________________________________|_______________________________________________________________________________
- Trigger	                              |   ELEC GEN L → EICAS message chain mirrors ENG BLEED LEAK path
+ Trigger	                                 |   ELEC GEN L → EICAS message chain mirrors ENG BLEED LEAK path
 __________________________________________|_______________________________________________________________________________
- CMS Integration	                      |   Required to validate BIT result and system status
+ CMS Integration	                         |   Required to validate BIT result and system status
 __________________________________________|_______________________________________________________________________________
- Warnings/Cautions	                      |   Identical structure and function: voltage isolation, torque/EMI, connector damage
+ Warnings/Cautions	                       |   Identical structure and function: voltage isolation, torque/EMI, connector damage
 __________________________________________|_______________________________________________________________________________
  Post-Test Verification	                  |   As with pneumatic system, confirms fault is cleared and system is functioning
 __________________________________________|_______________________________________________________________________________
@@ -595,10 +595,8 @@ Task: Navigation Light Assembly Replacement – Left Wingtip
 
 System: ATA 33 – Lights
 Component: Navigation Light Unit (Red, Wingtip)
-Manual Source: AMM BOEING 777 LIGHTS.PDF
 S1000D DMC: 33-41-00-04-00A-720A-P
 Location: Wingtip Access Panel Zone 575
-Applicability: Boeing 777-200LR / 300ER
 
 
 A. Reverse-Engineering the Authoring Process
@@ -608,17 +606,17 @@ Writer’s Source Materials
 __________________________________________________________________________________________________________________________
  Source	                                  |    Used for
 __________________________________________|_______________________________________________________________________________
- ATA 33 Functional Layout	              |   Light wiring routes, bus logic, relay assignments
+ ATA 33 Functional Layout	                |   Light wiring routes, bus logic, relay assignments
 __________________________________________|_______________________________________________________________________________
- Wiring Manual (EWIS)	                  |   Pinout for L NAV LIGHT circuit; connector ID (typically J815)
+ Wiring Manual (EWIS)	                    |   Pinout for L NAV LIGHT circuit; connector ID (typically J815)
 __________________________________________|_______________________________________________________________________________
  Fault Isolation Manual	                  |   EICAS messages: NAV LIGHT FAIL (or crew report of inop light)
 __________________________________________|_______________________________________________________________________________
- Illustrated Parts Catalog (IPC)	      |   Part number, bulb type (if replaceable), gasket layout
+ Illustrated Parts Catalog (IPC)	         |   Part number, bulb type (if replaceable), gasket layout
 __________________________________________|_______________________________________________________________________________
- Exterior Lighting Limits	              |   Visibility range, brightness compliance, nighttime ops requirements
+ Exterior Lighting Limits	                |   Visibility range, brightness compliance, nighttime ops requirements
 __________________________________________|_______________________________________________________________________________
- Standard Practices – Lighting	          |   Torque values for mounting hardware and sealing requirements
+ Standard Practices – Lighting	           |   Torque values for mounting hardware and sealing requirements
 __________________________________________|_______________________________________________________________________________
  
  
@@ -650,15 +648,15 @@ System Context
 B. Engineering and Procedural Justification
 
 __________________________________________________________________________________________________________________________
- Step	                                  |   Rationale
+ Step	                                    |   Rationale
 __________________________________________|_______________________________________________________________________________
- Power off	                              |   Prevents shorting circuit during removal
+ Power off	                               |   Prevents shorting circuit during removal
 __________________________________________|_______________________________________________________________________________
- Inspect connector	                      |   Pin corrosion common cause of failure in wingtip zone
+ Inspect connector	                       |   Pin corrosion common cause of failure in wingtip zone
 __________________________________________|_______________________________________________________________________________
- Clean mating surface	                  |   Ensures weatherproof seal when new unit is installed
+ Clean mating surface	                    |   Ensures weatherproof seal when new unit is installed
 __________________________________________|_______________________________________________________________________________
- Post-test	                              |   Confirms brightness level and CMS relay activation
+ Post-test	                               |   Confirms brightness level and CMS relay activation
 __________________________________________|_______________________________________________________________________________
  
 
@@ -673,7 +671,7 @@ DMC: 33-41-00-04-00A-720A-P
   <identAndStatusSection>
     <dmAddress>
       <dmIdent>
-        <modelIdentCode>777</modelIdentCode>
+        <modelIdentCode></modelIdentCode>
         <systemDiffCode>00</systemDiffCode>
         <systemCode>33</systemCode>
         <subSystemCode>41</subSystemCode>
@@ -692,10 +690,10 @@ DMC: 33-41-00-04-00A-720A-P
     </dmAddress>
     <dmStatus>
       <security>01</security>
-      <responsiblePartnerCompany>Boeing</responsiblePartnerCompany>
+      <responsiblePartnerCompany></responsiblePartnerCompany>
       <originator>Exterior Lighting Engineering</originator>
       <applicability>
-        <applic>777-200LR</applic>
+        <applic></applic>
       </applicability>
       <language country="US">en</language>
     </dmStatus>
@@ -740,11 +738,11 @@ DMC: 33-41-00-04-00A-720A-P
 Integration Notes
 
 __________________________________________________________________________________________________________________________
- Element	                              |   Aligned with Fault Isolation Task
+ Element	                                 |   Aligned with Fault Isolation Task
 __________________________________________|_______________________________________________________________________________
- Trigger logic	                          |   NAV LT FAIL from EICAS or visual walkaround, like ENG BLEED LEAK
+ Trigger logic	                           |   NAV LT FAIL from EICAS or visual walkaround, like ENG BLEED LEAK
 __________________________________________|_______________________________________________________________________________
- Safety hierarchy	                      |   Identical structure: warning (shock), caution (seal), note (pilot report / BIT logic)
+ Safety hierarchy	                        |   Identical structure: warning (shock), caution (seal), note (pilot report / BIT logic)
 __________________________________________|_______________________________________________________________________________
  Post-repair validation	                  |   Visual confirmation matches pneumatic/avionics BIT confirmations
 __________________________________________|_______________________________________________________________________________
@@ -757,10 +755,8 @@ Task: Lap Joint Skin Crack – External Stop-Drill and Doubler Repair
 
 System: ATA 51 – Structures
 Component: Fuselage skin (aluminum alloy), outer lap joint
-Manual Source: AMM BOEING 777 STRUCTURAL REPAIR MANUAL.PDF (ATA 51 + 53)
 S1000D DMC: 53-30-00-07-00A-720A-P
 Location: Fuselage Zone 600–620, LH Sideframe Station 1400–1600
-Applicability: Boeing 777-200LR / 300ER
 
 
 A. Reverse-Engineering the Authoring Process
@@ -770,17 +766,17 @@ Writer’s Data Sources
 __________________________________________________________________________________________________________________________
  Source	                                  |   Purpose
 __________________________________________|_______________________________________________________________________________
- SRM 53-30-00	                          |   Provides damage limits for skin cracks, doubler dimensions, stop-drill instructions
+ SRM 53-30-00	                            |   Provides damage limits for skin cracks, doubler dimensions, stop-drill instructions
 __________________________________________|_______________________________________________________________________________
- Material & Process Spec (MPS)	          |   Defines approved alloys, adhesives, rivet types
+ Material & Process Spec (MPS)	           |   Defines approved alloys, adhesives, rivet types
 __________________________________________|_______________________________________________________________________________
- Fastener Manual (FEM)	                  |   Required for blind and universal head rivet selection and installation torque
+ Fastener Manual (FEM)	                   |   Required for blind and universal head rivet selection and installation torque
 __________________________________________|_______________________________________________________________________________
- Damage Assessment Manual	              |   Classification system: allow service, stop-drill, or RDA-required
+ Damage Assessment Manual	                |   Classification system: allow service, stop-drill, or RDA-required
 __________________________________________|_______________________________________________________________________________
- Maintenance Zoning Layout	              |   Identifies structural station/frame/shell layout for correct reference
+ Maintenance Zoning Layout	               |   Identifies structural station/frame/shell layout for correct reference
 __________________________________________|_______________________________________________________________________________
- Corrosion Control Manual	              |   Advises post-repair treatment and paint touch-up procedure
+ Corrosion Control Manual	                |   Advises post-repair treatment and paint touch-up procedure
 __________________________________________|_______________________________________________________________________________
 
 
