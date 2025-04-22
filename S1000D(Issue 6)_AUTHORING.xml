@@ -77,13 +77,129 @@ elements of the ICN metadata file and its status information.
 
   
 Markup element: <imfIdentAndStatusSection>
+                                  __ __ __ __ __ __ __ __ __ __ __ __ __ __
+                                 |                                         |
+                                 |   imfIdentAndStatusSectionElemType      |
+                                 |                                         |
+                                 |                      ______________     |
+                                 |                  |--| imfAddress  |+|   |
+                                 |                  |  | -->          |    |
+ _____________________________   |   __________     |  |______________|    |
+| imfIdentAndStatusSection  |-|--|-| -.-.-.-   |-|--|                      |
+|____________________________|   |   \________/     |   _____________      |
+                                 |                  |--| imfStatus  |+|    |
+                                 |                     | -->         |     |
+                                 |                     |_____________|     |
+                                 |__ __ __ __ __ __ __ __ __ __ __ __ __ __|
+
+                                                 ICN-B6865-S1000D0928-001-01
+                          
+                   Fig 2 Element <imfIdentAndStatusSection>
 
 
-                                                   |
- _____________________________      __________     |
-| imfIdentAndStatusSection  |-|----| -.-.-.-  |-|--|
-|____________________________|      \________/     |
-                                                   |
+Attributes:
+- None
+
+Child elements:
+- <imfAddress>. Refer to Para 2.1.1.
+- <imfStatus>. Refer to Para 2.1.2.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.1.1 ICN metadata file address
+
+Description: The element <imfAddress> contains the information needed to identify the
+ICN metadata file.
+
+
+Markup element: <imfAddress>
+                    __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ 
+                   |                                               |
+                   |   imfAddressElemType                          |
+                   |                                               |
+                   |                      ____________             |
+                   |                  |--| imfIdent. |+|           |
+                   |                  |  | -->        |            |
+ ______________    |   __________     |  |____________|            |
+| imfAddress  |-|--|--| -.-.-.-  |-|--|                            |
+|______________|   |   \________/     |   ___________________      |
+                   |                  |--| imfAddressItems  |+|    |
+                   |                     | -->               |     |
+                   |                     |___________________|     |
+                   |__ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __|
+
+                                         ICN-B6865-S1000D0929-001-01
+                  
+                   Fig 3 Element <imfAddress>
+
+
+Attributes:
+- None
+Child elements:
+- <imfIdent>. Refer to Para 2.1.1.1.
+- <imfAddressItems>. Refer to Para 2.1.1.3.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  
+2.1.1.1 ICN metadata file identification
+  
+Description: The element <imfIdent> contains the unique identification of the ICN
+metadata file.
+
+Markup element: <imfIdent>
+
+
+
+                  __ __ __ __ __ __ __ __ __ __ __ __ __ __ 
+                 |                                         |
+                 |   imfIdentElemType                      |
+                 |                                         |
+                 |                      ___________        |
+                 |                  |--| imfCode  |+|      |
+                 |                  |  | -->       |       |
+ ____________    |   __________     |  |___________|       |
+| imfIdent  |-|--|--| -.-.-.-  |-|--|                      |
+|____________|   |   \________/     |   _____________      |
+                 |                  |--| issueInfo  |+|    |
+                 |                     | -->         |     |
+                 |                     |_____________|     |
+                 |__ __ __ __ __ __ __ __ __ __ __ __ __ __|
+
+                                 ICN-B6865-S1000D0930-001-01
+
+                 Fig 4 Element <imfIdent>
+
+
+Attributes:
+- None
+
+Child elements:
+- <imfCode>. Refer to Para 2.1.1.2.
+- <issueInfo>, the issue information of the ICN metadata file itself, which can differ
+from the issue number contained in the information control number of the multimedia or
+graphic object. Refer to Chap 3.9.5.1.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.1.1.2 ICN metadata file code
+
+Description: The element <imfCode> contains the core items of the ICN metadata file
+identification.
+
+
+Markup element: <imfCode>
+
+Attributes:
+- imfIdentIcn (M), the ICN of the multimedia object or graphic object to which the
+metadata apply, the prefix "ICN-" excluded.
+
+Child elements:
+- None
+
+  
+Markup example:
+
+<imfCode imfIdentIcn="YY-Y-YYYYYY-Y-YYYYY-YYYYY-A-XXX-XX"/>
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
