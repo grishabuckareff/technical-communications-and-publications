@@ -1,0 +1,1287 @@
+
+
+Task: Pneumatic Duct Structural Repair – Titanium Bleed Duct
+
+System: ATA 36 – Pneumatics
+Component: Titanium Bleed Air Duct, 3.25-inch OD
+Location: Cargo bay ceiling Zone 240
+S1000D DMC: 36-21-00-07-00A-720A-P
+Repair Type: Field blend for linear gouge
+
+
+A. Reverse-Engineering the Writer’s Workflow
+
+Data Sources Used
+__________________________________________________________________________________________________________________________
+ Source	                                  |   Purpose
+__________________________________________|_______________________________________________________________________________
+ SRM Chapter 51 and 36	                  |   Limits on scratches, cracks, dents; blending profiles and max removal depth
+__________________________________________|_______________________________________________________________________________
+ OEM Titanium Material Sheet (Ti-6Al-4V)  |   Grain structure, oxidation temp, blend radius specs
+__________________________________________|_______________________________________________________________________________
+ Engineering Deviation Memo (if needed)	  |   If defect exceeds blend-out limits, an RDA is required
+__________________________________________|_______________________________________________________________________________
+ Aircraft Zoning Diagram	              |   Physical location of duct segment and routing constraints
+__________________________________________|_______________________________________________________________________________
+ Special Tooling Catalog	              |   Permitted abrasives, edge tools, measuring gauges
+__________________________________________|_______________________________________________________________________________
+
+
+B. Technical Justification
+
+__________________________________________________________________________________________________________________________
+ Step	                                  |   Engineering Rationale
+__________________________________________|_______________________________________________________________________________                                         |
+ Mark and measure flaw	                  |   Ensures alignment with SRM limits (length, depth, angle)
+__________________________________________|_______________________________________________________________________________
+ Use defined blend angle	              |   Reduces stress concentration and preserves duct wall thickness
+__________________________________________|_______________________________________________________________________________
+ Measure wall thickness post-blend	      |   Confirms structural integrity and leak resistance
+__________________________________________|_______________________________________________________________________________
+ Use approved polish and sealant          |   Prevents oxidation at high temps during operation
+__________________________________________|_______________________________________________________________________________
+ 
+ 
+C. S1000D Task: Titanium Bleed Duct Crack Blend Repair
+
+DMC: 36-21-00-07-00A-720A-P
+
+<dmodule xmlns:xsi="http://www.s1000d.org/S1000D_4-1/xml/issue"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://www.s1000d.org/S1000D_4-1/xml/issue s1000d_4-1.xsd">
+
+  <identAndStatusSection>
+    <dmAddress>
+      <dmIdent>
+        <modelIdentCode></modelIdentCode>
+        <systemDiffCode>00</systemDiffCode>
+        <systemCode>36</systemCode>
+        <subSystemCode>21</subSystemCode>
+        <subSubSystemCode>00</subSubSystemCode>
+        <assyCode>07</assyCode>
+        <disassyCode>00A</disassyCode>
+        <disassyCodeVariant>A</disassyCodeVariant>
+        <infoCode>720</infoCode>
+        <infoCodeVariant>A</infoCodeVariant>
+        <itemLocationCode>P</itemLocationCode>
+      </dmIdent>
+      <issueInfo>
+        <issueNumber>001</issueNumber>
+        <inWork>01</inWork>
+      </issueInfo>
+    </dmAddress>
+    <dmStatus>
+      <security>01</security>
+      <responsiblePartnerCompany></responsiblePartnerCompany>
+      <originator>Structures Engineering</originator>
+      <applicability>
+        <applic></applic>
+      </applicability>
+      <language country="US">en</language>
+    </dmStatus>
+  </identAndStatusSection>
+
+  <content>
+    <procedure>
+      <preliminaryRqmts>
+        <preliminaryRqmtsDescr>
+          Aircraft powered down, bleed system cold, and access panel open to Zone 240.
+        </preliminaryRqmtsDescr>
+        <safety>
+          <warning>
+            Do not attempt repair while duct is pressurized or hot. Titanium conducts heat rapidly and may cause burns.
+          </warning>
+          <caution>
+            Do not remove more than 0.010 inch of wall thickness. Use calibrated ultrasonic gauge for confirmation.
+          </caution>
+          <note>
+            SRM Table 36-21-00-2 provides blend angle and flaw limits by duct type.
+          </note>
+        </safety>
+      </preliminaryRqmts>
+
+      <mainProcedure>
+        <step><para>Clean affected area using approved solvent (CPC 36-01-TI). Dry fully.</para></step>
+        <step><para>Mark damaged region with layout dye and scribe limits 0.25 inch beyond flaw boundary.</para></step>
+        <step><para>Blend area using aluminum oxide abrasive (max 120 grit). Use elliptical profile per SRM Figure 36-21-01.</para></step>
+        <step><para>Inspect using 10x magnifier. Confirm no remaining sharp notches or crack propagation.</para></step>
+        <step><para>Measure wall thickness at center of blend with ultrasonic gauge. Minimum allowed: 0.035 in.</para></step>
+        <step><para>Polish blend using Scotch-Brite pad. Clean again and apply oxidation-resistant sealant (Boeing Code: TI-SEAL-36-1).</para></step>
+      </mainProcedure>
+
+      <closeProcedure>
+        <step><para>Document repair in SRM deviation log. Include before/after photos and measurement data.</para></step>
+        <step><para>Reinstall insulation wrap and proceed to leak test task 36-21-00-06-00A-720A-P.</para></step>
+      </closeProcedure>
+    </procedure>
+  </content>
+</dmodule>
+
+__________________________________________________________________________________________________________________________
+
+
+Task: EICAS Fault Isolation – ENG BLEED LEAK Message
+
+System: ATA 36 – Pneumatics, ATA 31 – Indications
+Trigger: EICAS alert: ENG L BLEED LEAK or ENG R BLEED LEAK
+Output: Isolate and verify leak source; prepare for duct or valve inspection
+S1000D DMC: 36-21-00-08-00A-720A-T (T = Troubleshooting)
+
+
+A. Reverse-Engineering the Writer’s Authoring Process
+
+Data Sources Used
+__________________________________________________________________________________________________________________________
+ Source	                                  |   Purpose
+__________________________________________|_______________________________________________________________________________
+ CMS Fault Isolation Manual	              |   Defines BIT flags, trigger logic, message tree
+__________________________________________|_______________________________________________________________________________
+ ATA 36 Functional Diagrams	              |   Shows valve logic, thermal switches, leak loops
+__________________________________________|_______________________________________________________________________________
+ EICAS Alert Hierarchy Charts	          |   Establishes priority, persistence, and flight-deck crew actions
+__________________________________________|_______________________________________________________________________________ 
+ Bleed Duct Zone Temperature Maps	      |   Clarifies where thermal switches are located and how fast they react
+__________________________________________|_______________________________________________________________________________ 
+ AMM Diagnostic Tasks	                  |   Related tasks for leak testing, valve cycling, and duct access
+__________________________________________|_______________________________________________________________________________
+ Warning and Caution Database	          |   Standardized language for thermal, pressurized, and toxic gas risks
+__________________________________________|_______________________________________________________________________________ 
+ 
+
+System Logic Behind Message
+
+The ENG BLEED LEAK message triggers when:
+
+    A thermal switch senses abnormally high duct temperature in specific zones
+
+    Sensor signals are confirmed valid via CMS logic
+
+    Redundancy logic rules out other heat sources (e.g., hot brakes, pack overheat)
+
+
+B. EICAS Fault Isolation Procedure – Technical Rationale
+
+__________________________________________________________________________________________________________________________
+ Segment	                              |   Why It Matters
+__________________________________________|_______________________________________________________________________________
+ Message Validation	                      |   Ensures warning isn't a sensor fault or false transient
+__________________________________________|_______________________________________________________________________________
+ Zone Identification	                  |   Directs technician to correct duct segment or valve
+__________________________________________|_______________________________________________________________________________
+ Sequential Valve Control	              |   Used to confirm which segment has thermal rise when re-pressurized
+__________________________________________|_______________________________________________________________________________
+ Post-Failure BIT Test	                  |   Determines whether valve position feedback disagrees with expected state
+__________________________________________|_______________________________________________________________________________
+ 
+ 
+ C. S1000D-Compliant Troubleshooting Task
+
+DMC: 36-21-00-08-00A-720A-T
+
+<dmodule xmlns:xsi="http://www.s1000d.org/S1000D_4-1/xml/issue"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://www.s1000d.org/S1000D_4-1/xml/issue s1000d_4-1.xsd">
+
+  <identAndStatusSection>
+    <dmAddress>
+      <dmIdent>
+        <modelIdentCode></modelIdentCode>
+        <systemDiffCode>00</systemDiffCode>
+        <systemCode>36</systemCode>
+        <subSystemCode>21</subSystemCode>
+        <subSubSystemCode>00</subSubSystemCode>
+        <assyCode>08</assyCode>
+        <disassyCode>00A</disassyCode>
+        <disassyCodeVariant>A</disassyCodeVariant>
+        <infoCode>720</infoCode>
+        <infoCodeVariant>A</infoCodeVariant>
+        <itemLocationCode>T</itemLocationCode>
+      </dmIdent>
+      <issueInfo>
+        <issueNumber>001</issueNumber>
+        <inWork>01</inWork>
+      </issueInfo>
+    </dmAddress>
+    <dmStatus>
+      <security>01</security>
+      <responsiblePartnerCompany></responsiblePartnerCompany>
+      <originator>Pneumatic Systems Engineering</originator>
+      <applicability>
+        <applic></applic>
+      </applicability>
+      <language country="US">en</language>
+    </dmStatus>
+  </identAndStatusSection>
+
+  <content>
+    <troubleshooting>
+      <preliminaryRqmts>
+        <preliminaryRqmtsDescr>Aircraft powered. EICAS displaying *ENG BLEED LEAK*. Maintenance panel access required.</preliminaryRqmtsDescr>
+        <safety>
+          <warning>
+            Do not access bleed ducts while pressurized. Risk of severe burns and overpressure injury.
+          </warning>
+          <caution>
+            Do not cycle bleed valves repeatedly within 5 minutes. Valve overheat may occur and give false diagnostic signals.
+          </caution>
+          <note>
+            ENG BLEED LEAK messages may persist for one power cycle even after fault clearance.
+          </note>
+        </safety>
+      </preliminaryRqmts>
+
+      <faultIsolationProcedure>
+        <step><para>Use CMS or CDU Maintenance Menu → Pneumatic page → Record valve positions and BIT status.</para></step>
+        <step><para>Note zone affected (e.g., L ENG Zone 240). Correlate with bleed duct map in 36-00-00 Fig. 12.</para></step>
+        <step><para>Shut off engine bleed air via overhead panel. Confirm leak warning extinguishes. If not, suspect thermal switch fault.</para></step>
+        <step><para>Use CMS to command Isolation Valve open. Monitor downstream zone temp via CDU → Air → Bleed Temp.</para></step>
+        <step><para>If temp rises above 80°C with only one valve open, suspect downstream duct leak or clamp misseat.</para></step>
+        <step><para>Perform valve BIT (Built-In Test). If position feedback mismatch occurs, replace valve per task 36-11-00-04-00A-720A-P.</para></step>
+        <step><para>If duct leak is suspected, proceed to leak detection task 36-21-00-06-00A-720A-P for pressure and soap test.</para></step>
+      </faultIsolationProcedure>
+
+      <closeProcedure>
+        <step><para>Reset CMS fault log. Cycle overhead bleed switches to restore normal valve logic.</para></step>
+        <step><para>Confirm EICAS message is cleared. Record fault code, actions taken, and technician ID in logbook.</para></step>
+      </closeProcedure>
+    </troubleshooting>
+  </content>
+</dmodule>
+
+
+D. Integration Notes
+__________________________________________________________________________________________________________________________
+ Topic	                                   |   Engineering Basis
+__________________________________________|_______________________________________________________________________________
+ Message priority	                        |   BLEED LEAK is a Level 2 caution — suppressible in dispatch, but must be cleared in maintenance
+__________________________________________|_______________________________________________________________________________
+ Thermal switches                         |   Located at duct wall in critical routing zones (zone 220, 240, etc.). May trip on hot clamp leaks or pack overheat bleed-back
+__________________________________________|_______________________________________________________________________________
+ CMS logic	                               |   Position sensors in valves report to CMS; mismatch triggers dual-layer BIT alerts
+__________________________________________|_______________________________________________________________________________
+ Crew action vs ground action	            |   Crew closes valve via panel. Maintenance performs deeper fault logic isolation with power-on and active control
+__________________________________________|_______________________________________________________________________________
+
+
+__________________________________________________________________________________________________________________________
+
+
+Task: Flight Deck Window Heat Controller Replacement
+
+System: ATA 30 – Ice and Rain Protection
+Component: Captain’s Side Window Heat Control Unit (WHCU)
+S1000D DMC: 30-41-00-04-00A-720A-P
+Location: Overhead Electronic Compartment, Rack E3
+
+
+A. Reverse-Engineering the Authoring Process
+
+Writer’s Source Data
+
+__________________________________________________________________________________________________________________________
+ Source	                                  |   Purpose
+__________________________________________|_______________________________________________________________________________
+ ATA 30 System Diagram	                  |   Shows signal flow from power supply → WHCU → sensor → window heating elements
+__________________________________________|_______________________________________________________________________________
+ Rack Installation Layout (from ATA 25)   |	  WHCU physical location, cooling airflow routing
+__________________________________________|_______________________________________________________________________________
+ OEM Controller Data                      |  
+ (e.g., Astronics, Securaplane)	          |    Pinouts, fault logic, BIT interface, mounting bracket
+__________________________________________|_______________________________________________________________________________
+ FIM / Fault Isolation Guide	          |   Provides paths that lead to controller replacement after faults like W/S CAPT HEAT FAIL
+__________________________________________|_______________________________________________________________________________
+ Aircraft Electrical Wiring Manual (EWIS) |   Pinout confirmations for multi-plug connectors and relay routing
+__________________________________________|_______________________________________________________________________________
+ Standard Practices – Avionics	          |   Safe handling, ESD grounding, torque values
+__________________________________________|_______________________________________________________________________________
+
+
+Key Complexity
+
+    The WHCU is interconnected with EICAS and window sensors.
+
+    Incorrect replacement or miswiring results in:
+
+        False heating
+
+        No heating
+
+        BIT faults
+
+        EICAS alerts such as W/S CAPT HEAT FAIL
+
+This task is built with precision and requires:
+
+    Secure connector installation
+
+    Correct orientation
+
+    Ground fault inspection
+
+    Post-install BIT test
+
+    Line Replaceable Unit (LRU) tracking
+
+
+B. Engineering Considerations for Each Step
+
+__________________________________________________________________________________________________________________________
+ Step	                                  |   Why It’s Done
+__________________________________________|_______________________________________________________________________________
+ Power-off config	                      |   Prevents ESD and transient spikes to controller
+__________________________________________|_______________________________________________________________________________
+ Connector ID	                          |   Misconnection can send current to standby sensor or wrong window
+__________________________________________|_______________________________________________________________________________
+ Mount bracket alignment	              |   Misaligned module can obstruct rack airflow or block other LRU
+__________________________________________|_______________________________________________________________________________
+ Functional test	                      |   Confirms EICAS no longer shows window heat failure
+__________________________________________|_______________________________________________________________________________
+
+
+C. S1000D-Compliant Task: Window Heat Controller Replacement
+
+DMC: 30-41-00-04-00A-720A-P
+
+<dmodule xmlns:xsi="http://www.s1000d.org/S1000D_4-1/xml/issue"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://www.s1000d.org/S1000D_4-1/xml/issue s1000d_4-1.xsd">
+
+  <identAndStatusSection>
+    <dmAddress>
+      <dmIdent>
+        <modelIdentCode></modelIdentCode>
+        <systemDiffCode>00</systemDiffCode>
+        <systemCode>30</systemCode>
+        <subSystemCode>41</subSystemCode>
+        <subSubSystemCode>00</subSubSystemCode>
+        <assyCode>04</assyCode>
+        <disassyCode>00A</disassyCode>
+        <disassyCodeVariant>A</disassyCodeVariant>
+        <infoCode>720</infoCode>
+        <infoCodeVariant>A</infoCodeVariant>
+        <itemLocationCode>P</itemLocationCode>
+      </dmIdent>
+      <issueInfo>
+        <issueNumber>001</issueNumber>
+        <inWork>01</inWork>
+      </issueInfo>
+    </dmAddress>
+    <dmStatus>
+      <security>01</security>
+      <responsiblePartnerCompany></responsiblePartnerCompany>
+      <originator>Flight Deck Systems Engineering</originator>
+      <applicability>
+        <applic></applic>
+      </applicability>
+      <language country="US">en</language>
+    </dmStatus>
+  </identAndStatusSection>
+
+  <content>
+    <procedure>
+      <preliminaryRqmts>
+        <preliminaryRqmtsDescr>Aircraft on ground. Electrical power off and safety lock installed. Rack E3 access open.</preliminaryRqmtsDescr>
+        <safety>
+          <warning>
+            Use ESD protection when handling avionics modules. Static discharge may damage internal circuitry.
+          </warning>
+          <caution>
+            Do not force WHCU into mount bracket. Misalignment may damage pins or block rack cooling.
+          </caution>
+          <note>
+            Task supports ATA 30 fault path: *W/S CAPT HEAT FAIL* or *W/S OVERHEAT FAIL*. Confirm FIM logic before removal.
+          </note>
+        </safety>
+      </preliminaryRqmts>
+
+      <mainProcedure>
+        <step><para>Disconnect WHCU connector P301 and secondary plug J24 from rear panel of Rack E3.</para></step>
+        <step><para>Remove two mounting screws and withdraw WHCU (P/N: WHC-A77-CAP-1).</para></step>
+        <step><para>Inspect connector pins for corrosion or bent contacts. Clean if required with contact-safe solvent.</para></step>
+        <step><para>Install new WHCU in slot. Align screw holes and seat fully against rack guide.</para></step>
+        <step><para>Reconnect connectors. Listen for audible click and verify latch integrity.</para></step>
+        <step><para>Torque mount screws to 14 in-lb per AMM 20-50-00. Do not overtighten.</para></step>
+      </mainProcedure>
+
+      <closeProcedure>
+        <step><para>Restore aircraft power and run WHCU BIT test via CDU → Maintenance → Ice/Rain page.</para></step>
+        <step><para>Verify window heat engages with no EICAS fault. Use hand sensor to confirm panel heating.</para></step>
+        <step><para>Record WHCU serial number, test result, and log action in avionics maintenance database.</para></step>
+      </closeProcedure>
+    </procedure>
+  </content>
+</dmodule>
+
+
+D. Additional Engineering Notes
+
+Element	Engineering Justification
+
+__________________________________________________________________________________________________________________________
+ Connector ID Tags	                      |   Prevents misrouting between WHCU zones (Captain vs FO)
+__________________________________________|_______________________________________________________________________________
+ BIT Test	                              |   Uses internal WHCU feedback loop to confirm current is reaching element
+__________________________________________|_______________________________________________________________________________
+ Thermal Limit Checks	                  |   EICAS alert logic triggers if heat exceeds 110°C or fails to reach 45°C
+__________________________________________|_______________________________________________________________________________
+ RFI Shielding	                          |   WHCU must be torqued down to ensure EMI shielding continuity with aircraft structure
+__________________________________________|_______________________________________________________________________________
+
+
+__________________________________________________________________________________________________________________________
+
+
+Task: Generator Control Unit (GCU) Replacement
+
+System: ATA 24 – Electrical Power
+Component: GCU for Left Engine IDG
+S1000D DMC: 24-22-00-04-00A-720A-P
+Location: Aft Equipment Center, Electrical Rack E7
+
+
+A. Reverse-Engineering the Authoring Process
+
+Writer’s Source Inputs
+
+__________________________________________________________________________________________________________________________
+ Source	                                  |   Purpose
+__________________________________________|_______________________________________________________________________________
+ ATA 24 Functional Diagram	              |   GCU connections to IDG, bus tie logic, CBs, and EICAS
+__________________________________________|_______________________________________________________________________________
+ EICAS Alert Tree (Electrical)	          |   Message triggers: ELEC GEN L or GEN OFF BUS
+__________________________________________|_______________________________________________________________________________
+ Fault Isolation Manual (FIM)	          |   Confirms GCU removal is correct outcome for certain BIT flags
+__________________________________________|_______________________________________________________________________________
+ OEM Unit Manual (e.g., UTC Aerospace)	  |   Connector orientation, internal fault flags, torque specs
+__________________________________________|_______________________________________________________________________________
+ Wiring Manual (EWIS)	                  |   Confirms pin-to-pin routing from GCU to GEN and BPCU
+__________________________________________|_______________________________________________________________________________
+ Rack Layout & Cooling Limits	          |   Airflow clearance, mounting bracket safety spacing
+__________________________________________|_______________________________________________________________________________
+
+
+Key Complexity
+
+The GCU is a digital logic controller responsible for:
+
+    IDG voltage regulation
+
+    Generator protection
+
+    Bus fault detection
+
+    Fault messaging to EICAS and CMS
+
+Replacement affects electrical loads and generator balancing, so task includes:
+
+    EICAS reset logic
+
+    BIT confirmation
+
+    Torque constraints for EMI continuity
+
+    Serial tracking for Line Replaceable Unit (LRU) management
+
+
+B. Engineering Rationale
+
+__________________________________________________________________________________________________________________________
+ Step	                                  |   Why It’s Required
+__________________________________________|_______________________________________________________________________________
+ Power-down	                              |   Prevents arcing during connector removal and EMI flash memory corruption
+__________________________________________|_______________________________________________________________________________
+ Connector label and inspection	          |   Cross-wiring can cause generator failure or misfire
+__________________________________________|_______________________________________________________________________________
+ Ground bonding check	                  |   Required for EMI protection in avionics bays
+__________________________________________|_______________________________________________________________________________
+ Post-install BIT	                      |   Verifies voltage regulation and interface with BPCU and IDG are valid
+__________________________________________|_______________________________________________________________________________
+
+
+C. S1000D Task: GCU Replacement
+
+DMC: 24-22-00-04-00A-720A-P
+
+<dmodule xmlns:xsi="http://www.s1000d.org/S1000D_4-1/xml/issue"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://www.s1000d.org/S1000D_4-1/xml/issue s1000d_4-1.xsd">
+
+  <identAndStatusSection>
+    <dmAddress>
+      <dmIdent>
+        <modelIdentCode></modelIdentCode>
+        <systemDiffCode>00</systemDiffCode>
+        <systemCode>24</systemCode>
+        <subSystemCode>22</subSystemCode>
+        <subSubSystemCode>00</subSubSystemCode>
+        <assyCode>04</assyCode>
+        <disassyCode>00A</disassyCode>
+        <disassyCodeVariant>A</disassyCodeVariant>
+        <infoCode>720</infoCode>
+        <infoCodeVariant>A</infoCodeVariant>
+        <itemLocationCode>P</itemLocationCode>
+      </dmIdent>
+      <issueInfo>
+        <issueNumber>001</issueNumber>
+        <inWork>01</inWork>
+      </issueInfo>
+    </dmAddress>
+    <dmStatus>
+      <security>01</security>
+      <responsiblePartnerCompany>Boeing</responsiblePartnerCompany>
+      <originator>Electrical Power Engineering</originator>
+      <applicability>
+        <applic></applic>
+      </applicability>
+      <language country="US">en</language>
+    </dmStatus>
+  </identAndStatusSection>
+
+  <content>
+    <procedure>
+      <preliminaryRqmts>
+        <preliminaryRqmtsDescr>Aircraft powered down. Aft Equipment Center (Rack E7) accessible. No electrical lockout engaged.</preliminaryRqmtsDescr>
+        <safety>
+          <warning>
+            Do not service avionics racks with aircraft power on. Arcing or component damage may occur.
+          </warning>
+          <caution>
+            GCU must be torqued to ensure EMI bonding. Floating ground may cause signal disruption or BIT errors.
+          </caution>
+          <note>
+            Task applies to fault tree EICAS message: *ELEC GEN L* (Ref: Task 24-00-00-870-801). Validate with CMS BIT log before proceeding.
+          </note>
+        </safety>
+      </preliminaryRqmts>
+
+      <mainProcedure>
+        <step><para>Remove access panel to Rack E7. Locate GCU labeled GEN CTRL A L.</para></step>
+        <step><para>Disconnect connectors P201 and P203. Tag with connector ID markers.</para></step>
+        <step><para>Remove two M4 mounting screws and withdraw GCU (P/N: GCU-B777-24-L1).</para></step>
+        <step><para>Install new GCU in rack. Align slots and secure with original fasteners. Torque to 16 in-lb.</para></step>
+        <step><para>Reconnect connectors. Verify latch locks and verify pin alignment.</para></step>
+      </mainProcedure>
+
+      <closeProcedure>
+        <step><para>Restore aircraft electrical power. Run GCU BIT test via CMS Maintenance → Electrical → GCU Status.</para></step>
+        <step><para>Verify GEN L ON BUS and no GEN FAULT shown on EICAS.</para></step>
+        <step><para>Record GCU serial number, torque value, and BIT result in logbook and LRU tracking system.</para></step>
+      </closeProcedure>
+    </procedure>
+  </content>
+</dmodule>
+
+
+Summary and Integration
+
+__________________________________________________________________________________________________________________________
+ Element	                              |   Matches Fault Isolation Format
+__________________________________________|_______________________________________________________________________________
+ Trigger	                              |   ELEC GEN L → EICAS message chain mirrors ENG BLEED LEAK path
+__________________________________________|_______________________________________________________________________________
+ CMS Integration	                      |   Required to validate BIT result and system status
+__________________________________________|_______________________________________________________________________________
+ Warnings/Cautions	                      |   Identical structure and function: voltage isolation, torque/EMI, connector damage
+__________________________________________|_______________________________________________________________________________
+ Post-Test Verification	                  |   As with pneumatic system, confirms fault is cleared and system is functioning
+__________________________________________|_______________________________________________________________________________
+
+
+__________________________________________________________________________________________________________________________
+
+
+Task: Navigation Light Assembly Replacement – Left Wingtip
+
+System: ATA 33 – Lights
+Component: Navigation Light Unit (Red, Wingtip)
+S1000D DMC: 33-41-00-04-00A-720A-P
+Location: Wingtip Access Panel Zone 575
+
+
+A. Reverse-Engineering the Authoring Process
+
+Writer’s Source Materials
+
+__________________________________________________________________________________________________________________________
+ Source	                                  |    Used for
+__________________________________________|_______________________________________________________________________________
+ ATA 33 Functional Layout	              |   Light wiring routes, bus logic, relay assignments
+__________________________________________|_______________________________________________________________________________
+ Wiring Manual (EWIS)	                  |   Pinout for L NAV LIGHT circuit; connector ID (typically J815)
+__________________________________________|_______________________________________________________________________________
+ Fault Isolation Manual	                  |   EICAS messages: NAV LIGHT FAIL (or crew report of inop light)
+__________________________________________|_______________________________________________________________________________
+ Illustrated Parts Catalog (IPC)	      |   Part number, bulb type (if replaceable), gasket layout
+__________________________________________|_______________________________________________________________________________
+ Exterior Lighting Limits	              |   Visibility range, brightness compliance, nighttime ops requirements
+__________________________________________|_______________________________________________________________________________
+ Standard Practices – Lighting	          |   Torque values for mounting hardware and sealing requirements
+__________________________________________|_______________________________________________________________________________
+ 
+ 
+System Context
+
+    Each navigation light assembly includes:
+
+        Light unit (LED or halogen)
+
+        Connector housing
+
+        Mount bracket
+
+        Gasket/sealant
+
+    Circuit is monitored by CMS or EICAS indirectly through relay state or CB status
+
+    Light failure may present as:
+
+        CB trip
+
+        Intermittent operation
+
+        Loss of brightness (halogen)
+
+        “L NAV LT FAIL” message (with BIT check)
+
+
+B. Engineering and Procedural Justification
+
+__________________________________________________________________________________________________________________________
+ Step	                                  |   Rationale
+__________________________________________|_______________________________________________________________________________
+ Power off	                              |   Prevents shorting circuit during removal
+__________________________________________|_______________________________________________________________________________
+ Inspect connector	                      |   Pin corrosion common cause of failure in wingtip zone
+__________________________________________|_______________________________________________________________________________
+ Clean mating surface	                  |   Ensures weatherproof seal when new unit is installed
+__________________________________________|_______________________________________________________________________________
+ Post-test	                              |   Confirms brightness level and CMS relay activation
+__________________________________________|_______________________________________________________________________________
+ 
+
+C. S1000D-Compliant Task: Navigation Light Replacement
+
+DMC: 33-41-00-04-00A-720A-P
+
+<dmodule xmlns:xsi="http://www.s1000d.org/S1000D_4-1/xml/issue"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://www.s1000d.org/S1000D_4-1/xml/issue s1000d_4-1.xsd">
+
+  <identAndStatusSection>
+    <dmAddress>
+      <dmIdent>
+        <modelIdentCode></modelIdentCode>
+        <systemDiffCode>00</systemDiffCode>
+        <systemCode>33</systemCode>
+        <subSystemCode>41</subSystemCode>
+        <subSubSystemCode>00</subSubSystemCode>
+        <assyCode>04</assyCode>
+        <disassyCode>00A</disassyCode>
+        <disassyCodeVariant>A</disassyCodeVariant>
+        <infoCode>720</infoCode>
+        <infoCodeVariant>A</infoCodeVariant>
+        <itemLocationCode>P</itemLocationCode>
+      </dmIdent>
+      <issueInfo>
+        <issueNumber>001</issueNumber>
+        <inWork>01</inWork>
+      </issueInfo>
+    </dmAddress>
+    <dmStatus>
+      <security>01</security>
+      <responsiblePartnerCompany></responsiblePartnerCompany>
+      <originator>Exterior Lighting Engineering</originator>
+      <applicability>
+        <applic></applic>
+      </applicability>
+      <language country="US">en</language>
+    </dmStatus>
+  </identAndStatusSection>
+
+  <content>
+    <procedure>
+      <preliminaryRqmts>
+        <preliminaryRqmtsDescr>Aircraft on ground, electrical power off. Wingtip panel 575L open and tagged.</preliminaryRqmtsDescr>
+        <safety>
+          <warning>
+            Turn off electrical power before disconnecting light unit. Live terminals may cause shock or arcing.
+          </warning>
+          <caution>
+            Do not reuse mounting hardware or gasket. Compromised seal may result in water intrusion.
+          </caution>
+          <note>
+            Failure of navigation light may be reported via CMS or pilot pre-flight walkaround. Check CB 33X1 prior to removal.
+          </note>
+        </safety>
+      </preliminaryRqmts>
+
+      <mainProcedure>
+        <step><para>Remove four mounting screws from light housing. Retain for inspection if reusable.</para></step>
+        <step><para>Disconnect electrical connector J815. Inspect pins for discoloration or corrosion.</para></step>
+        <step><para>Clean mounting flange and surrounding surface. Remove old gasket residue.</para></step>
+        <step><para>Install new light unit (P/N: NAV-LT-777-L-1). Use new gasket per IPC 33-41-00 Fig. 2.</para></step>
+        <step><para>Connect electrical plug J815. Verify latch engagement and wire strain relief.</para></step>
+        <step><para>Secure light housing with new screws. Torque to 9 in-lb per AMM 20-50-00.</para></step>
+      </mainProcedure>
+
+      <closeProcedure>
+        <step><para>Restore aircraft power. Turn on NAV lights using exterior lighting control panel.</para></step>
+        <step><para>Visually confirm left wingtip red light is illuminated and steady. No flicker or dimness.</para></step>
+        <step><para>Record part number, connector status, and technician ID in aircraft maintenance record.</para></step>
+      </closeProcedure>
+    </procedure>
+  </content>
+</dmodule>
+
+
+Integration Notes
+
+__________________________________________________________________________________________________________________________
+ Element	                              |   Aligned with Fault Isolation Task
+__________________________________________|_______________________________________________________________________________
+ Trigger logic	                          |   NAV LT FAIL from EICAS or visual walkaround, like ENG BLEED LEAK
+__________________________________________|_______________________________________________________________________________
+ Safety hierarchy	                      |   Identical structure: warning (shock), caution (seal), note (pilot report / BIT logic)
+__________________________________________|_______________________________________________________________________________
+ Post-repair validation	                  |   Visual confirmation matches pneumatic/avionics BIT confirmations
+__________________________________________|_______________________________________________________________________________
+
+
+__________________________________________________________________________________________________________________________
+
+
+Task: Lap Joint Skin Crack – External Stop-Drill and Doubler Repair
+
+System: ATA 51 – Structures
+Component: Fuselage skin (aluminum alloy), outer lap joint
+S1000D DMC: 53-30-00-07-00A-720A-P
+Location: Fuselage Zone 600–620, LH Sideframe Station 1400–1600
+
+
+A. Reverse-Engineering the Authoring Process
+
+Writer’s Data Sources
+
+__________________________________________________________________________________________________________________________
+ Source	                                  |   Purpose
+__________________________________________|_______________________________________________________________________________
+ SRM 53-30-00	                          |   Provides damage limits for skin cracks, doubler dimensions, stop-drill instructions
+__________________________________________|_______________________________________________________________________________
+ Material & Process Spec (MPS)	          |   Defines approved alloys, adhesives, rivet types
+__________________________________________|_______________________________________________________________________________
+ Fastener Manual (FEM)	                  |   Required for blind and universal head rivet selection and installation torque
+__________________________________________|_______________________________________________________________________________
+ Damage Assessment Manual	              |   Classification system: allow service, stop-drill, or RDA-required
+__________________________________________|_______________________________________________________________________________
+ Maintenance Zoning Layout	              |   Identifies structural station/frame/shell layout for correct reference
+__________________________________________|_______________________________________________________________________________
+ Corrosion Control Manual	              |   Advises post-repair treatment and paint touch-up procedure
+__________________________________________|_______________________________________________________________________________
+
+
+Repair Classification Logic
+
+A crack found on preflight or heavy maintenance is classified based on:
+
+    Length
+
+    Orientation (longitudinal or circumferential)
+
+    Proximity to fasteners
+
+    Overlap proximity to structural frames or stringers
+
+If below threshold, stop-drill + doubler is acceptable without engineering deviation.
+
+
+B. Engineering Justification Per Step
+
+__________________________________________________________________________________________________________________________
+ Step	                                  |   Reasoning
+__________________________________________|_______________________________________________________________________________
+ Mark limits	                          |   Required to track growth over time or match SRM drawing
+__________________________________________|_______________________________________________________________________________
+ Stop-drill crack	                      |   Arrests propagation by diffusing stress at tip
+__________________________________________|_______________________________________________________________________________
+ Install doubler	                      |   Restores load path and prevents fretting at lap edge
+__________________________________________|_______________________________________________________________________________
+ Corrosion inhibitor	                  |   Mandatory per CPC protocol post-blending or drilling
+__________________________________________|_______________________________________________________________________________
+
+
+C. S1000D-Compliant Task: Lap Joint Crack Repair
+
+DMC: 53-30-00-07-00A-720A-P
+
+<dmodule xmlns:xsi="http://www.s1000d.org/S1000D_4-1/xml/issue"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://www.s1000d.org/S1000D_4-1/xml/issue s1000d_4-1.xsd">
+
+  <identAndStatusSection>
+    <dmAddress>
+      <dmIdent>
+        <modelIdentCode></modelIdentCode>
+        <systemDiffCode>00</systemDiffCode>
+        <systemCode>53</systemCode>
+        <subSystemCode>30</subSystemCode>
+        <subSubSystemCode>00</subSubSystemCode>
+        <assyCode>07</assyCode>
+        <disassyCode>00A</disassyCode>
+        <disassyCodeVariant>A</disassyCodeVariant>
+        <infoCode>720</infoCode>
+        <infoCodeVariant>A</infoCodeVariant>
+        <itemLocationCode>P</itemLocationCode>
+      </dmIdent>
+      <issueInfo>
+        <issueNumber>001</issueNumber>
+        <inWork>01</inWork>
+      </issueInfo>
+    </dmAddress>
+    <dmStatus>
+      <security>01</security>
+      <responsiblePartnerCompany></responsiblePartnerCompany>
+      <originator>Structures Engineering</originator>
+      <applicability>
+        <applic></applic>
+      </applicability>
+      <language country="US">en</language>
+    </dmStatus>
+  </identAndStatusSection>
+
+  <content>
+    <procedure>
+      <preliminaryRqmts>
+        <preliminaryRqmtsDescr>Aircraft parked. Fuselage surface cool. Damage located and classified per SRM 53-30-00 Table 3.</preliminaryRqmtsDescr>
+        <safety>
+          <warning>
+            Use appropriate PPE when drilling or sanding aluminum. Debris may cause respiratory or eye injury.
+          </warning>
+          <caution>
+            Do not drill beyond 0.040 inch depth without engineering approval. Skin damage may propagate if overcut.
+          </caution>
+          <note>
+            This repair is valid only for Class I skin damage with a crack length &lt; 1.0 inch and &gt;0.5 inch from nearest fastener row.
+          </note>
+        </safety>
+      </preliminaryRqmts>
+
+      <mainProcedure>
+        <step><para>Clean affected area with solvent CPC-53-CL1. Dry fully.</para></step>
+        <step><para>Mark crack length using dye-penetrant or visual measurement. Scribe 0.25 inch margin around entire crack.</para></step>
+        <step><para>Stop-drill crack tip using #40 drill. Depth max 0.035 in. Deburr and clean.</para></step>
+        <step><para>Fabricate doubler from 2024-T3 per SRM Fig. 53-30-10. Size 1.5x crack length, radius corners.</para></step>
+        <step><para>Match drill doubler to skin using clecos. Edge distance minimum 2D from crack zone.</para></step>
+        <step><para>Install AN470-4 rivets, wet-install with sealant CPC-PR-1. Drive to flush condition.</para></step>
+        <step><para>Apply corrosion inhibitor to drilled area. Let cure 4 hours before paint.</para></step>
+      </mainProcedure>
+
+      <closeProcedure>
+        <step><para>Document damage, stop-drill diameter, doubler size, and fastener count in structural log.</para></step>
+        <step><para>Mark repaired area per Boeing SRM Labeling Chart 51-00-00-30. Stencil ID: “EXT-R53/1402/2024T3”</para></step>
+      </closeProcedure>
+    </procedure>
+  </content>
+</dmodule>
+
+
+Summary Integration
+
+__________________________________________________________________________________________________________________________
+ Item	                                  |   Matches ENG BLEED LEAK Task Standards
+__________________________________________|_______________________________________________________________________________
+ Warning/Caution/Note structure	          |   Fully mirrored
+__________________________________________|_______________________________________________________________________________
+ Trigger logic                            |	  Comes from visual inspection or NDT finding
+__________________________________________|_______________________________________________________________________________
+ Material and geometry control	          |   As strict as valve or avionics logic for connector alignment
+__________________________________________|_______________________________________________________________________________
+ Post-repair documentation	              |   Essential — logged, measured, stenciled, reported just like EICAS BIT or CMS status updates
+__________________________________________|_______________________________________________________________________________
+
+
+__________________________________________________________________________________________________________________________
+
+
+Task 1: Passenger Oxygen System – PSU Oxygen Mask Deployment Test
+
+System: ATA 25 – Equipment/Furnishings
+Component: Passenger Service Unit (PSU) – Drop-Down Oxygen Masks
+S1000D DMC: 25-35-00-06-00A-720A-P
+Location: Passenger Cabin Overhead – Zones 100–900
+
+
+A. Reverse-Engineered Authoring Breakdown
+
+__________________________________________________________________________________________________________________________
+ Source	                                  |   Purpose
+__________________________________________|_______________________________________________________________________________
+ ATA 35-00 Oxygen System Overview	        |   Logical interaction of valves, squibs, lines, PSUs
+__________________________________________|_______________________________________________________________________________
+ ATA 25 Equipment Arrangement	            |   PSU locations, ceiling access, electrical routing
+__________________________________________|_______________________________________________________________________________
+ Component Manual (e.g., B/E Aerospace)	  |   Squib specs, deployment angle, lanyard tension
+__________________________________________|_______________________________________________________________________________
+ Cabin Test Procedures	                   |   Non-destructive simulation of squib activation
+__________________________________________|_______________________________________________________________________________
+ FIM / BIT Diagnostic Linkage	            |   CMS triggers, failure detection logic (non-EICAS)
+__________________________________________|_______________________________________________________________________________
+ Safety Database	                         |   Squib discharge precautions, pressure and chemical hazards
+__________________________________________|_______________________________________________________________________________
+
+
+B. Technical & Safety Considerations
+
+__________________________________________________________________________________________________________________________
+ Step	                                  |   Justification
+__________________________________________|_______________________________________________________________________________
+ Power down	                              |   Prevents accidental squib firing during connector handling
+__________________________________________|_______________________________________________________________________________
+ Use mechanical tool	                  |   Ensures masks are deployed without damaging latches or initiating real chemical O₂ flow
+__________________________________________|_______________________________________________________________________________
+ Verify lanyard tension	                  |   Masks must drop to usable height; tether must fully extract
+__________________________________________|_______________________________________________________________________________
+ Reset latch	                          |   Required after test to return PSU to operational status
+__________________________________________|_______________________________________________________________________________
+
+
+C. S1000D-Compliant Task
+
+DMC: 25-35-00-06-00A-720A-P
+
+<dmodule xmlns:xsi="http://www.s1000d.org/S1000D_4-1/xml/issue"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://www.s1000d.org/S1000D_4-1/xml/issue s1000d_4-1.xsd">
+
+  <identAndStatusSection>
+    <dmAddress>
+      <dmIdent>
+        <modelIdentCode></modelIdentCode>
+        <systemDiffCode>00</systemDiffCode>
+        <systemCode>25</systemCode>
+        <subSystemCode>35</subSystemCode>
+        <subSubSystemCode>00</subSubSystemCode>
+        <assyCode>06</assyCode>
+        <disassyCode>00A</disassyCode>
+        <disassyCodeVariant>A</disassyCodeVariant>
+        <infoCode>720</infoCode>
+        <infoCodeVariant>A</infoCodeVariant>
+        <itemLocationCode>P</itemLocationCode>
+      </dmIdent>
+      <issueInfo>
+        <issueNumber>001</issueNumber>
+        <inWork>01</inWork>
+      </issueInfo>
+    </dmAddress>
+    <dmStatus>
+      <security>01</security>
+      <responsiblePartnerCompany></responsiblePartnerCompany>
+      <originator>Cabin Safety Systems Engineering</originator>
+      <applicability>
+        <applic></applic>
+      </applicability>
+      <language country="US">en</language>
+    </dmStatus>
+  </identAndStatusSection>
+
+  <content>
+    <procedure>
+      <preliminaryRqmts>
+        <preliminaryRqmtsDescr>Cabin depowered. PSU panel accessible. Passenger seat area cleared.</preliminaryRqmtsDescr>
+        <safety>
+          <warning>
+            Do not apply power to oxygen squibs during test. Uncontrolled gas release may occur.
+          </warning>
+          <caution>
+            Avoid pulling oxygen lanyard manually. This may activate chemical canister and release heat.
+          </caution>
+          <note>
+            Task supports CMS fault: PSU mask non-deployment or periodic testing per 25-00-00-810-801.
+          </note>
+        </safety>
+      </preliminaryRqmts>
+
+      <mainProcedure>
+        <step><para>Open ceiling panel to expose PSU test ports. Identify PSU ID (e.g., Row 24L).</para></step>
+        <step><para>Insert deployment tool (P/N: BEA-MSK-TEST-2) and rotate clockwise 45°.</para></step>
+        <step><para>Observe mask door opens and all 4 masks drop to full tether extension.</para></step>
+        <step><para>Visually inspect for damaged straps, stuck tethers, or blocked openings.</para></step>
+        <step><para>Reset deployment latch by hand. Verify door locks shut and system is armed.</para></step>
+      </mainProcedure>
+
+      <closeProcedure>
+        <step><para>Secure PSU panel. Record test in maintenance log with PSU serial and reset time.</para></step>
+      </closeProcedure>
+    </procedure>
+  </content>
+</dmodule>
+
+
+D. Alignment with ENG BLEED LEAK Task
+
+__________________________________________________________________________________________________________________________
+ Item	                                  |   Status
+__________________________________________|_______________________________________________________________________________
+ Fault trigger?	                          |   CMS / cabin crew report
+__________________________________________|_______________________________________________________________________________
+ Pre-check logic?	                      |   Yes — panel access, system armed state
+__________________________________________|_______________________________________________________________________________
+ Safety block?	                          |   Yes — electrical + chemical hazards noted
+__________________________________________|_______________________________________________________________________________
+ Log/tracking?	                          |   Mask system test logs required per airline procedure
+__________________________________________|_______________________________________________________________________________
+
+
+__________________________________________________________________________________________________________________________
+
+
+
+Task: Cargo Fire Detection Loop Replacement – Aft Cargo Bay
+
+System: ATA 26 – Fire Protection
+Component: Smoke Detection Loop (Thermistor Type)
+S1000D DMC: 26-22-00-04-00A-720A-P
+Location: Aft Cargo Bay Ceiling – Zone 775
+
+
+A. Reverse-Engineered Authoring Inputs
+
+__________________________________________________________________________________________________________________________
+ Source                                   |	  Used For
+__________________________________________|_______________________________________________________________________________
+ ATA 26 System Diagram	                  |   Identifies dual-loop architecture and interconnect routing
+__________________________________________|_______________________________________________________________________________
+ CMM from Sensor OEM                      |
+ (e.g., Meggitt, Kidde)	                  |   Thermistor lead specs, loop resistance limits
+__________________________________________|_______________________________________________________________________________
+ EWIS Harness Map	                      |   Connector routing and pinout
+__________________________________________|_______________________________________________________________________________
+ EICAS Fire Message Tree	              |   AFT CARGO FIRE DETECT triggers
+__________________________________________|_______________________________________________________________________________
+ Fault Isolation Manual (FIM)	          |   Path from resistance fault to loop replacement
+__________________________________________|_______________________________________________________________________________
+ Zone Safety Restrictions	              |   Hazardous materials, wiring bundling near heat zones
+__________________________________________|_______________________________________________________________________________
+ 
+
+B. Engineering Justification
+
+
+Step	Rationale
+Loop continuity check	Required before full replacement to confirm loop break
+Connector ID tagging	Prevents reversing loop A and B, which would trigger false EICAS logic
+Thermal wrap	Preserves accuracy of thermal response and protects adjacent wiring
+Resistance measurement post-install	Verifies that thermistor values are within fire detection thresholds
+C. S1000D-Compliant Task
+
+DMC: 26-22-00-04-00A-720A-P
+
+<dmodule xmlns:xsi="http://www.s1000d.org/S1000D_4-1/xml/issue"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://www.s1000d.org/S1000D_4-1/xml/issue s1000d_4-1.xsd">
+
+  <identAndStatusSection>
+    <dmAddress>
+      <dmIdent>
+        <modelIdentCode></modelIdentCode>
+        <systemDiffCode>00</systemDiffCode>
+        <systemCode>26</systemCode>
+        <subSystemCode>22</subSystemCode>
+        <subSubSystemCode>00</subSubSystemCode>
+        <assyCode>04</assyCode>
+        <disassyCode>00A</disassyCode>
+        <disassyCodeVariant>A</disassyCodeVariant>
+        <infoCode>720</infoCode>
+        <infoCodeVariant>A</infoCodeVariant>
+        <itemLocationCode>P</itemLocationCode>
+      </dmIdent>
+      <issueInfo>
+        <issueNumber>001</issueNumber>
+        <inWork>01</inWork>
+      </issueInfo>
+    </dmAddress>
+    <dmStatus>
+      <security>01</security>
+      <responsiblePartnerCompany></responsiblePartnerCompany>
+      <originator>Fire Protection Engineering</originator>
+      <applicability>
+        <applic></applic>
+      </applicability>
+      <language country="US">en</language>
+    </dmStatus>
+  </identAndStatusSection>
+
+  <content>
+    <procedure>
+      <preliminaryRqmts>
+        <preliminaryRqmtsDescr>Aircraft depowered. Aft cargo zone cleared. Fire loop disconnect verified via CMS fault or resistance check.</preliminaryRqmtsDescr>
+        <safety>
+          <warning>
+            Do not service fire loop with aircraft power on. Incorrect resistance may falsely activate cargo fire bottle.
+          </warning>
+          <caution>
+            Avoid routing detection loop near power bundles. Heat shielding must be reapplied after loop installation.
+          </caution>
+          <note>
+            Task applies to *AFT CARGO FIRE DETECT* logic in CMS. Confirm trigger source before replacement.
+          </note>
+        </safety>
+      </preliminaryRqmts>
+
+      <mainProcedure>
+        <step><para>Remove ceiling panel Zone 775. Locate loop connector J26-AFT-1.</para></step>
+        <step><para>Tag loop A and loop B leads. Disconnect loop A.</para></step>
+        <step><para>Unclip loop from mounting brackets. Remove aft thermistor wire from forward to aft bulkhead.</para></step>
+        <step><para>Install new detection loop (P/N: L26-F777-AFT-LOOP1). Use provided grommets and thermal wrap.</para></step>
+        <step><para>Secure loop to brackets. Do not exceed 1.5 inch bend radius.</para></step>
+        <step><para>Reconnect connector J26-AFT-1. Verify correct pin alignment and no corrosion.</para></step>
+      </mainProcedure>
+
+      <closeProcedure>
+        <step><para>Apply resistance check across Loop A. Value must be 4.3 ± 0.3 ohms. Confirm with CMS.</para></step>
+        <step><para>Log loop ID, location, resistance reading, and technician ID in fire protection maintenance record.</para></step>
+      </closeProcedure>
+    </procedure>
+  </content>
+</dmodule>
+
+D. Integration Notes
+Field	Behavior
+Fault trigger	AFT CARGO FIRE DETECT (Level 1 caution) – linked to thermistor logic
+System interaction	Loop runs parallel with ECS ducting; heat misidentification possible if routing is improper
+Test mechanism	CMS resistance test validates thermistor continuity and range
+Safety lockout	Cargo fire suppression system must be disarmed prior to work
+
+
+
+Task 2: Flap Asymmetry Sensor Removal and Replacement
+
+System: ATA 27 – Flight Controls
+Component: Outboard Flap Asymmetry Position Sensor
+S1000D DMC: 27-51-00-04-00A-720A-P
+Location: Left Wing Rear Spar, Zone 575
+
+
+A. Reverse-Engineered Authoring Inputs
+
+__________________________________________________________________________________________________________________________
+ Source	                                  |   Used For
+__________________________________________|_______________________________________________________________________________
+ ATA 27 System Layout	                  |   Position of outboard flap actuators, sensor interface
+__________________________________________|_______________________________________________________________________________
+ CMM (e.g., Moog or BAE)	              |   Sensor range, calibration, mounting detail
+__________________________________________|_______________________________________________________________________________
+ Flight Control Fault Tree	              |   FLT CTRL F/ASYM DETECTED alert trigger logic
+__________________________________________|_______________________________________________________________________________
+ EWIS Routing & Sensor Bus Map	          |   Sensor connector ID, wire routing to ACE (Actuator Control Electronics)
+__________________________________________|_______________________________________________________________________________
+ Standard Practices Ch. 20	              |   Fastener torque, EMI shielding, grounding verification
+__________________________________________|_______________________________________________________________________________
+ Flight Test Reports	                  |   Benchmarks for allowable voltage range and fail-safe conditions
+__________________________________________|_______________________________________________________________________________
+
+
+B. Engineering and Procedural Justification
+
+__________________________________________________________________________________________________________________________
+ Step	                                  |   Reason
+__________________________________________|_______________________________________________________________________________
+ Lockout flight control power	          |   Prevents surface movement and voltage through sensor bus
+__________________________________________|_______________________________________________________________________________
+ Remove wing access panel	              |   Provides clearance to unbolt sensor and test for rotational play
+__________________________________________|_______________________________________________________________________________
+ Orientation mark before removal	      |   Ensures correct angular offset for sensor alignment during install
+__________________________________________|_______________________________________________________________________________
+ CMS BIT after install	                  |   Validates signal range, dropout tolerance, and surface agreement
+__________________________________________|_______________________________________________________________________________
+
+
+C. S1000D-Compliant Task
+
+DMC: 27-51-00-04-00A-720A-P
+
+<dmodule xmlns:xsi="http://www.s1000d.org/S1000D_4-1/xml/issue"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://www.s1000d.org/S1000D_4-1/xml/issue s1000d_4-1.xsd">
+
+  <identAndStatusSection>
+    <dmAddress>
+      <dmIdent>
+        <modelIdentCode></modelIdentCode>
+        <systemDiffCode>00</systemDiffCode>
+        <systemCode>27</systemCode>
+        <subSystemCode>51</subSystemCode>
+        <subSubSystemCode>00</subSubSystemCode>
+        <assyCode>04</assyCode>
+        <disassyCode>00A</disassyCode>
+        <disassyCodeVariant>A</disassyCodeVariant>
+        <infoCode>720</infoCode>
+        <infoCodeVariant>A</infoCodeVariant>
+        <itemLocationCode>P</itemLocationCode>
+      </dmIdent>
+      <issueInfo>
+        <issueNumber>001</issueNumber>
+        <inWork>01</inWork>
+      </issueInfo>
+    </dmAddress>
+    <dmStatus>
+      <security>01</security>
+      <responsiblePartnerCompany></responsiblePartnerCompany>
+      <originator>Flight Controls Engineering</originator>
+      <applicability>
+        <applic></applic>
+      </applicability>
+      <language country="US">en</language>
+    </dmStatus>
+  </identAndStatusSection>
+
+  <content>
+    <procedure>
+      <preliminaryRqmts>
+        <preliminaryRqmtsDescr>Aircraft powered down. Flight control lock installed. Wing access panel 575L removed.</preliminaryRqmtsDescr>
+        <safety>
+          <warning>
+            Do not service flap asymmetry sensors with hydraulic or electrical power applied. Risk of uncommanded surface movement.
+          </warning>
+          <caution>
+            Sensor must be installed in correct angular orientation. Misalignment may trigger false asymmetry fault.
+          </caution>
+          <note>
+            Task applies to *FLT CTRL F/ASYM DETECTED* alerts or sensor non-response in CMS sensor diagnostics.
+          </note>
+        </safety>
+      </preliminaryRqmts>
+
+      <mainProcedure>
+        <step><para>Mark sensor housing orientation relative to flap drive torque shaft.</para></step>
+        <step><para>Disconnect connector J27-LF-ASYM1. Tag wires and secure from flap linkage.</para></step>
+        <step><para>Remove two mounting bolts. Withdraw sensor housing. Inspect gear teeth and pin alignment.</para></step>
+        <step><para>Install new sensor (P/N: ASYM-777-L-O2). Align with scribe mark and verify gear mesh.</para></step>
+        <step><para>Secure with bolts torqued to 55 in-lb. Reconnect J27-LF-ASYM1 and verify latch lock.</para></step>
+      </mainProcedure>
+
+      <closeProcedure>
+        <step><para>Restore flight control power. Use CMS → Flight Control → Sensor Check page to verify angle agreement.</para></step>
+        <step><para>Confirm no EICAS asymmetry message present. Record sensor P/N, orientation angle, and CMS result in maintenance record.</para></step>
+      </closeProcedure>
+    </procedure>
+  </content>
+</dmodule>
+
+D. Integration Notes
+
+__________________________________________________________________________________________________________________________
+ Area	                                  |   Alignment
+__________________________________________|_______________________________________________________________________________
+ Fault-driven logic	                      |   F/ASYM DETECTED triggers CMS → BIT → AMM task callout
+__________________________________________|_______________________________________________________________________________
+ Sensor system integration	              |   Data routed to ACEs; cross-referenced with flap actuator motion for fault detection
+__________________________________________|_______________________________________________________________________________
+ Mechanical vs electrical interface	      |   Removal requires mechanical alignment and electrical continuity validation
+__________________________________________|_______________________________________________________________________________
+ EICAS/CMS post-validation	              |   Matches ENG BLEED LEAK and GCU tasks for CMS usage and final condition check
+__________________________________________|_______________________________________________________________________________
+
+
+
+
+
