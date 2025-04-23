@@ -423,7 +423,7 @@ ______________________________________________|_________________________________
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-🛞 Nose Landing Gear Retraction Actuator Replacement
+Nose Landing Gear Retraction Actuator Replacement
 
 From: AMM BOEING 777 LANDING GEAR.PDF
 ATA Chapter: 32 – Landing Gear
@@ -599,6 +599,7 @@ Nose Gear Retraction Sequence	Graphical flow of actuator movement during functio
 Downlock Pin Install	Safe restraint diagram with pin alignment
 
 
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 🛞 Main Landing Gear Brake Wear Pin Inspection and Replacement
 
@@ -606,17 +607,19 @@ From: AMM BOEING 777 LANDING GEAR.PDF
 ATA Chapter: 32 – Landing Gear
 S1000D DMC: 32-41-01-04-00A-720A-P
 
+
 This task is critical for:
 
-    Preventing brake overheat and fade due to excessive lining wear
+    - Preventing brake overheat and fade due to excessive lining wear
 
-    Maintaining compliance with minimum wear limits specified by the Brake Manufacturer CMM
+    - Maintaining compliance with minimum wear limits specified by the Brake Manufacturer CMM
 
-    Enabling in-service brake life tracking, part serial traceability, and return-to-service compliance
+    - Enabling in-service brake life tracking, part serial traceability, and return-to-service compliance
 
-    Ensuring wear pin accuracy without wheel/tire or heat shield removal
+    - Ensuring wear pin accuracy without wheel/tire or heat shield removal
 
-⚠️ S1000D-Compliant Task (Including CAUTION, WARNING, NOTE, and Cross-Referencing)
+
+S1000D-Compliant Task (Including CAUTION, WARNING, NOTE, and Cross-Referencing)
 
 <dmodule xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xmlns="http://www.s1000d.org/S1000D_4-1/xml/issue"
@@ -730,22 +733,29 @@ This task is critical for:
   </content>
 </dmodule>
 
-🧠 Behind the Scenes — Writer’s Inputs & Decisions
-✍️ Engineering Sources Required
+
+Behind the Scenes — Writer’s Inputs & Decisions
+
+Engineering Sources Required
+
 Document	Used For
 Brake Assembly Drawing (ATA 32-41)	Location of wear pin, thread type, torque spec
 Wear Limits Chart (from CMM or AMM)	Establishes rejectable thickness, pin protrusion tolerance
 Gauge Tool Calibration Procedure	Ensures tool accuracy for maintenance use
 IPC Reference	Part numbers for pins, access screws, and shields
 Torque Standards (ATA 20)	For installing replacement wear pins and access covers
-🛠️ Key Authoring Considerations
+
+Key Authoring Considerations
+
 Consideration	Details
 Thermal Safety	Brake temperatures above 50°C cause inaccurate readings and personal injury risks
 Wear Limit Accuracy	Mistaking pin deflection or deformation for wear gives false life expectancy
 Pin Replacement Risk	Over-torquing or incorrect orientation can result in in-flight failure of brake wear indication logic
 Fastener Treatment	All brake access screws are treated with anti-seize or corrosion inhibitors per SRM and AMM spec
 Line Maintenance Compatibility	Task must be executable with aircraft on ramp, under time constraint, with minimal tooling
-🖼️ Illustrations Typically Needed
+
+
+Illustrations Typically Needed
 Visual Type	Description
 Brake Assembly View	Highlights wear pin position and access slot
 Wear Gauge Tool Use	Shows depth measurement technique and proper engagement angle
@@ -753,8 +763,9 @@ Pin Replacement Diagram	Threads, detent, torque location
 Wear Tolerance Chart	Callouts for “Replace” zone, warning range, and nominal depth
 
 
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-🛞 Main Landing Gear Shock Strut Disassembly and Seal Replacement
+Main Landing Gear Shock Strut Disassembly and Seal Replacement
 
 From: AMM BOEING 777 LANDING GEAR.PDF
 ATA Chapter: 32 – Landing Gear
@@ -762,15 +773,16 @@ S1000D DMC: 32-11-00-04-00A-720A-P
 
 This task is required:
 
-    When fluid or nitrogen leakage is detected at the strut body, piston seal, or gland
+    - When fluid or nitrogen leakage is detected at the strut body, piston seal, or gland
 
-    During scheduled maintenance when service life limits on seals are reached
+    - During scheduled maintenance when service life limits on seals are reached
 
-    After hard landings triggering inspection limits in MPD or SRM
+    - After hard landings triggering inspection limits in MPD or SRM
 
-    When oleo extension is abnormal despite correct nitrogen pressure
+    - When oleo extension is abnormal despite correct nitrogen pressure
 
-⚠️ S1000D-Compliant Task (Including CAUTION, WARNING, NOTE, and Cross-Referencing)
+
+S1000D-Compliant Task (Including CAUTION, WARNING, NOTE, and Cross-Referencing)
 
 <dmodule xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xmlns="http://www.s1000d.org/S1000D_4-1/xml/issue"
@@ -893,8 +905,11 @@ This task is required:
   </content>
 </dmodule>
 
-🧠 Behind the Scenes — Writer’s Inputs & Decisions
-✍️ Engineering Sources Required
+
+Behind the Scenes — Writer’s Inputs & Decisions
+
+Engineering Sources Required
+
 Document	Used For
 Strut Assembly & Cross-Section Drawing	Gland nut thread spec, seal orientation, torque values
 Seal Kit BOM from Vendor (e.g., Safran/Collins)	O-ring materials, dimensions, approved substitute
@@ -902,7 +917,9 @@ Hydraulic Fluid Compatibility Chart	To ensure correct fluid used for given seal 
 Nitrogen Charging Table (ATA 12-15-01)	For correct strut pressure and static extension vs aircraft weight
 IPC (32-11-00)	Part number verification for all removed/replaced components
 Safety Service Bulletins	Updated gland torque or seal change recommendations
-🛠️ Key Authoring Considerations
+
+Key Authoring Considerations
+
 Consideration	Details
 Pressure Risk	Writers must emphasize residual gas bleed-out — even “empty” struts can contain >400 psi
 Seal Compatibility	Wrong material = seal swell, deterioration, and catastrophic loss of oleo pressure
@@ -916,8 +933,9 @@ Gland Nut Torque Chart	Tightening sequence, torque zone highlights
 Nitrogen Charging Table	Weight vs extension vs pressure (graph or tabular)
 
 
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-🛞 Main Landing Gear Uplock Latch Lubrication and Engagement Test
+Main Landing Gear Uplock Latch Lubrication and Engagement Test
 
 From: AMM BOEING 777 LANDING GEAR.PDF
 ATA Chapter: 32 – Landing Gear
@@ -925,15 +943,16 @@ S1000D DMC: 32-31-02-06-00A-720A-P
 
 This task is required:
 
-    At specified intervals per the Maintenance Planning Document (MPD)
+    - At specified intervals per the Maintenance Planning Document (MPD)
 
-    After a reported uplock disengagement fault in the Central Maintenance System (CMS)
+    - After a reported uplock disengagement fault in the Central Maintenance System (CMS)
 
-    Following disassembly of the uplock roller, latch, or sensor bracket
+    - Following disassembly of the uplock roller, latch, or sensor bracket
 
-    After a gear swing test where latch engagement was delayed or incomplete
+    - After a gear swing test where latch engagement was delayed or incomplete
 
-⚠️ S1000D-Compliant Task (Including CAUTION, WARNING, NOTE, and Cross-Referencing)
+
+S1000D-Compliant Task (Including CAUTION, WARNING, NOTE, and Cross-Referencing)
 
 <dmodule xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xmlns="http://www.s1000d.org/S1000D_4-1/xml/issue"
@@ -1053,21 +1072,27 @@ This task is required:
   </content>
 </dmodule>
 
-🧠 Behind the Scenes — Writer’s Inputs & Decisions
-✍️ Engineering Sources Required
+
+Behind the Scenes — Writer’s Inputs & Decisions
+
+Engineering Sources Required
+
 Document	Used For
 Uplock Mechanism Drawing	Defines cam surface, latch/roller dimensions, motion arc
 Lubricant Specification Sheets	To confirm temperature range and proximity sensor compatibility
 CMS Integration Manual	Uplock signal ranges and test access locations
 Functional Test AMM (ATA 32-00-00)	Ensures gear swing performs latch check validation
 Torque Spec Reference (ATA 20)	Applies to latch fairing fasteners and bracket bolts
-🛠️ Key Authoring Considerations
+
+Key Authoring Considerations
 Consideration	Details
 Sensor Protection	Lube can degrade sensor accuracy — must be kept off inductive target surfaces
 Cold-Weather Performance	Lube must remain viscous and non-binding at -55°C typical cruise soak
 Latch Audio/Tactile Feedback	Audible “click” + visual confirmation of roller lock are required for airworthiness check
 Functional Synchronization	Latch engagement must complete before gear reaches upstop in full retraction — test validates timing
-🖼️ Illustrations Typically Needed
+
+
+Illustrations Typically Needed
 Visual Type	Description
 Uplock Latch Diagram	Includes roller, cam, actuator clevis, and proximity sensor zone
 Lubrication Points Callout	Brush/syringe application zones, no-go zones near sensors
@@ -1075,8 +1100,9 @@ Functional Test Profile	Gear stroke vs. latch engagement timing (graphical timin
 CMS Output Chart	Sensor logic: engaged = 28V → proximity module = HIGH
 
 
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-🛞 Main Landing Gear Door Actuator Replacement
+Main Landing Gear Door Actuator Replacement
 
 From: AMM BOEING 777 LANDING GEAR.PDF
 ATA Chapter: 32 – Landing Gear
@@ -1084,15 +1110,16 @@ S1000D DMC: 32-12-00-04-00A-720A-P
 
 This task is required:
 
-    After failure of the door actuator to fully extend or retract the gear door during gear cycle
+    - After failure of the door actuator to fully extend or retract the gear door during gear cycle
 
-    When hydraulic leaks are observed at actuator body or rod seals
+    - When hydraulic leaks are observed at actuator body or rod seals
 
-    After door damage or actuator removal for access
+    - After door damage or actuator removal for access
 
-    As part of a corrosion prevention program (CPCP) or MPD-driven interval
+    - As part of a corrosion prevention program (CPCP) or MPD-driven interval
 
-⚠️ S1000D-Compliant Task (Including CAUTION, WARNING, NOTE, and Cross-Referencing)
+
+S1000D-Compliant Task (Including CAUTION, WARNING, NOTE, and Cross-Referencing)
 
 <dmodule xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xmlns="http://www.s1000d.org/S1000D_4-1/xml/issue"
@@ -1218,21 +1245,28 @@ This task is required:
   </content>
 </dmodule>
 
-🧠 Behind the Scenes — Writer’s Inputs & Decisions
-✍️ Engineering Sources Required
+
+Behind the Scenes — Writer’s Inputs & Decisions
+
+Engineering Sources Required
+
 Document	Used For
 Gear Door Kinematic Drawing	Establishes actuator stroke range, bracket geometry
 Hydraulic Line Schematics (ATA 29)	Identifies A/B system routing and port configuration
 Access Panel Location Diagrams (ATA 06/57)	Shows which panels open actuator zone (STA 1390)
 Functional Test (ATA 32-00-00-710)	Ensures doors move in correct sequence and latch correctly
 Actuator Maintenance Manual (CMM)	Contains stroke specs, fitting threads, part numbers
-🛠️ Key Authoring Considerations
+
+Key Authoring Considerations
+
 Consideration	Details
 Door Alignment Sensitivity	Misaligned actuator causes chafing, drag, or delayed latching
 Rod Surface Handling	Even minor scratches can lead to rod seal damage and leaks
 Hydraulic Line Routing	Prevents bending or kinking lines near flexible fittings during reinstall
 Test After Install	Must validate door stroke, speed, and sequencing with main gear motion
-🖼️ Illustrations Typically Needed
+
+
+Illustrations Typically Needed
 Visual Type	Description
 Actuator Mount Diagram	Bolt locations, hydraulic ports, and routing guides
 Gear Door Support Fixture	Proper use and interface with door during unpowered removal
@@ -1240,8 +1274,9 @@ Stroke Range Overlay	Min/Max actuator extension for rigging verification
 System Routing Cutaway	Shows actuator → door bracket → GCU signal path
 
 
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-🛞 Main Landing Gear Proximity Sensor Alignment and Functional Test
+Main Landing Gear Proximity Sensor Alignment and Functional Test
 
 From: AMM BOEING 777 LANDING GEAR.PDF and ELECTRICAL SYSTEMS.PDF
 ATA Chapter: 32 – Landing Gear (cross-linked to ATA 92 – Electrical Sensing & Switching)
@@ -1249,15 +1284,16 @@ S1000D DMC: 32-61-00-04-00A-720A-P
 
 This task is performed:
 
-    After sensor replacement or removal
+    - After sensor replacement or removal
 
-    Following gear component changes affecting uplock/downlock positioning
+    - Following gear component changes affecting uplock/downlock positioning
 
-    When CMS or EICAS reports gear disagree, gear not up/down or ambiguous signal
+    - When CMS or EICAS reports gear disagree, gear not up/down or ambiguous signal
 
-    During scheduled sensor verification intervals (MPD Ref: 32-61-00-210-801)
+    - During scheduled sensor verification intervals (MPD Ref: 32-61-00-210-801)
 
-⚠️ S1000D-Compliant Task (Including CAUTION, WARNING, NOTE, and Cross-Referencing)
+
+S1000D-Compliant Task (Including CAUTION, WARNING, NOTE, and Cross-Referencing)
 
 <dmodule xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xmlns="http://www.s1000d.org/S1000D_4-1/xml/issue"
@@ -1368,21 +1404,28 @@ This task is performed:
   </content>
 </dmodule>
 
-🧠 Behind the Scenes — Writer’s Inputs & Decisions
-✍️ Engineering Sources Required
+
+Behind the Scenes — Writer’s Inputs & Decisions
+
+Engineering Sources Required
+
 Document	Used For
 Proximity Sensor Mounting Drawing	Establishes mechanical clearance, gap tolerances, sensor housing constraints
 Wiring Diagram Manual (ATA 92)	Details signal routing from sensor to proximity module and CMS
 Functional Logic Chart (CMS Interface)	Tells writers how gear status maps to HIGH/LOW signals at each gear state
 Torque and Fastener Guidelines	Required for proper bracket securing and torque seal application
 Test Bench Values	Verifies electrical state transitions align with gear movement
-🛠️ Key Authoring Considerations
+
+Key Authoring Considerations
+
 Consideration	Details
 Sensor Gap Sensitivity	Affects timing of gear up/down indication — even 0.020" variation impacts CMS logic
 Cross-System Signal Behavior	Must match FCC, PFC, and CMS — test values are mapped against EICAS display logic
 Sensor Polarity and Bracket Positioning	Must not be reversed — pinout determines logic state
 Functional Timing Verification	Indication must transition within 0.5 sec of mechanical latch movement
-🖼️ Illustrations Typically Needed
+
+
+Illustrations Typically Needed
 Visual Type	Description
 Sensor Mounting Cutaway	Shows bracket, sensor tip, target zone, and adjustment range
 Feeler Gauge Application Diagram	How to measure and adjust gaps
@@ -1390,8 +1433,9 @@ CMS Logic Signal Chart	Maps sensor HIGH/LOW states to gear mechanical state
 Test Connector Layout	P92-A12 pin breakout for multimeter connections
 
 
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-🛞 Alternate Gear Extension System – Override Test and Rigging
+Alternate Gear Extension System – Override Test and Rigging
 
 From: AMM BOEING 777 LANDING GEAR.PDF and CMS ELECTRICAL LOGIC.PDF
 ATA Chapter: 32 – Landing Gear
@@ -1399,15 +1443,16 @@ S1000D DMC: 32-30-00-06-00A-720A-P
 
 This task is required:
 
-    After manual override cable or handle replacement
+    - After manual override cable or handle replacement
 
-    Following any gear actuator R&R that may affect alternate system geometry
+    - Following any gear actuator R&R that may affect alternate system geometry
 
-    To validate system function after CMS-reported faults
+    - To validate system function after CMS-reported faults
 
-    As part of a scheduled check interval under the MPD or Zonal Inspection Program
+    - As part of a scheduled check interval under the MPD or Zonal Inspection Program
 
-⚠️ S1000D-Compliant Task (Including CAUTION, WARNING, NOTE, and Cross-Referencing)
+
+S1000D-Compliant Task (Including CAUTION, WARNING, NOTE, and Cross-Referencing)
 
 <dmodule xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xmlns="http://www.s1000d.org/S1000D_4-1/xml/issue"
@@ -1521,21 +1566,28 @@ This task is required:
   </content>
 </dmodule>
 
-🧠 Behind the Scenes — Writer’s Inputs & Decisions
-✍️ Engineering Sources Required
+
+Behind the Scenes — Writer’s Inputs & Decisions
+
+Engineering Sources Required
+
 Document	Used For
 Override Cable Routing Diagram	Establishes pulley geometry, turnbuckle access, tension specs
 Proximity Sensor Integration Table (ATA 32/92)	Ensures logic transitions match gear physical state
 CMS Diagnostic Output Logs	Verifies gear status reported under alternate release conditions
 Functional Test Manual (ATA 32-00)	Confirms integration with normal gear retraction system
 Torque Standards & Cable Tension Charts (ATA 20)	Used for turnbuckle lock and preload range
-🛠️ Key Authoring Considerations
+
+Key Authoring Considerations
+
 Consideration	Details
 Stroke Length Accuracy	Cable must be rigged to provide full uplock disengagement within handle's motion range
 Mechanical Redundancy	System is independent of FCC logic — test must verify purely mechanical functionality
 CMS Integration Check	Even mechanical actions must confirm signal transition to ensure flight deck and maintenance alerts work
 Preload Settings	Writers must clarify turnbuckle adjustment range with feeler gauge or load cell preload validation
-🖼️ Illustrations Typically Needed
+
+
+Illustrations Typically Needed
 Visual Type	Description
 Override Cable Path	Includes all pulleys, fairleads, and access panels
 Rig Pin Installation	Used to simulate uplock disengagement stroke
@@ -1543,9 +1595,9 @@ Turnbuckle Adjustment Detail	Show preload measurement technique
 Signal Logic Diagram	Maps uplock state to CMS indication HIGH/LOW
 
 
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-
-🛫 Elevator Neutral Position Rigging Procedure
+Elevator Neutral Position Rigging Procedure
 
 From: AMM BOEING 777 FLIGHT CONTROLS.PDF
 ATA Chapter: 27 – Flight Controls
@@ -1553,15 +1605,16 @@ S1000D DMC: 27-32-00-04-00A-720A-P
 
 This task is critical for:
 
-    Ensuring proper control column-to-elevator alignment
+    - Ensuring proper control column-to-elevator alignment
 
-    Restoring correct pitch response logic post-mechanical replacement or linkage adjustment
+    - Restoring correct pitch response logic post-mechanical replacement or linkage adjustment
 
-    Preserving FBW trim bias, elevator-to-stabilizer blending, and sensor calibration
+    - Preserving FBW trim bias, elevator-to-stabilizer blending, and sensor calibration
 
-    Preventing asymmetric response or mistrimmed feel during takeoff
+    - Preventing asymmetric response or mistrimmed feel during takeoff
 
-⚠️ S1000D-Compliant Task (Including CAUTION, WARNING, NOTE and Cross-Referencing)
+
+S1000D-Compliant Task (Including CAUTION, WARNING, NOTE and Cross-Referencing)
 
 <dmodule xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xmlns="http://www.s1000d.org/S1000D_4-1/xml/issue"
@@ -1687,8 +1740,11 @@ This task is critical for:
   </content>
 </dmodule>
 
-🧠 Behind the Scenes — Writer’s Inputs & Decisions
-✍️ Engineering Sources Required
+
+Behind the Scenes — Writer’s Inputs & Decisions
+
+Engineering Sources Required
+
 Document	Used For
 Elevator Kinematic Chain Drawing	Pin location, control rod routing, actuator stroke alignment
 AMM 27-30-00 / 22-11-00	Controls linkage setup, actuator override access
@@ -1697,7 +1753,9 @@ Torque Spec Manual (20-50-00)	Defines standard fitting torque + fastener breakaw
 Aircraft Jacking/Leveling (08-10-00)	Required to ensure elevator TE alignment is not falsely offset by attitude
 FCC Manual Override Logic (22-11-00)	Needed to disengage digital trim control for manual mechanical cycling
 Flight Test Support (FCS Configuration Log)	Ensures documentation for delivery or return-to-service
-🛠️ Key Authoring Considerations
+
+Key Authoring Considerations
+
 Consideration	Detail
 Control Loop Consistency	Pitch logic and stabilizer blending depends on tight neutral-range fidelity
 System Interference	FCCs, trim logic, and hydraulic actuators must be isolated to prevent override
@@ -1705,12 +1763,189 @@ Precision of Tools	Contour gauge or digital inclinometer needed (±0.1° resolut
 Access Complexity	Linkages cross internal panels, require safe crawl access
 Post-Task Verification	Test step mandatory to validate no hysteresis or slop after rig pin removal
 Backdriving Risks	Incorrect trim logic can ‘fight’ manual input if not properly disabled in override
-🖼️ Illustrations Typically Needed
+
+
+Illustrations Typically Needed
 Visual Type	Description
 Elevator Linkage Cutaway	Shows rod ends, hinge points, actuator junctions
 Rig Pin Diagram	Location of pin holes and pin alignment bushing
 Control Column Rigging Schematic	Shows elevator-neutral to yoke-neutral correlation
 Cycle Verification Table	Measurement record form (deflection vs rig cycle)
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Main and Nose Landing Gear Wheel and Tire Removal with Brake Line Disconnection
+
+From: AMM BOEING 777 LANDING GEAR.PDF
+ATA Chapter: 32 – Landing Gear
+S1000D DMC: 32-42-00-04-00A-720A-P
+
+
+This task is required for:
+
+    - Tire wear reaching tread or shoulder limits
+
+    - Brake component replacement or inspection
+
+    - Wheel or rim damage due to FOD
+
+    - Aircraft dispatch under MEL for brake isolation
+
+    - Routine tire change intervals under MPD compliance
+
+
+S1000D-Compliant Task (Including CAUTION, WARNING, NOTE, and Cross-Referencing)
+
+<dmodule xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://www.s1000d.org/S1000D_4-1/xml/issue"
+         xsi:schemaLocation="http://www.s1000d.org/S1000D_4-1/xml/issue s1000d_4-1.xsd">
+
+  <identAndStatusSection>
+    <dmAddress>
+      <dmIdent>
+        <modelIdentCode>777</modelIdentCode>
+        <systemDiffCode>00</systemDiffCode>
+        <systemCode>32</systemCode>
+        <subSystemCode>42</subSystemCode>
+        <subSubSystemCode>00</subSubSystemCode>
+        <assyCode>04</assyCode>
+        <disassyCode>00A</disassyCode>
+        <disassyCodeVariant>A</disassyCodeVariant>
+        <infoCode>720</infoCode>
+        <infoCodeVariant>A</infoCodeVariant>
+        <itemLocationCode>P</itemLocationCode>
+      </dmIdent>
+      <issueInfo>
+        <issueNumber>001</issueNumber>
+        <inWork>01</inWork>
+      </issueInfo>
+    </dmAddress>
+    <dmStatus>
+      <security>01</security>
+      <responsiblePartnerCompany>Boeing</responsiblePartnerCompany>
+      <originator>Landing Gear Maintenance Engineering</originator>
+      <applicability>
+        <applic>777-300ER</applic>
+      </applicability>
+      <language country="US">en</language>
+    </dmStatus>
+  </identAndStatusSection>
+
+  <content>
+    <procedure>
+      <preliminaryRqmts>
+        <preliminaryRqmtsDescr>Aircraft on jacks and leveled (Ref: AMM 08-10-00). Hydraulic system B depressurized. Wheel brake temperature < 50°C. Ground safety zones established.</preliminaryRqmtsDescr>
+        <safety>
+          <warning>
+            Do not loosen wheel nuts or disconnect brake lines when tire is under pressure or hot. Tire explosion or hydraulic spray may cause injury or death.
+          </warning>
+          <caution>
+            Never reuse wheel nuts or hydraulic O-rings. Always install new, approved hardware per IPC and AMM torque values.
+          </caution>
+          <note>
+            Brake disconnection must follow clean line handling procedures. Cap and plug all fittings to avoid contamination (Ref: AMM 29-10-00).
+          </note>
+        </safety>
+      </preliminaryRqmts>
+
+      <mainProcedure>
+        <step>
+          <para>Ensure gear is extended and supported. Install gear door safety pins and hydraulic ground locks (Ref: AMM 32-00-00).</para>
+        </step>
+        <step>
+          <para>On MLG: Remove brake dust shield and disconnect hydraulic supply and return lines. Plug lines with MS21921-6 caps. Catch residual fluid with absorbent pad.</para>
+        </step>
+        <step>
+          <para>Remove wheel nut safety wire. Using torque wrench, loosen wheel nuts in star pattern. Discard removed nuts (Ref: IPC 32-42-00, Fig. 5).</para>
+        </step>
+        <step>
+          <para>Attach wheel sling (PN: TOOL-WHL-LIFT-777) and support assembly. Withdraw wheel and tire from axle carefully.</para>
+        </step>
+        <step>
+          <para>For NLG: Repeat above steps, noting smaller nut torque and lighter brake line fittings.</para>
+        </step>
+        <step>
+          <para>Inspect wheel assembly, brake carrier, torque tube, axle nut threads, and brake pistons for damage or contamination.</para>
+        </step>
+      </mainProcedure>
+
+      <closeProcedure>
+        <step>
+          <para>Cap and tag disconnected brake lines with component label and removal date. Record in maintenance control system.</para>
+        </step>
+        <step>
+          <para>Store removed wheels on approved storage cradle. Ensure tires are deflated if being scrapped or returned for retread.</para>
+        </step>
+      </closeProcedure>
+
+      <crossRefTable>
+        <dmRef>
+          <dmRefIdent>
+            <dmCode>08-10-00-870-801</dmCode>
+            <title>Aircraft Jacking and Leveling</title>
+          </dmRefIdent>
+        </dmRef>
+        <dmRef>
+          <dmRefIdent>
+            <dmCode>29-10-00-870-801</dmCode>
+            <title>Hydraulic Line Handling – Cap/Plug and Cleanliness Procedure</title>
+          </dmRefIdent>
+        </dmRef>
+        <dmRef>
+          <dmRefIdent>
+            <dmCode>32-42-00-220-801</dmCode>
+            <title>Wheel and Axle Thread Inspection Criteria</title>
+          </dmRefIdent>
+        </dmRef>
+        <dmRef>
+          <dmRefIdent>
+            <dmCode>32-42-00-710-801</dmCode>
+            <title>Post-Wheel Installation Torque and Leak Test</title>
+          </dmRefIdent>
+        </dmRef>
+        <dmRef>
+          <dmRefIdent>
+            <dmCode>05-00-00-200-801</dmCode>
+            <title>Landing Gear Component Tracking and Removal Log</title>
+          </dmRefIdent>
+        </dmRef>
+      </crossRefTable>
+    </procedure>
+  </content>
+</dmodule>
+
+
+Behind the Scenes — Writer’s Inputs & Decisions
+
+Engineering Sources Required
+
+Document	Used For
+Wheel & Brake Assembly Drawings	Confirms nut torque, cap sizing, wheel weight, removal angle
+Hydraulic Schematic (ATA 29)	Identifies brake line pressure, routing, valve paths
+IPC and Illustrated Diagrams	Part numbers for wheel nuts, caps, seals, sling bracket
+Tire Manual or CMM	Used for scrap, retread, or reuse decisions
+Thread Wear Limits	Determines whether axle stub and nut threads are airworthy post-removal
+
+Key Authoring Considerations
+
+Consideration	Details
+Ground Safety	Deflated tires may still contain residual pressure — must be cooled and fully bled before removal
+Hydraulic Cleanliness	Any brake line disconnection = high contamination risk — must follow cap/plug procedure
+Torque Sequence	Must specify cross-pattern wheel bolt loosening to prevent rotor warp
+Line Labeling & Tracking	Writers ensure procedures track removed assemblies and match serial data to aircraft tail numbers
+
+
+Illustrations Typically Needed
+Visual Type	Description
+Wheel Nut Torque Pattern	Loosening and tightening star sequence
+Wheel Sling Attachment	Shows lifting angles and bracket positions
+Brake Line Cap/Plug Diagram	With line ID labels and fluid barrier callouts
+Tire Wear Inspection Overlay	Identifies tread, shoulder, and bulge rejection zones
+
+
+
+
 
 
 🛬 Spoiler Actuator Alignment and Rigging Procedure
