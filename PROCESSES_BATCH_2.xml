@@ -413,11 +413,11 @@ ________________________________________________________________________________
 ______________________________________________|_______________________________________________________________
  Actuator Location Diagram	                  |    Overall aircraft schematic with clevis and access port callouts
 ______________________________________________|_______________________________________________________________
- Pin Installation View	                      |    Lockout pin placement and actuator support rigging
+ Pin Installation View	                  |    Lockout pin placement and actuator support rigging
 ______________________________________________|_______________________________________________________________
  Hydraulic Port Diagram	                      |    Labeling of INLET/OUTLET ports with torque spec callouts
 ______________________________________________|_______________________________________________________________
- Functional Test Sequence Diagram	          |    Pass/fail decision tree for post-install extension test
+ Functional Test Sequence Diagram	      |    Pass/fail decision tree for post-install extension test
 ______________________________________________|_______________________________________________________________
 
 
