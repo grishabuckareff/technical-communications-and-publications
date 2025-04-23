@@ -1,5 +1,8 @@
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 Batch 2: Airframe & Mechanical Systems
-✈️ 1. Landing Gear (ATA 32)
+
+1. Landing Gear (ATA 32)
 Subsystems:
 
     Main & Nose Landing Gear (MLG, NLG)
@@ -26,7 +29,8 @@ Common Tasks:
 
     Brake wear pin checks
 
-🛠️ 2. Hydraulics (ATA 29)
+
+2. Hydraulics (ATA 29)
 Subsystems:
 
     Systems A, B, and Center (primary flight control)
@@ -51,7 +55,8 @@ Common Tasks:
 
     Filter change
 
-🪛 3. Doors & Hatches (ATA 52)
+
+3. Doors & Hatches (ATA 52)
 Subsystems:
 
     Passenger & service doors
@@ -76,7 +81,8 @@ Common Tasks:
 
     Gust lock installation
 
-🧱 4. Fuselage Structure (ATA 53)
+
+4. Fuselage Structure (ATA 53)
 Subsystems:
 
     Nose, center, and aft fuselage skins
@@ -101,7 +107,8 @@ Common Tasks:
 
     Paint/thermal barrier prep
 
-🦾 5. Flight Controls (ATA 27)
+
+5. Flight Controls (ATA 27)
 Subsystems:
 
     Elevator, rudder, ailerons
@@ -124,7 +131,8 @@ Common Tasks:
 
     Trim system bias setting
 
-🛞 6. Lifting, Leveling, Jacking (ATA 07/08)
+
+6. Lifting, Leveling, Jacking (ATA 07/08)
 Subsystems:
 
     Aircraft jacking points & safety
@@ -143,7 +151,8 @@ Common Tasks:
 
     Platform setup and safety locks
 
-🚪 7. Access & Structural Panels (ATA 06/57)
+
+7. Access & Structural Panels (ATA 06/57)
 Subsystems:
 
     Wing & fuselage panels
@@ -164,7 +173,8 @@ Common Tasks:
 
     Access clearance for other tasks
 
-🧯 8. Water/Waste & Pneumatic Systems (ATA 38 / 36)
+
+8. Water/Waste & Pneumatic Systems (ATA 38 / 36)
 Subsystems:
 
     Lavatory and galley water lines
@@ -183,16 +193,29 @@ Common Tasks:
 
     Regulator or manifold removal
 
-📋 Summary
-System	ATA Chapter(s)	Task Types
-Landing Gear	32	Wheels, brakes, struts, steering
-Hydraulics	29	Actuators, PTUs, reservoirs
-Doors	52	Passenger, cargo, avionics access
-Fuselage	53	Panels, fairings, bonding
-Flight Controls	27	Rigging, actuation, trim
-Lifting & Leveling	07, 08	Jacking, weighing
-Access Panels	06, 57	Zone access, torqueing
-Pneumatic/Water	36, 38	Drainage, pressure ducts
+Summary
+____________________________________________________________________________________
+ System	ATA Chapter(s)      |    Task Types
+____________________________|_______________________________________________________
+ Landing Gear 32	        |    Wheels, brakes, struts, steering
+____________________________|_______________________________________________________
+ Hydraulics	29	            |    Actuators, PTUs, reservoirs
+____________________________|_______________________________________________________
+ Doors 52	                |    Passenger, cargo, avionics access
+____________________________|_______________________________________________________
+ Fuselage 53	            |    Panels, fairings, bonding
+____________________________|_______________________________________________________
+ Flight Controls 27	        |    Rigging, actuation, trim
+____________________________|_______________________________________________________
+ Lifting & Leveling	07, 08	|    Jacking, weighing
+____________________________|_______________________________________________________
+ Access Panels	06, 57	    |    Zone access, torqueing
+____________________________|_______________________________________________________
+ Pneumatic/Water 36, 38	    |    Drainage, pressure ducts
+____________________________|_______________________________________________________
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
 🛞 Main Landing Gear Downlock Actuator Replacement
@@ -1159,6 +1182,310 @@ Actuator Mount Diagram	Bolt locations, hydraulic ports, and routing guides
 Gear Door Support Fixture	Proper use and interface with door during unpowered removal
 Stroke Range Overlay	Min/Max actuator extension for rigging verification
 System Routing Cutaway	Shows actuator → door bracket → GCU signal path
+
+
+
+🛞 Main Landing Gear Proximity Sensor Alignment and Functional Test
+
+From: AMM BOEING 777 LANDING GEAR.PDF and ELECTRICAL SYSTEMS.PDF
+ATA Chapter: 32 – Landing Gear (cross-linked to ATA 92 – Electrical Sensing & Switching)
+S1000D DMC: 32-61-00-04-00A-720A-P
+
+This task is performed:
+
+    After sensor replacement or removal
+
+    Following gear component changes affecting uplock/downlock positioning
+
+    When CMS or EICAS reports gear disagree, gear not up/down or ambiguous signal
+
+    During scheduled sensor verification intervals (MPD Ref: 32-61-00-210-801)
+
+⚠️ S1000D-Compliant Task (Including CAUTION, WARNING, NOTE, and Cross-Referencing)
+
+<dmodule xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://www.s1000d.org/S1000D_4-1/xml/issue"
+         xsi:schemaLocation="http://www.s1000d.org/S1000D_4-1/xml/issue s1000d_4-1.xsd">
+
+  <identAndStatusSection>
+    <dmAddress>
+      <dmIdent>
+        <modelIdentCode>777</modelIdentCode>
+        <systemDiffCode>00</systemDiffCode>
+        <systemCode>32</systemCode>
+        <subSystemCode>61</subSystemCode>
+        <subSubSystemCode>00</subSubSystemCode>
+        <assyCode>04</assyCode>
+        <disassyCode>00A</disassyCode>
+        <disassyCodeVariant>A</disassyCodeVariant>
+        <infoCode>720</infoCode>
+        <infoCodeVariant>A</infoCodeVariant>
+        <itemLocationCode>P</itemLocationCode>
+      </dmIdent>
+      <issueInfo>
+        <issueNumber>001</issueNumber>
+        <inWork>01</inWork>
+      </issueInfo>
+    </dmAddress>
+    <dmStatus>
+      <security>01</security>
+      <responsiblePartnerCompany>Boeing</responsiblePartnerCompany>
+      <originator>Landing Gear & Avionics Integration Engineering</originator>
+      <applicability>
+        <applic>777-200LR</applic>
+      </applicability>
+      <language country="US">en</language>
+    </dmStatus>
+  </identAndStatusSection>
+
+  <content>
+    <procedure>
+      <preliminaryRqmts>
+        <preliminaryRqmtsDescr>Aircraft on jacks, hydraulic systems depressurized. Gear locked in DOWN position. Electrical power ON. CMS test terminal connected (Ref: AMM 06-00-00, 24-00-00).</preliminaryRqmtsDescr>
+        <safety>
+          <warning>
+            Ensure hydraulic isolation is complete before entering gear bays. Actuators may move if energized.
+          </warning>
+          <caution>
+            Do not rotate or misalign proximity sensors beyond ±0.5 mm from manufacturer-specified gap. Incorrect positioning leads to false gear indications.
+          </caution>
+          <note>
+            All adjustments must be verified using CMS diagnostic menu or direct pin-to-pin measurement (Ref: AMM 92-32-00-720-801).
+          </note>
+        </safety>
+      </preliminaryRqmts>
+
+      <mainProcedure>
+        <step>
+          <para>Open gear bay access panel 651AB. Locate uplock and downlock proximity sensors (Ref: IPC 32-61-00, Fig. 4).</para>
+        </step>
+        <step>
+          <para>Check gap between sensor tip and target surface using feeler gauge set. Standard: 0.030 to 0.060 in. Max limit: 0.080 in.</para>
+        </step>
+        <step>
+          <para>If gap exceeds limit, loosen sensor mounting screws and adjust bracket. Re-measure gap and retorque to 35 in-lb (Ref: AMM 20-50-00).</para>
+        </step>
+        <step>
+          <para>Connect multimeter at electrical rack connector P92–A12 (Ref: WDM 92–32–00). Apply gear override input and observe signal state transitions (HIGH/LOW).</para>
+        </step>
+        <step>
+          <para>Repeat procedure for NLG and opposite MLG proximity sensors.</para>
+        </step>
+      </mainProcedure>
+
+      <closeProcedure>
+        <step>
+          <para>Reinstall access panels. Record sensor gap, part number, and signal verification in proximity system config log (ATA 05-00-00).</para>
+        </step>
+        <step>
+          <para>Perform gear swing test (Ref: AMM 32-00-00-710-801). Confirm all proximity sensors indicate proper gear state throughout stroke.</para>
+        </step>
+      </closeProcedure>
+
+      <crossRefTable>
+        <dmRef>
+          <dmRefIdent>
+            <dmCode>32-00-00-710-801</dmCode>
+            <title>Landing Gear Functional Test – Gear Retraction and Extension</title>
+          </dmRefIdent>
+        </dmRef>
+        <dmRef>
+          <dmRefIdent>
+            <dmCode>92-32-00-720-801</dmCode>
+            <title>Proximity Sensor Logic Test – Gear Indication Loop</title>
+          </dmRefIdent>
+        </dmRef>
+        <dmRef>
+          <dmRefIdent>
+            <dmCode>24-00-00-860-801</dmCode>
+            <title>Electrical Power-On Procedure</title>
+          </dmRefIdent>
+        </dmRef>
+        <dmRef>
+          <dmRefIdent>
+            <dmCode>20-50-00-910-801</dmCode>
+            <title>Fastener Torque Values and Reuse Policy</title>
+          </dmRefIdent>
+        </dmRef>
+      </crossRefTable>
+    </procedure>
+  </content>
+</dmodule>
+
+🧠 Behind the Scenes — Writer’s Inputs & Decisions
+✍️ Engineering Sources Required
+Document	Used For
+Proximity Sensor Mounting Drawing	Establishes mechanical clearance, gap tolerances, sensor housing constraints
+Wiring Diagram Manual (ATA 92)	Details signal routing from sensor to proximity module and CMS
+Functional Logic Chart (CMS Interface)	Tells writers how gear status maps to HIGH/LOW signals at each gear state
+Torque and Fastener Guidelines	Required for proper bracket securing and torque seal application
+Test Bench Values	Verifies electrical state transitions align with gear movement
+🛠️ Key Authoring Considerations
+Consideration	Details
+Sensor Gap Sensitivity	Affects timing of gear up/down indication — even 0.020" variation impacts CMS logic
+Cross-System Signal Behavior	Must match FCC, PFC, and CMS — test values are mapped against EICAS display logic
+Sensor Polarity and Bracket Positioning	Must not be reversed — pinout determines logic state
+Functional Timing Verification	Indication must transition within 0.5 sec of mechanical latch movement
+🖼️ Illustrations Typically Needed
+Visual Type	Description
+Sensor Mounting Cutaway	Shows bracket, sensor tip, target zone, and adjustment range
+Feeler Gauge Application Diagram	How to measure and adjust gaps
+CMS Logic Signal Chart	Maps sensor HIGH/LOW states to gear mechanical state
+Test Connector Layout	P92-A12 pin breakout for multimeter connections
+
+
+
+🛞 Alternate Gear Extension System – Override Test and Rigging
+
+From: AMM BOEING 777 LANDING GEAR.PDF and CMS ELECTRICAL LOGIC.PDF
+ATA Chapter: 32 – Landing Gear
+S1000D DMC: 32-30-00-06-00A-720A-P
+
+This task is required:
+
+    After manual override cable or handle replacement
+
+    Following any gear actuator R&R that may affect alternate system geometry
+
+    To validate system function after CMS-reported faults
+
+    As part of a scheduled check interval under the MPD or Zonal Inspection Program
+
+⚠️ S1000D-Compliant Task (Including CAUTION, WARNING, NOTE, and Cross-Referencing)
+
+<dmodule xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://www.s1000d.org/S1000D_4-1/xml/issue"
+         xsi:schemaLocation="http://www.s1000d.org/S1000D_4-1/xml/issue s1000d_4-1.xsd">
+
+  <identAndStatusSection>
+    <dmAddress>
+      <dmIdent>
+        <modelIdentCode>777</modelIdentCode>
+        <systemDiffCode>00</systemDiffCode>
+        <systemCode>32</systemCode>
+        <subSystemCode>30</subSystemCode>
+        <subSubSystemCode>00</subSubSystemCode>
+        <assyCode>06</assyCode>
+        <disassyCode>00A</disassyCode>
+        <disassyCodeVariant>A</disassyCodeVariant>
+        <infoCode>720</infoCode>
+        <infoCodeVariant>A</infoCodeVariant>
+        <itemLocationCode>P</itemLocationCode>
+      </dmIdent>
+      <issueInfo>
+        <issueNumber>001</issueNumber>
+        <inWork>01</inWork>
+      </issueInfo>
+    </dmAddress>
+    <dmStatus>
+      <security>01</security>
+      <responsiblePartnerCompany>Boeing</responsiblePartnerCompany>
+      <originator>Landing Gear Systems Integration Engineering</originator>
+      <applicability>
+        <applic>777-300ER</applic>
+      </applicability>
+      <language country="US">en</language>
+    </dmStatus>
+  </identAndStatusSection>
+
+  <content>
+    <procedure>
+      <preliminaryRqmts>
+        <preliminaryRqmtsDescr>Aircraft on jacks, gear doors open, hydraulic systems depressurized. Alternate release handle access panels removed (STA 240 zone). CMS connected for gear status verification.</preliminaryRqmtsDescr>
+        <safety>
+          <warning>
+            The alternate release handle actuates mechanical unlock and free-fall simultaneously. Personnel must stay clear of gear travel path during override.
+          </warning>
+          <caution>
+            Ensure override cable routing is free of kinks or tension binding. Incorrect rigging will prevent full mechanical unlock of uplocks.
+          </caution>
+          <note>
+            Task includes rigging check of override cable length, actuator arm spring tension, and gear unlock stroke distance (Ref: AMM 32-30-00-820-801).
+          </note>
+        </safety>
+      </preliminaryRqmts>
+
+      <mainProcedure>
+        <step>
+          <para>Open override access hatch. Locate mechanical release handle and cable pulley assembly (Ref: IPC 32-30-00).</para>
+        </step>
+        <step>
+          <para>Verify cable routing through pulleys and fairleads. Confirm no rubbing, kinks, or foreign object interference along full stroke.</para>
+        </step>
+        <step>
+          <para>Install rig pin (PN: OVERRIDE-PIN-777) into uplock actuator bracket. Apply handle pull to simulate full stroke and verify clevis unlocks.</para>
+        </step>
+        <step>
+          <para>Adjust turnbuckle on override cable to achieve 0.015–0.030 in preload with handle at rest. Torque jam nut to 35 in-lb and apply torque seal.</para>
+        </step>
+        <step>
+          <para>Remove rig pin. Manually cycle handle 3x and observe CMS for gear unlock signals. Confirm proximity switch transitions (Ref: 32-61-00-720-801).</para>
+        </step>
+        <step>
+          <para>If available, simulate full alternate gear deployment using free-fall stroke under gravity. Confirm all gear deploys and uplock status indicates DISENGAGED.</para>
+        </step>
+      </mainProcedure>
+
+      <closeProcedure>
+        <step>
+          <para>Reinstall override access panel. Record handle pull force, cable preload, and CMS test results in alternate gear config log (ATA 05-00-00).</para>
+        </step>
+        <step>
+          <para>Return aircraft to normal configuration. Pressurize hydraulic system and perform standard gear swing test (Ref: 32-00-00-710-801).</para>
+        </step>
+      </closeProcedure>
+
+      <crossRefTable>
+        <dmRef>
+          <dmRefIdent>
+            <dmCode>32-30-00-820-801</dmCode>
+            <title>Alternate Gear Release Cable – Rigging and Adjustment Procedure</title>
+          </dmRefIdent>
+        </dmRef>
+        <dmRef>
+          <dmRefIdent>
+            <dmCode>32-00-00-710-801</dmCode>
+            <title>Main and Nose Gear Functional Test</title>
+          </dmRefIdent>
+        </dmRef>
+        <dmRef>
+          <dmRefIdent>
+            <dmCode>32-61-00-720-801</dmCode>
+            <title>Gear Uplock Sensor Logic Test – CMS Interface</title>
+          </dmRefIdent>
+        </dmRef>
+        <dmRef>
+          <dmRefIdent>
+            <dmCode>05-00-00-200-801</dmCode>
+            <title>Landing Gear Configuration and Override Logging</title>
+          </dmRefIdent>
+        </dmRef>
+      </crossRefTable>
+    </procedure>
+  </content>
+</dmodule>
+
+🧠 Behind the Scenes — Writer’s Inputs & Decisions
+✍️ Engineering Sources Required
+Document	Used For
+Override Cable Routing Diagram	Establishes pulley geometry, turnbuckle access, tension specs
+Proximity Sensor Integration Table (ATA 32/92)	Ensures logic transitions match gear physical state
+CMS Diagnostic Output Logs	Verifies gear status reported under alternate release conditions
+Functional Test Manual (ATA 32-00)	Confirms integration with normal gear retraction system
+Torque Standards & Cable Tension Charts (ATA 20)	Used for turnbuckle lock and preload range
+🛠️ Key Authoring Considerations
+Consideration	Details
+Stroke Length Accuracy	Cable must be rigged to provide full uplock disengagement within handle's motion range
+Mechanical Redundancy	System is independent of FCC logic — test must verify purely mechanical functionality
+CMS Integration Check	Even mechanical actions must confirm signal transition to ensure flight deck and maintenance alerts work
+Preload Settings	Writers must clarify turnbuckle adjustment range with feeler gauge or load cell preload validation
+🖼️ Illustrations Typically Needed
+Visual Type	Description
+Override Cable Path	Includes all pulleys, fairleads, and access panels
+Rig Pin Installation	Used to simulate uplock disengagement stroke
+Turnbuckle Adjustment Detail	Show preload measurement technique
+Signal Logic Diagram	Maps uplock state to CMS indication HIGH/LOW
+
 
 
 
