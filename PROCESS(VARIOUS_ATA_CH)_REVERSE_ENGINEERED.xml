@@ -164,7 +164,7 @@ B. EICAS Fault Isolation Procedure – Technical Rationale
 __________________________________________________________________________________________________________________________
  Segment	                          |   Why It Matters
 __________________________________________|_______________________________________________________________________________
- Message Validation	                 |   Ensures warning isn't a sensor fault or false transient
+ Message Validation	                  |   Ensures warning isn't a sensor fault or false transient
 __________________________________________|_______________________________________________________________________________
  Zone Identification	                  |   Directs technician to correct duct segment or valve
 __________________________________________|_______________________________________________________________________________
