@@ -1,0 +1,1659 @@
+Batch 2: Airframe & Mechanical Systems
+✈️ 1. Landing Gear (ATA 32)
+Subsystems:
+
+    Main & Nose Landing Gear (MLG, NLG)
+
+    Brake systems (hydraulic & electrical)
+
+    Steering systems
+
+    Shock struts
+
+Common Tasks:
+
+    Brake assembly R&R (Remove and Replace)
+
+    Strut servicing
+
+    Tire change & wheel removal
+
+    Steering actuator rigging
+
+    Landing gear extension/retraction tests
+
+    Downlock & uplock inspections
+
+    Brake wear pin checks
+
+🛠️ 2. Hydraulics (ATA 29)
+Subsystems:
+
+    Systems A, B, and Center (primary flight control)
+
+    PTU (Power Transfer Unit)
+
+    Accumulators & reservoirs
+
+    Actuators (gear, flight controls, doors)
+
+Common Tasks:
+
+    System depressurization
+
+    Hydraulic leak detection & troubleshooting
+
+    Actuator replacement & bleeding
+
+    Reservoir servicing
+
+    PTU operation test
+
+    Filter change
+
+🪛 3. Doors & Hatches (ATA 52)
+Subsystems:
+
+    Passenger & service doors
+
+    Emergency exits
+
+    Cargo doors
+
+    Avionics bays & access panels
+
+Common Tasks:
+
+    Door rigging & alignment
+
+    Cargo door actuator replacement
+
+    Latch mechanism inspection
+
+    Pressure seal testing
+
+    Door removal/installation
+
+    Gust lock installation
+
+🧱 4. Fuselage Structure (ATA 53)
+Subsystems:
+
+    Nose, center, and aft fuselage skins
+
+    Pressure bulkheads
+
+    Wing-to-body fairings
+
+    Composite and metal bonding interfaces
+
+Common Tasks:
+
+    Panel removal/reinstallation
+
+    Damage inspection (SRM cross-reference)
+
+    Drain sealing
+
+    Corrosion prevention
+
+    Fastener torque sequences
+
+    Paint/thermal barrier prep
+
+🦾 5. Flight Controls (ATA 27)
+Subsystems:
+
+    Elevator, rudder, ailerons
+
+    Spoilers & speedbrakes
+
+    Trim tabs & control linkages
+
+Common Tasks:
+
+    Rigging (elevator, rudder, spoiler, aileron)
+
+    Actuator alignment
+
+    Surface centering & symmetry checks
+
+    FCC isolation for manual override
+
+    Functional travel testing
+
+    Trim system bias setting
+
+🛞 6. Lifting, Leveling, Jacking (ATA 07/08)
+Subsystems:
+
+    Aircraft jacking points & safety
+
+    Leveling configurations
+
+    Shoring operations
+
+Common Tasks:
+
+    Aircraft jacking for landing gear or strut servicing
+
+    Nose and main gear weight-on/off simulations
+
+    Weighing procedures for config control
+
+    Platform setup and safety locks
+
+🚪 7. Access & Structural Panels (ATA 06/57)
+Subsystems:
+
+    Wing & fuselage panels
+
+    Interior/exterior fairings
+
+    Electrical/hydraulic system access routes
+
+Common Tasks:
+
+    Panel removal and reinstall (zones 200–800)
+
+    Zonal inspections
+
+    Reinstallation torque checks
+
+    Corrosion inhibitor application
+
+    Access clearance for other tasks
+
+🧯 8. Water/Waste & Pneumatic Systems (ATA 38 / 36)
+Subsystems:
+
+    Lavatory and galley water lines
+
+    Drain masts
+
+    APU and engine pneumatic ducts
+
+Common Tasks:
+
+    Waste tank servicing
+
+    Drain valve R&R
+
+    Pneumatic duct leak isolation
+
+    Regulator or manifold removal
+
+📋 Summary
+System	ATA Chapter(s)	Task Types
+Landing Gear	32	Wheels, brakes, struts, steering
+Hydraulics	29	Actuators, PTUs, reservoirs
+Doors	52	Passenger, cargo, avionics access
+Fuselage	53	Panels, fairings, bonding
+Flight Controls	27	Rigging, actuation, trim
+Lifting & Leveling	07, 08	Jacking, weighing
+Access Panels	06, 57	Zone access, torqueing
+Pneumatic/Water	36, 38	Drainage, pressure ducts
+
+
+🛞 Main Landing Gear Downlock Actuator Replacement
+
+From: AMM BOEING 777 LANDING GEAR.PDF
+ATA Chapter: 32 – Landing Gear
+S1000D DMC: 32-31-00-04-00A-720A-P
+
+This task is required after:
+
+    Actuator leakage or mechanical failure
+
+    Abnormal gear extension retraction logic
+
+    Service Bulletin compliance for actuator serial ranges
+
+    Structural repairs in the actuator housing zone
+
+⚠️ S1000D-Compliant Task (Including CAUTION, WARNING, NOTE, and Cross-Referencing)
+
+<dmodule xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://www.s1000d.org/S1000D_4-1/xml/issue"
+         xsi:schemaLocation="http://www.s1000d.org/S1000D_4-1/xml/issue s1000d_4-1.xsd">
+
+  <identAndStatusSection>
+    <dmAddress>
+      <dmIdent>
+        <modelIdentCode>777</modelIdentCode>
+        <systemDiffCode>00</systemDiffCode>
+        <systemCode>32</systemCode>
+        <subSystemCode>31</subSystemCode>
+        <subSubSystemCode>00</subSubSystemCode>
+        <assyCode>04</assyCode>
+        <disassyCode>00A</disassyCode>
+        <disassyCodeVariant>A</disassyCodeVariant>
+        <infoCode>720</infoCode>
+        <infoCodeVariant>A</infoCodeVariant>
+        <itemLocationCode>P</itemLocationCode>
+      </dmIdent>
+      <issueInfo>
+        <issueNumber>001</issueNumber>
+        <inWork>01</inWork>
+      </issueInfo>
+    </dmAddress>
+    <dmStatus>
+      <security>01</security>
+      <responsiblePartnerCompany>Boeing</responsiblePartnerCompany>
+      <originator>Landing Gear Engineering</originator>
+      <applicability>
+        <applic>777-300ER</applic>
+      </applicability>
+      <language country="US">en</language>
+    </dmStatus>
+  </identAndStatusSection>
+
+  <content>
+    <procedure>
+      <preliminaryRqmts>
+        <preliminaryRqmtsDescr>Aircraft on jacks, nose and main gear weight off wheels. Hydraulic systems depressurized and gear locked in down position (Ref: AMM 08-10-00, 29-00-00).</preliminaryRqmtsDescr>
+        <safety>
+          <warning>
+            Failure to secure gear position before actuator removal may cause uncontrolled gear movement, resulting in injury or airframe damage.
+          </warning>
+          <caution>
+            Do not reuse actuator bolts or hydraulic seals. Always replace with new parts per IPC and AMM torque values.
+          </caution>
+          <note>
+            This task requires follow-up functional gear swing test and hydraulic leak check after reinstallation (Ref: AMM 32-00-00-710-801).
+          </note>
+        </safety>
+      </preliminaryRqmts>
+
+      <mainProcedure>
+        <step>
+          <para>Access MLG downlock actuator zone through panel 615AR (Ref: AMM 06-00-00 ZONE 700).</para>
+        </step>
+        <step>
+          <para>Install gear downlock pin (PN: TOOL-GEARLOCK-777) in actuator clevis to secure MLG in down position.</para>
+        </step>
+        <step>
+          <para>Tag and disconnect hydraulic lines (INLET, OUTLET) from actuator. Cap and plug all ports with approved contamination prevention caps.</para>
+        </step>
+        <step>
+          <para>Remove actuator attachment bolts (Qty 2, PN: NAS6204U) and discard. Support actuator during removal.</para>
+        </step>
+        <step>
+          <para>Inspect clevis, actuator yoke bushings, and hydraulic fittings for wear or distortion. Refer to AMM 32-00-00-220-801 for acceptance criteria.</para>
+        </step>
+        <step>
+          <para>Install replacement actuator (PN: ACT-DL-M777). Use new fasteners and torque to 125 in-lb. Apply torque seal.</para>
+        </step>
+        <step>
+          <para>Reconnect hydraulic lines using new O-rings (MS29513-123). Torque per AMM 20-50-00.</para>
+        </step>
+      </mainProcedure>
+
+      <closeProcedure>
+        <step>
+          <para>Remove downlock pin. Restore hydraulic pressure to system B. Perform landing gear extension/retraction test per AMM 32-00-00-710-801.</para>
+        </step>
+        <step>
+          <para>Check actuator and line connections for leakage during system pressure application.</para>
+        </step>
+        <step>
+          <para>Record actuator serial number, installation date, and leak test results in gear configuration logbook.</para>
+        </step>
+      </closeProcedure>
+
+      <crossRefTable>
+        <dmRef>
+          <dmRefIdent>
+            <dmCode>29-00-00-870-801</dmCode>
+            <title>Hydraulic System Depressurization – All Systems</title>
+          </dmRefIdent>
+        </dmRef>
+        <dmRef>
+          <dmRefIdent>
+            <dmCode>08-10-00-870-801</dmCode>
+            <title>Aircraft Jacking and Leveling Procedure</title>
+          </dmRefIdent>
+        </dmRef>
+        <dmRef>
+          <dmRefIdent>
+            <dmCode>32-00-00-710-801</dmCode>
+            <title>Landing Gear Functional Test – Gear Extension/Retraction</title>
+          </dmRefIdent>
+        </dmRef>
+        <dmRef>
+          <dmRefIdent>
+            <dmCode>20-50-00-910-801</dmCode>
+            <title>Torque Application Standards</title>
+          </dmRefIdent>
+        </dmRef>
+        <dmRef>
+          <dmRefIdent>
+            <dmCode>32-00-00-220-801</dmCode>
+            <title>Gear Clevis and Actuator Bushing – Wear Limits Inspection</title>
+          </dmRefIdent>
+        </dmRef>
+      </crossRefTable>
+    </procedure>
+  </content>
+</dmodule>
+
+🧠 Behind the Scenes — Writer’s Inputs & Decisions
+✍️ Engineering Sources Required
+Document	Used For
+Actuator Assembly Drawing (ATA 32-31)	Pin connection geometry, flow direction, load orientation
+Hydraulic Line Routing Diagrams (Ch. 29)	Identifies system pressure lines and return ports
+Torque Tables (Ch. 20)	Required for fastener tightening and line fitting torque
+Landing Gear Structure Drawings (Ch. 53/57)	Access zones, bushing and clevis dimensions
+Functional Gear Test (32-00-00-710)	To validate proper retraction and downlock behavior
+IPC (32-31-00)	To specify fastener part numbers and seal compatibility
+🛠️ Key Authoring Considerations
+Consideration	Details
+Gear Position Safety	Actuator carries full locking load — pinning is mandatory for safe removal
+Seal & Fastener Reuse Prohibition	Seal failure is common in actuator R&R; replacements must follow IPC
+Post-Install Verification	Gear swing test under power confirms timing, pressure retention, and stroke symmetry
+Hydraulic Cleanliness	Debris from port contamination can compromise brake system if cross-connected
+Load Transfer Effects	Removal of actuator shifts downlock load to airframe restraint — must be controlled
+🖼️ Illustrations Typically Needed
+Visual Type	Description
+Actuator Location Diagram	Overall aircraft schematic with clevis and access port callouts
+Pin Installation View	Lockout pin placement and actuator support rigging
+Hydraulic Port Diagram	Labeling of INLET/OUTLET ports with torque spec callouts
+Functional Test Sequence Diagram	Pass/fail decision tree for post-install extension test
+
+
+🛞 Nose Landing Gear Retraction Actuator Replacement
+
+From: AMM BOEING 777 LANDING GEAR.PDF
+ATA Chapter: 32 – Landing Gear
+S1000D DMC: 32-31-01-04-00A-720A-P
+
+This task applies after:
+
+    Retraction actuator fails gear swing test
+
+    Loss of system A/B pressure retention at nose gear
+
+    Actuator leaks at rod seal or hydraulic head
+
+    Scheduled interval replacement per component service life
+
+⚠️ S1000D-Compliant Task (Including CAUTION, WARNING, NOTE, and Cross-Referencing)
+
+<dmodule xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://www.s1000d.org/S1000D_4-1/xml/issue"
+         xsi:schemaLocation="http://www.s1000d.org/S1000D_4-1/xml/issue s1000d_4-1.xsd">
+
+  <identAndStatusSection>
+    <dmAddress>
+      <dmIdent>
+        <modelIdentCode>777</modelIdentCode>
+        <systemDiffCode>00</systemDiffCode>
+        <systemCode>32</systemCode>
+        <subSystemCode>31</subSystemCode>
+        <subSubSystemCode>01</subSubSystemCode>
+        <assyCode>04</assyCode>
+        <disassyCode>00A</disassyCode>
+        <disassyCodeVariant>A</disassyCodeVariant>
+        <infoCode>720</infoCode>
+        <infoCodeVariant>A</infoCodeVariant>
+        <itemLocationCode>P</itemLocationCode>
+      </dmIdent>
+      <issueInfo>
+        <issueNumber>001</issueNumber>
+        <inWork>01</inWork>
+      </issueInfo>
+    </dmAddress>
+    <dmStatus>
+      <security>01</security>
+      <responsiblePartnerCompany>Boeing</responsiblePartnerCompany>
+      <originator>Landing Gear Engineering</originator>
+      <applicability>
+        <applic>777-200LR</applic>
+      </applicability>
+      <language country="US">en</language>
+    </dmStatus>
+  </identAndStatusSection>
+
+  <content>
+    <procedure>
+      <preliminaryRqmts>
+        <preliminaryRqmtsDescr>Aircraft jacked and leveled. Nose and main gear free of load. Hydraulic systems A and B depressurized and gear in down/locked position.</preliminaryRqmtsDescr>
+        <safety>
+          <warning>
+            Do not remove actuator without securing nose gear with mechanical downlock pin. Retraction can occur under spring tension or gravity.
+          </warning>
+          <caution>
+            Avoid scratching actuator rod or contaminating ports during handling. Internal seal damage may occur.
+          </caution>
+          <note>
+            This task requires rigging verification and operational gear retraction test after installation (Ref: AMM 32-00-00-710-801).
+          </note>
+        </safety>
+      </preliminaryRqmts>
+
+      <mainProcedure>
+        <step>
+          <para>Open nose gear bay access panels 615NF and 615NL (Ref: AMM 06-00-00 ZONE 210).</para>
+        </step>
+        <step>
+          <para>Insert nose gear downlock pin (PN: TOOL-NLGLOCK-777) through actuator clevis and side brace attach lug.</para>
+        </step>
+        <step>
+          <para>Disconnect hydraulic lines from actuator using approved caps/plugs (MS21921-6).</para>
+        </step>
+        <step>
+          <para>Support actuator with sling. Remove actuator attachment bolts and discard.</para>
+        </step>
+        <step>
+          <para>Remove actuator from nose gear bay. Clean mating flanges with lint-free cloth and approved solvent (CPC#443).</para>
+        </step>
+        <step>
+          <para>Install replacement actuator (PN: ACT-NLG-RET-777). Use new bolts and torque to 180 in-lb (Ref: AMM 20-50-00).</para>
+        </step>
+        <step>
+          <para>Reconnect hydraulic lines using new O-rings (MS28775-222). Confirm seating before torquing fittings to spec.</para>
+        </step>
+      </mainProcedure>
+
+      <closeProcedure>
+        <step>
+          <para>Remove downlock pin. Reconnect hydraulic power and perform nose gear functional retraction/extension test (Ref: AMM 32-00-00-710-801).</para>
+        </step>
+        <step>
+          <para>Inspect actuator and lines for leakage under full system pressure.</para>
+        </step>
+        <step>
+          <para>Record actuator serial number, removal cause, torque values, and test results in aircraft landing gear maintenance log.</para>
+        </step>
+      </closeProcedure>
+
+      <crossRefTable>
+        <dmRef>
+          <dmRefIdent>
+            <dmCode>29-00-00-870-801</dmCode>
+            <title>Hydraulic System Depressurization – All Systems</title>
+          </dmRefIdent>
+        </dmRef>
+        <dmRef>
+          <dmRefIdent>
+            <dmCode>08-10-00-870-801</dmCode>
+            <title>Aircraft Jacking and Leveling Procedure</title>
+          </dmRefIdent>
+        </dmRef>
+        <dmRef>
+          <dmRefIdent>
+            <dmCode>32-00-00-710-801</dmCode>
+            <title>Landing Gear Extension and Retraction Functional Test</title>
+          </dmRefIdent>
+        </dmRef>
+        <dmRef>
+          <dmRefIdent>
+            <dmCode>20-50-00-910-801</dmCode>
+            <title>Torque Application Standards</title>
+          </dmRefIdent>
+        </dmRef>
+      </crossRefTable>
+    </procedure>
+  </content>
+</dmodule>
+
+🧠 Behind the Scenes — Writer’s Inputs & Decisions
+✍️ Engineering Sources Required
+Document	Used For
+NLG Actuator Assembly Drawing	Identifies clevis geometry, bolt spec, actuator stroke
+Hydraulic Routing Diagrams	Source of hydraulic IN/OUT line IDs and pressure return paths
+Access Panel and Zonal Layout (ATA 06/57)	To locate 615NF/NL and safe routing
+Torque Tables	Standard for reinstallation of fasteners and fittings
+Functional Test Procedure (ATA 32)	Ensures nose gear stroke, lock, and timing parameters are met
+🛠️ Key Authoring Considerations
+Consideration	Details
+Nose Gear Safety	Gear can pivot or rotate without downlock → writer must emphasize restraint
+Actuator Handling	Rod must not be touched or damaged — requires sling or bracket for install
+Fastener Control	Torque specs validated against latest Boeing standards (Rev. C or higher)
+Cross-System Checks	Retraction actuator behavior must match flight control computer output logic post-install
+Data Traceability	Installed component and test result must be logged in aircraft MLG/NLG service record
+🖼️ Illustrations Typically Needed
+Visual Type	Description
+Actuator Mounting Cutaway	Shows bolt locations, clevis mount, and access clearances
+Hydraulic Port Orientation	Clarifies connection direction and fitting type
+Nose Gear Retraction Sequence	Graphical flow of actuator movement during functional test
+Downlock Pin Install	Safe restraint diagram with pin alignment
+
+
+
+🛞 Main Landing Gear Brake Wear Pin Inspection and Replacement
+
+From: AMM BOEING 777 LANDING GEAR.PDF
+ATA Chapter: 32 – Landing Gear
+S1000D DMC: 32-41-01-04-00A-720A-P
+
+This task is critical for:
+
+    Preventing brake overheat and fade due to excessive lining wear
+
+    Maintaining compliance with minimum wear limits specified by the Brake Manufacturer CMM
+
+    Enabling in-service brake life tracking, part serial traceability, and return-to-service compliance
+
+    Ensuring wear pin accuracy without wheel/tire or heat shield removal
+
+⚠️ S1000D-Compliant Task (Including CAUTION, WARNING, NOTE, and Cross-Referencing)
+
+<dmodule xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://www.s1000d.org/S1000D_4-1/xml/issue"
+         xsi:schemaLocation="http://www.s1000d.org/S1000D_4-1/xml/issue s1000d_4-1.xsd">
+
+  <identAndStatusSection>
+    <dmAddress>
+      <dmIdent>
+        <modelIdentCode>777</modelIdentCode>
+        <systemDiffCode>00</systemDiffCode>
+        <systemCode>32</systemCode>
+        <subSystemCode>41</subSystemCode>
+        <subSubSystemCode>01</subSubSystemCode>
+        <assyCode>04</assyCode>
+        <disassyCode>00A</disassyCode>
+        <disassyCodeVariant>A</disassyCodeVariant>
+        <infoCode>720</infoCode>
+        <infoCodeVariant>A</infoCodeVariant>
+        <itemLocationCode>P</itemLocationCode>
+      </dmIdent>
+      <issueInfo>
+        <issueNumber>001</issueNumber>
+        <inWork>01</inWork>
+      </issueInfo>
+    </dmAddress>
+    <dmStatus>
+      <security>01</security>
+      <responsiblePartnerCompany>Boeing</responsiblePartnerCompany>
+      <originator>Landing Gear Engineering</originator>
+      <applicability>
+        <applic>777-300ER</applic>
+      </applicability>
+      <language country="US">en</language>
+    </dmStatus>
+  </identAndStatusSection>
+
+  <content>
+    <procedure>
+      <preliminaryRqmts>
+        <preliminaryRqmtsDescr>Aircraft on ground, parking brake set, wheels chocked. Ensure brake temperature < 50°C (Ref: AMM 32-41-00-860-801).</preliminaryRqmtsDescr>
+        <safety>
+          <warning>
+            Do not attempt wear pin inspection when brake temperature exceeds 50°C. Hot brakes may result in burns or pin deformation.
+          </warning>
+          <caution>
+            Wear pin gauge tool must be certified and zeroed before each use. Inaccurate readings can lead to unserviceable brakes being retained in operation.
+          </caution>
+          <note>
+            This task is to be performed at every transit check or turnaround where brake usage exceeds 40% wear margin (Ref: MPD Task 32-41-01-210-801).
+          </note>
+        </safety>
+      </preliminaryRqmts>
+
+      <mainProcedure>
+        <step>
+          <para>Remove brake dust shield access cover (if installed). Refer to IPC 32-41-01, figure 7.</para>
+        </step>
+        <step>
+          <para>Visually inspect wear indicator pin for engagement. If flush or recessed, perform calibrated depth measurement.</para>
+        </step>
+        <step>
+          <para>Insert brake wear gauge tool (PN: GAUGE-WP-777) into access slot. Gently push tool until seated. Do not force.</para>
+        </step>
+        <step>
+          <para>Read calibrated scale. If wear exceeds 0.180 inches (minimum allowable thickness), tag brake for replacement (Ref: CMM 32-41-01).</para>
+        </step>
+        <step>
+          <para>If wear pin shows incorrect projection, remove and replace pin (PN: PIN-WEAR-77A) using 3/8" torque driver set to 35 in-lb.</para>
+        </step>
+        <step>
+          <para>Install new pin. Ensure spring detent engages. Apply torque seal to indicator base threads.</para>
+        </step>
+      </mainProcedure>
+
+      <closeProcedure>
+        <step>
+          <para>Reinstall brake access cover and torque screws per AMM 20-50-00.</para>
+        </step>
+        <step>
+          <para>Log measured wear depth and pin replacement date in brake maintenance record.</para>
+        </step>
+      </closeProcedure>
+
+      <crossRefTable>
+        <dmRef>
+          <dmRefIdent>
+            <dmCode>32-41-00-860-801</dmCode>
+            <title>Brake Cooldown and Safety Limits</title>
+          </dmRefIdent>
+        </dmRef>
+        <dmRef>
+          <dmRefIdent>
+            <dmCode>20-50-00-910-801</dmCode>
+            <title>Standard Torque Application and Fastener Reuse Policy</title>
+          </dmRefIdent>
+        </dmRef>
+        <dmRef>
+          <dmRefIdent>
+            <dmCode>32-41-01-710-801</dmCode>
+            <title>Brake Functional Test After Wear Pin Replacement</title>
+          </dmRefIdent>
+        </dmRef>
+        <dmRef>
+          <dmRefIdent>
+            <dmCode>32-41-01-210-801</dmCode>
+            <title>Brake Wear Inspection – Maintenance Planning Document Reference</title>
+          </dmRefIdent>
+        </dmRef>
+      </crossRefTable>
+    </procedure>
+  </content>
+</dmodule>
+
+🧠 Behind the Scenes — Writer’s Inputs & Decisions
+✍️ Engineering Sources Required
+Document	Used For
+Brake Assembly Drawing (ATA 32-41)	Location of wear pin, thread type, torque spec
+Wear Limits Chart (from CMM or AMM)	Establishes rejectable thickness, pin protrusion tolerance
+Gauge Tool Calibration Procedure	Ensures tool accuracy for maintenance use
+IPC Reference	Part numbers for pins, access screws, and shields
+Torque Standards (ATA 20)	For installing replacement wear pins and access covers
+🛠️ Key Authoring Considerations
+Consideration	Details
+Thermal Safety	Brake temperatures above 50°C cause inaccurate readings and personal injury risks
+Wear Limit Accuracy	Mistaking pin deflection or deformation for wear gives false life expectancy
+Pin Replacement Risk	Over-torquing or incorrect orientation can result in in-flight failure of brake wear indication logic
+Fastener Treatment	All brake access screws are treated with anti-seize or corrosion inhibitors per SRM and AMM spec
+Line Maintenance Compatibility	Task must be executable with aircraft on ramp, under time constraint, with minimal tooling
+🖼️ Illustrations Typically Needed
+Visual Type	Description
+Brake Assembly View	Highlights wear pin position and access slot
+Wear Gauge Tool Use	Shows depth measurement technique and proper engagement angle
+Pin Replacement Diagram	Threads, detent, torque location
+Wear Tolerance Chart	Callouts for “Replace” zone, warning range, and nominal depth
+
+
+
+🛞 Main Landing Gear Shock Strut Disassembly and Seal Replacement
+
+From: AMM BOEING 777 LANDING GEAR.PDF
+ATA Chapter: 32 – Landing Gear
+S1000D DMC: 32-11-00-04-00A-720A-P
+
+This task is required:
+
+    When fluid or nitrogen leakage is detected at the strut body, piston seal, or gland
+
+    During scheduled maintenance when service life limits on seals are reached
+
+    After hard landings triggering inspection limits in MPD or SRM
+
+    When oleo extension is abnormal despite correct nitrogen pressure
+
+⚠️ S1000D-Compliant Task (Including CAUTION, WARNING, NOTE, and Cross-Referencing)
+
+<dmodule xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://www.s1000d.org/S1000D_4-1/xml/issue"
+         xsi:schemaLocation="http://www.s1000d.org/S1000D_4-1/xml/issue s1000d_4-1.xsd">
+
+  <identAndStatusSection>
+    <dmAddress>
+      <dmIdent>
+        <modelIdentCode>777</modelIdentCode>
+        <systemDiffCode>00</systemDiffCode>
+        <systemCode>32</systemCode>
+        <subSystemCode>11</subSystemCode>
+        <subSubSystemCode>00</subSubSystemCode>
+        <assyCode>04</assyCode>
+        <disassyCode>00A</disassyCode>
+        <disassyCodeVariant>A</disassyCodeVariant>
+        <infoCode>720</infoCode>
+        <infoCodeVariant>A</infoCodeVariant>
+        <itemLocationCode>P</itemLocationCode>
+      </dmIdent>
+      <issueInfo>
+        <issueNumber>001</issueNumber>
+        <inWork>01</inWork>
+      </issueInfo>
+    </dmAddress>
+    <dmStatus>
+      <security>01</security>
+      <responsiblePartnerCompany>Boeing</responsiblePartnerCompany>
+      <originator>Landing Gear Structures & Hydromechanics</originator>
+      <applicability>
+        <applic>777-300ER</applic>
+      </applicability>
+      <language country="US">en</language>
+    </dmStatus>
+  </identAndStatusSection>
+
+  <content>
+    <procedure>
+      <preliminaryRqmts>
+        <preliminaryRqmtsDescr>Aircraft jacked and leveled (Ref: AMM 08-10-00). Main gear removed. Hydraulic and nitrogen systems depressurized and vented.</preliminaryRqmtsDescr>
+        <safety>
+          <warning>
+            Shock strut contains pressurized nitrogen and hydraulic fluid. Ensure complete depressurization before removing gland nut. Failure to do so may cause explosion or injury.
+          </warning>
+          <caution>
+            Use only approved seal replacement kits (PN: SEALKIT-MLG-777). Unapproved O-rings may degrade under Skydrol or MIL-H-5606 fluids.
+          </caution>
+          <note>
+            This task requires strut stroke and fluid level to be verified after assembly. See AMM 12-15-01-600-801 for final servicing.
+          </note>
+        </safety>
+      </preliminaryRqmts>
+
+      <mainProcedure>
+        <step>
+          <para>Place MLG assembly in hydraulic maintenance stand (PN: STRUT-CRADLE-777). Ensure full stability and clamping.</para>
+        </step>
+        <step>
+          <para>Open nitrogen charging valve and bleed gas completely. Observe pressure drop to zero on servicing gauge.</para>
+        </step>
+        <step>
+          <para>Remove safety wire from gland nut. Mark alignment line across strut barrel and gland.</para>
+        </step>
+        <step>
+          <para>Use gland nut spanner wrench (PN: TOOL-GLAND-777) to loosen and remove gland. Collect escaping hydraulic fluid in certified waste pan.</para>
+        </step>
+        <step>
+          <para>Withdraw piston rod carefully. Inspect inner barrel for scoring, pitting, or O-ring fragments. Clean bore with solvent CPC#472 and lint-free cloth.</para>
+        </step>
+        <step>
+          <para>Remove and discard used seals, scraper ring, back-up rings, and wear rings from piston and gland. Inspect for uneven wear or damage.</para>
+        </step>
+        <step>
+          <para>Install new seals using seal pusher tool (PN: TOOL-SEALPUSH-777). Lubricate with approved strut fluid (BMS 3-11 Type IV).</para>
+        </step>
+        <step>
+          <para>Reinstall piston into strut. Align marks and torque gland nut to 220 ft-lb. Safety wire in place.</para>
+        </step>
+        <step>
+          <para>Refill strut with hydraulic fluid per AMM 12-15-01-600-801. Charge with nitrogen to target pressure. Measure static extension.</para>
+        </step>
+      </mainProcedure>
+
+      <closeProcedure>
+        <step>
+          <para>Clean exterior of strut. Apply corrosion inhibitor if paint barrier compromised.</para>
+        </step>
+        <step>
+          <para>Document seal kit part number, strut SN, final fluid type, and nitrogen pressure in aircraft maintenance record.</para>
+        </step>
+      </closeProcedure>
+
+      <crossRefTable>
+        <dmRef>
+          <dmRefIdent>
+            <dmCode>08-10-00-870-801</dmCode>
+            <title>Aircraft Jacking and Leveling Procedure</title>
+          </dmRefIdent>
+        </dmRef>
+        <dmRef>
+          <dmRefIdent>
+            <dmCode>12-15-01-600-801</dmCode>
+            <title>MLG Shock Strut Servicing – Fluid and Nitrogen Charging</title>
+          </dmRefIdent>
+        </dmRef>
+        <dmRef>
+          <dmRefIdent>
+            <dmCode>29-00-00-870-801</dmCode>
+            <title>Hydraulic System Depressurization</title>
+          </dmRefIdent>
+        </dmRef>
+        <dmRef>
+          <dmRefIdent>
+            <dmCode>32-11-00-220-801</dmCode>
+            <title>Shock Strut Barrel and Piston – Wear and Damage Limits</title>
+          </dmRefIdent>
+        </dmRef>
+      </crossRefTable>
+    </procedure>
+  </content>
+</dmodule>
+
+🧠 Behind the Scenes — Writer’s Inputs & Decisions
+✍️ Engineering Sources Required
+Document	Used For
+Strut Assembly & Cross-Section Drawing	Gland nut thread spec, seal orientation, torque values
+Seal Kit BOM from Vendor (e.g., Safran/Collins)	O-ring materials, dimensions, approved substitute
+Hydraulic Fluid Compatibility Chart	To ensure correct fluid used for given seal elastomer
+Nitrogen Charging Table (ATA 12-15-01)	For correct strut pressure and static extension vs aircraft weight
+IPC (32-11-00)	Part number verification for all removed/replaced components
+Safety Service Bulletins	Updated gland torque or seal change recommendations
+🛠️ Key Authoring Considerations
+Consideration	Details
+Pressure Risk	Writers must emphasize residual gas bleed-out — even “empty” struts can contain >400 psi
+Seal Compatibility	Wrong material = seal swell, deterioration, and catastrophic loss of oleo pressure
+Final Measurement	Fluid level + nitrogen charge must yield correct static stroke ±0.25 in or more corrective action required
+Documentation	Seal kits are serialized in some fleets for tracking — must log batch & expiration
+🖼️ Illustrations Typically Needed
+Visual Type	Description
+Exploded View of Shock Strut	Showing piston, gland nut, scraper rings, seal stack
+Seal Installation Tool Use	Position of pusher, orientation of rings
+Gland Nut Torque Chart	Tightening sequence, torque zone highlights
+Nitrogen Charging Table	Weight vs extension vs pressure (graph or tabular)
+
+
+
+🛞 Main Landing Gear Uplock Latch Lubrication and Engagement Test
+
+From: AMM BOEING 777 LANDING GEAR.PDF
+ATA Chapter: 32 – Landing Gear
+S1000D DMC: 32-31-02-06-00A-720A-P
+
+This task is required:
+
+    At specified intervals per the Maintenance Planning Document (MPD)
+
+    After a reported uplock disengagement fault in the Central Maintenance System (CMS)
+
+    Following disassembly of the uplock roller, latch, or sensor bracket
+
+    After a gear swing test where latch engagement was delayed or incomplete
+
+⚠️ S1000D-Compliant Task (Including CAUTION, WARNING, NOTE, and Cross-Referencing)
+
+<dmodule xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://www.s1000d.org/S1000D_4-1/xml/issue"
+         xsi:schemaLocation="http://www.s1000d.org/S1000D_4-1/xml/issue s1000d_4-1.xsd">
+
+  <identAndStatusSection>
+    <dmAddress>
+      <dmIdent>
+        <modelIdentCode>777</modelIdentCode>
+        <systemDiffCode>00</systemDiffCode>
+        <systemCode>32</systemCode>
+        <subSystemCode>31</subSystemCode>
+        <subSubSystemCode>02</subSubSystemCode>
+        <assyCode>06</assyCode>
+        <disassyCode>00A</disassyCode>
+        <disassyCodeVariant>A</disassyCodeVariant>
+        <infoCode>720</infoCode>
+        <infoCodeVariant>A</infoCodeVariant>
+        <itemLocationCode>P</itemLocationCode>
+      </dmIdent>
+      <issueInfo>
+        <issueNumber>001</issueNumber>
+        <inWork>01</inWork>
+      </issueInfo>
+    </dmAddress>
+    <dmStatus>
+      <security>01</security>
+      <responsiblePartnerCompany>Boeing</responsiblePartnerCompany>
+      <originator>Landing Gear Engineering</originator>
+      <applicability>
+        <applic>777-200LR</applic>
+      </applicability>
+      <language country="US">en</language>
+    </dmStatus>
+  </identAndStatusSection>
+
+  <content>
+    <procedure>
+      <preliminaryRqmts>
+        <preliminaryRqmtsDescr>Aircraft on jacks, MLG fully extended and locked down. Hydraulic systems depressurized. Ladders or access platforms secured for work at uplock latch.</preliminaryRqmtsDescr>
+        <safety>
+          <warning>
+            Do not manually operate uplock latch while gear is retracted or under load. Actuator pre-tension may cause sudden latch movement.
+          </warning>
+          <caution>
+            Use only approved lubricants (e.g., MIL-PRF-23827C Type II) to avoid sensor contamination or excess viscosity at cold soak conditions.
+          </caution>
+          <note>
+            Uplock roller and latch lubrication affects both mechanical engagement and proximity sensor reliability. Always retest latch function after application.
+          </note>
+        </safety>
+      </preliminaryRqmts>
+
+      <mainProcedure>
+        <step>
+          <para>Access uplock latch via maintenance platform at STA 1370 zone. Remove fairing panel 651AB (Ref: AMM 06-00-00 ZONE 700).</para>
+        </step>
+        <step>
+          <para>Visually inspect latch arm, roller, and cam for dirt, grease buildup, or surface damage. Clean using solvent (CPC#458) and a lint-free cloth.</para>
+        </step>
+        <step>
+          <para>Apply lubricant (MIL-PRF-23827C) to cam lobe, latch pin bore, and roller surface using brush or syringe. Avoid lubricant contact with proximity sensors.</para>
+        </step>
+        <step>
+          <para>Manually cycle uplock latch by pushing actuator clevis through full stroke. Observe for smooth engagement and spring return.</para>
+        </step>
+        <step>
+          <para>Perform engagement test by retracting gear (Ref: AMM 32-00-00-710-801). Confirm audible latch “click” and roller lock-in position.</para>
+        </step>
+        <step>
+          <para>Using CMS interface or multimeter, verify proper uplock proximity sensor signal state (Ref: AMM 32-31-02-710-801).</para>
+        </step>
+      </mainProcedure>
+
+      <closeProcedure>
+        <step>
+          <para>Reinstall fairing panel. Secure all fasteners and torque to 30 in-lb (Ref: AMM 20-50-00).</para>
+        </step>
+        <step>
+          <para>Document lubrication material, application date, and test result in aircraft gear tracking log (ATA 05-00-00).</para>
+        </step>
+      </closeProcedure>
+
+      <crossRefTable>
+        <dmRef>
+          <dmRefIdent>
+            <dmCode>32-00-00-710-801</dmCode>
+            <title>MLG Retraction and Extension Functional Test</title>
+          </dmRefIdent>
+        </dmRef>
+        <dmRef>
+          <dmRefIdent>
+            <dmCode>32-31-02-710-801</dmCode>
+            <title>MLG Uplock Proximity Sensor – Signal Verification</title>
+          </dmRefIdent>
+        </dmRef>
+        <dmRef>
+          <dmRefIdent>
+            <dmCode>29-00-00-870-801</dmCode>
+            <title>Hydraulic System Depressurization</title>
+          </dmRefIdent>
+        </dmRef>
+        <dmRef>
+          <dmRefIdent>
+            <dmCode>20-50-00-910-801</dmCode>
+            <title>Torque Standards for Airframe Fasteners</title>
+          </dmRefIdent>
+        </dmRef>
+        <dmRef>
+          <dmRefIdent>
+            <dmCode>05-00-00-200-801</dmCode>
+            <title>Landing Gear Maintenance Logging and Inspection Intervals</title>
+          </dmRefIdent>
+        </dmRef>
+      </crossRefTable>
+    </procedure>
+  </content>
+</dmodule>
+
+🧠 Behind the Scenes — Writer’s Inputs & Decisions
+✍️ Engineering Sources Required
+Document	Used For
+Uplock Mechanism Drawing	Defines cam surface, latch/roller dimensions, motion arc
+Lubricant Specification Sheets	To confirm temperature range and proximity sensor compatibility
+CMS Integration Manual	Uplock signal ranges and test access locations
+Functional Test AMM (ATA 32-00-00)	Ensures gear swing performs latch check validation
+Torque Spec Reference (ATA 20)	Applies to latch fairing fasteners and bracket bolts
+🛠️ Key Authoring Considerations
+Consideration	Details
+Sensor Protection	Lube can degrade sensor accuracy — must be kept off inductive target surfaces
+Cold-Weather Performance	Lube must remain viscous and non-binding at -55°C typical cruise soak
+Latch Audio/Tactile Feedback	Audible “click” + visual confirmation of roller lock are required for airworthiness check
+Functional Synchronization	Latch engagement must complete before gear reaches upstop in full retraction — test validates timing
+🖼️ Illustrations Typically Needed
+Visual Type	Description
+Uplock Latch Diagram	Includes roller, cam, actuator clevis, and proximity sensor zone
+Lubrication Points Callout	Brush/syringe application zones, no-go zones near sensors
+Functional Test Profile	Gear stroke vs. latch engagement timing (graphical timing overlay)
+CMS Output Chart	Sensor logic: engaged = 28V → proximity module = HIGH
+
+
+
+🛞 Main Landing Gear Door Actuator Replacement
+
+From: AMM BOEING 777 LANDING GEAR.PDF
+ATA Chapter: 32 – Landing Gear
+S1000D DMC: 32-12-00-04-00A-720A-P
+
+This task is required:
+
+    After failure of the door actuator to fully extend or retract the gear door during gear cycle
+
+    When hydraulic leaks are observed at actuator body or rod seals
+
+    After door damage or actuator removal for access
+
+    As part of a corrosion prevention program (CPCP) or MPD-driven interval
+
+⚠️ S1000D-Compliant Task (Including CAUTION, WARNING, NOTE, and Cross-Referencing)
+
+<dmodule xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://www.s1000d.org/S1000D_4-1/xml/issue"
+         xsi:schemaLocation="http://www.s1000d.org/S1000D_4-1/xml/issue s1000d_4-1.xsd">
+
+  <identAndStatusSection>
+    <dmAddress>
+      <dmIdent>
+        <modelIdentCode>777</modelIdentCode>
+        <systemDiffCode>00</systemDiffCode>
+        <systemCode>32</systemCode>
+        <subSystemCode>12</subSystemCode>
+        <subSubSystemCode>00</subSubSystemCode>
+        <assyCode>04</assyCode>
+        <disassyCode>00A</disassyCode>
+        <disassyCodeVariant>A</disassyCodeVariant>
+        <infoCode>720</infoCode>
+        <infoCodeVariant>A</infoCodeVariant>
+        <itemLocationCode>P</itemLocationCode>
+      </dmIdent>
+      <issueInfo>
+        <issueNumber>001</issueNumber>
+        <inWork>01</inWork>
+      </issueInfo>
+    </dmAddress>
+    <dmStatus>
+      <security>01</security>
+      <responsiblePartnerCompany>Boeing</responsiblePartnerCompany>
+      <originator>Landing Gear Engineering</originator>
+      <applicability>
+        <applic>777-300ER</applic>
+      </applicability>
+      <language country="US">en</language>
+    </dmStatus>
+  </identAndStatusSection>
+
+  <content>
+    <procedure>
+      <preliminaryRqmts>
+        <preliminaryRqmtsDescr>Aircraft jacked and leveled (Ref: AMM 08-10-00), gear doors open, hydraulic systems A/B/C depressurized. Access panels removed at STA 1390 zone.</preliminaryRqmtsDescr>
+        <safety>
+          <warning>
+            Actuator may move unexpectedly if hydraulic residual pressure remains. Always depressurize system and cycle controls to vent trapped energy.
+          </warning>
+          <caution>
+            Use care not to damage actuator rod during removal. Scoring or impact will compromise sealing and stroke accuracy.
+          </caution>
+          <note>
+            Actuator replacement requires gear door rigging check upon installation and post-op full gear swing test (Ref: AMM 32-00-00-710-801).
+          </note>
+        </safety>
+      </preliminaryRqmts>
+
+      <mainProcedure>
+        <step>
+          <para>Support gear door with rigging fixture PN: DOORHOLD-777 or equivalent to relieve actuator load.</para>
+        </step>
+        <step>
+          <para>Tag and disconnect hydraulic lines from actuator body. Cap/plug all fittings (MS21921).</para>
+        </step>
+        <step>
+          <para>Remove actuator pin retaining clips and remove upper and lower mounting bolts. Retain hardware for reuse if within IPC limits.</para>
+        </step>
+        <step>
+          <para>Withdraw actuator and place in protective cradle.</para>
+        </step>
+        <step>
+          <para>Inspect mounting lugs, brackets, and door hinges for signs of wear, elongation, or corrosion (Ref: AMM 32-12-00-220-801).</para>
+        </step>
+        <step>
+          <para>Install replacement actuator (PN: ACT-MGDR-777). Use retained or new bolts (NAS6204) torqued to 110 in-lb. Apply torque seal.</para>
+        </step>
+        <step>
+          <para>Reconnect hydraulic lines using new O-rings (MS28775-222). Torque per AMM 20-50-00.</para>
+        </step>
+      </mainProcedure>
+
+      <closeProcedure>
+        <step>
+          <para>Remove rigging fixture. Re-pressurize hydraulic system and cycle gear doors via GCU input (Ref: AMM 32-61-00-860-801).</para>
+        </step>
+        <step>
+          <para>Verify full extension/retraction and door seal alignment. Perform door actuator leak check under pressure.</para>
+        </step>
+        <step>
+          <para>Log actuator serial number, installation date, and rigging results in landing gear service record (ATA 05-00-00).</para>
+        </step>
+      </closeProcedure>
+
+      <crossRefTable>
+        <dmRef>
+          <dmRefIdent>
+            <dmCode>32-00-00-710-801</dmCode>
+            <title>Landing Gear Retraction/Extension Test</title>
+          </dmRefIdent>
+        </dmRef>
+        <dmRef>
+          <dmRefIdent>
+            <dmCode>32-12-00-220-801</dmCode>
+            <title>Gear Door Mounts – Wear Limits and Bracket Inspection</title>
+          </dmRefIdent>
+        </dmRef>
+        <dmRef>
+          <dmRefIdent>
+            <dmCode>32-61-00-860-801</dmCode>
+            <title>Gear Control Unit (GCU) Command Input Override</title>
+          </dmRefIdent>
+        </dmRef>
+        <dmRef>
+          <dmRefIdent>
+            <dmCode>29-00-00-870-801</dmCode>
+            <title>Hydraulic System Depressurization</title>
+          </dmRefIdent>
+        </dmRef>
+        <dmRef>
+          <dmRefIdent>
+            <dmCode>20-50-00-910-801</dmCode>
+            <title>Torque Application Standards</title>
+          </dmRefIdent>
+        </dmRef>
+      </crossRefTable>
+    </procedure>
+  </content>
+</dmodule>
+
+🧠 Behind the Scenes — Writer’s Inputs & Decisions
+✍️ Engineering Sources Required
+Document	Used For
+Gear Door Kinematic Drawing	Establishes actuator stroke range, bracket geometry
+Hydraulic Line Schematics (ATA 29)	Identifies A/B system routing and port configuration
+Access Panel Location Diagrams (ATA 06/57)	Shows which panels open actuator zone (STA 1390)
+Functional Test (ATA 32-00-00-710)	Ensures doors move in correct sequence and latch correctly
+Actuator Maintenance Manual (CMM)	Contains stroke specs, fitting threads, part numbers
+🛠️ Key Authoring Considerations
+Consideration	Details
+Door Alignment Sensitivity	Misaligned actuator causes chafing, drag, or delayed latching
+Rod Surface Handling	Even minor scratches can lead to rod seal damage and leaks
+Hydraulic Line Routing	Prevents bending or kinking lines near flexible fittings during reinstall
+Test After Install	Must validate door stroke, speed, and sequencing with main gear motion
+🖼️ Illustrations Typically Needed
+Visual Type	Description
+Actuator Mount Diagram	Bolt locations, hydraulic ports, and routing guides
+Gear Door Support Fixture	Proper use and interface with door during unpowered removal
+Stroke Range Overlay	Min/Max actuator extension for rigging verification
+System Routing Cutaway	Shows actuator → door bracket → GCU signal path
+
+
+
+🛫 Elevator Neutral Position Rigging Procedure
+
+From: AMM BOEING 777 FLIGHT CONTROLS.PDF
+ATA Chapter: 27 – Flight Controls
+S1000D DMC: 27-32-00-04-00A-720A-P
+
+This task is critical for:
+
+    Ensuring proper control column-to-elevator alignment
+
+    Restoring correct pitch response logic post-mechanical replacement or linkage adjustment
+
+    Preserving FBW trim bias, elevator-to-stabilizer blending, and sensor calibration
+
+    Preventing asymmetric response or mistrimmed feel during takeoff
+
+⚠️ S1000D-Compliant Task (Including CAUTION, WARNING, NOTE and Cross-Referencing)
+
+<dmodule xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://www.s1000d.org/S1000D_4-1/xml/issue"
+         xsi:schemaLocation="http://www.s1000d.org/S1000D_4-1/xml/issue s1000d_4-1.xsd">
+
+  <identAndStatusSection>
+    <dmAddress>
+      <dmIdent>
+        <modelIdentCode>777</modelIdentCode>
+        <systemDiffCode>00</systemDiffCode>
+        <systemCode>27</systemCode>
+        <subSystemCode>32</subSystemCode>
+        <subSubSystemCode>00</subSubSystemCode>
+        <assyCode>04</assyCode>
+        <disassyCode>00A</disassyCode>
+        <disassyCodeVariant>A</disassyCodeVariant>
+        <infoCode>720</infoCode>
+        <infoCodeVariant>A</infoCodeVariant>
+        <itemLocationCode>P</itemLocationCode>
+      </dmIdent>
+      <issueInfo>
+        <issueNumber>001</issueNumber>
+        <inWork>01</inWork>
+      </issueInfo>
+    </dmAddress>
+    <dmStatus>
+      <security>01</security>
+      <responsiblePartnerCompany>Boeing</responsiblePartnerCompany>
+      <originator>Flight Control Systems Engineering</originator>
+      <applicability>
+        <applic>777-200LR</applic>
+      </applicability>
+      <language country="US">en</language>
+    </dmStatus>
+  </identAndStatusSection>
+
+  <content>
+    <procedure>
+      <preliminaryRqmts>
+        <preliminaryRqmtsDescr>Aircraft powered down, hydraulic systems depressurized, flight control lock installed, and stabilizer set to neutral trim position (Ref: AMM 27-40-00).</preliminaryRqmtsDescr>
+        <safety>
+          <warning>
+            Elevator surfaces may move under residual pressure. Install mechanical locks before working near hinge arms.
+          </warning>
+          <caution>
+            Incorrect torque on linkage fittings can cause freeplay or flutter in the elevator control loop.
+          </caution>
+          <note>
+            This procedure is mandatory following any replacement of elevator actuators, linkages, or FCC control rod connections (Ref: AMM 27-30-00, 22-11-00).
+          </note>
+        </safety>
+      </preliminaryRqmts>
+
+      <mainProcedure>
+        <step>
+          <para>Gain access to elevator actuator bays and flight control linkage panels. (Ref: 06-00-00 ZONE 700 and 57-00-00)</para>
+        </step>
+        <step>
+          <para>Confirm aircraft is in jacked and leveled configuration (Ref: AMM 08-10-00-870-801).</para>
+        </step>
+        <step>
+          <para>Install rig pins (PN: RIG-27-ELEV-CEN) in control column linkage arm and torque tube alignment bushing.</para>
+        </step>
+        <step>
+          <para>Check elevator trailing edge alignment: target deflection 0° ± 0.3°. Use contour gauge PN: GAUGE-ELEV-CG.</para>
+        </step>
+        <step>
+          <para>Adjust actuator rod end bearing if elevator neutral position deviates beyond tolerance (Ref: AMM 27-30-00-820-801).</para>
+        </step>
+        <step>
+          <para>Torque actuator jam nuts to 160 in-lb. Apply torque seal. (Ref: AMM 20-50-00)</para>
+        </step>
+        <step>
+          <para>Remove rig pins and cycle elevator through full travel using manual override mode (Ref: AMM 22-11-00-860-801).</para>
+        </step>
+        <step>
+          <para>Reinsert rig pins and verify return to neutral alignment. Discrepancy must not exceed 0.1° after cycle.</para>
+        </step>
+      </mainProcedure>
+
+      <closeProcedure>
+        <step>
+          <para>Remove mechanical locks and access panels. Inspect rig pin holes for elongation or burring.</para>
+        </step>
+        <step>
+          <para>Record task in flight control configuration log. Include position verification report from TEST 27-30-00-710-801.</para>
+        </step>
+      </closeProcedure>
+
+      <crossRefTable>
+        <dmRef>
+          <dmRefIdent>
+            <dmCode>27-30-00-820-801</dmCode>
+            <title>Elevator Actuator – Adjustment Procedure</title>
+          </dmRefIdent>
+        </dmRef>
+        <dmRef>
+          <dmRefIdent>
+            <dmCode>22-11-00-860-801</dmCode>
+            <title>AFDS Manual Override – Activation Procedure</title>
+          </dmRefIdent>
+        </dmRef>
+        <dmRef>
+          <dmRefIdent>
+            <dmCode>20-50-00-910-801</dmCode>
+            <title>Torque Application Standards</title>
+          </dmRefIdent>
+        </dmRef>
+        <dmRef>
+          <dmRefIdent>
+            <dmCode>08-10-00-870-801</dmCode>
+            <title>Aircraft Leveling Procedure</title>
+          </dmRefIdent>
+        </dmRef>
+        <dmRef>
+          <dmRefIdent>
+            <dmCode>27-30-00-710-801</dmCode>
+            <title>Elevator Position Test – Post Rigging</title>
+          </dmRefIdent>
+        </dmRef>
+      </crossRefTable>
+    </procedure>
+  </content>
+</dmodule>
+
+🧠 Behind the Scenes — Writer’s Inputs & Decisions
+✍️ Engineering Sources Required
+Document	Used For
+Elevator Kinematic Chain Drawing	Pin location, control rod routing, actuator stroke alignment
+AMM 27-30-00 / 22-11-00	Controls linkage setup, actuator override access
+Hydraulic Isolation Task (29-00-00)	Ensures actuator can move freely without powered interference
+Torque Spec Manual (20-50-00)	Defines standard fitting torque + fastener breakaway inspection criteria
+Aircraft Jacking/Leveling (08-10-00)	Required to ensure elevator TE alignment is not falsely offset by attitude
+FCC Manual Override Logic (22-11-00)	Needed to disengage digital trim control for manual mechanical cycling
+Flight Test Support (FCS Configuration Log)	Ensures documentation for delivery or return-to-service
+🛠️ Key Authoring Considerations
+Consideration	Detail
+Control Loop Consistency	Pitch logic and stabilizer blending depends on tight neutral-range fidelity
+System Interference	FCCs, trim logic, and hydraulic actuators must be isolated to prevent override
+Precision of Tools	Contour gauge or digital inclinometer needed (±0.1° resolution or better)
+Access Complexity	Linkages cross internal panels, require safe crawl access
+Post-Task Verification	Test step mandatory to validate no hysteresis or slop after rig pin removal
+Backdriving Risks	Incorrect trim logic can ‘fight’ manual input if not properly disabled in override
+🖼️ Illustrations Typically Needed
+Visual Type	Description
+Elevator Linkage Cutaway	Shows rod ends, hinge points, actuator junctions
+Rig Pin Diagram	Location of pin holes and pin alignment bushing
+Control Column Rigging Schematic	Shows elevator-neutral to yoke-neutral correlation
+Cycle Verification Table	Measurement record form (deflection vs rig cycle)
+
+
+🛬 Spoiler Actuator Alignment and Rigging Procedure
+
+From: AMM BOEING 777 FLIGHT CONTROLS.PDF and HYDRAULICS.PDF
+ATA Chapter: 27 – Flight Controls
+S1000D DMC: 27-62-00-04-00A-720A-P
+
+This task is essential for:
+
+    Ensuring symmetric lift dump and roll augmentation functionality
+
+    Aligning mechanical stops, actuator stroke length, and rig pin indexing
+
+    Maintaining flap/spoiler interlock logic
+
+    Preventing flutter or roll asymmetry from incorrect neutral alignment
+
+⚠️ S1000D-Compliant Task (Including CAUTION, WARNING, NOTE, and Cross-Referencing)
+
+<dmodule xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://www.s1000d.org/S1000D_4-1/xml/issue"
+         xsi:schemaLocation="http://www.s1000d.org/S1000D_4-1/xml/issue s1000d_4-1.xsd">
+
+  <identAndStatusSection>
+    <dmAddress>
+      <dmIdent>
+        <modelIdentCode>777</modelIdentCode>
+        <systemDiffCode>00</systemDiffCode>
+        <systemCode>27</systemCode>
+        <subSystemCode>62</subSystemCode>
+        <subSubSystemCode>00</subSubSystemCode>
+        <assyCode>04</assyCode>
+        <disassyCode>00A</disassyCode>
+        <disassyCodeVariant>A</disassyCodeVariant>
+        <infoCode>720</infoCode>
+        <infoCodeVariant>A</infoCodeVariant>
+        <itemLocationCode>P</itemLocationCode>
+      </dmIdent>
+      <issueInfo>
+        <issueNumber>001</issueNumber>
+        <inWork>01</inWork>
+      </issueInfo>
+    </dmAddress>
+    <dmStatus>
+      <security>01</security>
+      <responsiblePartnerCompany>Boeing</responsiblePartnerCompany>
+      <originator>Flight Controls Engineering</originator>
+      <applicability>
+        <applic>777-300ER</applic>
+      </applicability>
+      <language country="US">en</language>
+    </dmStatus>
+  </identAndStatusSection>
+
+  <content>
+    <procedure>
+      <preliminaryRqmts>
+        <preliminaryRqmtsDescr>Aircraft powered down and parked, hydraulic systems A/B/C depressurized, flight control rig locks installed, and wing access panels opened (Ref: 06-00-00 ZONE 600).</preliminaryRqmtsDescr>
+        <safety>
+          <warning>
+            Use rig pins and locking clamps during all actuator alignment procedures. Uncontrolled spoiler deployment can result in injury or equipment damage.
+          </warning>
+          <caution>
+            Do not rotate spoiler surface by hand unless the actuator is fully disconnected. Internal seal damage may result.
+          </caution>
+          <note>
+            This procedure must be completed after replacement of any spoiler actuator, actuator rod end, or when flight control electronics (PFC) are replaced (Ref: AMM 22-11-00).
+          </note>
+        </safety>
+      </preliminaryRqmts>
+
+      <mainProcedure>
+        <step>
+          <para>Access spoiler actuator bays at STA 1410L/R and STA 1625L/R. Remove applicable panels per AMM 57-10-00-010-801.</para>
+        </step>
+        <step>
+          <para>Install mechanical locks on spoiler panels 1 through 6. Verify spoilers are in fully stowed (flush) position.</para>
+        </step>
+        <step>
+          <para>Insert rig pin PN: RIG-27-SPN in actuator midpoint alignment hole. Actuator must be centered (stroke 50%).</para>
+        </step>
+        <step>
+          <para>Disconnect actuator rod end from surface bracket. Inspect for thread damage, sealant residue, or bushing wear.</para>
+        </step>
+        <step>
+          <para>Adjust rod end bearing until bracket and actuator holes align without preload. Install new bolt (NAS6203-7) and torque to 85 in-lb. Apply torque seal.</para>
+        </step>
+        <step>
+          <para>Remove rig pin. Move spoiler manually to full UP and DOWN travel. Observe for stiction, binding, or misalignment.</para>
+        </step>
+        <step>
+          <para>Repeat rigging steps for all installed spoiler actuators (minimum 2 per surface).</para>
+        </step>
+        <step>
+          <para>Connect hydraulic power (system B). Use BIT to cycle spoilers 3x. Confirm zero asymmetry and flush neutral.</para>
+        </step>
+      </mainProcedure>
+
+      <closeProcedure>
+        <step>
+          <para>Reinstall wing access panels. Apply corrosion inhibitor to fasteners if environmental seals were broken.</para>
+        </step>
+        <step>
+          <para>Log all actuator serial numbers, rod end lengths, and reference rig data in control surface configuration record.</para>
+        </step>
+      </closeProcedure>
+
+      <crossRefTable>
+        <dmRef>
+          <dmRefIdent>
+            <dmCode>27-62-00-710-801</dmCode>
+            <title>Spoiler Functional Test – Post Rigging</title>
+          </dmRefIdent>
+        </dmRef>
+        <dmRef>
+          <dmRefIdent>
+            <dmCode>29-00-00-870-801</dmCode>
+            <title>Hydraulic System A/B/C Depressurization Procedure</title>
+          </dmRefIdent>
+        </dmRef>
+        <dmRef>
+          <dmRefIdent>
+            <dmCode>57-10-00-010-801</dmCode>
+            <title>Wing Access Panel Removal</title>
+          </dmRefIdent>
+        </dmRef>
+        <dmRef>
+          <dmRefIdent>
+            <dmCode>22-11-00-860-801</dmCode>
+            <title>PFC Override and Manual Surface Cycling</title>
+          </dmRefIdent>
+        </dmRef>
+        <dmRef>
+          <dmRefIdent>
+            <dmCode>20-50-00-910-801</dmCode>
+            <title>Torque Application Standards</title>
+          </dmRefIdent>
+        </dmRef>
+      </crossRefTable>
+    </procedure>
+  </content>
+</dmodule>
+
+🧠 Behind the Scenes — Writer’s Inputs & Decisions
+✍️ Engineering Sources Required
+Document	Used For
+Spoiler Assembly Drawing (Actuator/Bracket)	Defines actuator center stroke, rig pin access port, alignment holes
+Hydraulic Schematic (Ch. 29)	Identifies flow routing, residual pressure bleed locations
+FBW Override Procedure (Ch. 22)	Ensures digital commands are inhibited before manual surface rigging
+Standard Practices (Ch. 20)	Fastener torque specs, thread engagement criteria
+Access Panel Routing (Ch. 57)	Guides panel location and zone alignment
+Control Surface Functional Test (27-62-00-710)	Verifies correct behavior after rigging
+Stow Flush Criteria	From Boeing aerodynamic alignment doc – neutral = ±0.1° flush across panel edge
+🛠️ Key Authoring Considerations
+Consideration	Details
+Panel Interdependence	Multiple spoilers per side — if one actuator is misaligned, others can bind
+Rig Pin Access	Requires center stroke of actuator (must be depressurized and unlocked)
+Manual vs Powered Movement	Task must differentiate between hand-cycled checks and hydraulic cycling
+Rod End Adjustments	Must be performed with zero preload — any tension alters surface load in flight
+System Synchronization	Final test uses Built-In Test (BIT) to verify inter-panel symmetry under load
+Recording Requirements	Flight control logs must capture actuator ID, alignment spec, and rod length
+🖼️ Illustrations Typically Needed
+Visual Type	Description
+Spoiler Panel Schematic	Overview of actuator locations and rig points
+Rig Pin Tool Placement	Detailed inset showing actuator body hole alignment
+Actuator Cutaway View	Internal piston stroke center and linkage mounting
+Flush Check Profile	TE-to-wing skin overlay diagram with gauge callouts
+Rod End Length Measurement Table	For recording and configuration tracking
+
+
+🧭 Rudder Mechanical Linkage Tension and Centering Adjustment
+
+From: AMM BOEING 777 FLIGHT CONTROLS.PDF and HYDRAULICS.PDF
+ATA Chapter: 27 – Flight Controls
+S1000D DMC: 27-21-00-04-00A-720A-P
+
+This task is critical for:
+
+    Ensuring rudder pedal-to-surface linkage symmetry
+
+    Correct yaw trim centerline alignment
+
+    Maintaining proper function of the Yaw Damper, rudder ratio changer, and Flight Control Computers (FCCs)
+
+    Preventing uncommanded trim offset or yaw instability at high speeds
+
+⚠️ S1000D-Compliant Task (Including CAUTION, WARNING, NOTE, and Cross-Referencing)
+
+<dmodule xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://www.s1000d.org/S1000D_4-1/xml/issue"
+         xsi:schemaLocation="http://www.s1000d.org/S1000D_4-1/xml/issue s1000d_4-1.xsd">
+
+  <identAndStatusSection>
+    <dmAddress>
+      <dmIdent>
+        <modelIdentCode>777</modelIdentCode>
+        <systemDiffCode>00</systemDiffCode>
+        <systemCode>27</systemCode>
+        <subSystemCode>21</subSystemCode>
+        <subSubSystemCode>00</subSubSystemCode>
+        <assyCode>04</assyCode>
+        <disassyCode>00A</disassyCode>
+        <disassyCodeVariant>A</disassyCodeVariant>
+        <infoCode>720</infoCode>
+        <infoCodeVariant>A</infoCodeVariant>
+        <itemLocationCode>P</itemLocationCode>
+      </dmIdent>
+      <issueInfo>
+        <issueNumber>001</issueNumber>
+        <inWork>01</inWork>
+      </issueInfo>
+    </dmAddress>
+    <dmStatus>
+      <security>01</security>
+      <responsiblePartnerCompany>Boeing</responsiblePartnerCompany>
+      <originator>Flight Control Systems Engineering</originator>
+      <applicability>
+        <applic>777-200LR</applic>
+      </applicability>
+      <language country="US">en</language>
+    </dmStatus>
+  </identAndStatusSection>
+
+  <content>
+    <procedure>
+      <preliminaryRqmts>
+        <preliminaryRqmtsDescr>Aircraft chocked and leveled. Hydraulic Systems A and C depressurized. FCC yaw trim neutralized and rudder in locked position (Ref: AMM 22-11-00, 29-00-00).</preliminaryRqmtsDescr>
+        <safety>
+          <warning>
+            Rudder surfaces can move without warning due to stored hydraulic pressure or actuator imbalance. Always install mechanical surface locks before working in linkage zones.
+          </warning>
+          <caution>
+            Do not overtighten rudder cable turnbuckles. Excessive preload can cause rudder overcenter and cable fatigue.
+          </caution>
+          <note>
+            This procedure is mandatory after replacement of rudder control cables, pedals, quadrant, or actuator. FCCs must be in maintenance override mode.
+          </note>
+        </safety>
+      </preliminaryRqmts>
+
+      <mainProcedure>
+        <step>
+          <para>Access rudder quadrant and mechanical linkage zone via panels 615AL/615AR (Ref: AMM 06-00-00 ZONE 600).</para>
+        </step>
+        <step>
+          <para>Install rudder rig pins into torque tube alignment slot and lower cable quadrant guide hole.</para>
+        </step>
+        <step>
+          <para>Measure left and right cable tensions using calibrated tensiometer (PN: TENS-10K-CERT). Target: 95 ±5 lb tension.</para>
+        </step>
+        <step>
+          <para>If tension is outside tolerance, adjust left and right turnbuckles equally to maintain quadrant symmetry.</para>
+        </step>
+        <step>
+          <para>Apply torque seal to turnbuckles. Confirm jam nuts torqued to 45 in-lb (Ref: AMM 20-50-00).</para>
+        </step>
+        <step>
+          <para>Remove rig pins and check quadrant position returns to center without mechanical binding or delay.</para>
+        </step>
+        <step>
+          <para>Engage FCC override and cycle rudder via BIT to check travel limits and damping response (Ref: AMM 22-11-00-860-801).</para>
+        </step>
+      </mainProcedure>
+
+      <closeProcedure>
+        <step>
+          <para>Reinstall access panels. Record cable tension and final rudder position values in control system configuration log.</para>
+        </step>
+        <step>
+          <para>Perform post-rig rudder travel test per AMM 27-21-00-710-801. Confirm positive control and damping at full deflection.</para>
+        </step>
+      </closeProcedure>
+
+      <crossRefTable>
+        <dmRef>
+          <dmRefIdent>
+            <dmCode>29-00-00-870-801</dmCode>
+            <title>Hydraulic System Depressurization – A and C Systems</title>
+          </dmRefIdent>
+        </dmRef>
+        <dmRef>
+          <dmRefIdent>
+            <dmCode>22-11-00-860-801</dmCode>
+            <title>FCC Override – Manual Rudder Mode Activation</title>
+          </dmRefIdent>
+        </dmRef>
+        <dmRef>
+          <dmRefIdent>
+            <dmCode>20-50-00-910-801</dmCode>
+            <title>Torque Application Standards</title>
+          </dmRefIdent>
+        </dmRef>
+        <dmRef>
+          <dmRefIdent>
+            <dmCode>27-21-00-710-801</dmCode>
+            <title>Rudder Functional Test – Post Rigging</title>
+          </dmRefIdent>
+        </dmRef>
+      </crossRefTable>
+    </procedure>
+  </content>
+</dmodule>
+
+🧠 Behind the Scenes — Writer’s Inputs & Decisions
+✍️ Engineering Sources Required
+Document	Used For
+Rudder Quadrant Drawing	Defines rig pin location, turnbuckle access, and jam nut clearances
+Control Cable Routing Diagram (ATA 92)	Establishes proper routing path, tension guides, and bulkhead passthroughs
+Torque Specification Manual (Ch. 20)	Fastener torques for turnbuckles and jam nuts
+FCC Maintenance Override Procedure (Ch. 22)	Required to prevent electrical interference during manual cycling
+Hydraulic Isolation Procedure (Ch. 29)	Eliminates stored pressure during rig
+Functional Test Procedure (Ch. 27-21-00-710)	Verifies travel range and damping values against tolerance spec
+🛠️ Key Authoring Considerations
+Consideration	Details
+Cable Tension Matching	Uneven cable tension causes trim bias or quadrant offset under yaw loads
+Rig Pin Usage	Required to ensure mechanical neutral of the torque tube quadrant
+Turnbuckle Safety	Thread exposure limits and torque seal verification are safety-critical
+FCC Isolation	Must disable control logic before mechanical manipulation
+Environmental Conditions	Cable tension changes with temperature → perform at ambient service temp (15–25°C)
+Documentation Requirements	Tension values and hardware ID logged in aircraft config management system
+🖼️ Illustrations Typically Needed
+Visual Type	Description
+Rudder Quadrant Assembly View	Shows pin installation and turnbuckle location
+Tension Measurement Diagram	Tool placement and cable identification chart
+Rudder Pedal/Rudder Deflection Correlation	Neutral pedal input = centered rudder at hinge line
+Override Activation Flowchart	FCC mode isolation steps and manual test logic
+
+
