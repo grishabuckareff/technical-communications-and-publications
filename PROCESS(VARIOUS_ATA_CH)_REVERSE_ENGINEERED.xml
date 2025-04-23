@@ -164,11 +164,11 @@ B. EICAS Fault Isolation Procedure – Technical Rationale
 __________________________________________________________________________________________________________________________
  Segment	                                 |   Why It Matters
 __________________________________________|_______________________________________________________________________________
- Message Validation	                      |   Ensures warning isn't a sensor fault or false transient
+ Message Validation	               |   Ensures warning isn't a sensor fault or false transient
 __________________________________________|_______________________________________________________________________________
- Zone Identification	                     |   Directs technician to correct duct segment or valve
+ Zone Identification	                  |   Directs technician to correct duct segment or valve
 __________________________________________|_______________________________________________________________________________
- Sequential Valve Control	                |   Used to confirm which segment has thermal rise when re-pressurized
+ Sequential Valve Control	              |   Used to confirm which segment has thermal rise when re-pressurized
 __________________________________________|_______________________________________________________________________________
  Post-Failure BIT Test	                   |   Determines whether valve position feedback disagrees with expected state
 __________________________________________|_______________________________________________________________________________
