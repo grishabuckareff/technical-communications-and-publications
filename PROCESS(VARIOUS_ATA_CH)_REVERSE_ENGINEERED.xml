@@ -30,9 +30,9 @@ __________________________________________|_____________________________________
 B. Technical Justification
 
 __________________________________________________________________________________________________________________________
- Step	                                    |   Engineering Rationale
+ Step	                                  |   Engineering Rationale
 __________________________________________|_______________________________________________________________________________                                         |
- Mark and measure flaw	                   |   Ensures alignment with SRM limits (length, depth, angle)
+ Mark and measure flaw	                  |   Ensures alignment with SRM limits (length, depth, angle)
 __________________________________________|_______________________________________________________________________________
  Use defined blend angle	                 |   Reduces stress concentration and preserves duct wall thickness
 __________________________________________|_______________________________________________________________________________
