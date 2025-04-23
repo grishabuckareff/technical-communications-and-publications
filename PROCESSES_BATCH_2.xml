@@ -5,193 +5,201 @@ Batch 2: Airframe & Mechanical Systems
 1. Landing Gear (ATA 32)
 Subsystems:
 
-    Main & Nose Landing Gear (MLG, NLG)
+    - Main & Nose Landing Gear (MLG, NLG)
 
-    Brake systems (hydraulic & electrical)
+    - Brake systems (hydraulic & electrical)
 
-    Steering systems
+    - Steering systems
 
-    Shock struts
+    - Shock struts
 
 Common Tasks:
 
-    Brake assembly R&R (Remove and Replace)
+    - Brake assembly R&R (Remove and Replace)
 
-    Strut servicing
+    - Strut servicing
 
-    Tire change & wheel removal
+    - Tire change & wheel removal
 
-    Steering actuator rigging
+    - Steering actuator rigging
 
-    Landing gear extension/retraction tests
+    - Landing gear extension/retraction tests
 
-    Downlock & uplock inspections
+    - Downlock & uplock inspections
 
-    Brake wear pin checks
+    - Brake wear pin checks
 
 
 2. Hydraulics (ATA 29)
+
 Subsystems:
 
-    Systems A, B, and Center (primary flight control)
+    - Systems A, B, and Center (primary flight control)
 
-    PTU (Power Transfer Unit)
+    - PTU (Power Transfer Unit)
 
-    Accumulators & reservoirs
+    - Accumulators & reservoirs
 
-    Actuators (gear, flight controls, doors)
+    - Actuators (gear, flight controls, doors)
 
 Common Tasks:
 
-    System depressurization
+    - System depressurization
 
-    Hydraulic leak detection & troubleshooting
+    - Hydraulic leak detection & troubleshooting
 
-    Actuator replacement & bleeding
+    - Actuator replacement & bleeding
 
-    Reservoir servicing
+    - Reservoir servicing
 
-    PTU operation test
+    - PTU operation test
 
-    Filter change
+    - Filter change
 
 
 3. Doors & Hatches (ATA 52)
+
 Subsystems:
 
-    Passenger & service doors
+    - Passenger & service doors
 
-    Emergency exits
+    - Emergency exits
 
-    Cargo doors
+    - Cargo doors
 
-    Avionics bays & access panels
+    - Avionics bays & access panels
 
 Common Tasks:
 
-    Door rigging & alignment
+    - Door rigging & alignment
 
-    Cargo door actuator replacement
+    - Cargo door actuator replacement
 
-    Latch mechanism inspection
+    - Latch mechanism inspection
 
-    Pressure seal testing
+    - Pressure seal testing
 
-    Door removal/installation
+    - Door removal/installation
 
-    Gust lock installation
+    - Gust lock installation
 
 
 4. Fuselage Structure (ATA 53)
+
 Subsystems:
 
-    Nose, center, and aft fuselage skins
+    - Nose, center, and aft fuselage skins
 
-    Pressure bulkheads
+    - Pressure bulkheads
 
-    Wing-to-body fairings
+    - Wing-to-body fairings
 
-    Composite and metal bonding interfaces
+    - Composite and metal bonding interfaces
 
 Common Tasks:
 
-    Panel removal/reinstallation
+    - Panel removal/reinstallation
 
-    Damage inspection (SRM cross-reference)
+    - Damage inspection (SRM cross-reference)
 
-    Drain sealing
+    - Drain sealing
 
-    Corrosion prevention
+    - Corrosion prevention
 
-    Fastener torque sequences
+    - Fastener torque sequences
 
-    Paint/thermal barrier prep
+    - Paint/thermal barrier prep
 
 
 5. Flight Controls (ATA 27)
+
 Subsystems:
 
-    Elevator, rudder, ailerons
+    - Elevator, rudder, ailerons
 
-    Spoilers & speedbrakes
+    - Spoilers & speedbrakes
 
-    Trim tabs & control linkages
+    - Trim tabs & control linkages
 
 Common Tasks:
 
-    Rigging (elevator, rudder, spoiler, aileron)
+    - Rigging (elevator, rudder, spoiler, aileron)
 
-    Actuator alignment
+    - Actuator alignment
 
-    Surface centering & symmetry checks
+    - Surface centring & symmetry checks
 
-    FCC isolation for manual override
+    - FCC isolation for manual override
 
-    Functional travel testing
+    - Functional travel testing
 
-    Trim system bias setting
+    - Trim system bias setting
 
 
-6. Lifting, Leveling, Jacking (ATA 07/08)
+6. Lifting, Levelling, Jacking (ATA 07/08)
+
 Subsystems:
 
-    Aircraft jacking points & safety
+    - Aircraft jacking points & safety
 
-    Leveling configurations
+    - Leveling configurations
 
-    Shoring operations
+    - Shoring operations
 
 Common Tasks:
 
-    Aircraft jacking for landing gear or strut servicing
+    - Aircraft jacking for landing gear or strut servicing
 
-    Nose and main gear weight-on/off simulations
+    - Nose and main gear weight-on/off simulations
 
-    Weighing procedures for config control
+    - Weighing procedures for config control
 
-    Platform setup and safety locks
+    - Platform setup and safety locks
 
 
 7. Access & Structural Panels (ATA 06/57)
+
 Subsystems:
 
-    Wing & fuselage panels
+    - Wing & fuselage panels
 
-    Interior/exterior fairings
+    - Interior/exterior fairings
 
-    Electrical/hydraulic system access routes
+    - Electrical/hydraulic system access routes
 
 Common Tasks:
 
-    Panel removal and reinstall (zones 200–800)
+    - Panel removal and reinstall (zones 200–800)
 
-    Zonal inspections
+    - Zonal inspections
 
-    Reinstallation torque checks
+    - Reinstallation torque checks
 
-    Corrosion inhibitor application
+    - Corrosion inhibitor application
 
-    Access clearance for other tasks
+    - Access clearance for other tasks
 
 
 8. Water/Waste & Pneumatic Systems (ATA 38 / 36)
+
 Subsystems:
 
-    Lavatory and galley water lines
+    - Lavatory and galley water lines
 
-    Drain masts
+    - Drain masts
 
-    APU and engine pneumatic ducts
+    - APU and engine pneumatic ducts
 
 Common Tasks:
 
-    Waste tank servicing
+    - Waste tank servicing
 
-    Drain valve R&R
+    - Drain valve R&R
 
-    Pneumatic duct leak isolation
+    - Pneumatic duct leak isolation
 
-    Regulator or manifold removal
+    - Regulator or manifold removal
+
 
 Summary
 ____________________________________________________________________________________
@@ -217,7 +225,6 @@ ____________________________|___________________________________________________
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-
 Main Landing Gear Downlock Actuator Replacement
 
 From: AMM BOEING 777 LANDING GEAR.PDF
@@ -227,13 +234,13 @@ S1000D DMC: 32-31-00-04-00A-720A-P
 
 This task is required after:
 
-    Actuator leakage or mechanical failure
+    - Actuator leakage or mechanical failure
 
-    Abnormal gear extension retraction logic
+    - Abnormal gear extension retraction logic
 
-    Service Bulletin compliance for actuator serial ranges
+    - Service Bulletin compliance for actuator serial ranges
 
-    Structural repairs in the actuator housing zone
+    - Structural repairs in the actuator housing zone
 
 
 S1000D-Compliant Task (Including CAUTION, WARNING, NOTE, and Cross-Referencing)
@@ -425,13 +432,13 @@ S1000D DMC: 32-31-01-04-00A-720A-P
 
 This task applies after:
 
-    Retraction actuator fails gear swing test
+    - Retraction actuator fails gear swing test
 
-    Loss of system A/B pressure retention at nose gear
+    - Loss of system A/B pressure retention at nose gear
 
-    Actuator leaks at rod seal or hydraulic head
+    - Actuator leaks at rod seal or hydraulic head
 
-    Scheduled interval replacement per component service life
+    - Scheduled interval replacement per component service life
 
 
 S1000D-Compliant Task (Including CAUTION, WARNING, NOTE, and Cross-Referencing)
