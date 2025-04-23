@@ -168,9 +168,9 @@ __________________________________________|_____________________________________
 __________________________________________|_______________________________________________________________________________
  Zone Identification	                  |   Directs technician to correct duct segment or valve
 __________________________________________|_______________________________________________________________________________
- Sequential Valve Control	              |   Used to confirm which segment has thermal rise when re-pressurized
+ Sequential Valve Control	          |   Used to confirm which segment has thermal rise when re-pressurized
 __________________________________________|_______________________________________________________________________________
- Post-Failure BIT Test	                   |   Determines whether valve position feedback disagrees with expected state
+ Post-Failure BIT Test	                  |   Determines whether valve position feedback disagrees with expected state
 __________________________________________|_______________________________________________________________________________
  
  
