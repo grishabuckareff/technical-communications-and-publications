@@ -218,11 +218,12 @@ ____________________________|___________________________________________________
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
-🛞 Main Landing Gear Downlock Actuator Replacement
+Main Landing Gear Downlock Actuator Replacement
 
 From: AMM BOEING 777 LANDING GEAR.PDF
 ATA Chapter: 32 – Landing Gear
 S1000D DMC: 32-31-00-04-00A-720A-P
+
 
 This task is required after:
 
@@ -234,7 +235,8 @@ This task is required after:
 
     Structural repairs in the actuator housing zone
 
-⚠️ S1000D-Compliant Task (Including CAUTION, WARNING, NOTE, and Cross-Referencing)
+
+S1000D-Compliant Task (Including CAUTION, WARNING, NOTE, and Cross-Referencing)
 
 <dmodule xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xmlns="http://www.s1000d.org/S1000D_4-1/xml/issue"
@@ -360,35 +362,66 @@ This task is required after:
   </content>
 </dmodule>
 
-🧠 Behind the Scenes — Writer’s Inputs & Decisions
-✍️ Engineering Sources Required
-Document	Used For
-Actuator Assembly Drawing (ATA 32-31)	Pin connection geometry, flow direction, load orientation
-Hydraulic Line Routing Diagrams (Ch. 29)	Identifies system pressure lines and return ports
-Torque Tables (Ch. 20)	Required for fastener tightening and line fitting torque
-Landing Gear Structure Drawings (Ch. 53/57)	Access zones, bushing and clevis dimensions
-Functional Gear Test (32-00-00-710)	To validate proper retraction and downlock behavior
-IPC (32-31-00)	To specify fastener part numbers and seal compatibility
-🛠️ Key Authoring Considerations
-Consideration	Details
-Gear Position Safety	Actuator carries full locking load — pinning is mandatory for safe removal
-Seal & Fastener Reuse Prohibition	Seal failure is common in actuator R&R; replacements must follow IPC
-Post-Install Verification	Gear swing test under power confirms timing, pressure retention, and stroke symmetry
-Hydraulic Cleanliness	Debris from port contamination can compromise brake system if cross-connected
-Load Transfer Effects	Removal of actuator shifts downlock load to airframe restraint — must be controlled
-🖼️ Illustrations Typically Needed
-Visual Type	Description
-Actuator Location Diagram	Overall aircraft schematic with clevis and access port callouts
-Pin Installation View	Lockout pin placement and actuator support rigging
-Hydraulic Port Diagram	Labeling of INLET/OUTLET ports with torque spec callouts
-Functional Test Sequence Diagram	Pass/fail decision tree for post-install extension test
 
+Behind the Scenes — Writer’s Inputs & Decisions
+
+Engineering Sources Required
+
+__________________________________________________________________________________________________________
+ Document	                                  |    Used For
+______________________________________________|_______________________________________________________________
+ Actuator Assembly Drawing (ATA 32-31)	      |    Pin connection geometry, flow direction, load orientation
+______________________________________________|_______________________________________________________________
+ Hydraulic Line Routing Diagrams (Ch. 29)     |	   Identifies system pressure lines and return ports
+______________________________________________|_______________________________________________________________
+ Torque Tables (Ch. 20)	                      |    Required for fastener tightening and line fitting torque
+______________________________________________|_______________________________________________________________
+ Landing Gear Structure Drawings (Ch. 53/57)  |    Access zones, bushing and clevis dimensions
+______________________________________________|_______________________________________________________________
+ Functional Gear Test (32-00-00-710)	      |    To validate proper retraction and downlock behavior
+______________________________________________|_______________________________________________________________
+ IPC (32-31-00)	                              |    To specify fastener part numbers and seal compatibility
+______________________________________________|_______________________________________________________________
+
+Key Authoring Considerations
+
+______________________________________________________________________________________________________________
+ Consideration	                              |    Details
+______________________________________________|_______________________________________________________________
+ Gear Position Safety	                      |    Actuator carries full locking load — pinning is mandatory for safe removal
+______________________________________________|_______________________________________________________________
+ Seal & Fastener Reuse Prohibition	          |    Seal failure is common in actuator R&R; replacements must follow IPC
+______________________________________________|_______________________________________________________________
+ Post-Install Verification	                  |    Gear swing test under power confirms timing, pressure retention, and stroke symmetry
+______________________________________________|_______________________________________________________________
+ Hydraulic Cleanliness	                      |    Debris from port contamination can compromise brake system if cross-connected
+______________________________________________|_______________________________________________________________
+ Load Transfer Effects	                      |    Removal of actuator shifts downlock load to airframe restraint — must be controlled
+______________________________________________|_______________________________________________________________
+
+
+Illustrations Typically Needed
+______________________________________________________________________________________________________________
+ Visual Type	                              |    Description
+______________________________________________|_______________________________________________________________
+ Actuator Location Diagram	                  |    Overall aircraft schematic with clevis and access port callouts
+______________________________________________|_______________________________________________________________
+ Pin Installation View	                      |    Lockout pin placement and actuator support rigging
+______________________________________________|_______________________________________________________________
+ Hydraulic Port Diagram	                      |    Labeling of INLET/OUTLET ports with torque spec callouts
+______________________________________________|_______________________________________________________________
+ Functional Test Sequence Diagram	          |    Pass/fail decision tree for post-install extension test
+______________________________________________|_______________________________________________________________
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 🛞 Nose Landing Gear Retraction Actuator Replacement
 
 From: AMM BOEING 777 LANDING GEAR.PDF
 ATA Chapter: 32 – Landing Gear
 S1000D DMC: 32-31-01-04-00A-720A-P
+
 
 This task applies after:
 
@@ -400,7 +433,8 @@ This task applies after:
 
     Scheduled interval replacement per component service life
 
-⚠️ S1000D-Compliant Task (Including CAUTION, WARNING, NOTE, and Cross-Referencing)
+
+S1000D-Compliant Task (Including CAUTION, WARNING, NOTE, and Cross-Referencing)
 
 <dmodule xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xmlns="http://www.s1000d.org/S1000D_4-1/xml/issue"
@@ -520,22 +554,37 @@ This task applies after:
   </content>
 </dmodule>
 
-🧠 Behind the Scenes — Writer’s Inputs & Decisions
-✍️ Engineering Sources Required
-Document	Used For
-NLG Actuator Assembly Drawing	Identifies clevis geometry, bolt spec, actuator stroke
-Hydraulic Routing Diagrams	Source of hydraulic IN/OUT line IDs and pressure return paths
-Access Panel and Zonal Layout (ATA 06/57)	To locate 615NF/NL and safe routing
-Torque Tables	Standard for reinstallation of fasteners and fittings
-Functional Test Procedure (ATA 32)	Ensures nose gear stroke, lock, and timing parameters are met
-🛠️ Key Authoring Considerations
+
+Behind the Scenes — Writer’s Inputs & Decisions
+
+Engineering Sources Required
+
+______________________________________________________________________________________________________________
+ Document	                                  |    Used For
+______________________________________________|_______________________________________________________________
+ NLG Actuator Assembly Drawing	              |    Identifies clevis geometry, bolt spec, actuator stroke
+______________________________________________|_______________________________________________________________
+ Hydraulic Routing Diagrams	                  |    Source of hydraulic IN/OUT line IDs and pressure return paths
+______________________________________________|_______________________________________________________________
+ Access Panel and Zonal Layout (ATA 06/57)	  |    To locate 615NF/NL and safe routing
+______________________________________________|_______________________________________________________________
+ Torque Tables	                              |    Standard for reinstallation of fasteners and fittings
+______________________________________________|_______________________________________________________________
+ Functional Test Procedure (ATA 32)	          |    Ensures nose gear stroke, lock, and timing parameters are met
+______________________________________________|_______________________________________________________________
+
+
+Key Authoring Considerations
+
 Consideration	Details
 Nose Gear Safety	Gear can pivot or rotate without downlock → writer must emphasize restraint
 Actuator Handling	Rod must not be touched or damaged — requires sling or bracket for install
 Fastener Control	Torque specs validated against latest Boeing standards (Rev. C or higher)
 Cross-System Checks	Retraction actuator behavior must match flight control computer output logic post-install
 Data Traceability	Installed component and test result must be logged in aircraft MLG/NLG service record
-🖼️ Illustrations Typically Needed
+
+
+Illustrations Typically Needed
 Visual Type	Description
 Actuator Mounting Cutaway	Shows bolt locations, clevis mount, and access clearances
 Hydraulic Port Orientation	Clarifies connection direction and fitting type
