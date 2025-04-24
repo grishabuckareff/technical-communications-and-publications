@@ -227,7 +227,6 @@ ____________________________|___________________________________________________
 
 Main Landing Gear Downlock Actuator Replacement
 
-From: AMM BOEING 777 LANDING GEAR.PDF
 ATA Chapter: 32 – Landing Gear
 S1000D DMC: 32-31-00-04-00A-720A-P
 
@@ -252,7 +251,7 @@ S1000D-Compliant Task (Including CAUTION, WARNING, NOTE, and Cross-Referencing)
   <identAndStatusSection>
     <dmAddress>
       <dmIdent>
-        <modelIdentCode>777</modelIdentCode>
+        <modelIdentCode></modelIdentCode>
         <systemDiffCode>00</systemDiffCode>
         <systemCode>32</systemCode>
         <subSystemCode>31</subSystemCode>
@@ -271,10 +270,10 @@ S1000D-Compliant Task (Including CAUTION, WARNING, NOTE, and Cross-Referencing)
     </dmAddress>
     <dmStatus>
       <security>01</security>
-      <responsiblePartnerCompany>Boeing</responsiblePartnerCompany>
+      <responsiblePartnerCompany></responsiblePartnerCompany>
       <originator>Landing Gear Engineering</originator>
       <applicability>
-        <applic>777-300ER</applic>
+        <applic></applic>
       </applicability>
       <language country="US">en</language>
     </dmStatus>
@@ -373,7 +372,6 @@ S1000D-Compliant Task (Including CAUTION, WARNING, NOTE, and Cross-Referencing)
 Behind the Scenes — Writer’s Inputs & Decisions
 
 Engineering Sources Required
-
 __________________________________________________________________________________________________________
  Document	                              |   Used For
 ______________________________________________|_______________________________________________________________
@@ -391,7 +389,6 @@ ______________________________________________|_________________________________
 ______________________________________________|_______________________________________________________________
 
 Key Authoring Considerations
-
 ______________________________________________________________________________________________________________
  Consideration	                              |   Details
 ______________________________________________|_______________________________________________________________
@@ -425,7 +422,6 @@ ______________________________________________|_________________________________
 
 Nose Landing Gear Retraction Actuator Replacement
 
-From: AMM BOEING 777 LANDING GEAR.PDF
 ATA Chapter: 32 – Landing Gear
 S1000D DMC: 32-31-01-04-00A-720A-P
 
@@ -450,7 +446,7 @@ S1000D-Compliant Task (Including CAUTION, WARNING, NOTE, and Cross-Referencing)
   <identAndStatusSection>
     <dmAddress>
       <dmIdent>
-        <modelIdentCode>777</modelIdentCode>
+        <modelIdentCode></modelIdentCode>
         <systemDiffCode>00</systemDiffCode>
         <systemCode>32</systemCode>
         <subSystemCode>31</subSystemCode>
@@ -469,10 +465,10 @@ S1000D-Compliant Task (Including CAUTION, WARNING, NOTE, and Cross-Referencing)
     </dmAddress>
     <dmStatus>
       <security>01</security>
-      <responsiblePartnerCompany>Boeing</responsiblePartnerCompany>
+      <responsiblePartnerCompany></responsiblePartnerCompany>
       <originator>Landing Gear Engineering</originator>
       <applicability>
-        <applic>777-200LR</applic>
+        <applic></applic>
       </applicability>
       <language country="US">en</language>
     </dmStatus>
@@ -565,7 +561,6 @@ S1000D-Compliant Task (Including CAUTION, WARNING, NOTE, and Cross-Referencing)
 Behind the Scenes — Writer’s Inputs & Decisions
 
 Engineering Sources Required
-
 ______________________________________________________________________________________________________________
  Document	                                  |   Used For
 ______________________________________________|_______________________________________________________________
@@ -580,31 +575,40 @@ ______________________________________________|_________________________________
  Functional Test Procedure (ATA 32)	          |   Ensures nose gear stroke, lock, and timing parameters are met
 ______________________________________________|_______________________________________________________________
 
-
 Key Authoring Considerations
 ______________________________________________________________________________________________________________
- Consideration	Details
+ Consideration	                              |   Details
 ______________________________________________|_______________________________________________________________
- Nose Gear Safety	Gear can pivot or rotate without downlock → writer must emphasize restraint
- Actuator Handling	Rod must not be touched or damaged — requires sling or bracket for install
- Fastener Control	Torque specs validated against latest Boeing standards (Rev. C or higher)
- Cross-System Checks	Retraction actuator behavior must match flight control computer output logic post-install
- Data Traceability	Installed component and test result must be logged in aircraft MLG/NLG service record
+ Nose Gear Safety	                          |   Gear can pivot or rotate without downlock → writer must emphasize restraint
+______________________________________________|_______________________________________________________________
+ Actuator Handling	                          |   Rod must not be touched or damaged — requires sling or bracket for install
+______________________________________________|_______________________________________________________________
+ Fastener Control	                          |   Torque specs validated against latest company standards (Rev. X or higher)
+______________________________________________|_______________________________________________________________
+ Cross-System Checks	                      |   Retraction actuator behavior must match flight control computer output logic post-install
+______________________________________________|_______________________________________________________________
+ Data Traceability	                          |   Installed component and test result must be logged in aircraft MLG/NLG service record
+______________________________________________|_______________________________________________________________
 
 
 Illustrations Typically Needed
-Visual Type	Description
-Actuator Mounting Cutaway	Shows bolt locations, clevis mount, and access clearances
-Hydraulic Port Orientation	Clarifies connection direction and fitting type
-Nose Gear Retraction Sequence	Graphical flow of actuator movement during functional test
-Downlock Pin Install	Safe restraint diagram with pin alignment
+______________________________________________________________________________________________________________
+ Visual Type	                              |   Description
+______________________________________________|_______________________________________________________________
+ Actuator Mounting Cutaway	                  |   Shows bolt locations, clevis mount, and access clearances
+______________________________________________|_______________________________________________________________
+ Hydraulic Port Orientation	                  |   Clarifies connection direction and fitting type
+______________________________________________|_______________________________________________________________
+ Nose Gear Retraction Sequence	              |   Graphical flow of actuator movement during functional test
+______________________________________________|_______________________________________________________________
+ Downlock Pin Install	                      |   Safe restraint diagram with pin alignment
+______________________________________________|_______________________________________________________________
 
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-🛞 Main Landing Gear Brake Wear Pin Inspection and Replacement
+Main Landing Gear Brake Wear Pin Inspection and Replacement
 
-From: AMM BOEING 777 LANDING GEAR.PDF
 ATA Chapter: 32 – Landing Gear
 S1000D DMC: 32-41-01-04-00A-720A-P
 
@@ -629,7 +633,7 @@ S1000D-Compliant Task (Including CAUTION, WARNING, NOTE, and Cross-Referencing)
   <identAndStatusSection>
     <dmAddress>
       <dmIdent>
-        <modelIdentCode>777</modelIdentCode>
+        <modelIdentCode></modelIdentCode>
         <systemDiffCode>00</systemDiffCode>
         <systemCode>32</systemCode>
         <subSystemCode>41</subSystemCode>
@@ -648,10 +652,10 @@ S1000D-Compliant Task (Including CAUTION, WARNING, NOTE, and Cross-Referencing)
     </dmAddress>
     <dmStatus>
       <security>01</security>
-      <responsiblePartnerCompany>Boeing</responsiblePartnerCompany>
+      <responsiblePartnerCompany>/responsiblePartnerCompany>
       <originator>Landing Gear Engineering</originator>
       <applicability>
-        <applic>777-300ER</applic>
+        <applic></applic>
       </applicability>
       <language country="US">en</language>
     </dmStatus>
@@ -738,37 +742,54 @@ S1000D-Compliant Task (Including CAUTION, WARNING, NOTE, and Cross-Referencing)
 Behind the Scenes — Writer’s Inputs & Decisions
 
 Engineering Sources Required
-
-Document	Used For
-Brake Assembly Drawing (ATA 32-41)	Location of wear pin, thread type, torque spec
-Wear Limits Chart (from CMM or AMM)	Establishes rejectable thickness, pin protrusion tolerance
-Gauge Tool Calibration Procedure	Ensures tool accuracy for maintenance use
-IPC Reference	Part numbers for pins, access screws, and shields
-Torque Standards (ATA 20)	For installing replacement wear pins and access covers
+______________________________________________________________________________________________________________
+ Document	                                  |   Used For
+______________________________________________|_______________________________________________________________
+ Brake Assembly Drawing (ATA 32-41)	          |   Location of wear pin, thread type, torque spec
+______________________________________________|_______________________________________________________________
+ Wear Limits Chart (from CMM or AMM)	      |   Establishes rejectable thickness, pin protrusion tolerance
+______________________________________________|_______________________________________________________________
+ Gauge Tool Calibration Procedure	          |   Ensures tool accuracy for maintenance use
+______________________________________________|_______________________________________________________________
+ IPC Reference	                              |   Part numbers for pins, access screws, and shields
+______________________________________________|_______________________________________________________________
+ Torque Standards (ATA 20)	                  |   For installing replacement wear pins and access covers
+______________________________________________|_______________________________________________________________
 
 Key Authoring Considerations
-
-Consideration	Details
-Thermal Safety	Brake temperatures above 50°C cause inaccurate readings and personal injury risks
-Wear Limit Accuracy	Mistaking pin deflection or deformation for wear gives false life expectancy
-Pin Replacement Risk	Over-torquing or incorrect orientation can result in in-flight failure of brake wear indication logic
-Fastener Treatment	All brake access screws are treated with anti-seize or corrosion inhibitors per SRM and AMM spec
-Line Maintenance Compatibility	Task must be executable with aircraft on ramp, under time constraint, with minimal tooling
+______________________________________________________________________________________________________________
+ Consideration	                              |   Details
+______________________________________________|_______________________________________________________________
+ Thermal Safety	                              |   Brake temperatures above 50°C cause inaccurate readings and personal injury risks
+______________________________________________|_______________________________________________________________
+ Wear Limit Accuracy	                      |   Mistaking pin deflection or deformation for wear gives false life expectancy
+______________________________________________|_______________________________________________________________
+ Pin Replacement Risk	                      |   Over-torquing or incorrect orientation can result in in-flight failure of brake wear indication logic
+______________________________________________|_______________________________________________________________
+ Fastener Treatment	                          |   All brake access screws are treated with anti-seize or corrosion inhibitors per SRM and AMM spec
+______________________________________________|_______________________________________________________________
+ Line Maintenance Compatibility	              |   Task must be executable with aircraft on ramp, under time constraint, with minimal tooling
+______________________________________________|_______________________________________________________________
 
 
 Illustrations Typically Needed
-Visual Type	Description
-Brake Assembly View	Highlights wear pin position and access slot
-Wear Gauge Tool Use	Shows depth measurement technique and proper engagement angle
-Pin Replacement Diagram	Threads, detent, torque location
-Wear Tolerance Chart	Callouts for “Replace” zone, warning range, and nominal depth
+______________________________________________________________________________________________________________
+ Visual Type	                              |   Description
+______________________________________________|_______________________________________________________________
+ Brake Assembly View	                      |   Highlights wear pin position and access slot
+______________________________________________|_______________________________________________________________
+ Wear Gauge Tool Use	                      |   Shows depth measurement technique and proper engagement angle
+______________________________________________|_______________________________________________________________
+ Pin Replacement Diagram	                  |   Threads, detent, torque location
+______________________________________________|_______________________________________________________________
+ Wear Tolerance Chart	                      |   Callouts for “Replace” zone, warning range, and nominal depth
+______________________________________________|_______________________________________________________________
 
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 Main Landing Gear Shock Strut Disassembly and Seal Replacement
 
-From: AMM BOEING 777 LANDING GEAR.PDF
 ATA Chapter: 32 – Landing Gear
 S1000D DMC: 32-11-00-04-00A-720A-P
 
@@ -792,7 +813,7 @@ S1000D-Compliant Task (Including CAUTION, WARNING, NOTE, and Cross-Referencing)
   <identAndStatusSection>
     <dmAddress>
       <dmIdent>
-        <modelIdentCode>777</modelIdentCode>
+        <modelIdentCode></modelIdentCode>
         <systemDiffCode>00</systemDiffCode>
         <systemCode>32</systemCode>
         <subSystemCode>11</subSystemCode>
@@ -811,10 +832,10 @@ S1000D-Compliant Task (Including CAUTION, WARNING, NOTE, and Cross-Referencing)
     </dmAddress>
     <dmStatus>
       <security>01</security>
-      <responsiblePartnerCompany>Boeing</responsiblePartnerCompany>
+      <responsiblePartnerCompany></responsiblePartnerCompany>
       <originator>Landing Gear Structures & Hydromechanics</originator>
       <applicability>
-        <applic>777-300ER</applic>
+        <applic></applic>
       </applicability>
       <language country="US">en</language>
     </dmStatus>
@@ -940,9 +961,9 @@ ______________________________________________|_________________________________
  Documentation	                              |   Seal kits are serialized in some fleets for tracking — must log batch & expiration
 ______________________________________________|_______________________________________________________________
 
+
+Illustrations Typically Needed
 ______________________________________________________________________________________________________________
- Illustrations                                |   Typically Needed
-______________________________________________|_______________________________________________________________
  Visual Type	                              |   Description
 ______________________________________________|_______________________________________________________________
  Exploded View of Shock Strut	              |   Showing piston, gland nut, scraper rings, seal stack
@@ -959,9 +980,9 @@ ______________________________________________|_________________________________
 
 Main Landing Gear Uplock Latch Lubrication and Engagement Test
 
-From: AMM BOEING 777 LANDING GEAR.PDF
 ATA Chapter: 32 – Landing Gear
 S1000D DMC: 32-31-02-06-00A-720A-P
+
 
 This task is required:
 
@@ -1430,29 +1451,46 @@ S1000D-Compliant Task (Including CAUTION, WARNING, NOTE, and Cross-Referencing)
 Behind the Scenes — Writer’s Inputs & Decisions
 
 Engineering Sources Required
-
-Document	Used For
-Proximity Sensor Mounting Drawing	Establishes mechanical clearance, gap tolerances, sensor housing constraints
-Wiring Diagram Manual (ATA 92)	Details signal routing from sensor to proximity module and CMS
-Functional Logic Chart (CMS Interface)	Tells writers how gear status maps to HIGH/LOW signals at each gear state
-Torque and Fastener Guidelines	Required for proper bracket securing and torque seal application
-Test Bench Values	Verifies electrical state transitions align with gear movement
+______________________________________________________________________________________________________________
+ Document	                                  |   Used For
+______________________________________________|_______________________________________________________________
+ Proximity Sensor Mounting Drawing	          |   Establishes mechanical clearance, gap tolerances, sensor housing constraints
+______________________________________________|_______________________________________________________________
+ Wiring Diagram Manual (ATA 92)	              |   Details signal routing from sensor to proximity module and CMS
+______________________________________________|_______________________________________________________________
+ Functional Logic Chart (CMS Interface)	      |   Tells writers how gear status maps to HIGH/LOW signals at each gear state
+______________________________________________|_______________________________________________________________
+ Torque and Fastener Guidelines	              |   Required for proper bracket securing and torque seal application
+______________________________________________|_______________________________________________________________
+ Test Bench Values	                          |   Verifies electrical state transitions align with gear movement
+______________________________________________|_______________________________________________________________
 
 Key Authoring Considerations
-
-Consideration	Details
-Sensor Gap Sensitivity	Affects timing of gear up/down indication — even 0.020" variation impacts CMS logic
-Cross-System Signal Behavior	Must match FCC, PFC, and CMS — test values are mapped against EICAS display logic
-Sensor Polarity and Bracket Positioning	Must not be reversed — pinout determines logic state
-Functional Timing Verification	Indication must transition within 0.5 sec of mechanical latch movement
+______________________________________________________________________________________________________________
+ Consideration	                              |   Details
+______________________________________________|_______________________________________________________________
+ Sensor Gap Sensitivity	                      |   Affects timing of gear up/down indication — even 0.020" variation impacts CMS logic
+______________________________________________|_______________________________________________________________
+ Cross-System Signal Behavior	              |   Must match FCC, PFC, and CMS — test values are mapped against EICAS display logic
+______________________________________________|_______________________________________________________________
+ Sensor Polarity and Bracket Positioning	  |   Must not be reversed — pinout determines logic state
+______________________________________________|_______________________________________________________________
+ Functional Timing Verification	              |   Indication must transition within 0.5 sec of mechanical latch movement
+______________________________________________|_______________________________________________________________
 
 
 Illustrations Typically Needed
-Visual Type	Description
-Sensor Mounting Cutaway	Shows bracket, sensor tip, target zone, and adjustment range
-Feeler Gauge Application Diagram	How to measure and adjust gaps
-CMS Logic Signal Chart	Maps sensor HIGH/LOW states to gear mechanical state
-Test Connector Layout	P92-A12 pin breakout for multimeter connections
+______________________________________________________________________________________________________________
+ Visual Type	                              |   Description
+______________________________________________|_______________________________________________________________
+ Sensor Mounting Cutaway	                  |   Shows bracket, sensor tip, target zone, and adjustment range
+______________________________________________|_______________________________________________________________
+ Feeler Gauge Application Diagram	          |   How to measure and adjust gaps
+______________________________________________|_______________________________________________________________
+ CMS Logic Signal Chart	                      |   Maps sensor HIGH/LOW states to gear mechanical state
+______________________________________________|_______________________________________________________________
+ Test Connector Layout	                      |   P92-A12 pin breakout for multimeter connections
+______________________________________________|_______________________________________________________________
 
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
