@@ -793,6 +793,7 @@ Main Landing Gear Shock Strut Disassembly and Seal Replacement
 ATA Chapter: 32 – Landing Gear
 S1000D DMC: 32-11-00-04-00A-720A-P
 
+
 This task is required:
 
     - When fluid or nitrogen leakage is detected at the strut body, piston seal, or gland
@@ -1004,7 +1005,7 @@ S1000D-Compliant Task (Including CAUTION, WARNING, NOTE, and Cross-Referencing)
   <identAndStatusSection>
     <dmAddress>
       <dmIdent>
-        <modelIdentCode>777</modelIdentCode>
+        <modelIdentCode></modelIdentCode>
         <systemDiffCode>00</systemDiffCode>
         <systemCode>32</systemCode>
         <subSystemCode>31</subSystemCode>
@@ -1023,10 +1024,10 @@ S1000D-Compliant Task (Including CAUTION, WARNING, NOTE, and Cross-Referencing)
     </dmAddress>
     <dmStatus>
       <security>01</security>
-      <responsiblePartnerCompany>Boeing</responsiblePartnerCompany>
+      <responsiblePartnerCompany></responsiblePartnerCompany>
       <originator>Landing Gear Engineering</originator>
       <applicability>
-        <applic>777-200LR</applic>
+        <applic></applic>
       </applicability>
       <language country="US">en</language>
     </dmStatus>
@@ -1119,37 +1120,55 @@ S1000D-Compliant Task (Including CAUTION, WARNING, NOTE, and Cross-Referencing)
 Behind the Scenes — Writer’s Inputs & Decisions
 
 Engineering Sources Required
-
-Document	Used For
-Uplock Mechanism Drawing	Defines cam surface, latch/roller dimensions, motion arc
-Lubricant Specification Sheets	To confirm temperature range and proximity sensor compatibility
-CMS Integration Manual	Uplock signal ranges and test access locations
-Functional Test AMM (ATA 32-00-00)	Ensures gear swing performs latch check validation
-Torque Spec Reference (ATA 20)	Applies to latch fairing fasteners and bracket bolts
+______________________________________________________________________________________________________________
+ Document	                                  |   Used For
+______________________________________________|_______________________________________________________________
+ Uplock Mechanism Drawing	                  |   Defines cam surface, latch/roller dimensions, motion arc
+______________________________________________|_______________________________________________________________
+ Lubricant Specification Sheets	To confirm temperature range and proximity sensor compatibility
+______________________________________________|_______________________________________________________________
+ CMS Integration Manual	                      |   Uplock signal ranges and test access locations
+______________________________________________|_______________________________________________________________
+ Functional Test AMM (ATA 32-00-00)	          |   Ensures gear swing performs latch check validation
+______________________________________________|_______________________________________________________________
+ Torque Spec Reference (ATA 20)	              |   Applies to latch fairing fasteners and bracket bolts
+______________________________________________|_______________________________________________________________
 
 Key Authoring Considerations
-Consideration	Details
-Sensor Protection	Lube can degrade sensor accuracy — must be kept off inductive target surfaces
-Cold-Weather Performance	Lube must remain viscous and non-binding at -55°C typical cruise soak
-Latch Audio/Tactile Feedback	Audible “click” + visual confirmation of roller lock are required for airworthiness check
-Functional Synchronization	Latch engagement must complete before gear reaches upstop in full retraction — test validates timing
+______________________________________________________________________________________________________________
+ Consideration	                              |   Details
+______________________________________________|_______________________________________________________________
+ Sensor Protection	                          |   Lube can degrade sensor accuracy — must be kept off inductive target surfaces
+______________________________________________|_______________________________________________________________
+ Cold-Weather Performance	                  |   Lube must remain viscous and non-binding at -55°C typical cruise soak
+______________________________________________|_______________________________________________________________
+ Latch Audio/Tactile Feedback	              |   Audible “click” + visual confirmation of roller lock are required for airworthiness check
+______________________________________________|_______________________________________________________________
+ Functional Synchronization	                  |   Latch engagement must complete before gear reaches upstop in full retraction — test validates timing
+______________________________________________|_______________________________________________________________
 
 
 Illustrations Typically Needed
-Visual Type	Description
-Uplock Latch Diagram	Includes roller, cam, actuator clevis, and proximity sensor zone
-Lubrication Points Callout	Brush/syringe application zones, no-go zones near sensors
-Functional Test Profile	Gear stroke vs. latch engagement timing (graphical timing overlay)
-CMS Output Chart	Sensor logic: engaged = 28V → proximity module = HIGH
+______________________________________________________________________________________________________________
+ Visual Type	                              |   Description
+______________________________________________|_______________________________________________________________
+ Uplock Latch Diagram	                      |   Includes roller, cam, actuator clevis, and proximity sensor zone
+______________________________________________|_______________________________________________________________
+ Lubrication Points                           |    Callout Brush/syringe application zones, no-go zones near sensors
+______________________________________________|_______________________________________________________________
+ Functional Test Profile	                  |   Gear stroke vs. latch engagement timing (graphical timing overlay)
+______________________________________________|_______________________________________________________________
+ CMS Output Chart	                          |   Sensor logic: engaged = 28V → proximity module = HIGH
+______________________________________________|_______________________________________________________________
 
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 Main Landing Gear Door Actuator Replacement
 
-From: AMM BOEING 777 LANDING GEAR.PDF
 ATA Chapter: 32 – Landing Gear
 S1000D DMC: 32-12-00-04-00A-720A-P
+
 
 This task is required:
 
@@ -1171,7 +1190,7 @@ S1000D-Compliant Task (Including CAUTION, WARNING, NOTE, and Cross-Referencing)
   <identAndStatusSection>
     <dmAddress>
       <dmIdent>
-        <modelIdentCode>777</modelIdentCode>
+        <modelIdentCode></modelIdentCode>
         <systemDiffCode>00</systemDiffCode>
         <systemCode>32</systemCode>
         <subSystemCode>12</subSystemCode>
@@ -1190,10 +1209,10 @@ S1000D-Compliant Task (Including CAUTION, WARNING, NOTE, and Cross-Referencing)
     </dmAddress>
     <dmStatus>
       <security>01</security>
-      <responsiblePartnerCompany>Boeing</responsiblePartnerCompany>
+      <responsiblePartnerCompany></responsiblePartnerCompany>
       <originator>Landing Gear Engineering</originator>
       <applicability>
-        <applic>777-300ER</applic>
+        <applic></applic>
       </applicability>
       <language country="US">en</language>
     </dmStatus>
@@ -1292,38 +1311,55 @@ S1000D-Compliant Task (Including CAUTION, WARNING, NOTE, and Cross-Referencing)
 Behind the Scenes — Writer’s Inputs & Decisions
 
 Engineering Sources Required
-
-Document	Used For
-Gear Door Kinematic Drawing	Establishes actuator stroke range, bracket geometry
-Hydraulic Line Schematics (ATA 29)	Identifies A/B system routing and port configuration
-Access Panel Location Diagrams (ATA 06/57)	Shows which panels open actuator zone (STA 1390)
-Functional Test (ATA 32-00-00-710)	Ensures doors move in correct sequence and latch correctly
-Actuator Maintenance Manual (CMM)	Contains stroke specs, fitting threads, part numbers
+______________________________________________________________________________________________________________
+ Document	                                  |   Used For
+______________________________________________|_______________________________________________________________
+ Gear Door Kinematic Drawing	              |   Establishes actuator stroke range, bracket geometry
+______________________________________________|_______________________________________________________________
+ Hydraulic Line Schematics (ATA 29)	          |   Identifies A/B system routing and port configuration
+______________________________________________|_______________________________________________________________
+ Access Panel Location Diagrams (ATA 06/57)	  |   Shows which panels open actuator zone (STA 1390)
+______________________________________________|_______________________________________________________________
+ Functional Test (ATA 32-00-00-710)           |   Ensures doors move in correct sequence and latch correctly
+______________________________________________|_______________________________________________________________
+ Actuator Maintenance Manual (CMM)	          |   Contains stroke specs, fitting threads, part numbers
+______________________________________________|_______________________________________________________________
 
 Key Authoring Considerations
-
-Consideration	Details
-Door Alignment Sensitivity	Misaligned actuator causes chafing, drag, or delayed latching
-Rod Surface Handling	Even minor scratches can lead to rod seal damage and leaks
-Hydraulic Line Routing	Prevents bending or kinking lines near flexible fittings during reinstall
-Test After Install	Must validate door stroke, speed, and sequencing with main gear motion
+______________________________________________________________________________________________________________
+ Consideration	                              |   Details
+______________________________________________|_______________________________________________________________
+ Door Alignment Sensitivity	                  |   Misaligned actuator causes chafing, drag, or delayed latching
+______________________________________________|_______________________________________________________________
+ Rod Surface Handling                         |   Even minor scratches can lead to rod seal damage and leaks
+______________________________________________|_______________________________________________________________
+ Hydraulic Line Routing	                      |   Prevents bending or kinking lines near flexible fittings during reinstall
+______________________________________________|_______________________________________________________________
+ Test After Install	                          |   Must validate door stroke, speed, and sequencing with main gear motion
+______________________________________________|_______________________________________________________________
 
 
 Illustrations Typically Needed
-Visual Type	Description
-Actuator Mount Diagram	Bolt locations, hydraulic ports, and routing guides
-Gear Door Support Fixture	Proper use and interface with door during unpowered removal
-Stroke Range Overlay	Min/Max actuator extension for rigging verification
-System Routing Cutaway	Shows actuator → door bracket → GCU signal path
+______________________________________________________________________________________________________________
+ Visual Type	                              |   Description
+______________________________________________|_______________________________________________________________
+ Actuator Mount Diagram	                      |   Bolt locations, hydraulic ports, and routing guides
+______________________________________________|_______________________________________________________________
+ Gear Door Support Fixture                    |   Proper use and interface with door during unpowered removal
+______________________________________________|_______________________________________________________________
+ Stroke Range Overlay                         |   Min/Max actuator extension for rigging verification
+______________________________________________|_______________________________________________________________
+ System Routing Cutaway	                      |   Shows actuator → door bracket → GCU signal path
+______________________________________________|_______________________________________________________________
 
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 Main Landing Gear Proximity Sensor Alignment and Functional Test
 
-From: AMM BOEING 777 LANDING GEAR.PDF and ELECTRICAL SYSTEMS.PDF
 ATA Chapter: 32 – Landing Gear (cross-linked to ATA 92 – Electrical Sensing & Switching)
 S1000D DMC: 32-61-00-04-00A-720A-P
+
 
 This task is performed:
 
@@ -1345,7 +1381,7 @@ S1000D-Compliant Task (Including CAUTION, WARNING, NOTE, and Cross-Referencing)
   <identAndStatusSection>
     <dmAddress>
       <dmIdent>
-        <modelIdentCode>777</modelIdentCode>
+        <modelIdentCode></modelIdentCode>
         <systemDiffCode>00</systemDiffCode>
         <systemCode>32</systemCode>
         <subSystemCode>61</subSystemCode>
@@ -1364,10 +1400,10 @@ S1000D-Compliant Task (Including CAUTION, WARNING, NOTE, and Cross-Referencing)
     </dmAddress>
     <dmStatus>
       <security>01</security>
-      <responsiblePartnerCompany>Boeing</responsiblePartnerCompany>
+      <responsiblePartnerCompany></responsiblePartnerCompany>
       <originator>Landing Gear & Avionics Integration Engineering</originator>
       <applicability>
-        <applic>777-200LR</applic>
+        <applic></applic>
       </applicability>
       <language country="US">en</language>
     </dmStatus>
@@ -1497,9 +1533,9 @@ ______________________________________________|_________________________________
 
 Alternate Gear Extension System – Override Test and Rigging
 
-From: AMM BOEING 777 LANDING GEAR.PDF and CMS ELECTRICAL LOGIC.PDF
 ATA Chapter: 32 – Landing Gear
 S1000D DMC: 32-30-00-06-00A-720A-P
+
 
 This task is required:
 
@@ -1521,7 +1557,7 @@ S1000D-Compliant Task (Including CAUTION, WARNING, NOTE, and Cross-Referencing)
   <identAndStatusSection>
     <dmAddress>
       <dmIdent>
-        <modelIdentCode>777</modelIdentCode>
+        <modelIdentCode></modelIdentCode>
         <systemDiffCode>00</systemDiffCode>
         <systemCode>32</systemCode>
         <subSystemCode>30</subSystemCode>
@@ -1540,10 +1576,10 @@ S1000D-Compliant Task (Including CAUTION, WARNING, NOTE, and Cross-Referencing)
     </dmAddress>
     <dmStatus>
       <security>01</security>
-      <responsiblePartnerCompany>Boeing</responsiblePartnerCompany>
+      <responsiblePartnerCompany></responsiblePartnerCompany>
       <originator>Landing Gear Systems Integration Engineering</originator>
       <applicability>
-        <applic>777-300ER</applic>
+        <applic></applic>
       </applicability>
       <language country="US">en</language>
     </dmStatus>
@@ -1630,38 +1666,57 @@ S1000D-Compliant Task (Including CAUTION, WARNING, NOTE, and Cross-Referencing)
 Behind the Scenes — Writer’s Inputs & Decisions
 
 Engineering Sources Required
-
-Document	Used For
-Override Cable Routing Diagram	Establishes pulley geometry, turnbuckle access, tension specs
-Proximity Sensor Integration Table (ATA 32/92)	Ensures logic transitions match gear physical state
-CMS Diagnostic Output Logs	Verifies gear status reported under alternate release conditions
-Functional Test Manual (ATA 32-00)	Confirms integration with normal gear retraction system
-Torque Standards & Cable Tension Charts (ATA 20)	Used for turnbuckle lock and preload range
+______________________________________________________________________________________________________________
+ Document	                                  |   Used For
+______________________________________________|_______________________________________________________________
+ Override Cable Routing Diagram	              |   Establishes pulley geometry, turnbuckle access, tension specs
+______________________________________________|_______________________________________________________________
+ Proximity Sensor Integration Table           |
+ (ATA 32/92)	                              |   Ensures logic transitions match gear physical state
+______________________________________________|_______________________________________________________________
+ CMS Diagnostic Output Logs	                  |   Verifies gear status reported under alternate release conditions
+______________________________________________|_______________________________________________________________
+ Functional Test Manual (ATA 32-00)	          |   Confirms integration with normal gear retraction system
+______________________________________________|_______________________________________________________________
+ Torque Standards & Cable Tension Charts      |
+ (ATA 20)	                                  |   Used for turnbuckle lock and preload range
+______________________________________________|_______________________________________________________________
 
 Key Authoring Considerations
-
-Consideration	Details
-Stroke Length Accuracy	Cable must be rigged to provide full uplock disengagement within handle's motion range
-Mechanical Redundancy	System is independent of FCC logic — test must verify purely mechanical functionality
-CMS Integration Check	Even mechanical actions must confirm signal transition to ensure flight deck and maintenance alerts work
-Preload Settings	Writers must clarify turnbuckle adjustment range with feeler gauge or load cell preload validation
+______________________________________________________________________________________________________________
+ Consideration	                              |   Details
+______________________________________________|_______________________________________________________________
+ Stroke Length Accuracy	                      |   Cable must be rigged to provide full uplock disengagement within handle's motion range
+______________________________________________|_______________________________________________________________
+ Mechanical Redundancy	                      |   System is independent of FCC logic — test must verify purely mechanical functionality
+______________________________________________|_______________________________________________________________
+ CMS Integration Check	                      |   Even mechanical actions must confirm signal transition to ensure flight deck and maintenance alerts work
+______________________________________________|_______________________________________________________________
+ Preload Settings	                          |   Writers must clarify turnbuckle adjustment range with feeler gauge or load cell preload validation
+______________________________________________|_______________________________________________________________
 
 
 Illustrations Typically Needed
-Visual Type	Description
-Override Cable Path	Includes all pulleys, fairleads, and access panels
-Rig Pin Installation	Used to simulate uplock disengagement stroke
-Turnbuckle Adjustment Detail	Show preload measurement technique
-Signal Logic Diagram	Maps uplock state to CMS indication HIGH/LOW
+______________________________________________________________________________________________________________
+ Visual Type	                              |   Description
+______________________________________________|_______________________________________________________________
+ Override Cable Path	                      |   Includes all pulleys, fairleads, and access panels
+______________________________________________|_______________________________________________________________
+ Rig Pin Installation	                      |   Used to simulate uplock disengagement stroke
+______________________________________________|_______________________________________________________________
+ Turnbuckle Adjustment Detail	              |   Show preload measurement technique
+______________________________________________|_______________________________________________________________
+ Signal Logic Diagram	                      |   Maps uplock state to CMS indication HIGH/LOW
+______________________________________________|_______________________________________________________________
 
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 Elevator Neutral Position Rigging Procedure
 
-From: AMM BOEING 777 FLIGHT CONTROLS.PDF
 ATA Chapter: 27 – Flight Controls
 S1000D DMC: 27-32-00-04-00A-720A-P
+
 
 This task is critical for:
 
@@ -1671,7 +1726,7 @@ This task is critical for:
 
     - Preserving FBW trim bias, elevator-to-stabilizer blending, and sensor calibration
 
-    - Preventing asymmetric response or mistrimmed feel during takeoff
+    - Preventing asymmetric response or mis-trimmed feel during takeoff
 
 
 S1000D-Compliant Task (Including CAUTION, WARNING, NOTE and Cross-Referencing)
