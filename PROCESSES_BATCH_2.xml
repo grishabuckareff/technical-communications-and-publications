@@ -203,23 +203,23 @@ Common Tasks:
 
 Summary
 ____________________________________________________________________________________
- System	ATA Chapter(s)      |    Task Types
+ System	ATA Chapter(s)      |   Task Types
 ____________________________|_______________________________________________________
- Landing Gear 32	    |    Wheels, brakes, struts, steering
+ Landing Gear 32	    |   Wheels, brakes, struts, steering
 ____________________________|_______________________________________________________
- Hydraulics 29	            |    Actuators, PTUs, reservoirs
+ Hydraulics 29	            |   Actuators, PTUs, reservoirs
 ____________________________|_______________________________________________________
- Doors 52	            |    Passenger, cargo, avionics access
+ Doors 52	            |   Passenger, cargo, avionics access
 ____________________________|_______________________________________________________
- Fuselage 53	            |    Panels, fairings, bonding
+ Fuselage 53	            |   Panels, fairings, bonding
 ____________________________|_______________________________________________________
- Flight Controls 27	    |    Rigging, actuation, trim
+ Flight Controls 27	    |   Rigging, actuation, trim
 ____________________________|_______________________________________________________
- Lifting & Leveling 07, 08  |    Jacking, weighing
+ Lifting & Leveling 07, 08  |   Jacking, weighing
 ____________________________|_______________________________________________________
- Access Panels	06, 57	    |    Zone access, torqueing
+ Access Panels	06, 57	    |   Zone access, torqueing
 ____________________________|_______________________________________________________
- Pneumatic/Water 36, 38	    |    Drainage, pressure ducts
+ Pneumatic/Water 36, 38	    |   Drainage, pressure ducts
 ____________________________|_______________________________________________________
 
 
@@ -375,47 +375,47 @@ Behind the Scenes — Writer’s Inputs & Decisions
 Engineering Sources Required
 
 __________________________________________________________________________________________________________
- Document	                              |    Used For
+ Document	                              |   Used For
 ______________________________________________|_______________________________________________________________
- Actuator Assembly Drawing (ATA 32-31)	      |    Pin connection geometry, flow direction, load orientation
+ Actuator Assembly Drawing (ATA 32-31)	      |   Pin connection geometry, flow direction, load orientation
 ______________________________________________|_______________________________________________________________
- Hydraulic Line Routing Diagrams (Ch. 29)     |	   Identifies system pressure lines and return ports
+ Hydraulic Line Routing Diagrams (Ch. 29)     |	  Identifies system pressure lines and return ports
 ______________________________________________|_______________________________________________________________
- Torque Tables (Ch. 20)	                      |    Required for fastener tightening and line fitting torque
+ Torque Tables (Ch. 20)	                      |   Required for fastener tightening and line fitting torque
 ______________________________________________|_______________________________________________________________
- Landing Gear Structure Drawings (Ch. 53/57)  |    Access zones, bushing and clevis dimensions
+ Landing Gear Structure Drawings (Ch. 53/57)  |   Access zones, bushing and clevis dimensions
 ______________________________________________|_______________________________________________________________
- Functional Gear Test (32-00-00-710)	      |    To validate proper retraction and downlock behavior
+ Functional Gear Test (32-00-00-710)	      |   To validate proper retraction and downlock behavior
 ______________________________________________|_______________________________________________________________
- IPC (32-31-00)	                              |    To specify fastener part numbers and seal compatibility
+ IPC (32-31-00)	                              |   To specify fastener part numbers and seal compatibility
 ______________________________________________|_______________________________________________________________
 
 Key Authoring Considerations
 
 ______________________________________________________________________________________________________________
- Consideration	                              |    Details
+ Consideration	                              |   Details
 ______________________________________________|_______________________________________________________________
- Gear Position Safety	                      |    Actuator carries full locking load — pinning is mandatory for safe removal
+ Gear Position Safety	                      |   Actuator carries full locking load — pinning is mandatory for safe removal
 ______________________________________________|_______________________________________________________________
- Seal & Fastener Reuse Prohibition	      |    Seal failure is common in actuator R&R; replacements must follow IPC
+ Seal & Fastener Reuse Prohibition	      |   Seal failure is common in actuator R&R; replacements must follow IPC
 ______________________________________________|_______________________________________________________________
- Post-Install Verification	              |    Gear swing test under power confirms timing, pressure retention, and stroke symmetry
+ Post-Install Verification	              |   Gear swing test under power confirms timing, pressure retention, and stroke symmetry
 ______________________________________________|_______________________________________________________________
- Hydraulic Cleanliness	                      |    Debris from port contamination can compromise brake system if cross-connected
+ Hydraulic Cleanliness	                      |   Debris from port contamination can compromise brake system if cross-connected
 ______________________________________________|_______________________________________________________________
- Load Transfer Effects	                      |    Removal of actuator shifts downlock load to airframe restraint — must be controlled
+ Load Transfer Effects	                      |   Removal of actuator shifts downlock load to airframe restraint — must be controlled
 ______________________________________________|_______________________________________________________________
 
 
 Illustrations Typically Needed
 ______________________________________________________________________________________________________________
- Visual Type	                              |    Description
+ Visual Type	                              |   Description
 ______________________________________________|_______________________________________________________________
  Actuator Location Diagram	              |    Overall aircraft schematic with clevis and access port callouts
 ______________________________________________|_______________________________________________________________
- Pin Installation View	                      |    Lockout pin placement and actuator support rigging
+ Pin Installation View	                      |   Lockout pin placement and actuator support rigging
 ______________________________________________|_______________________________________________________________
- Hydraulic Port Diagram	                      |    Labeling of INLET/OUTLET ports with torque spec callouts
+ Hydraulic Port Diagram	                      |   Labeling of INLET/OUTLET ports with torque spec callouts
 ______________________________________________|_______________________________________________________________
  Functional Test Sequence Diagram	      |    Pass/fail decision tree for post-install extension test
 ______________________________________________|_______________________________________________________________
@@ -567,28 +567,29 @@ Behind the Scenes — Writer’s Inputs & Decisions
 Engineering Sources Required
 
 ______________________________________________________________________________________________________________
- Document	                                  |    Used For
+ Document	                                  |   Used For
 ______________________________________________|_______________________________________________________________
- NLG Actuator Assembly Drawing	              |    Identifies clevis geometry, bolt spec, actuator stroke
+ NLG Actuator Assembly Drawing	              |   Identifies clevis geometry, bolt spec, actuator stroke
 ______________________________________________|_______________________________________________________________
- Hydraulic Routing Diagrams	                  |    Source of hydraulic IN/OUT line IDs and pressure return paths
+ Hydraulic Routing Diagrams	                  |   Source of hydraulic IN/OUT line IDs and pressure return paths
 ______________________________________________|_______________________________________________________________
- Access Panel and Zonal Layout (ATA 06/57)	  |    To locate 615NF/NL and safe routing
+ Access Panel and Zonal Layout (ATA 06/57)	  |   To locate 615NF/NL and safe routing
 ______________________________________________|_______________________________________________________________
- Torque Tables	                              |    Standard for reinstallation of fasteners and fittings
+ Torque Tables	                              |   Standard for reinstallation of fasteners and fittings
 ______________________________________________|_______________________________________________________________
- Functional Test Procedure (ATA 32)	          |    Ensures nose gear stroke, lock, and timing parameters are met
+ Functional Test Procedure (ATA 32)	          |   Ensures nose gear stroke, lock, and timing parameters are met
 ______________________________________________|_______________________________________________________________
 
 
 Key Authoring Considerations
-
-Consideration	Details
-Nose Gear Safety	Gear can pivot or rotate without downlock → writer must emphasize restraint
-Actuator Handling	Rod must not be touched or damaged — requires sling or bracket for install
-Fastener Control	Torque specs validated against latest Boeing standards (Rev. C or higher)
-Cross-System Checks	Retraction actuator behavior must match flight control computer output logic post-install
-Data Traceability	Installed component and test result must be logged in aircraft MLG/NLG service record
+______________________________________________________________________________________________________________
+ Consideration	Details
+______________________________________________|_______________________________________________________________
+ Nose Gear Safety	Gear can pivot or rotate without downlock → writer must emphasize restraint
+ Actuator Handling	Rod must not be touched or damaged — requires sling or bracket for install
+ Fastener Control	Torque specs validated against latest Boeing standards (Rev. C or higher)
+ Cross-System Checks	Retraction actuator behavior must match flight control computer output logic post-install
+ Data Traceability	Installed component and test result must be logged in aircraft MLG/NLG service record
 
 
 Illustrations Typically Needed
@@ -909,28 +910,49 @@ S1000D-Compliant Task (Including CAUTION, WARNING, NOTE, and Cross-Referencing)
 Behind the Scenes — Writer’s Inputs & Decisions
 
 Engineering Sources Required
-
-Document	Used For
-Strut Assembly & Cross-Section Drawing	Gland nut thread spec, seal orientation, torque values
-Seal Kit BOM from Vendor (e.g., Safran/Collins)	O-ring materials, dimensions, approved substitute
-Hydraulic Fluid Compatibility Chart	To ensure correct fluid used for given seal elastomer
-Nitrogen Charging Table (ATA 12-15-01)	For correct strut pressure and static extension vs aircraft weight
-IPC (32-11-00)	Part number verification for all removed/replaced components
-Safety Service Bulletins	Updated gland torque or seal change recommendations
+______________________________________________________________________________________________________________
+ Document	                                  |   Used For
+______________________________________________|_______________________________________________________________
+ Strut Assembly & Cross-Section Drawing	      |   Gland nut thread spec, seal orientation, torque values
+______________________________________________|______________________________________________________________
+ Seal Kit BOM from Vendor                     |
+ (e.g., Safran/Collins)	                      |   O-ring materials, dimensions, approved substitute
+______________________________________________|_______________________________________________________________
+ Hydraulic Fluid Compatibility Chart	      |   To ensure correct fluid used for given seal elastomer
+______________________________________________|_______________________________________________________________
+ Nitrogen Charging Table (ATA 12-15-01)	      |   For correct strut pressure and static extension vs aircraft weight
+______________________________________________|_______________________________________________________________
+ IPC (32-11-00)	                              |   Part number verification for all removed/replaced components
+______________________________________________|_______________________________________________________________
+ Safety Service Bulletins	                  |   Updated gland torque or seal change recommendations
+______________________________________________|_______________________________________________________________
 
 Key Authoring Considerations
+______________________________________________________________________________________________________________
+ Consideration	                              |   Details
+______________________________________________|_______________________________________________________________
+ Pressure Risk	                              |   Writers must emphasize residual gas bleed-out — even “empty” struts can contain >400 psi
+______________________________________________|_______________________________________________________________
+ Seal Compatibility	                          |   Wrong material = seal swell, deterioration, and catastrophic loss of oleo pressure
+______________________________________________|_______________________________________________________________
+ Final Measurement	                          |   Fluid level + nitrogen charge must yield correct static stroke ±0.25 in or more corrective action required
+______________________________________________|_______________________________________________________________
+ Documentation	                              |   Seal kits are serialized in some fleets for tracking — must log batch & expiration
+______________________________________________|_______________________________________________________________
 
-Consideration	Details
-Pressure Risk	Writers must emphasize residual gas bleed-out — even “empty” struts can contain >400 psi
-Seal Compatibility	Wrong material = seal swell, deterioration, and catastrophic loss of oleo pressure
-Final Measurement	Fluid level + nitrogen charge must yield correct static stroke ±0.25 in or more corrective action required
-Documentation	Seal kits are serialized in some fleets for tracking — must log batch & expiration
-🖼️ Illustrations Typically Needed
-Visual Type	Description
-Exploded View of Shock Strut	Showing piston, gland nut, scraper rings, seal stack
-Seal Installation Tool Use	Position of pusher, orientation of rings
-Gland Nut Torque Chart	Tightening sequence, torque zone highlights
-Nitrogen Charging Table	Weight vs extension vs pressure (graph or tabular)
+______________________________________________________________________________________________________________
+ Illustrations                                |   Typically Needed
+______________________________________________|_______________________________________________________________
+ Visual Type	                              |   Description
+______________________________________________|_______________________________________________________________
+ Exploded View of Shock Strut	              |   Showing piston, gland nut, scraper rings, seal stack
+______________________________________________|_______________________________________________________________
+ Seal Installation Tool Use	                  |   Position of pusher, orientation of rings
+______________________________________________|_______________________________________________________________
+ Gland Nut Torque Chart	                      |   Tightening sequence, torque zone highlights
+______________________________________________|_______________________________________________________________
+ Nitrogen Charging Table	                  |   Weight vs extension vs pressure (graph or tabular)
+______________________________________________|_______________________________________________________________
 
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -1948,11 +1970,12 @@ Tire Wear Inspection Overlay	Identifies tread, shoulder, and bulge rejection zon
 
 
 
-🛬 Spoiler Actuator Alignment and Rigging Procedure
+Spoiler Actuator Alignment and Rigging Procedure
 
 From: AMM BOEING 777 FLIGHT CONTROLS.PDF and HYDRAULICS.PDF
 ATA Chapter: 27 – Flight Controls
 S1000D DMC: 27-62-00-04-00A-720A-P
+
 
 This task is essential for:
 
@@ -1964,7 +1987,8 @@ This task is essential for:
 
     Preventing flutter or roll asymmetry from incorrect neutral alignment
 
-⚠️ S1000D-Compliant Task (Including CAUTION, WARNING, NOTE, and Cross-Referencing)
+
+S1000D-Compliant Task (Including CAUTION, WARNING, NOTE, and Cross-Referencing)
 
 <dmodule xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xmlns="http://www.s1000d.org/S1000D_4-1/xml/issue"
@@ -2090,8 +2114,8 @@ This task is essential for:
   </content>
 </dmodule>
 
-🧠 Behind the Scenes — Writer’s Inputs & Decisions
-✍️ Engineering Sources Required
+Behind the Scenes — Writer’s Inputs & Decisions
+Engineering Sources Required
 Document	Used For
 Spoiler Assembly Drawing (Actuator/Bracket)	Defines actuator center stroke, rig pin access port, alignment holes
 Hydraulic Schematic (Ch. 29)	Identifies flow routing, residual pressure bleed locations
@@ -2100,7 +2124,7 @@ Standard Practices (Ch. 20)	Fastener torque specs, thread engagement criteria
 Access Panel Routing (Ch. 57)	Guides panel location and zone alignment
 Control Surface Functional Test (27-62-00-710)	Verifies correct behavior after rigging
 Stow Flush Criteria	From Boeing aerodynamic alignment doc – neutral = ±0.1° flush across panel edge
-🛠️ Key Authoring Considerations
+Key Authoring Considerations
 Consideration	Details
 Panel Interdependence	Multiple spoilers per side — if one actuator is misaligned, others can bind
 Rig Pin Access	Requires center stroke of actuator (must be depressurized and unlocked)
@@ -2108,7 +2132,7 @@ Manual vs Powered Movement	Task must differentiate between hand-cycled checks an
 Rod End Adjustments	Must be performed with zero preload — any tension alters surface load in flight
 System Synchronization	Final test uses Built-In Test (BIT) to verify inter-panel symmetry under load
 Recording Requirements	Flight control logs must capture actuator ID, alignment spec, and rod length
-🖼️ Illustrations Typically Needed
+Illustrations Typically Needed
 Visual Type	Description
 Spoiler Panel Schematic	Overview of actuator locations and rig points
 Rig Pin Tool Placement	Detailed inset showing actuator body hole alignment
@@ -2116,12 +2140,14 @@ Actuator Cutaway View	Internal piston stroke center and linkage mounting
 Flush Check Profile	TE-to-wing skin overlay diagram with gauge callouts
 Rod End Length Measurement Table	For recording and configuration tracking
 
+ 
 
-🧭 Rudder Mechanical Linkage Tension and Centering Adjustment
+Rudder Mechanical Linkage Tension and Centering Adjustment
 
 From: AMM BOEING 777 FLIGHT CONTROLS.PDF and HYDRAULICS.PDF
 ATA Chapter: 27 – Flight Controls
 S1000D DMC: 27-21-00-04-00A-720A-P
+
 
 This task is critical for:
 
@@ -2133,7 +2159,8 @@ This task is critical for:
 
     Preventing uncommanded trim offset or yaw instability at high speeds
 
-⚠️ S1000D-Compliant Task (Including CAUTION, WARNING, NOTE, and Cross-Referencing)
+
+S1000D-Compliant Task (Including CAUTION, WARNING, NOTE, and Cross-Referencing)
 
 <dmodule xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xmlns="http://www.s1000d.org/S1000D_4-1/xml/issue"
@@ -2250,8 +2277,8 @@ This task is critical for:
   </content>
 </dmodule>
 
-🧠 Behind the Scenes — Writer’s Inputs & Decisions
-✍️ Engineering Sources Required
+Behind the Scenes — Writer’s Inputs & Decisions
+Engineering Sources Required
 Document	Used For
 Rudder Quadrant Drawing	Defines rig pin location, turnbuckle access, and jam nut clearances
 Control Cable Routing Diagram (ATA 92)	Establishes proper routing path, tension guides, and bulkhead passthroughs
@@ -2259,7 +2286,7 @@ Torque Specification Manual (Ch. 20)	Fastener torques for turnbuckles and jam nu
 FCC Maintenance Override Procedure (Ch. 22)	Required to prevent electrical interference during manual cycling
 Hydraulic Isolation Procedure (Ch. 29)	Eliminates stored pressure during rig
 Functional Test Procedure (Ch. 27-21-00-710)	Verifies travel range and damping values against tolerance spec
-🛠️ Key Authoring Considerations
+Key Authoring Considerations
 Consideration	Details
 Cable Tension Matching	Uneven cable tension causes trim bias or quadrant offset under yaw loads
 Rig Pin Usage	Required to ensure mechanical neutral of the torque tube quadrant
@@ -2267,11 +2294,164 @@ Turnbuckle Safety	Thread exposure limits and torque seal verification are safety
 FCC Isolation	Must disable control logic before mechanical manipulation
 Environmental Conditions	Cable tension changes with temperature → perform at ambient service temp (15–25°C)
 Documentation Requirements	Tension values and hardware ID logged in aircraft config management system
-🖼️ Illustrations Typically Needed
+Illustrations Typically Needed
 Visual Type	Description
 Rudder Quadrant Assembly View	Shows pin installation and turnbuckle location
 Tension Measurement Diagram	Tool placement and cable identification chart
 Rudder Pedal/Rudder Deflection Correlation	Neutral pedal input = centered rudder at hinge line
 Override Activation Flowchart	FCC mode isolation steps and manual test logic
 
+
+
+Main and Nose Landing Gear Wheel Installation and Final Torque / Leak Test
+
+From: AMM BOEING 777 LANDING GEAR.PDF
+ATA Chapter: 32 – Landing Gear
+S1000D DMC: 32-42-00-06-00A-720A-P
+
+This task is required:
+
+    After any wheel or tire replacement
+
+    Following brake servicing requiring wheel removal
+
+    When reinstalling previously removed wheels after structural or brake work
+
+    After NLG shimmy inspection involving wheel disassembly
+
+
+S1000D-Compliant Task (Including CAUTION, WARNING, NOTE, and Cross-Referencing)
+
+<dmodule xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://www.s1000d.org/S1000D_4-1/xml/issue"
+         xsi:schemaLocation="http://www.s1000d.org/S1000D_4-1/xml/issue s1000d_4-1.xsd">
+
+  <identAndStatusSection>
+    <dmAddress>
+      <dmIdent>
+        <modelIdentCode>777</modelIdentCode>
+        <systemDiffCode>00</systemDiffCode>
+        <systemCode>32</systemCode>
+        <subSystemCode>42</subSystemCode>
+        <subSubSystemCode>00</subSubSystemCode>
+        <assyCode>06</assyCode>
+        <disassyCode>00A</disassyCode>
+        <disassyCodeVariant>A</disassyCodeVariant>
+        <infoCode>720</infoCode>
+        <infoCodeVariant>A</infoCodeVariant>
+        <itemLocationCode>P</itemLocationCode>
+      </dmIdent>
+      <issueInfo>
+        <issueNumber>001</issueNumber>
+        <inWork>01</inWork>
+      </issueInfo>
+    </dmAddress>
+    <dmStatus>
+      <security>01</security>
+      <responsiblePartnerCompany>Boeing</responsiblePartnerCompany>
+      <originator>Landing Gear Engineering</originator>
+      <applicability>
+        <applic>777-300ER</applic>
+      </applicability>
+      <language country="US">en</language>
+    </dmStatus>
+  </identAndStatusSection>
+
+  <content>
+    <procedure>
+      <preliminaryRqmts>
+        <preliminaryRqmtsDescr>Aircraft jacked and leveled. Hydraulic system depressurized. Brake assembly installed and leak-free. Wheel sling tool available. Torque wrench calibrated.</preliminaryRqmtsDescr>
+        <safety>
+          <warning>
+            Use only new, approved wheel nuts (Ref: IPC 32-42-00) torqued in sequence. Improper torque can result in wheel separation on rotation.
+          </warning>
+          <caution>
+            Ensure mating surfaces are free of debris, corrosion, or dried hydraulic fluid before wheel installation.
+          </caution>
+          <note>
+            Tire pressure must be verified and set after wheel torque and before lower to ground (Ref: AMM 12-14-01-600-801).
+          </note>
+        </safety>
+      </preliminaryRqmts>
+
+      <mainProcedure>
+        <step>
+          <para>Position wheel/tire assembly onto axle using wheel sling tool (PN: TOOL-WHL-LIFT-777). Align holes with brake rotor flange.</para>
+        </step>
+        <step>
+          <para>Install new wheel nuts (PN: WHLNUT-MLG-777) hand-tight in star pattern. Verify thread engagement with no cross-threading.</para>
+        </step>
+        <step>
+          <para>Torque wheel nuts to 600 ft-lb (MLG) / 400 ft-lb (NLG) in cross-sequence. Apply torque seal to nut flats.</para>
+        </step>
+        <step>
+          <para>Reconnect brake hydraulic lines. Torque B-nut fittings to 180 in-lb. Apply torque seal and perform visual leak check.</para>
+        </step>
+        <step>
+          <para>Reinstall brake dust shield and torque cover screws per AMM 20-50-00.</para>
+        </step>
+        <step>
+          <para>Inflate tire with nitrogen to required pressure per AMM 12-14-01-600-801. Check for valve stem leakage using leak-check solution.</para>
+        </step>
+      </mainProcedure>
+
+      <closeProcedure>
+        <step>
+          <para>Remove jack stands and lower aircraft to ground. Remove hydraulic ground locks and gear door safety pins.</para>
+        </step>
+        <step>
+          <para>Log torque values, wheel serial number, inflation pressure, and brake line reconnection in aircraft maintenance record (ATA 05-00-00).</para>
+        </step>
+      </closeProcedure>
+
+      <crossRefTable>
+        <dmRef>
+          <dmRefIdent>
+            <dmCode>12-14-01-600-801</dmCode>
+            <title>Landing Gear Tire Inflation – Nitrogen Servicing</title>
+          </dmRefIdent>
+        </dmRef>
+        <dmRef>
+          <dmRefIdent>
+            <dmCode>32-42-00-220-801</dmCode>
+            <title>Wheel Hub and Nut Thread Inspection Criteria</title>
+          </dmRefIdent>
+        </dmRef>
+        <dmRef>
+          <dmRefIdent>
+            <dmCode>20-50-00-910-801</dmCode>
+            <title>Torque Application Standards</title>
+          </dmRefIdent>
+        </dmRef>
+        <dmRef>
+          <dmRefIdent>
+            <dmCode>29-10-00-870-801</dmCode>
+            <title>Brake Line Leak Check and Reconnection</title>
+          </dmRefIdent>
+        </dmRef>
+      </crossRefTable>
+    </procedure>
+  </content>
+</dmodule>
+
+🧠 Behind the Scenes — Writer’s Inputs & Decisions
+✍️ Engineering Sources Required
+Document	Used For
+Wheel and Brake Assembly Drawing	Nut torque, rotor alignment, mating flange geometry
+Tire Inflation Table (ATA 12)	Sets pressure based on aircraft configuration, temperature, loading
+IPC (ATA 32-42-00)	Specifies acceptable fastener PNs and washer inclusion or exclusion
+Torque Standard Reference	Ensures accurate torque and re-torque values are applied
+Hydraulic Schematic (ATA 29)	Confirms proper reconnection of brake lines and fittings
+🛠️ Key Authoring Considerations
+Consideration	Detail
+Torque Pattern	Must prevent warping of rotor/hub face — cross pattern is mandatory
+Thread Inspection	Damage or corrosion on stub axle threads disqualifies wheel reinstallation
+Tire Pressure Before Lowering	Underinflated tires deform on contact — inflate fully before lowering to ground
+Hydraulic Reconnection Leak Risk	Improper flare mating leads to latent leaks or vibration loosening — must leak test under residual pressure
+🖼️ Illustrations Typically Needed
+Visual Type	Description
+Wheel Nut Torque Sequence	Clockwise diagram with cross-torque order
+Torque Seal Application Diagram	Applied location for verification
+Nitrogen Inflation Profile	Chart by temp, weight, and altitude
+Brake Line Reconnection Diagram	Shows fitting alignment and correct torque callouts
 
