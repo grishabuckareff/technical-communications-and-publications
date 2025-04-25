@@ -5345,7 +5345,11 @@ Markup example:
   <title>Title</title>
   <graphic infoEntityIdent="ICN-S3627-S1000D0800-002-01" changeType="modify" changeMark="1" reasonForUpdateRefIds="rfu-0002"/>
 </figure>
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  
 2.6.1.3 Deleting
+
 When a whole figure is deleted, set appropriate values to the attributes of the element 
 <figure>.
 
@@ -5506,6 +5510,7 @@ S1000D-A-40-50-0000-00D-024C-D
 The rules, definitions and handling of references and cross-references from an author's point of
 view are given below. Details about the available elements and attributes and how to use and
 populate them are also given.
+
 The rules for the presentation of references and cross-references in page-oriented publications
 and IETP are given in Chap 6.2 and in Chap 6.3, respectively.
 
@@ -5541,6 +5546,7 @@ include an XPath linking mechanism. For guidance and examples, refer to Chap 7
 
 Description: The element <internalRef> is used to markup a cross-reference from one
 point in a data module to another point in the same data module. 
+
 This is achieved by linking the attribute internalRefId to the target attribute id, refer to Para 2.1.1.
 The identification of cross-references is described in Para 2.1.1, and the linking mechanism is
 described in Chap 7.7.4.
@@ -5576,6 +5582,7 @@ Cross-references can be made to any element that has its attribute id populated.
 When cross-referring to an alternate element (<figureAlts>, 
 <levelledParaAlts>, etc), use the attribute id of this element rather than its child
 element (<figure>, <levelledPara>, etc).
+
 This chapter gives the rules for coding cross-references to:
 - figures
 - tables
@@ -5599,7 +5606,7 @@ Cross-references to paragraphs, steps, figures, sheets, hotspots, multimedia, mu
 objects and tables must be preceded with the prefixes "Para", "Step", "Fig", "Fig, Sheet", "Fig [ ]", 
 "Fig, Object" and "Table", respectively, when presented. The prefix must include 
 the number of the target, for example, the paragraph, step or figure number. 
-These cross￾references can be followed by a title by project decision.
+These cross-references can be followed by a title by project decision.
   
 Note
   The prefixes are normally not entered in the data modules when data modules are written,
@@ -5610,10 +5617,11 @@ Note
 There are several methods that can be used to include and present the title or other supporting
 information for the cross-reference:
 - Include the information as textual content in the element <internalRef>.
-  
+
   Note
     The element <internalRef> can have textual content including subscripts and
     superscripts.
+  
 - Include the information in the attribute targetTitle.
 
 The title of the target, if given, in the element <title> in <levelledPara>, 
@@ -5638,8 +5646,10 @@ be included in the textual content of the element <internalRef> in the delivered
 modules. The "identifiers" can be derived from the content of these three elements.
 When the element <internalRef> is populated, only the textual content of this
 element is presented, not the content of the element <shortName> or the element <name>.
+  
   Note
     Any information given in the attribute targetTitle can be used as a tooltip in a viewer application.
+  
 - Cross-references to parameters, work locations and access points must be presented by
 the textual content of the attribute parameterName, and the child elements 
 <workArea> and <name>, respectively. For an alternative presentation of access points, refer to Chap 6.2.2.
@@ -5657,6 +5667,7 @@ element is presented. Refer to Chap 6.2.2 for details.
 
   Note
     Any information given in the attribute targetTitle can be used as a tooltip in a viewer application.
+
 - Cross-references to hotspots must be presented by the value of the attribute 
 referredFragment of the element <internalRef>, or by the value of the
 target attribute applicationStructureName if there is no attribute 
@@ -5664,6 +5675,7 @@ referredFragment.
 
 When the element <internalRef> is populated, only the textual content of this
 element is presented. Refer to Chap 6.2.2 for details.
+  
   Note
     Any information given in the target hotspot attribute hotspotTitle can be used
     as a tooltip in a viewer application.
@@ -5768,7 +5780,7 @@ Markup examples:
 
 Example 1: Cross-reference to a levelled paragraph in a descriptive data module. 
 The element <internalRef> is empty, and the value of the attribute internalRefTargetType
-is "irtt07". The project has decided not to present any titles for paragraph cross￾references.
+is "irtt07". The project has decided not to present any titles for paragraph cross- references.
 
 <para>For more information, refer to <internalRef internalRefId="par-0074" internalRefTargetType="irtt07"/>.</para>
 
@@ -5881,6 +5893,7 @@ is "irtt09". The project has decided to present titles for figure cross-referenc
 "Refer to Fig 7, Sheet 2 The eminent Publishing WG in action."
 - Comment: The building of the link, the generation of the prefix "Fig", together with the
 figure number "7", the word "Sheet" and the relevant target sheet number is defined by the stylesheet.
+
 The project has decided to present the titles for figure cross-references. The attribute 
 targetTitle is not populated. The figure title "The eminent Publishing WG in action"
 is derived from the child element <title> of the element <figure>, and is
@@ -5941,12 +5954,14 @@ there is also a number of possible implicit links in a data module which are not
 authored as cross-references. Examples are references from some content location to an
 applicability annotation located in the status section, or a reference from some content location
 to a change note in the element <reasonForUpdate>, also located in the status section.
+
 To enable these references/links within the data module, the targets of the links must be
 uniquely identified which is achieved by providing the possible target elements with dedicated
 identification attributes. These are always named id. To establish a link, the element from
 where the link starts (source element) is provided with a corresponding attribute which is
 populated with the identity given by the attribute id of the target element. Link source
 attributes have names like xxxRefId.
+
 In most implementations of S1000D, population of the element identities (ie, the id attributes)
 is cared for automatically.
 
@@ -5956,24 +5971,24 @@ attributes id and internalRefId:
 must be prefixed by alpha characters that identify the type of the target element. Example:
   • Structure: Prefix followed by a hyphen and a four-digit number to make it unique within
   the data module (eg, "par"-"0001")
-• Prefixes:
-- "fig" for figures and alternates
-- "tab" for tables
-- "mma" for multimedia and alternates
-- "sup" for supplies
-- "seq" for support equipment
-- "spa" for spares
-- "par" for levelled paragraphs and alternates
-- "stp" for steps of procedure, fault isolation, etc, and alternates
-- "gra" for graphics (multiple sheets)
-- "mmo" for multimedia objects
-- "hot" for hotspots (eg, "fig-0001-hot-0002")
-- "pme" for parameters
-- "zon" for zones
-- "wla" for work locations
-- "mat" for single material or material sets
-- "msl" for material set lists
-- "acp" for access points
+  • Prefixes:
+    - "fig" for figures and alternates
+    - "tab" for tables
+    - "mma" for multimedia and alternates
+    - "sup" for supplies
+    - "seq" for support equipment
+    - "spa" for spares
+    - "par" for levelled paragraphs and alternates
+    - "stp" for steps of procedure, fault isolation, etc, and alternates
+    - "gra" for graphics (multiple sheets)
+    - "mmo" for multimedia objects
+    - "hot" for hotspots (eg, "fig-0001-hot-0002")
+    - "pme" for parameters
+    - "zon" for zones
+    - "wla" for work locations
+    - "mat" for single material or material sets
+    - "msl" for material set lists
+    - "acp" for access points
 
   Note
     The four-digit number has no connection to, for example, the figure or table number
@@ -6017,8 +6032,296 @@ Markup element: <dmRef>
              Fig 2 Element <dmRef>
 
 
+Attributes:
+- applicRefId (O), the applicability information by referencing the element 
+<applic>. Refer to Chap 3.9.5.3.
+- id (O), the identifier of the markup element. Refer to Para 2.1.1.
+- changeType (O), changeMark (O) and reasonForUpdateRefIds (O), the
+change indications. Refer to Chap 3.9.5.2.1.1
+- referredFragment (O), the identification of an exact target within a data module
+when a reference addresses a specific location within another data module rather than the
+whole data module. The target must be an element in the destination data module, and the
+target identification is the value of the attribute id of the target element.
+- referenceUsage (O), the reference usage to characterize usage of the referred
+information. Projects or organizations are allowed to define their own reference usage. The
+attribute can have one of the following values:
+  • "rus01" thru "rus99". Refer to Chap 3.9.6.1.
+  Note
+    The use of the attribute supports automatic extractions from data modules in order to
+    feed external tools.
+
+- securityClassification (O), commercialClassification (O), 
+caveat (O) and derivativeClassificationRefId (O), the security and
+restrictive marking. Refer to Chap 3.6.
+- controlAuthorityRefs (O), the control authority information by referencing the
+element <controlAuthority>. Refer to Chap 3.9.5.1.
+
+Child elements:
+- <dmRefIdent>, the items forming a unique identification of a destination data module.
+Refer to Para 2.2.1.
+- <dmRefAddressItems>, the additional information about the destination data
+module. Refer to Para 2.2.2.
+- <behavior>, the appearance/behavior of the destination data module or a fragment of
+the destination data module. Refer to Para 2.2.3.
+
+Markup example:
+
+The following example shows a reference to another data module including its title and issue
+number (child elements are described below):
+
+<dmRef>
+  <dmRefIdent>
+    <dmCode modelIdentCode="S1000DBIKE" systemDiffCode="AAA"
+    systemCode="DA2" subSystemCode="2" subSubSystemCode="0"
+    assyCode="00" disassyCode="00" disassyCodeVariant="AA"
+    infoCode="520" infoCodeVariant="A" itemLocationCode="A"/>
+    <issueInfo issueNumber="002" inWork="00"/>
+  </dmRefIdent>
+  <dmRefAddressItems>
+    <dmTitle>
+      <techName>Handlebar</techName>
+      <infoName>Remove procedures</infoName>
+    </dmTitle>
+  </dmRefAddressItems>
+</dmRef>
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.2.1 Identification of a referred data module
+Description: The element <dmRefIdent> contains the items forming a unique
+identification of the destination data module.
+The project or the organization must be aware of the implications of using issue and inwork
+numbers as well as language and country codes of the destination data module when
+referenced data modules are updated.
+
+  
+Markup element: <dmRefIdent>
+
+Attributes:
+- None
+
+Child elements:
+- <identExtension>, the additional parameters needed to establish a unique
+identification of a data module in those cases when data module code, issue and inwork
+numbers together with the language and country codes are insufficient to form a
+universally unique identity. The element <identExtension> establishes a producer
+unique subdomain for identification. Refer to Chap 4.12.
+- <dmCode>, the data module code of the destination data module. Refer to Chap 3.9.5.1 and Chap 4.3.
+- <issueInfo>, the issue information needed to address a particular issue of the
+destination data module. Refer to Chap 3.9.5.1.
+- <language>, the language of the destination data module. Refer to Chap 3.9.5.1.
+
+  
+Markup examples:
+
+Reference to a data module with DMC:
+
+<dmRefIdent>
+  <dmCode modelIdentCode="S1000DBIKE" systemDiffCode="AAA"
+  systemCode="DA2" subSystemCode="2" subSubSystemCode="0"
+  assyCode="00" disassyCode="00" disassyCodeVariant="AA"
+  infoCode="520" infoCodeVariant="A" itemLocationCode="A"/>
+  <issueInfo issueNumber="002" inWork="00"/>
+</dmRefIdent>
+
+Reference to a data module instance with DME:
+
+<dmRefIdent>
+  <identExtension extensionProducer="SF518"
+  extensionCode="ABC00231"/>
+  <dmCode modelIdentCode="S1000DBIKE" systemDiffCode="AAA"
+  systemCode="DA2" subSystemCode="2" subSubSystemCode="0"
+  assyCode="00" disassyCode="00" disassyCodeVariant="AA"
+  infoCode="520" infoCodeVariant="A" itemLocationCode="A"/>
+  <issueInfo issueNumber="002" inWork="00"/>
+</dmRefIdent>
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.2.2 Complementary identifying information for a data module
+
+Description: The element <dmRefAddressItems> contains additional identifying
+information about the destination data module.
+The project or the organization must be aware of the implications of using the title and the issue
+date of the destination data module when referenced data modules are updated.
+
+  
+Markup element: <dmRefAddressItems>
+
+Attributes:
+- None
+
+Child elements:
+- <dmTitle>, the data module title of the destination data module. Refer to Chap 3.9.5.1.
+- <issueDate>, the issue date of the destination data module. Refer to Chap 3.9.5.1.
+
+  
+Markup example:
+
+<dmRefAddressItems>
+  <dmTitle>
+    <techName>Handlebar</techName>
+    <infoName>Remove procedures</infoName>
+  </dmTitle>
+</dmRefAddressItems>
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.2.3 Link behavior information
+
+Description: The element <behavior> contains the appearance (behavior) of the
+destination data module or a fragment of the destination data module.
+
+  
+Markup element: <behavior>
+
+Attributes:
+- linkShow (O), the link appearance, if an XLink link is established. Refer to Chap 7.7.4.
+The attribute linkShow can have one of the following values:
+  • "newPane" - show the referred context in a new pane
+  • "embedInContext" - embed the referred context in the current context
+  • "replaceAndReturnToSource" - show the referred context instead of the
+  current context, and return automatically to the current context when the referred
+  context has been viewed
+  • "replaceAndNoReturn" - show the referred context instead of the current
+  context, but do not automatically return to the current context when the referred
+  context has been viewed.
+- linkActuate (O), the link behavior, if an XLink link is established. Refer to
+Chap 7.7.4. The attribute linkActuate can have one of the following values:
+  • "onLoad" - present the referred context automatically when the link is loaded (ie,
+  when the link appears in the currently viewed context)
+  • "onRequest" - present the referred context on user request only
+
+Child elements:
+- None
+
+  
+Markup example:
+
+The following example illustrates how to markup a reference/link that will cause the reference
+target to show in a separate pane on the screen as soon as the link appears in the viewing
+context.
+
+<behavior linkShow="newPane" linkActuate="onLoad"/>
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.3 References to portions of a data module from a SCO content data module
+
+Description: The element <dmSegmentRef> contains all necessary details to constitute a
+reference from some context, such as a data module or a publication module, to portions of a
+destination data module by the use of an XPath expression.
 
 
+Markup element: <dmSegmentRef>
 
+Attributes:
+- targetPath (M), the identification of the portion of a destination data module
+addressed by the reference. The portion is identified using an XPath expression. For
+guidance and examples, refer to Chap 7.7.5.
+- applicRefId (O), the applicability information by referencing the element 
+<applic>. Refer to Chap 3.9.5.3.
+- id (O), the identifier of the markup element. Refer to Para 2.1.1.
+- changeType (O), changeMark (O) and reasonForUpdateRefIds (O), the
+change indications. Refer to Chap 3.9.5.2.1.1.
+- securityClassification (O), commercialClassification (O), 
+caveat (O) and derivativeClassificationRefId (O), the security and
+restrictive marking. Refer to Chap 3.6.
+- controlAuthorityRefs (O), the control authority information by referencing the
+element <controlAuthority>. Refer to Chap 3.9.5.1.
+
+Note
+  The element <dmSegmentRef> also includes five attributes normally populated by the
+  authoring application to make use of the W3C XLink mechanism. Refer to Chap 7.7.4.
+
+Child elements:
+- <dmRefIdent>, the items forming the unique identification of a destination data
+module. Refer to Para 2.1.1.
+- <dmRefAddressItems>, additional information about the destination data module.
+Refer to Para 2.2.1.
+- <behavior>, the appearance/behavior of the destination data module or a fragment of
+the destination data module. Refer to Para 2.2.3.
+
+  
+Markup example:
+The following example shows a reference to another data module including its title and issue number:
+
+<dmSegmentRef targetPath="//mainProcedure">
+  <dmRefIdent>
+    <dmCode modelIdentCode="S1000DBIKE" systemDiffCode="AAA"
+    systemCode="DA2" subSystemCode="2" subSubSystemCode="0"
+    assyCode="00" disassyCode="00" disassyCodeVariant="AA"
+    infoCode="520" infoCodeVariant="A" itemLocationCode="A"/>
+    <issueInfo issueNumber="007" inWork="00"/>
+  </dmRefIdent>
+  <dmRefAddressItems>
+    <dmTitle>
+      <techName>Handlebar</techName>
+      <infoName>Remove procedures</infoName>
+    </dmTitle>
+  </dmRefAddressItems>
+</dmSegmentRef>
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.4 References to SCORM content packages
+
+Description: The element <scormContentPackageRef> contains details of the
+destination SCORM content package that is referred from another SCORM content package.
+
+  
+Markup element: <scormContentPackageRef>
+
+Attributes:
+- applicRefId (O), the applicability information by referencing the element 
+<applic>. Refer to Chap 3.9.5.3.
+- id (O), the identifier of the markup element. Refer to Para 2.1.1 .
+- changeType (O), changeMark (O) and reasonForUpdateRefIds (O), the
+change indications. Refer to Chap 3.9.5.2.1.1.
+- securityClassification (O), commercialClassification (O), 
+caveat (O) and derivativeClassificationRefId (O), the security and
+restrictive marking. Refer to Chap 3.6.
+- controlAuthorityRefs (O), the control authority information by referencing the
+element <controlAuthority>. Refer to Chap 3.9.5.1.
+
+Note
+  The element <scormContentPackageRef> also includes five attributes normally
+  populated by the authoring application to make use of the W3C XLink mechanism. 
+  Refer to Chap 7.7.4.
+  
+Child elements:
+- <scormContentPackageRefIdent>, the items forming a unique identification of
+a destination SCORM content package. Refer to Para 2.4.1 .
+- <scormContentPackageRefAddressItems>, additional information about
+the destination SCORM content package. Refer to Para 2.4.2 .
+- <behavior>, the appearance/behavior of the destination SCORM content package.
+Refer to Para 2.2.3 .
+
+  
+Markup example:
+
+The following example shows a reference to a SCORM content package by using the elements 
+<scormContentPackageRefIdent> and <scormContentPackageRefAddressItems> (child elements are described below):
+
+<scoEntry>
+  <scoEntryItem>
+    <scormContentPackageRef>
+      <scormContentPackageRefIdent>
+        <scormContentPackageCode modelIdentCode="S1000DBIKE"
+        scormContentPackageIssuer="AH019"
+        scormContentPackageNumber="00001"
+        scormContentPackageVolume="00"/>
+        <language countryIsoCode="US" languageIsoCode="en"/>
+        <issueInfo inWork="00" issueNumber="001"/>
+      </scormContentPackageRefIdent>
+      <scormContentPackageRefAddressItems>
+        <issueDate day="12" month="01" year="2010"/>
+        <scormContentPackageTitle>S1000D BIKE learning sample</scormContentPackageTitle>
+      </scormContentPackageRefAddressItems>
+    </scormContentPackageRef>
+  </scoEntryItem>
+</scoEntry>
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
