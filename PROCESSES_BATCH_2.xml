@@ -2802,28 +2802,47 @@ S1000D-Compliant Task (Including CAUTION, WARNING, NOTE, and Cross-Referencing)
 
 Behind the Scenes — Writer’s Inputs & Decisions
 
-Engineering Sources Required
-Document	Used For
-Hydraulic System Schematic (ATA 29)	To identify reservoir ports, pump inlets, bleed valves
-Filter Specification Manual	To define minimum filtration for service carts (3 micron standard)
-Torque Tables	For fill port cap installation torque
-AMM Functional Test Procedure	Used after servicing to confirm system repressurization and performance
-MSDS/Fluid Compatibility Charts	To verify fluid type (Skydrol vs MIL-PRF-83282)
+ Engineering Sources Required
+______________________________________________________________________________________________________________
+ Document                                     |   Used For
+______________________________________________|_______________________________________________________________
+ Hydraulic System Schematic (ATA 29)          |   To identify reservoir ports, pump inlets, bleed valves
+______________________________________________|_______________________________________________________________
+ Filter Specification Manual                  |   To define minimum filtration for service carts (3 micron standard)
+______________________________________________|_______________________________________________________________
+ Torque Tables                                |   For fill port cap installation torque
+______________________________________________|_______________________________________________________________
+ AMM Functional Test Procedure                |   Used after servicing to confirm system repressurization and performance
+______________________________________________|_______________________________________________________________
+ MSDS/Fluid Compatibility Charts              |   To verify fluid type (Skydrol vs MIL-PRF-83282)
+______________________________________________|_______________________________________________________________
 
 Key Authoring Considerations
-Consideration	Details
-Fluid Compatibility	Mixing incompatible fluids results in seal swelling, leakage, or pump cavitation
-Sight Gauge Calibration	Must be read with aircraft level, hydraulic system cold, and reservoir vented
-Overfill Risk	Overfilling blocks accumulator preload → leads to system surge during pump startup
-Functional Testing Required	Always verify spoilers/elevator/hydraulics post-service to detect air ingestion
+______________________________________________________________________________________________________________
+ Consideration                                |   Details
+______________________________________________|_______________________________________________________________
+ Fluid Compatibility	                         |   Mixing incompatible fluids results in seal swelling, leakage, or pump cavitation
+______________________________________________|_______________________________________________________________
+ Sight Gauge Calibration                      |   Must be read with aircraft level, hydraulic system cold, and reservoir vented
+______________________________________________|_______________________________________________________________
+ Overfill Risk                                |   Overfilling blocks accumulator preload → leads to system surge during pump startup
+______________________________________________|_______________________________________________________________
+ Functional Testing Required                  |   Always verify spoilers/elevator/hydraulics post-service to detect air ingestion
+______________________________________________|_______________________________________________________________
 
 
 Illustrations Typically Needed
-Visual Type	Description
-Reservoir Fill Port Diagram	Shows A-R1 location, safety labeling, and panel reference
-Sight Gauge Reference Graphic	“FULL COLD” and “MIN COLD” level window callouts
-Service Cart Connection Guide	Proper valve positioning for “FILL” and “VENT” modes
-Air Bleed Path Diagram	Shows vent-to-atmosphere path for safe purging
+______________________________________________|_______________________________________________________________
+ Visual Type                                  |   Description
+______________________________________________|_______________________________________________________________
+ Reservoir Fill Port Diagram                  |   Shows A-R1 location, safety labeling, and panel reference
+______________________________________________|_______________________________________________________________
+ Sight Gauge Reference Graphic                |   “FULL COLD” and “MIN COLD” level window callouts
+______________________________________________|_______________________________________________________________
+ Service Cart Connection Guide                |   Proper valve positioning for “FILL” and “VENT” modes
+______________________________________________|_______________________________________________________________
+ Air Bleed Path Diagram                       |   Shows vent-to-atmosphere path for safe purging
+______________________________________________|_______________________________________________________________
 
 
 
