@@ -469,8 +469,278 @@ Markup element: <imfStatus>
 
 
 
+Attributes:
+- None
 
+Child elements:
+- <security>. Refer to Chap 3.9.5.1.
+- <controlAuthorityGroup>. Refer to Chap 3.9.5.1.
+- <dataRestrictions>. Refer to Chap 3.9.5.1.
+- <responsiblePartnerCompany>. Refer to Chap 3.9.5.1.
+- <originator>. Refer to Chap 3.9.5.1.
+- <techStandard>. Refer to Chap 3.9.5.1.
+- <brexDmRef>. Refer to Chap 3.9.5.1.
+- <qualityAssurance>. Refer to Chap 3.9.5.1.
+- <systemBreakdownCode>. Refer to Chap 3.9.5.1.
+- <functionalItemCode>. Refer to Chap 3.9.5.1.
+- <functionalItemRef>. Refer to Chap 3.9.5.1.
+- <reasonForUpdate>. Refer to Chap 3.9.5.1.
+- <remarks>. Refer to Chap 3.9.5.1.
 
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.2 ICN metadata file content
+
+Description: The element <imfContent> contains the metadata supporting invocation
+and use of the ICN object in various contexts.
+One and the same ICN object can exist in different formats/notations, usually because different
+presentation media raise different requirements. This can be reflected by use of several
+occurrences of the child element.
+
+  
+Markup element: <imfContent>
+
+Attributes:
+- None
+
+Child elements:
+- <icnVariation>. Refer to Para 2.2.1.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  
+2.2.1 ICN metadata covering all applied formats
+
+Description: The element <icnVariation> contains the metadata for one specific
+format/notation of an ICN object.
+
+  
+Markup element: <icnVariation>
+
+Attributes:
+- fileExtension (O), the file extension of the format/notation to which the contained
+set of metadata relates. If the attribute is not used, the metadata will be considered
+generally valid for the ICN file. Metadata given for a specific format/notation will override
+any corresponding generally given metadata. Refer to Chap 4.8 for more details about
+formats/notations.
+
+Child elements:
+- <icnInfoItemGroup>. Refer to Para 2.2.1.1.
+- <icnContents>. Refer to Para 2.2.1.2.
+<icnSupportingFiles>. Refer to Para 2.2.1.3.
+
+  
+Markup example:
+
+<imfContent>
+  <!--Generally applicable metadata -->
+  <icnVariation>...</icnVariation>
+  <!--Metadata only applicable to the tif variant -->
+  <icnVariation fileExtension=”tif”>...</icnVariation>
+</imfContent>
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.2.1.1 ICN metadata item information
+
+Description: The element <icnInfoItemGroup> contains the various types of
+metadata items that are useful to identify and manage the ICN.
+
+  
+Markup element: <icnInfoItemGroup>
+
+Attributes:
+- None
+
+Child elements:
+- <icnInfoItem>. Refer to Para 2.2.1.1.1.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.2.1.1.1 ICN metadata item
+
+Description: The element <icnInfoItem> contains one metadata item associated to the ICN.
+
+  
+Markup element: <icnInfoItem>
+
+Attributes:
+- icnInfoItemType (M), the type of metadata item that is contained in the element.
+The attribute can have one of the following values:
+  • "iiit01" thru "iiit99". Refer to Chap 3.9.6.1.
+
+Child elements:
+- <simplePara>. Refer to Chap 3.9.5.2.1.10.
+
+  
+Markup example:
+
+<icnInfoItem icnInfoItemType="iiit02"><simplePara>100Mb</simplePara></icnInfoItem>
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  
+2.2.1.2 ICN object contents
+
+Description: The element <icnContents> contains metadata related to the ICN object to
+enable it to be invoked and presented in a specific context (eg, in a data module).
+
+  
+Markup element: <icnContents>
+
+Attributes:
+- None
+
+Child elements:
+- <icnObjectGroup>, contains specification of identifiable objects within the content
+of a multimedia/graphics file. Refer to Para 2.2.1.2.1.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.2.1.2.1 Multimedia or graphics objects in the ICN file
+
+Description: The element <icnObjectGroup> identifies the objects in the multimedia or
+graphics information as needed to achieve an intended interaction between the ICN file content
+and the XML in which it is invoked.
+
+  
+Markup element: <icnObjectGroup>
+
+Attributes:
+- None
+
+Child elements:
+- <icnObject>, information about one specified object within a multimedia or graphic
+file. Refer to Para 2.2.1.2.2.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  
+2.2.1.2.2 ICN object description
+
+Description: The element <icnObject> contains the description of one identifiable object
+in multimedia or graphics information. This description can be recursive, specifying that one
+object is hierarchically related to other objects.
+
+  
+Markup element: <icnObject>
+
+Attributes:
+- id (O), the identifier of the element <icnObject>. Refer to Chap 3.9.5.2.1.2.
+- icnObjectIdent (O), the identity by which the object is identified within the
+multimedia or graphics file
+- icnObjectName (O), the name that has been assigned to the object within the
+multimedia or graphics file
+- icnObjectType (O), to the classification of the ICN object
+- icnObjectTitle (O), to the title of the ICN object (eg, to be used as tool tip on mouse-over)
+- objectDescr (O), the description of the object (eg, indicating what it is and/or for what
+it is relevant, similar to how the attribute is used in a hotspot. Rerefer to Chap 3.9.5.2.1.8).
+- objectCoordinates (O), the coordinates of a region in 2D defined by a closed
+polygon represented by a comma separated list of coordinates in the form "x1, y1, ..., xn,
+yn" where each (x,y)-pair defines a point of the closed polygon in absolute pixel
+coordinates. In 3D a solid is represented by a closed set of surfaces where each surface is
+defined by a closed polygon/region in 3D space, given in the form "x1, y1, z1,..., xn, yn, zn"
+where each (x,y,z)-triple defines a point of the closed polygon. All surfaces must be
+defined such that they share every boundary segment with one other surface.
+
+Child elements:
+- <icnObject>, the hierarchy of objects contained in objects
+- <internalRef>, the relations between different objects in an graphic object or
+multimedia object (eg, to allow that clicking one object will result in the referenced object to
+be highlighted or the current view to change). Refer to Chap 3.9.5.2.1.2.
+- <dmRef>. Refer to Chap 3.9.5.2.1.2.
+- <catalogSeqNumberRef>. Refer to Chap 3.9.5.2.7.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.2.1.3 Files supporting the ICN
+
+Description: The element <icnSupportingFiles> enables source and/or resource
+files to be referenced and associated with the ICN when the ICN content is processed and/or presented.
+
+  
+Markup element: <icnSupportingFiles>
+
+Attributes:
+- None
+
+Child elements:
+- <icnSourceFiles>, the references to the additional resource files associated with
+the ICN, making it a complete unit. Refer to Para 2.2.1.3.1.
+- <icnResourceFiles>, the references to the additional source files associated with
+the ICN, making it a complete unit. Refer to Para 2.2.1.3.2.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.2.1.3.1 Associated source files
+
+Description: This element <icnSourceFiles> enables additional source files
+associated with the ICN to be referenced, making it a complete unit.
+
+  
+Markup element: <icnSourceFiles>
+
+Attributes:
+- icnSourceFileType (M), the type of source files concerned. The attribute is project
+configurable. Refer to Chap 3.9.6.1.
+
+Child elements:
+- <icnSupportingFilesDescr>, the description of the supporting files. Refer to
+Para 2.2.1.3.3.
+- <refs>. Refer to Chap 3.9.5.2.1.2.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  
+2.2.1.3.2 Associated resource files
+
+Description: The element <icnResourceFiles> enables associated resource files to
+be referenced when the ICN content is presented or used.
+
+  
+Markup element: <icnResourceFiles>
+
+Attributes:
+- icnResourceFileType (M), the type of resource files concerned. The attribute is
+project configurable. Refer to Chap 3.9.6.1.
+
+Child elements:
+- <icnSupportingFilesDescr>, the description of the supporting files. Refer to
+Para 2.2.1.3.3.
+- <refs>. Refer to Chap 3.9.5.2.1.2.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.2.1.3.3 Description of supporting files
+
+Description: The element <icnSupportingFilesDescr> contains a description of a
+collection of files associated to an ICN.
+
+  
+Markup element: <icnSupportingFilesDescr>
+
+Attributes:
+- None
+
+Child elements:
+- <para>. Refer to Chap 3.9.5.2.1.10.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.3 ICN metadata file coding
+
+The ICN metadata file identification is derived from the corresponding ICN object identification.
+It also allows for its own revision marking, that does not necessarily have to be synchronous
+with the issue marking of the ICN object itself. Thus, the identity consists of:
+- the prefix "IMF", followed by a hyphen
+- the ICN, except the prefix "ICN-" and the extension annotation, followed by an underscore
+- the issue number of the ICN metadata file, followed by a hyphen
+- the inwork number of the ICN metadata file
+- the extension code, ie, ".xml" since the metadata file is an xml file
+
+Examples:
+The ICN metadata file name for an object with the CAGE code based identity ICN-YYYYY￾YYYYY-XXX-XX is:
+- IMF-YYYYY-YYYYY-XXX-XX_JJJ-WW.XML
+where JJJ is the issue number of the file and WW is the inwork number.
+Correspondingly, the ICN metadata file name for an object with the model identification based
+identity ICN-YY-Y-YYYYYY-Y-YYYYY-YYYYY-A-XXX-XX is:
+- IMF-YY-Y-YYYYYY-Y-YYYYY-YYYYY-A-XXX-XX_JJJ-WW.XML
   
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
