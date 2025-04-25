@@ -569,46 +569,46 @@ Behind the Scenes — Writer’s Inputs & Decisions
 
 Engineering Sources Required
 ______________________________________________________________________________________________________________
- Document	                                  |   Used For
+ Document                                     |   Used For
 ______________________________________________|_______________________________________________________________
- NLG Actuator Assembly Drawing	              |   Identifies clevis geometry, bolt spec, actuator stroke
+ NLG Actuator Assembly Drawing                |   Identifies clevis geometry, bolt spec, actuator stroke
 ______________________________________________|_______________________________________________________________
- Hydraulic Routing Diagrams	                  |   Source of hydraulic IN/OUT line IDs and pressure return paths
+ Hydraulic Routing Diagrams                   |   Source of hydraulic IN/OUT line IDs and pressure return paths
 ______________________________________________|_______________________________________________________________
- Access Panel and Zonal Layout (ATA 06/57)	  |   To locate 615NF/NL and safe routing
+ Access Panel and Zonal Layout (ATA 06/57)    |   To locate 615NF/NL and safe routing
 ______________________________________________|_______________________________________________________________
- Torque Tables	                              |   Standard for reinstallation of fasteners and fittings
+ Torque Tables                                |   Standard for reinstallation of fasteners and fittings
 ______________________________________________|_______________________________________________________________
- Functional Test Procedure (ATA 32)	          |   Ensures nose gear stroke, lock, and timing parameters are met
+ Functional Test Procedure (ATA 32)           |   Ensures nose gear stroke, lock, and timing parameters are met
 ______________________________________________|_______________________________________________________________
 
 Key Authoring Considerations
 ______________________________________________________________________________________________________________
- Consideration	                              |   Details
+ Consideration                                |   Details
 ______________________________________________|_______________________________________________________________
- Nose Gear Safety	                          |   Gear can pivot or rotate without downlock → writer must emphasize restraint
+ Nose Gear Safety                             |   Gear can pivot or rotate without downlock → writer must emphasize restraint
 ______________________________________________|_______________________________________________________________
- Actuator Handling	                          |   Rod must not be touched or damaged — requires sling or bracket for install
+ Actuator Handling                            |   Rod must not be touched or damaged — requires sling or bracket for install
 ______________________________________________|_______________________________________________________________
- Fastener Control	                          |   Torque specs validated against latest company standards (Rev. X or higher)
+ Fastener Control                             |   Torque specs validated against latest company standards (Rev. X or higher)
 ______________________________________________|_______________________________________________________________
- Cross-System Checks	                      |   Retraction actuator behavior must match flight control computer output logic post-install
+ Cross-System Checks                          |   Retraction actuator behavior must match flight control computer output logic post-install
 ______________________________________________|_______________________________________________________________
- Data Traceability	                          |   Installed component and test result must be logged in aircraft MLG/NLG service record
+ Data Traceability                            |   Installed component and test result must be logged in aircraft MLG/NLG service record
 ______________________________________________|_______________________________________________________________
 
 
 Illustrations Typically Needed
 ______________________________________________________________________________________________________________
- Visual Type	                              |   Description
+ Visual Type                                  |   Description
 ______________________________________________|_______________________________________________________________
  Actuator Mounting Cutaway	                  |   Shows bolt locations, clevis mount, and access clearances
 ______________________________________________|_______________________________________________________________
  Hydraulic Port Orientation	                  |   Clarifies connection direction and fitting type
 ______________________________________________|_______________________________________________________________
- Nose Gear Retraction Sequence	              |   Graphical flow of actuator movement during functional test
+ Nose Gear Retraction Sequence                |   Graphical flow of actuator movement during functional test
 ______________________________________________|_______________________________________________________________
- Downlock Pin Install	                      |   Safe restraint diagram with pin alignment
+ Downlock Pin Install                         |   Safe restraint diagram with pin alignment
 ______________________________________________|_______________________________________________________________
 
 
