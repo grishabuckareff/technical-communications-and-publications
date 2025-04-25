@@ -380,48 +380,48 @@ Behind the Scenes — Writer’s Inputs & Decisions
 
 Engineering Sources Required
 __________________________________________________________________________________________________________
- Document	                              |   Used For
+ Document                                     |   Used For
 ______________________________________________|_______________________________________________________________
- Actuator Assembly Drawing (ATA 32-31)	      |   Pin connection geometry, flow direction, load orientation
+ Actuator Assembly Drawing (ATA 32-31)        |   Pin connection geometry, flow direction, load orientation
 ______________________________________________|_______________________________________________________________
  Hydraulic Line Routing Diagrams (Ch. 29)     |	  Identifies system pressure lines and return ports
 ______________________________________________|_______________________________________________________________
- Torque Tables (Ch. 20)	                      |   Required for fastener tightening and line fitting torque
+ Torque Tables (Ch. 20)                       |   Required for fastener tightening and line fitting torque
 ______________________________________________|_______________________________________________________________
  Landing Gear Structure Drawings (Ch. 53/57)  |   Access zones, bushing and clevis dimensions
 ______________________________________________|_______________________________________________________________
- Functional Gear Test (32-00-00-710)	      |   To validate proper retraction and downlock behavior
+ Functional Gear Test (32-00-00-710)          |   To validate proper retraction and downlock behavior
 ______________________________________________|_______________________________________________________________
- IPC (32-31-00)	                              |   To specify fastener part numbers and seal compatibility
+ IPC (32-31-00)                               |   To specify fastener part numbers and seal compatibility
 ______________________________________________|_______________________________________________________________
 
 Key Authoring Considerations
 ______________________________________________________________________________________________________________
- Consideration	                              |   Details
+ Consideration                                |   Details
 ______________________________________________|_______________________________________________________________
- Gear Position Safety	                      |   Actuator carries full locking load — pinning is mandatory for safe removal
+ Gear Position Safety                         |   Actuator carries full locking load — pinning is mandatory for safe removal
 ______________________________________________|_______________________________________________________________
- Seal & Fastener Reuse Prohibition	      |   Seal failure is common in actuator R&R; replacements must follow IPC
+ Seal & Fastener Reuse Prohibition            |   Seal failure is common in actuator R&R; replacements must follow IPC
 ______________________________________________|_______________________________________________________________
- Post-Install Verification	              |   Gear swing test under power confirms timing, pressure retention, and stroke symmetry
+ Post-Install Verification                    |   Gear swing test under power confirms timing, pressure retention, and stroke symmetry
 ______________________________________________|_______________________________________________________________
- Hydraulic Cleanliness	                      |   Debris from port contamination can compromise brake system if cross-connected
+ Hydraulic Cleanliness                        |   Debris from port contamination can compromise brake system if cross-connected
 ______________________________________________|_______________________________________________________________
- Load Transfer Effects	                      |   Removal of actuator shifts downlock load to airframe restraint — must be controlled
+ Load Transfer Effects                        |   Removal of actuator shifts downlock load to airframe restraint — must be controlled
 ______________________________________________|_______________________________________________________________
 
 
 Illustrations Typically Needed
 ______________________________________________________________________________________________________________
- Visual Type	                              |   Description
+ Visual Type                                  |   Description
 ______________________________________________|_______________________________________________________________
- Actuator Location Diagram	              |    Overall aircraft schematic with clevis and access port callouts
+ Actuator Location Diagram                    |   Overall aircraft schematic with clevis and access port callouts
 ______________________________________________|_______________________________________________________________
- Pin Installation View	                      |   Lockout pin placement and actuator support rigging
+ Pin Installation View                        |   Lockout pin placement and actuator support rigging
 ______________________________________________|_______________________________________________________________
- Hydraulic Port Diagram	                      |   Labeling of INLET/OUTLET ports with torque spec callouts
+ Hydraulic Port Diagram                       |   Labeling of INLET/OUTLET ports with torque spec callouts
 ______________________________________________|_______________________________________________________________
- Functional Test Sequence Diagram	      |    Pass/fail decision tree for post-install extension test
+ Functional Test Sequence Diagram             |   Pass/fail decision tree for post-install extension test
 ______________________________________________|_______________________________________________________________
 
 
