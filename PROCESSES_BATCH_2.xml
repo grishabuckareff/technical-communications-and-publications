@@ -2103,8 +2103,7 @@ ______________________________________________|_________________________________
 ______________________________________________|_______________________________________________________________
 
 
-
-
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 Spoiler Actuator Alignment and Rigging Procedure
 
@@ -2114,13 +2113,13 @@ S1000D DMC: 27-62-00-04-00A-720A-P
 
 This task is essential for:
 
-    Ensuring symmetric lift dump and roll augmentation functionality
+    - Ensuring symmetric lift dump and roll augmentation functionality
 
-    Aligning mechanical stops, actuator stroke length, and rig pin indexing
+    - Aligning mechanical stops, actuator stroke length, and rig pin indexing
 
-    Maintaining flap/spoiler interlock logic
+    - Maintaining flap/spoiler interlock logic
 
-    Preventing flutter or roll asymmetry from incorrect neutral alignment
+    - Preventing flutter or roll asymmetry from incorrect neutral alignment
 
 
 S1000D-Compliant Task (Including CAUTION, WARNING, NOTE, and Cross-Referencing)
@@ -2264,24 +2263,37 @@ Control Surface Functional Test (27-62-00-710)	Verifies correct behavior after r
 Stow Flush Criteria	From Boeing aerodynamic alignment doc – neutral = ±0.1° flush across panel edge
 
 Key Authoring Considerations
-
-Consideration	Details
-Panel Interdependence	Multiple spoilers per side — if one actuator is misaligned, others can bind
-Rig Pin Access	Requires center stroke of actuator (must be depressurized and unlocked)
-Manual vs Powered Movement	Task must differentiate between hand-cycled checks and hydraulic cycling
-Rod End Adjustments	Must be performed with zero preload — any tension alters surface load in flight
-System Synchronization	Final test uses Built-In Test (BIT) to verify inter-panel symmetry under load
-Recording Requirements	Flight control logs must capture actuator ID, alignment spec, and rod length
+______________________________________________________________________________________________________________
+ Consideration	                         |   Details
+______________________________________________|_______________________________________________________________
+ Panel Interdependence	                  |   Multiple spoilers per side — if one actuator is misaligned, others can bind
+______________________________________________|_______________________________________________________________
+ Rig Pin Access	                         |   Requires center stroke of actuator (must be depressurized and unlocked)
+______________________________________________|_______________________________________________________________
+ Manual vs Powered Movement	                  |   Task must differentiate between hand-cycled checks and hydraulic cycling
+______________________________________________|_______________________________________________________________
+ Rod End Adjustments	                         |   Must be performed with zero preload — any tension alters surface load in flight
+______________________________________________|_______________________________________________________________
+ System Synchronization	                  |   Final test uses Built-In Test (BIT) to verify inter-panel symmetry under load
+______________________________________________|_______________________________________________________________
+ Recording Requirements	                  |   Flight control logs must capture actuator ID, alignment spec, and rod length
+______________________________________________|_______________________________________________________________
 
 
 Illustrations Typically Needed
-
-Visual Type	Description
-Spoiler Panel Schematic	Overview of actuator locations and rig points
-Rig Pin Tool Placement	Detailed inset showing actuator body hole alignment
-Actuator Cutaway View	Internal piston stroke center and linkage mounting
-Flush Check Profile	TE-to-wing skin overlay diagram with gauge callouts
-Rod End Length Measurement Table	For recording and configuration tracking
+______________________________________________|_______________________________________________________________
+ Visual Type	                                |   Description
+______________________________________________|_______________________________________________________________
+ Spoiler Panel Schematic	                  |   Overview of actuator locations and rig points
+______________________________________________|_______________________________________________________________
+ Rig Pin Tool Placement	                  |   Detailed inset showing actuator body hole alignment
+______________________________________________|_______________________________________________________________
+ Actuator Cutaway View	                  |   Internal piston stroke center and linkage mounting
+______________________________________________|_______________________________________________________________
+ Flush Check Profile	                         |   TE-to-wing skin overlay diagram with gauge callouts
+______________________________________________|_______________________________________________________________
+ Rod End Length Measurement Table	           |   For recording and configuration tracking
+______________________________________________|_______________________________________________________________
 
  
 
@@ -2293,13 +2305,13 @@ S1000D DMC: 27-21-00-04-00A-720A-P
 
 This task is critical for:
 
-    Ensuring rudder pedal-to-surface linkage symmetry
+    - Ensuring rudder pedal-to-surface linkage symmetry
 
-    Correct yaw trim centerline alignment
+    - Correct yaw trim centerline alignment
 
-    Maintaining proper function of the Yaw Damper, rudder ratio changer, and Flight Control Computers (FCCs)
+    - Maintaining proper function of the Yaw Damper, rudder ratio changer, and Flight Control Computers (FCCs)
 
-    Preventing uncommanded trim offset or yaw instability at high speeds
+    - Preventing uncommanded trim offset or yaw instability at high speeds
 
 
 S1000D-Compliant Task (Including CAUTION, WARNING, NOTE, and Cross-Referencing)
@@ -2423,24 +2435,39 @@ S1000D-Compliant Task (Including CAUTION, WARNING, NOTE, and Cross-Referencing)
 Behind the Scenes — Writer’s Inputs & Decisions
 
 Engineering Sources Required
-
-Document	Used For
-Rudder Quadrant Drawing	Defines rig pin location, turnbuckle access, and jam nut clearances
-Control Cable Routing Diagram (ATA 92)	Establishes proper routing path, tension guides, and bulkhead passthroughs
-Torque Specification Manual (Ch. 20)	Fastener torques for turnbuckles and jam nuts
-FCC Maintenance Override Procedure (Ch. 22)	Required to prevent electrical interference during manual cycling
-Hydraulic Isolation Procedure (Ch. 29)	Eliminates stored pressure during rig
-Functional Test Procedure (Ch. 27-21-00-710)	Verifies travel range and damping values against tolerance spec
+______________________________________________________________________________________________________________
+ Document	                                |   Used For
+______________________________________________|_______________________________________________________________
+ Rudder Quadrant Drawing                      |   Defines rig pin location, turnbuckle access, and jam nut clearances
+______________________________________________|_______________________________________________________________
+ Control Cable Routing Diagram (ATA 92)       |   Establishes proper routing path, tension guides, and bulkhead passthroughs
+______________________________________________|_______________________________________________________________
+ Torque Specification Manual (Ch. 20)         |   Fastener torques for turnbuckles and jam nuts
+______________________________________________|_______________________________________________________________
+ FCC Maintenance Override Procedure (Ch. 22)  |   Required to prevent electrical interference during manual cycling
+______________________________________________|_______________________________________________________________
+ Hydraulic Isolation Procedure (Ch. 29)       |   Eliminates stored pressure during rig
+______________________________________________|_______________________________________________________________
+ Functional Test Procedure                    |
+ (Ch. 27-21-00-710)                           |   Verifies travel range and damping values against tolerance spec
+______________________________________________|_______________________________________________________________
 
 Key Authoring Considerations
-
-Consideration	Details
-Cable Tension Matching	Uneven cable tension causes trim bias or quadrant offset under yaw loads
-Rig Pin Usage	Required to ensure mechanical neutral of the torque tube quadrant
-Turnbuckle Safety	Thread exposure limits and torque seal verification are safety-critical
-FCC Isolation	Must disable control logic before mechanical manipulation
-Environmental Conditions	Cable tension changes with temperature → perform at ambient service temp (15–25°C)
-Documentation Requirements	Tension values and hardware ID logged in aircraft config management system
+______________________________________________________________________________________________________________
+ Consideration                                |   Details
+______________________________________________|_______________________________________________________________
+ Cable Tension Matching                       |   Uneven cable tension causes trim bias or quadrant offset under yaw loads
+______________________________________________|_______________________________________________________________
+ Rig Pin Usage                                |   Required to ensure mechanical neutral of the torque tube quadrant
+______________________________________________|_______________________________________________________________
+ Turnbuckle Safety                            |   Thread exposure limits and torque seal verification are safety-critical
+______________________________________________|_______________________________________________________________
+ FCC Isolation                                |   Must disable control logic before mechanical manipulation
+______________________________________________|_______________________________________________________________
+ Environmental Conditions                     |   Cable tension changes with temperature → perform at ambient service temp (15–25°C)
+______________________________________________|_______________________________________________________________
+ Documentation Requirements                   |   Tension values and hardware ID logged in aircraft config management system
+______________________________________________|_______________________________________________________________
 
 
 Illustrations Typically Needed
@@ -2461,13 +2488,13 @@ S1000D DMC: 32-42-00-06-00A-720A-P
 
 This task is required:
 
-    After any wheel or tire replacement
+    - After any wheel or tire replacement
 
-    Following brake servicing requiring wheel removal
+    - Following brake servicing requiring wheel removal
 
-    When reinstalling previously removed wheels after structural or brake work
+    - When reinstalling previously removed wheels after structural or brake work
 
-    After NLG shimmy inspection involving wheel disassembly
+    - After NLG shimmy inspection involving wheel disassembly
 
 
 S1000D-Compliant Task (Including CAUTION, WARNING, NOTE, and Cross-Referencing)
@@ -2627,13 +2654,13 @@ S1000D DMC: 29-11-00-06-00A-720A-P
 
 This task is required:
 
-    When system fluid level falls below operational minimum
+    - When system fluid level falls below operational minimum
 
-    After actuator R&R or line disconnection introduces air into system
+    - After actuator R&R or line disconnection introduces air into system
 
-    After long-term storage or airframe return to service
+    - After long-term storage or airframe return to service
 
-    As part of MPD-defined regular hydraulic servicing interval
+    - As part of MPD-defined regular hydraulic servicing interval
 
 
 S1000D-Compliant Task (Including CAUTION, WARNING, NOTE, and Cross-Referencing)
@@ -2784,13 +2811,13 @@ S1000D DMC: 29-00-00-06-00A-720A-P
 
 This task is performed:
 
-    After replacement of any actuator, line, fitting, or valve in the hydraulic system
+    - After replacement of any actuator, line, fitting, or valve in the hydraulic system
 
-    Following airframe maintenance where lines were opened or exposed
+    - Following airframe maintenance where lines were opened or exposed
 
-    After leak repairs, reservoir refill, or fluid sampling
+    - After leak repairs, reservoir refill, or fluid sampling
 
-    As part of scheduled maintenance after storage or aircraft return to service
+    - As part of scheduled maintenance after storage or aircraft return to service
 
 
 S1000D-Compliant Task (Including CAUTION, WARNING, NOTE, and Cross-Referencing)
@@ -2944,13 +2971,13 @@ S1000D DMC: 29-21-00-06-00A-720A-P
 
 This task is performed:
 
-    After scheduled interval per MPD
+    - After scheduled interval per MPD
 
-    After manual or automatic RAT deployment event
+    - After manual or automatic RAT deployment event
 
-    Following hydraulic system C fault isolation or component replacement
+    - Following hydraulic system C fault isolation or component replacement
 
-    After aircraft storage or exposure to severe cold/icing conditions
+    - After aircraft storage or exposure to severe cold/icing conditions
 
 
 S1000D-Compliant Task (Including CAUTION, WARNING, NOTE, and Cross-Referencing)
@@ -3093,21 +3120,22 @@ Stow Latch Diagram	Locking pin engagement and inspection view post-stow
 
 Power Transfer Unit (PTU) Functional Test – Hydraulic System A/B Crossfeed
 
-From: AMM BOEING 777 HYDRAULICS.PDF
 ATA Chapter: 29 – Hydraulic Power
 S1000D DMC: 29-13-00-06-00A-720A-P
 
+
 This task is performed:
 
-    After PTU installation or replacement
+    - After PTU installation or replacement
 
-    Following System A or B EDP or actuator change
+    - Following System A or B EDP or actuator change
 
-    During scheduled MPD check or CPCP maintenance window
+    - During scheduled MPD check or CPCP maintenance window
 
-    After prolonged aircraft storage, inactivity, or system C work impacting isolation logic
+    - After prolonged aircraft storage, inactivity, or system C work impacting isolation logic
 
-⚠️ S1000D-Compliant Task (Including CAUTION, WARNING, NOTE, and Cross-Referencing)
+
+S1000D-Compliant Task (Including CAUTION, WARNING, NOTE, and Cross-Referencing)
 
 <dmodule xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xmlns="http://www.s1000d.org/S1000D_4-1/xml/issue"
@@ -3218,6 +3246,7 @@ This task is performed:
   </content>
 </dmodule>
 
+
 Behind the Scenes — Writer’s Inputs & Decisions
 
 Engineering Sources Required
@@ -3256,13 +3285,13 @@ S1000D DMC: 29-XX-00-04-00A-720A-P
 
 This task is performed:
 
-    After confirmed pump failure (electrical burnout, cavitation, thermal shutdown)
+    - After confirmed pump failure (electrical burnout, cavitation, thermal shutdown)
 
-    When fluid leakage is identified at pump ports, body seam, or case drain
+    - When fluid leakage is identified at pump ports, body seam, or case drain
 
-    During heavy checks or system contamination remediation
+    - During heavy checks or system contamination remediation
 
-    After low pressure or fail-to-pressurize messages from CMS/EICAS
+    - After low pressure or fail-to-pressurize messages from CMS/EICAS
 
 
 S1000D-Compliant Task (Including CAUTION, WARNING, NOTE, and Cross-Referencing)
