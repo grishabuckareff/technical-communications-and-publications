@@ -750,46 +750,46 @@ Behind the Scenes — Writer’s Inputs & Decisions
 
 Engineering Sources Required
 ______________________________________________________________________________________________________________
- Document	                                  |   Used For
+ Document                                     |   Used For
 ______________________________________________|_______________________________________________________________
- Brake Assembly Drawing (ATA 32-41)	          |   Location of wear pin, thread type, torque spec
+ Brake Assembly Drawing (ATA 32-41)           |   Location of wear pin, thread type, torque spec
 ______________________________________________|_______________________________________________________________
- Wear Limits Chart (from CMM or AMM)	      |   Establishes rejectable thickness, pin protrusion tolerance
+ Wear Limits Chart (from CMM or AMM)          |   Establishes rejectable thickness, pin protrusion tolerance
 ______________________________________________|_______________________________________________________________
- Gauge Tool Calibration Procedure	          |   Ensures tool accuracy for maintenance use
+ Gauge Tool Calibration Procedure             |   Ensures tool accuracy for maintenance use
 ______________________________________________|_______________________________________________________________
- IPC Reference	                              |   Part numbers for pins, access screws, and shields
+ IPC Reference                                |   Part numbers for pins, access screws, and shields
 ______________________________________________|_______________________________________________________________
- Torque Standards (ATA 20)	                  |   For installing replacement wear pins and access covers
+ Torque Standards (ATA 20)                    |   For installing replacement wear pins and access covers
 ______________________________________________|_______________________________________________________________
 
 Key Authoring Considerations
 ______________________________________________________________________________________________________________
- Consideration	                              |   Details
+ Consideration                                |   Details
 ______________________________________________|_______________________________________________________________
- Thermal Safety	                              |   Brake temperatures above 50°C cause inaccurate readings and personal injury risks
+ Thermal Safety                               |   Brake temperatures above 50°C cause inaccurate readings and personal injury risks
 ______________________________________________|_______________________________________________________________
- Wear Limit Accuracy	                      |   Mistaking pin deflection or deformation for wear gives false life expectancy
+ Wear Limit Accuracy                          |   Mistaking pin deflection or deformation for wear gives false life expectancy
 ______________________________________________|_______________________________________________________________
- Pin Replacement Risk	                      |   Over-torquing or incorrect orientation can result in in-flight failure of brake wear indication logic
+ Pin Replacement Risk                         |   Over-torquing or incorrect orientation can result in in-flight failure of brake wear indication logic
 ______________________________________________|_______________________________________________________________
- Fastener Treatment	                          |   All brake access screws are treated with anti-seize or corrosion inhibitors per SRM and AMM spec
+ Fastener Treatment                           |   All brake access screws are treated with anti-seize or corrosion inhibitors per SRM and AMM spec
 ______________________________________________|_______________________________________________________________
- Line Maintenance Compatibility	              |   Task must be executable with aircraft on ramp, under time constraint, with minimal tooling
+ Line Maintenance Compatibility               |   Task must be executable with aircraft on ramp, under time constraint, with minimal tooling
 ______________________________________________|_______________________________________________________________
 
 
 Illustrations Typically Needed
 ______________________________________________________________________________________________________________
- Visual Type	                              |   Description
+ Visual Type                                  |   Description
 ______________________________________________|_______________________________________________________________
- Brake Assembly View	                      |   Highlights wear pin position and access slot
+ Brake Assembly View                          |   Highlights wear pin position and access slot
 ______________________________________________|_______________________________________________________________
- Wear Gauge Tool Use	                      |   Shows depth measurement technique and proper engagement angle
+ Wear Gauge Tool Use                          |   Shows depth measurement technique and proper engagement angle
 ______________________________________________|_______________________________________________________________
- Pin Replacement Diagram	                  |   Threads, detent, torque location
+ Pin Replacement Diagram                      |   Threads, detent, torque location
 ______________________________________________|_______________________________________________________________
- Wear Tolerance Chart	                      |   Callouts for “Replace” zone, warning range, and nominal depth
+ Wear Tolerance Chart                         |   Callouts for “Replace” zone, warning range, and nominal depth
 ______________________________________________|_______________________________________________________________
 
 
@@ -940,47 +940,47 @@ Behind the Scenes — Writer’s Inputs & Decisions
 
 Engineering Sources Required
 ______________________________________________________________________________________________________________
- Document	                                  |   Used For
+ Document                                     |   Used For
 ______________________________________________|_______________________________________________________________
- Strut Assembly & Cross-Section Drawing	      |   Gland nut thread spec, seal orientation, torque values
+ Strut Assembly & Cross-Section Drawing       |   Gland nut thread spec, seal orientation, torque values
 ______________________________________________|______________________________________________________________
  Seal Kit BOM from Vendor                     |
- (e.g., Safran/Collins)	                      |   O-ring materials, dimensions, approved substitute
+ (e.g., Safran/Collins)                       |   O-ring materials, dimensions, approved substitute
 ______________________________________________|_______________________________________________________________
- Hydraulic Fluid Compatibility Chart	      |   To ensure correct fluid used for given seal elastomer
+ Hydraulic Fluid Compatibility Chart          |   To ensure correct fluid used for given seal elastomer
 ______________________________________________|_______________________________________________________________
- Nitrogen Charging Table (ATA 12-15-01)	      |   For correct strut pressure and static extension vs aircraft weight
+ Nitrogen Charging Table (ATA 12-15-01)       |   For correct strut pressure and static extension vs aircraft weight
 ______________________________________________|_______________________________________________________________
- IPC (32-11-00)	                              |   Part number verification for all removed/replaced components
+ IPC (32-11-00)                               |   Part number verification for all removed/replaced components
 ______________________________________________|_______________________________________________________________
- Safety Service Bulletins	                  |   Updated gland torque or seal change recommendations
+ Safety Service Bulletins                     |   Updated gland torque or seal change recommendations
 ______________________________________________|_______________________________________________________________
 
 Key Authoring Considerations
 ______________________________________________________________________________________________________________
- Consideration	                              |   Details
+ Consideration                                |   Details
 ______________________________________________|_______________________________________________________________
- Pressure Risk	                              |   Writers must emphasize residual gas bleed-out — even “empty” struts can contain >400 psi
+ Pressure Risk                                |   Writers must emphasize residual gas bleed-out — even “empty” struts can contain >400 psi
 ______________________________________________|_______________________________________________________________
- Seal Compatibility	                          |   Wrong material = seal swell, deterioration, and catastrophic loss of oleo pressure
+ Seal Compatibility                           |   Wrong material = seal swell, deterioration, and catastrophic loss of oleo pressure
 ______________________________________________|_______________________________________________________________
- Final Measurement	                          |   Fluid level + nitrogen charge must yield correct static stroke ±0.25 in or more corrective action required
+ Final Measurement                            |   Fluid level + nitrogen charge must yield correct static stroke ±0.25 in or more corrective action required
 ______________________________________________|_______________________________________________________________
- Documentation	                              |   Seal kits are serialized in some fleets for tracking — must log batch & expiration
+ Documentation                                |   Seal kits are serialized in some fleets for tracking — must log batch & expiration
 ______________________________________________|_______________________________________________________________
 
 
 Illustrations Typically Needed
 ______________________________________________________________________________________________________________
- Visual Type	                              |   Description
+ Visual Type                                  |   Description
 ______________________________________________|_______________________________________________________________
- Exploded View of Shock Strut	              |   Showing piston, gland nut, scraper rings, seal stack
+ Exploded View of Shock Strut                 |   Showing piston, gland nut, scraper rings, seal stack
 ______________________________________________|_______________________________________________________________
- Seal Installation Tool Use	                  |   Position of pusher, orientation of rings
+ Seal Installation Tool Use                   |   Position of pusher, orientation of rings
 ______________________________________________|_______________________________________________________________
- Gland Nut Torque Chart	                      |   Tightening sequence, torque zone highlights
+ Gland Nut Torque Chart                       |   Tightening sequence, torque zone highlights
 ______________________________________________|_______________________________________________________________
- Nitrogen Charging Table	                  |   Weight vs extension vs pressure (graph or tabular)
+ Nitrogen Charging Table                      |   Weight vs extension vs pressure (graph or tabular)
 ______________________________________________|_______________________________________________________________
 
 
@@ -1128,44 +1128,44 @@ Behind the Scenes — Writer’s Inputs & Decisions
 
 Engineering Sources Required
 ______________________________________________________________________________________________________________
- Document	                                  |   Used For
+ Document                                     |   Used For
 ______________________________________________|_______________________________________________________________
- Uplock Mechanism Drawing	                  |   Defines cam surface, latch/roller dimensions, motion arc
+ Uplock Mechanism Drawing                     |   Defines cam surface, latch/roller dimensions, motion arc
 ______________________________________________|_______________________________________________________________
- Lubricant Specification Sheets	To confirm temperature range and proximity sensor compatibility
+ Lubricant Specification Sheets               |   To confirm temperature range and proximity sensor compatibility
 ______________________________________________|_______________________________________________________________
- CMS Integration Manual	                      |   Uplock signal ranges and test access locations
+ CMS Integration Manual                       |   Uplock signal ranges and test access locations
 ______________________________________________|_______________________________________________________________
- Functional Test AMM (ATA 32-00-00)	          |   Ensures gear swing performs latch check validation
+ Functional Test AMM (ATA 32-00-00)           |   Ensures gear swing performs latch check validation
 ______________________________________________|_______________________________________________________________
- Torque Spec Reference (ATA 20)	              |   Applies to latch fairing fasteners and bracket bolts
+ Torque Spec Reference (ATA 20)               |   Applies to latch fairing fasteners and bracket bolts
 ______________________________________________|_______________________________________________________________
 
 Key Authoring Considerations
 ______________________________________________________________________________________________________________
- Consideration	                              |   Details
+ Consideration                                |   Details
 ______________________________________________|_______________________________________________________________
- Sensor Protection	                          |   Lube can degrade sensor accuracy — must be kept off inductive target surfaces
+ Sensor Protection                            |   Lube can degrade sensor accuracy — must be kept off inductive target surfaces
 ______________________________________________|_______________________________________________________________
- Cold-Weather Performance	                  |   Lube must remain viscous and non-binding at -55°C typical cruise soak
+ Cold-Weather Performance                     |   Lube must remain viscous and non-binding at -55°C typical cruise soak
 ______________________________________________|_______________________________________________________________
- Latch Audio/Tactile Feedback	              |   Audible “click” + visual confirmation of roller lock are required for airworthiness check
+ Latch Audio/Tactile Feedback                 |   Audible “click” + visual confirmation of roller lock are required for airworthiness check
 ______________________________________________|_______________________________________________________________
- Functional Synchronization	                  |   Latch engagement must complete before gear reaches upstop in full retraction — test validates timing
+ Functional Synchronization                   |   Latch engagement must complete before gear reaches upstop in full retraction — test validates timing
 ______________________________________________|_______________________________________________________________
 
 
 Illustrations Typically Needed
 ______________________________________________________________________________________________________________
- Visual Type	                              |   Description
+ Visual Type                                  |   Description
 ______________________________________________|_______________________________________________________________
- Uplock Latch Diagram	                      |   Includes roller, cam, actuator clevis, and proximity sensor zone
+ Uplock Latch Diagram                         |   Includes roller, cam, actuator clevis, and proximity sensor zone
 ______________________________________________|_______________________________________________________________
- Lubrication Points                           |    Callout Brush/syringe application zones, no-go zones near sensors
+ Lubrication Points                           |   Callout Brush/syringe application zones, no-go zones near sensors
 ______________________________________________|_______________________________________________________________
- Functional Test Profile	                  |   Gear stroke vs. latch engagement timing (graphical timing overlay)
+ Functional Test Profile                      |   Gear stroke vs. latch engagement timing (graphical timing overlay)
 ______________________________________________|_______________________________________________________________
- CMS Output Chart	                          |   Sensor logic: engaged = 28V → proximity module = HIGH
+ CMS Output Chart                             |   Sensor logic: engaged = 28V → proximity module = HIGH
 ______________________________________________|_______________________________________________________________
 
 
@@ -1319,44 +1319,44 @@ Behind the Scenes — Writer’s Inputs & Decisions
 
 Engineering Sources Required
 ______________________________________________________________________________________________________________
- Document	                                  |   Used For
+ Document                                     |   Used For
 ______________________________________________|_______________________________________________________________
- Gear Door Kinematic Drawing	              |   Establishes actuator stroke range, bracket geometry
+ Gear Door Kinematic Drawing                  |   Establishes actuator stroke range, bracket geometry
 ______________________________________________|_______________________________________________________________
- Hydraulic Line Schematics (ATA 29)	          |   Identifies A/B system routing and port configuration
+ Hydraulic Line Schematics (ATA 29)           |   Identifies A/B system routing and port configuration
 ______________________________________________|_______________________________________________________________
- Access Panel Location Diagrams (ATA 06/57)	  |   Shows which panels open actuator zone (STA 1390)
+ Access Panel Location Diagrams (ATA 06/57)   |   Shows which panels open actuator zone (STA 1390)
 ______________________________________________|_______________________________________________________________
  Functional Test (ATA 32-00-00-710)           |   Ensures doors move in correct sequence and latch correctly
 ______________________________________________|_______________________________________________________________
- Actuator Maintenance Manual (CMM)	          |   Contains stroke specs, fitting threads, part numbers
+ Actuator Maintenance Manual (CMM)            |   Contains stroke specs, fitting threads, part numbers
 ______________________________________________|_______________________________________________________________
 
 Key Authoring Considerations
 ______________________________________________________________________________________________________________
- Consideration	                              |   Details
+ Consideration                                |   Details
 ______________________________________________|_______________________________________________________________
- Door Alignment Sensitivity	                  |   Misaligned actuator causes chafing, drag, or delayed latching
+ Door Alignment Sensitivity                   |   Misaligned actuator causes chafing, drag, or delayed latching
 ______________________________________________|_______________________________________________________________
  Rod Surface Handling                         |   Even minor scratches can lead to rod seal damage and leaks
 ______________________________________________|_______________________________________________________________
- Hydraulic Line Routing	                      |   Prevents bending or kinking lines near flexible fittings during reinstall
+ Hydraulic Line Routing                       |   Prevents bending or kinking lines near flexible fittings during reinstall
 ______________________________________________|_______________________________________________________________
- Test After Install	                          |   Must validate door stroke, speed, and sequencing with main gear motion
+ Test After Install                           |   Must validate door stroke, speed, and sequencing with main gear motion
 ______________________________________________|_______________________________________________________________
 
 
 Illustrations Typically Needed
 ______________________________________________________________________________________________________________
- Visual Type	                              |   Description
+ Visual Type                                  |   Description
 ______________________________________________|_______________________________________________________________
- Actuator Mount Diagram	                      |   Bolt locations, hydraulic ports, and routing guides
+ Actuator Mount Diagram                       |   Bolt locations, hydraulic ports, and routing guides
 ______________________________________________|_______________________________________________________________
  Gear Door Support Fixture                    |   Proper use and interface with door during unpowered removal
 ______________________________________________|_______________________________________________________________
  Stroke Range Overlay                         |   Min/Max actuator extension for rigging verification
 ______________________________________________|_______________________________________________________________
- System Routing Cutaway	                      |   Shows actuator → door bracket → GCU signal path
+ System Routing Cutaway                       |   Shows actuator → door bracket → GCU signal path
 ______________________________________________|_______________________________________________________________
 
 
@@ -1495,44 +1495,44 @@ Behind the Scenes — Writer’s Inputs & Decisions
 
 Engineering Sources Required
 ______________________________________________________________________________________________________________
- Document	                                  |   Used For
+ Document                                     |   Used For
 ______________________________________________|_______________________________________________________________
- Proximity Sensor Mounting Drawing	          |   Establishes mechanical clearance, gap tolerances, sensor housing constraints
+ Proximity Sensor Mounting Drawing            |   Establishes mechanical clearance, gap tolerances, sensor housing constraints
 ______________________________________________|_______________________________________________________________
- Wiring Diagram Manual (ATA 92)	              |   Details signal routing from sensor to proximity module and CMS
+ Wiring Diagram Manual (ATA 92)               |   Details signal routing from sensor to proximity module and CMS
 ______________________________________________|_______________________________________________________________
- Functional Logic Chart (CMS Interface)	      |   Tells writers how gear status maps to HIGH/LOW signals at each gear state
+ Functional Logic Chart (CMS Interface)       |   Tells writers how gear status maps to HIGH/LOW signals at each gear state
 ______________________________________________|_______________________________________________________________
- Torque and Fastener Guidelines	              |   Required for proper bracket securing and torque seal application
+ Torque and Fastener Guidelines               |   Required for proper bracket securing and torque seal application
 ______________________________________________|_______________________________________________________________
- Test Bench Values	                          |   Verifies electrical state transitions align with gear movement
+ Test Bench Values                            |   Verifies electrical state transitions align with gear movement
 ______________________________________________|_______________________________________________________________
 
 Key Authoring Considerations
 ______________________________________________________________________________________________________________
- Consideration	                              |   Details
+ Consideration                                |   Details
 ______________________________________________|_______________________________________________________________
- Sensor Gap Sensitivity	                      |   Affects timing of gear up/down indication — even 0.020" variation impacts CMS logic
+ Sensor Gap Sensitivity                       |   Affects timing of gear up/down indication — even 0.020" variation impacts CMS logic
 ______________________________________________|_______________________________________________________________
- Cross-System Signal Behavior	              |   Must match FCC, PFC, and CMS — test values are mapped against EICAS display logic
+ Cross-System Signal Behavior                 |   Must match FCC, PFC, and CMS — test values are mapped against EICAS display logic
 ______________________________________________|_______________________________________________________________
- Sensor Polarity and Bracket Positioning	  |   Must not be reversed — pinout determines logic state
+ Sensor Polarity and Bracket Positioning      |   Must not be reversed — pinout determines logic state
 ______________________________________________|_______________________________________________________________
- Functional Timing Verification	              |   Indication must transition within 0.5 sec of mechanical latch movement
+ Functional Timing Verification               |   Indication must transition within 0.5 sec of mechanical latch movement
 ______________________________________________|_______________________________________________________________
 
 
 Illustrations Typically Needed
 ______________________________________________________________________________________________________________
- Visual Type	                              |   Description
+ Visual Type                                  |   Description
 ______________________________________________|_______________________________________________________________
- Sensor Mounting Cutaway	                  |   Shows bracket, sensor tip, target zone, and adjustment range
+ Sensor Mounting Cutaway                      |   Shows bracket, sensor tip, target zone, and adjustment range
 ______________________________________________|_______________________________________________________________
- Feeler Gauge Application Diagram	          |   How to measure and adjust gaps
+ Feeler Gauge Application Diagram             |   How to measure and adjust gaps
 ______________________________________________|_______________________________________________________________
- CMS Logic Signal Chart	                      |   Maps sensor HIGH/LOW states to gear mechanical state
+ CMS Logic Signal Chart                       |   Maps sensor HIGH/LOW states to gear mechanical state
 ______________________________________________|_______________________________________________________________
- Test Connector Layout	                      |   P92-A12 pin breakout for multimeter connections
+ Test Connector Layout                        |   P92-A12 pin breakout for multimeter connections
 ______________________________________________|_______________________________________________________________
 
 
@@ -1674,46 +1674,46 @@ Behind the Scenes — Writer’s Inputs & Decisions
 
 Engineering Sources Required
 ______________________________________________________________________________________________________________
- Document	                                  |   Used For
+ Document                                     |   Used For
 ______________________________________________|_______________________________________________________________
- Override Cable Routing Diagram	              |   Establishes pulley geometry, turnbuckle access, tension specs
+ Override Cable Routing Diagram               |   Establishes pulley geometry, turnbuckle access, tension specs
 ______________________________________________|_______________________________________________________________
  Proximity Sensor Integration Table           |
- (ATA 32/92)	                              |   Ensures logic transitions match gear physical state
+ (ATA 32/92)                                  |   Ensures logic transitions match gear physical state
 ______________________________________________|_______________________________________________________________
- CMS Diagnostic Output Logs	                  |   Verifies gear status reported under alternate release conditions
+ CMS Diagnostic Output Logs                   |   Verifies gear status reported under alternate release conditions
 ______________________________________________|_______________________________________________________________
- Functional Test Manual (ATA 32-00)	          |   Confirms integration with normal gear retraction system
+ Functional Test Manual (ATA 32-00)           |   Confirms integration with normal gear retraction system
 ______________________________________________|_______________________________________________________________
  Torque Standards & Cable Tension Charts      |
- (ATA 20)	                                  |   Used for turnbuckle lock and preload range
+ (ATA 20)                                     |   Used for turnbuckle lock and preload range
 ______________________________________________|_______________________________________________________________
 
 Key Authoring Considerations
 ______________________________________________________________________________________________________________
- Consideration	                              |   Details
+ Consideration                                |   Details
 ______________________________________________|_______________________________________________________________
- Stroke Length Accuracy	                      |   Cable must be rigged to provide full uplock disengagement within handle's motion range
+ Stroke Length Accuracy                       |   Cable must be rigged to provide full uplock disengagement within handle's motion range
 ______________________________________________|_______________________________________________________________
- Mechanical Redundancy	                      |   System is independent of FCC logic — test must verify purely mechanical functionality
+ Mechanical Redundancy                        |   System is independent of FCC logic — test must verify purely mechanical functionality
 ______________________________________________|_______________________________________________________________
- CMS Integration Check	                      |   Even mechanical actions must confirm signal transition to ensure flight deck and maintenance alerts work
+ CMS Integration Check                        |   Even mechanical actions must confirm signal transition to ensure flight deck and maintenance alerts work
 ______________________________________________|_______________________________________________________________
- Preload Settings	                          |   Writers must clarify turnbuckle adjustment range with feeler gauge or load cell preload validation
+ Preload Settings                             |   Writers must clarify turnbuckle adjustment range with feeler gauge or load cell preload validation
 ______________________________________________|_______________________________________________________________
 
 
 Illustrations Typically Needed
 ______________________________________________________________________________________________________________
- Visual Type	                              |   Description
+ Visual Type                                  |   Description
 ______________________________________________|_______________________________________________________________
- Override Cable Path	                      |   Includes all pulleys, fairleads, and access panels
+ Override Cable Path                          |   Includes all pulleys, fairleads, and access panels
 ______________________________________________|_______________________________________________________________
- Rig Pin Installation	                      |   Used to simulate uplock disengagement stroke
+ Rig Pin Installation                         |   Used to simulate uplock disengagement stroke
 ______________________________________________|_______________________________________________________________
- Turnbuckle Adjustment Detail	              |   Show preload measurement technique
+ Turnbuckle Adjustment Detail                 |   Show preload measurement technique
 ______________________________________________|_______________________________________________________________
- Signal Logic Diagram	                      |   Maps uplock state to CMS indication HIGH/LOW
+ Signal Logic Diagram                         |   Maps uplock state to CMS indication HIGH/LOW
 ______________________________________________|_______________________________________________________________
 
 
@@ -1867,52 +1867,52 @@ Behind the Scenes — Writer’s Inputs & Decisions
 
 Engineering Sources Required
 ______________________________________________________________________________________________________________
- Document	                                  |   Used For
+ Document                                     |   Used For
 ______________________________________________|_______________________________________________________________
- Elevator Kinematic Chain Drawing	          |   Pin location, control rod routing, actuator stroke alignment
+ Elevator Kinematic Chain Drawing             |   Pin location, control rod routing, actuator stroke alignment
 ______________________________________________|_______________________________________________________________
- AMM 27-30-00 / 22-11-00	                  |   Controls linkage setup, actuator override access
+ AMM 27-30-00 / 22-11-00                      |   Controls linkage setup, actuator override access
 ______________________________________________|_______________________________________________________________
- Hydraulic Isolation Task (29-00-00)	      |   Ensures actuator can move freely without powered interference
+ Hydraulic Isolation Task (29-00-00)          |   Ensures actuator can move freely without powered interference
 ______________________________________________|_______________________________________________________________
- Torque Spec Manual (20-50-00)	              |   Defines standard fitting torque + fastener breakaway inspection criteria
+ Torque Spec Manual (20-50-00)                |   Defines standard fitting torque + fastener breakaway inspection criteria
 ______________________________________________|_______________________________________________________________
- Aircraft Jacking/Leveling (08-10-00)	      |   Required to ensure elevator TE alignment is not falsely offset by attitude
+ Aircraft Jacking/Leveling (08-10-00)         |   Required to ensure elevator TE alignment is not falsely offset by attitude
 ______________________________________________|_______________________________________________________________
- FCC Manual Override Logic (22-11-00)	      |   Needed to disengage digital trim control for manual mechanical cycling
+ FCC Manual Override Logic (22-11-00)         |   Needed to disengage digital trim control for manual mechanical cycling
 ______________________________________________|_______________________________________________________________
  Flight Test Support (FCS Configuration Log)  |   Ensures documentation for delivery or return-to-service
 ______________________________________________|_______________________________________________________________
 
 Key Authoring Considerations
 ______________________________________________________________________________________________________________
- Consideration	                              |   Detail
+ Consideration                                |   Detail
 ______________________________________________|_______________________________________________________________
- Control Loop Consistency	                  |   Pitch logic and stabilizer blending depends on tight neutral-range fidelity
+ Control Loop Consistency                     |   Pitch logic and stabilizer blending depends on tight neutral-range fidelity
 ______________________________________________|_______________________________________________________________
- System Interference	                      |   FCCs, trim logic, and hydraulic actuators must be isolated to prevent override
+ System Interference                          |   FCCs, trim logic, and hydraulic actuators must be isolated to prevent override
 ______________________________________________|_______________________________________________________________
- Precision of Tools	                          |   Contour gauge or digital inclinometer needed (±0.1° resolution or better)
+ Precision of Tools                           |   Contour gauge or digital inclinometer needed (±0.1° resolution or better)
 ______________________________________________|_______________________________________________________________
- Access Complexity	                          |   Linkages cross internal panels, require safe crawl access
+ Access Complexity                            |   Linkages cross internal panels, require safe crawl access
 ______________________________________________|_______________________________________________________________
- Post-Task Verification	                      |   Test step mandatory to validate no hysteresis or slop after rig pin removal
+ Post-Task Verification                       |   Test step mandatory to validate no hysteresis or slop after rig pin removal
 ______________________________________________|_______________________________________________________________
- Backdriving Risks	                          |   Incorrect trim logic can ‘fight’ manual input if not properly disabled in override
+ Backdriving Risks                            |   Incorrect trim logic can ‘fight’ manual input if not properly disabled in override
 ______________________________________________|_______________________________________________________________
 
 
 Illustrations Typically Needed
 ______________________________________________________________________________________________________________
- Visual Type	                              |   Description
+ Visual Type                                  |   Description
 ______________________________________________|_______________________________________________________________
- Elevator Linkage Cutaway	                  |   Shows rod ends, hinge points, actuator junctions
+ Elevator Linkage Cutaway                     |   Shows rod ends, hinge points, actuator junctions
 ______________________________________________|_______________________________________________________________
- Rig Pin Diagram	                          |   Location of pin holes and pin alignment bushing
+ Rig Pin Diagram                              |   Location of pin holes and pin alignment bushing
 ______________________________________________|_______________________________________________________________
- Control Column Rigging Schematic	          |   Shows elevator-neutral to yoke-neutral correlation
+ Control Column Rigging Schematic             |   Shows elevator-neutral to yoke-neutral correlation
 ______________________________________________|_______________________________________________________________
- Cycle Verification Table	                  |   Measurement record form (deflection vs rig cycle)
+ Cycle Verification Table                     |   Measurement record form (deflection vs rig cycle)
 ______________________________________________|_______________________________________________________________
 
 
@@ -2062,44 +2062,44 @@ Behind the Scenes — Writer’s Inputs & Decisions
 
 Engineering Sources Required
 ______________________________________________________________________________________________________________
- Document	                                  |   Used For
+ Document                                     |   Used For
 ______________________________________________|_______________________________________________________________
- Wheel & Brake Assembly Drawings	          |   Confirms nut torque, cap sizing, wheel weight, removal angle
+ Wheel & Brake Assembly Drawings              |   Confirms nut torque, cap sizing, wheel weight, removal angle
 ______________________________________________|_______________________________________________________________
- Hydraulic Schematic (ATA 29)	              |   Identifies brake line pressure, routing, valve paths
+ Hydraulic Schematic (ATA 29)                 |   Identifies brake line pressure, routing, valve paths
 ______________________________________________|_______________________________________________________________
- IPC and Illustrated Diagrams	              |   Part numbers for wheel nuts, caps, seals, sling bracket
+ IPC and Illustrated Diagrams                 |   Part numbers for wheel nuts, caps, seals, sling bracket
 ______________________________________________|_______________________________________________________________
- Tire Manual or CMM	                          |   Used for scrap, retread, or reuse decisions
+ Tire Manual or CMM                           |   Used for scrap, retread, or reuse decisions
 ______________________________________________|_______________________________________________________________
- Thread Wear Limits	                          |   Determines whether axle stub and nut threads are airworthy post-removal
+ Thread Wear Limits                           |   Determines whether axle stub and nut threads are airworthy post-removal
 ______________________________________________|_______________________________________________________________
 
 Key Authoring Considerations
 ______________________________________________________________________________________________________________
- Consideration	                              |   Details
+ Consideration                                |   Details
 ______________________________________________|_______________________________________________________________
- Ground Safety	                              |   Deflated tires may still contain residual pressure — must be cooled and fully bled before removal
+ Ground Safety                                |   Deflated tires may still contain residual pressure — must be cooled and fully bled before removal
 ______________________________________________|_______________________________________________________________
- Hydraulic Cleanliness	                      |   Any brake line disconnection = high contamination risk — must follow cap/plug procedure
+ Hydraulic Cleanliness                        |   Any brake line disconnection = high contamination risk — must follow cap/plug procedure
 ______________________________________________|_______________________________________________________________
- Torque Sequence	                          |   Must specify cross-pattern wheel bolt loosening to prevent rotor warp
+ Torque Sequence                              |   Must specify cross-pattern wheel bolt loosening to prevent rotor warp
 ______________________________________________|_______________________________________________________________
- Line Labeling & Tracking	                  |   Writers ensure procedures track removed assemblies and match serial data to aircraft tail numbers
+ Line Labeling & Tracking                     |   Writers ensure procedures track removed assemblies and match serial data to aircraft tail numbers
 ______________________________________________|_______________________________________________________________
 
 
 Illustrations Typically Needed
 ______________________________________________________________________________________________________________
- Visual Type	                              |   Description
+ Visual Type                                  |   Description
 ______________________________________________|_______________________________________________________________
  Wheel Nut Torque Pattern	                  |   Loosening and tightening star sequence
 ______________________________________________|_______________________________________________________________
- Wheel Sling Attachment	                      |   Shows lifting angles and bracket positions
+ Wheel Sling Attachment                       |   Shows lifting angles and bracket positions
 ______________________________________________|_______________________________________________________________
- Brake Line Cap/Plug Diagram	              |   With line ID labels and fluid barrier callouts
+ Brake Line Cap/Plug Diagram                  |   With line ID labels and fluid barrier callouts
 ______________________________________________|_______________________________________________________________
- Tire Wear Inspection Overlay	              |   Identifies tread, shoulder, and bulge rejection zones
+ Tire Wear Inspection Overlay                 |   Identifies tread, shoulder, and bulge rejection zones
 ______________________________________________|_______________________________________________________________
 
 
@@ -2264,38 +2264,39 @@ Stow Flush Criteria	From Boeing aerodynamic alignment doc – neutral = ±0.1° 
 
 Key Authoring Considerations
 ______________________________________________________________________________________________________________
- Consideration	                         |   Details
+ Consideration                                |   Details
 ______________________________________________|_______________________________________________________________
- Panel Interdependence	                  |   Multiple spoilers per side — if one actuator is misaligned, others can bind
+ Panel Interdependence                        |   Multiple spoilers per side — if one actuator is misaligned, others can bind
 ______________________________________________|_______________________________________________________________
- Rig Pin Access	                         |   Requires center stroke of actuator (must be depressurized and unlocked)
+ Rig Pin Access                               |   Requires center stroke of actuator (must be depressurized and unlocked)
 ______________________________________________|_______________________________________________________________
- Manual vs Powered Movement	                  |   Task must differentiate between hand-cycled checks and hydraulic cycling
+ Manual vs Powered Movement                   |   Task must differentiate between hand-cycled checks and hydraulic cycling
 ______________________________________________|_______________________________________________________________
- Rod End Adjustments	                         |   Must be performed with zero preload — any tension alters surface load in flight
+ Rod End Adjustments                          |   Must be performed with zero preload — any tension alters surface load in flight
 ______________________________________________|_______________________________________________________________
- System Synchronization	                  |   Final test uses Built-In Test (BIT) to verify inter-panel symmetry under load
+ System Synchronization                       |   Final test uses Built-In Test (BIT) to verify inter-panel symmetry under load
 ______________________________________________|_______________________________________________________________
- Recording Requirements	                  |   Flight control logs must capture actuator ID, alignment spec, and rod length
+ Recording Requirements                       |   Flight control logs must capture actuator ID, alignment spec, and rod length
 ______________________________________________|_______________________________________________________________
 
 
 Illustrations Typically Needed
 ______________________________________________|_______________________________________________________________
- Visual Type	                                |   Description
+ Visual Type                                  |   Description
 ______________________________________________|_______________________________________________________________
- Spoiler Panel Schematic	                  |   Overview of actuator locations and rig points
+ Spoiler Panel Schematic                      |   Overview of actuator locations and rig points
 ______________________________________________|_______________________________________________________________
- Rig Pin Tool Placement	                  |   Detailed inset showing actuator body hole alignment
+ Rig Pin Tool Placement                       |   Detailed inset showing actuator body hole alignment
 ______________________________________________|_______________________________________________________________
- Actuator Cutaway View	                  |   Internal piston stroke center and linkage mounting
+ Actuator Cutaway View                        |   Internal piston stroke center and linkage mounting
 ______________________________________________|_______________________________________________________________
- Flush Check Profile	                         |   TE-to-wing skin overlay diagram with gauge callouts
+ Flush Check Profile                          |   TE-to-wing skin overlay diagram with gauge callouts
 ______________________________________________|_______________________________________________________________
- Rod End Length Measurement Table	           |   For recording and configuration tracking
+ Rod End Length Measurement Table             |   For recording and configuration tracking
 ______________________________________________|_______________________________________________________________
 
- 
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 Rudder Mechanical Linkage Tension and Centering Adjustment
 
@@ -2436,7 +2437,7 @@ Behind the Scenes — Writer’s Inputs & Decisions
 
 Engineering Sources Required
 ______________________________________________________________________________________________________________
- Document	                                |   Used For
+ Document                                     |   Used For
 ______________________________________________|_______________________________________________________________
  Rudder Quadrant Drawing                      |   Defines rig pin location, turnbuckle access, and jam nut clearances
 ______________________________________________|_______________________________________________________________
@@ -2471,14 +2472,20 @@ ______________________________________________|_________________________________
 
 
 Illustrations Typically Needed
+______________________________________________|_______________________________________________________________
+ Visual Type                                  |   Description
+______________________________________________|_______________________________________________________________
+ Rudder Quadrant Assembly View                |   Shows pin installation and turnbuckle location
+______________________________________________|_______________________________________________________________
+ Tension Measurement Diagram                  |   Tool placement and cable identification chart
+______________________________________________|_______________________________________________________________
+ Rudder Pedal/Rudder Deflection Correlation   |   Neutral pedal input = centered rudder at hinge line
+______________________________________________|_______________________________________________________________
+ Override Activation Flowchart                |   FCC mode isolation steps and manual test logic
+______________________________________________|_______________________________________________________________
 
-Visual Type	Description
-Rudder Quadrant Assembly View	Shows pin installation and turnbuckle location
-Tension Measurement Diagram	Tool placement and cable identification chart
-Rudder Pedal/Rudder Deflection Correlation	Neutral pedal input = centered rudder at hinge line
-Override Activation Flowchart	FCC mode isolation steps and manual test logic
 
-
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 Main and Nose Landing Gear Wheel Installation and Final Torque / Leak Test
 
@@ -2614,30 +2621,48 @@ S1000D-Compliant Task (Including CAUTION, WARNING, NOTE, and Cross-Referencing)
 
 Behind the Scenes — Writer’s Inputs & Decisions
 
-Engineering Sources Required
-Document	Used For
-Wheel and Brake Assembly Drawing	Nut torque, rotor alignment, mating flange geometry
-Tire Inflation Table (ATA 12)	Sets pressure based on aircraft configuration, temperature, loading
-IPC (ATA 32-42-00)	Specifies acceptable fastener PNs and washer inclusion or exclusion
-Torque Standard Reference	Ensures accurate torque and re-torque values are applied
-Hydraulic Schematic (ATA 29)	Confirms proper reconnection of brake lines and fittings
+ Engineering Sources Required
+______________________________________________________________________________________________________________
+ Document                                     |   Used For
+______________________________________________|_______________________________________________________________
+ Wheel and Brake Assembly Drawing             |   Nut torque, rotor alignment, mating flange geometry
+______________________________________________|_______________________________________________________________
+ Tire Inflation Table (ATA 12)                |   Sets pressure based on aircraft configuration, temperature, loading
+______________________________________________|_______________________________________________________________
+ IPC (ATA 32-42-00)                           |   Specifies acceptable fastener PNs and washer inclusion or exclusion
+______________________________________________|_______________________________________________________________
+ Torque Standard Reference                    |   Ensures accurate torque and re-torque values are applied
+______________________________________________|_______________________________________________________________
+ Hydraulic Schematic (ATA 29)                 |   Confirms proper reconnection of brake lines and fittings
+______________________________________________|_______________________________________________________________
 
 Key Authoring Considerations
-
-Consideration	Detail
-Torque Pattern	Must prevent warping of rotor/hub face — cross pattern is mandatory
-Thread Inspection	Damage or corrosion on stub axle threads disqualifies wheel reinstallation
-Tire Pressure Before Lowering	Underinflated tires deform on contact — inflate fully before lowering to ground
-Hydraulic Reconnection Leak Risk	Improper flare mating leads to latent leaks or vibration loosening — must leak test under residual pressure
+______________________________________________________________________________________________________________
+ Consideration                                |   Detail
+______________________________________________|_______________________________________________________________
+ Torque Pattern                               |   Must prevent warping of rotor/hub face — cross pattern is mandatory
+______________________________________________|_______________________________________________________________
+ Thread Inspection                            |   Damage or corrosion on stub axle threads disqualifies wheel reinstallation
+______________________________________________|_______________________________________________________________
+ Tire Pressure Before Lowering                |   Underinflated tires deform on contact — inflate fully before lowering to ground
+______________________________________________|_______________________________________________________________
+ Hydraulic Reconnection Leak Risk             |   Improper flare mating leads to latent leaks or vibration loosening — must leak test under residual pressure
+______________________________________________|_______________________________________________________________
 
 
 Illustrations Typically Needed
+______________________________________________________________________________________________________________
+ Visual Type                                  |   Description
+______________________________________________|_______________________________________________________________
+ Wheel Nut Torque Sequence                    |   Clockwise diagram with cross-torque order
+______________________________________________|_______________________________________________________________
+ Torque Seal Application Diagram              |   Applied location for verification
+______________________________________________|_______________________________________________________________
+ Nitrogen Inflation Profile                   |   Chart by temp, weight, and altitude
+______________________________________________|_______________________________________________________________
+ Brake Line Reconnection Diagram              |   Shows fitting alignment and correct torque callouts
+______________________________________________|_______________________________________________________________
 
-Visual Type	Description
-Wheel Nut Torque Sequence	Clockwise diagram with cross-torque order
-Torque Seal Application Diagram	Applied location for verification
-Nitrogen Inflation Profile	Chart by temp, weight, and altitude
-Brake Line Reconnection Diagram	Shows fitting alignment and correct torque callouts
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
