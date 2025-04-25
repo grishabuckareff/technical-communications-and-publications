@@ -6324,4 +6324,978 @@ The following example shows a reference to a SCORM content package by using the 
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
+2.4.1 Identification of a referred SCORM content package
+
+Description: The element <scormContentPackageRefIdent> contains the items
+forming a unique identification of the destination SCORM content package.
+
+The project or the organization must be aware of the implications of using issue and inwork
+numbers as well as language and country codes of the destination SCORM content package
+when referenced SCORM content packages are updated.
+
+  
+Markup element: <scormContentPackageRefIdent>
+
+Attributes:
+- None
+
+Child elements:
+- <identExtension>, the additional parameters needed to establish a unique
+identification of a SCORM content package in those cases where the SCORM content
+package, the issue and inwork numbers together with the language and country are
+insufficient to form a universally unique identity. The element <identExtension>
+establishes a producer unique subdomain for identification. Refer to Chap 4.12.
+- <scormContentPackageCode>, the SCORM content package code of the
+destination SCORM content package. Refer to Chap 4.15.2.
+- <issueInfo>, the issue information needed to address a particular destination
+SCORM content package issue. Refer to Chap 3.9.5.1.
+- <language>, the language of the destination SCORM content package. Refer to
+Chap 3.9.5.1.
+
+  
+Markup examples:
+
+<scormContentPackageRef>
+  <scormContentPackageRefIdent>
+    <scormContentPackageCode modelIdentCode="S1000DBIKE"
+    scormContentPackageIssuer="AH019"
+    scormContentPackageNumber="00001"
+    scormContentPackageVolume="00"/>
+    <language countryIsoCode="US" languageIsoCode="en"/>
+    <issueInfo inWork="00" issueNumber="001"/>
+  </scormContentPackageRefIdent>
+</scormContentPackageRef>
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.4.2 Complementary identifying information for a SCORM content package
+
+Description: The element <scormContentPackageRefAddressItems> contains
+additional identifying information about the destination SCORM content package.
+
+Note
+  Only the SCORM content package code, the SCORM content package title, and the issue
+  number will be presented in page-oriented publications. Refer to Chap 6.2.2.
+
+  
+Markup element: <scormContentPackageRefAddressItems>
+
+Attributes:
+- None
+
+Note
+  The element <scormContentPackageRefAddressItems> also includes five
+  attributes normally populated by the authoring application to make use of the W3C XLink
+  mechanism. Refer to Chap 7.7.4.
+
+Child elements:
+- <scormContentPackageTitle>, the SCORM content package title of the
+destination SCORM content package. Refer to Chap 4.15.1.
+- <issueDate>, the issue date of the destination SCORM content package. Refer to
+Chap 3.9.5.1.
+
+  
+Markup example:
+
+<scormContentPackageRefAddressItems>
+  <issueDate day="12" month="01" year="2010"/>
+  <scormContentPackageTitle>S1000D BIKE learning sample</scormContentPackageTitle>
+</scormContentPackageRefAddressItems>
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.5 References to publications
+
+Description: The element <pmRef> contains details of the destination publication module
+that is referred from some other S1000D context, such as a data module or another publication module.
+
+  
+Markup element: <pmRef>
+
+Attributes:
+- applicRefId (O), the applicability information by referencing the element 
+<applic>. Refer to Chap 3.9.5.3.
+- id (O), the identifier of the markup element. Refer to Para 2.1.1.
+- changeType (O), changeMark (O) and reasonForUpdateRefIds (O), the
+change indications. Refer to Chap 3.9.5.2.1.1.
+- referenceUsage (O), the reference usage to characterize usage of the referred
+information. Projects or organizations are allowed to define their own reference usage. The
+attribute can have one of the following values:
+  • "rus01" thru "rus99". Refer to Chap 3.9.6.1
+
+  Note
+    The use of the attribute supports automatic extractions from data modules in order to
+    feed external tools.
+
+- securityClassification (O), commercialClassification (O), 
+caveat (O) and derivativeClassificationRefId (O), the security and
+restrictive marking. Refer to Chap 3.6.
+- controlAuthorityRefs (O), the control authority information by referencing the
+element <controlAuthority>. Refer to Chap 3.9.5.1.
+
+Note
+  The element <pmRef> also includes five attributes normally populated by the authoring
+  application to make use of the W3C XLink mechanism. Refer to Chap 7.7.4.
+
+Child elements:
+- <pmRefIdent>, the items forming a unique identification of a destination publication
+module. Refer to Para 2.5.1.
+- <pmRefAddressItems>, additional information about the destination publication
+module. Refer to Para 2.5.2.
+- <behavior>, the appearance/behavior of the destination publication module. Refer to Para 2.2.3.
+
+  
+Markup example:
+The following example shows a reference to an S1000D publication by using the elements 
+<pmRefIdent> and <pmRefAddressItems> (child elements are described below):
+
+<pmRef>
+  <pmRefIdent>
+    <pmCode modelIdentCode="S1000DBIKE" pmIssuer="SF518"
+    pmNumber="00003" pmVolume="00"/>
+  </pmRefIdent>
+  <pmRefAddressItems>
+    <pmTitle>Bike manuals</pmTitle>
+    <issueDate year="2007" month="02" day="28"/>
+  </pmRefAddressItems>
+</pmRef>
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.5.1 Identification of a referred publication module
+
+Description: The element <pmRefIdent> contains the items forming a unique
+identification of the destination publication module.
+
+The project or the organization must be aware of the implications of using issue and inwork
+numbers as well as language and country codes of the destination publication module when
+referenced publication modules are updated.
+
+  
+Markup element: <pmRefIdent>
+
+Attributes:
+- None
+
+Child elements:
+- <identExtension>, the additional parameters needed to establish a unique
+identification of a publication module in those cases where the publication module code,
+the issue and inwork numbers together with the language and country are insufficient to
+form a universally unique identity. The element <identExtension> establishes a
+producer unique subdomain for identification. Refer to Chap 4.12.
+- <pmCode>, the publication module code of the destination publication module. Refer to Chap 4.9.2.
+- <issueInfo>, the issue information needed to address a particular destination
+publication module issue. Refer to Chap 3.9.5.1.
+- <language>, the language of the destination publication module. Refer to Chap 3.9.5.1.
+
+  
+Markup examples:
+
+Reference to a publication module with PMC:
+
+<pmRefIdent>
+  <pmCode modelIdentCode="S1000DBIKE" pmIssuer="SF518"
+  pmNumber="00003" pmVolume="00"/>
+</pmRefIdent>
+
+Reference to a publication module instance with PME:
+
+<pmRefIdent>
+  <identExtension extensionProducer="SF518"
+  extensionCode="ABC00231"/>
+  <pmCode modelIdentCode="S1000DBIKE" pmIssuer="SF518"
+  pmNumber="00003" pmVolume="00"/>
+</pmRefIdent>
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.5.2 Complementary identifying information for a publication module
+
+Description: The element <pmRefAddressItems> contains additional identifying
+information about the destination publication module.
+
+Note
+  Only the publication module code, the publication module title, and the issue number will
+  be presented in page-oriented publications. Refer to Chap 6.2.2.
+
+
+Markup element: <pmRefAddressItems>
+
+Attributes:
+- None
+
+Note
+  The element <pmRefAddressItems> also includes five attributes normally
+  populated by the authoring application to make use of the W3C XLink mechanism. Refer to Chap 7.7.4.
+
+Child elements:
+- <pmTitle>, the publication module title of the destination publication module. Refer to Chap 4.9.1.
+- <issueDate>, the issue date of the destination publication module. Refer to Chap 3.9.5.1.
+- <security>, the publication module security classification as described in Chap 3.9.5.1.
+- <responsiblePartnerCompany>, the responsible partner company of the
+publication module as described in Chap 3.9.5.1.
+- <pubMedia>, the media of the publication module as described in Chap 4.9.1.
+- <shortPmTitle>, the abbreviated alternate publication module title corresponding to
+the element <pmTitle>. This short form for the publication module title is meant to be
+presented in the narrative of the publication module to make the reading easier. 
+Refer to Chap 6.2.2 for presentation.
+
+
+Markup example:
+
+<pmRefAddressItems>
+  <pmTitle>Bike manuals</pmTitle>
+  <issueDate year="2007" month="02" day="28"/>
+</pmRefAddressItems>
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.6 References to external documents
+
+Description: The element <externalPubRef> contains the identification of a referenced
+non-S10000D publication or document.
+
+  
+Markup element: <externalPubRef>
+
+Attributes:
+- applicRefId (O), the applicability information by referencing the element 
+<applic>. Refer to Chap 3.9.5.3.
+- id (O), the identifier of the markup element. Refer to Para 2.1.1.
+- referenceUsage (O), the reference usage to characterize usage of the referred
+information. Projects or organizations are allowed to define their own reference usage. The
+attribute can have one of the following values:
+  • "rus01" thru "rus99". Refer to Chap 3.9.6.1.
+
+  Note
+    The use of the attribute supports automatic extractions from data modules in order to
+    feed external tools.
+
+- extEntityIdent (O), the link to the external entity declaration, which points to the
+external publication file. This gives a possibility to keep the original file name and to include
+the external publication in the file base transfer package. The population of this attribute
+must include the complete entity name with the prefix "EXT-". The use of this will normally
+only create a link to the referenced external publication.
+- changeMark (O), changeType (O) and reasonForUpdateRefIds (O), the
+change indications. Refer to Chap 3.9.5.2.1.1.
+- securityClassification (O), commercialClassification (O), 
+caveat (O) and derivativeClassificationRefId (O), the security and
+restrictive marking. Refer to Chap 3.6.
+- controlAuthorityRefs (O), the control authority information by referencing the
+element <controlAuthority>. Refer to Chap 3.9.5.1.
+
+Note
+  The element <externalPubRef> also includes five attributes normally populated by
+  the authoring application to make use of the W3C XLink mechanism. Refer to Chap 7.7.4.
+
+Child elements:
+- <externalPubRefIdent>, the identification of the non-S1000D publication or
+document. Refer to Para 2.6.1.
+- <externalPubRefAddressItems>, additional information about the non￾S1000D destination publication or document. Refer to Para 2.6.2.
+- <behavior>, the appearance/behavior of the non-S1000D destination publication or document. Refer to Para 2.2.3.
+
+
+Markup example:
+
+Example 1: The following example shows a reference to another technical publication by using
+the element <externalPubCode> as free text:
+
+<externalPubRef>
+  <externalPubRefIdent>
+    <externalPubCode pubCodingScheme="ISBN">9999999999</externalPubCode>
+    <externalPubTitle>Effective Cycling</externalPubTitle>
+  </externalPubRefIdent>
+</externalPubRef>
+
+Example 2: The following example shows a reference to another technical publication by using
+the attribute extEntityIdent for the element <externalPubRef>:
+
+The declaration of the external publications file:
+<!DOCTYPE dmodule [
+<!ENTITY EXT-Local_Disposal_Procedures SYSTEM
+"Local_Disposal_Procedures.PDF" NDATA pdf > ]
+The reference in the content:
+
+<externalPubRef extEntityIdent=”EXT-Local_Disposal_Procedures”>
+  <externalPubRefIdent>
+    <externalPubTitle>Local Disposal Procedures</externalPubTitle>
+  </externalPubRefIdent>
+</externalPubRef>
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.6.1 Identification of an external document
+
+Description: The element <externalPubRefIdent> contains the identification 
+of a non-S1000D publication or document.
+
+  
+Markup element: <externalPubRefIdent>
+
+Attributes:
+- None
+
+Child elements:
+- <externalPubCode>. Refer to Para 2.6.1.1.
+- <externalPubTitle>. Refer to Para 2.6.1.2.
+- <externalPubIssueInfo>. Refer to Para 2.6.1.3.
+
+  
+Markup example:
+
+<externalPubRefIdent>
+  <externalPubCode pubCodingScheme="ISBN">9999999999</externalPubCode>
+  <externalPubTitle>Effective Cycling</externalPubTitle>
+</externalPubRefIdent>
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.6.1.1 Identifying code of an external document
+
+Description: The element <externalPubCode> contains, as textual content, a code that
+identifies a publication or document by a non-S1000D identity, such as an ISBN code or similar.
+
+  
+Markup element: <externalPubCode>
+
+Attributes:
+- pubCodingScheme (O). Provides a reference to specification of the syntax 
+of the identity given, such as "ISBN".
+
+Child elements:
+- <indexFlag>. Refer to Chap 3.9.5.2.1.10.
+- <subScript>. Refer to Chap 3.9.5.2.1.10.
+- <superScript>. Refer to Chap 3.9.5.2.1.10.
+- <acronym>. Refer to Chap 3.9.5.2.1.10.
+- <acronymTerm>. Refer to Chap 3.9.5.2.1.10.
+- <verbatimText>. Refer to Chap 3.9.5.2.1.10.
+
+  
+Markup example:
+
+<externalPubCode pubCodingScheme="ISBN">9999999999</externalPubCode>
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.6.1.2 Title of an external document
+
+Description: The element <externalPubTitle> contains, as textual content, 
+the title of a non-S1000D publication or document.
+
+  
+Markup element: <externalPubTitle>
+
+Attributes:
+- None
+
+Child elements:
+- <indexFlag>. Refer to Chap 3.9.5.2.1.10.
+- <subScript>. Refer to Chap 3.9.5.2.1.10.
+- <superScript>. Refer to Chap 3.9.5.2.1.10.
+- <acronym>. Refer to Chap 3.9.5.2.1.10.
+- <acronymTerm>. Refer to Chap 3.9.5.2.1.10.
+- <verbatimText>. Refer to Chap 3.9.5.2.1.10.
+
+  
+Markup example:
+
+<externalPubTitle>Effective Cycling</externalPubTitle>
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.6.1.3 Issue information of an external document
+
+Description: The element <externalPubIssueInfo> contains issue information
+concerning the referred non-S1000D publication or document.
+
+  
+Markup element: <externalPubIssueInfo>
+
+Attributes:
+- None
+
+Child elements:
+- <externalPubIssue>. Refer to Para 2.6.1.3.1.
+
+  
+Markup example:
+
+<externalPubIssueInfo>
+  <externalPubIssue>Issue B</externalPubIssue>
+</externalPubIssueInfo>
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  
+2.6.1.3.1 Issue information of an external document
+
+Description: The element <externalPubIssue> contains, as text content, 
+issue identification of a non-S1000D publication or document.
+
+
+Markup element: <externalPubIssue>
+
+Attributes:
+- None
+
+Child elements:
+- <indexFlag>. Refer to Chap 3.9.5.2.1.10.
+- <subScript>. Refer to Chap 3.9.5.2.1.10.
+- <superScript>. Refer to Chap 3.9.5.2.1.10.
+- <acronym>. Refer to Chap 3.9.5.2.1.10.
+- <acronymTerm>. Refer to Chap 3.9.5.2.1.10.
+- <verbatimText>. Refer to Chap 3.9.5.2.1.10.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  
+2.6.2 Complementary identifying information for an external document
+
+Description: The element <externalPubRefAddressItems> contains, as textual
+content, additional information potentially useful to identify the non-S1000D destination
+publication or document.
+
+Note
+  Only the publication code, title and date will be presented in page-oriented publications.
+  Refer to Chap 6.2.2.
+
+  
+Markup element: <externalPubRefAddressItems>
+
+Attributes:
+- None
+
+Child elements:
+- <externalPubIssueDate>, the date given to the non-S1000D publication or document. Refer to Para 2.6.2.1.
+- <security>, the security of the non-S1000D publication or document. Refer to Chap 3.9.5.1.
+- <responsiblePartnerCompany>, the responsible partner company of the non￾S1000D publication or document. Refer to Chap 3.9.5.1.
+- <pubMedia>, the media of the non-S1000D publication or document. Refer to Chap 4.9.1.
+- <shortExternalPubTitle>, an abbreviated alternate title (of the non-S1000D publication or document) 
+corresponding to the element <externalPubTitle>. This short form for the publication title is meant 
+to be presented in the narrative of the data module to make the reading easier. Refer to Chap 6.2.2 for presentation.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  
+2.6.2.1 Issue date of an external publication
+
+Description: The element <externalPubIssueDate> contains date information about the referenced publication.
+If the <externalPubIssueDate> contains a date in textual form, then that text will be
+displayed to the user. If only the attributes are provided, then it must be displayed in the ISO
+8601 calendar date format YYYY-MM or YYYY-MM-DD. If the attribute month of  <externalPubIssueDate> is populated, 
+then the attribute year must also be populated. If the attribute day is populated, then the attribute month must also be populated.
+Refer to default BREX rule BREX-S1-00061.
+
+
+Attributes:
+- year (O), the year of issue given as a four-digit number
+- month (O), the month of issue given as a two-digit number
+- day (O), the day of issue given as a two-digit number.
+
+  
+Markup example:
+
+<externalPubRefAddressItems>
+  <externalPubIssueDate month="01" year="2010">January 2010</externalPubIssueDate>
+</externalPubRefAddressItems>
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.7 References presented in the reference table of a data module
+
+Description: The element <refs> contains all references to data modules, publication
+modules and to non-S1000D publications or documents given in the data module. 
+It is used to populate the standardized tabular list "Table 1 References". 
+This paragraph gives the rules and recommendations for inclusion of the standardized tabular list 
+"Table 1 References" at the beginning of the data module content section.
+
+Note
+  The element <refs> is also used to group the three child elements on a "lower level"
+  within several types of Schema. Refer to Para 2.8.
+
+Note
+  The element <refs>, to be presented in "Table 1 References", is either "authored" 
+  (in a "manual" authoring environment) or automatically populated before delivery 
+  of the self￾contained data module by analyzing the inline references (refer to Para 2.8) in the data module.
+
+
+Markup element: <refs>
+
+Absence of the element <refs> indicates that there are no references to other data modules
+or technical publications.
+
+Note
+  The absence of the element <refs> will be presented in the standardized table
+  References with "None" in the left-hand column. Refer to Chap 6.2.2 for presentation rules and examples.
+
+When the element <refs> is used, the referenced data modules, publication modules and
+non-S1000D publications or documents, must be listed in lexical order, with data modules first,
+publication modules second and non-S1000D publications or documents last.
+
+Each referenced data module, document or other publication, must be listed only once in the element <refs>.
+References must only be given to complete documents or to complete publications.
+When referring to documents or publications without a data module code or without a
+publication module code, the reference must give an appropriate identification of the referred
+document or publication.
+
+Attributes:
+- None
+
+Child elements:
+- <dmRef>. Refer to Para 2.2.
+- <pmRef>. Refer to Para 2.5.
+- <externalPubRef>. Refer to Para 2.6.
+
+Business rule decision point BRDP-S1-00106 - Population of the element <refs>:
+– Decide if and how the element <refs> is populated. If populated, the order of items in
+the list must be specified.
+
+  
+Markup example:
+
+The following example shows a reference table including a reference to a data module, a
+publication module and to two non-S1000D documents of which one is identified by an ISBN code:
+
+<refs>
+  <dmRef>
+    <dmRefIdent>
+      <dmCode modelIdentCode="S1000DBIKE" systemDiffCode="AAA"
+      systemCode="DA2" subSystemCode="2" subSubSystemCode="0"
+      assyCode="00" disassyCode="00" disassyCodeVariant="AA"
+      infoCode="520" infoCodeVariant="A" itemLocationCode="A" />
+      <issueInfo issueNumber="002" inWork="00"/>
+    </dmRefIdent>
+    <dmRefAddressItems>
+      <dmTitle>
+          <techName>Handlebar</techName>
+          <infoName>Remove procedures</infoName>
+      </dmTitle>
+    </dmRefAddressItems>
+  </dmRef>
+  <pmRef>
+    <pmRefIdent>
+      <pmCode modelIdentCode="S1000DBIKE" pmIssuer="SF518"
+      pmNumber="00003" pmVolume="00"/>
+    </pmRefIdent>
+    <pmRefAddressItems>
+      <pmTitle>Bike manuals</pmTitle>
+      <issueDate year="2007" month="02" day="28"/>
+    </pmRefAddressItems>
+  </pmRef>
+  <externalPubRef extEntityIdent=”EXT-Local_Disposal_Procedures”>
+    <externalPubRefIdent>
+      <externalPubTitle>Local Disposal Procedures</externalPubTitle>
+    </externalPubRefIdent>
+  </externalPubRef>
+  <externalPubRef>
+    <externalPubRefIdent>
+      <externalPubCode pubCodingScheme="ISBN">9999999999</externalPubCode>
+      <externalPubTitle>Effective Cycling</externalPubTitle>
+    </externalPubRefIdent>
+  </externalPubRef>
+</refs>
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.8 Inline use of references to other documents
+
+Description: This paragraph gives the rules and recommendations for use of the elements 
+<dmRef>, <pmRef> and <externalPubRef> when they are used inline.
+
+Referring to information not contained in the current context is achieved by using the element 
+<dmRef> for data modules, the element <pmRef> for publication modules, or the element 
+<externalPubRef> for non-S1000D publications or documents. 
+The elements <dmRef>, <pmRef> and <externalPubRef> must be populated as described in
+Para 2.2, Para 2.5 and Para 2.6, respectively.
+
+References can be made to a part of a data module using the attribute 
+referredFragment of the element <dmRef>. However, references to a part 
+of a data module are only allowed into the following data modules:
+- descriptive
+- IPD
+- schedules
+- Service bulletins - only from procedures to material data sets in a Service bulletin
+- common information repositories as described in Chap 4.13.1. 
+Refer to default BREX rules BREX-S1-00062 and BREX-S1-00063.
+- procedural data modules from training data modules - only when the safety case is taken
+into account. Refer to Chap 3.9.7 and Chap 5.2.1.19.
+Refer to the markup example below.
+
+Note
+  Only the data module code and the issue number will be presented in page-oriented
+  publications. Refer to Chap 6.2.2.
+
+Note
+  Only the publication module code (element <pmCode>) will be presented in page￾oriented publications. Refer to Chap 6.2.2.
+
+Excessive linking, by references to data modules without real content apart from just another
+element <dmRef>, must be avoided.
+
+The system must not generate the pre and post text (ie, the words before and after the
+referenced item), as this can interfere with authored text, prevents presentation in a different
+presentation system, and hinders information sharing between projects.
+
+Business rule decision point BRDP-S1-00107 - Define the words before and after the
+reference elements:
+– Define the words before and after the elements <dmRef>, <pmRef> and 
+<externalPubRef>. This is important as it has implications on the stylesheets used.
+
+Example: For one implementation, the stylesheet can automatically generate the words
+"Refer to data module: "when it recognizes the element <dmRef>. This will cause
+problems if the author has written "Refer to" within the paragraph before the element <dmRef>.
+
+  
+Markup example:
+The following example shows a reference to another data module without including the issue
+number and title.
+
+... Refer to
+<dmRef>
+  <dmRefIdent>
+    <dmCode modelIdentCode="S1000DBIKE" systemDiffCode="AAA"
+    systemCode="DA0" subSystemCode="0" subSubSystemCode="0"
+    assyCode="00" disassyCode="00" disassyCodeVariant="AA"
+    infoCode="041" infoCodeVariant="A" itemLocationCode="A"/>
+  </dmRefIdent>
+</dmRef>
+for a functional ...
+
+The following example shows a reference to a data module including the issue number and
+title.
+
+... as described in
+<dmRef>
+  <dmRefIdent>
+    <dmCode modelIdentCode="S1000DBIKE" systemDiffCode="AAA"
+    systemCode="DA3" subSystemCode="0" subSubSystemCode="0"
+    assyCode="00" disassyCode="00" disassyCodeVariant="AA"
+    infoCode="041" infoCodeVariant="A" itemLocationCode="A"/>
+    <issueInfo issueNumber="007" inWork="00"/>
+  </dmRefIdent>
+  <dmRefAddressItems>
+    <dmTitle>
+      <techName>Frame</techName>
+      <infoName>Description of how it is made</infoName>
+    </dmTitle>
+  </dmRefAddressItems>
+</dmRef>
+...
+
+The following example shows a reference to a paragraph in another data module, without
+including the issue number and title.
+
+<proceduralStep>
+  <para>Use the <internalRef internalRefId="seq-0002" internalRefTargetType="irtt05"/> 
+    from the <internalRef internalRefId="seq-0001" internalRefTargetType="irtt05"/>
+    and attach the new <internalRef internalRefId="spa-0001" internalRefTargetType="irtt06"/>
+    to the wheel. Refer to <dmRef referredFragment="par-0003">
+      <dmRefIdent>
+        <dmCode modelIdentCode="S1000DBIKE" systemDiffCode="AAA"
+        systemCode="DA0" subSystemCode="1" subSubSystemCode="0"
+        assyCode="20" disassyCode="00" disassyCodeVariant="AA"
+        infoCode="041" infoCodeVariant="A" itemLocationCode="A"/>
+      </dmRefIdent>
+    </dmRef>.
+  </para>
+</proceduralStep>
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Chapter 3.9.5.2.1.3
+Common constructs - Lists
+
+S1000D-A-40-50-0000-00E-024C-D
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+1 General
+This chapter contains the definition and handling of lists from an author's point of view. It gives
+details about the available elements and attributes for:
+- sequential lists
+- random lists
+- definition lists
+Lists consist of two main parts, a title and the list items. The title is optional.
+There must be no full stops after any list items if the items are not full sentences.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2 Lists
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.1 Sequential lists
+
+Description: The element <sequentialList> contains sequential lists, which are also
+known as ordered lists. It can contain applicability information, a title and the list items themselves.
+
+In a sequential list, a list item can consist of one or more paragraphs. A sequential list, 
+when formatted, is numbered with Arabic numerals. Refer to Chap 6.2.2.
+
+Sequential lists must not be used to provide procedural step information. 
+Refer to default BREX rule BREX-S1-00065.
+
+Only one sequential (ordered) list must be placed under a numbered title or paragraph
+(subheading). Refer to default BREX rule BREX-S1-00066.
+
+Sequential lists are limited to a maximum of two levels. Refer to default BREX rule BREX-S1-00064.
+
+Note
+  Sequential lists are not available in warnings and cautions. Refer to Chap 3.9.3.
+
+  
+Markup element: <sequentialList>
+
+Attributes:
+- applicRefId (O), the applicability information by referencing 
+the element <applic>. Refer to Chap 3.9.5.3.
+- id (O), the identifier of the markup element. Refer to Chap 3.9.5.2.1.2.
+- changeType (O), changeMark (O) and reasonForUpdateRefIds (O), 
+the change indications. Refer to Chap 3.9.5.2.1.1.
+- controlAuthorityRefs (O), the control authority information by referencing 
+the element <controlAuthority>. Refer to Chap 3.9.5.1.
+- securityClassification (O), commercialClassification (O), 
+caveat (O) and derivativeClassificationRefId (O), the security 
+and restrictive marking. Refer to Chap 3.6.
+
+Child elements:
+- <title>. Refer to Chap 3.9.5.2.1.5.
+- <listItem>. Refer to Para 2.1.1.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.1.1 List items
+
+Description: The element <listItem> contains a list item which can contain notes and paragraphs.
+
+  
+Markup element: <listItem>
+
+Attributes:
+- applicRefId (O), the applicability information by referencing 
+the element <applic>. Refer to Chap 3.9.5.3.
+- id (O), the identifier of the markup element. Refer to Chap 3.9.5.2.1.2.
+- changeType (O), changeMark (O) and reasonForUpdateRefIds (O), the
+change indications. Refer to Chap 3.9.5.2.1.1.
+- controlAuthorityRefs (O), the control authority information by referencing the
+element <controlAuthority>. Refer to Chap 3.9.5.1.
+- securityClassification (O), commercialClassification (O), 
+caveat (O) and derivativeClassificationRefId (O), the security 
+and restrictive marking. Refer to Chap 3.6.
+
+Child elements:
+- <note>. Refer to Chap 3.9.3.
+- <para>. Refer to Chap 3.9.5.2.1.10.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  
+2.1.2 Sequential lists in warnings and cautions
+
+Refer to Chap 3.9.3 for details concerning the element <attentionSequentialList>.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  
+2.2 Random list
+  
+Description: The element <randomList> contains random lists. It can contain applicability
+information, a title and the list items themselves.
+
+There are two types of random lists:
+- simple - recognized by the value "pf01" of the attribute listItemPrefix
+- unordered - recognized by the default value "pf02" of the attribute listItemPrefix
+giving the following default sequence of prefix: [-][●][-]
+
+The difference between a simple random list and an unordered random list 
+becomes visible when presented. Refer to Chap 6.2.2.
+
+Each list item, on any level, can consist of one or more paragraphs.
+The use of the element <randomList> within the element <action> (in the fault Schema) 
+is limited to one level. Refer to default BREX rule BREX-S1-00067.
+
+  
+Markup element: <randomList>
+
+Attributes:
+- applicRefId (O), the applicability information by referencing the element 
+<applic>. Refer to Chap 3.9.5.3.
+- id (O), the identifier of the markup element. Refer to Chap 3.9.5.2.1.2.
+- changeType (O), changeMark (O) and reasonForUpdateRefIds (O), 
+the change indications. Refer to Chap 3.9.5.2.1.1.
+- listItemPrefix (O), the indicator whether the list is a simple list 
+or an unordered list. The attribute can have one of the following values:
+  • "pf01" thru "pf99". The default value is "pf02". Refer to Chap 3.9.6.1.
+- controlAuthorityRefs (O), the control authority information by referencing the
+element <controlAuthority>. Refer to Chap 3.9.5.1.
+- securityClassification (O), commercialClassification (O), 
+caveat (O) and derivativeClassificationRefId (O), the security 
+and restrictive marking. Refer to Chap 3.6.
+
+Child elements:
+- <title>. Refer to Chap 3.9.5.2.1.5.
+- <listItem>. Refer to Para 2.1.1.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.2.1 Random list in warnings and cautions
+
+Refer to Chap 3.9.3 for details of the element <attentionRandomList>.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.2.2 Random lists in notes
+
+Refer to Chap 3.9.3 for details of the element <attentionRandomList>.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  
+2.3 Definition list
+
+Description: The element <definitionList> contains a list of terms and definitions. 
+It can contain applicability information, a title and a definition list header. 
+The body of the definition list comprises one or more definition list items, 
+each containing a term and its definition.
+
+It is possible to have more than one paragraph in a definition.
+
+The definition list is presented as a two-column table that contains terms and definitions.
+
+Examples for use are the definition of terms and legends. Refer to Chap 6.2.2.
+
+Note
+  Definition lists are not available in warnings, cautions and notes. Refer to Chap 3.9.3.
+
+  
+Markup element: <definitionList>
+
+Attributes:
+- applicRefId (O), the applicability information by referencing 
+the element <applic>. Refer to Chap 3.9.5.3.
+- id (O), the identifier of the markup element. Refer to Chap 3.9.5.2.1.2.
+- changeType (O), changeMark (O) and reasonForUpdateRefIds (O), the
+change indications. Refer to Chap 3.9.5.2.1.1.
+- controlAuthorityRefs (O), the control authority information by referencing the
+element <controlAuthority>. Refer to Chap 3.9.5.1.
+- securityClassification (O), commercialClassification (O), 
+caveat (O) and derivativeClassificationRefId (O), the security and
+restrictive marking. Refer to Chap 3.6.
+
+Child elements:
+- <title>. Refer to Chap 3.9.5.2.1.5.
+- <definitionListHeader>. Refer to Para 2.3.1.
+- <definitionListItem>. Refer to Para 2.3.2.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.3.1 Definition list headers
+Description: The element <definitionListHeader> contains the column headers of
+the definition list. It can contain the term title and the definition title.
+Markup element: <definitionListHeader>
+Attributes:
+- None
+Child elements:
+- <termTitle>. The column title for the terms. Refer to Para 2.3.1.1.
+- <definitionTitle>. The column title for the definitions. Refer to Para 2.3.1.2.
+2.3.1.1 Term title
+Description: The element <termTitle> contains the column title for the terms.
+Markup element: <termTitle>
+Attributes:
+- changeType (O), changeMark (O) and reasonForUpdateRefIds (O), the
+change indications. Refer to Chap 3.9.5.2.1.1.
+- controlAuthorityRefs (O), the control authority information by referencing the
+element <controlAuthority>. Refer to Chap 3.9.5.1.
+- securityClassification (O), commercialClassification (O), and
+caveat (O), the security and restrictive marking. Refer to Chap 3.6.
+Child elements:
+- Includes the same set of child elements as the "textElemGroup" applicable to the
+actual data module type. Refer to Chap 3.9.5.2.1.10.
+Markup example:
+<termTitle>Attribute</termTitle>
+
+
+2.3.1.2 Definition title
+Description: The element <definitionTitle> contains the column title for the
+definitions.
+Markup element: <definitionTitle>
+Attributes:
+- changeType (O), changeMark (O) and reasonForUpdateRefIds (O), the
+change indications. Refer to Chap 3.9.5.2.1.1.
+- controlAuthorityRefs (O), the control authority information by referencing the
+element <controlAuthority>. Refer to Chap 3.9.5.1.
+- securityClassification (O), commercialClassification (O), 
+caveat (O) and derivativeClassificationRefId (O), the security and
+restrictive marking. Refer to Chap 3.6.
+Child elements:
+- Includes the same set of child elements as the "textElemGroup" applicable to the
+actual data module type. Refer to Chap 3.9.5.2.1.10.
+Markup example:
+<definitionTitle>Value</definitionTitle>
+
+
+2.3.2 Definition list item
+Description: The element <definitionListItem> contains a definition list item.
+Markup element: <definitionListItem>
+Attributes:
+- Includes the same set of attributes as the element <sequentialList>. Refer to
+Para 2.1.
+Child elements:
+- <listItemTerm>. Refer to Para 2.3.2.1.
+- <listItemDefinition>. Refer to Para 2.3.2.2.
+
+2.3.2.1 List item term
+Description: The element <listItemTerm> contains the term to be defined.
+Markup element: <listItemTerm>
+Attributes:
+- Includes the same set of attributes as the element <sequentialList>. Refer to
+Para 2.1.
+Child elements:
+- Includes the same set of child elements as the "textElemGroup" applicable to the
+actual data module type. Refer to Chap 3.9.5.2.1.10.
+Markup example:
+<listItemTerm>em01</listItemTerm>
+
+2.3.2.2 List item definition
+Description: The element <listItemDefinition> contains the definition of the term.
+It can contain one or more paragraphs.
+Markup element: <listItemDefinition>
+Attributes:
+- applicRefId (O), the applicability information by referencing the element 
+<applic>. Refer to Chap 3.9.5.3.
+- id (O), the identifier of the markup element. Refer to Chap 3.9.5.2.1.2.
+- changeType (O), changeMark (O) and reasonForUpdateRefIds (O), the
+change indications. Refer to Chap 3.9.5.2.1.1.
+- controlAuthorityRefs (O), the control authority information by referencing the
+element <controlAuthority>. Refer to Chap 3.9.5.1.
+- securityClassification (O), commercialClassification (O), 
+caveat (O) and derivativeClassificationRefId (O), the security and
+restrictive marking. Refer to Chap 3.6.
+Child elements:
+- <para>. Refer to Chap 3.9.5.2.1.10.
+Markup example:
+<listItemDefinition><para>Bold</para></listItemDefinition>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
 
