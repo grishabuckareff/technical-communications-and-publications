@@ -797,3 +797,390 @@ ______________________________________________|_________________________________
 ______________________________________________|_______________________________________________________________
  Access Panel Locations                       |   Where to open and safely route hydraulic lines and cabling
 ______________________________________________|_______________________________________________________________
+
+
+
+Primary Flight Control Actuator Redundancy and Failure Mode Functional Test
+
+ATA Chapters: 27 – Flight Controls + 29 – Hydraulic Power + 45 – Central Maintenance Systems
+S1000D DMC: 27-XX-00-06-00A-720A-P
+("XX" depends on control surface: 20 = Ailerons, 30 = Elevators, 40 = Rudder)
+
+     
+S1000D-Compliant Task
+
+<dmodule xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://www.s1000d.org/S1000D_4-1/xml/issue"
+         xsi:schemaLocation="http://www.s1000d.org/S1000D_4-1/xml/issue s1000d_4-1.xsd">
+
+  <identAndStatusSection>
+    <dmAddress>
+      <dmIdent>
+        <modelIdentCode></modelIdentCode>
+        <systemDiffCode>00</systemDiffCode>
+        <systemCode>27</systemCode>
+        <subSystemCode>XX</subSystemCode>
+        <subSubSystemCode>00</subSubSystemCode>
+        <assyCode>06</assyCode>
+        <disassyCode>00A</disassyCode>
+        <disassyCodeVariant>A</disassyCodeVariant>
+        <infoCode>720</infoCode>
+        <infoCodeVariant>A</infoCodeVariant>
+        <itemLocationCode>P</itemLocationCode>
+      </dmIdent>
+      <issueInfo>
+        <issueNumber>001</issueNumber>
+        <inWork>01</inWork>
+      </issueInfo>
+    </dmAddress>
+    <dmStatus>
+      <security>01</security>
+      <responsiblePartnerCompany></responsiblePartnerCompany>
+      <originator>Flight Controls Systems and Safety Engineering</originator>
+      <applicability>
+        <applic></applic>
+      </applicability>
+      <language country="US">en</language>
+      <qualityAssurance></qualityAssurance>
+    </dmStatus>
+  </identAndStatusSection>
+
+  <content>
+    <procedure>
+      <taskRequirement>
+        <skillRequirement>Flight Controls Specialist</skillRequirement>
+        <skillRequirement>Hydraulic Systems Technician</skillRequirement>
+        <timeRequirement>5.0 hours</timeRequirement>
+        <crewRequirement>3 Technicians (2 CMS operators, 1 hydraulic system monitor)</crewRequirement>
+      </taskRequirement>
+
+      <preliminaryRqmts>
+        <preliminaryRqmtsDescr>Aircraft powered, hydraulic systems A, B, and C pressurized. CMS maintenance terminal connected. Surface rigging verified within limits (Ref: 27-XX-00-710-801).</preliminaryRqmtsDescr>
+
+        <safety>
+          <warning>
+            Deactivation of actuator channels during this test can induce rapid surface movement. Ensure all spoilers are pinned and gust locks are engaged.
+          </warning>
+          <caution>
+            Do not cycle deactivated surfaces more than specified cycles to prevent actuator thermal overload or fluid foaming.
+          </caution>
+          <note>
+            CMS will flag actuator channel loss detection; monitor system warnings and fault trees for correct identification of channel failures.
+          </note>
+        </safety>
+      </preliminaryRqmts>
+
+      <mainProcedure>
+        <step>
+          <para>Access CMS Actuator Override and Fault Simulation page (Ref: 45-00-00-860-801). Select target surface (Aileron, Elevator, or Rudder).</para>
+        </step>
+        <step>
+          <para>Manually isolate Hydraulic System A supply to target actuator via CMS override.</para>
+        </step>
+        <step>
+          <para>Command surface full range motion using CMS. Confirm remaining hydraulic channels (B/C) maintain full authority. Observe CMS actuator feedback for smooth, unchattered movement.</para>
+        </step>
+        <step>
+          <para>Reactivate System A. Repeat test by isolating Hydraulic System B supply.</para>
+        </step>
+        <step>
+          <para>Command surface motion again. Confirm System A and C redundancy take over without fault flags beyond 3 sec limit.</para>
+        </step>
+        <step>
+          <para>Finally, isolate Hydraulic System C and repeat. Confirm System A and B redundancy full functionality.</para>
+        </step>
+        <step>
+          <para>For each isolation event, verify CMS fault tree logs "Channel X Loss" correctly within 5 seconds. Validate automatic logic recovery where specified.</para>
+        </step>
+      </mainProcedure>
+
+      <closeProcedure>
+        <step>
+          <para>Reactivate all hydraulic systems and channels. Restore normal flight control authority. Remove CMS maintenance mode flags.</para>
+        </step>
+        <step>
+          <para>Record results: channel isolation outcomes, CMS fault detection, surface reaction observations, actuator override timings, and recovery status (ATA 05-00-00 maintenance record).</para>
+        </step>
+      </closeProcedure>
+
+      <crossRefTable>
+        <dmRef>
+          <dmRefIdent>
+            <dmCode>27-00-00-710-801</dmCode>
+            <title>Flight Control System General Functional Test</title>
+          </dmRefIdent>
+        </dmRef>
+        <dmRef>
+          <dmRefIdent>
+            <dmCode>45-00-00-860-801</dmCode>
+            <title>CMS Maintenance – Actuator Override Procedures</title>
+          </dmRefIdent>
+        </dmRef>
+        <dmRef>
+          <dmRefIdent>
+            <dmCode>05-00-00-200-801</dmCode>
+            <title>Actuator Redundancy and Failure Mode Test Record</title>
+          </dmRefIdent>
+        </dmRef>
+      </crossRefTable>
+
+      <tools>
+        <toolItem>
+          <toolIdent>CMS-MTN-777</toolIdent>
+          <toolName>CMS Maintenance Terminal – Override & Fault Simulation Version</toolName>
+        </toolItem>
+      </tools>
+
+      <spares>
+        <spareItem>
+          <spareIdent>SR-27-ACT-0122</spareIdent>
+          <spareName>Flight Control Actuator Kit (Dual/Triple Redundant)</spareName>
+          <quantity>As Required</quantity>
+        </spareItem>
+      </spares>
+
+      <consumables>
+        <supply>
+          <supplyIdent>CPC-474</supplyIdent>
+          <supplyName>Hydraulic Cleaner and Wipe Solvent</supplyName>
+          <quantity>Small container</quantity>
+        </supply>
+      </consumables>
+    </procedure>
+  </content>
+</dmodule>
+
+
+Behind the Scenes — Writer’s Inputs and Decisions
+______________________________________________________________________________________________________________
+ Source                                       |   Used For
+______________________________________________|_______________________________________________________________
+ Flight Control Actuator CMMs                 |   Hydraulic isolation logic, redundancy mapping
+______________________________________________|_______________________________________________________________
+ CMS Maintenance Guides                       |   Fault injection logic, override commands, fault recovery
+______________________________________________|_______________________________________________________________
+ Hydraulic System Layouts                     |   Confirm which system feeds which actuator ports
+______________________________________________|_______________________________________________________________
+ Flight Control Response Graphs               |   Define acceptable reaction and recovery times
+______________________________________________|_______________________________________________________________
+
+Risk Management
+______________________________________________________________________________________________________________
+ Risk                                         |   Mitigation
+______________________________________________|_______________________________________________________________
+ Uncommanded Surface Drop                     |   Ensure failover systems take full control immediately
+______________________________________________|_______________________________________________________________
+ Hydraulic Line Pressure Loss                 |   Confirm crossfeed functionality before isolation
+______________________________________________|_______________________________________________________________
+ CMS Fault Flag Delay                         |   Watchdog timer ensures CMS fault recognition within 5 seconds
+______________________________________________|_______________________________________________________________
+ Overheating Actuator                         |   Limit full cycle repetitions, cool-down if needed
+______________________________________________|_______________________________________________________________
+
+
+Illustrations Typically Needed
+______________________________________________________________________________________________________________
+ Type                                         |   Purpose
+______________________________________________|_______________________________________________________________
+ CMS Override Control Screen                  |   Annotated actuator isolation/failure override panel
+______________________________________________|_______________________________________________________________
+ Actuator Redundancy Schematic                |   Maps Systems A, B, and C to dual/triple actuator ports
+______________________________________________|_______________________________________________________________
+ Fault Tree Detection Flowchart               |   Expected CMS detection logic following actuator channel loss
+______________________________________________|_______________________________________________________________
+ Surface Movement vs System Isolation Profile |   Visualizes normal vs degraded mode behaviour
+______________________________________________|_______________________________________________________________
+
+
+
+Flight Control Surface Mass Balance and Moment Arm Verification
+
+ATA Chapter: 27 – Flight Controls
+S1000D DMC: 27-XX-00-06-00A-720A-P
+("XX" = Specific surface chapter: 20 for Ailerons, 30 for Elevators, 40 for Rudder, etc.)
+
+     
+S1000D-Compliant Task
+
+<dmodule xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://www.s1000d.org/S1000D_4-1/xml/issue"
+         xsi:schemaLocation="http://www.s1000d.org/S1000D_4-1/xml/issue s1000d_4-1.xsd">
+
+  <identAndStatusSection>
+    <dmAddress>
+      <dmIdent>
+        <modelIdentCode></modelIdentCode>
+        <systemDiffCode>00</systemDiffCode>
+        <systemCode>27</systemCode>
+        <subSystemCode>XX</subSystemCode>
+        <subSubSystemCode>00</subSubSystemCode>
+        <assyCode>06</assyCode>
+        <disassyCode>00A</disassyCode>
+        <disassyCodeVariant>A</disassyCodeVariant>
+        <infoCode>720</infoCode>
+        <infoCodeVariant>A</infoCodeVariant>
+        <itemLocationCode>P</itemLocationCode>
+      </dmIdent>
+      <issueInfo>
+        <issueNumber>001</issueNumber>
+        <inWork>01</inWork>
+      </issueInfo>
+    </dmAddress>
+    <dmStatus>
+      <security>01</security>
+      <responsiblePartnerCompany></responsiblePartnerCompany>
+      <originator>Flight Control Structural Integrity Engineering</originator>
+      <applicability>
+        <applic></applic>
+      </applicability>
+      <language country="US">en</language>
+      <qualityAssurance></qualityAssurance>
+    </dmStatus>
+  </identAndStatusSection>
+
+  <content>
+    <procedure>
+      <taskRequirement>
+        <skillRequirement>Structural Repair Technician</skillRequirement>
+        <skillRequirement>Flight Control Rigger</skillRequirement>
+        <timeRequirement>6.0 hours</timeRequirement>
+        <crewRequirement>3 Technicians (lifting/handling crew)</crewRequirement>
+      </taskRequirement>
+
+      <preliminaryRqmts>
+        <preliminaryRqmtsDescr>Surface removed from aircraft and mounted in approved mass balance fixture (Ref: AMM ZONE 450 for rudder, ZONE 430/440 for elevators, ZONE 420 for ailerons).</preliminaryRqmtsDescr>
+
+        <safety>
+          <warning>
+            Flight control surfaces are heavy and unbalanced until weights installed. Ensure surfaces are safely secured during handling.
+          </warning>
+          <caution>
+            Use only OEM-specified weights. Substitute materials are prohibited due to density and thermal expansion properties.
+          </caution>
+          <note>
+            Environmental conditions (temperature, humidity) must be recorded as they affect balance calculations. Surface must be clean and dry.
+          </note>
+        </safety>
+      </preliminaryRqmts>
+
+      <mainProcedure>
+        <step>
+          <para>Mount control surface horizontally on precision pivoted balance rig, ensuring no binding or resistance.</para>
+        </step>
+        <step>
+          <para>Measure neutral balance angle. Surface must come to rest within ±0.5° of defined neutral CG axis without external force.</para>
+        </step>
+        <step>
+          <para>Apply moment calculation using provided balance charts: moment = (applied force × lever arm distance).</para>
+        </step>
+        <step>
+          <para>If neutral not achieved, adjust weights using certified OEM mass balance kits (Ref: IPC 27-XX-00, Balance Parts).</para>
+        </step>
+        <step>
+          <para>Re-measure after each adjustment until surface neutrally balances within specified moment range. Record final balance condition.</para>
+        </step>
+        <step>
+          <para>Inspect attachment of all balance weights. Torque fasteners to 45 in-lb per AMM 20-50-00, and apply thread locking compound (CPC-911-LOCTITE).</para>
+        </step>
+      </mainProcedure>
+
+      <closeProcedure>
+        <step>
+          <para>Secure surface for reinstallation. Apply tamper-evident seal to balance weight attach points. Restore surface to installation readiness condition.</para>
+        </step>
+        <step>
+          <para>Record balance data, temperature/humidity conditions, adjustment details, and technician IDs in Flight Control Mass Balance Log (ATA 05-00-00).</para>
+        </step>
+      </closeProcedure>
+
+      <crossRefTable>
+        <dmRef>
+          <dmRefIdent>
+            <dmCode>27-00-00-710-801</dmCode>
+            <title>Flight Control Surface Functional and Structural Inspection</title>
+          </dmRefIdent>
+        </dmRef>
+        <dmRef>
+          <dmRefIdent>
+            <dmCode>51-00-00-910-801</dmCode>
+            <title>Standard Practices – Aircraft Weighing and Balance</title>
+          </dmRefIdent>
+        </dmRef>
+        <dmRef>
+          <dmRefIdent>
+            <dmCode>05-00-00-200-801</dmCode>
+            <title>Flight Control Mass Balance Adjustment Record</title>
+          </dmRefIdent>
+        </dmRef>
+      </crossRefTable>
+
+      <tools>
+        <toolItem>
+          <toolIdent>TOOL-BAL-777-CTL</toolIdent>
+          <toolName>Flight Control Surface Balance Fixture</toolName>
+        </toolItem>
+        <toolItem>
+          <toolIdent>TOOL-DYN-INCL-777</toolIdent>
+          <toolName>Precision Digital Inclinometer (±0.1° resolution)</toolName>
+        </toolItem>
+      </tools>
+
+      <spares>
+        <spareItem>
+          <spareIdent>SR-27-BAL-WGT-0999</spareIdent>
+          <spareName>Mass Balance Adjustment Weight Kit</spareName>
+          <quantity>As Required</quantity>
+        </spareItem>
+      </spares>
+
+      <consumables>
+        <supply>
+          <supplyIdent>CPC-911-LOCTITE</supplyIdent>
+          <supplyName>Thread Locking Compound</supplyName>
+          <quantity>As Required</quantity>
+        </supply>
+      </consumables>
+    </procedure>
+  </content>
+</dmodule>
+
+
+Behind the Scenes — Writer’s Inputs and Decisions
+______________________________________________________________________________________________________________
+ Source                                       |   Used For
+______________________________________________|_______________________________________________________________
+ Flight Control Surface Drawings              |   Balance points and centerline references
+______________________________________________|_______________________________________________________________
+ Balance Fixture Calibration Data             |   Ensures neutral pivot axis properly defined
+______________________________________________|_______________________________________________________________
+ Mass Balance Charts                          |   Defines acceptable weight ranges and CG limits
+______________________________________________|_______________________________________________________________
+ Environmental Data Tables                    |   Temperature and humidity corrections for balance readings
+______________________________________________|_______________________________________________________________
+
+Risk Management
+______________________________________________________________________________________________________________
+ Risk                                         |   Mitigation
+______________________________________________|_______________________________________________________________
+ Unsecured Surface Movement                   |   Proper fixture securing and handling team
+______________________________________________|_______________________________________________________________
+ Weight Misapplication                        |   Only certified OEM weights and torque settings
+______________________________________________|_______________________________________________________________
+ Environmental Drift                          |   Document and adjust for temperature/humidity
+______________________________________________|_______________________________________________________________
+ Balance Drift After Install                  |   Seal witness marks and tamper tags after torqueing weights
+______________________________________________|_______________________________________________________________
+
+     
+Illustrations Typically Needed
+______________________________________________________________________________________________________________
+ Type                                         |   Purpose
+______________________________________________|_______________________________________________________________
+ Surface Balance Fixture Setup Diagram        |   Correct mounting and pivot axis alignment
+______________________________________________|_______________________________________________________________
+ Mass Balance Adjustment Chart                |   Target moment range visual
+______________________________________________|_______________________________________________________________
+ Torque Pattern for Balance Weights           |   Bolt torque pattern and sealing diagram
+______________________________________________|_______________________________________________________________
+ Neutral Angle Verification Diagram           |   Inclinometer setup and measurement angle
+______________________________________________|_______________________________________________________________
