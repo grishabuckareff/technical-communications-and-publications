@@ -7270,8 +7270,790 @@ Markup example:
 <listItemDefinition><para>Bold</para></listItemDefinition>
 
 
+3 Examples
+3.1 Sequential lists
+The following example shows a sequential list.
+<para>This is an example of a sequential list with two items:
+<sequentialList>
+<listItem><para>This is the first list item.</para></listItem>
+<listItem><para>This is the second list item.</para></listItem>
+</sequentialList>
+</para>
+
+3.2 Random list
+3.2.1 Unordered
+The following example shows an unordered random list.
+<para>This is an example of an unordered random list with two
+items:
+<randomList listItemPrefix="pf02">
+<listItem><para>This is the first list item.</para></listItem>
+<listItem><para>This is the second list item.</para></listItem>
+</randomList>
+</para>
+
+3.2.2 Simple
+The following shows a simple random list.
+<randomList listItemPrefix="pf01">
+<listItem><para>This is the first item.</para></listItem>
+<listItem>
+<para>This is the second item with two paras.</para>
+<para>This is the second para of the second item.</para>
+</listItem>
+</randomList>
+
+3.3 Definition list
+The following is an example of a definition list.
+<definitionList>
+<definitionListItem>
+<listItemTerm>Frame</listItemTerm>
+<listItemDefinition><para>The frame is the skeleton of the
+bicycle.</para></listItemDefinition></definitionListItem>
+<definitionListItem>
+<listItemTerm>Wheel</listItemTerm>
+<listItemDefinition><para>The wheel is the point of contact
+between the bicycle and the road for the bicycle to have
+movement.</para></listItemDefinition></definitionListItem>
+<definitionListItem>
+<listItemTerm>Spokes</listItemTerm>
+<listItemDefinition><para>The spokes are thick wires with
+tension applied that connect the hub to the rim. You can adjust
+the tension with the nipple on the rim side.</para></
+listItemDefinition></definitionListItem>
+<definitionListItem>
+<listItemTerm>Hub</listItemTerm>
+<listItemDefinition><para>The hub attaches to the center of the
+wheel where the axle and the bearings are.</para></
+listItemDefinition></definitionListItem>
+<definitionListItem>
+<listItemTerm>Metal rim</listItemTerm>
+<listItemDefinition><para>The metal rim is a metal ring that has
+a U-shaped cross section to hold the spokes on the inner side
+and the tire on the outer side.</para></listItemDefinition></
+definitionListItem>
+<definitionListItem>
+<listItemTerm>Seat</listItemTerm>
+<listItemDefinition><para>The Seat, which is also known as the
+'saddle', is used as the support platform for the person to sit
+on the bicycle.</para></listItemDefinition></definitionListItem>
+<definitionListItem>
+<listItemTerm>Seat post</listItemTerm>
+<listItemDefinition><para>The Seat post is used as a support
+post for the seat and to change the height of the seat for the
+rider.</para></listItemDefinition></definitionListItem>
+<definitionListItem>
+<listItemTerm>...</listItemTerm>
+<listItemDefinition><para>...</para></listItemDefinition>
+</definitionListItem>
+</definitionList>
 
 
+Chapter 3.9.5.2.1.4
+Common constructs - Caption groups
+
+S1000D-A-40-50-0000-00F-024C-D
+
+
+1 General
+In some situations it is convenient for the reader of the data module to find a warning light, push
+button, annunciator or a block of warning lights, etc, within the text flow instead of referring to
+an illustration. This can be achieved by using captions and caption groups which are created by
+the author using XML markup as defined below.
+Caption is a stylized representation of a single illuminated warning light, push button or
+annunciator to be presented inline within the text flow.
+Caption group is a block of captions to be presented within the text flow.
+There is no standardized style guide for presenting captions and caption groups. Each project
+has to agree and set up a style guide including, for example, basic font, font size, font style,
+font color, line style and line weight. The only control mechanism to deviate from the basic style
+guide values is by using the configurable attribute color which can be used to restyle, for
+example, the caption fill, font, font size, font style, font color, line style and line weight. Refer to
+Para 2.2.1.
+Business rule decision point BRDP-S1-00559 - Caption style guide:
+– Decide on a project style guide to be used for captions.
+2 Caption groups and captions
+2.1 Caption groups
+2.1.1 Caption group
+Description: The element <captionGroup> represents a block of illuminated warning
+lights, push buttons, annunciators, or display captions. The <captionGroup> structure
+has been designed to provide some basic control of formatting. By using the element it is
+possible to create caption groups that are visually similar to the real object.
+Note
+The element <captionGroup> structure is based on the Continuous Acquisition and
+Life-cycle Support (CALS) table model with similar element names and attributes. Refer to
+Chap 3.9.5.2.1.6.
+A caption group is best used as the only content of an element <para> which makes it
+appear as paragraph of its own and not inline within the text flow in a paragraph.
+Markup element: <captionGroup>
+Attributes:
+- applicRefId (O), the applicability information by referencing the element 
+<applic>. Refer to Chap 3.9.5.3.
+- id (O), the identifier of the markup element. Refer to Chap 3.9.5.2.1.2.
+- changeType (O), changeMark (O) and reasonForUpdateRefIds (O), the
+change indications. Refer to Chap 3.9.5.2.1.1.
+- cols (M), the number of columns in the element <captionGroup> table. The
+attribute must have a numeric value, greater than "0".
+- alignCaption (O), the horizontal alignment of the text content of each element 
+<captionEntry> unless overridden by the attribute align of the elements 
+<colspec>, <spanspec>, <caption> or <captionText>. The attribute can
+have one of the following values:
+• "left" (D) - the text is left justified (quad flush left)
+• "right" - the text is right justified (quad flush right)
+• "center" - the text is center justified (text is centered around the middle of the
+column)
+- tableOfContentType (O), a classification of captions to be used in the publishing
+process to group captions in specific tables or indexes. The attribute can have one of the
+following values:
+• "none" (D) - do not include in any caption table
+• "redtoc" - to be included in the red caption table
+• "comdtoc" - to be included in a combined caption table
+• "ambertoc" - to be included in the amber caption table
+• "greentoc" - to be included in the green caption table
+• "yelowtoc" - to be included in the yellow caption table
+Refer to Fig 2.
+- colsep (O), defines the column separator settings. A non-zero value for this attribute will
+draw a rule to the right of each element <captionEntry> to which it applies. If the 
+<captionEntry> is in the first column a rule will also be drawn on the left side. If the
+attribute is zero, then no column ruling will appear on either side of the 
+<captionEntry> to which it applies. If the attribute colsep is not used, this implies
+that a column ruling will not be drawn for the applicable column. To set the column rulings
+for the complete column, set the attribute colsep on the element <colspec> that
+represents the column. Any values that are given in the <captionEntry> within a
+column will override the values given in element <colspec> or the element 
+<captionGroup>.
+- rowsep (O), defines the row separator settings. A non-zero value for this attribute will
+draw a rule below each element <captionEntry> to which it applies. If the 
+<captionEntry> is in the first <captionRow> a rule will also be drawn above. If
+the attribute is zero, then no row ruling will appear below the entries to which it applies. If
+the attribute rowsep is not used, this implies that a row rule will not be drawn for the
+applicable row. To set the row rulings for the complete row, set the attribute rowsep on
+the element <captionRow> that represents the row. Any values that are given in the
+entries of the row will override the values given in the element <captionRow> or 
+<captionGroup>.
+- controlAuthorityRefs (O), the control authority information by referencing the
+element <controlAuthority>. Refer to Chap 3.9.5.1.
+- securityClassification (O), commercialClassification (O), 
+caveat (O) and derivativeClassificationRefId (O), the security and
+restrictive marking. Refer to Chap 3.6.
+Child elements:
+- <colspec>. Refer to Chap 3.9.5.2.1.6.
+- <spanspec>. Refer to Chap 3.9.5.2.1.6.
+- <captionBody>. Refer to Para 2.1.2.
+2.1.2 Caption body
+Description: The element <captionBody> is equivalent to the table element <tbody>.
+Refer to Chap 3.9.5.2.1.6.
+Markup element: <captionBody>
+Attributes:
+- applicRefId (O), the applicability information by referencing the element 
+<applic>. Refer to Chap 3.9.5.3.
+- valign (O), the vertical alignment of the contents of each occurrence of the element 
+<captionEntry>, unless overridden by the attribute valign of the element 
+<captionEntry>. The value of the attribute valign defines the vertical position of
+a caption within its <captionEntry>, it does not affect the alignment of the text within
+a caption. The attribute can have one of the following values:
+• "top" (D)
+• "bottom"
+• "middle"
+- controlAuthorityRefs (O), the control authority information by referencing the
+element <controlAuthority>. Refer to Chap 3.9.5.1.
+Child elements:
+- <captionRow>. Refer to Para 2.1.3.
+2.1.3 Caption row
+Description: The element <captionRow> represents a caption table row and is equivalent
+to the table element <row>. Refer to Chap 3.9.5.2.1.6.
+Markup element: <captionRow>
+Attributes:
+- applicRefId (O), the applicability information by referencing the element 
+<applic>. Refer to Chap 3.9.5.3.
+- id (O), the identifier of the markup element. Refer to Chap 3.9.5.2.1.2.
+- changeType (O), changeMark (O) and reasonForUpdateRefIds (O), the
+change indications. Refer to Chap 3.9.5.2.1.1.
+- rowsep (O), defines the row separator settings. A non-zero value for this attribute will
+draw a rule. If the attribute rowsep is not used, it implies that a row rule will be drawn.
+Refer to Para 2.1.1.
+- controlAuthorityRefs (O), the control authority information by referencing the
+element <controlAuthority>. Refer to Chap 3.9.5.1.
+- securityClassification (O), commercialClassification (O), 
+caveat (O) and derivativeClassificationRefId (O), the security and
+restrictive marking. Refer to Chap 3.6.
+Child elements:
+- <captionEntry>. Refer to Para 2.1.4.
+2.1.4 Caption entry
+Description: The element <captionEntry> represents a table cell that contain the
+captions or caption text and is equivalent to the table element <entry>. Refer to
+Chap 3.9.5.2.1.6.
+Markup element: <captionEntry>
+Attributes:
+- applicRefId (O), the applicability information by referencing the element 
+<applic>. Refer to Chap 3.9.5.3.
+- colname (O), relates the element <captionEntry> to its column definition in the
+element <colspec>. The width of each element <captionEntry> can only be
+defined in the element <colspec>. If this attribute is missing, the column width must be
+wide enough to contain the contents of any child caption element. The value is the name of
+a column defined in element <colspec> in the current element <captionGroup>.
+- namest (O), locally defines the start column of a horizontal span of merged occurrences
+of the element <captionEntry>. The value must be the name of a column defined in
+the element <colspec> in the current element <captionGroup>.
+- nameend (O), locally defines the end column of a horizontal span of merged occurrences
+of the element <captionEntry>. The value must be the name of a column defined in
+the element <colspec> in the current element <captionGroup>.
+- spanname (O), a named, reusable span specification for merged occurrences of the
+element <captionEntry>. The value must be the name of a span defined in the
+element <spanspec> in the current element <captionGroup>.
+- morerows (O), locally defines the number of additional rows in a vertical span of
+merged occurrences of the element <captionEntry>. The value must be the number
+of spanned rows minus 1.
+colsep (O, defines the column separator settings. It is used to display rules to the right
+of the column to which it applies. An attribute colsep that is set on an element 
+<captionEntry> will determine if a rule is drawn for the height of the entry only. A
+non-zero value for this attribute will draw a rule. If the attribute colsep is not used, it
+implies that a row rule will not be drawn. Refer to Para 2.1.1.
+- rowsep (O) , defines the row separator settings. It is used to display rules below the row
+to which it applies. An attribute rowsep that is set on the element <captionEntry>
+determines if a rule is drawn for the width of the entry only. A non-zero value for this
+attribute will draw a rule. If the attribute rowsep is not used, it implies that a column rule
+will not be drawn. Refer to Para 2.1.1.
+- valign (O), the vertical alignment of the contents of each occurrence of the element 
+<captionEntry> in the row, unless overridden by the attribute valign of the
+element <captionEntry>. The value of the attribute valign defines the vertical
+position of a caption within its element <captionEntry>, it does not affect the
+alignment of the text within a caption. The attribute can have one of the following values:
+• "top"
+• "bottom"
+• "middle"
+- alignCaptionEntry (O), the horizontal alignment of each element <caption>.
+The attribute’s value defines the horizontal position of a caption within its element 
+<captionEntry>, it does not affect the alignment of the text within a caption. The
+attribute can have one of the following values:
+• "left"
+• "right"
+• "center"
+- controlAuthorityRefs (O), the control authority information by referencing the
+element <controlAuthority>. Refer to Chap 3.9.5.1.
+Child elements:
+- <caption>. Refer to Para 2.2.1.
+- <captionText>. Refer to Para 2.1.5.
+2.1.5 Caption text
+Description: The element <captionText> contains the text to be added to a 
+<captionGroup>.
+Markup element: <captionText>
+Attributes:
+- changeType (O), changeMark (O) and reasonForUpdateRefIds (O), the
+change indications. Refer to Chap 3.9.5.2.1.1.
+- controlAuthorityRefs (O), the control authority information by referencing the
+element <controlAuthority>. Refer to Chap 3.9.5.1.
+Child elements:
+The element can contain text mixed with the following elements:
+- <internalRef>. Refer to Chap 3.9.5.2.1.2.
+- <indexFlag>. Refer to Chap 3.9.5.2.1.10.
+- <changeInline>. Refer to Chap 3.9.5.2.1.1.
+- <emphasis>. Refer to Chap 3.9.5.2.1.10.
+- <subScript>. Refer to Chap 3.9.5.2.1.10.
+- <superScript>. Refer to Chap 3.9.5.2.1.10.
+- <dmRef>. Refer to Chap 3.9.5.2.1.1.
+- <pmRef>. Refer to Chap 3.9.5.2.1.1.
+- <externalPubRef>. Refer to Chap 3.9.5.2.1.1.
+- <acronym>. Refer to Chap 3.9.5.2.1.10.
+- <acronymTerm>. Refer to Chap 3.9.5.2.1.10.
+Markup example:
+The markup of the caption group above is as follows:
+<para><captionGroup cols="3" colsep="1" rowsep="1">
+<colspec colnum="1" colname="col1" colwidth="25mm"/>
+<colspec colnum="2" colname="col2" colwidth="10mm" colsep="0"
+rowsep="0"/>
+<colspec colnum="3" colname="col3" colwidth="25mm"/>
+<captionBody>
+<captionRow>
+<captionEntry colname="col1" alignCaptionEntry="center"
+valign="middle">
+<caption color="co02" captionWidth="20mm" captionHeight="10mm">
+<captionLine>L FUEL</captionLine>
+</caption>
+</captionEntry>
+<captionEntry colname="col2" alignCaptionEntry="center"
+valign="middle">
+<captionText>or</captionText>
+</captionEntry>
+<captionEntry colname="col3" alignCaptionEntry="center"
+valign="middle">
+<caption color="co02" captionWidth="20mm" captionHeight="10mm">
+<captionLine>R FUEL</captionLine>
+</caption>
+</captionEntry>
+</captionRow>
+</captionBody>
+</captionGroup>
+</para>
+2.1.6 Formatting options
+The effect of the formatting attributes is shown in Fig 3, with the markup for each occurrence of
+the element <captionEntry> given in Table 2.
+Table 2 <captionGroup> formatting example
+<captionEntry> Formatting attribute settings
+1 Width 30 mm
+Height 10 mm
+Align center
+Vertical align middle
+Color red1
+Text1
+-white
+-center
+<captionEntry colname="col1"
+alignCaptionEntry="center"
+valign="middle">
+<caption color="co51"
+captionWidth="30mm"
+captionHeight="10mm">
+<captionLine>FIRE -
+ENGINE</captionLine>
+</caption>
+</captionEntry>
+Table 2 <captionGroup> formatting example — Continued
+<captionEntry> Formatting attribute settings
+2 Width 25 mm
+Height 10 mm
+Align right
+Vertical align middle
+Color red
+Text
+-black
+-right
+<captionEntry colname="col2"
+alignCaptionEntry="right"
+valign="middle">
+<caption color="co04"
+captionWidth="25mm"
+captionHeight="10mm"
+alignCaption="right">
+<captionLine>DOOR OPEN
+</captionLine>
+<captionLine>(Side door)
+</captionLine>
+</caption>
+</captionEntry>
+3 Width 30 mm
+Height 30 mm
+Align center
+Vertical align middle
+Color yellow
+Text
+-black
+-center
+<captionEntry colname="col1"
+alignCaptionEntry="center"
+valign="middle">
+<caption color="co03"
+captionWidth="30mm"
+captionHeight="30mm"
+<captionLine>OXYGEN</
+captionLine>
+<captionLine>Low</captionLine>
+</caption>
+</captionEntry>
+4 Width 30 mm
+Height 10 mm
+Align center
+Vertical align middle
+Color Green2
+Text2
+-black
+-bold
+-left
+<captionEntry colname="col2"
+alignCaptionEntry="center"
+valign="middle">
+<caption color="co52"
+captionWidth="30mm"
+captionHeight="10mm"
+alignCaption="left">
+<captionLine>REDAY TO GO
+</captionLine>
+</caption>
+</captionEntry>
+
+2.2 Captions
+2.2.1 Caption
+Description: The element <caption> contains a caption representing a single illuminated
+warning light, push button, annunciator, or display caption. It can be used inline within text
+content elements such as the element <para>, or grouped within the element 
+<captionGroup> structure as given in Para 2.1.
+Each caption can contain lines of text in individual occurrences of the element 
+<captionLine>.
+Markup element: <caption>
+Attributes:
+- applicRefId (O), the applicability information by referencing the element 
+<applic>. Refer to Chap 3.9.5.3.
+- id (O), the identifier of the markup element. Refer to Chap 3.9.5.2.1.2.
+- changeType (O), changeMark (O) and reasonForUpdateRefIds (O), the
+change indications. Refer to Chap 3.9.5.2.1.1.
+- color (O), the colors of the caption. A project can decide to use project specific values
+that represent not only caption fill color, but also, for example, font, font size, font style, font
+color, line style and line weight. The attribute can have one of the following values:
+• "co00" thru "co99". The default value is "co09". Refer to Chap 3.9.6.1.
+Note
+The project must for each attribute value define the style guide settings/values, like fill
+color, font, font size, font style, font color, line style and line weight.
+Recommendation: It is recommended to the use color value definitions from the S1000D
+standard color palette given in Chap 3.9.2.3 when defining the style guide settings/values.
+- captionWidth (O), the width of the caption. The value must be a positive number,
+plus a unit of measure. Caption width can be specified as a proportional measure, a fixed
+measure, or a mixed measure. Refer to Chap 3.9.5.2.1.6 (attribute colwidth).
+- captionHeight (O), the height of the caption. The value must be a positive number,
+plus a unit of measure. Caption height can be specified as a proportional measure, a fixed
+measure, or a mixed measure. Refer to Chap 3.9.5.2.1.6 (attribute colwidth).
+- systemIdentCode (O), the system identification code as defined by the project
+- alignCaption (O), the horizontal alignment of the text content of the child elements 
+<captionLine>. The attribute can have one of the following values:
+• "left" (D) - the text is left aligned
+• "right" - the text is right aligned
+• "center" - the text is centered around the middle of the caption
+- tableOfContentType (O), a classification of captions to be used in the publishing
+process to group captions in specific caption tables or indexes. Refer to Para 2.1.1.
+- controlAuthorityRefs (O), the control authority information by referencing the
+element <controlAuthority>. Refer to Chap 3.9.5.1.
+- securityClassification (O), commercialClassification (O), 
+caveat (O) and derivativeClassificationRefId (O), the security and
+restrictive marking. Refer to Chap 3.6.
+Child elements:
+- <captionLine>. Refer to Para 2.2.2.
+Business rule decision point BRDP-S1-00117 - Inline use of captions:
+– Decide whether inline captions affect the text line spacing and how this is defined.
+Markup example:
+The following markup example shows the coding behind a caption presented in inline within the
+text flow:
+The following markup example shows the coding behind the two captions below, to be
+presented in inline within the text flow:
+"The fuel system control panel includes a set of warning and control lamps. The most important
+control lamps shows the fuel levels in the left and right
+tanks, respectively. If they turn to red, the situation becomes critical. Try to find a gas station."
+<para>"The fuel system control panel includes a set of warning
+and control lamps. The most important control lamps shows the
+fuel levels in the
+<caption color="co02" captionWidth="20mm"
+captionHeight="10mm"><captionLine>L FUEL</captionLine></caption>
+or <caption color="co02" captionWidth="20mm"
+captionHeight="10mm"><captionLine>R FUEL</captionLine></caption>
+left and right tanks, respectively. If they turn to red, the
+situation becomes critical. Try to find a gas station."
+</para>
+2.2.2 Caption line
+Description: The element <captionLine> represents a single line of text, so its text
+content should not wrap to second or subsequent lines.
+Markup element: <captionLine>
+Attributes:
+- None
+Child elements:
+The element can contain text mixed with the element
+- <acronymTerm>. Refer to Chap 3.9.5.2.1.10.
+3 Example
+The following markup example shows the coding behind the caption group presented in Fig 3:
+<para>
+<captionGroup cols="2" colsep="1" rowsep="1">
+<colspec colnum="1" colname="col1" colwidth="40mm"/>
+<colspec colnum="2" colname="col2" colwidth="40mm"/>
+<captionBody>
+<captionRow>
+<captionEntry colname="col1" alignCaptionEntry="center"
+valign="middle">
+<caption color="co51" captionWidth="30mm" captionHeight="10mm">
+<captionLine>FIRE - ENGINE</captionLine>
+</caption>
+</captionEntry>
+<captionEntry colname="col2" alignCaptionEntry="right"
+valign="middle">
+<caption color="co04" captionWidth="25mm" captionHeight="10mm"
+alignCaption="right">
+<captionLine>DOOR OPEN</captionLine>
+<captionLine>(Side door)</captionLine>
+</caption>
+</captionEntry>
+</captionRow>
+<captionRow>
+<captionEntry colname="col1" alignCaptionEntry="center"
+valign="middle">
+<caption color="co03" captionWidth="30mm" captionHeight="30mm">
+<captionLine>OXYGEN</captionLine>
+<captionLine>Low</captionLine>
+</caption>
+</captionEntry>
+<captionEntry colname="col2" alignCaptionEntry="center"
+valign="middle">
+<caption color="co52" captionWidth="30mm" captionHeight="10mm"
+alignCaption="left">
+<captionLine>READY TO GO</captionLine>
+</caption>
+</captionEntry>
+</captionRow>
+</captionBody>
+</captionGroup>
+</para>
+
+
+Chapter 3.9.5.2.1.5
+Common constructs - Titles
+
+S1000D-A-40-50-0000-00G-024C-D
+
+1 General
+This chapter contains the definition and use of titles from an author's point of view.
+2 Titles
+Description: The element <title> contains the title for a paragraph, step, table or figure,
+etc. Titles can also be used in the preparation of Table of Contents (TOC). Doing this enables
+the level of indenture in the TOC to be controlled.
+In descriptive data modules, titles can be included for the element <levelledPara> from
+sublevel one thru five, but must be included for element <figure> and element <table>
+for formal tables. Refer to Chap 6.2.2.
+In procedural, process, crew and fault data modules, titles must be included for <figure>
+and <table> for formal tables. Refer to default BREX rule BREX-S1-00068. Titles can also
+be included for the element <proceduralStep> from sublevel one thru five and for the
+element <dmNode>. Refer to Chap 6.2.2.
+All titles must be presented in sentence case. Refer to Chap 3.9.1.
+Markup element: <title>
+Attributes:
+- changeType (O), changeMark (O) and reasonForUpdateRefIds (O), the
+change indications. Refer to Chap 3.9.5.2.1.1.
+- controlAuthorityRefs (O), the control authority information by referencing the
+element <controlAuthority>. Refer to Chap 3.9.5.1.
+- securityClassification (O), commercialClassification (O), 
+caveat (O) and derivativeClassificationRefId (O), the security and
+restrictive marking. Refer to Chap 3.6.
+Child elements:
+- Includes the same set of child elements as the textElement, which can be different
+depending on the Schema type. Refer to Chap 3.9.5.2.1.10.
+Business rule decision point BRDP-S1-00118 - Use of the element <title>:
+– Decide how to use the element <title> and on which elements.
+Business rule decision point BRDP-S1-00119 - Use of cross-references from titles:
+– Decide whether to allow cross-referencing from titles.
+Business rule decision point BRDP-S1-00120 - Use of titles for the elements 
+<levelledPara> and <proceduralStep> from sublevel six thru eight for
+legacy data:
+– Decide whether titles can be included for the elements <levelledPara> and 
+<proceduralStep> from sublevel six thru eight when converting legacy data to
+S1000D.
+
+3 Example
+<levelledPara>
+<title>Brake system</title>
+<para>The most important part of the bicycle is the brake
+system. Only a minimum maintenance of the brake system is
+necessary. But, when a problem does occur, make sure you
+do the necessary maintenance as quickly as possible.
+If you do not do this the bicycle will be dangerous to
+use.</para>
+<para>There are nine different types of brake systems. The
+one found on most bicycles is the cantilever brake (refer to
+<internalRef internalRefId="par-0001"
+internalRefTargetType="irtt07"></internalRef>).</para>
+<levelledPara id="par-0001">
+<title>Cantilever brake</title>
+<para>The brake system (refer to
+<internalRef internalRefId="fig-0001"
+internalRefTargetType="irtt01"></internalRef>) has
+these primary components:
+<randomList listItemPrefix="pf01" changeMark="1">
+<listItem>
+<para>the brake lever (refer to
+<internalRef internalRefId="par-0003"
+internalRefTargetType="irtt07"></internalRef>)</para>
+</listItem>
+<listItem>
+<para>the brake cable</para>
+</listItem>
+<listItem>
+<para>the brake arm</para>
+</listItem>
+<listItem>
+<para>the brake clamp (also known as callipers)</para>
+</listItem>
+<listItem>
+<para>the brake pads (refer to
+<internalRef internalRefId="par-0002"
+internalRefTargetType="irtt07"></internalRef>)</para>
+</listItem>
+</randomList>
+</para>
+<figure id="fig-0001">
+<title>Cantilever brake with straddle cable</title>
+<graphic
+infoEntityIdent="ICN-S1000DBIKE-AAA-DA10000-0-U8025-00512-
+A-03-1">
+</graphic>
+</figure>
+<para>A cable that goes from the brake levers on the
+handlebars pulls the two levers on the brakes together.
+This presses the brake pads against the outer rim of the
+wheel, which decreases the speed of the bicycle.</para>
+</levelledPara>
+<levelledPara id="par-0002">
+<title>Brake pads</title>
+<para>There are four brake pads (refer to <internalRef
+internalRefId="fig-0002" internalRefTargetType="irtt01"/>) on
+the bicycle. Two are found on the front wheel and two on the
+rear wheel. The brake pads are made out of hard wearing rubber.
+The pads press against the rim of the wheel to cause friction
+when the you operate the brake levers.</para>
+<figure id="fig-0002">
+<title>Exploded diagram of a brake</title>
+<graphic infoEntityIdent="ICN-S1000DBIKE-AAA-DA10000-0-
+C0419-00014-A-01-1">
+</graphic>
+</figure>
+</levelledPara>
+<levelledPara id="par-0003">
+<title>Brake lever</title>
+<para>The brake levers (refer to <internalRef
+internalRefId="fig-0003" internalRefTargetType="irtt01"/>) are
+easily damaged. The lever is installed in the mount. A clamp
+bolt holds the mount. This bolt is not visible because it is
+found in the mount. The lever turns on a lever pivot bolt. The
+adjuster lock nut holds the brake cable. This lock nut adjusts
+the tension of the cable.</para>
+<figure id="fig-0003">
+<title>Typical components of a mountain bicycle lever</title>
+<graphic infoEntityIdent="ICN-S1000DBIKE-AAA-DA10000-0-
+C0419-00015-A-01-1">
+</graphic>
+</figure>
+<para>The left brake lever holds the brake pads on the front
+wheel and the right brake pads hold the brakes on the rear
+wheel.</para>
+</levelledPara>
+</levelledPara>
+
+
+Chapter 3.9.5.2.1.6
+Common constructs - Tables
+
+S1000D-A-40-50-0000-00H-024C-D
+
+1 General
+This chapter contains the definition, rules and guidelines for handling tables from an author's
+point of view. It gives details about the available elements and attributes and how to use them
+to create tables in a data module. It also serves as a guide to stylesheet designers who will
+have to create the templates for presenting the tables in a page-oriented output or an IETP
+where a table must be presented by using the formatting information contained in the table’s
+presentation attributes that have been set by the author.
+The rules for the presentation of tables in page-oriented publications and IETP are given in
+Chap 6.2.2 and Chap 6.3.1, respectively.
+Parts of this chapter have been derived from the OASIS information about the Continuous
+Acquisition and Life-cycle Support table model. Refer to OASIS CALS Table model.
+2 Tables
+2.1 Definition
+There are two types of tables:
+- Formal
+- Informal
+A formal table consists of four parts: the table title, the table head, the optional table footer and
+the table body. Each of these parts contains the rows and entries that comprise the table.
+An informal table is a short, simple table, which does not need a table title, table head and table
+footer. These tables are typically small and contain only a few columns and rows.
+Table titles must be written in sentence case and have no period [.] at the end.
+When formatted, table titles must not exceed two lines.
+A formal table can be column-width or image-width. A column width table is one which starts at
+the left type limit (ie, taking into account any indents) and covers the remaining space available
+to the right type limit. An image width table starts at the left margin and covers the space up to
+the right margin. To define a column-width or image-width table, use the attribute pgwide.
+Refer to Para 2.6. Tables must be located in the context where it is most convenient to the
+reader. If it is cross-referenced only once, the location is immediately after the paragraph, or
+major element, in which the reference occurred.
+Note
+For page-oriented publications, if it is not possible to fit a table into the full image width
+(170 mm), the table can be presented on a fold-out page (ie, by wrapping the element 
+<table> in the element <foldout>. Refer to Chap 3.9.5.2.1.7).
+2.2 Specific tables
+Chap 6.2.2 details the required presentation for seven specific tables and each of these has its
+own markup element. The rest of this chapter discusses tables that are marked up using the
+element <table>. The seven specific tables are:
+- References. Used in all data modules (element <refs>). Refer to Chap 3.9.5.2.1.2.
+- Required conditions. Used in procedural, schedule and fault isolation procedure data
+modules (element <reqCondGroup>). Refer to Chap 3.9.5.2.1.9.
+- Required persons. Used in procedural, schedule and fault isolation procedure data
+modules (element <reqPersons>). Refer to Chap 3.9.5.2.1.9.
+- Required technical information. Used in procedural, schedule and fault isolation procedure
+data modules (element <reqTechInfoGroup>). Refer to Chap 3.9.5.2.1.9.
+- Support equipment. Used in procedural, schedule and fault isolation data modules
+(element <reqSupportEquips>). Refer to Chap Chap 3.9.5.2.1.9.
+- Consumables, materials and expendables. Used in procedural, schedule and fault isolation
+data modules (element <reqSupplies>). Refer to Chap Chap 3.9.5.2.1.9.
+- Spares. Used in procedural, schedule and fault isolation data modules (element 
+<reqSpares>). Refer to Chap Chap 3.9.5.2.1.9.
+- Caption group. Used in all data modules. Refer to Chap 3.9.5.2.1.4.
+2.3 Project table types
+A project can define a number of standard table types, and these can be any type of commonly
+used tables (for example, inspection and examination tables, tables of modification and
+repairs). Within the project it is good practice that these standard table types are be marked up
+in a consistent manner and contain consistent numbers of columns, widths and textual values
+for the table title and its header rows, etc, and these standard types and their properties can be
+documented in the project business rules.
+When set to one of the project defined standard table values, the table attribute tabstyle
+can be used by an author to indicate that the table that follows is of a specific type, and
+therefore should comply to the table’s presentation rules which will be defined in the table’s
+presentation attributes, and other business rules that govern the textual values the table can
+contain. The setting of this attribute will then allow the table settings to be checked for
+compliance to the business rules.
+Complex tables can have areas where the format of the rows and columns is different and the
+element <tgroup> can be used to mark up such table areas. Refer to Para 2.6.1. There is
+an attribute tgstyle that can be used to define and check business rules that apply to these
+areas of the complex tables.
+To illustrate how this is used, for example, when the value of attribute tabstyle is set to a
+project defined value of "examination", this could mean that the business rules are defined as
+follows:
+- the table must always have a title of the form "component – examination"
+- the table must always have one attribute <thead> row that contains the values
+"Component", "Maximum serviceable limits", "Maximum repairable limits", and
+"Description"
+- the table must have four columns of widths 50mm, 25mm, 25mm and 70mm when the
+display width is 170mm
+- it must use proportional spacing
+- it must have attribute frame set to the value "topbot"
+- it must have no column separators
+- it must have a row separator after the attribute <thead> row, but nowhere else
+The use of the attributes tabstyle and tgstyle must not mean that the author can omit
+the table’s display attributes (eg, frame, rowsep, etc) on the assumption that they are
+inherited by the meaning of tabstyle and tgstyle for the given table type within the
+project. The reason for this is that the end user’s application will have no knowledge of what
+those display properties should be, and the table will not display properly.
+Note that the project specified standard tables must comply with the rules for formal and
+informal tables.
+When a table is not a project standard table the fact that it is an informal or formal table can be
+recorded in the attribute tabstyle with the values "formal" and "informal", and this will allow
+the S1000D rules for these table types to be checked.
+Business rule decision point BRDP-S1-00121 - Use of standard table types:
+– Decide if a list of standard table types applies to the project (eg, inspection, examination)
+and define what the business rules are for these types in terms of their presentation
+requirements and certain textual values (eg, titles and heading row values). Each of these
+standard types must have a defined value that can be applied to the table’s attribute 
+tabstyle.
+For complex standard tables that have more than one table group, decide how to use the
+element <tgroup> and define a list of project values for attribute tgstyle.
+2.4 Tables as graphics
+Tables normally are marked up using the elements and attributes which define the table
+heading, the footer and the body which contain rows and entries. It is also possible to present a
+table using the graphic element (although this is discouraged).
+Business rule decision point BRDP-S1-00122 - Use of tables as graphics:
+– Decide if tables represented as graphics are allowed, and if they are, in what situations
+they can be used.
+2.5 Attribute inheritance
+In order to understand the CALS table model, the concept of attribute inheritance needs to be
+explained. This applies to the table presentation attributes such as rowsep and colsep
+(which determine if table rulings are required) and alignments etc. Attributes on higher level
+elements set formatting defaults that can be overridden by the same attributes set on lower
+level elements. For example, a default row separation can be specified for the complete table
+on the <table> element, and this applies to the complete table, unless values are expressed
+on contained table groups, column specifications, rows, entries etc. A presentation attribute
+value expressed at a level applies to that level and to its children (unless any child element’s
+attributes override it). As an example, a rowsep value of "1" applies to all entries in the row,
+except any <entry> with a rowsep value specified.
+2.6 Table markup
+Description: The element <table> is used to contain information which is to be presented
+in a tabular form. The element is used for both formal and informal tables.
+Markup element: <table>
+Attributes:
+- applicRefId (O), the applicability information by referencing the element 
+<applic>. Refer to Chap 3.9.5.3.
+- id (O), the identifier of the table element. Refer to Chap 3.9.5.2.1.2. It must only be used for
+tables that have a title (and hence have an enumerated table number).
+- changeType (O), changeMark (O) and reasonForUpdateRefIds (O), the
+change indications. Refer to Chap 3.9.5.2.1.1.
+- tabstyle (O), defines a style for the table. Although the CALS table model allows the
+value of this attribute to determine the presentation style of the table (in terms of the table
+rulings, the frame, the orientation, etc), S1000D mandates that the presentation attributes
 
 
 
