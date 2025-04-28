@@ -1518,24 +1518,46 @@ S1000D DMC: 52-11-00-06-00A-720A-P
   </content>
 </dmodule>
 
-🧠 Behind the Scenes — Writer’s Inputs and Decisions
-Source	Used For
-Passenger Door Hydraulic System Schematics	Identify system B pressurization path, assist actuator feeds
-Standard Hydraulic Leak Test Manuals	Test pressure levels, leak detection standards
-Safety Data Sheets (CPC-496)	Proper application procedures for detection compound
-Torque Tables for Hydraulic Fittings	Determine rework thresholds and safe tightening procedures
-🛠️ Risk Management
-Risk	Mitigation
-High-Pressure Hydraulic Spray	Full PPE required, test only with door stationary
-False Leak Readings	Only inspect at static pressure, avoid actuator movement
-Incomplete System Depressurization	Full post-test hydraulic bleedout procedure mandatory
-Slippery Deck Hazard	Immediate cleanup of hydraulic residue post-test
-🖼️ Illustrations Needed
-Type	Purpose
-Passenger Door Hydraulic Circuit Diagram	Show actuator lines, service ports, test kit connection points
-Leak Detection Kit Setup	How to properly plumb test tools to actuator service ports
-Torque Pattern for Actuator Hydraulic Lines	Correct tightening sequence and torque values
-Surface Cleanliness Before Inspection	Visual standard for pre-leak-check condition
+
+Behind the Scenes — Writer’s Inputs and Decisions
+______________________________________________________________________________________________________________
+ Source                                       |   Used For
+______________________________________________|_______________________________________________________________
+ Passenger Door Hydraulic System Schematics   |   Identify system B pressurization path, assist actuator feeds
+______________________________________________|_______________________________________________________________
+ Standard Hydraulic Leak Test Manuals         |   Test pressure levels, leak detection standards
+______________________________________________|_______________________________________________________________
+ Safety Data Sheets (CPC-496)                 |   Proper application procedures for detection compound
+______________________________________________|_______________________________________________________________
+ Torque Tables for Hydraulic Fittings         |   Determine rework thresholds and safe tightening procedures
+______________________________________________|_______________________________________________________________
+
+Risk Management
+______________________________________________|_______________________________________________________________
+ Risk                                         |   Mitigation
+______________________________________________|_______________________________________________________________
+ High-Pressure Hydraulic Spray                |   Full PPE required, test only with door stationary
+______________________________________________|_______________________________________________________________
+ False Leak Readings                          |   Only inspect at static pressure, avoid actuator movement
+______________________________________________|_______________________________________________________________
+ Incomplete System Depressurization           |   Full post-test hydraulic bleedout procedure mandatory
+______________________________________________|_______________________________________________________________
+ Slippery Deck Hazard                         |   Immediate cleanup of hydraulic residue post-test
+______________________________________________|_______________________________________________________________
+
+     
+Illustrations Needed
+______________________________________________|_______________________________________________________________
+ Type                                         |   Purpose
+______________________________________________|_______________________________________________________________
+ Passenger Door Hydraulic Circuit Diagram	  |   Show actuator lines, service ports, test kit connection points
+______________________________________________|_______________________________________________________________
+ Leak Detection Kit Setup                     |   How to properly plumb test tools to actuator service ports
+______________________________________________|_______________________________________________________________
+ Torque Pattern for Actuator Hydraulic Lines  |   Correct tightening sequence and torque values
+______________________________________________|_______________________________________________________________
+ Surface Cleanliness Before Inspection        |   Visual standard for pre-leak-check condition
+______________________________________________|_______________________________________________________________
 
 
 
