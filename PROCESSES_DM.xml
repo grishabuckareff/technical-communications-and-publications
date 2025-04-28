@@ -10,7 +10,7 @@ Flight Deck Escape Hatch - Operational Check, Leak Test, and Minor Repairs
   <identAndStatusSection>
     <dmAddress>
       <dmIdent>
-        <modelIdentCode>777</modelIdentCode>
+        <modelIdentCode></modelIdentCode>
         <systemDiffCode>00</systemDiffCode>
         <systemCode>52</systemCode>
         <subSystemCode>50</subSystemCode>
@@ -23,18 +23,18 @@ Flight Deck Escape Hatch - Operational Check, Leak Test, and Minor Repairs
         <itemLocationCode>P</itemLocationCode>
       </dmIdent>
       <issueInfo>
-        <issueNumber>003</issueNumber>
+        <issueNumber></issueNumber>
         <inWork>00</inWork>
       </issueInfo>
     </dmAddress>
     <dmStatus>
       <security>01</security>
-      <responsiblePartnerCompany>Boeing</responsiblePartnerCompany>
+      <responsiblePartnerCompany></responsiblePartnerCompany>
       <originator>Flight Deck Structures Engineering</originator>
       <applicability>
         <applicGroup>
-          <applic>777-200LR</applic>
-          <applic>777-300ER</applic>
+          <applic></applic>
+          <applic></applic>
         </applicGroup>
       </applicability>
       <language country="US">en</language>
