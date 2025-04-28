@@ -2252,15 +2252,24 @@ S1000D-Compliant Task (Including CAUTION, WARNING, NOTE, and Cross-Referencing)
 Behind the Scenes — Writer’s Inputs & Decisions
 
 Engineering Sources Required
-
-Document	Used For
-Spoiler Assembly Drawing (Actuator/Bracket)	Defines actuator center stroke, rig pin access port, alignment holes
-Hydraulic Schematic (Ch. 29)	Identifies flow routing, residual pressure bleed locations
-FBW Override Procedure (Ch. 22)	Ensures digital commands are inhibited before manual surface rigging
-Standard Practices (Ch. 20)	Fastener torque specs, thread engagement criteria
-Access Panel Routing (Ch. 57)	Guides panel location and zone alignment
-Control Surface Functional Test (27-62-00-710)	Verifies correct behavior after rigging
-Stow Flush Criteria	From Boeing aerodynamic alignment doc – neutral = ±0.1° flush across panel edge
+______________________________________________________________________________________________________________
+ Document                                     |   Used For
+______________________________________________|_______________________________________________________________
+ Spoiler Assembly Drawing (Actuator/Bracket)  |   Defines actuator center stroke, rig pin access port, alignment holes
+______________________________________________|_______________________________________________________________
+ Hydraulic Schematic (Ch. 29)                 |   Identifies flow routing, residual pressure bleed locations
+______________________________________________|_______________________________________________________________
+ FBW Override Procedure (Ch. 22)              |   Ensures digital commands are inhibited before manual surface rigging
+______________________________________________|_______________________________________________________________
+ Standard Practices (Ch. 20)                  |   Fastener torque specs, thread engagement criteria
+______________________________________________|_______________________________________________________________
+ Access Panel Routing (Ch. 57)                |   Guides panel location and zone alignment
+______________________________________________|_______________________________________________________________
+ Control Surface Functional Test              |
+ (27-62-00-710)                               |   Verifies correct behaviour after rigging
+______________________________________________|_______________________________________________________________
+ Stow Flush Criteria                          |   From Boeing aerodynamic alignment doc – neutral = ±0.1° flush across panel edge
+______________________________________________|_______________________________________________________________
 
 Key Authoring Considerations
 ______________________________________________________________________________________________________________
@@ -2281,7 +2290,7 @@ ______________________________________________|_________________________________
 
 
 Illustrations Typically Needed
-______________________________________________|_______________________________________________________________
+______________________________________________________________________________________________________________
  Visual Type                                  |   Description
 ______________________________________________|_______________________________________________________________
  Spoiler Panel Schematic                      |   Overview of actuator locations and rig points
@@ -2298,7 +2307,7 @@ ______________________________________________|_________________________________
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-Rudder Mechanical Linkage Tension and Centering Adjustment
+Rudder Mechanical Linkage Tension and Centring Adjustment
 
 ATA Chapter: 27 – Flight Controls
 S1000D DMC: 27-21-00-04-00A-720A-P
