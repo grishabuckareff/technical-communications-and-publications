@@ -2681,7 +2681,6 @@ Hydraulics (ATA 29)
 
 Hydraulic System A Reservoir Servicing (Fluid Refill and Air Bleed Procedure)
 
-From: AMM BOEING 777 HYDRAULICS.PDF
 ATA Chapter: 29 – Hydraulic Power
 S1000D DMC: 29-11-00-06-00A-720A-P
 
@@ -2706,7 +2705,7 @@ S1000D-Compliant Task (Including CAUTION, WARNING, NOTE, and Cross-Referencing)
   <identAndStatusSection>
     <dmAddress>
       <dmIdent>
-        <modelIdentCode>777</modelIdentCode>
+        <modelIdentCode></modelIdentCode>
         <systemDiffCode>00</systemDiffCode>
         <systemCode>29</systemCode>
         <subSystemCode>11</subSystemCode>
@@ -2725,10 +2724,10 @@ S1000D-Compliant Task (Including CAUTION, WARNING, NOTE, and Cross-Referencing)
     </dmAddress>
     <dmStatus>
       <security>01</security>
-      <responsiblePartnerCompany>Boeing</responsiblePartnerCompany>
+      <responsiblePartnerCompany></responsiblePartnerCompany>
       <originator>Hydraulic Systems Engineering</originator>
       <applicability>
-        <applic>777-300ER</applic>
+        <applic></applic>
       </applicability>
       <language country="US">en</language>
     </dmStatus>
