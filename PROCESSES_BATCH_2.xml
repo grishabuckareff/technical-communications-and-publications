@@ -2268,7 +2268,7 @@ ______________________________________________|_________________________________
  Control Surface Functional Test              |
  (27-62-00-710)                               |   Verifies correct behaviour after rigging
 ______________________________________________|_______________________________________________________________
- Stow Flush Criteria                          |   From Boeing aerodynamic alignment doc – neutral = ±0.1° flush across panel edge
+ Stow Flush Criteria                          |   From aerodynamic alignment doc – neutral = ±0.1° flush across panel edge
 ______________________________________________|_______________________________________________________________
 
 Key Authoring Considerations
