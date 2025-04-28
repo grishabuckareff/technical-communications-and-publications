@@ -167,26 +167,43 @@ S1000D-Compliant Task
 
 
 Behind the Scenes — Writer's Inputs and Decisions
-
-Input	Source
-Spoiler Actuator CMMs	Defines mechanical stop-to-stop stroke tolerances
-Flight Control Computer Logic Maps	Defines allowable SCU synchronization deviations
-Maintenance Control Systems (CMS)	For override command injection and feedback interpretation
-Calibration Manual	For stroke gauge accuracy and acceptable measurement tolerance
-Actuator Installation Manuals	Ensure safe torque application on any removed/reinstalled actuator hardware
+______________________________________________________________________________________________________________
+ Input                                        |   Source
+______________________________________________|_______________________________________________________________
+ Spoiler Actuator CMMs                        |   Defines mechanical stop-to-stop stroke tolerances
+______________________________________________|_______________________________________________________________
+ Flight Control Computer Logic Maps           |   Defines allowable SCU synchronization deviations
+______________________________________________|_______________________________________________________________
+ Maintenance Control Systems (CMS)            |   For override command injection and feedback interpretation
+______________________________________________|_______________________________________________________________
+ Calibration Manual                           |   For stroke gauge accuracy and acceptable measurement tolerance
+______________________________________________|_______________________________________________________________
+ Actuator Installation Manuals                |   Ensure safe torque application on any removed/reinstalled actuator hardware
+______________________________________________|_______________________________________________________________
 
 Key Technical Risks and Authoring Controls
-
-Risk	Mitigation
-Inaccurate Stroke Readings	Use certified calibrated tools, exact procedure steps
-Desynchronization Between SCU Channels	CMS limit comparison (< 1% deviation)
-Actuator Housing Stress	Prevent overextension or incorrect manual movement
-Access Panel Security After Test	Re-torque screws per AMM 20-50-00 spec
+______________________________________________________________________________________________________________
+ Risk                                         |   Mitigation
+______________________________________________|_______________________________________________________________
+ Inaccurate Stroke Readings                   |   Use certified calibrated tools, exact procedure steps
+______________________________________________|_______________________________________________________________
+ Desynchronization Between SCU Channels       |   CMS limit comparison (< 1% deviation)
+______________________________________________|_______________________________________________________________
+ Actuator Housing Stress                      |   Prevent overextension or incorrect manual movement
+______________________________________________|_______________________________________________________________
+ Access Panel Security After Test             |   Re-torque screws per AMM 20-50-00 spec
+______________________________________________|_______________________________________________________________
 
   
 Illustrations Typically Needed for This Task
-Type	Purpose
-Spoiler Actuator Layout Diagram	Identify inboard/midboard/outboard actuator locations
-Stroke Measurement Setup	Calibrated gauge setup to actuator
-CMS Interface Screen	Showing override and monitoring page fields
-Spoiler Synchronization Chart	Graphical allowable deviation curve
+______________________________________________________________________________________________________________
+ Type                                         |   Purpose    
+______________________________________________|_______________________________________________________________
+ Spoiler Actuator Layout Diagram              |   Identify inboard/midboard/outboard actuator locations
+______________________________________________|_______________________________________________________________
+ Stroke Measurement Setup                     |   Calibrated gauge setup to actuator
+______________________________________________|_______________________________________________________________
+ CMS Interface Screen                         |   Showing override and monitoring page fields
+______________________________________________|_______________________________________________________________
+ Spoiler Synchronization Chart                |   Graphical allowable deviation curve
+______________________________________________|_______________________________________________________________
