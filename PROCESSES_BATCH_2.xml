@@ -2841,7 +2841,7 @@ ______________________________________________|_________________________________
 
 
 Illustrations Typically Needed
-______________________________________________|_______________________________________________________________
+______________________________________________________________________________________________________________
  Visual Type                                  |   Description
 ______________________________________________|_______________________________________________________________
  Reservoir Fill Port Diagram                  |   Shows A-R1 location, safety labeling, and panel reference
@@ -2854,10 +2854,10 @@ ______________________________________________|_________________________________
 ______________________________________________|_______________________________________________________________
 
 
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 Hydraulic Line Bleeding Procedure – Post-Component Replacement (System A/B/C)
 
-From: AMM BOEING 777 HYDRAULICS.PDF
 ATA Chapter: 29 – Hydraulic Power
 S1000D DMC: 29-00-00-06-00A-720A-P
 
@@ -2882,7 +2882,7 @@ S1000D-Compliant Task (Including CAUTION, WARNING, NOTE, and Cross-Referencing)
   <identAndStatusSection>
     <dmAddress>
       <dmIdent>
-        <modelIdentCode>777</modelIdentCode>
+        <modelIdentCode></modelIdentCode>
         <systemDiffCode>00</systemDiffCode>
         <systemCode>29</systemCode>
         <subSystemCode>00</subSystemCode>
@@ -2901,10 +2901,10 @@ S1000D-Compliant Task (Including CAUTION, WARNING, NOTE, and Cross-Referencing)
     </dmAddress>
     <dmStatus>
       <security>01</security>
-      <responsiblePartnerCompany>Boeing</responsiblePartnerCompany>
+      <responsiblePartnerCompany></responsiblePartnerCompany>
       <originator>Hydraulics Engineering</originator>
       <applicability>
-        <applic>777-300ER</applic>
+        <applic></applic>
       </applicability>
       <language country="US">en</language>
     </dmStatus>
@@ -2991,33 +2991,52 @@ S1000D-Compliant Task (Including CAUTION, WARNING, NOTE, and Cross-Referencing)
 Behind the Scenes — Writer’s Inputs & Decisions
 
 Engineering Sources Required
-Document	Used For
-Hydraulic System Diagrams (ATA 29)	Identifies bleed points, component orientation, flow direction
-Actuator/Valve CMMs	Specify bleeder port torque and location
-Aircraft Maintenance Manual	Guides reservoir servicing, pump pressurization steps
-Contamination Control Charts	Determine acceptable return fluid appearance after bleeding
-Fluid Compatibility Docs	Ensure correct use of Skydrol or MIL-PRF-83282 based on system
+______________________________________________________________________________________________________________
+ Document                                     |   Used For
+______________________________________________|_______________________________________________________________
+ Hydraulic System Diagrams (ATA 29)           |   Identifies bleed points, component orientation, flow direction
+______________________________________________|_______________________________________________________________
+ Actuator/Valve CMMs                          |   Specify bleeder port torque and location
+______________________________________________|_______________________________________________________________
+ Aircraft Maintenance Manual                  |   Guides reservoir servicing, pump pressurization steps
+______________________________________________|_______________________________________________________________
+ Contamination Control Charts                 |   Determine acceptable return fluid appearance after bleeding
+______________________________________________|_______________________________________________________________
+ Fluid Compatibility Docs                     |   Ensure correct use of Skydrol or MIL-PRF-83282 based on system
+______________________________________________|_______________________________________________________________
 
 Key Authoring Considerations
-Consideration	Detail
-Bleed Direction	Always from lowest point to highest return port — ensures full air removal
-Tubing & Visibility	Must be clear plastic tubing for bubble detection and visual flow quality
-Functional Flow Test	System pressurization ensures air wasn't re-ingested or trapped in line loops
-Valve Torque Verification	Over-torquing can distort sealing cone — each component may have different spec
+______________________________________________________________________________________________________________
+ Consideration                                |   Detail
+______________________________________________|_______________________________________________________________
+ Bleed Direction                              |   Always from lowest point to highest return port — ensures full air removal
+______________________________________________|_______________________________________________________________
+ Tubing & Visibility                          |   Must be clear plastic tubing for bubble detection and visual flow quality
+______________________________________________|_______________________________________________________________
+ Functional Flow Test                         |   System pressurization ensures air wasn't re-ingested or trapped in line loops
+______________________________________________|_______________________________________________________________
+ Valve Torque Verification                    |   Over-torquing can distort sealing cone — each component may have different spec
+______________________________________________|_______________________________________________________________
 
 
 Illustrations Typically Needed
-Visual Type	Description
-Bleed Port Location Diagram	Callouts for actuator, valve, or line bleeder valves
-Clear Tubing Setup Diagram	Shows attachment to valve and fluid return to container
-Flow Quality Examples	Air bubble vs steady flow visual aid
-System Repressurization Sequence	System A/B/C pump logic with leak test overlay
+______________________________________________________________________________________________________________
+ Visual Type                                  |   Description
+______________________________________________|_______________________________________________________________
+ Bleed Port Location Diagram                  |   Callouts for actuator, valve, or line bleeder valves
+______________________________________________|_______________________________________________________________
+ Clear Tubing Setup Diagram                   |   Shows attachment to valve and fluid return to container
+______________________________________________|_______________________________________________________________
+ Flow Quality Examples                        |   Air bubble vs steady flow visual aid
+______________________________________________|_______________________________________________________________
+ System Repressurization Sequence             |   System A/B/C pump logic with leak test overlay
+______________________________________________|_______________________________________________________________
 
 
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 Ram Air Turbine (RAT) Deployment and Stowage Functional Test
 
-From: AMM BOEING 777 HYDRAULICS.PDF
 ATA Chapter: 29 – Hydraulic Power
 S1000D DMC: 29-21-00-06-00A-720A-P
 
@@ -3042,7 +3061,7 @@ S1000D-Compliant Task (Including CAUTION, WARNING, NOTE, and Cross-Referencing)
   <identAndStatusSection>
     <dmAddress>
       <dmIdent>
-        <modelIdentCode>777</modelIdentCode>
+        <modelIdentCode></modelIdentCode>
         <systemDiffCode>00</systemDiffCode>
         <systemCode>29</systemCode>
         <subSystemCode>21</subSystemCode>
@@ -3061,10 +3080,10 @@ S1000D-Compliant Task (Including CAUTION, WARNING, NOTE, and Cross-Referencing)
     </dmAddress>
     <dmStatus>
       <security>01</security>
-      <responsiblePartnerCompany>Boeing</responsiblePartnerCompany>
+      <responsiblePartnerCompany></responsiblePartnerCompany>
       <originator>Hydraulic & Emergency Systems Engineering</originator>
       <applicability>
-        <applic>777-300ER</applic>
+        <applic></applic>
       </applicability>
       <language country="US">en</language>
     </dmStatus>
@@ -3145,31 +3164,49 @@ S1000D-Compliant Task (Including CAUTION, WARNING, NOTE, and Cross-Referencing)
 Behind the Scenes — Writer’s Inputs & Decisions
 
 Engineering Sources Required
-
-Document	Used For
-RAT Kinematic and Deployment Drawings	Deployment angle, strut extension, latching mechanism
-Hydraulic Pressure Flow Charts	Ensure proper pressure build-up for System C
-CMS Integration Manuals	Logic output, interface screens, status flags
-Torque and Lockout Charts	For post-deployment inspection of struts and mounts
-RAT CMM/IPC	Deployment cycle counts, fatigue tracking, leak check limits
+______________________________________________|_______________________________________________________________ 
+ Document                                     |   Used For
+______________________________________________|_______________________________________________________________
+ RAT Kinematic and Deployment Drawings        |   Deployment angle, strut extension, latching mechanism
+______________________________________________|_______________________________________________________________
+ Hydraulic Pressure Flow Charts               |   Ensure proper pressure build-up for System C
+______________________________________________|_______________________________________________________________
+ CMS Integration Manuals                      |   Logic output, interface screens, status flags
+______________________________________________|_______________________________________________________________
+ Torque and Lockout Charts                    |   For post-deployment inspection of struts and mounts
+______________________________________________|_______________________________________________________________
+ RAT CMM/IPC                                  |   Deployment cycle counts, fatigue tracking, leak check limits
+______________________________________________|_______________________________________________________________
 
 Key Authoring Considerations
-
-Consideration	Details
-Deployment Timing	Must occur within 3 seconds — delay may indicate strut binding or actuator stiction
-Pressure Verification	Indicates that turbine is producing real hydraulic power — not just spinning
-Stow Latch Reset	If not properly re-engaged, RAT may falsely deploy in flight or fail BIT
-CMS Signal Feedback	Writers must cross-verify that mechanical motion matches logic state transitions
+______________________________________________________________________________________________________________
+ Consideration                                |   Details
+______________________________________________|_______________________________________________________________
+ Deployment Timing                            |   Must occur within 3 seconds — delay may indicate strut binding or actuator stiction
+______________________________________________|_______________________________________________________________
+ Pressure Verification                        |   Indicates that turbine is producing real hydraulic power — not just spinning
+______________________________________________|_______________________________________________________________
+ Stow Latch Reset                             |   If not properly re-engaged, RAT may falsely deploy in flight or fail BIT
+______________________________________________|_______________________________________________________________
+ CMS Signal Feedback                          |   Writers must cross-verify that mechanical motion matches logic state transitions
+______________________________________________|_______________________________________________________________
 
 
 Illustrations Typically Needed
-Visual Type	Description
-RAT Deployment Arc	Blade swing range and clearance zone with keep-out warning area
-Hydraulic Flow Diagram	Shows RAT → hydraulic pump → System C accumulator circuit
-CMS Interface Screen	Annotated screen with DEPLOY/STOW buttons and status flags
-Stow Latch Diagram	Locking pin engagement and inspection view post-stow
+______________________________________________________________________________________________________________
+ Visual Type                                  |   Description
+______________________________________________|_______________________________________________________________
+ RAT Deployment Arc                           |   Blade swing range and clearance zone with keep-out warning area
+______________________________________________|_______________________________________________________________
+ Hydraulic Flow Diagram                       |   Shows RAT → hydraulic pump → System C accumulator circuit
+______________________________________________|_______________________________________________________________
+ CMS Interface Screen                         |   Annotated screen with DEPLOY/STOW buttons and status flags
+______________________________________________|_______________________________________________________________
+ Stow Latch Diagram                           |   Locking pin engagement and inspection view post-stow
+______________________________________________|_______________________________________________________________
 
 
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 Power Transfer Unit (PTU) Functional Test – Hydraulic System A/B Crossfeed
 
@@ -3197,7 +3234,7 @@ S1000D-Compliant Task (Including CAUTION, WARNING, NOTE, and Cross-Referencing)
   <identAndStatusSection>
     <dmAddress>
       <dmIdent>
-        <modelIdentCode>777</modelIdentCode>
+        <modelIdentCode></modelIdentCode>
         <systemDiffCode>00</systemDiffCode>
         <systemCode>29</systemCode>
         <subSystemCode>13</subSystemCode>
@@ -3216,10 +3253,10 @@ S1000D-Compliant Task (Including CAUTION, WARNING, NOTE, and Cross-Referencing)
     </dmAddress>
     <dmStatus>
       <security>01</security>
-      <responsiblePartnerCompany>Boeing</responsiblePartnerCompany>
+      <responsiblePartnerCompany></responsiblePartnerCompany>
       <originator>Hydraulics Integration Engineering</originator>
       <applicability>
-        <applic>777-300ER</applic>
+        <applic></applic>
       </applicability>
       <language country="US">en</language>
     </dmStatus>
@@ -3303,31 +3340,49 @@ S1000D-Compliant Task (Including CAUTION, WARNING, NOTE, and Cross-Referencing)
 Behind the Scenes — Writer’s Inputs & Decisions
 
 Engineering Sources Required
-
-Document	Used For
-PTU Functional Schematic	Describes logic of differential torque-driven hydraulic drive
-System Pressure vs Flow Curve	To determine target pressure rise time in A using B power
-CMS Integration & Override Logic	Provides access method for PTU manual control on ground
-Hydraulic Zone Layout Diagrams	For safe access near PTU housing and shaft inspection
-PTU CMM (Component Maintenance Manual)	Cycle count limits, vibration thresholds, and leak detection logic
+______________________________________________________________________________________________________________
+ Document                                     |   Used For
+______________________________________________|_______________________________________________________________
+ PTU Functional Schematic                     |   Describes logic of differential torque-driven hydraulic drive
+______________________________________________|_______________________________________________________________
+ System Pressure vs Flow Curve                |   To determine target pressure rise time in A using B power
+______________________________________________|_______________________________________________________________
+ CMS Integration & Override Logic             |   Provides access method for PTU manual control on ground
+______________________________________________|_______________________________________________________________
+ Hydraulic Zone Layout Diagrams               |   For safe access near PTU housing and shaft inspection
+______________________________________________|_______________________________________________________________
+ PTU CMM (Component Maintenance Manual)       |   Cycle count limits, vibration thresholds, and leak detection logic
+______________________________________________|_______________________________________________________________
 
 Key Authoring Considerations
-Consideration	Detail
-Drive-Only Functionality	PTU transfers mechanical energy only — no fluid crossover allowed between A/B circuits
-Activation Safety	Simulates a rare failure condition — must isolate A and enable B only during test
-Pressure Rise Rate	Must be consistent and smooth — pressure surges indicate cavitation or valve stiction
-CMS Integration	Writer must ensure test includes data logging for cycle tracking and maintenance history
+______________________________________________________________________________________________________________
+ Consideration                                |   Detail
+______________________________________________|_______________________________________________________________
+ Drive-Only Functionality                     |   PTU transfers mechanical energy only — no fluid crossover allowed between A/B circuits
+______________________________________________|_______________________________________________________________
+ Activation Safety                            |   Simulates a rare failure condition — must isolate A and enable B only during test
+______________________________________________|_______________________________________________________________
+ Pressure Rise Rate                           |   Must be consistent and smooth — pressure surges indicate cavitation or valve stiction
+______________________________________________|_______________________________________________________________
+ CMS Integration                              |   Writer must ensure test includes data logging for cycle tracking and maintenance history
+______________________________________________|_______________________________________________________________
 
 
 Illustrations Typically Needed
+______________________________________________________________________________________________________________
+ Visual Type                                  |   Description
+______________________________________________|_______________________________________________________________
+ PTU Flow Logic Diagram                       |   B drives A via PTU shaft — torque path only
+______________________________________________|_______________________________________________________________
+ CMS Override Interface Screenshot            |   Annotated button states and indicator definitions
+______________________________________________|_______________________________________________________________
+ System Pressure Curve Chart                  |   Rise time graph from 0 psi to target on A side
+______________________________________________|_______________________________________________________________
+ PTU Housing Access Zone Layout               |   Panel ID and safety exclusion area
+______________________________________________|_______________________________________________________________
 
-Visual Type	Description
-PTU Flow Logic Diagram	B drives A via PTU shaft — torque path only
-CMS Override Interface Screenshot	Annotated button states and indicator definitions
-System Pressure Curve Chart	Rise time graph from 0 psi to target on A side
-PTU Housing Access Zone Layout	Panel ID and safety exclusion area
 
-
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 Hydraulic Pump Removal and Installation (Electric or Engine-Driven Pump – System A/B/C)
 
@@ -3356,7 +3411,7 @@ S1000D-Compliant Task (Including CAUTION, WARNING, NOTE, and Cross-Referencing)
   <identAndStatusSection>
     <dmAddress>
       <dmIdent>
-        <modelIdentCode>777</modelIdentCode>
+        <modelIdentCode></modelIdentCode>
         <systemDiffCode>00</systemDiffCode>
         <systemCode>29</systemCode>
         <subSystemCode>XX</subSystemCode>
@@ -3375,10 +3430,10 @@ S1000D-Compliant Task (Including CAUTION, WARNING, NOTE, and Cross-Referencing)
     </dmAddress>
     <dmStatus>
       <security>01</security>
-      <responsiblePartnerCompany>Boeing</responsiblePartnerCompany>
+      <responsiblePartnerCompany></responsiblePartnerCompany>
       <originator>Hydraulics Engineering</originator>
       <applicability>
-        <applic>777-300ER</applic>
+        <applic></applic>
       </applicability>
       <language country="US">en</language>
     </dmStatus>
@@ -3465,28 +3520,46 @@ S1000D-Compliant Task (Including CAUTION, WARNING, NOTE, and Cross-Referencing)
 Behind the Scenes — Writer’s Inputs & Decisions
 
 Engineering Sources Required
-
-Document	Used For
-Pump Mounting Drawings	Bolt pattern, torque spec, dowel pin geometry
-System Schematics (ATA 29)	Confirm which pump affects which primary/backup systems
-MSDS & Safety Sheet for Skydrol	PPE requirements, fluid cleanup protocol
-IPC References	Pump P/Ns, O-ring kits, torque values, fluid compatibility
-Pump CMMs	Pressure test time-to-pressurize and case drain behavior
+______________________________________________________________________________________________________________
+ Document                                     |   Used For
+______________________________________________|_______________________________________________________________
+ Pump Mounting Drawings                       |   Bolt pattern, torque spec, dowel pin geometry
+______________________________________________|_______________________________________________________________
+ System Schematics (ATA 29)                   |   Confirm which pump affects which primary/backup systems
+______________________________________________|_______________________________________________________________
+ MSDS & Safety Sheet for Skydrol              |   PPE requirements, fluid cleanup protocol
+______________________________________________|_______________________________________________________________
+ IPC References                               |   Pump P/Ns, O-ring kits, torque values, fluid compatibility
+______________________________________________|_______________________________________________________________
+ Pump CMMs                                    |   Pressure test time-to-pressurize and case drain behaviour
+______________________________________________|_______________________________________________________________
 
 Key Authoring Considerations
-Consideration	Detail
-Skydrol Handling	Highly corrosive — must avoid exposure to wire harnesses, insulation, or skin
-O-ring Use	No reuse permitted — single-use only. Dry or reused seals lead to micro-leaks under pressure
-Case Drain Orientation	Important for EDPs — incorrect drain orientation can lead to internal seal burst
-Mounting Torque Specificity	Over-torquing flange leads to pump warping and future mechanical failure
+______________________________________________________________________________________________________________
+ Consideration                                |   Detail
+______________________________________________|_______________________________________________________________
+ Skydrol Handling                             |   Highly corrosive — must avoid exposure to wire harnesses, insulation, or skin
+______________________________________________|_______________________________________________________________
+ O-ring Use                                   |   No reuse permitted — single-use only. Dry or reused seals lead to micro-leaks under pressure
+______________________________________________|_______________________________________________________________
+ Case Drain Orientation                       |   Important for EDPs — incorrect drain orientation can lead to internal seal burst
+______________________________________________|_______________________________________________________________
+ Mounting Torque Specificity                  |   Over-torquing flange leads to pump warping and future mechanical failure
+______________________________________________|_______________________________________________________________
 
 
 Illustrations Typically Needed
-Visual Type	Description
-Pump Mount Layout	Shows bolt pattern, orientation, case drain location
-Torque Application Graphic	Sequence of flange bolt tightening, with inch-pound callouts
-Fluid Path Cutaway	Inlet, outlet, and return lines for identification during disconnect
-Electrical Harness Pinout	For electric pump only — connector and cable ID
+______________________________________________________________________________________________________________
+ Visual Type                                  |   Description
+______________________________________________|_______________________________________________________________
+ Pump Mount Layout                            |   Shows bolt pattern, orientation, case drain location
+______________________________________________|_______________________________________________________________
+ Torque Application Graphic                   |   Sequence of flange bolt tightening, with inch-pound callouts
+______________________________________________|_______________________________________________________________
+ Fluid Path Cutaway                           |   Inlet, outlet, and return lines for identification during disconnect
+______________________________________________|_______________________________________________________________
+ Electrical Harness Pinout                    |   For electric pump only — connector and cable ID
+______________________________________________|_______________________________________________________________
 
 
 
