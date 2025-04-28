@@ -225,6 +225,7 @@ This task is performed:
 
     - During scheduled maintenance check intervals (MPD referenced)
 
+
 S1000D-Compliant Task
 
 <dmodule xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -411,6 +412,189 @@ ________________________________________________________________________________
 ______________________________________________|_______________________________________________________________
  Rudder Hydraulic Layout Diagram              |   Actuator schematic and hydraulic stop locations
 ______________________________________________|_______________________________________________________________
- Angle Measurement Setup Diagram	Mounting of inclinometer and reference frame
- CMS Screen with Rudder Position Trace	Confirmed live trace with commanded movement
- Torque Pattern for Actuator Mount Bolts	Post-test torque security verification
+ Angle Measurement Setup Diagram              |   Mounting of inclinometer and reference frame
+______________________________________________|_______________________________________________________________
+ CMS Screen with Rudder Position Trace        |   Confirmed live trace with commanded movement
+______________________________________________|_______________________________________________________________
+ Torque Pattern for Actuator Mount Bolts      |   Post-test torque security verification
+______________________________________________|_______________________________________________________________
+
+
+
+Flight Control Mode Selection and Override Functional Test (CMS-Based)
+
+ATA Chapters: 27 – Flight Controls + 45 – Central Maintenance Systems
+S1000D DMC: 27-00-00-06-00A-720A-P
+
+
+S1000D-Compliant Task
+
+<dmodule xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://www.s1000d.org/S1000D_4-1/xml/issue"
+         xsi:schemaLocation="http://www.s1000d.org/S1000D_4-1/xml/issue s1000d_4-1.xsd">
+
+  <identAndStatusSection>
+    <dmAddress>
+      <dmIdent>
+        <modelIdentCode>777</modelIdentCode>
+        <systemDiffCode>00</systemDiffCode>
+        <systemCode>27</systemCode>
+        <subSystemCode>00</subSystemCode>
+        <subSubSystemCode>00</subSubSystemCode>
+        <assyCode>06</assyCode>
+        <disassyCode>00A</disassyCode>
+        <disassyCodeVariant>A</disassyCodeVariant>
+        <infoCode>720</infoCode>
+        <infoCodeVariant>A</infoCodeVariant>
+        <itemLocationCode>P</itemLocationCode>
+      </dmIdent>
+      <issueInfo>
+        <issueNumber>001</issueNumber>
+        <inWork>01</inWork>
+      </issueInfo>
+    </dmAddress>
+    <dmStatus>
+      <security>01</security>
+      <responsiblePartnerCompany>Boeing</responsiblePartnerCompany>
+      <originator>Flight Control Systems and Maintenance Engineering</originator>
+      <applicability>
+        <applic>777-300ER</applic>
+      </applicability>
+      <language country="US">en</language>
+      <qualityAssurance>02</qualityAssurance>
+    </dmStatus>
+  </identAndStatusSection>
+
+  <content>
+    <procedure>
+      <taskRequirement>
+        <skillRequirement>Flight Control Systems Technician</skillRequirement>
+        <timeRequirement>1.5 hours</timeRequirement>
+        <crewRequirement>2 Technicians (One CMS operator, one observer)</crewRequirement>
+      </taskRequirement>
+
+      <preliminaryRqmts>
+        <preliminaryRqmtsDescr>Aircraft powered by external electrical supply. Hydraulic systems A, B, and C operational. CMS maintenance terminal connected. Flight deck in maintenance configuration: parking brake ON, spoilers pinned, gust locks engaged.</preliminaryRqmtsDescr>
+
+        <safety>
+          <warning>
+            Do not move primary flight surfaces during override testing unless hydraulic systems are fully pressurized and ground locks are installed. Injury or equipment damage may result.
+          </warning>
+          <caution>
+            Ensure the flight control mode selector is returned to NORMAL after testing. Failure to do so can inhibit proper flight computer responses during flight.
+          </caution>
+          <note>
+            CMS maintenance screens will simulate Primary, Secondary, and Direct law transitions. Visual verification of mode status and CMS command echo is mandatory at each step.
+          </note>
+        </safety>
+      </preliminaryRqmts>
+
+      <mainProcedure>
+        <step>
+          <para>Access CMS Maintenance Terminal. Navigate to FLIGHT CONTROLS – MODE OVERRIDE screen (Ref: 45-00-00-860-801).</para>
+        </step>
+        <step>
+          <para>Activate PRIMARY MODE OVERRIDE. Confirm CMS shows PRIMARY LAW active. Verify surfaces respond proportionally with full auto-scheduling of rudder ratio and elevator feel.</para>
+        </step>
+        <step>
+          <para>Activate SECONDARY MODE OVERRIDE. Confirm CMS mode switch. Verify loss of full auto-scheduling; surfaces should move in simplified law (hydraulic servo commands only).</para>
+        </step>
+        <step>
+          <para>Activate DIRECT MODE OVERRIDE. Confirm CMS indicates DIRECT LAW active. Verify surface movements map directly to control input, without augmentation or blending.</para>
+        </step>
+        <step>
+          <para>Cycle all three modes twice. Observe no spurious mode transitions, timing lags, or CMS communication faults (Ref: 45-00-00-860-801).</para>
+        </step>
+        <step>
+          <para>Return mode selector to NORMAL. Confirm Primary Law active automatically.</para>
+        </step>
+      </mainProcedure>
+
+      <closeProcedure>
+        <step>
+          <para>Disconnect CMS maintenance terminal. Remove access panels if any were opened. Restore aircraft to normal configuration for flight dispatch.</para>
+        </step>
+        <step>
+          <para>Record CMS override log, control surface mode verification, and any discrepancies observed during transitions into maintenance record (ATA 05-00-00).</para>
+        </step>
+      </closeProcedure>
+
+      <crossRefTable>
+        <dmRef>
+          <dmRefIdent>
+            <dmCode>45-00-00-860-801</dmCode>
+            <title>CMS Flight Control Mode Selection Override Procedures</title>
+          </dmRefIdent>
+        </dmRef>
+        <dmRef>
+          <dmRefIdent>
+            <dmCode>27-00-00-710-801</dmCode>
+            <title>Flight Control System Functional Test – General</title>
+          </dmRefIdent>
+        </dmRef>
+        <dmRef>
+          <dmRefIdent>
+            <dmCode>05-00-00-200-801</dmCode>
+            <title>Flight Control Mode Selection Verification Log</title>
+          </dmRefIdent>
+        </dmRef>
+      </crossRefTable>
+
+      <tools>
+        <toolItem>
+          <toolIdent>CMS-MTN-777</toolIdent>
+          <toolName>CMS Maintenance Terminal – Flight Control Override Version</toolName>
+        </toolItem>
+      </tools>
+
+      <consumables>
+        <supply>
+          <supplyIdent>CPC-474</supplyIdent>
+          <supplyName>Electrical Connector Cleaner (for CMS terminal connection)</supplyName>
+          <quantity>Small container</quantity>
+        </supply>
+      </consumables>
+    </procedure>
+  </content>
+</dmodule>
+
+
+Behind the Scenes — Writer's Inputs and Decisions
+______________________________________________________________________________________________________________
+ Input                                        |   Source
+______________________________________________|_______________________________________________________________
+ Flight Control Computers Logic Map           |   Defines Primary, Secondary, Direct law transition requirements
+______________________________________________|_______________________________________________________________
+ CMS Override Protocols                       |   Guides the maintenance terminal command and confirmation process
+______________________________________________|_______________________________________________________________
+ Hydraulic Activation Requirements            |   Defines need for full hydraulic systems pressure during movement tests
+______________________________________________|_______________________________________________________________
+ Maintenance System Interface Guidelines      |   Correct CMS screen access and mode switching path
+______________________________________________|_______________________________________________________________
+ Flight Deck Configurations                   |   Ensures spoilers pinned, gust locks engaged for safety
+______________________________________________|_______________________________________________________________
+
+Technical Risk Controls
+______________________________________________________________________________________________________________
+ Risk                                         |   Mitigation
+______________________________________________|_______________________________________________________________
+ Uncommanded Surface Movement                 |   Ground locks, hydraulic system pressure checks, maintenance configuration
+______________________________________________|_______________________________________________________________
+ Mode Transition Delay                        |   CMS response timing limits checked (acceptable < 3 sec)
+______________________________________________|_______________________________________________________________
+ CMS Feedback Inaccuracy                      |   Mode display and control echo monitored continuously
+______________________________________________|_______________________________________________________________
+ Failure to Return to Normal                  |   Final step mandates mode selector return and CMS reset
+______________________________________________|_______________________________________________________________
+
+    
+Illustrations Typically Needed
+______________________________________________________________________________________________________________
+ Type                                         |   Purpose
+______________________________________________|_______________________________________________________________
+ CMS Mode Selection Screen Diagram            |   Annotated override page showing PRIMARY / SECONDARY / DIRECT toggles
+______________________________________________|_______________________________________________________________
+ Surface Movement Reaction Graphs             |   Control stick input vs surface deflection per mode
+______________________________________________|_______________________________________________________________
+ Flight Control Surface Safety Setup Diagram  |   Showing locks, pin locations, hydraulic lines pressure check
+______________________________________________|_______________________________________________________________
