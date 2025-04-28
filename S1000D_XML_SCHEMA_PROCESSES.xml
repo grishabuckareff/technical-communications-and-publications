@@ -207,3 +207,210 @@ ______________________________________________|_________________________________
 ______________________________________________|_______________________________________________________________
  Spoiler Synchronization Chart                |   Graphical allowable deviation curve
 ______________________________________________|_______________________________________________________________
+
+
+
+Rudder Travel Limit Rigging and Hydraulic Stop Check
+
+ATA Chapters: 27 – Flight Controls + 29 – Hydraulic Power
+S1000D DMC: 27-40-00-06-00A-720A-P
+
+This task is performed:
+
+    - After rudder actuator replacement or hydraulic circuit modification
+
+    - After flight control computer updates affecting authority or bias
+
+    - Following structural repair to vertical stabilizer or rudder mount points
+
+    - During scheduled maintenance check intervals (MPD referenced)
+
+S1000D-Compliant Task
+
+<dmodule xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://www.s1000d.org/S1000D_4-1/xml/issue"
+         xsi:schemaLocation="http://www.s1000d.org/S1000D_4-1/xml/issue s1000d_4-1.xsd">
+
+  <identAndStatusSection>
+    <dmAddress>
+      <dmIdent>
+        <modelIdentCode></modelIdentCode>
+        <systemDiffCode>00</systemDiffCode>
+        <systemCode>27</systemCode>
+        <subSystemCode>40</subSystemCode>
+        <subSubSystemCode>00</subSubSystemCode>
+        <assyCode>06</assyCode>
+        <disassyCode>00A</disassyCode>
+        <disassyCodeVariant>A</disassyCodeVariant>
+        <infoCode>720</infoCode>
+        <infoCodeVariant>A</infoCodeVariant>
+        <itemLocationCode>P</itemLocationCode>
+      </dmIdent>
+      <issueInfo>
+        <issueNumber>001</issueNumber>
+        <inWork>01</inWork>
+      </issueInfo>
+    </dmAddress>
+    <dmStatus>
+      <security>01</security>
+      <responsiblePartnerCompany></responsiblePartnerCompany>
+      <originator>Flight Control Systems and Rigging Engineering</originator>
+      <applicability>
+        <applic></applic>
+      </applicability>
+      <language country="US">en</language>
+      <qualityAssurance></qualityAssurance>
+    </dmStatus>
+  </identAndStatusSection>
+
+  <content>
+    <procedure>
+      <taskRequirement>
+        <skillRequirement>Flight Control Mechanic</skillRequirement>
+        <skillRequirement>Hydraulics Technician</skillRequirement>
+        <timeRequirement>4.0 hours</timeRequirement>
+        <crewRequirement>3 Personnel (Flight control rigging team)</crewRequirement>
+      </taskRequirement>
+
+      <preliminaryRqmts>
+        <preliminaryRqmtsDescr>Aircraft parked, wheels chocked, hydraulic systems A, B, and C fully pressurized. Flight control system initialized in TEST mode via CMS. Vertical stabilizer access panels (ZONE 450) removed.</preliminaryRqmtsDescr>
+
+        <safety>
+          <warning>
+            Movement of the rudder actuator under hydraulic pressure is forceful. Ensure personnel are clear of rudder arc before commanding motion.
+          </warning>
+          <caution>
+            Do not manually force rudder surfaces against hard stops. All movements must be powered by hydraulic system to avoid structural damage.
+          </caution>
+          <note>
+            Use calibrated digital inclinometer for precise rudder angle measurement. Maximum tolerance between mechanical stop and hydraulic stop is ±0.1°.
+          </note>
+        </safety>
+      </preliminaryRqmts>
+
+      <mainProcedure>
+        <step>
+          <para>Connect CMS maintenance terminal. Select FLIGHT CONTROL SURFACE MONITOR (RUDDER) screen.</para>
+        </step>
+        <step>
+          <para>Command rudder full LEFT deflection. Measure travel angle relative to aircraft centerline using inclinometer mounted on rudder trailing edge.</para>
+        </step>
+        <step>
+          <para>Verify full LEFT travel meets nominal specification: 30.0° ± 0.2°. Confirm actuator contacts hydraulic stop without overtravel into mechanical stop.</para>
+        </step>
+        <step>
+          <para>Command rudder full RIGHT deflection. Measure and verify full RIGHT travel meets nominal specification: 25.0° ± 0.2°.</para>
+        </step>
+        <step>
+          <para>Cycle rudder from center to full stops (left and right) 5 times. Observe CMS position feedback curve for linearity and absence of lag or spikes.</para>
+        </step>
+        <step>
+          <para>Inspect rudder actuator attachment points for security. Check for leaks, structural deformation, and correct torque values per AMM 27-40-00.</para>
+        </step>
+      </mainProcedure>
+
+      <closeProcedure>
+        <step>
+          <para>Restore flight control mode to NORMAL via CMS. Reinstall all removed access panels. Remove all locks, tags, and test equipment.</para>
+        </step>
+        <step>
+          <para>Record travel limit readings, synchronization results, actuator health, and any anomalies in aircraft maintenance record (ATA 05-00-00).</para>
+        </step>
+      </closeProcedure>
+
+      <crossRefTable>
+        <dmRef>
+          <dmRefIdent>
+            <dmCode>27-40-00-820-801</dmCode>
+            <title>Rudder Actuator Rigging and Travel Stop Adjustment</title>
+          </dmRefIdent>
+        </dmRef>
+        <dmRef>
+          <dmRefIdent>
+            <dmCode>45-00-00-860-801</dmCode>
+            <title>CMS Maintenance Terminal Access and Override</title>
+          </dmRefIdent>
+        </dmRef>
+        <dmRef>
+          <dmRefIdent>
+            <dmCode>20-50-00-910-801</dmCode>
+            <title>Torque Application Standards</title>
+          </dmRefIdent>
+        </dmRef>
+        <dmRef>
+          <dmRefIdent>
+            <dmCode>05-00-00-200-801</dmCode>
+            <title>Flight Control Surface Travel Recording Log</title>
+          </dmRefIdent>
+        </dmRef>
+      </crossRefTable>
+
+      <tools>
+        <toolItem>
+          <toolIdent>TOOL-RUD-INCL-777</toolIdent>
+          <toolName>Calibrated Digital Rudder Angle Inclinometer</toolName>
+        </toolItem>
+        <toolItem>
+          <toolIdent>CMS Maintenance Terminal</toolIdent>
+          <toolName>Flight Control Command and Monitoring System</toolName>
+        </toolItem>
+      </tools>
+
+      <spares>
+        <spareItem>
+          <spareIdent>SR-27-RDR-0099</spareIdent>
+          <spareName>Rudder Actuator Replacement Assembly</spareName>
+          <quantity>As Required</quantity>
+        </spareItem>
+      </spares>
+
+      <consumables>
+        <supply>
+          <supplyIdent>CPC-474</supplyIdent>
+          <supplyName>Approved Hydraulic Cleaner</supplyName>
+          <quantity>Small container</quantity>
+        </supply>
+      </consumables>
+    </procedure>
+  </content>
+</dmodule>
+
+
+Behind the Scenes — Writer’s Inputs and Decisions
+______________________________________________________________________________________________________________
+ Source                                       |   Used For
+______________________________________________|_______________________________________________________________  
+ Flight Control Rigging Manuals	              |   Define rudder travel angular tolerances and hydraulic stop calibration
+______________________________________________|_______________________________________________________________
+ CMS Maintenance Test Scripts                 |   Used for override control and monitoring
+______________________________________________|_______________________________________________________________
+ Inclinometer Calibration Charts              |   Ensure rudder angular measurements are accurate
+______________________________________________|_______________________________________________________________
+ Hydraulic System Schematic (ATA 29)          |   Confirm fluid routing during actuator-powered movement
+______________________________________________|_______________________________________________________________
+ Torque Tables (ATA 20)	                      |   Confirm actuator attachment security after rigging
+______________________________________________|_______________________________________________________________
+
+Key Risk Controls
+______________________________________________________________________________________________________________ 
+ Risk                                         |   Mitigation
+______________________________________________|_______________________________________________________________
+ Rudder Over-Travel                           |   Monitor hydraulic stop contact, inhibit mechanical stop pressure
+______________________________________________|_______________________________________________________________
+ Incorrect Angle Measurement                  |   Certified inclinometer use, repeat measurements, double verification
+______________________________________________|_______________________________________________________________
+ Flight Computer Misalignment                 |   CMS feedback graph checked for nonlinearity or software bias
+______________________________________________|_______________________________________________________________
+ Leaks or Structural Fatigue                  |   Full post-test leak and actuator support inspection
+______________________________________________|_______________________________________________________________
+
+
+Illustrations Needed
+______________________________________________________________________________________________________________
+ Type                                         |   Description
+______________________________________________|_______________________________________________________________
+ Rudder Hydraulic Layout Diagram              |   Actuator schematic and hydraulic stop locations
+______________________________________________|_______________________________________________________________
+ Angle Measurement Setup Diagram	Mounting of inclinometer and reference frame
+ CMS Screen with Rudder Position Trace	Confirmed live trace with commanded movement
+ Torque Pattern for Actuator Mount Bolts	Post-test torque security verification
