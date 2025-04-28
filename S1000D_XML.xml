@@ -20,7 +20,7 @@ C:\BikeDS\the_text_xml>
 </para>
 
 
-📘 Explanation:
+Explanation:
 
     <verbatimText> preserves line breaks, tabs, spacing — crucial for code examples, logs, etc.
 
@@ -45,7 +45,7 @@ C:\BikeDS\the_text_xml>
 </para>
 
 
-📘 Explanation:
+Explanation:
 
     CDATA is safer when XML markup (like < or &) might accidentally be misinterpreted.
 
@@ -79,7 +79,7 @@ refer to <dmRef>
   </verbatimText>
 </para>
 
-📘 Explanation:
+Explanation:
 
     Demonstrates how to safely embed literal XML without the processor attempting to parse it.
 
@@ -650,7 +650,7 @@ Example 35: <amperage>
 
 <amperage unitOfMeasure="A">10</amperage>
 
-📘 Explanation:
+Explanation:
 
     Describes electrical current load (amperes).
 
@@ -660,7 +660,7 @@ Example 36: <circuitBreakerClass>
 
 <circuitBreakerClass circuitBreakerType="cbt01"/>
 
-📘 Explanation:
+Explanation:
 
     Tags the electrical/mechanical nature of the breaker.
 
@@ -679,7 +679,7 @@ Example 37: <location> with extended elements
   <installationLocation>Starboard bay panel</installationLocation>
 </location>
 
-📘 Explanation:
+Explanation:
 
     Aggregates all physical placement data:
 
@@ -704,7 +704,7 @@ Example 38: <circuitBreakerDescrGroup> + <circuitBreakerDescrSubGroup>
   </circuitBreakerDescrSubGroup>
 </circuitBreakerDescrGroup>
 
-📘 Explanation:
+Explanation:
 
     Used in procedural content (e.g., <reqCondCircuitBreaker>) to group breaker actions.
 
@@ -729,7 +729,7 @@ Example 39: <reqCondCircuitBreaker> with open verification
   </circuitBreakerDescrGroup>
 </reqCondCircuitBreaker>
 
-📘 Explanation:
+Explanation:
 
     <reqCond>: States the required condition.
 
@@ -739,7 +739,7 @@ Example 39: <reqCondCircuitBreaker> with open verification
 
     <footnote>: Additional clarification tied to the entire group.
 
-✅ Example 40: <reqCondCircuitBreaker> with multiple actions (open/close-order)
+Example 40: <reqCondCircuitBreaker> with multiple actions (open/close-order)
 
 <reqCondCircuitBreaker>
   <reqCond>Open/Close the circuit breaker in the following order:</reqCond>
@@ -777,11 +777,11 @@ Example 39: <reqCondCircuitBreaker> with open verification
   </circuitBreakerDescrGroup>
 </reqCondCircuitBreaker>
 
-✅ Example 41: <functionalItemRef>
+Example 41: <functionalItemRef>
 
 <functionalItemRef functionalItemNumber="101HG1" manufacturerCodeValue="2D671"/>
 
-📘 Explanation:
+Explanation:
 
     Identifies a functional system or component in the product.
 
@@ -789,7 +789,7 @@ Example 39: <reqCondCircuitBreaker> with open verification
 
     manufacturerCodeValue: Associated OEM or vendor ID (CAGE/NCAGE).
 
-✅ Example 42: <controlIndicatorRef>
+Example 42: <controlIndicatorRef>
 
 <controlIndicatorRef controlIndicatorNumber="C01"/>
 
@@ -799,7 +799,7 @@ Example 39: <reqCondCircuitBreaker> with open verification
 
     Typically used in procedural steps, safety instructions, or interface interactions.
     
-✅ Example 43: <reqCondDm>
+Example 43: <reqCondDm>
 
 <reqCondDm>
   <reqCond>The tire is removed.</reqCond>
@@ -813,13 +813,13 @@ Example 39: <reqCondCircuitBreaker> with open verification
   </dmRef>
 </reqCondDm>
 
-📘 Explanation:
+Explanation:
 
     <reqCond>: Statement that a required condition has been met.
 
     <dmRef>: Refers to a full Data Module that contains the detailed procedure or evaluation logic.
 
-✅ Example 44: <reqCondExternalPub>
+Example 44: <reqCondExternalPub>
 
 <reqCondExternalPub>
   <reqCond>Safely discard the horn that you removed</reqCond>
@@ -838,7 +838,7 @@ Example 39: <reqCondCircuitBreaker> with open verification
 
     <externalPubTitle>: Human-readable title of the publication.
 
-✅ Example 45: <reqCondPm>
+Example 45: <reqCondPm>
 
 <reqCondPm>
   <reqCond>Gather the following publication.</reqCond>
@@ -856,7 +856,7 @@ Example 39: <reqCondCircuitBreaker> with open verification
 
     <pmCode>: Structured identifier for the publication module used to support or verify the condition.
     
-✅ Example 46: Full <controlIndicatorRepository> and child structure
+Example 46: Full <controlIndicatorRepository> and child structure
 
 <commonRepository>
   <figure id="fig-0001">
@@ -910,7 +910,7 @@ Example 39: <reqCondCircuitBreaker> with open verification
   </controlIndicatorRepository>
 </commonRepository>
 
-📘 Explanation:
+Explanation:
 
     <controlIndicatorRepository>: Root container of CIR content for controls/indicators.
 
@@ -928,7 +928,7 @@ Example 39: <reqCondCircuitBreaker> with open verification
 
         <inlineSignificantData>: Emphasizes states like ON/OFF.
 
-✅ Example 47: <variablePostSet> in state-tracking logic
+Example 47: <variablePostSet> in state-tracking logic
 
 <variablePostSet>
   <assertion>
@@ -939,7 +939,7 @@ Example 39: <reqCondCircuitBreaker> with open verification
   </assertion>
 </variablePostSet>
 
-📘 Explanation:
+Explanation:
 
     <variablePostSet>: Triggers after a step/module completes.
 
@@ -952,7 +952,7 @@ Example 39: <reqCondCircuitBreaker> with open verification
 Used to track conditions like “power is on,” “component replaced,” etc. after the user performs a task​
 .
 
-✅ Example 48: <dmNodeAlts> — Conditional branching
+Example 48: <dmNodeAlts> — Conditional branching
 
 <dmNodeAlts>
   <dmNode applicRefId="wrongAnswer">
@@ -973,7 +973,7 @@ Used to track conditions like “power is on,” “component replaced,” etc. 
   </dmNode>
 </dmNodeAlts>
 
-📘 Explanation:
+Explanation:
 
     <dmNodeAlts> groups alternative <dmNode> branches.
 
@@ -985,7 +985,7 @@ Used to track conditions like “power is on,” “component replaced,” etc. 
 
     .
 
-✅ Example 49: <proceduralStepAlts> — Alternative instructions
+Example 49: <proceduralStepAlts> — Alternative instructions
 
 <proceduralStepAlts>
   <proceduralStep applicRefId="apMK1">
@@ -1015,7 +1015,7 @@ Used to track conditions like “power is on,” “component replaced,” etc. 
   </proceduralStep>
 </proceduralStepAlts>
 
-📘 Explanation:
+Explanation:
 
     <proceduralStepAlts> contains multiple <proceduralStep> alternatives.
 
@@ -1025,7 +1025,7 @@ Used to track conditions like “power is on,” “component replaced,” etc. 
 
     .
 
-✅ Example 50: <dmIf> with <dmThenSeq> and <dmElseSeq>
+Example 50: <dmIf> with <dmThenSeq> and <dmElseSeq>
 
 <dmIf>
   <expression>
@@ -1057,7 +1057,7 @@ Used to track conditions like “power is on,” “component replaced,” etc. 
   </dmElseSeq>
 </dmIf>
 
-📘 Explanation:
+Explanation:
 
     <dmIf>: Represents logic similar to an "if-then-else" statement.
 
@@ -1069,7 +1069,7 @@ Used to track conditions like “power is on,” “component replaced,” etc. 
 
 .
 
-✅ Example 51: <dmLoop> — Adjust chain loop until condition is met
+Example 51: <dmLoop> — Adjust chain loop until condition is met
 
 <variableDeclarations>
   <variable variableName="ChainPlay" valueType="real">
@@ -1099,7 +1099,7 @@ Used to track conditions like “power is on,” “component replaced,” etc. 
   </dmSeq>
 </dmLoop>
 
-📘 Explanation:
+Explanation:
 
     Initializes a real variable ChainPlay = 100.0.
 
@@ -1113,7 +1113,7 @@ Used to track conditions like “power is on,” “component replaced,” etc. 
 
     .
 
-✅ Example 52: <dmSeq> — Sequential step execution
+Example 52: <dmSeq> — Sequential step execution
 
 <dmSeq>
   <dmNode>
@@ -1133,7 +1133,7 @@ Used to track conditions like “power is on,” “component replaced,” etc. 
   </dmNode>
 </dmSeq>
 
-📘 Explanation:
+Explanation:
 
     Nodes executed top to bottom, in order.
 
@@ -1141,7 +1141,7 @@ Used to track conditions like “power is on,” “component replaced,” etc. 
 
     .
 
-✅ Example 53: <dmSeqAlts> — Alternate sequences based on product configuration
+Example 53: <dmSeqAlts> — Alternate sequences based on product configuration
 
 <referencedApplicGroup>
   <applic id="appl-001">
@@ -1169,7 +1169,7 @@ Used to track conditions like “power is on,” “component replaced,” etc. 
   </dmSeq>
 </dmSeqAlts>
 
-📘 Explanation:
+Explanation:
 
     Displays only one sequence based on current applicability condition.
 
@@ -1177,7 +1177,7 @@ Used to track conditions like “power is on,” “component replaced,” etc. 
 
     .
 
-✅ Example 54: <externalApplication> — Launching tool with parameters
+Example 54: <externalApplication> — Launching tool with parameters
 
 <!ENTITY WireTool SYSTEM "file://Wired/Wired.exe" NDATA exe>
 
@@ -1205,7 +1205,7 @@ Used to track conditions like “power is on,” “component replaced,” etc. 
 
 .
 
-✅ Example 55: <userEntry> with prompt, default, validation, and state binding
+Example 55: <userEntry> with prompt, default, validation, and state binding
 
 <dialog submitCaption="ok01" cancelCaption="ca01">
   <title>Bicycle checkout</title>
@@ -1233,7 +1233,7 @@ Used to track conditions like “power is on,” “component replaced,” etc. 
   </userEntry>
 </dialog>
 
-📘 Explanation:
+Explanation:
 
     Validates that entered pressure is between 30 and 90 PSI.
 
@@ -1243,7 +1243,7 @@ Used to track conditions like “power is on,” “component replaced,” etc. 
 
     .
 
-✅ Example 56: <pushButton> launching external app
+Example 56: <pushButton> launching external app
 
 <pushButton>
   <prompt><paraBasic>Locate Tire Label</paraBasic></prompt>
@@ -1253,7 +1253,7 @@ Used to track conditions like “power is on,” “component replaced,” etc. 
   </externalApplication>
 </pushButton>
 
-📘 Explanation:
+Explanation:
 
     Launches external app with tirelocate.cgm file.
 
@@ -1263,7 +1263,7 @@ Used to track conditions like “power is on,” “component replaced,” etc. 
 
     .
 
-✅ Example 57: <userEntry> with default string
+Example 57: <userEntry> with default string
 
 <userEntry>
   <prompt><paraBasic>Enter your name</paraBasic></prompt>
@@ -1273,7 +1273,7 @@ Used to track conditions like “power is on,” “component replaced,” etc. 
   </default>
 </userEntry>
 
-📘 Explanation:
+Explanation:
 
     Default user entry is "Jane Doe".
 
@@ -1281,7 +1281,7 @@ Used to track conditions like “power is on,” “component replaced,” etc. 
 
     .
 
-✅ Example 58: <dialog> combining user input and message response
+Example 58: <dialog> combining user input and message response
 
 <dialog submitCaption="ok01" cancelCaption="ca01">
   <title>Bicycle service due dates</title>
@@ -1297,7 +1297,7 @@ Used to track conditions like “power is on,” “component replaced,” etc. 
   </message>
 </dialog>
 
-📘 Explanation:
+Explanation:
 
     Displays state variable data (TireDue, GearDue) after user input or backend processing.
 
@@ -1305,7 +1305,7 @@ Used to track conditions like “power is on,” “component replaced,” etc. 
 
     .
 
-✅ Example 59: <dialogGroup> and layout control
+Example 59: <dialogGroup> and layout control
 
 <dialogGroup dialogSeparator="1">
   <userEntry>
@@ -1318,7 +1318,7 @@ Used to track conditions like “power is on,” “component replaced,” etc. 
   </pushButton>
 </dialogGroup>
 
-📘 Explanation:
+Explanation:
 
     Groups entries horizontally or vertically depending on IETP engine.
 
@@ -1326,7 +1326,7 @@ Used to track conditions like “power is on,” “component replaced,” etc. 
 
 .
 
-✅ Example 60: <dialogAlts> — Alternate dialogs based on applicability
+Example 60: <dialogAlts> — Alternate dialogs based on applicability
 
 <dialogAlts>
   <dialog applicRefId="applic3">
@@ -1343,7 +1343,7 @@ Used to track conditions like “power is on,” “component replaced,” etc. 
   </dialog>
 </dialogAlts>
 
-📘 Explanation:
+Explanation:
 
     <dialogAlts> selects one dialog to present based on applicability evaluation.
 
@@ -1351,7 +1351,7 @@ Used to track conditions like “power is on,” “component replaced,” etc. 
 
     .
 
-✅ Example 61: <menu> with <menuChoice> and assertions
+Example 61: <menu> with <menuChoice> and assertions
 
 <menu choiceSelection="single" choiceType="select" mandatory="1">
   <prompt><paraBasic>Did you ever ride a bicycle?</paraBasic></prompt>
@@ -1368,7 +1368,7 @@ Used to track conditions like “power is on,” “component replaced,” etc. 
   </menuChoice>
 </menu>
 
-📘 Explanation:
+Explanation:
 
     Radio menu with mandatory choice.
 
@@ -1376,7 +1376,7 @@ Used to track conditions like “power is on,” “component replaced,” etc. 
 
     .
 
-✅ Example 62: <receiveValue> from external app
+Example 62: <receiveValue> from external app
 
 <externalApplication application="MMS">
   <paraBasic>Receive Maintainer Name</paraBasic>
@@ -1391,7 +1391,7 @@ Used to track conditions like “power is on,” “component replaced,” etc. 
 
     .
 
-✅ Example 63: <receiveByName> — Multiple named values
+Example 63: <receiveByName> — Multiple named values
 
 <externalApplication application="WireTool">
   <paraBasic>Isolate Wiring Defect</paraBasic>
@@ -1413,7 +1413,7 @@ Used to track conditions like “power is on,” “component replaced,” etc. 
   </receiveByName>
 </externalApplication>
 
-📘 Explanation:
+Explanation:
 
     External app returns values as name=value pairs.
 
@@ -1421,7 +1421,7 @@ Used to track conditions like “power is on,” “component replaced,” etc. 
 
     .
 
-✅ Example 64: <menu> with audio via push buttons
+Example 64: <menu> with audio via push buttons
 
 <dialog submitCaption="ok01" cancelCaption="ca01">
   <title>Brake troubleshooting</title>
@@ -1461,7 +1461,7 @@ Used to track conditions like “power is on,” “component replaced,” etc. 
   </menu>
 </dialog>
 
-📘 Explanation:
+Explanation:
 
     Combines menu, assertion logic, and multimedia launch with <pushButton>.
 
@@ -1469,7 +1469,7 @@ Used to track conditions like “power is on,” “component replaced,” etc. 
 
 .
 
-✅ Example 65: <faultIsolation> with full diagnostic flow
+Example 65: <faultIsolation> with full diagnostic flow
 
 <faultIsolation>
   <faultIsolationProcedure>
@@ -1592,7 +1592,7 @@ Used to track conditions like “power is on,” “component replaced,” etc. 
   </faultIsolationProcedure>
 </faultIsolation>
 
-📘 Explanation of Key Elements:
+Explanation of Key Elements:
 
     <faultIsolation>: Root for an entire fault isolation flow.
 
@@ -1606,7 +1606,7 @@ Used to track conditions like “power is on,” “component replaced,” etc. 
 
 This entire decision tree is dynamically followed in the IETP viewer based on technician responses.
 
-✅ Example 66: <faultIsolationTest> with <testDescr>, <testParameters>, <testProcedure>
+Example 66: <faultIsolationTest> with <testDescr>, <testParameters>, <testProcedure>
 
 <faultIsolationTest testCode="O-001" testType="Operation">
   <testDescr>
@@ -1627,7 +1627,7 @@ This entire decision tree is dynamically followed in the IETP viewer based on te
   </testProcedure>
 </faultIsolationTest>
 
-📘 Key Points:
+Key Points:
 
     testCode and testType are mandatory.
 
@@ -1635,7 +1635,7 @@ This entire decision tree is dynamically followed in the IETP viewer based on te
 
     .
 
-✅ Example 67: <lruItem> with nested <lru> and optional elements
+Example 67: <lruItem> with nested <lru> and optional elements
 
 <lruItem>
   <lru>
@@ -1667,7 +1667,7 @@ This entire decision tree is dynamically followed in the IETP viewer based on te
   </faultIsolationTest>
 </lruItem>
 
-✅ Example 68: <repair> referencing external publication
+Example 68: <repair> referencing external publication
 
 <repair>
   <refs>
@@ -1679,13 +1679,13 @@ This entire decision tree is dynamically followed in the IETP viewer based on te
   </refs>
 </repair>
 
-📘 Explanation:
+Explanation:
 
     Repair task points to external non-S1000D doc​
 
     .
 
-✅ Example 69: <possibleCauseGroup> with <lru>, <wiringPossibleCause>, <sru>
+Example 69: <possibleCauseGroup> with <lru>, <wiringPossibleCause>, <sru>
 
 <possibleCauseGroup>
   <lru id="pc1">
@@ -1715,7 +1715,7 @@ This entire decision tree is dynamically followed in the IETP viewer based on te
   </sru>
 </possibleCauseGroup>
 
-📘 Explanation:
+Explanation:
 
     Collects all suspected contributors to a fault:
 
@@ -1729,7 +1729,7 @@ This entire decision tree is dynamically followed in the IETP viewer based on te
 
 .
 
-✅ Example 70: <diagnosticProcess> and nested <repair> and <locateAndRepairLruItem>
+Example 70: <diagnosticProcess> and nested <repair> and <locateAndRepairLruItem>
 
 <diagnosticProcess>
   <diagnosticsReason>Insufficient torque from pedal due to jammed derailleur.</diagnosticsReason>
@@ -1758,7 +1758,7 @@ This entire decision tree is dynamically followed in the IETP viewer based on te
   </locateAndRepairLruItem>
 </diagnosticProcess>
 
-📘 Key Elements:
+Key Elements:
 
     <diagnosticsReason>: Human-readable summary of cause.
 
@@ -1768,7 +1768,7 @@ This entire decision tree is dynamically followed in the IETP viewer based on te
 
     .
 
-✅ Example 71: <detectedFault> + <isolateDetectedFault>
+Example 71: <detectedFault> + <isolateDetectedFault>
 
 <detectedFault id="flt-0002" faultCode="NYCJD00">
   <faultDescr>
@@ -1802,7 +1802,7 @@ This entire decision tree is dynamically followed in the IETP viewer based on te
   </isolateDetectedFault>
 </detectedFault>
 
-✅ Example 72: <observedFault> + <contextAndIsolationInfo>
+Example 72: <observedFault> + <contextAndIsolationInfo>
 
 <observedFault faultCode="NYCJD02" id="flt-0001">
   <faultDescr>
@@ -1819,7 +1819,7 @@ This entire decision tree is dynamically followed in the IETP viewer based on te
   </contextAndIsolationInfo>
 </observedFault>
 
-📘 Key Elements:
+Key Elements:
 
     <observedFault>: Not machine-detected, but human-observed.
 
@@ -1827,7 +1827,7 @@ This entire decision tree is dynamically followed in the IETP viewer based on te
 
     .
 
-✅ Example 73: <correlatedFault> and <bitMessage>
+Example 73: <correlatedFault> and <bitMessage>
 
 <correlatedFault id="CFS0001">
   <basicCorrelatedFaults>
@@ -1862,7 +1862,7 @@ This entire decision tree is dynamically followed in the IETP viewer based on te
   </remarks>
 </correlatedFault>
 
-✅ Key Takeaways:
+Key Takeaways:
 
     <bitMessage>: Digital fault messages (e.g., from built-in tests).
 
@@ -1872,7 +1872,7 @@ This entire decision tree is dynamically followed in the IETP viewer based on te
 
 .
 
-✅ Example 70: <diagnosticProcess> and nested <repair> and <locateAndRepairLruItem>
+Example 70: <diagnosticProcess> and nested <repair> and <locateAndRepairLruItem>
 
 <diagnosticProcess>
   <diagnosticsReason>Insufficient torque from pedal due to jammed derailleur.</diagnosticsReason>
@@ -1901,7 +1901,7 @@ This entire decision tree is dynamically followed in the IETP viewer based on te
   </locateAndRepairLruItem>
 </diagnosticProcess>
 
-📘 Key Elements:
+Key Elements:
 
     <diagnosticsReason>: Human-readable summary of cause.
 
@@ -1911,7 +1911,7 @@ This entire decision tree is dynamically followed in the IETP viewer based on te
 
     .
 
-✅ Example 71: <detectedFault> + <isolateDetectedFault>
+Example 71: <detectedFault> + <isolateDetectedFault>
 
 <detectedFault id="flt-0002" faultCode="NYCJD00">
   <faultDescr>
@@ -1945,7 +1945,7 @@ This entire decision tree is dynamically followed in the IETP viewer based on te
   </isolateDetectedFault>
 </detectedFault>
 
-✅ Example 72: <observedFault> + <contextAndIsolationInfo>
+Example 72: <observedFault> + <contextAndIsolationInfo>
 
 <observedFault faultCode="NYCJD02" id="flt-0001">
   <faultDescr>
@@ -1962,7 +1962,7 @@ This entire decision tree is dynamically followed in the IETP viewer based on te
   </contextAndIsolationInfo>
 </observedFault>
 
-📘 Key Elements:
+Key Elements:
 
     <observedFault>: Not machine-detected, but human-observed.
 
@@ -1970,7 +1970,7 @@ This entire decision tree is dynamically followed in the IETP viewer based on te
 
     .
 
-✅ Example 73: <correlatedFault> and <bitMessage>
+Example 73: <correlatedFault> and <bitMessage>
 
 <correlatedFault id="CFS0001">
   <basicCorrelatedFaults>
@@ -2005,7 +2005,7 @@ This entire decision tree is dynamically followed in the IETP viewer based on te
   </remarks>
 </correlatedFault>
 
-✅ Key Takeaways:
+Key Takeaways:
 
     <bitMessage>: Digital fault messages (e.g., from built-in tests).
 
@@ -2015,7 +2015,7 @@ This entire decision tree is dynamically followed in the IETP viewer based on te
 
 .
 
-✅ Example 74: <identAndStatusSection> for a SCORM Content Package Module
+Example 74: <identAndStatusSection> for a SCORM Content Package Module
 
 <identAndStatusSection>
   <scormContentPackageAddress>
@@ -2088,7 +2088,7 @@ This entire decision tree is dynamically followed in the IETP viewer based on te
   </lom:lom>
 </identAndStatusSection>
 
-📘 Explanation of Key Elements:
+Explanation of Key Elements:
 
     <identAndStatusSection>: Standard wrapper for all metadata and status.
 
