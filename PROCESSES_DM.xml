@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dmodule xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://www.s1000d.org/S1000D_4-1/xml/issue"
+         xsi:schemaLocation="http://www.s1000d.org/S1000D_4-1/xml/issue s1000d_4-1.xsd">
+
+  <!-- Identification and Status -->
+  <identAndStatusSection>
+    <dmAddress>
+      <dmIdent>
+        <modelIdentCode>777</modelIdentCode>
+        <systemDiffCode>00</systemDiffCode>
+        <systemCode>52</systemCode>
+        <subSystemCode>50</subSystemCode>
+        <subSubSystemCode>00</subSubSystemCode>
+        <assyCode>06</assyCode>
+        <disassyCode>00A</disassyCode>
+        <disassyCodeVariant>A</disassyCodeVariant>
+        <infoCode>720</infoCode>
+        <infoCodeVariant>A</infoCodeVariant>
+        <itemLocationCode>P</itemLocationCode>
+      </dmIdent>
+      <issueInfo>
+        <issueNumber>001</issueNumber>
+        <inWork>01</inWork>
+      </issueInfo>
+    </dmAddress>
+    <dmStatus>
+      <security>01</security>
+      <responsiblePartnerCompany>Boeing</responsiblePartnerCompany>
+      <originator>Flight Deck Structures Engineering</originator>
+      <applicability>
+        <applic>777-300ER</applic>
+      </applicability>
+      <language country="US">en</language>
+      <reasonForUpdate>Initial release to expand full maintenance task into S1000D full structure format including fault isolation, IPD, learning, and BREX compliance.</reasonForUpdate>
+    </dmStatus>
+  </identAndStatusSection>
+
+  <!-- Content -->
+  <content>
+
+    <!-- Title -->
+    <title>Flight Deck Escape Hatch Operation and Sealing Test</title>
+
+    <!-- System Description -->
+    <systemDescription>
+      <para>The flight deck escape hatch provides an emergency egress route for crew members in case of evacuation scenarios. The hatch is manually operated via internal locking and lifting handles, and it utilizes a perimeter seal to maintain cockpit pressurization integrity during normal operations.</para>
+    </systemDescription>
+
+    <!-- Physical Description -->
+    <physicalDescription>
+      <para>The hatch assembly consists of an aluminum/composite panel, hinge assemblies, locking cams, perimeter seal, and an internal operation handle mounted on the cockpit ceiling structure above the center console.</para>
+    </physicalDescription>
+
+    <!-- Maintenance Planning Info -->
+    <maintenancePlanningInfo>
+      <scheduledMaintenance>
+        <threshold>Check every 3 years or after hard landing events.</threshold>
+      </scheduledMaintenance>
+      <unscheduledMaintenance>
+        <para>Required if cockpit water ingress detected, or hatch seal damage observed.</para>
+      </unscheduledMaintenance>
+    </maintenancePlanningInfo>
+
+    <!-- Safety Section -->
+    <safety>
+      <warning>Escape hatch may swing suddenly; clear personnel from movement arc before actuation.</warning>
+      <caution>Do not force hatch closed if resistance is felt. Inspect locking cams for misalignment.</caution>
+      <note>Seal leak test should only be performed with external winds less than 25 knots.</note>
+    </safety>
+
+    <!-- Procedure -->
+    <procedure>
+      <initialSetup>
+        <preliminaryRqmts>Aircraft parked, parking brake ON, electrical systems OFF. Install hatch safety pin.</preliminaryRqmts>
+        <environmentalConditions>
+          <environmentalCondition>Wind speed <25 knots; ambient temperature between 0°C and 40°C.</environmentalCondition>
+        </environmentalConditions>
+      </initialSetup>
+      <mainProcedure>
+        <step>
+          <para>Remove escape hatch safety pin. Rotate handle 90 degrees counterclockwise to UNLOCK.</para>
+        </step>
+        <step>
+          <para>Push hatch open fully until mechanical stop engages.</para>
+        </step>
+        <step>
+          <para>Inspect hinges and lock mechanism for binding, corrosion, or damage.</para>
+        </step>
+        <stepGroup>
+          <title>Closure and Sealing Test</title>
+          <step>
+            <para>Pull hatch closed. Rotate handle to LOCK position.</para>
+          </step>
+          <decisionStep>
+            <condition>Is hatch flush with cockpit roof with a gap <0.10 inch?</condition>
+            <yesCondition>
+              <para>Proceed with seal integrity test.</para>
+            </yesCondition>
+            <noCondition>
+              <para>Adjust hinges or locking cams per AMM 52-50-00-910-801.</para>
+            </noCondition>
+          </decisionStep>
+        </stepGroup>
+        <step>
+          <para>Apply leak detection fluid around hatch perimeter. Observe for bubbles (indicating leaks).</para>
+        </step>
+      </mainProcedure>
+      <closeProcedure>
+        <step>
+          <para>Reinstall hatch safety pin if aircraft not immediately returning to service.</para>
+        </step>
+        <step>
+          <para>Record results in maintenance record (ATA 05-00-00).</para>
+        </step>
+      </closeProcedure>
+    </procedure>
+
+    <!-- Fault Isolation Procedure -->
+    <faultIsolationProcedure>
+      <symptom>Hatch fails to latch securely or seal properly.</symptom>
+      <faultIsolationStep>
+        <testStep>Check for physical damage to hatch seal.</testStep>
+        <resultOfTest>
+          <yesCondition>
+            <correctiveAction>Replace hatch perimeter seal per SRM 52-50-00 Repair 002.</correctiveAction>
+          </yesCondition>
+          <noCondition>
+            <testStep>Check for misaligned latch cams or frame distortion.</testStep>
+            <resultOfTest>
+              <yesCondition>
+                <correctiveAction>Adjust hinge and lock cams or repair frame per AMM 52-50-00-910-801.</correctiveAction>
+              </yesCondition>
+              <noCondition>
+                <correctiveAction>Escalate to Structural Engineering review.</correctiveAction>
+              </noCondition>
+            </resultOfTest>
+          </noCondition>
+        </resultOfTest>
+      </faultIsolationStep>
+    </faultIsolationProcedure>
+
+    <!-- Illustrated Parts Data -->
+    <ipd>
+      <partsData>
+        <partsList>
+          <item>
+            <itemIdent>52-50-00-ESC-001</itemIdent>
+            <itemRef>Escape Hatch Assembly</itemRef>
+            <itemLocation>Flight Deck Ceiling Zone 111</itemLocation>
+          </item>
+          <item>
+            <itemIdent>52-50-00-ESC-002</itemIdent>
+            <itemRef>Perimeter Seal Kit</itemRef>
+            <itemLocation>Flight Deck Hatch Perimeter</itemLocation>
+          </item>
+        </partsList>
+      </partsData>
+    </ipd>
+
+    <!-- Learning Content -->
+    <learningData>
+      <learningPlan>
+        <learningObjective>Correctly perform operation and seal check of flight deck escape hatch.</learningObjective>
+        <learningTask>
+          <learningStep>Locate and remove safety pin from escape hatch.</learningStep>
+          <learningStep>Open and close hatch observing safe operation guidelines.</learningStep>
+          <learningStep>Conduct leak detection around hatch perimeter.</learningStep>
+          <learningStep>Diagnose and correct basic sealing faults.</learningStep>
+        </learningTask>
+      </learningPlan>
+    </learningData>
+
+    <!-- Business Rules (BREX) -->
+    <brex>
+      <businessRules>
+        <rule>
+          <ruleIdent>BRX-ESCAPE-HATCH-01</ruleIdent>
+          <ruleCondition>All hatch inspections must be logged under ATA 05-00-00.</ruleCondition>
+        </rule>
+        <rule>
+          <ruleIdent>BRX-ESCAPE-HATCH-02</ruleIdent>
+          <ruleCondition>Learning step validation required for maintenance release authorization.</ruleCondition>
+        </rule>
+      </businessRules>
+    </brex>
+
+  </content>
+
+</dmodule>
