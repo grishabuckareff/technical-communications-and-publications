@@ -436,7 +436,7 @@ S1000D-Compliant Task
   <identAndStatusSection>
     <dmAddress>
       <dmIdent>
-        <modelIdentCode>777</modelIdentCode>
+        <modelIdentCode></modelIdentCode>
         <systemDiffCode>00</systemDiffCode>
         <systemCode>27</systemCode>
         <subSystemCode>00</subSystemCode>
@@ -455,13 +455,13 @@ S1000D-Compliant Task
     </dmAddress>
     <dmStatus>
       <security>01</security>
-      <responsiblePartnerCompany>Boeing</responsiblePartnerCompany>
+      <responsiblePartnerCompany></responsiblePartnerCompany>
       <originator>Flight Control Systems and Maintenance Engineering</originator>
       <applicability>
-        <applic>777-300ER</applic>
+        <applic></applic>
       </applicability>
       <language country="US">en</language>
-      <qualityAssurance>02</qualityAssurance>
+      <qualityAssurance></qualityAssurance>
     </dmStatus>
   </identAndStatusSection>
 
@@ -597,4 +597,203 @@ ______________________________________________|_________________________________
  Surface Movement Reaction Graphs             |   Control stick input vs surface deflection per mode
 ______________________________________________|_______________________________________________________________
  Flight Control Surface Safety Setup Diagram  |   Showing locks, pin locations, hydraulic lines pressure check
+______________________________________________|_______________________________________________________________
+
+
+
+Elevator Full Stroke Measurement and Hydraulic Stop Synchronization Test
+
+ATA Chapter: 27 – Flight Controls
+S1000D DMC: 27-30-00-06-00A-720A-P
+
+
+S1000D-Compliant Task
+
+<dmodule xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://www.s1000d.org/S1000D_4-1/xml/issue"
+         xsi:schemaLocation="http://www.s1000d.org/S1000D_4-1/xml/issue s1000d_4-1.xsd">
+
+  <identAndStatusSection>
+    <dmAddress>
+      <dmIdent>
+        <modelIdentCode></modelIdentCode>
+        <systemDiffCode>00</systemDiffCode>
+        <systemCode>27</systemCode>
+        <subSystemCode>30</subSystemCode>
+        <subSubSystemCode>00</subSubSystemCode>
+        <assyCode>06</assyCode>
+        <disassyCode>00A</disassyCode>
+        <disassyCodeVariant>A</disassyCodeVariant>
+        <infoCode>720</infoCode>
+        <infoCodeVariant>A</infoCodeVariant>
+        <itemLocationCode>P</itemLocationCode>
+      </dmIdent>
+      <issueInfo>
+        <issueNumber>001</issueNumber>
+        <inWork>01</inWork>
+      </issueInfo>
+    </dmAddress>
+    <dmStatus>
+      <security>01</security>
+      <responsiblePartnerCompany></responsiblePartnerCompany>
+      <originator>Flight Control Systems and Rigging Engineering</originator>
+      <applicability>
+        <applic</applic>
+      </applicability>
+      <language country="US">en</language>
+      <qualityAssurance></qualityAssurance>
+    </dmStatus>
+  </identAndStatusSection>
+
+  <content>
+    <procedure>
+      <taskRequirement>
+        <skillRequirement>Flight Control Mechanic</skillRequirement>
+        <skillRequirement>Hydraulic Systems Technician</skillRequirement>
+        <timeRequirement>3.5 hours</timeRequirement>
+        <crewRequirement>2 Technicians (one CMS operator, one surface observer)</crewRequirement>
+      </taskRequirement>
+
+      <preliminaryRqmts>
+        <preliminaryRqmtsDescr>Aircraft powered, hydraulic systems A, B, and C pressurized and stable. CMS maintenance terminal connected. Elevator rigging access panels open (Ref: AMM ZONES 430, 440).</preliminaryRqmtsDescr>
+
+        <safety>
+          <warning>
+            Elevator surfaces move under full hydraulic pressure with high force. Personnel must stay clear of elevator surface travel arc during testing.
+          </warning>
+          <caution>
+            Failure to verify synchronization within tolerance can result in out-of-phase elevator movement, structural overload, or pitch control loss.
+          </caution>
+          <note>
+            Measurements must be taken with a calibrated digital inclinometer mounted precisely at elevator trailing edge centerline reference point.
+          </note>
+        </safety>
+      </preliminaryRqmts>
+
+      <mainProcedure>
+        <step>
+          <para>Access CMS Flight Control Surface Override screen (Ref: 45-00-00-860-801). Select ELEVATOR test mode.</para>
+        </step>
+        <step>
+          <para>Command FULL UP elevator movement. Measure LEFT and RIGHT elevator trailing edge angles relative to horizontal stabilizer chord line.</para>
+        </step>
+        <step>
+          <para>Record full UP travel values. Verify LEFT and RIGHT elevators match within 0.2° tolerance. Target nominal UP travel: 20.0° ± 0.2°.</para>
+        </step>
+        <step>
+          <para>Command FULL DOWN elevator movement. Measure again. Verify LEFT and RIGHT elevators match within 0.2° tolerance. Target nominal DOWN travel: 15.0° ± 0.2°.</para>
+        </step>
+        <step>
+          <para>Observe CMS feedback position indications. Confirm elevator position sensor agrees within 1% of measured surface deflection angle at all positions.</para>
+        </step>
+        <step>
+          <para>Cycle elevators through full stroke 5 times. Confirm smooth, chatter-free movement and synchronized hydraulic actuator stroke between LH and RH actuators.</para>
+        </step>
+      </mainProcedure>
+
+      <closeProcedure>
+        <step>
+          <para>Return Flight Control Mode Selector to NORMAL. Secure and close all access panels. Remove CMS maintenance terminal.</para>
+        </step>
+        <step>
+          <para>Record stroke measurement values, CMS feedback readings, actuator synchronization findings, and surface smoothness observations into maintenance record (ATA 05-00-00).</para>
+        </step>
+      </closeProcedure>
+
+      <crossRefTable>
+        <dmRef>
+          <dmRefIdent>
+            <dmCode>27-30-00-710-801</dmCode>
+            <title>Elevator Travel Rigging and Functional Test Procedure</title>
+          </dmRefIdent>
+        </dmRef>
+        <dmRef>
+          <dmRefIdent>
+            <dmCode>45-00-00-860-801</dmCode>
+            <title>CMS Surface Override and Feedback Monitoring</title>
+          </dmRefIdent>
+        </dmRef>
+        <dmRef>
+          <dmRefIdent>
+            <dmCode>20-50-00-910-801</dmCode>
+            <title>Torque and Fastener Installation Standards</title>
+          </dmRefIdent>
+        </dmRef>
+        <dmRef>
+          <dmRefIdent>
+            <dmCode>05-00-00-200-801</dmCode>
+            <title>Flight Control Stroke and Rigging Record Log</title>
+          </dmRefIdent>
+        </dmRef>
+      </crossRefTable>
+
+      <tools>
+        <toolItem>
+          <toolIdent>TOOL-ELEV-INCL-777</toolIdent>
+          <toolName>Elevator Travel Digital Inclinometer</toolName>
+        </toolItem>
+        <toolItem>
+          <toolIdent>CMS-MTN-777</toolIdent>
+          <toolName>CMS Maintenance Terminal (Override/Monitor Version)</toolName>
+        </toolItem>
+      </tools>
+
+      <spares>
+        <spareItem>
+          <spareIdent>SR-27-ELEV-0101</spareIdent>
+          <spareName>Elevator Actuator Replacement Kit</spareName>
+          <quantity>As Required</quantity>
+        </spareItem>
+      </spares>
+
+      <consumables>
+        <supply>
+          <supplyIdent>CPC-474</supplyIdent>
+          <supplyName>Approved Hydraulic Cleaning Solvent</supplyName>
+          <quantity>As Required</quantity>
+        </supply>
+      </consumables>
+    </procedure>
+  </content>
+</dmodule>
+
+
+Behind the Scenes — Writer’s Inputs and Decisions
+______________________________________________________________________________________________________________
+ Source                                       |   Used For
+______________________________________________|_______________________________________________________________
+ Flight Control Rigging Manual                |   Elevator UP/DOWN travel angle limits
+______________________________________________|_______________________________________________________________
+ Hydraulic System Schematics                  |   Confirm correct hydraulic feed during stroke test
+______________________________________________|_______________________________________________________________
+ Flight Control Computer Calibration Maps     |   CMS position sensor accuracy requirements
+______________________________________________|_______________________________________________________________
+ Rigging Diagrams                             |   Ensure proper inclinometer placement and measurement reference points
+______________________________________________|_______________________________________________________________
+
+Critical Risk Controls
+______________________________________________________________________________________________________________
+ Risk                                         |   Mitigation
+______________________________________________|_______________________________________________________________
+ Asymmetric Elevator Movement                 |   Stroke synchronization check at both UP and DOWN extremes
+______________________________________________|_______________________________________________________________
+ Erroneous Surface Angle Measurements         |   Use certified inclinometer, multiple measurements
+______________________________________________|_______________________________________________________________
+ CMS Feedback Drift                           |   Cross-verification with surface measurements
+______________________________________________|_______________________________________________________________
+ Incomplete Surface Cycling	                  |   Mandatory 5 full cycles to confirm consistency
+______________________________________________|_______________________________________________________________
+
+     
+Illustrations Typically Needed
+______________________________________________________________________________________________________________
+ Type                                         |   Purpose
+______________________________________________|_______________________________________________________________
+ Elevator Inclinometer Setup Diagram          |   Mounting location and angle alignment
+______________________________________________|_______________________________________________________________
+ Full Stroke Travel Profile Chart             |   UP and DOWN positions plotted against CMS feedback
+______________________________________________|_______________________________________________________________
+ Surface Synchronization Overlay              |   LH/RH elevator deflection compared graphically
+______________________________________________|_______________________________________________________________
+ Access Panel Locations                       |   Where to open and safely route hydraulic lines and cabling
 ______________________________________________|_______________________________________________________________
