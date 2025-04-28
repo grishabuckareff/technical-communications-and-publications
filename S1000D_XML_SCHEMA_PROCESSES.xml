@@ -1189,7 +1189,6 @@ ______________________________________________|_________________________________
 
 Passenger Door Operational Check and Manual Deployment Test
 
-From: AMM BOEING 777 DOORS.PDF
 ATA Chapter: 52 – Doors
 S1000D DMC: 52-XX-00-06-00A-720A-P
 ("XX" = 11 for Passenger Entry Doors, 30 for Cargo Doors, etc.)
@@ -1378,10 +1377,11 @@ ______________________________________________|_________________________________
 
 Passenger Door Hydraulic Assist System Leak Test
 
-From: AMM BOEING 777 DOORS.PDF + HYDRAULICS.PDF
 ATA Chapters: 29 – Hydraulic Power + 52 – Doors
 S1000D DMC: 52-11-00-06-00A-720A-P
-⚠️ Full S1000D-Compliant Task – Expanded Maximum Structure
+
+     
+Full S1000D-Compliant Task – Expanded Maximum Structure
 
 <dmodule xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xmlns="http://www.s1000d.org/S1000D_4-1/xml/issue"
@@ -1390,7 +1390,7 @@ S1000D DMC: 52-11-00-06-00A-720A-P
   <identAndStatusSection>
     <dmAddress>
       <dmIdent>
-        <modelIdentCode>777</modelIdentCode>
+        <modelIdentCode></modelIdentCode>
         <systemDiffCode>00</systemDiffCode>
         <systemCode>52</systemCode>
         <subSystemCode>11</subSystemCode>
@@ -1409,13 +1409,13 @@ S1000D DMC: 52-11-00-06-00A-720A-P
     </dmAddress>
     <dmStatus>
       <security>01</security>
-      <responsiblePartnerCompany>Boeing</responsiblePartnerCompany>
+      <responsiblePartnerCompany></responsiblePartnerCompany>
       <originator>Door Systems and Hydraulic Engineering</originator>
       <applicability>
-        <applic>777-300ER</applic>
+        <applic></applic>
       </applicability>
       <language country="US">en</language>
-      <qualityAssurance>02</qualityAssurance>
+      <qualityAssurance></qualityAssurance>
     </dmStatus>
   </identAndStatusSection>
 
