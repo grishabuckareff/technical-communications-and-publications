@@ -1184,3 +1184,192 @@ ______________________________________________|_________________________________
 ______________________________________________|_______________________________________________________________
  Neutral Angle Verification Diagram           |   Inclinometer setup and measurement angle
 ______________________________________________|_______________________________________________________________
+
+
+
+Passenger Door Operational Check and Manual Deployment Test
+
+From: AMM BOEING 777 DOORS.PDF
+ATA Chapter: 52 – Doors
+S1000D DMC: 52-XX-00-06-00A-720A-P
+("XX" = 11 for Passenger Entry Doors, 30 for Cargo Doors, etc.)
+
+     
+S1000D-Compliant Task
+
+<dmodule xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://www.s1000d.org/S1000D_4-1/xml/issue"
+         xsi:schemaLocation="http://www.s1000d.org/S1000D_4-1/xml/issue s1000d_4-1.xsd">
+
+  <identAndStatusSection>
+    <dmAddress>
+      <dmIdent>
+        <modelIdentCode></modelIdentCode>
+        <systemDiffCode>00</systemDiffCode>
+        <systemCode>52</systemCode>
+        <subSystemCode>11</subSystemCode>
+        <subSubSystemCode>00</subSubSystemCode>
+        <assyCode>06</assyCode>
+        <disassyCode>00A</disassyCode>
+        <disassyCodeVariant>A</disassyCodeVariant>
+        <infoCode>720</infoCode>
+        <infoCodeVariant>A</infoCodeVariant>
+        <itemLocationCode>P</itemLocationCode>
+      </dmIdent>
+      <issueInfo>
+        <issueNumber>001</issueNumber>
+        <inWork>01</inWork>
+      </issueInfo>
+    </dmAddress>
+    <dmStatus>
+      <security>01</security>
+      <responsiblePartnerCompany></responsiblePartnerCompany>
+      <originator>Door Systems Engineering</originator>
+      <applicability>
+        <applic></applic>
+      </applicability>
+      <language country="US">en</language>
+      <qualityAssurance></qualityAssurance>
+    </dmStatus>
+  </identAndStatusSection>
+
+  <content>
+    <procedure>
+      <taskRequirement>
+        <skillRequirement>Airframe Technician</skillRequirement>
+        <skillRequirement>Structural Maintenance Technician</skillRequirement>
+        <timeRequirement>1.0 hours per door</timeRequirement>
+        <crewRequirement>2 Technicians</crewRequirement>
+      </taskRequirement>
+
+      <preliminaryRqmts>
+        <preliminaryRqmtsDescr>Aircraft parked, engines off, hydraulic systems depressurized. Door areas cleared of ground support equipment. Access panels on door assist system removed as needed.</preliminaryRqmtsDescr>
+
+        <safety>
+          <warning>
+            Passenger doors under pneumatic assist can open rapidly. Keep personnel clear of door swing arc during any deployment sequence.
+          </warning>
+          <caution>
+            Do not cycle door locking/unlocking lever without verifying door pressurization vent system is open; internal pressure may cause door blast.
+          </caution>
+          <note>
+            Deployment tests must include full manual override mode to validate mechanical linkages independent of assist systems.
+          </note>
+        </safety>
+      </preliminaryRqmts>
+
+      <mainProcedure>
+        <step>
+          <para>Ensure external vent valves are open and pressure differential is equalized. Inspect visual indicators for locked/unlocked status.</para>
+        </step>
+        <step>
+          <para>Move internal locking handle to UNLOCKED. Confirm green indicators at viewing ports.</para>
+        </step>
+        <step>
+          <para>Lift internal door handle to initiate opening sequence. Allow door to free travel under gravity and assist force. Observe motion for smoothness, binding, or oscillation.</para>
+        </step>
+        <step>
+          <para>Fully open door to mechanical hold-open position. Inspect assist cylinder for full extension and leak-free operation.</para>
+        </step>
+        <step>
+          <para>Engage manual mode override lever. Confirm pneumatic assist bypass. Close door manually through full arc. Check for excessive force, misalignment, or abnormal resistance.</para>
+        </step>
+        <step>
+          <para>Re-engage powered assist mode. Close and lock door. Confirm external latch pins fully engaged.</para>
+        </step>
+      </mainProcedure>
+
+      <closeProcedure>
+        <step>
+          <para>Install any removed access panels. Remove safety flags. Complete locking indicator inspection. Remove GSE as required. Confirm aircraft "Ready for Flight" configuration.</para>
+        </step>
+        <step>
+          <para>Log operational check, manual override check, and locking system inspection findings in maintenance record (ATA 05-00-00).</para>
+        </step>
+      </closeProcedure>
+
+      <crossRefTable>
+        <dmRef>
+          <dmRefIdent>
+            <dmCode>52-11-00-710-801</dmCode>
+            <title>Passenger Door Functional Test</title>
+          </dmRefIdent>
+        </dmRef>
+        <dmRef>
+          <dmRefIdent>
+            <dmCode>25-60-00-710-801</dmCode>
+            <title>Slide Pack Engagement Check (Evacuation System)</title>
+          </dmRefIdent>
+        </dmRef>
+        <dmRef>
+          <dmRefIdent>
+            <dmCode>05-00-00-200-801</dmCode>
+            <title>Door Maintenance Log Entry</title>
+          </dmRefIdent>
+        </dmRef>
+      </crossRefTable>
+
+      <tools>
+        <toolItem>
+          <toolIdent>TOOL-DOOR-777-ASSIST</toolIdent>
+          <toolName>Door Assist Spring Tension Gauge</toolName>
+        </toolItem>
+      </tools>
+
+      <spares>
+        <spareItem>
+          <spareIdent>SR-52-DOOR-0011</spareIdent>
+          <spareName>Passenger Door Latch and Linkage Replacement Kit</spareName>
+          <quantity>As Required</quantity>
+        </spareItem>
+      </spares>
+
+      <consumables>
+        <supply>
+          <supplyIdent>CPC-474</supplyIdent>
+          <supplyName>Hydraulic and Pneumatic Fitting Cleaner</supplyName>
+          <quantity>Small bottle</quantity>
+        </supply>
+      </consumables>
+    </procedure>
+  </content>
+</dmodule>
+
+
+Behind the Scenes — Writer's Inputs and Decisions
+______________________________________________________________________________________________________________
+ Source                                       |   Used For
+______________________________________________|_______________________________________________________________
+ Door System Drawings                         |   Defines mechanical and powered assist sequences
+______________________________________________|_______________________________________________________________
+ Door Maintenance Procedures                  |   Outlines unlock, opening, manual override, and locking logic
+______________________________________________|_______________________________________________________________
+ Slide Pack Engagement Protocols (ATA 25)     |   Ensures evacuation system not disturbed
+______________________________________________|_______________________________________________________________
+ Pneumatic System Safety Sheets               |   Pressurization venting and pressure equalization requirements
+______________________________________________|_______________________________________________________________
+
+Risk Management
+______________________________________________________________________________________________________________
+ Risk                                         |   Mitigation
+______________________________________________|_______________________________________________________________
+ Uncontrolled Door Opening                    |   Clear all personnel, vent cabin pressure prior to unlocking
+______________________________________________|_______________________________________________________________
+ Incomplete Manual Mode Engagement            |   Full manual override motion check required
+______________________________________________|_______________________________________________________________
+ Locking System Malfunction                   |   Post-test latch indicator and visual port verification mandatory
+______________________________________________|_______________________________________________________________
+
+     
+Illustrations Needed
+______________________________________________________________________________________________________________
+ Type                                         |   Purpose
+______________________________________________|_______________________________________________________________
+ Door Unlock/Lock Lever Diagrams              |   Sequence of lock-to-unlock-to-open
+______________________________________________|_______________________________________________________________
+ Door Manual Override Lever Location          |   Manual bypass system view
+______________________________________________|_______________________________________________________________
+ Door Swing Path Diagram                      |   Define safety exclusion zone
+______________________________________________|_______________________________________________________________
+ Assist Cylinder Diagram                      |   Powered assist extension verification
+______________________________________________|_______________________________________________________________
