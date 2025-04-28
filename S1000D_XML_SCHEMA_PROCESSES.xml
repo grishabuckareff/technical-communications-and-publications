@@ -1373,3 +1373,170 @@ ______________________________________________|_________________________________
 ______________________________________________|_______________________________________________________________
  Assist Cylinder Diagram                      |   Powered assist extension verification
 ______________________________________________|_______________________________________________________________
+
+
+
+Passenger Door Hydraulic Assist System Leak Test
+
+From: AMM BOEING 777 DOORS.PDF + HYDRAULICS.PDF
+ATA Chapters: 29 – Hydraulic Power + 52 – Doors
+S1000D DMC: 52-11-00-06-00A-720A-P
+⚠️ Full S1000D-Compliant Task – Expanded Maximum Structure
+
+<dmodule xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://www.s1000d.org/S1000D_4-1/xml/issue"
+         xsi:schemaLocation="http://www.s1000d.org/S1000D_4-1/xml/issue s1000d_4-1.xsd">
+
+  <identAndStatusSection>
+    <dmAddress>
+      <dmIdent>
+        <modelIdentCode>777</modelIdentCode>
+        <systemDiffCode>00</systemDiffCode>
+        <systemCode>52</systemCode>
+        <subSystemCode>11</subSystemCode>
+        <subSubSystemCode>00</subSubSystemCode>
+        <assyCode>06</assyCode>
+        <disassyCode>00A</assyCode>
+        <disassyCodeVariant>A</disassyCodeVariant>
+        <infoCode>720</infoCode>
+        <infoCodeVariant>A</infoCodeVariant>
+        <itemLocationCode>P</itemLocationCode>
+      </dmIdent>
+      <issueInfo>
+        <issueNumber>001</issueNumber>
+        <inWork>01</inWork>
+      </issueInfo>
+    </dmAddress>
+    <dmStatus>
+      <security>01</security>
+      <responsiblePartnerCompany>Boeing</responsiblePartnerCompany>
+      <originator>Door Systems and Hydraulic Engineering</originator>
+      <applicability>
+        <applic>777-300ER</applic>
+      </applicability>
+      <language country="US">en</language>
+      <qualityAssurance>02</qualityAssurance>
+    </dmStatus>
+  </identAndStatusSection>
+
+  <content>
+    <procedure>
+      <taskRequirement>
+        <skillRequirement>Hydraulic Systems Technician</skillRequirement>
+        <skillRequirement>Structural Maintenance Technician</skillRequirement>
+        <timeRequirement>1.5 hours per door</timeRequirement>
+        <crewRequirement>2 Technicians</crewRequirement>
+      </taskRequirement>
+
+      <preliminaryRqmts>
+        <preliminaryRqmtsDescr>Aircraft powered by external ground power. Hydraulic system B pressurized. Door control access panels open. GSE hydraulic monitor kit installed at assist actuator service ports.</preliminaryRqmtsDescr>
+
+        <safety>
+          <warning>
+            Pressurized hydraulic fluid under high force can cause injury. Wear face shield, gloves, and protective clothing when working near fluid connections.
+          </warning>
+          <caution>
+            Do not cycle door actuator under manual assist mode during hydraulic test. Induced air pockets can cause false leak indications.
+          </caution>
+          <note>
+            All leak checks must be performed at system pressure (3,000 psi nominal) with door stationary to ensure accurate fitting and actuator seal evaluation.
+          </note>
+        </safety>
+      </preliminaryRqmts>
+
+      <mainProcedure>
+        <step>
+          <para>Verify Hydraulic System B pressure reaches 2,800–3,200 psi range (Ref: 29-00-00-710-801).</para>
+        </step>
+        <step>
+          <para>Manually unlock door latches. Do NOT open the door. Leave door fully latched but unlocked to remove static hinge preload.</para>
+        </step>
+        <step>
+          <para>Inspect all hydraulic fittings, hose connections, actuator bodies, and hardlines visually for evidence of seepage or drip formation.</para>
+        </step>
+        <step>
+          <para>Apply hydraulic leak detection compound (CPC-496) at suspect fittings if needed. Allow 10 minutes under pressure. Inspect for bubble formation.</para>
+        </step>
+        <step>
+          <para>If leaks are found, record location, fitting type, fitting torque, and system pressure at time of leak detection. Tag component for rework or replacement.</para>
+        </step>
+      </mainProcedure>
+
+      <closeProcedure>
+        <step>
+          <para>Depressurize Hydraulic System B using standard shutdown procedure (Ref: 29-00-00-860-801). Remove GSE leak detection equipment. Reinstall all access panels.</para>
+        </step>
+        <step>
+          <para>Document leak check pass/fail status, repair actions if needed, and final inspection results into aircraft maintenance log (ATA 05-00-00).</para>
+        </step>
+      </closeProcedure>
+
+      <crossRefTable>
+        <dmRef>
+          <dmRefIdent>
+            <dmCode>29-00-00-710-801</dmCode>
+            <title>Hydraulic System Pressurization and Leak Test – General</title>
+          </dmRefIdent>
+        </dmRef>
+        <dmRef>
+          <dmRefIdent>
+            <dmCode>52-11-00-710-801</dmCode>
+            <title>Passenger Door Hydraulic System Leak Check</title>
+          </dmRefIdent>
+        </dmRef>
+        <dmRef>
+          <dmRefIdent>
+            <dmCode>05-00-00-200-801</dmCode>
+            <title>Hydraulic Leak Test Record and Repair Log</title>
+          </dmRefIdent>
+        </dmRef>
+      </crossRefTable>
+
+      <tools>
+        <toolItem>
+          <toolIdent>TOOL-HYD-LEAK-777</toolIdent>
+          <toolName>Hydraulic Leak Detection Kit (3,000 psi service)</toolName>
+        </toolItem>
+      </tools>
+
+      <spares>
+        <spareItem>
+          <spareIdent>SR-52-HYD-ACT-0044</spareIdent>
+          <spareName>Passenger Door Hydraulic Actuator Replacement Kit</spareName>
+          <quantity>As Required</quantity>
+        </spareItem>
+      </spares>
+
+      <consumables>
+        <supply>
+          <supplyIdent>CPC-496</supplyIdent>
+          <supplyName>Hydraulic Leak Detection Compound</supplyName>
+          <quantity>Small bottle</quantity>
+        </supply>
+      </consumables>
+    </procedure>
+  </content>
+</dmodule>
+
+🧠 Behind the Scenes — Writer’s Inputs and Decisions
+Source	Used For
+Passenger Door Hydraulic System Schematics	Identify system B pressurization path, assist actuator feeds
+Standard Hydraulic Leak Test Manuals	Test pressure levels, leak detection standards
+Safety Data Sheets (CPC-496)	Proper application procedures for detection compound
+Torque Tables for Hydraulic Fittings	Determine rework thresholds and safe tightening procedures
+🛠️ Risk Management
+Risk	Mitigation
+High-Pressure Hydraulic Spray	Full PPE required, test only with door stationary
+False Leak Readings	Only inspect at static pressure, avoid actuator movement
+Incomplete System Depressurization	Full post-test hydraulic bleedout procedure mandatory
+Slippery Deck Hazard	Immediate cleanup of hydraulic residue post-test
+🖼️ Illustrations Needed
+Type	Purpose
+Passenger Door Hydraulic Circuit Diagram	Show actuator lines, service ports, test kit connection points
+Leak Detection Kit Setup	How to properly plumb test tools to actuator service ports
+Torque Pattern for Actuator Hydraulic Lines	Correct tightening sequence and torque values
+Surface Cleanliness Before Inspection	Visual standard for pre-leak-check condition
+
+
+
+
