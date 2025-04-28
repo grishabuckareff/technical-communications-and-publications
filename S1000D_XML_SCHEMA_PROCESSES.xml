@@ -1,1 +1,192 @@
+Spoiler Actuator Stroke and Synchronization Test
 
+ATA Chapters: 27 – Flight Controls + 29 – Hydraulic Power
+S1000D DMC: 27-62-00-06-00A-720A-P
+
+This task is performed:
+
+    - After spoiler actuator R&R (due to leakage, jamming, incorrect null position)
+
+    - After hydraulic system maintenance affecting spoiler servo circuits
+
+    - Following flight control rigging adjustments
+
+    - During scheduled MPD flight control checks
+
+
+S1000D-Compliant Task
+
+<dmodule xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://www.s1000d.org/S1000D_4-1/xml/issue"
+         xsi:schemaLocation="http://www.s1000d.org/S1000D_4-1/xml/issue s1000d_4-1.xsd">
+
+  <identAndStatusSection>
+    <dmAddress>
+      <dmIdent>
+        <modelIdentCode></modelIdentCode>
+        <systemDiffCode>00</systemDiffCode>
+        <systemCode>27</systemCode>
+        <subSystemCode>62</subSystemCode>
+        <subSubSystemCode>00</subSubSystemCode>
+        <assyCode>06</assyCode>
+        <disassyCode>00A</disassyCode>
+        <disassyCodeVariant>A</disassyCodeVariant>
+        <infoCode>720</infoCode>
+        <infoCodeVariant>A</infoCodeVariant>
+        <itemLocationCode>P</itemLocationCode>
+      </dmIdent>
+      <issueInfo>
+        <issueNumber>001</issueNumber>
+        <inWork>01</inWork>
+      </issueInfo>
+    </dmAddress>
+    <dmStatus>
+      <security>01</security>
+      <responsiblePartnerCompany></responsiblePartnerCompany>
+      <originator>Flight Control Systems Engineering</originator>
+      <applicability>
+        <applic></applic>
+      </applicability>
+      <language country="US">en</language>
+      <qualityAssurance></qualityAssurance>
+    </dmStatus>
+  </identAndStatusSection>
+
+  <content>
+    <procedure>
+      <taskRequirement>
+        <skillRequirement>Airframe and Powerplant Mechanic</skillRequirement>
+        <skillRequirement>Flight Controls Specialist</skillRequirement>
+        <timeRequirement>2.5 hours</timeRequirement>
+        <crewRequirement>2 Technicians (one hydraulic operator, one surface observer)</crewRequirement>
+      </taskRequirement>
+
+      <preliminaryRqmts>
+        <preliminaryRqmtsDescr>Aircraft hydraulic systems A, B, and C pressurized and stable. Flight Control Mode Selectors in TEST. Spoiler Control Units (SCU) BIT clear. Access spoiler actuator locations per AMM 27-62-00 ZONES 121, 122, 123.</preliminaryRqmtsDescr>
+
+        <safety>
+          <warning>
+            Ensure all ground locks installed. Spoiler panels may deploy rapidly and without warning under BIT test.
+          </warning>
+          <caution>
+            Bleed air pressure must be isolated. Accidental thrust reverser stow/extend commands during spoiler test can cause actuator damage.
+          </caution>
+          <note>
+            Spoiler actuator null centering is validated relative to SCU command voltage bias ±5% at neutral.
+          </note>
+        </safety>
+      </preliminaryRqmts>
+
+      <mainProcedure>
+        <step>
+          <para>Connect CMS maintenance terminal. Select FLIGHT CONTROLS – SURFACE POSITION MONITOR screen (Ref: AMM 45-00-00-860-801).</para>
+        </step>
+        <step>
+          <para>Command each spoiler actuator individually to FULL UP and FULL DOWN using CMS override commands.</para>
+        </step>
+        <step>
+          <para>Measure actuator stroke length manually using calibrated linear gauge (Ref: TOOL-SR-777-LIN). Compare extension to AMM limits:  
+            - Inboard spoilers: 14.000 ± 0.050 in  
+            - Midboard spoilers: 13.750 ± 0.060 in  
+            - Outboard spoilers: 13.500 ± 0.070 in
+          </para>
+        </step>
+        <step>
+          <para>Cycle each spoiler panel through three full stroke motions. Monitor CMS feedback for synchronization errors between redundant SCU channels (< 1% deviation allowed).</para>
+        </step>
+        <step>
+          <para>Record actuator extension data. Identify any units that exceed allowable mismatch threshold (> 0.100 in deviation between symmetrical spoilers).</para>
+        </step>
+      </mainProcedure>
+
+      <closeProcedure>
+        <step>
+          <para>Return Flight Control Mode Selector to NORMAL. Remove hydraulic locks and access equipment. Close actuator bay access panels. Clear CMS maintenance mode flags.</para>
+        </step>
+        <step>
+          <para>Document stroke results, synchronization delta, and CMS feedback in aircraft maintenance control log (ATA 05-00-00).</para>
+        </step>
+      </closeProcedure>
+
+      <crossRefTable>
+        <dmRef>
+          <dmRefIdent>
+            <dmCode>27-62-00-710-801</dmCode>
+            <title>Spoiler Panel Actuator Functional Test</title>
+          </dmRefIdent>
+        </dmRef>
+        <dmRef>
+          <dmRefIdent>
+            <dmCode>45-00-00-860-801</dmCode>
+            <title>CMS Surface Monitor and Control</title>
+          </dmRefIdent>
+        </dmRef>
+        <dmRef>
+          <dmRefIdent>
+            <dmCode>20-50-00-910-801</dmCode>
+            <title>Torque and Fastening Standards</title>
+          </dmRefIdent>
+        </dmRef>
+        <dmRef>
+          <dmRefIdent>
+            <dmCode>05-00-00-200-801</dmCode>
+            <title>Flight Control Surface Activity Record</title>
+          </dmRefIdent>
+        </dmRef>
+      </crossRefTable>
+
+      <tools>
+        <toolItem>
+          <toolIdent>TOOL-SR-777-LIN</toolIdent>
+          <toolName>Linear Actuator Stroke Measuring Gauge</toolName>
+        </toolItem>
+        <toolItem>
+          <toolIdent>CMS Maintenance Terminal</toolIdent>
+          <toolName>Flight Control Override and Monitoring Computer</toolName>
+        </toolItem>
+      </tools>
+
+      <spares>
+        <spareItem>
+          <spareIdent>SR-27-SPR-0077</spareIdent>
+          <spareName>Spoiler Actuator Replacement Kit</spareName>
+          <quantity>As Required</quantity>
+        </spareItem>
+      </spares>
+
+      <consumables>
+        <supply>
+          <supplyIdent>CPC-474</supplyIdent>
+          <supplyName>Approved Hydraulic Cleaner</supplyName>
+          <quantity>Small container</quantity>
+        </supply>
+      </consumables>
+    </procedure>
+  </content>
+</dmodule>
+
+
+Behind the Scenes — Writer's Inputs and Decisions
+
+Input	Source
+Spoiler Actuator CMMs	Defines mechanical stop-to-stop stroke tolerances
+Flight Control Computer Logic Maps	Defines allowable SCU synchronization deviations
+Maintenance Control Systems (CMS)	For override command injection and feedback interpretation
+Calibration Manual	For stroke gauge accuracy and acceptable measurement tolerance
+Actuator Installation Manuals	Ensure safe torque application on any removed/reinstalled actuator hardware
+
+Key Technical Risks and Authoring Controls
+
+Risk	Mitigation
+Inaccurate Stroke Readings	Use certified calibrated tools, exact procedure steps
+Desynchronization Between SCU Channels	CMS limit comparison (< 1% deviation)
+Actuator Housing Stress	Prevent overextension or incorrect manual movement
+Access Panel Security After Test	Re-torque screws per AMM 20-50-00 spec
+
+  
+Illustrations Typically Needed for This Task
+Type	Purpose
+Spoiler Actuator Layout Diagram	Identify inboard/midboard/outboard actuator locations
+Stroke Measurement Setup	Calibrated gauge setup to actuator
+CMS Interface Screen	Showing override and monitoring page fields
+Spoiler Synchronization Chart	Graphical allowable deviation curve
