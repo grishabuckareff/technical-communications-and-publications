@@ -18,7 +18,7 @@ This task involves:
     - Aircraft configuration, brake release, and post-installation system bleed
 
 
-S1000D-Compliant Task (Including CAUTION, WARNING, NOTE)
+S1000D-Compliant Task
 
 <dmodule xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xmlns="http://www.s1000d.org/S1000D_4-1/xml/issue"
@@ -197,7 +197,7 @@ This task is heavy on:
     Specialized hoist and restraint gear
 
 
-S1000D-Compliant Task (Including CAUTION, WARNING, NOTE)
+S1000D-Compliant Task
 
 <dmodule xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xmlns="http://www.s1000d.org/S1000D_4-1/xml/issue"
