@@ -1,3 +1,6 @@
+These MBSE-aligned CFG logic tree examples can be much further extended.
+
+
 L0: COMPLETE AIRCRAFT SYSTEM
 
 START → Initialize System State (Cold/Dark or Ground Power)
