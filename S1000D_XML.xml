@@ -100,7 +100,7 @@ Example 4 – Escaped XML using entities
   </verbatimText>
 </para>
 
-📘 Explanation:
+Explanation:
 
     Same as example 3, but using entity escapes (&lt;, &gt;, &amp;) instead of CDATA.
 
