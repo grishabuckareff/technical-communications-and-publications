@@ -2,7 +2,9 @@ This compilation of AMM process examples is currently in progress and is not com
 The goal is to be relatively comprehensive with the examples over time, in order to encompass, 
 in a general sense, the overarching structure of a complete AMM.
 The future may also hold an extension to CMM, WDM, SRM, SSM, SWPM, etc.
-
+There are also schema extensions possible with more S1000D elements present.
+I am not workign with a specific set of BREX rules at the moment, 
+so I do not have strict parameters to work with, with respect to the elements present in schema examples.
 
 Spoiler Actuator Stroke and Synchronization Test
 
