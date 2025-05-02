@@ -8867,11 +8867,17 @@ establish a connection between data module text and figures. Figures must be loc
 context where it is most convenient to the reader. If it is cross-referenced only once, the
 location is immediately after the paragraph, or major element, in which the reference occurred.
 
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 2 Figures, multimedia and foldouts
 
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 2.1 General
+
 The element group for figures, multimedia and foldouts also contains the alternates for figures
 and multimedia.
+
 Child elements:
 - <figure>. Refer to Para 2.2.1.
 - <figureAlts>. Refer to Para 2.2.2.
@@ -8880,34 +8886,46 @@ Child elements:
 - <foldout>. Refer to Para 2.4.
 - <table>. Refer to Chap 3.9.5.2.1.6.
 
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  
 2.2 Figure and figure alternates
 
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+                                                                   
 2.2.1 Figure
 Description: This element contains the figure. The figure consists of a title and one or more
-illustrations sheets, using the element <graphic>, and a figure title. It can also contain a
-legend.
+illustrations sheets, using the element <graphic>, and a figure title. It can also contain a legend.
+
 For specific rules and guidance for the preparation of illustrations, refer to Chap 3.9.2.
 In all cases, figures must be placed as near as possible to, and preferably immediately
 following, the related text.
+
 Figure titles must be written in sentence case and must not have a period [.] at the end.
 Figure titles must not exceed two lines.
+
 Note
-For paper based publications and documents, which are produced from data modules, the
-placement of the figure is given in the data module. There must be no manual attempt to
-move the figure to another page due to an automatic page break.
+  For paper based publications and documents, which are produced from data modules, the
+  placement of the figure is given in the data module. There must be no manual attempt to
+  move the figure to another page due to an automatic page break.
+
 An ICN is used to control the production and management of the illustration. This ICN is used
-within the data module to identify the associated graphic as described below. Refer to
-Chap 4.4.
+within the data module to identify the associated graphic as described below. Refer to Chap 4.4.
+
 Where appropriate, figures can be divided over a number of illustration sheets. This is achieved
 using multiple occurrences of the element <graphic> within the element <figure>.
+
+
 Markup element: <figure>
+
 Attributes:
 - applicRefId (O), the applicability information by referencing the element 
 <applic>. Refer to Chap 3.9.5.3.
 - id (O), the identifier of the markup element. Refer to Chap 3.9.5.2.1.2.
-Note
-When cross referring to an illustration or graphic in a data module, use this attribute id of
-the element <figure>, and not the attribute id of the element <graphic>.
+
+  Note
+    When cross referring to an illustration or graphic in a data module, use this attribute id of
+    the element <figure>, and not the attribute id of the element <graphic>.
+
 - changeType (O), changeMark (O) and reasonForUpdateRefIds (O), the
 change indications. Refer to Chap 3.9.5.2.1.1.
 - controlAuthorityRefs (O), the control authority information by referencing the
@@ -8915,14 +8933,19 @@ element <controlAuthority>. Refer to Chap 3.9.5.1.
 - securityClassification (O), commercialClassification (O), 
 caveat (O) and derivativeClassificationRefId (O), the security and
 restrictive marking. Refer to Chap 3.6.
+
 Child elements:
 - <title>. Refer to Chap 3.9.5.2.1.5.
 - <graphic>. Refer to Para 2.2.1.1.
-- <legend>, used to contain the legend information related to the figure. Refer to
-Para 2.2.1.2.
+- <legend>, used to contain the legend information related to the figure. Refer to Para 2.2.1.2.
 
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+                                            
 2.2.1.1 Graphic
+
 Description: The element contains the external entity reference to the illustration file.
+
+  
 Markup element: <graphic>
 Attributes:
 - applicRefId (O), the applicability information by referencing the element 
