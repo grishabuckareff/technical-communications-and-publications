@@ -8951,14 +8951,16 @@ Attributes:
 - applicRefId (O), the applicability information by referencing the element 
 <applic>. Refer to Chap 3.9.5.3.
 - id (O), the identifier of the markup element. Refer to Chap 3.9.5.2.1.2.
-Note
-An example value for the attribute id, when using the element <graphic>
-specifically for multiple sheets, is given in Chap 3.9.5.2.1.2 ("fig-NNNN-gra￾NNNN", where NNNN gives a unique figure and sheet number within the data module).
-- changeType (O), changeMark (O) and reasonForUpdateRefIds (O), the
-change indications. Refer to Chap 3.9.5.2.1.1.
+
+  Note
+    An example value for the attribute id, when using the element <graphic>
+    specifically for multiple sheets, is given in Chap 3.9.5.2.1.2 
+    ("fig-NNNN-gra￾NNNN", where NNNN gives a unique figure and sheet number within the data module).
+
+- changeType (O), changeMark (O) and reasonForUpdateRefIds (O), 
+the change indications. Refer to Chap 3.9.5.2.1.1.
 - infoEntityIdent (M), the link to the external entity declaration, which points to the
-illustration file. The population of this attribute must include the complete ICN with the
-prefix "ICN-".
+illustration file. The population of this attribute must include the complete ICN with the prefix "ICN-".
 - reproductionWidth (O), used to indicate the presentation width to the presentation
 system. The width measurement is of the form number and unit (eg, 25pt, 25mm, 16.2in).
 The units are case sensitive and can be "pt" (points 1/72”), "cm" (centimeters), "mm"
@@ -8975,69 +8977,2441 @@ element <controlAuthority>. Refer to Chap 3.9.5.1 .
 - securityClassification (O), commercialClassification (O), 
 caveat (O) and derivativeClassificationRefId (O), the security and
 restrictive marking. Refer to Chap 3.6.
+
 Note
-The element also includes five attributes normally populated by applications to make the
-use of W3C XLink mechanism. Refer to Chap 7.7.4.
+  The element also includes five attributes normally populated by applications to 
+  make the use of W3C XLink mechanism. Refer to Chap 7.7.4.
+
 Child elements:
 - <hotspot>, used for hot spotting. Refer to Chap 3.9.5.2.1.8.
 - <reasonForAmendment>, used to contain the reason for amendment information.
 Refer to Chap 3.9.5.2.1.1.
 
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  
 2.2.1.2 Legend
+
 Description: The element <legend> contains the legend or explanatory list. The entries in
 the legend must be exactly as the items are presented in the text (eg, if the legend says "Bolt"
-any text paragraph referencing this item should be "Bolt" or "bolt" if it is in a middle of a
-sentence).
+any text paragraph referencing this item should be "Bolt" or "bolt" if it is in a middle of a sentence).
+
 Note
-In the case of multi-sheet illustrations, only one legend is permitted.
+  In the case of multi-sheet illustrations, only one legend is permitted.
+
+
 Markup element: <legend>
+
 Attributes:
 - id (O), the identifier of the markup element. Refer to Chap 3.9.5.2.1.2.
-- changeType (O), changeMark (O) and reasonForUpdateRefIds (O), the
-change indications. Refer to Chap 3.9.5.2.1.1.
-- controlAuthorityRefs (O), the control authority information by referencing the
-element <controlAuthority>. Refer to Chap 3.9.5.1 .
+- changeType (O), changeMark (O) and reasonForUpdateRefIds (O), 
+the change indications. Refer to Chap 3.9.5.2.1.1.
+- controlAuthorityRefs (O), the control authority information by referencing 
+the element <controlAuthority>. Refer to Chap 3.9.5.1 .
 - securityClassification (O), commercialClassification (O), 
-caveat (O) and derivativeClassificationRefId (O), the security and
-restrictive marking. Refer to Chap 3.6.
+caveat (O) and derivativeClassificationRefId (O), 
+the security and restrictive marking. Refer to Chap 3.6.
+
 Child elements:
 - <definitionList>. Refer to Chap 3.9.5.2.1.3.
 Business rule decision point BRDP-S1-00128 - Types of legends:
 – Decide on the strategy for legends, if used. Legends can appear as part of the illustration
-or as text using the element <legend>. The advantage of making the legend part of the
-text is that:
-• the same illustration can have different legends wherever it appears (eg, in multi￾language projects)
-• the text of the element <legend> can be searched (this might not be the case if the
-legend is part of the illustration)
-• items in the illustration can be linked to the legend by the use of hotspots
-• the legend in the text can save space on the illustration (particularly when the legends
-are long)
+or as text using the element <legend>. The advantage of making the legend part of the text is that:
+  • the same illustration can have different legends wherever it appears (eg, in multi￾language projects)
+  • the text of the element <legend> can be searched (this might not be the case 
+    if the legend is part of the illustration)
+  • items in the illustration can be linked to the legend by the use of hotspots
+  • the legend in the text can save space on the illustration (particularly when the legends are long)
 
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+    
 2.2.2 Figure alternates
+  
 Description: The element <figureAlts> is an alternate group that provides the capability
 to group several alternatives to a figure. Refer to Chap 4.13.3 for information related to the use
 of alternates group in data module content.
+
+  
 Markup element: <figureAlts>
+
+Attributes:
+- id (O), the identifier of the markup element. Refer to Chap 3.9.5.2.1.2.
+- changeType (O), changeMark (O) and reasonForUpdateRefIds (O), 
+the change indications. Refer to Chap 3.9.5.2.1.1.
+- controlAuthorityRefs (O), the control authority information by referencing 
+the element <controlAuthority>. Refer to Chap 3.9.5.1 .
+- securityClassification (O), commercialClassification (O), 
+caveat (O) and derivativeClassificationRefId (O), the security 
+and restrictive marking. Refer to Chap 3.6.
+
+Child elements:
+- <figure>. Refer to Para 2.2.1.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.3 Multimedia and multimedia alternates
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.3.1 Multimedia
+
+Description: The element <multimedia> contains the multimedia content, 
+which is used for marking up all multimedia content.
+
+  
+Markup element: <multimedia>
+
+Attributes:
+- applicRefId (O), the applicability information by referencing the element 
+<applic>. Refer to Chap 3.9.5.3.
+- id (O), the identifier of the markup element. Refer to Chap 3.9.5.2.1.2.
+- changeType (O), changeMark (O) and reasonForUpdateRefIds (O), 
+the change indications. Refer to Chap 3.9.5.2.1.1.
+- controlAuthorityRefs (O), the control authority information by 
+referencing the element <controlAuthority>. Refer to Chap 3.9.5.1.
+- securityClassification (O), commercialClassification (O), 
+caveat (O) and derivativeClassificationRefId (O), the security and
+restrictive marking. Refer to Chap 3.6.
+
+Child elements:
+- <title>. Refer to Chap 3.9.5.2.1.5.
+- <multimediaObject>. Refer to Para 2.3.2.1.
+
+Business rule decision point BRDP-S1-00129 - Suitability of multimedia use:
+– Decide whether using multimedia is suitable for the environment in which the project will operate.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.3.2 Multimedia alternates
+
+The element <multimediaAlts> contains the element <multimedia>. Refer to Para 2.3.1.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.3.2.1 Multimedia object
+
+Description: The element <multimediaObject>, which contains parameter details 
+of the multimedia objects.
+
+  
+Markup element: <multimediaObject>
+
+Attributes:
+- applicRefId (O), the applicability information by referencing the element 
+<applic>. Refer to Chap 3.9.5.3.
+- id (O), the identifier of the markup element. Refer to Chap 3.9.5.2.1.2.
+- changeType (O), changeMark (O) and reasonForUpdateRefIds (O), 
+the change indications. Refer to Chap 3.9.5.2.1.1.
+- autoPlay (O), defines whether the object is automatically played on load or not 
+(ie, wait for user interaction). The attribute can have one of the following values:
+  • "0" - No, the object will not automatically play on load
+  • "1" - Yes, the object will automatically play on load
+- fullScreen (O), used to determine if the object will be viewed/played in full screen
+mode. This attribute can have one of the following values:
+  • "0" - No, the object will not be viewed/played in full screen mode
+  • "1" - Yes, the object will be viewed/played in full screen mode
+- infoEntityIdent (M), a unique control number used to declare the entity name.
+- multimediaObjectHeight (O), defines the display height of the object at run time
+if not full screen.
+- multimediaObjectWidth (O), defines the display width of the object at run time if not full screen.
+- multimediaType (M), used to denote the type of multimedia (eg, video, audio). 
+The attribute can have one of the following values:
+  • "3D" - to declare the multimedia object type as 3D
+  • "audio" - to declare the multimedia object type as audio
+  • "video" - to declare the multimedia object type as video
+  • "other" - to declare the multimedia object type other than those defined above
+- runTimeDuration (O), defines the objects run time (this can be necessary for text 
+to sound synchronization, common in e-learning).
+- showPluginControls (O), used to hide or show the third-party software plug-in
+controls. The attribute can have one of the following values:
+  • "hide" - to hide the plug-in controls
+  • "show" - to show the plug-in controls
+- controlAuthorityRefs (O), the control authority information by referencing 
+the element <controlAuthority>. Refer to Chap 3.9.5.1 .
+- securityClassification (O), commercialClassification (O), 
+caveat (O) and derivativeClassificationRefId (O), the security 
+and restrictive marking. Refer to Chap 3.6.
+
+Note
+  The element also includes five attributes normally populated by applications to 
+  make the use of W3C XLink mechanism. Refer to Chap 7.7.4.
+
+Child elements:
+- <parameter>. Refer to Chap 3.9.5.2.1.8.
+- <reasonForAmendment>. Refer to Chap 3.9.5.2.1.1.
+
+Business rule decision point BRDP-S1-00130 - Permitted types of multimedia:
+– Decide what types of multimedia objects are permitted.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.4 Foldouts
+
+Description: The element <foldout> is used to contain a figure, 
+or table which is larger than the default size.
+
+Note
+  Use of foldouts for tables is to be avoided.
+
+
+Markup element: <foldout>
+
+Attributes:
+- None
+
+Child elements:
+- <figure>. Refer to Para 2.1.
+- <figureAlts>. Refer to Para 2.2.2.
+- <table>. Refer to Chap 3.9.5.2.1.6.
+
+Business rule decision point BRDP-S1-00131 - Use of foldouts:
+– Decide whether to use the element <foldout> and, if used, where its use is allowed
+(eg, within specific information sets).
+
+Note
+  It is only used for page-oriented publications, as it will not have an effect 
+  in the screen view of an IETP.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  
+3 Examples
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+3.1 Single illustration
+
+The following example shows the markup for a data module that contains a single CGM
+illustration using the complete ICN in the attribute infoEntityIdent.
+
+<!DOCTYPE dmodule [
+<!ENTITY ICN-S1000DBIKE-AAA-D000000-0-U8025-00536-A-04-1 SYSTEM
+"../../../illustrations/ICN-S1000DBIKE-AAA-D000000-0-U8025-00536-A-04-1.CGM" NDATA cgm>]>
+...
+<figure id="fig-0001">
+  <title>Complete bicycle</title>
+  <graphic infoEntityIdent="ICN-S1000DBIKE-AAA-D000000-0-U8025-00536-A-04-1"></graphic>
+</figure>
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+3.2 Multiple illustrations
+
+The following example shows the markup for a multiple illustration sheet figure:
+
+<figure id="fig-0001">
+  <title>LP compressor - Removal</title>
+  <graphic id="fig-0001-gra-0001" infoEntityIdent="ICN-E2-A-723200-R-K0378-00232-A-01-1"></graphic>
+  <graphic id="fig-0001-gra-0002" infoEntityIdent="ICN-E2-A-723200-R-K0378-00233-A-01-1"></graphic>
+</figure>
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  
+3.3 Alternate illustration
+
+The following example shows the markup for an alternate illustration:
+
+<figureAlts id="fig-0001">
+  <figure id="fig-0002">
+    <title>LP compressor - Removal</title>
+    <graphic id="fig-0001-gra-0001" infoEntityIdent="ICN-E2-A-723200-R-K0378-00232-A-01-1"></graphic>
+    <graphic id="fig-0001-gra-0002" infoEntityIdent="ICN-E2-A-723200-R-K0378-00233-A-01-1"></graphic>
+  </figure>
+</figureAlts>
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+3.4 Legend
+
+The following example shows the markup for a legend:
+
+<figure id="fig-0001">
+  <title>LP compressor - Removal</title>
+  <graphic id="fig-0001-gra-0001" infoEntityIdent="ICN-E2-A-723200-R-K0378-00232-A-01-1"></graphic>
+  <graphic id="fig-0001-gra-0002" infoEntityIdent="ICN-E2-A-723200-R-K0378-00233-A-01-1"></graphic>
+  <legend>
+    <definitionList>
+      <title>Legend for 
+        <internalRef internalRefId="fig-0001"></internalRef>
+      </title>
+      <definitionListItem>
+        <listItemTerm>1</listItemTerm>
+        <listItemDefinition>
+          <para>Display</para>
+        </listItemDefinition>
+      </definitionListItem>
+      <definitionListItem>
+        <listItemTerm>2</listItemTerm>
+        <listItemDefinition>
+          <para>Button</para>
+        </listItemDefinition>
+      </definitionListItem>
+      <definitionListItem>
+        <listItemTerm>3</listItemTerm>
+        <listItemDefinition>
+          <para>Widget</para>
+        </listItemDefinition>
+      </definitionListItem>
+      <definitionListItem>
+        <listItemTerm>4</listItemTerm>
+        <listItemDefinition>
+          <para>Adaptor</para>
+        </listItemDefinition>
+      </definitionListItem>
+      ...
+      <definitionListItem>
+        <listItemTerm>102</listItemTerm>
+        <listItemDefinition>
+          <para>Retainer</para>
+        </listItemDefinition>
+      </definitionListItem>
+    </definitionList>
+  </legend>
+</figure>
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+3.5 Multimedia
+
+The multimedia element can be inserted into the data module at the same locations as a figure,
+foldout or table. An example of the inserted markup is as follows:
+
+<multimedia id="mul-0001">
+  <multimediaObject autoPlay="0" infoEntityIdent="ICN-S1000DBIKE￾AAA-D000000-0-SF518-00538-A-001-01" multimediaType="3D"
+  showPluginControls="hide" fullScreen="0" multimediaObjectHeight="300" multimediaObjectWidth="300"></multimediaObject>
+</multimedia>
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+To refer to an object inside the multimedia object the author must use the standard cross￾reference element <internalRef>. 
+To enable this cross-referencing, additional values "multimedia", "multimediaObject" and "param" have been added to the attribute
+type within the element <internalRef>.
+  
+An example of the markup for the cross-reference is as follows:
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+3.5 Multimedia
+
+The multimedia element can be inserted into the data module at the same locations as a figure,
+foldout or table. An example of the inserted markup is as follows:
+
+<multimedia id="mul-0001">
+  <multimediaObject autoPlay="0" infoEntityIdent="ICN-S1000DBIKE￾AAA-D000000-0-SF518-00538-A-001-01" multimediaType="3D"
+  showPluginControls="hide" fullScreen="0" multimediaObjectHeight="300" multimediaObjectWidth="300"></multimediaObject>
+</multimedia>
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+To refer to an object inside the multimedia object, the author must use the standard cross-reference element <internalRef>. To enable this cross-referencing, additional values
+"multimedia", "multimediaObject" and "param" have been added to the attribute type within the element <internalRef>.
+An example of the markup for the cross-reference is as follows:
+
+<internalRef internalRefTargetType="irtt12" internalRefId="prm-0001"></internalRef>
+
+The cross reference is linked by the element <multimediaObject> which lists the
+accessible objects in the multimedia object. An example of this markup is as follows:
+
+<multimedia>
+  <multimediaObject autoPlay="0" infoEntityIdent="ICN-S1000DBIKE￾AAA-D000000-0-SF518-00538-A-001-01" multimediaType="3D"
+  showPluginControls="hide" fullScreen="0" multimediaObjectHeight="300" multimediaObjectWidth="300">
+    <parameter id="prm-0001" parameterIdent="param001" parameterName="cable"/>
+  </multimediaObject>
+  <multimediaObject autoPlay="0" infoEntityIdent="ICN-S1000DBIKE￾AAA-D000000-0-SF518-00538-A-001-01" multimediaType="3D"
+  showPluginControls="hide" fullScreen="0" multimediaObjectHeight="300" multimediaObjectWidth="300">
+    <parameter id="prm-0002" parameterIdent="param002" parameterName="lever"/>
+  </multimediaObject>
+  <multimediaObject autoPlay="0" infoEntityIdent="ICN-S1000DBIKE￾AAA-D000000-0-SF518-00538-A-001-01" multimediaType="3D"
+  showPluginControls="hide" fullScreen="0" multimediaObjectHeight="300" multimediaObjectWidth="300">
+    <parameter id="prm-0003" parameterIdent="param003" parameterName="guide"/>
+  </multimediaObject>
+</multimedia>
+
+In the example above, referencing the element <parameter> by its attribute id will
+highlight the object in the multimedia object that is identified through the value "param001" 
+of the attribute parameterIdent and the value "cable" of the attribute 
+parameterName of the element <parameter>. For details on the element 
+<parameter>, refer to Chap 3.9.5.2.1.8.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  
+3.6 Foldout
+
+The following example shows the markup for a foldout illustration:
+
+<foldout>
+  <figure id="fig-0001">
+    <title>LP compressor - Removal</title>
+    <graphic infoEntityIdent="ICN-E2-A-723200-R-K0378-00232-A-01-1"></graphic>
+    <graphic infoEntityIdent="ICN-E2-A-723200-R-K0378-00233-A-01-1"></graphic>
+  </figure>
+</foldout>
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Chapter 3.9.5.2.1.8
+Common constructs - Hotspots
+
+S1000D-A-40-50-0000-00K-024C-D
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+1 General
+
+The definition and the use of graphical hotspots including the use of multimedia parameters
+from an author's point of view is given here. The available elements and attributes, and how to
+use them to establish a connection between the data module text and objects within multimedia
+content is given in detail. S1000D does not mandate specific multimedia formats. 
+
+It is up to the project or organization to specify which formats are to be used.
+Information and guidance on how to prepare graphics for hyperlinking and navigation, is given in Chap 7.3.2.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  
+2 Content
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.1 Relationship to graphics specifications
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.1.1 Relationship to CGM V4
+
+The content model of an S1000D CGM version 4 ISO/IEC 8632:1999. Application Structure
+(APS) can be described as a recursive definition of a CGM APS parameter type with value <grobject>.
+
+Note
+  All attributes of the CGM APS type value <grobject> correspond to CGM APS
+  attributes, except the CGM APS parameter apsid, which corresponds to the application
+  structure identifier of the CGM APS itself. Refer to Chap 7.3.2.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.1.2 Relationship to SVG V1.1
+  
+The content model of an S1000D Scalable Vector Graphics (SVG) 1.1 (20110816). Application
+Structure uses SVG custom attributes "data-apsid" and "data-apsname" to indicate a hotspot
+area in the SVG illustration.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.2 Relationship to multimedia content
+
+The content model of an S1000D multimedia object or scene is dependent on the format of that
+object or scene. It is therefore not possible to describe the internal id mechanism of each
+multimedia type. Projects and organizations must ensure that the internal id mechanism for the
+specified format is clearly defined in the business rules.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.3 Hotspot
+
+Description: The element <hotspot> contains the definition of graphical regions in an
+illustration. It also contains information needed to navigate between graphical objects or
+between graphical objects and text. For the use of the element <hotspot> in the context of
+a learning assessment, refer to Chap 3.9.5.2.13.5.
+
+
+Markup element: <hotspot>
+
+Attributes:
+- applicRefId (O), the applicability information by referencing the element 
+<applic>. Refer to Chap 3.9.5.3.
+- id (O), the identifier of the markup element. Refer to Chap 3.9.5.2.1.2.
+- changeMark (O), changeType (O), and reasonForUpdateRefIds (O), the
+change indications. Refer to Chap 3.9.5.2.1.1.
+- controlAuthorityRefs (O), the control authority information by referencing 
+the element <controlAuthority>. Refer to Chap 3.9.5.1.
+- applicationStructureIdent (O), the relationship between the hotspot and the
+graphical object in the illustration, associated with the CGM APS parameter apsid
+- applicationStructureName (O), the alternate relationship between the hotspot
+and the graphical object in the illustration, associated with the CGM or SVG group APS attribute name
+- hotspotType (O), the classification of a graphical object. Example values are "callout" or "detail".
+- hotspotTitle (O), the context dependent human-readable label, such as a tool tip,
+that is displayed when the cursor passes over a graphical object
+- objectDescr (O), the more detailed description of a graphical object
+- objectCoordinates (O), the coordinates of the overlay region as a closed polygon,
+separated by commas in the form "x1, y1,...,xn, yn", where each (x,y)-pair defines a vertex
+point of the closed region in absolute pixel coordinates. The coordinate system has its
+origin (0,0) at the top/left corner of the raster image with the x-axis pointing to the right 
+and the y-axis pointing down.
+
+Note
+  The word "closed" means that the last vertex point equals to the first one. 
+  Thus, a rectangular region is defined by five coordinate pairs. The attribute 
+  objectCoordinates is only needed for defining externally sensible regions
+  applicable to raster graphics that are not embedded in CGM graphics.
+
+- visibility (O), controls how the graphical region is presented. It is set to the value
+"hidden" to turn off any graphical region that is not to be displayed for the current use 
+of a graphic. Otherwise the value "visible" is assumed, which means that the graphical region will be displayed.
+
+Note
+  The attribute visibility of the element <grobject> in the graphics
+  companion file has three allowable values:
+
+  - "on" - the graphical region can be selected to be visible
+  - "off" - the graphical region cannot be selected to be visible
+  - "inherit" - the values "on" and "off" are inherited from the attribute 
+  pictureVisibility of the element <webcgm> in the graphics companion file, ie, "on" or "off"
+
+  The combination of the values for the attribute visibility of the element 
+  <hotspot> and the values for the attribute visibility of the element 
+  <grobject> provides the function of whether a graphical region can be selected
+  for display or not. This combination has three allowable definitions:
+
+    - visible, not selectable, meaning one of the following:
+    Do not define in a hotspot (do nothing).
+    Define a hotspot without any internal references, data module references, 
+    or CSN references.
+    Define a hotspot without any internal references, data module references, or CSN
+    references and set the value of the attribute visibility to "visible".
+    - visible, selectable, meaning one of the following:
+    Define a hotspot with at least one internal reference, data module reference, 
+    or CSN reference.
+    Define a hotspot with at least one internal reference, data module reference, 
+    or CSN reference and set the value of the attribute visibility to "visible".
+    - not visible, not selectable, meaning:
+    Define a hotspot with no internal reference, data module reference, or CSN
+    reference and set the value of the attribute visibility to "hidden".
+
+Note
+  The use of the definition, not visible, selectable, is disallowed.
+
+- securityClassification (O), commercialClassification (O), and 
+caveat (O) and derivativeClassificationRefId (O), the security and
+restrictive marking. Refer to Chap 3.6.
+
+Child elements:
+- <hotspot>. Refer to Para 2.2.
+- <internalRef>. Internal references must be populated in accordance with
+Chap 3.9.5.2.1.2. Refer to default BREX rule BREX-S1-00060.
+- <dmRef>. Data module references must be populated in accordance with Chap 3.9.5.2.1.2.
+- <catalogSeqNumberRef>. CSN references must be populated in accordance with Chap 3.9.5.2.7.
+
+Business rule decision point BRDP-S1-00132 - Use of hotspots:
+– Decide whether and how to use hotspots as follows:
+  • If hotspots are to be used, decide whether hotspots can be used to link to graphical
+  objects from local text.
+  • If hotspots are to be used, decide whether hotspots can be used to link from graphical
+  objects to other graphical objects or local text.
+  • If hotspots are to be used, decide whether hotspots can be used to link from graphical
+  objects to other data modules.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.4 Links to/from graphical objects
+
+Graphical objects can be linked with text, other graphics or graphical objects, other data
+modules, and parts data in several ways. Links can originate from other objects referring to a
+graphical object. Links can also originate from graphical objects referring to other objects within
+the same data module (local), other data modules, or parts data.
+
+If several links exist from the same object then the possible link destinations must be presented
+as a choice menu to the user when activating the object, for example, by clicking on it.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.4.1 Links to graphical objects originating from local text
+
+Graphical objects are addressed from within data module text by the use of the element 
+<internalRef>. The content model of the element <internalRef> is described in Chap 3.9.5.2.1.2.
+
+Note
+  In order to allow more flexibility for the element <internalRef> in data module text, it
+  can have textual content including subscripts and superscripts to highlight link anchors to
+  the end user in viewer applications. This expansion is not required when using the element 
+  <internalRef> within the context of the element <hotspot>.
+  
+The attribute internalRefId is used in cases where the link can be expressed as a
+simple inherited XML link to a target identified by an id attribute in accordance with the W3C
+XLink mechanism. This applies to all "outbound" links from data module text to graphical
+objects, all "inbound" links from a graphical object back to data module text (into the same data
+module where the graphical object is defined), and all "third-party" links from one graphical
+object to another.
+  
+In cases where the attribute internalRefId cannot be used, the attribute 
+referredFragment contains a Universal Resource Name (URN) reference (including a
+fragment identifier in the general case) which points to the destination of the link.
+An example of using the attribute referredFragment would be to point into an audio/video data stream
+at a specific location. In this case, the attribute internalRefId is not used.
+
+The attribute referredFragment of the element <internalRef> also covers the
+possibility of simultaneously addressing all graphical objects within a (multi-sheet) figure with
+the same value of the attribute applicationStructureName. 
+The attribute applicationStructureName, which is replicated in the attribute 
+referredFragment of the element <internalRef>, can be used as a shorthand
+address for all graphical objects defined in a (multi-sheet) figure with that name. 
+In this case, the attribute internalRefId contains the value of the attribute id of the corresponding
+element <figure>. This feature is especially useful in parts data modules by providing a link
+from the textual description of a part to each occurrence of that part in the figure.
+
+The attribute targetTitle of the element <internalRef> can be used to provide a
+human-readable label for the link destination, which will be displayed when, for instance, the
+graphical object is activated (eg, by a mouse-down event). If the element <internalRef>
+is attached to a graphical object more than once, then the possible link destinations 
+(ie, the values of the attribute internalRefId and/or the attribute referredFragment
+and/or the corresponding values of the attribute targetTitle) are presented as a choice
+menu to the user when activating the graphical object, for example, by clicking on it.
+
+The value "irtt11" of the attribute internalRefTargetType is necessary to
+distinguish traditional references to a figure from references into it. 
+Refer to default BREX rule BREX-S1-00060.
+
+In case of multi-sheet figures, when cross-referencing to/into a single illustration sheet, 
+the attribute internalRefId contains the value of the attribute id of the referenced element <graphic>.
+
+Note
+  The attribute internalRefTargetType is not mandatory. If the application is able
+  to retrieve the name of the link destination element, then it can perform proper actions
+  based on this looked-up name instead of using the value of the attribute 
+  internalRefTargetType. In this case, the attribute internalRefTargetType does not need to be given.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.4.2 Links originating from graphical objects to local text or graphics
+
+Links from graphical objects to objects within the same data module are expressed by using 
+the element <internalRef>. The links can be to data module text and/or to other graphic
+locations of a figure. The element <internalRef> is not used for references to another data module.
+
+The use of the element <internalRef> follows the rules as described in Para 2.4.1 with
+the exception that the attribute internalRefTargetType is not limited to the value
+"irtt11". The value used accurately represents the type of the destination object.
+
+In cases where the attribute internalRefId cannot be used, the attribute 
+referredFragment will contain a URN reference (including a fragment identifier in the
+general case) pointing to the destination of the link. An example of using the attribute
+referredFragment is to point into an audio/video data stream at a specific location. 
+In this case, the attribute internalRefId is not used.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.4.3 Links from graphical objects to other data modules
+
+Links from graphical objects to other data modules are expressed by using the element <dmRef>.
+The use of the element <dmRef> follows the rules as described in Chap 3.9.5.2.1.2.
+The use of the attribute referredFragment of the element <dmRef> covers the
+possibility of referencing into a figure within a different data module. This can be used, for
+example, to provide a graphical navigation capability. Referencing into the middle of procedural
+data is strongly discouraged as critical warnings, cautions, and setup information can be
+skipped creating a hazardous condition for personnel and equipment. Refer to Chap 3.9.5.2.1.2.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.4.4 Links from graphical objects to parts data
+
+Links from graphical objects to parts data are expressed by using the element <catalogSeqNumberRef>.
+The element <catalogSeqNumberRef> is used to contain a reference to a parts catalog entry. Refer to Chap 3.9.5.2.7.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.5 XML "authoring"
+
+The manual effort involved in authoring the definition of and the access to graphical objects
+within data modules and their associated illustrations can be minimized by the use of
+sufficiently powerful tools, both in the Vector (eg, CGM, SVG) graphics and the textual XML
+environment. An example would be an existing tool which automatically reads and transforms
+callout/item numbers/items in the graphic to addressable objects with names and unique
+identifiers. WebCGM 2.1 supports this approach through the Document Object Model (DOM)
+interface. Refer to Chap 7.3.2.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.6 Hotspot definition
+
+In general, the major manual effort required to define hotspots must be spent in the graphics
+environment. Leaving out the simple example above of only defining callout/item numbers/
+items as graphical objects, the illustrator has to group graphic primitives, or has to define a
+geometric outline embracing them, and must associate address information (a unique identifier
+and possibly a name) to those potential hotspots.
+
+Depending on the functionality of the CGM export facility in the graphics tool, this address
+information can be exposed to the textual XML environment for automated insertion of the
+element <hotspot> in data module text.
+
+Some further information to be associated with hotspots can be automatically retrievable from
+within the data module text, such as the value of the attribute hotspotTitle of the
+element <hotspot> (eg, from the structural content of the element <legend>) or
+predetermined context-dependent link ends originating from that graphical object (eg, links
+back to part numbers in parts information data module text).
+
+In the case of separate raster graphics (not embedded in CGM), the attribute 
+applicationStructureIdent and the attribute applicationStructureName have 
+no predefined meaning in the graphics environment. As described above, the attribute objectCoordinates 
+of the element <hotspot> is used to hold the coordinates of a sensible overlay region associated with 
+the raster image and serves as the "address" for linking into the graphics environment.
+
+Note
+  In the light of the possible multiple use of a graphic in different data modules, it has to be
+  clearly stated that not every object (APS in case of CGM) defined in the graphical
+  environment needs to be inserted as the element <hotspot> in a specific data module
+  (ie, only those graphical objects which are addressed by the element <internalRef>
+  in that specific data module must be defined therein). The graphic itself must not be copied
+  and/or re-identified.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.7 Cross-referencing
+  
+As opposed to the definition of hotspots, the insertion of cross-references cannot be automated
+to the same degree. Nevertheless, some support can be given to "link authors" by the XML
+editor or by a separate link tool.
+
+Note
+  If the identifiers are semantically meaningful within the data module content 
+  (eg, the attribute id of the element <catalogSeqNumber> in parts information data modules), 
+  then an automated cross-referencing process can be achieved.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.8 Parameter
+
+Description: The element <parameter> and its attributes are used for passing parameters
+to objects within the multimedia scene. These parameters can be used to control the behavior
+to or from objects and to capture click events.
+
+The element <parameter> is a child of the element <multimediaObject>. Refer to Chap 3.9.5.2.1.7.
+
+Note
+  Refer to Chap 7.3.3 for guidance on the use of multimedia objects.
+  Parameters are id values and names that can be passed to and from multimedia objects, 
+  and can be used to link or pass values to create behaviors within a multimedia scene.
+
+Some examples of their use are:
+- text in a data module to one area of an object
+- text in a data module to several areas of an object
+- one area of an object to data module text
+- one area of an object to another area of the same object
+- one area or object of a multimedia scene to another object of a multimedia scene, data
+module, or any valid reference in a data module
+- one area or object to another object in the same multimedia scene
+- from an object in a multimedia resource to another multimedia type, data module, 
+or any valid reference in a data module
+
+  
+Markup element: <parameter>
+
+Attributes:
+- id (M), the identifier of the markup element. Refer to Chap 3.9.5.2.1.2.
+- parameterIdent (O), the unique identifier in the multimedia object used to call a
+single element/object of the multimedia object, for example "Item 1" or "Step 1"
+- parameterValue (O), an assigned value used as a method of passing a value to the object
+- parameterName (O), the non-unique name used as a method of identifying an object
+or group of objects to pass a value to or from objects with the same name within the multimedia scene
+
+Child elements:
+- None
+
+Business rule decision point BRDP-S1-00133 - Use of the element <parameter>:
+– Decide whether to use the element <parameter> and how to use it. If used, specify
+the attributes to be used within the project or organization.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  
+2.9 Defining sensitive areas
+
+The author has to define a region, an object or objects, be that manual or automated, and must
+associate address information, a unique identifier and an optional name to those sensitive
+areas. The method of definition will be dependent on the content creation tools used and the specified formats.
+
+Highlighting the sensitive area by interaction of the user is a viewer or application function. 
+This can be handled within the multimedia environment as specified by the project or organization in the business rules.
+
+To set up links between data module text and multimedia presentations or between multimedia
+objects, cross-reference identifiers are necessary. This also applies to defined regions and
+viewcontext attributes. The required target address of points and values are handled within the
+multimedia environment as specified by the project or organization. The sensitive area can be
+represented by:
+- objects or their surfaces
+- buttons with or without text objects
+- navigation symbols or callout numbers, can include the leader line
+- visible region (or invisible before a user interaction)
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+3 Examples
+
+The examples given below demonstrate the use of graphical hotspots in the data module text
+and the CGM illustration. The illustrations shown are not to scale.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+3.2 CGM version 4 file
+
+The following simple example is an extract from the CGM version 4 file of the illustration which
+shows the APS used to define the two occurrences of callout number "6" and the single
+occurrence of callout number "8" as graphical objects. The APS parameter id values are
+"hot001", "hot002" and "hot003". The optional object names are "6" for both
+occurrences of callout number "6", whereas "hot003" is not named, and there are optional
+picking/highlighting regions (a continuous polybezier and two rectangles) defined for the three graphical objects.
+
+BEGMF 'ICN-1B-B-291101-M-C0419-00571-A-001-01';
+MFVERSION 4;
+MFDESC '"ProfileId:S1000D",
+"ProfileEd:2.3", "ColourClass:colour"';
+MFELEMLIST 'VERSION4';
+FONTLIST 'HELVETICA' 'HELVETICA_BOLD' 'HELVETICA_OBLIQUE'
+'HELVETICA_BOLD_OBLIQUE';
+CHARSETLIST STD94 'B' STD96 'A';
+VDCTYPE REAL;
+COLRPREC 255;
+COLRINDEXPREC 255;
+COLRVALUEEXT 0 0 0 255 255 255;
+MAXCOLRINDEX 255;
+INTEGERPREC -32767 32767;
+REALPREC -2147483647 2147483647 4;
+CHARCODING BASIC8BIT;
+MAXVDCEXT 13.0581,41.3273 173.8012,259.1455;
+BEGPIC 'Picture 1';
+SCALEMODE METRIC 1;
+VDCEXT 13.0581,41.3273 173.8012,259.1455;
+COLRMODE INDEXED;
+LINEWIDTHMODE ABS;
+EDGEWIDTHMODE ABS;
+LINEEDGETYPEDEF -22 5.75 10000 1333 111 1333;
+BEGPICBODY;
+LINECLIPMODE SHAPE;
+% %
+% All other primitives/elements deleted here %
+% %
+RESTRTEXTTYPE 2;
+CHARSETINDEX 1;
+ALTCHARSETINDEX 2;
+TEXTALIGN CTR BASE 0 0;
+CHARORI 0 1 1 0;
+CHARHEIGHT 3.2844;
+TEXTCOLR 1;
+BEGAPS 'hot001' 'grobject' STLIST;
+APSATTR 'name' "14 1 '6'";
+APSATTR 'region' "11 1 4, 16 26 88.757 66.1349 88.757 66.1349
+91.2264 66.1349 91.2264 66.1349 91.2264 66.1349 91.2264 70.0155
+91.2264 70.0155 91.2264 70.0155 88.757 70.0155 88.757 70.0155
+88.757 70.0155 88.757 66.1349 88.757 66.1349";
+BEGAPSBODY;
+RESTRTEXT 1.9476 3.2844 89.991,67.1933 final '6';
+ENDAPS;
+BEGAPS 'hot002' 'grobject' STLIST;
+APSATTR 'name' "14 1 '6'";
+APSATTR 'region' "11 1 1, 16 4 91 48 94 53";
+BEGAPSBODY;
+RESTRTEXT 1.9477 2.533 92.8528,49.9939 final '6';
+ENDAPS;
+BEGAPS 'hot003' 'grobject' STLIST;
+APSATTR 'region' "11 1 1, 16 4 134 48 136 52";
+BEGAPSBODY;
+RESTRTEXT 1.9476 3.2844 135.3942,49.4756 final '8';
+ENDAPS;
+ENDPIC;
+ENDMF;
+
+The effect when highlighting these graphical objects and bringing them into view (possibly by
+defining an APS attribute viewcontext in addition) by a CGM viewer application can be as
+shown in the following illustration extract:
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+3.3 XML companion metadata
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+3.3.1 Hotspot definition
+
+The original XML data module fragment, which defines the figure that corresponds 
+to the illustration example above, looks as follows:
+
+<figure id="fig-0001">
+  <title>Removal of solenoid valve, pump no.&puncsp;1 (no.&puncsp;2)</title>
+  <graphic infoEntityIdent="ICN-1B-B-291101-M-C0419-00571-A-001-01"></graphic>
+  <legend>
+    <definitionList>
+      <definitionListItem>
+        <listItemTerm>1</listItemTerm>
+        <listItemDefinition>
+          <para>Electrical plug 3MRa (5MRa)</para>
+        </listItemDefinition>
+      </definitionListItem>
+      <definitionListItem>
+        <listItemTerm>2</listItemTerm>
+        <listItemDefinition>
+          <para>Screw</para>
+        </listItemDefinition>
+      </definitionListItem>
+      <definitionListItem>
+        <listItemTerm>3</listItemTerm>
+        <listItemDefinition>
+          <para>Washer</para>
+        </listItemDefinition>
+      </definitionListItem>
+      <definitionListItem>
+        <listItemTerm>4</listItemTerm>
+        <listItemDefinition>
+          <para>Solenoid valve</para>
+        </listItemDefinition>
+      </definitionListItem>
+      <definitionListItem>
+        <listItemTerm>5</listItemTerm>
+        <listItemDefinition>
+          <para>Locating pin</para>
+        </listItemDefinition>
+      </definitionListItem>
+      <definitionListItem>
+        <listItemTerm id="fig-0001-trm-0001">6</listItemTerm>
+        <listItemDefinition>
+          <para>O-Ring</para>
+        </listItemDefinition>
+      </definitionListItem>
+      <definitionListItem>
+        <listItemTerm>7</listItemTerm>
+        <listItemDefinition>
+          <para>O-Ring</para>
+        </listItemDefinition>
+      </definitionListItem>
+      <definitionListItem>
+        <listItemTerm id="fig-0001-trm-0002">8</listItemTerm>
+        <listItemDefinition>
+          <para>Hydraulic pump</para>
+        </listItemDefinition>
+      </definitionListItem>
+    </definitionList>
+  </legend>
+</figure>
+
+After automated insertion of the potential hotspots, the XML data module fragment 
+for the element <graphic> looks as follows, where the value "fig001" is the content 
+of the attribute id of the parent single-sheet element <figure>:
+
+<graphic id="fig-001-gra-0000" infoEntityIdent="ICN-1B-B-291101-M-C0419-00571-A-001-01">
+  <hotspot id="fig-0001-gra-0000-hot-0001" applicationStructureIdent="hot001" applicationStructureName="6" hotspotTitle="O-Ring">
+    <internalRef internalRefId="fig-0001-trm-0001" targetTitle="Explanation" internalRefTargetType="irtt13"></internalRef>
+  </hotspot>
+  <hotspot id="fig-0001-gra-0000-hot-0002" applicationStructureIdent="hot002" applicationStructureName="6" hotspotTitle="O-Ring">
+    <internalRef internalRefId="fig-0001-trm-0001" targetTitle="Explanation" internalRefTargetType="irtt13"></internalRef>
+  </hotspot>
+  <hotspot id="fig-0001-gra-0000-hot-0003" applicationStructureIdent="hot003" hotspotTitle="Hydraulic pump">
+    <internalRef internalRefId="fig-0001-trm-0002" targetTitle="Explanation" internalRefTargetType="irtt13"></internalRef>
+  </hotspot>
+</graphic>
+
+This initial definition step can be performed, to a certain degree, without manual intervention 
+by extracting the values of the attribute applicationStructureIdent and the attribute 
+applicationStructureName from the CGM environment and inserting them in the XML instance.
+
+In this example, the individual value of the attribute hotspotTitle of the element 
+<hotspot> is retrieved from the element <legend>.
+
+Note
+  The individual value of the attribute internalRefId is an XML identifier that points
+  (back) from the graphical object to the proper location within the element <legend>.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+3.3.2 Cross-referencing
+
+For cross-referencing from within data module text to a single graphical object, 
+the element <internalRef> can be used as follows:
+
+<para>Refer to
+  <internalRef internalRefId="fig-0001-gra-0000-hot-0003" internalRefTargetType="irtt11">item 8</internalRef>
+</para>
+
+In order to address both graphical objects named "6" at once, the attribute 
+referredFragment of the element <internalRef> is used (in addition to the
+attribute internalRefId which points to the element <figure>) in the context 
+of the element <legend> as follows:
+
+<legend>
+  <definitionList>
+    <definitionListItem>
+      <listItemTerm>1</listItemTerm>
+      <listItemDefinition>
+        <para>Electrical plug 3MRa (5MRa)</para>
+      </listItemDefinition>
+    </definitionListItem>
+    <definitionListItem>
+      <listItemTerm>2</listItemTerm>
+      <listItemDefinition>
+        <para>Screw</para>
+      </listItemDefinition>
+    </definitionListItem>
+    <definitionListItem>
+      <listItemTerm>3</listItemTerm>
+      <listItemDefinition>
+        <para>Washer</para>
+      </listItemDefinition>
+    </definitionListItem>
+    <definitionListItem>
+      <listItemTerm>4</listItemTerm>
+      <listItemDefinition>
+        <para>Solenoid valve</para>
+      </listItemDefinition>
+    </definitionListItem>
+    <definitionListItem>
+      <listItemTerm>5</listItemTerm>
+      <listItemDefinition>
+        <para>Locating pin</para>
+      </listItemDefinition>
+    </definitionListItem>
+    <definitionListItem>
+      <listItemTerm id="fig-0001-trm-0001">6</listItemTerm>
+      <listItemDefinition>
+        <para>
+          <internalRef internalRefId="fig-0001" referredFragment="6"internalRefTargetType="irtt11">O-Ring</internalRef>
+        </para>
+      </listItemDefinition>
+    </definitionListItem>
+    <definitionListItem>
+      <listItemTerm>7</listItemTerm>
+      <listItemDefinition>
+        <para>O-Ring</para>
+      </listItemDefinition>
+    </definitionListItem>
+    <definitionListItem>
+      <listItemTerm id="fig-0001-trm-0002">8</listItemTerm>
+      <listItemDefinition>
+        <para>Hydraulic pump</para>
+      </listItemDefinition>
+    </definitionListItem>
+  </definitionList>
+</legend>
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+3.4 Separate raster graphics
+
+In order to demonstrate the use of the attributes of the element <hotspot> in case 
+of separate raster graphics (not embedded in CGM), it is assumed that the above illustration 
+is only available as a TIF, CG4, GIF, PNG or JPG image file.
+
+The XML data module fragment for the definition of the third element <hotspot> within 
+the element <graphic> looks then as follows:
+
+<hotspot id="fig-0001-gra-0000-hot-0003" hotspotTitle="Hydraulic pump" objectCoordinates="134,48,134,52,136,52,136,48,134,48">
+  <internalRef internalRefId="fig-0001-trm-0002" targetTitle="Explanation" internalRefTargetType="irtt13"></internalRef>
+</hotspot>
+
+Note
+  The attribute applicationStructureIdent and the attribute 
+  applicationStructureName are not used in this example.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+3.5 References between graphical objects
+
+For cross-referencing from one graphical object to another, the element <internalRef> 
+is used within the element <hotspot> as follows (building up on the example above):
+
+<hotspot id="fig-0001-gra-0000-hot-0001" applicationStructureIdent="hot001" applicationStructureName="6" hotspotTitle="O-Ring">
+  <internalRef internalRefId="fig-0001-trm-0001" targetTitle="Explanation" internalRefTargetType="irtt13"></internalRef>
+  <internalRef internalRefId="fig-0001-gra-0000-hot-0002" internalRefTargetType="irtt11" targetTitle="Second occurrence of catalogItemNumber 6"></internalRef>
+</hotspot>
+
+In this example, the link from the first to the second occurrence of item number "6" is expressed
+by another child element <internalRef> of the element <hotspot>.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+3.6 References from within illustration sheets to other data modules
+
+For cross-referencing from one graphical object to the figure and the XML text of another data
+module and to parts data, the element <internalRef>, the element <dmRef> 
+and the element <catalogSeqNumberRef> are used within the element <hotspot> 
+as follows (building up on the example above):
+
+<hotspot id="fig-0001-gra-0000-hot-0003" applicationStructureIdent="hot003" hotspotTitle="Hydraulic pump">
+  <internalRef internalRefId="fig-0001-trm-0002" targetTitle="Explanation" internalRefTargetType="irtt13"></internalRef>
+  <dmRef>
+    <dmRefIdent>
+      <dmCode modelIdentCode="1B" systemDiffCode="B"
+      systemCode="24" subSystemCode="4" subSubSystemCode="0"
+      assyCode="00" disassyCode="00" disassyCodeVariant="A"
+      infoCode="510" infoCodeVariant="A" itemLocationCode="A"/>
+    </dmRefIdent>
+    <dmRefAddressItems>
+      <dmTitle>
+        <techName>External power</techName>
+        <infoName>Disconnect procedure</infoName>
+      </dmTitle>
+    </dmRefAddressItems>
+  </dmRef>
+  <dmRef referredFragment="ICN-1B-B-244000-M-C0419-00123-A-001-01">
+    <dmRefIdent>
+      <dmCode modelIdentCode="1B" systemDiffCode="B"
+      systemCode="24" subSystemCode="4" subSubSystemCode="0"
+      assyCode="00" disassyCode="00" disassyCodeVariant="A"
+      infoCode="510" infoCodeVariant="A" itemLocationCode="A"/>
+    </dmRefIdent>
+  </dmRef>
+  <catalogSeqNumberRef modelIdentCode="E2" systemDiffCode="A"
+  systemCode="53" subSystemCode="2" subSubSystemCode="5"
+  assyCode="10" figureNumber="01" item="001" itemLocationCode="D"
+  itemSeqNumberValue="00A"/>
+</hotspot>
+
+In this example, the second child element <dmRef> of the element <hotspot>
+demonstrates the possibility for link definitions from a graphical hotspot to another data module.
+
+The third child element <dmRef> of the element <hotspot> demonstrates the possibility
+for link definitions from a graphical hotspot to other resources (ie, to another figure), 
+external to the context of a specific data module. This is accomplished by using the attribute referredFragment.
+
+The fourth child element <catalogSeqNumberRef> of the element <hotspot>
+demonstrates the possibility for link definitions from a graphical hotspot to a part within an IPD data module.
+
+In this example, when the graphical hotspot is selected in an IETP, a list of four possible link destinations is presented:
+- Explanation - Other
+- Disconnection of power supply - Normal operation
+- Disconnection of power supply - Figure
+- Hydraulic pump XYZ - Parts data
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Chapter 3.9.5.2.1.9
+Common constructs - Preliminary requirements and requirements after job completion
+
+S1000D-A-40-50-0000-00L-024C-D
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+1 General
+
+This chapter contains the definition and handling of the sections "Preliminary requirements" 
+and "Requirements after job completion" from an author's point of view. It gives details 
+about the available elements and attributes and how to use them to populate Preliminary requirements
+and Requirements after job completion.
+
+The rules for the presentation of Preliminary requirements and Requirements after job
+completion in page-oriented publications and IETP are given in Chap 6.2.3.3 and Chap 6.3.1, respectively.
+
+Preliminary requirements, element <preliminaryRqmts> used in procedural, 
+fault isolation, process and maintenance checklists and inspections data modules:
+- lists (Required conditions) the tasks to be done or conditions that must be satisfied before
+the Main procedure, element <mainProcedure>, for procedural data modules,
+elements <faultReporting> and <faultIsolation> for fault isolation data
+modules, <checkList> in the maintenance checklists and inspection data modules is started
+- lists any personnel, required technical information, support equipment, supplies and spares
+that are needed to perform the Required conditions, Main procedure and Requirements
+after job completion. Resources given in referenced procedures (data modules, publication
+modules or non-S1000D publications or documents) must not be included.
+- contains the safety conditions that apply to the Main procedure and the Requirements after job completion
+
+Basic production maintenance data can be specified by using in the element <productionMaintData>.
+Requirements after job completion, element <closeRqmts>, captures any actions that are
+required after the Main procedure is complete, to return the Product to a serviceable condition
+or the conditions that must be satisfied to have the Product in a serviceable condition.
+
+Fig 1 shows the overall construct of the elements <preliminaryRqmts> and <closeRqmts> in procedural, 
+fault isolation and process data modules. The maintenance planning and maintenance checklist data modules 
+use only the element <preliminaryRqmts>.
+
+It is recommended to give references to complete data modules only, in Required conditions,
+element <reqCondGroup>, and in Requirements after job completion, element <closeRqmts>. 
+This enables an automatically preparation of situation adopted maintenance procedures, 
+by compiling all the Preliminary requirements data and actions, and the Requirements 
+after job completion data and actions, together with all Main procedures, 
+consolidated into one complete sequence.
+
+To prescribe a condition by giving an action in the elements <preliminaryRqmts> 
+or <closeRqmts>, without a reference to a data module, can reduce the possibility 
+for further automated preparation of situation adopted maintenance procedures. 
+
+The same limitation appears where an action just refers to one or more steps 
+in the referred data module or publication.
+
+The markup examples given in this chapter are presented in Chap 6.2.3.3 in the S1000D
+standard layout for page-oriented presentation.
+
+The graphical representation of the XML schema fragments use specific symbols which are
+explained in Chap 3.9.5.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2 Preliminary requirements
+
+Description: The element <preliminaryRqmts> contains all preliminary requirements
+for a procedure as described at Para 2.2,Para 2.3,Para 2.4,Para 2.5,Para 2.6,Para 2.7, and Para 2.8.
+
+  
+Markup element: <preliminaryRqmts>
+
+The element is mandatory in procedural and fault isolation data modules and optional 
+in process and maintenance planning data modules.
+
+Attributes:
+- id (O), the identifier of the markup element. Refer to Chap 3.9.5.2.1.2 .
+- changeType (O), changeMark (O) and reasonForUpdateRefIds (O), the change indications. 
+Refer to Chap 3.9.5.2.1.1 .
+- controlAuthorityRefs (O), the control authority information by referencing 
+the element <controlAuthority>. Refer to Chap 3.9.5.1 .
+
+Child elements:
+- <productionMaintData>, production management data. Refer to Para 2.1.
+- <reqCondGroup>, required conditions. Refer to Para 2.2.
+- <reqPersons>, required persons. Refer to Para 2.3.
+- <reqTechInfoGroup>, required technical information. Refer to Para 2.4.
+- <reqSupportEquips>, support equipment. Refer to Para 2.5.
+- <reqSupplies>, consumables, materials and expendables. Refer to Para 2.6.
+- <reqSpares>, spares. Refer to Para 2.7.
+- <reqSafety>, safety conditions. Refer to Para 2.8.
+
+Business rule decision point BRDP-S1-00134 - Use of the element 
+<preliminaryRqmts>:
+– Decide whether to use the element <preliminaryRqmts> in maintenance planning,
+fault isolation, maintenance checklist and/or process data modules.
+
+  
+Markup example:
+
+<preliminaryRqmts>
+  <reqCondGroup>
+    <noConds/>
+  </reqCondGroup>
+  <reqPersons>
+    <person man="A">
+      <personCategory personCategoryCode="Basic user"/>
+      <trade>Operator</trade>
+      <estimatedTime unitOfMeasure="h">0,3</estimatedTime>
+    </person>
+  </reqPersons>
+  <reqSupportEquips>
+    <supportEquipDescrGroup>
+      <supportEquipDescr id="seq-0001">
+        <name>Tire pressure gauge</name>
+        <identNumber>
+          <manufacturerCode>KZ666</manufacturerCode>
+          <partAndSerialNumber>
+            <partNumber>BSK-TLST-001-01</partNumber>
+          </partAndSerialNumber>
+        </identNumber>
+        <reqQuantity unitOfMeasure="EA">1</reqQuantity>
+      </supportEquipDescr>
+      <supportEquipDescr id="seq-0002">
+        <name>Specialist toolset</name>
+        <identNumber>
+          <manufacturerCode>KZ666</manufacturerCode>
+          <partAndSerialNumber>
+            <partNumber>BSK-TLST-001</partNumber>
+          </partAndSerialNumber>
+        </identNumber>
+        <reqQuantity unitOfMeasure="EA">1</reqQuantity>
+      </supportEquipDescr>
+    </supportEquipDescrGroup>
+  </reqSupportEquips>
+  <reqSupplies>
+    <supplyDescrGroup>
+      <supplyDescr id="sup-0001">
+        <name>General lubricant</name>
+        <identNumber>
+          <manufacturerCode>KZ222</manufacturerCode>
+          <partAndSerialNumber>
+            <partNumber>LL-001</partNumber>
+          </partAndSerialNumber>
+        </identNumber>
+        <reqQuantity>As required</reqQuantity>
+      </supplyDescr>
+    </supplyDescrGroup>
+  </reqSupplies>
+  <reqSpares>
+    <noSpares/>
+  </reqSpares>
+  <reqSafety>
+    <noSafety/>
+  </reqSafety>
+</preliminaryRqmts>
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.1 Production maintenance data
+
+Description: The element <productionMaintData> contains the basic information
+required for the planning and preparation of the task.
+
+  
+Markup element: <productionMaintData>
+
+Attributes:
+- applicRefId (O), the applicability information by referencing 
+the element <applic>. Refer to Chap 3.9.5.3.
+- id (O), the identifier of the markup element. Refer to Chap 3.9.5.2.1.2.
+- changeType (O), changeMark (O) and reasonForUpdateRefIds (O), 
+the change indications. Refer to Chap 3.9.5.2.1.1.
+- controlAuthorityRefs (O), the control authority information by referencing 
+the element <controlAuthority>. Refer to Chap 3.9.5.1.
+
+Child elements:
+- <thresholdInterval>, the threshold intervals. Refer to Para 2.1.1.
+- <workAreaLocationGroup>, the group of work area locations. Refer to Para 2.1.2.
+- <taskDuration>, the maintenance task duration. Refer toPara 2.1.3.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.1.1 Threshold interval
+
+Description: The element <thresholdInterval> contains any (one or more) threshold
+interval information that is relevant to the task. It is populated in the format of threshold 
+or threshold interval value. For example 25 followed by the value of the attribute 
+thresholdUnitOfMeasure (eg, FH).
+
+Recommendation: The use of the element <thresholdInterval> can conflict with 
+the same data given in the maintenance planning information data modules. 
+
+A close coordination must be taken if the same data is given in both the procedure 
+and the maintenance planning information. 
+
+It is recommended to use the maintenance planning information in preference 
+of the element <thresholdInterval> in each procedural data module.
+
+
+Markup element: <thresholdInterval>
+
+Attributes:
+- thresholdUnitOfMeasure (M), the unit of measure for the threshold interval. 
+The attribute can have one of the following values:
+  • "th01" thru "th99". Refer to Chap 3.9.6.1.
+
+Child elements:
+- None
+
+
+Markup example:
+The following example is a threshold interval indicating 25 flight hours. 
+The attribute thresholdUnitOfMeasure set to "th01" indicates flight hours as specified in Chap 3.9.6.1.
+
+<thresholdInterval thresholdUnitOfMeasure="th01">25</thresholdInterval>
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+The following example is a threshold interval indicating 55 to 60 days. 
+The attribute thresholdUnitOfMeasure set to "th06" indicates days as specified in Chap 3.9.6.1.
+
+<thresholdInterval thresholdUnitOfMeasure="th06">55 to 60</thresholdInterval>
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.1.2 Work area location group
+
+Description: The element <workAreaLocationGroup> contains the area where work
+must be done. This area is sorted by zone, access point and work location.
+
+  
+Markup element: <workAreaLocationGroup>
+
+Attributes:
+- applicRefId (O), the applicability information by referencing the element <applic>. Refer to Chap 3.9.5.3.
+- id (O), the identifier of the markup element. Refer to Chap 3.9.5.2.1.2.
+- changeType (O), changeMark (O) and reasonForUpdateRefIds (O), 
+the change indications. Refer to Chap 3.9.5.2.1.1.
+- controlAuthorityRefs (O), the control authority information by referencing 
+the element <controlAuthority>. Refer to Chap 3.9.5.1.
+
+Child elements:
+- <zoneRef>, the references to the zones. Refer to Chap 3.9.5.2.1.10.
+- <accessPointRef>, the references to the access points. Refer to Chap 3.9.5.2.1.10 .
+- <workLocation>, the description of the area where work is accomplished. Refer to Para 2.1.2.1.
+
+Business rule decision point BRDP-S1-00135 - Use of the element 
+<workAreaLocationGroup> in the element <preliminaryRqmts>:
+– Decide whether and how to use the element <workAreaLocationGroup>. 
+The possibility of duplication and mismatch of data given in the maintenance planning
+information must be taken into account.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.1.2.1 Work location
+
+Description: The element <workLocation> contains the precise location where work must be done.
+
+  
+Markup element: <workLocation>
+
+Attributes:
+- applicRefId (O), the applicability information by referencing the element <applic>. Refer to Chap 3.9.5.3 .
+- id (O), the identifier of the markup element. Refer to Chap 3.9.5.2.1.2 .
+- changeType (O), changeMark (O) and reasonForUpdateRefIds (O), 
+the change indications. Refer to Chap 3.9.5.2.1.1 .
+- controlAuthorityRefs (O), the control authority information by referencing 
+the element <controlAuthority>. Refer to Chap 3.9.5.1 .
+
+Child elements:
+One or more of the following:
+- <workArea>, the descriptive identifier of the area where work is accomplished that
+cannot be deduced from the names of the collection of zones. Refer toPara 2.1.2.1.1.
+- <installationLocation>, the installation location. Refer to Para 2.1.2.1.2.
+- <functionalItemRef>. Refer to Chap 3.9.5.1.
+- <accessPointRef>, the references to the access points. Refer to Chap 3.9.5.2.1.10.
+- <productItem>, the identifiers of structural parts. Refer to Para 2.1.2.1.3.
+
+and/or one or more of the following elements:
+- <internalRef>. Refer to Chap 3.9.5.2.1.2.
+- <refs>. Refer to Chap 3.9.5.2.1.2.
+
+Business rule decision point BRDP-S1-00136 - Use of the element <workLocation> 
+in the element <preliminaryRqmts>:
+– Decide whether and how to use the element <workLocation>. If used, decide the
+data module types with which it will be used.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.1.2.1.1 Work area
+
+Description: The element <workArea> contains a descriptive identifier of the area 
+where work is accomplished that cannot be deduced from the names of the collection of zones.
+
+  
+Markup element: <workArea>
+
+Attributes:
+- changeType (O), changeMark (O) and reasonForUpdateRefIds (O), 
+the change indications. Refer to Chap 3.9.5.2.1.1 .
+- controlAuthorityRefs (O), the control authority information by referencing 
+the element <controlAuthority>. Refer to Chap 3.9.5.1 .
+
+Child elements:
+- None
+
+Business rule decision point BRDP-S1-00137 - Use of the element <workArea> 
+in the element <preliminaryRqmts>:
+– Decide whether and how to use the element <workArea>. If used, decide which data
+module types to use it.
+
+  
+Markup example:
+
+<workArea>Nose cowl</workArea>
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.1.2.1.2 Installation location
+
+Description: The element <installationLocation> contains the installation location
+information of the equipment instances.
+
+
+Markup element: <installationLocation>
+
+Attributes:
+- unitOfMeasure (O), the unit of measure for the installation location if applicable 
+for the installation location type
+- installationLocationType (O), the type of the installation location information
+(eg, Section, Station). The attribute can have one of the following values:
+  • "instloctyp02" thru "instloctyp99". Refer to Chap 3.9.6.1.
+
+  Note
+    When the installation location refers to a zone, the element <zoneRef> 
+      must be used. Refer to Chap 3.9.5.2.1.10.
+
+- changeType (O), changeMark (O) and reasonForUpdateRefIds (O), 
+the change indications. Refer to Chap 3.9.5.2.1.1.
+- controlAuthorityRefs (O), the control authority information by referencing the
+element <controlAuthority>. Refer to Chap 3.9.5.1.
+
+Child elements:
+- None
+
+Business rule decision point BRDP-S1-00138 - Use of the element 
+<installationLocation> in the element <preliminaryRqmts>:
+– Decide whether and how to use the element <installationLocation>. 
+If used, decide which data module types to use it.
+
+  
+Markup examples:
+
+Example 1- Installation location in coded form:
+
+The following markup example shows an installation location in coded form, 
+when the type is "Section":
+
+<installationLocation installationLocationType="instloctyp02">245</installationLocation>
+
+Example 2- Installation location in clear text:
+
+The following markup example shows an installation location in clear text:
+
+<installationLocation>Side console and rear pressure bulkhead plug break RH (rear cockpit)</installationLocation>
+
+Example 3- Installation location with dimensions:
+
+The following example shows the installation location of equipment by populating the element 
+<installationLocation> with station, water line and buttock line information. 
+The unit of measure is centimeter.
+
+<installationLocation installationLocationType="instloctyp03" unitOfMeasure="cm">199</installationLocation>
+<installationLocation installationLocationType="instloctyp04" unitOfMeasure="cm">170</installationLocation>
+<installationLocation installationLocationType="instloctyp05" unitOfMeasure="cm">57</installationLocation>
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.1.2.1.3 Product item
+
+Description: The element <productItem> is an identifier of structural part of a Product
+(eg, Frame, Rib, Stringer). It helps workers determining the exact position where a work must be done.
+
+  
+Markup element: <productItem>
+
+Attributes:
+- id (O), the identifier of the markup element. Refer to Chap 3.9.5.2.1.2.
+- changeType (O), changeMark (O) and reasonForUpdateRefIds (O),
+the change indications. Refer to Chap 3.9.5.2.1.1.
+- productItemName (O), contains the product item name.
+- productItemType (O), contains the product item type (eg, Frame, Rib, Stringer).
+The attribute can have one of the following values:
+  • "pi01" thru "pi99". Refer to Chap 3.9.6.1.
+- controlAuthorityRefs (O), the control authority information by referencing 
+the element <controlAuthority>. Refer to Chap 3.9.5.1.
+
+Child elements:
+- None
+
+Business rule decision point BRDP-S1-00139 - Use of the element <productItem> 
+in the element <preliminaryRqmts>:
+– Decide whether and how to use the element <productItem>. 
+If used, decide which data module types to use it.
+
+Business rule decision point BRDP-S1-00140 - Use of the attribute 
+productItemName in the element <preliminaryRqmts>:
+– Decide whether and how to use the attribute productItemName.
+
+Business rule decision point BRDP-S1-00141 - Use of the attribute 
+productItemType in the element <preliminaryRqmts>:
+– Decide whether and how to use the attribute productItemType.
+
+  
+Markup example:
+
+<workAreaLocationGroup>
+  <zoneRef zoneNumber="250"/>
+  <zoneRef zoneNumber="260"/>
+  <workLocation>from 
+    <productItem productItemType="pi01" productItemName="62"/>to 
+    <productItem productItemType="pi01" productItemName="63"/>
+  </workLocation>
+</workAreaLocationGroup>
+
+Note
+  "pi01" corresponds to a "frame" product item.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.1.3 Maintenance task duration
+
+Description: The element <taskDuration> contains the elapsed times for performing
+the actions specified in Preliminary requirements, the Main procedure and the Requirements
+after job completion which are necessary to achieve the complete maintenance action.
+
+Note
+  All referenced actions must be included.
+
+
+Markup element: <taskDuration>
+
 Attributes:
 - id (O), the identifier of the markup element. Refer to Chap 3.9.5.2.1.2.
 - changeType (O), changeMark (O) and reasonForUpdateRefIds (O), the
 change indications. Refer to Chap 3.9.5.2.1.1.
-- controlAuthorityRefs (O), the control authority information by referencing the
-element <controlAuthority>. Refer to Chap 3.9.5.1 .
-- securityClassification (O), commercialClassification (O), 
-caveat (O) and derivativeClassificationRefId (O), the security and
-restrictive marking. Refer to Chap 3.6.
-Child elements:
-- <figure>. Refer to Para 2.2.1.
+- unitOfMeasure (M), the unit of measure to be used are:
+  • "d" - day
+  • "h" - hour
+  Refer to default BREX rule BREX-S1- 00070.
+- startupDuration (M), the duration for performing the actions specified 
+in the Preliminary requirements
+- procedureDuration (M), the duration for performing the actions specified in the procedure
+- closeupDuration (M), the duration for performing the actions specified 
+in the Requirements after job completion
+- controlAuthorityRefs (O), the control authority information by referencing 
+the element <controlAuthority>. Refer to Chap 3.9.5.1.
 
-2.3 Multimedia and multimedia alternates
-2.3.1 Multimedia
-Description: The element <multimedia> contains the multimedia content, which is used
-for marking up all multimedia content.
-Markup element: <multimedia>
+The task duration must be given in hours or days with maximum two decimals 
+(eg, 12,5 5 h, 1,5 d). The three values of time duration, and the unit of measure must be entered.
+
+The total elapsed time for the maintenance task is built up by populating all three attributes
+startupDuration, procedureDuration and closeupDuration.
+
+Recommendation: The use of the element <taskDuration> can interfere with the same
+data given in the maintenance planning information data modules. 
+A close coordination must be taken if the same data is given in both the procedure 
+and the maintenance planning information. It is recommended to use the maintenance planning information 
+in preference of the element <taskDuration> in each procedural data module.
+
+Child elements:
+- None
+
+Business rule decision point BRDP-S1-00142 - Use of the element <taskDuration>
+in the element <preliminaryRqmts>:
+– Decide whether and how to use the element <taskDuration>. The possibility of
+duplication and mismatch of data given in the maintenance planning information
+must be taken into account.
+
+  
+Markup example:
+
+<taskDuration closeupDuration="0,5" procedureDuration="3,0" startupDuration="1,5" unitOfMeasure="h"/>
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.2 Required conditions
+
+Description: This element <reqCondGroup> contains any required conditions
+information. Required conditions areactions to be doneand/orconditions 
+that must be satisfied before the procedure which is the subject of the data module is started.
+
+  
+Markup element: <reqCondGroup>
+
 Attributes:
-- applicRefId (O), the applicability information by referencing the element 
-<applic>. Refer to Chap 3.9.5.3.
+- id (O), the identifier of the markup element. Refer to Chap 3.9.5.2.1.2.
+- changeType (O), changeMark (O) and reasonForUpdateRefIds (O), 
+the change indications. Refer to Chap 3.9.5.2.1.1.
+- controlAuthorityRefs (O), the control authority information by referencing 
+the element <controlAuthority>. Refer to Chap 3.9.5.1.
+
+Child elements:
+- <noConds>. Refer to Para 2.2.1.
+or one or more of the following:
+- <reqCondNoRef>, any simple action/condition with no referenced data module 
+or technical publication. Refer to Para 2.2.2.
+- <reqCondDm>, any actions/conditions referenced to a data module. Refer to Para 2.2.3.
+- <reqCondCircuitBreaker>, the circuit breaker actions/conditions. Refer to Para 2.2.4.
+- <reqCondPm>, any actions/conditions referenced to a publication module. Refer to Para 2.2.5.
+- <reqCondExternalPub>, any actions/conditions referenced to a non-S1000D publication. Refer to Para 2.2.6.
+
+In process data modules, each element can also include the element 
+<variablePostSet> used to update the state information about the state of the Product.
+
+For example, if there were a required condition that "Door 12 is open", at some point 
+an assertion can be made to the state information that "Door 12 is open", which can then impact
+maintenance instructions to follow. Refer to Chap 3.9.5.2.10 .
+
+The required actions/conditions, including any circuit breaker actions/conditions, must be listed
+in the order that they must be carried out to accomplish the procedure.
+
+  
+Markup example:
+
+<reqCondGroup>
+  <reqCondNoRef>
+    <reqCond>The bicycle is outdoors.</reqCond>
+  </reqCondNoRef>
+</reqCondGroup>
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.2.1 No conditions
+
+Description: The element <noConds> contains the "marker" for no required actions/conditions. 
+If there are no required actions/conditions for the procedure then the element <noConds> must be used.
+
+Note
+  When a data module is formatted, the element <noConds> generates the word "None"
+  at presentation. For page-oriented presentation "None" is given in the title/condition
+  column of the Required conditions table.
+
+  
+Markup element: <noConds>
+
+Attributes:
+- None
+
+Child elements:
+- None
+
+  
+Markup example:
+
+<reqCondGroup>
+  <noConds/>
+</reqCondGroup>
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.2.2 Required condition - simple action/condition
+
+Description: The element <reqCondNoRef> contains the action/condition on its own 
+with no referenced data module or technical publication to represent a simple 
+one step action/condition that does not require further explanation.
+
+The text of a required action must be written as an instruction that can be carried out 
+by a trained mechanic, without any additional information. 
+For example, write "Remove the blanks from all orifices".
+
+The text of a required condition must be written as a statement that can be evaluated 
+true or false. For example, write "The blanks are removed from all orifices".
+
+  
+Markup element: <reqCondNoRef>
+
+Attributes:
+- applicRefId (O), the applicability information by referencing the element <applic>. Refer to Chap 3.9.5.3.
+- id (O), the identifier of the markup element. Refer to Chap 3.9.5.2.1.2.
+- changeType (O), changeMark (O) and reasonForUpdateRefIds (O), the
+change indications. Refer to Chap 3.9.5.2.1.1.
+- controlAuthorityRefs (O), the control authority information by referencing the
+element <controlAuthority>. Refer to Chap 3.9.5.1.
+- securityClassification (O), commercialClassification (O), 
+caveat (O) and derivativeClassificationRefId (O), the security 
+and restrictive marking. Refer to Chap 3.6.
+
+  
+Child elements:
+- <reqCond>. Refer to Para 2.2.3.1.
+
+  
+Markup example:
+
+<reqCondNoRef>
+  <reqCond>The bicycle is outdoors</reqCond>
+</reqCondNoRef>
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.2.3 Required conditions - referenced data module
+
+Description: The element <reqCondDm> contains the required action/condition when
+satisfied by completing a procedure that is described in a separate data module.
+
+The element <reqCondDm> is used to describe the required action/condition 
+and the element <dmRef> to contain the reference to the data module that contains 
+the procedure to fulfill the condition.
+The required action/condition must be equivalent to the full procedure in the referenced data module.
+
+The text of a required action must be written as a statement that can be carried out, 
+by a trained mechanic, with support of the referenced data module if needed.
+For example, write "Make the engine safe for maintenance".
+
+The text of a required condition must be written as a statement that can be evaluated 
+true or false with support of the referenced data module if needed. 
+For example, write "The engine is safe for maintenance".
+
+  
+Markup element: <reqCondDm>
+
+Attributes:
+- Includes the same set of attributes as the element <reqCondNoRef>. Refer to Para 2.2.2.
+
+Child elements:
+- <reqCond>. Refer toPara 2.2.3.1.
+- <dmRef>. Refer to Chap 3.9.5.2.1.2.
+
+  
+Markup example:
+
+<reqCondDm>
+  <reqCond>The tire is removed.</reqCond>
+  <dmRef>
+    <dmRefIdent>
+      <dmCode modelIdentCode="S1000DBIKE" systemDiffCode="AAA"
+      systemCode="DA0" subSystemCode="1" subSubSystemCode="0"
+      assyCode="20" disassyCode="00" disassyCodeVariant="AA"
+      infoCode="215" infoCodeVariant="A" itemLocationCode="A"></dmCode>
+    </dmRefIdent>
+  </dmRef>
+</reqCondDm>
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.2.3.1 Required condition
+
+Description: The element <reqCond> contains the required action/condition statement,
+such as "The tire is removed", "The engine is safe for maintenance", 
+"Make the engine safe for maintenance", "Open the circuit breaker:" 
+or "Make sure the circuit breaker is open, safetied/locked and tagged:" 
+which might require a separate procedure.
+
+  
+Markup element: <reqCond>
+
+Attributes:
+- applicRefId (O), the applicability information. Refer to Chap 3.9.5.3.
+- reqCondCategory, the category of the condition (eg, special environmental
+conditions such as reduced lighting, ventilation, and temperature). 
+The attribute can have one of the following values:
+  • "rcc01" thru "rcc99". Refer to Chap 3.9.6.1.
+- changeType (O), changeMark (O) and reasonForUpdateRefIds (O), 
+the change indications. Refer to Chap 3.9.5.2.1.1.
+- controlAuthorityRefs (O), the control authority information by referencing 
+the element <controlAuthority>. Refer to Chap 3.9.5.1.
+
+Child elements:
+- <internalRef> (O). Refer to Chap 3.9.5.2.1.2.
+- <indexFlag> (O). Refer to Chap 3.9.5.2.1.10.
+- <symbol> (O). Refer to Chap 3.9.5.2.1.10.
+- <subScript> (O). Refer to Chap 3.9.5.2.1.10.
+- <superScript> (O). Refer to Chap 3.9.5.2.1.10.
+- <footnoteRef> (O). Refer to Chap 3.9.5.2.1.10.
+- <acronym> (O). Refer to Chap 3.9.5.2.1.10.
+- <acronymTerm> (O). Refer to Chap 3.9.5.2.1.10.
+
+  
+Markup example:
+
+<reqCond>The tire is removed</reqCond>
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.2.4 Required conditions - circuit breaker list
+
+Description: The element <reqCondCircuitBreaker> contains a set 
+of circuit breaker actions (open, close, open-order, close-order, check open or check closed) 
+to be executed before the performance of the task. The circuit breaker actions must be marked up 
+in the sequence they have to be performed.
+
+  
+Markup element: <reqCondCircuitBreaker>
+
+Attributes:
+- Includes the same set of attributes as the element <reqCondNoRef>. Refer to Para 2.2.2.
+
+Child elements:
+- <reqCond>. Refer toPara 2.2.3.1.
+- <circuitBreakerDescrGroup>. Refer toPara 2.2.4.1.
+
+Business rule decision point BRDP-S1-00143 - Inclusion of a circuit breaker list as part
+of the required conditions - (element <reqCondCircuitBreaker>):
+– Decide if circuit breaker lists are allowed in required conditions and thus the use of the
+element, or if all the circuit breaker settings must be part of the steps. In this latter case,
+the element <circuitBreakerDescrGroup> in steps content can be used.
+
+  
+Markup example:
+
+<reqCondCircuitBreaker>
+  <reqCond>Make sure the circuit breaker is open, safetied/locked and tagged.</reqCond>
+  ...
+</reqCondCircuitBreaker>
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.2.4.1 Circuit breaker description group
+
+Description: The element <circuitBreakerDescrGroup> contains the circuit breaker lists information.
+
+  
+Markup element: <circuitBreakerDescrGroup>
+
+Attributes:
+- applicRefId (O), the applicability information by referencing the element <applic>. Refer to Chap 3.9.5.3 
+- id (O), the identifier of the markup element. Refer to Chap 3.9.5.2.1.2.
+- changeType (O), changeMark (O) and reasonForUpdateRefIds (O), the
+change indications. Refer to Chap 3.9.5.2.1.1.
+- circuitBreakerAction (O), the action to perform on the whole set of circuit breaker described in the table. 
+The attribute can have one of the following values:
+  • "open" - the action "to open"
+  • "close" - the action "to close"
+  • "verif-open" - the check of the condition: "is open"
+  • "verif-close" - the check of the condition: "is closed"
+  • "open-order" - the action "to open" following the circuit breaker list sequence
+  • "close-order" - the action "to close" following the circuit breaker list sequence
+- checkSum (O), the entered data which allows potential integrity verification
+- controlAuthorityRefs (O), the control authority information by referencing 
+the element <controlAuthority>. Refer to Chap 3.9.5.1.
+- securityClassification (O), commercialClassification (O), 
+caveat (O) and derivativeClassificationRefId (O), the security 
+and restrictive marking. Refer to Chap 3.6.
+
+Child elements:
+- <circuitBreakerDescrSubGroup>. Refer toPara 2.2.4.1.1.
+- <footnote>. Refer to Chap 3.9.5.2.1.10.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------  
+
+2.2.4.1.1 Circuit breaker description subgroup
+
+Description: The element <circuitBreakerDescrSubGroup> contains one or more sub-circuit breaker lists.
+
+  
+Markup element: <circuitBreakerDescrSubGroup>
+
+Attributes:
+- applicRefId (O), the applicability information. Refer to Chap 3.9.5.3.
+- id (O), the identifier of the markup element. Refer to Chap 3.9.5.2.1.2.
+- changeType (O), changeMark (O) and reasonForUpdateRefIds (O), the
+change indications. Refer to Chap 3.9.5.2.1.1.
+- circuitBreakerAction (O). Refer toPara 2.2.4.1.
+- checkSum (O), the entered data, which allows potential integrity verification
+- controlAuthorityRefs (O), the control authority information by referencing 
+the element <controlAuthority>. Refer to Chap 3.9.5.1 .
+- securityClassification (O), commercialClassification (O), 
+caveat (O) and derivativeClassificationRefId (O), the security 
+and restrictive marking. Refer to Chap 3.6.
+
+Child elements:
+- <functionalItemRef>, contains the particular context for this set of circuit
+breakers as described in Chap 3.9.5.1.
+- <circuitBreakerDescr>, the description of the circuit breaker. Refer to Para 2.2.4.1.2.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------  
+    
+2.2.4.1.2 Circuit breaker description
+
+Description: The element <circuitBreakerDescr> contains the information on individual circuit breakers.
+
+  
+Markup element: <circuitBreakerDescr>
+
+Attributes:
+- applicRefId (O), the applicability information by referencing the element <applic>. Refer to Chap 3.9.5.3.
+- id (O), the identifier of the markup element. Refer to Chap 3.9.5.2.1.2.
+changeType (O), changeMark (O) and reasonForUpdateRefIds (O), the
+change indications. Refer to Chap 3.9.5.2.1.1.
+- controlAuthorityRefs (O), the control authority information by referencing 
+the element <controlAuthority>. Refer to Chap 3.9.5.1.
+- securityClassification (O), commercialClassification (O), 
+caveat (O) and derivativeClassificationRefId (O), the security 
+and restrictive marking. Refer to Chap 3.6.
+
+Child elements:
+- <circuitBreakerRef>, the circuit breaker number, circuit breaker action 
+and circuit breaker type. Refer to Chap 3.9.5.2.1.10.
+- <name>, the name of the circuit breaker. Refer to Chap 3.9.5.2.1.10.
+- <internalRef>, the cross-reference to the access point introduced in the product
+management data, element <productionMaintData>
+- <accessPointRef>, the identifier of the access point allowing manipulating 
+the circuit breaker. Refer to Chap 3.9.5.2.1.10 .
+- <circuitBreakerLocation>, the circuit breaker location in the circuit breaker
+panel by entering text. Refer toPara 2.2.4.1.3.
+- <footnoteRemarks>, contains textual remarks or reference to a footnote. 
+Refer to Para 2.5.1.6.
+
+  
+Markup examples:
+
+Markup example 1 - <circuitBreakerRef>:
+
+<circuitBreakerDescr>
+  <circuitBreakerRef circuitBreakerNumber="42RT" circuitBreakerType="cbt02"></circuitBreakerRef>
+  <name>MMR-1 (ILS+GPS)</name>
+  <circuitBreakerLocation>0867</circuitBreakerLocation>
+</circuitBreakerDescr>
+
+Markup example 2 - <internalRef> - Access point identifier given by element 
+
+<internalRef> (to element <accessPointRef> within the element 
+  <productionMaintData>):
+    <circuitBreakerDescr>
+      <circuitBreakerRef circuitBreakerType="cbt02" circuitBreakerNumber="44RT"/>
+      <name>MMR-2 (ILS+GPS)</name>
+      <internalRef internalRefTargetType="irtt13" internalRefId="accpnl-0042"/>
+      <circuitBreakerLocation>0867</circuitBreakerLocation>
+    </circuitBreakerDescr>
+
+Markup example 3 - Access point identifier given by element <accessPointRef>:
+
+<circuitBreakerDescr>
+  <circuitBreakerRef circuitBreakerType="cbt02" circuitBreakerNumber="800RT"/>
+  <name>GLIDE ANT2 SWGT RELAY</name>
+  <accessPointRef accessPointNumber="2502VU" accessPointTypeValue="accpnl02"/>
+  <circuitBreakerLocation>SSPC</circuitBreakerLocation>
+</circuitBreakerDescr>
+
+Markup example 4 - <circuitBreakerLocation>:
+
+<circuitBreakerDescr>
+  <circuitBreakerRef circuitBreakerNumber="800RT"circuitBreakerType="cbt02"></circuitBreakerRef>
+  <name>GLIDE ANT2 SWGT RELAY</name>
+  <circuitBreakerLocation>SSPC</circuitBreakerLocation>
+  <footnoteRemarks><footnoteRef internalRefId ="ftn-001"/></footnoteRemarks>
+</circuitBreakerDescr>
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.2.4.1.3 Circuit breaker location
+
+Description: The element <circuitBreakerLocation> contains the textual
+description of the circuit breaker location in the circuit breaker panel.
+
+  
+Markup element: <circuitBreakerLocation>
+
+Attributes:
+- id (O), the identifier of the markup element. Refer to Chap 3.9.5.2.1.2.
+- changeType (O), changeMark (O) and reasonForUpdateRefIds (O), 
+the change indications. Refer to Chap 3.9.5.2.1.1.
+- controlAuthorityRefs (O), the control authority information by referencing 
+the element <controlAuthority>. Refer to Chap 3.9.5.1.
+- securityClassification (O), commercialClassification (O), 
+caveat (O) and derivativeClassificationRefId (O), the security 
+and restrictive marking. Refer to Chap 3.6.
+
+Child elements:
+- None
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  
+2.2.5 Required conditions - referenced publication module
+
+Description: The element <reqCondPm> contains the required action/condition when they
+are contained in another publication module.
+
+The element <reqCond> is used to describe the required action/condition and the element 
+<pmRef> to contain the publication module identifier.
+
+Note
+  The use of the element <reqCondPm> needs a clear reference to the procedure
+  needed to do the action or fulfill the condition. A general reference to for example 
+  a component maintenance publication can hinder the mechanic to do the job and also 
+  the automated generation of situation adopted maintenance procedures.
+
+
+Markup element: <reqCondPm>
+
+Attributes:
+- Includes the same set of attributes as the element <reqCondNoRef>. Refer to Para 2.2.2.
+
+Child elements:
+- <reqCond>. Refer toPara 2.2.3.1.
+- <pmRef>. Refer to Chap 3.9.5.2.1.2.
+
+  
+Markup example:
+
+<reqCondPm>
+  <reqCond>Gather the following publication.</reqCond>
+  <pmRef>
+    <pmRefIdent>
+      <pmCode modelIdentCode="FRIGATE124ALFA" pmIssuer="01233" pmNumber="01234" pmVolume="01"/>
+    </pmRefIdent>
+  </pmRef>
+</reqCondPm>
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.2.6 Required conditions - referenced non-S1000D publication or document
+
+Description: The element <reqCondExternalPub> contains the required action/condition 
+when are contained in a non-S1000D publication or document.
+
+The element <reqCond> is used to describe the required action/condition and the element 
+<externalPubRef> to contain the publication or document identifier.
+
+Note
+  The use of the element <reqCondExternalPub> needs a clear reference to 
+  the procedure needed to do the action or fulfill the condition. 
+  A general reference to, for example, a component maintenance publication, 
+  can hinder the mechanic to do the job and also the automated generation 
+  of situation adopted maintenance procedures.
+
+
+Markup element: <reqCondExternalPub>
+
+Attributes:
+- Includes the same set of attributes as the element <reqCondNoRef>. Refer to Para 2.2.2.
+
+Child elements:
+- <reqCond>. Refer toPara 2.2.3.1.
+- <externalPubRef>. Refer to Chap 3.9.5.2.1.2.
+
+  
+Markup example:
+<reqCondExternalPub>
+  <reqCond>Safely discard the horn that you removed</reqCond>
+  <externalPubRef extEntityIdent="EXT￾Local_Disposal_Procedures">
+    <externalPubRefIdent>
+      <externalPubTitle>Local Disposal Procedures</externalPubTitle>
+    </externalPubRefIdent>
+  </externalPubRef>
+</reqCondExternalPub>
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.2.7 Required conditions - markup example
+
+The presentation of the following example is shown in Chap 6.2.3.3.
+
+<preliminaryRqmts>
+  <reqCondGroup>
+    <reqCondNoRef>
+      <reqCond>Remove the blanks from all orifices</reqCond>
+    </reqCondNoRef>
+    <reqCondDm>
+      <reqCond>The engine is safe for maintenance</reqCond>
+      <dmRef>
+        <dmRefIdent>
+          <dmCode modelIdentCode="ENGINE123" systemDiffCode="AAA"
+          systemCode="70" subSystemCode="0" subSubSystemCode="0"
+          assyCode="00" disassyCode="23" disassyCodeVariant="AA"
+          infoCode="200" infoCodeVariant="A" itemLocationCode="A">
+          </dmCode>
+        </dmRefIdent>
+      </dmRef>
+    </reqCondDm>
+    <reqCondNoRef>
+      <reqCond>Open Door 824 to access Electrical panels</reqCond>
+    </reqCondNoRef>
+    <reqCondCircuitBreaker>
+      <reqCond>Make sure the circuit breaker is open, safetied/locked and tagged:</reqCond>
+      <circuitBreakerDescrGroup circuitBreakerAction="verif-open">
+        <circuitBreakerDescrSubGroup>
+          <circuitBreakerDescr>
+            <circuitBreakerRef circuitBreakerType="cbt02" circuitBreakerNumber="42RT"/>
+            <name>MMR-1 (ILS+GPS)</name>
+            <accessPointRef accessPointNumber="2501VU" accessPointTypeValue="accpnl02"/>
+            <circuitBreakerLocation>0867</circuitBreakerLocation>
+          </circuitBreakerDescr>
+        </circuitBreakerDescrSubGroup>
+      </circuitBreakerDescrGroup>
+    </reqCondCircuitBreaker>
+    <reqCondCircuitBreaker>
+      <reqCond>Make sure the circuit breaker is closed, safetied/locked and tagged:</reqCond>
+        <circuitBreakerDescrGroup circuitBreakerAction="verif-close">
+          <circuitBreakerDescrSubGroup>
+            <circuitBreakerDescr>
+              <circuitBreakerRef circuitBreakerType="cbt02" circuitBreakerNumber="10CA1"/>
+              <name>AUTO FLT/FMGC/1</name>
+              <accessPointRef accessPointNumber="49VU" accessPointTypeValue="accpnl02"/>
+              <circuitBreakerLocation>02 B</circuitBreakerLocation>
+            </circuitBreakerDescr>
+          </circuitBreakerDescrSubGroup>
+          <footnote id="ftn-001">
+            <para>The location of the circuit breaker depends on the aircraft configuration</para>
+          </footnote>
+        </circuitBreakerDescrGroup>
+      </reqCondCircuitBreaker>
+      <reqCondCircuitBreaker>
+        <reqCond>Open the circuit breaker:</reqCond>
+        <circuitBreakerDescrGroup circuitBreakerAction="open">
+          <circuitBreakerDescrSubGroup>
+            <circuitBreakerDescr>
+              <circuitBreakerRef circuitBreakerType="cbt02" circuitBreakerNumber="44RT"/>
+              <name>MMR-2 (ILS+GPS)</name>
+              <accessPointRef accessPointNumber="2514VU" accessPointTypeValue="accpnl02"/>
+              <circuitBreakerLocation>0867</circuitBreakerLocation>
+            </circuitBreakerDescr>
+          </circuitBreakerDescrSubGroup>
+        </circuitBreakerDescrGroup>
+      </reqCondCircuitBreaker>
+      <reqCondCircuitBreaker>
+        <reqCond>Make sure the circuit breaker is open, safetied/locked and tagged:</reqCond>
+        <circuitBreakerDescrGroup circuitBreakerAction="verif-open">
+          <circuitBreakerDescrSubGroup>
+            <circuitBreakerDescr>
+              <circuitBreakerRef circuitBreakerType="cbt02" circuitBreakerNumber="800RT"/>
+              <name>GLIDE ANT2 SWGT RELAY</name>
+              <accessPointRef accessPointNumber="2502VU" accessPointTypeValue="accpnl02"/>
+              <circuitBreakerLocation>SSPC</circuitBreakerLocation>
+            </circuitBreakerDescr>
+          </circuitBreakerDescrSubGroup>
+          <footnote id="ftn-002">
+            <para>If the circuit breaker is modified by SB-A350-A-25-10-0001-00A-930A-C</para>
+          </footnote>
+        </circuitBreakerDescrGroup>
+      </reqCondCircuitBreaker>
+      <reqCondNoRef>
+        <reqCond>Close Door 824</reqCond>
+      </reqCondNoRef>
+      <reqCondNoRef>
+        <reqCond>Open Door 834 to access Electrical panels 49VU and 121</reqCond>
+      </reqCondNoRef>
+      <reqCondCircuitBreaker>
+        <reqCond>Close the circuit breaker:</reqCond>
+        <circuitBreakerDescrGroup circuitBreakerAction="close">
+          <circuitBreakerDescrSubGroup>
+          <circuitBreakerDescr>
+            <circuitBreakerRef circuitBreakerType="cbt02" circuitBreakerNumber="11CA1"/>
+            <name>AUTO FLT/MCDU/1</name>
+            <accessPointRef accessPointNumber="49VU" accessPointTypeValue="accpnl02"/>
+            <circuitBreakerLocation>01 B</circuitBreakerLocation>
+          </circuitBreakerDescr>
+        </circuitBreakerDescrSubGroup>
+      </circuitBreakerDescrGroup>
+    </reqCondCircuitBreaker>
+    <reqCondCircuitBreaker>
+      <reqCond>Make sure the circuit breaker is closed, safetied/locked and tagged:</reqCond>
+      <circuitBreakerDescrGroup circuitBreakerAction="verif-close">
+        <circuitBreakerDescrSubGroup>
+          <circuitBreakerDescr>
+            <circuitBreakerRef circuitBreakerType="cbt02" circuitBreakerNumber="10CA2"/>
+            <name>AUTO FLT/FMGC/2</name>
+            <accessPointRef accessPointNumber="121VU" accessPointTypeValue="accpnl02"/>
+            <circuitBreakerLocation>17 M</circuitBreakerLocation>
+          </circuitBreakerDescr>
+        </circuitBreakerDescrSubGroup>
+        <circuitBreakerDescrSubGroup>
+          <circuitBreakerDescr>
+            <circuitBreakerRef circuitBreakerType="cbt02" circuitBreakerNumber="10CA2"/>
+            <name>DATA/LOADER/SPLY</name>
+            <accessPointRef accessPointNumber="121VU" accessPointTypeValue="accpnl02"/>
+            <circuitBreakerLocation>20 N</circuitBreakerLocation>
+          </circuitBreakerDescr>
+        </circuitBreakerDescrSubGroup>
+        <circuitBreakerDescrSubGroup>
+          <circuitBreakerDescr>
+            <circuitBreakerRef circuitBreakerType="cbt02" circuitBreakerNumber="5TD"/>
+            <name>DLS&amp;/DLRB/SPLY</name>
+            <accessPointRef accessPointNumber="121VU" accessPointTypeValue="accpnl02"/>
+            <circuitBreakerLocation>16 J</circuitBreakerLocation>
+            <footnoteRemarks>
+              <simplePara>If installed</simplePara>
+            </footnoteRemarks>
+          </circuitBreakerDescr>
+        </circuitBreakerDescrSubGroup>
+      </circuitBreakerDescrGroup>
+    </reqCondCircuitBreaker>
+    <reqCondCircuitBreaker>
+      <reqCond>Open/Close the circuit breaker in the following order:</reqCond>
+      <circuitBreakerDescrGroup circuitBreakerAction="open-order">
+        <circuitBreakerDescrSubGroup>
+          <circuitBreakerDescr>
+            <circuitBreakerRef circuitBreakerAction="open" circuitBreakerType="cbt02" circuitBreakerNumber="58GA"/>
+            <name>LGCIU/BAT SPLY/SYS1</name>
+            <accessPointRef accessPointNumber="121" accessPointTypeValue="accpnl02"/>
+            <circuitBreakerLocation>43Q</circuitBreakerLocation>
+            <footnoteRemarks>
+              <footnoteRef internalRefId="ftn-001"/>
+            </footnoteRemarks>
+          </circuitBreakerDescr>
+        </circuitBreakerDescrSubGroup>
+        <circuitBreakerDescrSubGroup>
+          <circuitBreakerDescr>
+            <circuitBreakerRef circuitBreakerAction="open" circuitBreakerNumber="1WE1"/>
+            <name>ENGINE/ENG1 AND 2 FIRE EXTIG/BTL1/SQUIB/A</name>
+            <accessPointRef accessPointNumber="121" accessPointTypeValue="accpnl02"/>
+            <circuitBreakerLocation>25 R</circuitBreakerLocation>
+          </circuitBreakerDescr>
+        </circuitBreakerDescrSubGroup>
+        <circuitBreakerDescrSubGroup>
+          <circuitBreakerDescr>
+            <circuitBreakerRef circuitBreakerAction="close" circuitBreakerType="cbt02" circuitBreakerNumber="T4TWO"/>
+            <name>JUST/AN/OTHER/CB</name>
+            <accessPointRef accessPointNumber="121" accessPointTypeValue="accpnl02"/>
+            <circuitBreakerLocation>26 R</circuitBreakerLocation>
+            <footnoteRemarks>
+              <footnoteRef internalRefId="ftn-002"/>
+            </footnoteRemarks>
+          </circuitBreakerDescr>
+        </circuitBreakerDescrSubGroup>
+      </circuitBreakerDescrGroup>
+    </reqCondCircuitBreaker>
+  </reqCondGroup>
+  <reqSupportEquips>
+    <noSupportEquips/>
+  </reqSupportEquips>
+  <reqSupplies>
+    <noSupplies/>
+  </reqSupplies>
+  <reqSpares>
+    <noSpares/>
+  </reqSpares>
+  <reqSafety>
+    <noSafety/>
+  </reqSafety>
+</preliminaryRqmts>
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.3 Required persons
+
+Description: The element <reqPersons> contains the information on the required personnel for the task.
+A program can choose to identify the number of a certain skill (category, skill level, trade) that is
+required. A program choosing this method must use the element <personnel> in conjunction with the attribute numRequired.
+
+If there are requirements for a specific man, then the element <person> must be used. 
+This element has the attribute man, which must be used to indicate the particular person 
+(eg, man="B"). This method identifies each person required to do the procedure together with 
+the appropriate information as defined by the project: category, skill level, trade/trade code 
+and estimated time spent per person.
+
+If none of the elements in the element <reqPersons> is used this will be regarded as "As required".
+
+Required persons can be represented by a mix of populated the element <personnel> and the element <person>.
+
+  
+Markup element: <reqPersons>
+
+Attributes:
+- applicRefId (O), the applicability information. Refer to Chap 3.9.5.3.
+- id (O), the identifier of the markup element. Refer to Chap 3.9.5.2.1.2.
+- changeType (O), changeMark (O) and reasonForUpdateRefIds (O), 
+the change indications. Refer to Chap 3.9.5.2.1.1.
+- controlAuthorityRefs (O), the control authority information by referencing 
+the element <controlAuthority>. Refer to Chap 3.9.5.1.
+- securityClassification (O), commercialClassification (O), 
+caveat (O) and derivativeClassificationRefId (O), the security 
+and restrictive marking. Refer to Chap 3.6.
+
+Child elements:
+- <personnel>, the required personnel when the number of a certain skill is required. Refer to Para 2.3.1.
+- <person>, the required personnel when skill per individual is required. Refer to Para 2.3.2.
+
+Business rule decision point BRDP-S1-00144 - Use of the element <reqPersons> 
+in the element <preliminaryRqmts>:
+– Decide whether and how to use the element <reqPersons>. For example, use either
+the element <personnel> or <person> or use both elements.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.3.1 Personnel
+
+Description: The element <personnel> contains the information on the required
+personnel for the task by grouping the personnel by category, skill level and trade/trade code
+together with the number of personnel of a certain skill (category, skill level, trade).
+
+If the number of personnel of a specific category, skill level or trade is not defined in the
+element <personnel> the absence of a specified quantity indicates as "As required".
+
+Note
+  At page-oriented presentation "As required" is given in the Person column of the "Required persons" table.
+
+If the attribute numRequired is used, then the number required will be presented with the skill level in parentheses.
+
+  
+Markup element: <personnel>
+
+Attributes:
+- id (O), the identifier of the markup element. Refer to Chap 3.9.5.2.1.2.
+- changeType (O), changeMark (O) and reasonForUpdateRefIds (O), the
+change indications. Refer to Chap 3.9.5.2.1.1.
+- numRequired (O), the number of personnel for a certain combination of category, 
+skill level and trade
+- controlAuthorityRefs (O), the control authority information by referencing 
+the element <controlAuthority>. Refer to Chap 3.9.5.1.
+- securityClassification (O), commercialClassification (O), 
+caveat (O) and derivativeClassificationRefId (O), the security 
+and restrictive marking. Refer to Chap 3.6.
+
+Child elements:
+- <personCategory>. Refer toPara 2.3.1.1.
+- <personSkill>. Refer toPara 2.3.1.2.
+- <trade>. Refer toPara 2.3.1.3.
+- <estimatedTime>. Refer toPara 2.3.1.4.
+
+  
+Markup example:
+
+<personnel numRequired="2">
+  <personCategory personCategoryCode="Electrician"/>
+  <personSkill skillLevelCode="sk01"/>
+  <trade>AF901</trade>
+  <estimatedTime unitOfMeasure="h">1,5</estimatedTime>
+</personnel>
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.3.1.1 Category
+
+Description: The element <personCategory> contains the required category of the person.
+
+  
+Markup element: <personCategory>
+
+Attributes:
+- id (O), the identifier of the markup element. Refer to Chap 3.9.5.2.1.2.
+- changeType (O), changeMark (O) and reasonForUpdateRefIds (O), 
+the change indications. Refer to Chap 3.9.5.2.1.1.
+- personCategoryCode (M), the required skill category/type of the person who will
+perform the task (eg, Airframe, Electrical, Avionic, Engine). The attribute must have 
+the same values (the S1000D interpretation of the equivalent value of "stNN" as given 
+in Chap 3.9.6.1 ) as the attribute skillType of the element <taskDefinition> 
+in the schedule Schema if both are used. Refer to Chap 3.9.5.2.5.
+
+Recommendation: It is recommended to only populate the attribute 
+personCategoryCode of the element <personCategory>
+
+when child element <preliminaryRqmts> of the element <taskDefinition>
+is used in the schedule Schema.
+- controlAuthorityRefs (O), the control authority information by referencing 
+the element <controlAuthority>. Refer to Chap 3.9.5.1.
+- securityClassification (O), commercialClassification (O), 
+caveat (O) and derivativeClassificationRefId (O), the security 
+and restrictive marking. Refer to Chap 3.6.
+
+Child elements:
+- None
+
+Business rule decision point BRDP-S1-00145 - Values for the attribute 
+personCategoryCode in the element <preliminaryRqmts>:
+– Define a list of skill categories/types (eg, Airframe, Electrical, Avionic, Engine).
+
+  
+Markup example:
+
+<personCategory personCategoryCode="Electrical"/>
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.3.1.2 Skill level
+
+Description: The element <personSkill> contains the required skill level of the person.
+This represents the skill level that the person must have attained to be able to perform 
+his or her role in the procedure and is (eg, Basic, Intermediate, Advanced).
+
+The element <personSkill> must have the same values (the S1000D interpretation 
+of the equivalent value of "stNN" as given in Chap 3.9.6.1 ) as the attribute 
+skillLevelCode in the task definition branch of the Schedule Schema, if both are used.
+Refer to Chap 3.9.5.2.5 .
+
+  
+Markup element: <personSkill>
+
+Attributes:
+- id (O), the identifier of the markup element. Refer to Chap 3.9.5.2.1.2.
+- changeType (O), changeMark (O) and reasonForUpdateRefIds (O), 
+the change indications. Refer to Chap 3.9.5.2.1.1.
+- skillLevelCode (M), the skill level of the person. The attribute can have one 
+of the following values:
+  • "sk01" thru "sk99". Refer to Chap 3.9.6.1.
+- controlAuthorityRefs (O), the control authority information by referencing 
+the element <controlAuthority>. Refer to Chap 3.9.5.1.
+- securityClassification (O), commercialClassification (O), 
+caveat (O) and derivativeClassificationRefId (O), the security 
+and restrictive marking. Refer to Chap 3.6.
+
+Child elements:
+- None
+
+  
+Markup example:
+
+<personSkill skillLevelCode="sk01"/>
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.3.1.3 Trade/trade code
+
+Description: The element <trade> contains the typed in required trade code of the person.
+Care must be taken when using this element when the product is, for example, multi-national 
+or multi-customer. The trade or trade code or both is typed in.
+
+  
+Markup element: <trade>
+
+Attributes:
+- id (O), the identifier of the markup element. Refer to Chap 3.9.5.2.1.2.
+- changeType (O), changeMark (O) and reasonForUpdateRefIds (O), 
+the change indications. Refer to Chap 3.9.5.2.1.1.
+- controlAuthorityRefs (O), the control authority information by referencing 
+the element <controlAuthority>. Refer to Chap 3.9.5.1.
+- securityClassification (O), commercialClassification (O), 
+caveat (O) and derivativeClassificationRefId (O), the security 
+and restrictive marking. Refer to Chap 3.6.
+
+Child elements:
+- None
+
+Business rule decision point BRDP-S1-00146 - Values for the element <trade> 
+in the context of the element <preliminaryRqmts>:
+– If trades are required, define a list of trades/trade codes.
+
+  
+Markup example:
+
+<trade>AF901</trade>
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+          
+2.3.1.4 Estimated time
+
+Description: The element <estimatedTime> contains the estimate of aggregation of all
+the time that the person will be required to complete the task. The estimated time must be
+given in man-hours with maximum two decimal s (eg, 2,4.5 h). 
+The time and unit of measure must be entered.
+
+  
+Markup element: <estimatedTime>
+
+Attributes:
+- unitOfMeasure (C), the unit of measure to be used is
+  • "h" - (man)hour
+Refer to default BREX rule BREX-S1-00072.
+
 - id (O), the identifier of the markup element. Refer to Chap 3.9.5.2.1.2.
 - changeType (O), changeMark (O) and reasonForUpdateRefIds (O), the
 change indications. Refer to Chap 3.9.5.2.1.1.
@@ -9046,234 +11420,1619 @@ element <controlAuthority>. Refer to Chap 3.9.5.1.
 - securityClassification (O), commercialClassification (O), 
 caveat (O) and derivativeClassificationRefId (O), the security and
 restrictive marking. Refer to Chap 3.6.
-Child elements:
-- <title>. Refer to Chap 3.9.5.2.1.5.
-- <multimediaObject>. Refer to Para 2.3.2.1.
-Business rule decision point BRDP-S1-00129 - Suitability of multimedia use:
-– Decide whether using multimedia is suitable for the environment in which the project will
-operate.
 
-2.3.2 Multimedia alternates
-The element <multimediaAlts> contains the element <multimedia>. Refer to
-Para 2.3.1.
-2.3.2.1 Multimedia object
-Description: The element <multimediaObject>, which contains parameter details of
-the multimedia objects.
-Markup element: <multimediaObject>
+Child elements:
+- None
+
+
+Markup example:
+
+<estimatedTime unitOfMeasure="h">1,5</estimatedTime>
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.3.2 Person
+
+Description: The element <person> contains the skill information on the required personnel
+for the task when there are requirements to individually specify the personnel.
+
+Each person must be given an identifier in the attribute man. 
+For example, A, B and C to represent "Man A", "Man B" and "Man C" respectively.
+
+Note
+  The use of the element <person> generates at presentation the word "Man" before 
+  the value of the attribute man. At page-oriented presentation "Man A", etc, 
+  is given in the Person column of the Required persons table.
+
+Note
+  The procedure must be written from the point of view of "Man A".
+
+    
+Markup element: <person>
+
 Attributes:
-- applicRefId (O), the applicability information by referencing the element 
-<applic>. Refer to Chap 3.9.5.3.
 - id (O), the identifier of the markup element. Refer to Chap 3.9.5.2.1.2.
 - changeType (O), changeMark (O) and reasonForUpdateRefIds (O), the
 change indications. Refer to Chap 3.9.5.2.1.1.
-- autoPlay (O), defines whether the object is automatically played on load or not (ie, wait
-for user interaction). The attribute can have one of the following values:
-• "0" - No, the object will not automatically play on load
-• "1" - Yes, the object will automatically play on load
-- fullScreen (O), used to determine if the object will be viewed/played in full screen
-mode. This attribute can have one of the following values:
-• "0" - No, the object will not be viewed/played in full screen mode
-• "1" - Yes, the object will be viewed/played in full screen mode
-- infoEntityIdent (M), a unique control number used to declare the entity name.
-- multimediaObjectHeight (O), defines the display height of the object at run time
-if not full screen.
-- multimediaObjectWidth (O), defines the display width of the object at run time if
-not full screen.
-- multimediaType (M), used to denote the type of multimedia (eg, video, audio). The
-attribute can have one of the following values:
-• "3D" - to declare the multimedia object type as 3D
-• "audio" - to declare the multimedia object type as audio
-• "video" - to declare the multimedia object type as video
-• "other" - to declare the multimedia object type other than those defined above
-- runTimeDuration (O), defines the objects run time (this can be necessary for text to
-sound synchronization, common in e-learning).
-- showPluginControls (O), used to hide or show the third-party software plug-in
-controls. The attribute can have one of the following values:
-• "hide" - to hide the plug-in controls
-• "show" - to show the plug-in controls
+- man (M), the alphabetic identifier of the person, starting from A
+- controlAuthorityRefs (O), the control authority information by referencing 
+the element <controlAuthority>. Refer to Chap 3.9.5.1.
+- securityClassification (O), commercialClassification (O), 
+caveat (O) and derivativeClassificationRefId (O), the security 
+and restrictive marking. Refer to Chap 3.6.
+
+Child elements:
+- Includes the same set of child elements as the element <personnel>. Refer to Para 2.3.1.
+
+  
+Markup example:
+
+<person man="A">
+  <personCategory personCategoryCode="Electrician"/>
+  <personSkill skillLevelCode="sk02"/>
+  <trade>AF901</trade>
+  <estimatedTime unitOfMeasure="h">1,5</estimatedTime>
+</person>
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.3.3 Markup example - Required persons
+
+Markup using the element <reqPersons> and the element <person>:
+- In the following example, Man A is required for 1,5 hours and is an electrician 
+(represented in this project by the category Electrician) of basic skill level 
+(represented by the attribute value "sk01"). Electricians have the trade code AF901.
+- Man B is a propulsion engineer (represented in this project by the category code PE) 
+who is required for 2,5 hours. Man B must be of intermediate skill level 
+(represented by the attribute value "sk02"). The trade code for propulsion engineers is AF903.
+- Mechanics (as many as required to support Man A and Man B) are required. These can be
+of basic skill level. The trade code for these mechanics is AF902. They are needed for only 1 hour.
+- A supervisor is required. This must be of advanced skill level (represented in this project 
+by attribute value "sk03"). The trade code AF092 represents supervisors.
+
+<reqPersons>
+  <person man="A">
+    <personCategory personCategoryCode="Electrician"/>
+    <personSkill skillLevelCode="sk01"/>
+    <trade>AF901</trade>
+    <estimatedTime unitOfMeasure="h">1,5</estimatedTime>
+  </person>
+  <person man="B">
+    <personCategory personCategoryCode="PE"/>
+    <personSkill skillLevelCode="sk02"/>
+    <trade>AF903</trade>
+    <estimatedTime unitOfMeasure="h">2,5</estimatedTime>
+  </person>
+  <personnel>
+    <personCategory personCategoryCode="Mechanic"/>
+    <personSkill skillLevelCode="sk01"/>
+    <trade>AF999</trade>
+    <estimatedTime unitOfMeasure="h">1</estimatedTime>
+  </personnel>
+  <personnel numRequired="1">
+    <personCategory personCategoryCode="SPRVR"/>
+    <personSkill skillLevelCode="sk03"/>
+    <trade>AF092</trade>
+  </personnel>
+</reqPersons>
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  
+2.4 Required technical information
+
+Description: The element <reqTechInfoGroup> contains references to any technical
+documents that are required, in addition to the actual data module, for the maintainer 
+to complete the procedure. The list is not a reference list but can be equated to a special tool 
+that needs to be selected. For example, required technical information can be engineering drawings
+not included in the data module that the maintainer needs to check out of a drawing library 
+in order to complete the maintenance tasks.
+
+  
+Markup element: <reqTechInfoGroup>
+
+Attributes:
+- id (O), the identifier of the markup element. Refer to Chap 3.9.5.2.1.2.
+- changeType (O), changeMark (O) and reasonForUpdateRefIds (O), 
+the change indications. Refer to Chap 3.9.5.2.1.1.
+- controlAuthorityRefs (O), the control authority information by referencing 
+the element <controlAuthority>. Refer to Chap 3.9.5.1.
+
+Child elements:
+- <reqTechInfo>. Refer to Para 2.4.1.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.4.1 Required technical information
+
+Description: The element <reqTechInfo> contains the content of <reqTechInfoGroup>.
+
+  
+Markup element: <reqTechInfo>
+
+Attributes:
+- reqTechInfoCategory, (O), the type of information. The attribute can have one 
+of the following values:
+  • "ti01" thru "ti99". Refer to Chap 3.9.6.1.
+
+Child elements:
+- <dmRef>. Refer to Chap 3.9.5.2.1.2.
+- <pmRef>. Refer to Chap 3.9.5.2.1.2.
+- <externalPubRef>. Refer to Chap 3.9.5.2.1.2.
+
+Business rule decision point BRDP-S1-00147 - Use of the element 
+<reqTechInfoGroup>in the element <preliminaryRqmts>:
+– Decide whether and how to use the element <reqTechInfoGroup>.
+
+  
+Markup example:
+
+<reqTechInfoGroup>
+  <reqTechInfo reqTechInfoCategory="ti04">
+    <externalPubRef>
+      <externalPubRefIdent>
+        <externalPubTitle>Power Supply Schematic (132E470092)</externalPubTitle>
+      </externalPubRefIdent>
+    </externalPubRef>
+  </reqTechInfo>
+</reqTechInfoGroup>
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.5 Required support equipment
+
+Description: The element <reqSupportEquips> must contain information to list any
+support equipment including special tools, required to accomplish the procedure contained 
+in the data module. Standard types of test equipment such as voltmeters, signal generators 
+and continuity testers must be listed. Standard tools that are part of a tradesman 
+standard tool kit must not be listed.
+
+Support equipment must be identified by the name of the support equipment, identification 
+and a quantity. As an identification number, the CSN/ISN identifier is recommended in order 
+to provide a direct link to the IPD at the relevant location.
+
+If there is no support equipment required, then the element <noSupportEquips> must be used.
+
+Note
+  The use of the element <noSupportEquips> generates the word "None" 
+  at presentation. At page-oriented presentation "None" is given in the "Name" column 
+  of the "Support equipment" table.
+
+If there is support equipment required, then the element <supportEquipDescr>, 
+within the element <supportEquipDescrGroup>, must be used for each item of support equipment.
+
+  
+Markup element: <reqSupportEquips>
+
+Attributes:
+- id (O), the identifier of the markup element. Refer to Chap 3.9.5.2.1.2.
+- changeType (O), changeMark (O) and reasonForUpdateRefIds (O), the
+change indications. Refer to Chap 3.9.5.2.1.1.
+- controlAuthorityRefs (O), the control authority information by referencing the
+element <controlAuthority>. Refer to Chap 3.9.5.1 .
+
+Child elements:
+- <noSupportEquips>, the indicator of no required support equipment as given in the description above
+- <supportEquipDescrGroup>, contains:
+  • <supportEquipDescr>. Refer to Para 2.5.1.
+  • <footnote>. Refer to Chap 3.9.5.2.1.10.
+
+Business rule decision point BRDP-S1-00149 - Listing of standard tools in Preliminary requirements:
+– Decide what types of standard tools or toolkits to be identified and listed in the table "Support equipment".
+
+The Business rule decision points given for the element <reqSupportEquips> 
+and its child elements are also applicable to the element <reqSpares> (refer to Para 2.7) 
+and to the element <reqSupplies> (refer to Para 2.6).
+
+
+Markup example:
+
+Refer to Para 2.5.2.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.5.1 Support equipment description
+
+Description: The element <supportEquipDescr> contains the information on each item of support equipment.
+The attribute id in the element <supportEquipDescr> can be applied so that the support equipment can be cross-referenced from the procedure.
+
+  
+Markup element: <supportEquipDescr>
+
+Attributes:
+- applicRefId (O), the applicability information by referencing the element <applic>. Refer to Chap 3.9.5.3.
+- id (O), the identifier of the markup element. Refer to Chap 3.9.5.2.1.2 .
+- materialUsage (O), defines a material set of support equipment. 
+The attribute can have one of the following values:
+  • "mu01" thru "mu99". Refer to Chap 3.9.6.1 and default BREX rule BREX-S1-00073.
+  Use of the attribute materialUsage
+  • For support equipment needed from store and required to do the task, the attribute 
+  materialUsage is not used. It is used only for support equipment to define 
+  a material set (materialUsage ="mu05"). Refer to Chap 3.9.6.1.
+- changeType (O), changeMark (O) and reasonForUpdateRefIds (O), 
+the change indications. Refer to Chap 3.9.5.2.1.1.
+- controlAuthorityRefs (O), the control authority information by referencing 
+the element <controlAuthority>. Refer to Chap 3.9.5.1.
+- securityClassification (O), commercialClassification (O), 
+caveat (O) and derivativeClassificationRefId (O), the security 
+and restrictive marking. Refer to Chap 3.6.
+
+Child elements:
+- <name>. Refer to Para 2.5.1.1 and Chap 3.9.5.2.1.10.
+- <shortName>. Refer to Para 2.5.1.2 and Chap 3.9.5.2.1.10.
+- The identification by one or more of the elements <catalogSeqNumberRef>, 
+<natoStockNumber>, <identNumber>, <toolRef> and <materialSetRef>. Refer toPara 2.5.1.3.
+- <reqQuantity>. Refer toPara 2.5.1.4.
+- <remarks>. Refer toPara 2.5.1.5.
+- <footnoteRemarks>, contains textual remarks or reference to a footnote. Refer to Para 2.5.1.6.
+- <embeddedSupportEquipDescr>, defines one or several items if using a support equipment set. Refer toPara 2.5.1.7.
+
+Business rule decision point BRDP-S1-00150 - Use of the attribute id on the element 
+<supportEquipDescr> in the element <preliminaryRqmts>:
+– Decide whether to link from the body of the procedure to the support equipment listed in Preliminary requirements.
+  • Note
+  The attribute id on the element <supportEquipDescr> is used to establish
+  the link between the two and will guarantee consistent use of identification throughout
+  the procedure. The use of cross-references is encouraged.
+
+Business rule decision point BRDP-S1-00151 - Use of the attribute materialUsage 
+in the element <supportEquipDescr>, the element <supplyDescr> and the element <spareDescr> context:
+– Decide whether to use the attribute materialUsage in the elements 
+<supportEquipDescr>, <supplyDescr> and <spareDescr> context and what values to be used.
+
+  
+Markup examples:
+
+Example 1- Support equipment from shop:
+
+<supportEquipDescr id="seq-0001">
+  <name>Specialist toolset</name>
+  <identNumber>
+    <manufacturerCode>KZ666</manufacturerCode>
+    <partAndSerialNumber>
+      <partNumber>BSK-TLST-001</partNumber>
+    </partAndSerialNumber>
+  </identNumber>
+  <reqQuantity unitOfMeasure="EA">1</reqQuantity>
+</supportEquipDescr>
+  
+Example 2- Support equipment from tool kit:
+
+<supportEquipDescr id="seq-0001" materialUsage="mu05">
+  <name>Tool kit 578015T01</name>
+  <materialSetRef materialSetIdent="578015T01" materialSetIssue="00"></materialSetRef>
+  <reqQuantity unitOfMeasure="EA">1</reqQuantity>
+  <embeddedSupportEquipDescr id="seq-0002">
+    <name>Screwdriver</name>
+    <toolRef toolNumber="BSK-SCRDV-001" specific="0"/>
+    <reqQuantity unitOfMeasure="EA">1</reqQuantity>
+  </embeddedSupportEquipDescr>
+</supportEquipDescr>
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.5.1.1 Name of the support equipment element
+
+Description: The element <name> contains the name of the support equipment 
+(or supply or part). If a common information repository is used in the authoring process, 
+the name of the support equipment is optional as it will be populated during the publication process. 
+Refer to Chap 3.9.5.2.1.10.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+              
+2.5.1.2 Shortname
+
+Description: The element <shortName> contains an abbreviated alternate name 
+of the support equipment (or supply or part) corresponding to the element <name>. 
+This short form for the name of the part is meant to be presented in the narrative text 
+of the data module to make the reading easier. Refer to Chap 3.9.5.2.1.10.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.5.1.3 Identification
+
+One or more of the following elements can be used to identify the support equipment:
+- <catalogSeqNumberRef>, the CSN. Refer to Chap 3.9.5.2.7 .
+- <natoStockNumber>, the NATO stock number. Refer to Chap 3.9.5.2.7.
+- <identNumber>, the identification number. Refer toPara 2.5.1.3.1.
+- <toolRef>, the tool reference. Refer toPara 2.5.1.3.6.
+- <materialSetRef>, the material set reference. Refer toPara 2.5.1.3.7.
+
+Business rule decision point BRDP-S1-00152 - Use of identification elements 
+in the element <supportEquipDescr>, the element <supplyDescr> and the element <spareDescr> context:
+– Decide which of the elements <catalogSeqNumberRef>, 
+<natoStockNumber>, <identNumber>, <toolRef>, <supplyRef>, 
+<supplyRqmtRef>, <partRef>, <functionalItemRef> and <materialSetRef> to use 
+for identification and how to populate these elements.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.5.1.3.1 Identification number
+
+Description: The element <identNumber> contains the manufacturer's identification information.
+
+
+Markup element: <identNumber>
+
+Attributes:
+- changeType (O), changeMark (O) and reasonForUpdateRefIds (O), 
+the change indications. Refer to Chap 3.9.5.2.1.1.
+- controlAuthorityRefs (O), the control authority information by referencing the
+element <controlAuthority>. Refer to Chap 3.9.5.1.
+
+Child elements:
+- <manufacturerCode>. Refer toPara 2.5.1.3.2.
+- <partAndSerialNumber>. Refer toPara 2.5.1.3.3.
+- <refs>, the references to a document containing additional parts data related 
+to the equipment concerned (ie, a data module or publication module or some non-S1000D publication). 
+Refer to Chap 3.9.5.2.1.2.
+
+  
+Markup example:
+
+<identNumber>
+  <manufacturerCode>KZ666</manufacturerCode>
+  <partAndSerialNumber>
+    <partNumber>BSK-TLST-001</partNumber>
+  </partAndSerialNumber>
+</identNumber>
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.5.1.3.2 Manufacturer code
+
+Description: The element <manufacturerCode> contains the manufacturer's code.
+
+  
+Markup element: <manufacturerCode>
+
+Attributes:
+- id (O), the identifier of the markup element. Refer to Chap 3.9.5.2.1.2.
+- changeType (O), changeMark (O) and reasonForUpdateRefIds (O), 
+the change indications. Refer to Chap 3.9.5.2.1.1.
+- controlAuthorityRefs (O), the control authority information by referencing 
+the element <controlAuthority>. Refer to Chap 3.9.5.1.
+- securityClassification (O), commercialClassification (O), 
+caveat (O) and derivativeClassificationRefId (O), the security 
+and restrictive marking. Refer to Chap 3.6.
+
+Child elements:
+- None
+
+
+Markup example:
+
+<manufacturerCode>KZ666</manufacturerCode>
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.5.1.3.3 Part and serial number
+
+Description: The element <partAndSerialNumber> contains parts and serial numbers.
+
+
+Markup element: <partAndSerialNumber>
+
+Attributes:
+- None
+
+Child elements:
+- <partNumber>, the part number. Refer toPara 2.5.1.3.4.
+- <serialNumber>, the listing of a single serial number or a range. Refer to Para 2.5.1.3.5.
+
+  
+Markup example:
+
+<partAndSerialNumber>
+  <partNumber>BSK-TLST-001</partNumber>
+</partAndSerialNumber>
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.5.1.3.4 Part number
+
+Description: The element <partNumber> contains the part number.
+
+  
+Markup element: <partNumber>
+
+Attributes:
+- id (O), the identifier of the markup element. Refer to Chap 3.9.5.2.1.2.
+- changeType (O), changeMark (O) and reasonForUpdateRefIds (O), 
+the change indications. Refer to Chap 3.9.5.2.1.1.
+- controlAuthorityRefs (O), the control authority information by referencing 
+the element <controlAuthority>. Refer to Chap 3.9.5.1.
+- securityClassification (O), commercialClassification (O), 
+caveat (O) and derivativeClassificationRefId (O), the security 
+and restrictive marking. Refer to Chap 3.6.
+
+Child elements:
+- None
+
+  
+Markup example:
+
+<identNumber>
+  <manufacturerCode>KZ666</manufacturerCode>
+  <partAndSerialNumber>
+    <partNumber>BSK-TLST-001</partNumber>
+  </partAndSerialNumber>
+</identNumber>
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  
+2.5.1.3.5 Serial number
+
+Description: The element <serialNumber> contains the listing of a single serial number or a range.
+
+
+Markup element: <serialNumber>
+
+Attributes:
+- serialNumberForm (M), specifies if the serial number is a single value or a range 
+of values. The attribute can have one of the following values:
+  • "single" - specifies a single value
+  • "range" - specifies a range of values
+- serialNumberValue (M), the single value or the range of values. A tilde [~] is used
+to separate the two values. For example, LKJ123~LKJ777.
+
+Child elements:
+- None
+
+
+Markup example:
+
+<identNumber>
+  <manufacturerCode>KZ666</manufacturerCode>
+  <partAndSerialNumber>
+    <partNumber>BSK-TLST-001</partNumber>
+    <serialNumber serialNumberValue="LKJ123~LKJ777" serialNumberForm="range"/>
+  </partAndSerialNumber>
+</identNumber>
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  
+2.5.1.3.6 Tool reference
+
+Description: The element <toolRef> contains the reference to support equipment
+(standard tool, special tool or test equipment), for those projects that use 
+a tool common information repository.
+
+  
+Markup element: <toolRef>
+
+Attributes:
+- id (O), the identifier of the markup element. Refer to Chap 3.9.5.2.1.2.
+- changeType (O), changeMark (O) and reasonForUpdateRefIds (O), 
+the change indications. Refer to Chap 3.9.5.2.1.1.
+- toolNumber (M), the tool part number. Used together with the attribute 
+manufacturerCodeValue, as the identifier of the tool, in the tool repository
+(implicit reference method). Refer to Chap 3.9.5.2.11.9.
+- manufacturerCodeValue (O), the CAGE code of the tool part manufacturer used,
+together with the attribute toolNumber, as the identifier of the tool in the tool repository.
+- specific (O), the indicator if it is a standard or a special support equipment. 
+The attribute can have one of the following values:
+  • "1" (D) - a special support equipment including special tools. These support
+  equipment must be presented in the table Support equipment in Preliminary requirements.
+  • "0" - a standard support equipment including standard tool
+- toolAltFlag (O) the indicator if the tool is an alternative 
+of the previously described tool. The attribute can have one of the following values:
+  • "0" (D) - indicates that it is not an alternate support equipment
+  • "1" - indicates that it is an alternate support equipment
+- controlAuthorityRefs (O), the control authority information by referencing 
+the element <controlAuthority>. Refer to Chap 3.9.5.1.
+- securityClassification (O), commercialClassification (O), 
+caveat (O) and derivativeClassificationRefId (O), the security 
+and restrictive marking. Refer to Chap 3.6.
+
+Child elements:
+- <refs>, the explicit link to a tool in the tools common information repository data module
+(explicit reference method). Refer to Chap 3.9.5.2.11.9.
+
+Note
+  Refer to Chap 4.13.1 for more information on referencing to common information repository data modules.
+
+  
+Markup example:
+
+<supportEquipDescr>
+  <toolRef toolNumber="T123"></toolRef>
+  <reqQuantity>2</reqQuantity>
+</supportEquipDescr>
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.5.1.3.7 Material set reference
+
+Description: The element <materialSetRef> contains the reference to a material set
+(kit), and its connection to the relevant service bulletin. 
+Each support equipment, supply or spare included in the set is detailed by use of the element 
+<embeddedSupportEquipDescr>, <embeddedSupplyDescr> and <embeddedSpareDescr>, respectively. 
+These elements must be given together with the element "materialSetRef". 
+Refer to Para 2.5.1.7, Para 2.6.1.3 andPara 2.7.1.3 and BREX-S1-00261, respectively.
+The reference (<dmRef>) can be made either to:
+- a material set in a dedicated data module with IC 934 when material information 
+is externalized from service bulletin core data module
+or
+- a material set in the service bulletin core data module with IC 930 when material
+information is included in service bulletin core data module.
+
+  
+Markup element: <materialSetRef>
+
+Attributes:
+- applicRefId (O), the applicability information. Refer to Chap 3.9.5.3.
+- id (O), the identifier for the markup element. Refer to Chap 3.9.5.2.1.2.
+- changeType (O), changeMark (O) and reasonForUpdateRefIds (O), 
+the change indications. Refer to Chap 3.9.5.2.1.1.
+- materialSetIdent (O), the material set identification. 
+This attribute is used when the attribute materialUsage of the elements <supportEquipDescr>, 
+<supplyDescr> or <spareDescr> is set to "mu05".
+- materialSetIssue (O), the material set issue
+- controlAuthorityRefs (O), the control authority information by referencing 
+the element <controlAuthority>. Refer to Chap 3.9.5.1.
+
+Child elements:
+- <dmRef>. Refer to Chap 3.9.5.2.1.2.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.5.1.4 Quantity
+
+Description: The element <reqQuantity> contains the quantity of the support equipment item.
+
+For items of indeterminate quantity, "As required" must be entered as text in the element 
+<reqQuantity> and no attribute "unitOfMeasure" value must be specified.
+
+  
+Markup element: <reqQuantity>
+
+Attributes:
+- changeType (O), changeMark (O) and reasonForUpdateRefIds (O), 
+the change indications. Refer to Chap 3.9.5.2.1.1.
+- unitOfMeasure (O), the unit of measure. When the unit of measure 
+is just the number of pieces, EA (= each) must be used.
+- controlAuthorityRefs (O), the control authority information by referencing 
+the element <controlAuthority>. Refer to Chap 3.9.5.1.
+
+Child elements:
+- None
+
+  
+Markup example:
+
+<reqQuantity>2</reqQuantity>
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.5.1.5 Remarks
+
+Description: The element <remarks> contains any additional information to support
+the identification or use of the support equipment. Refer to Chap 3.9.5.1.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.5.1.6 Footnote remarks
+
+Description: The element <footnoteRemarks> contains either textual content 
+of remarks using the element <simplePara> or internal reference to footnotes using 
+the element<footnoteRef>. It allows internal references to a target element<footnote>.
+
+  
+Markup element: <footnoteRemarks>
+
+Attributes:
+- applicRefId (O), the applicability information by referencing the element <applic>. Refer to Chap 3.9.5.3.
+- controlAuthorityRefs (O), the control authority information by referencing the
+element <controlAuthority>. Refer to Chap 3.9.5.1.
+
+Child elements:
+- <simplePara>. Refer to Chap 3.9.5.2.1.10.
+- <footnoteRef>. Refer to Chap 3.9.5.2.1.10.
+
+  
+Markup example:
+
+<footnoteRemarks>
+  <simplePara>Incorporates repair instruction X15526172-A </simplePara>
+  <simplePara>Incorporates repair instruction X15526172-B </simplePara>
+  <footnoteRef internalRefId="ftn-0001"/>
+</footnoteRemarks>
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.5.1.7 Embedded support equipment description
+
+Description: The element <embeddedSupportEquipDescr> contains 
+the information of each item included in a set of support equipment. 
+In this case, the attribute materialUsage is set to "mu05" in the element <supportEquipDescr>.
+
+The hierarchical relation between the element <supportEquipDescr> 
+and the element <embeddedSupportEquipDescr> is the following:
+- If the element <supportEquipDescr> is a tool kit, then the attribute 
+materialUsage is set to "mu05" and the embedded support equipment are present
+in one or several elements <embeddedSupportEquipDescr>.
+- Else the support equipment is a single tool and then the attribute materialUsage 
+is not used and there is no element <embeddedSupportEquipDescr>.
+
+  
+Markup element: <embeddedSupportEquipDescr>
+
+Attributes:
+The element <embeddedSupportEquipDescr> contains the same attributes 
+as the element <supportEquipDescr>. Refer toPara 2.5.1.
+
+Child elements:
+The element <embeddedSupportEquipDescr> contains the same elements 
+as the element <supportEquipDescr> (refer to Para 2.5.1 ) with the following exceptions:
+- The element <materialSetRef> is suppressed.
+- The element <embeddedSupportEquipDescr> is suppressed.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.5.2 Markup examples - Required support equipment
+
+The presentation of the following examples is shown in Chap 6.2.3.3.
+
+Note
+  The color codes match the presentation of the example of the standard table "Support equipment".
+
+
+Example 1 - Identification number reference:
+
+<reqSupportEquips>
+  <supportEquipDescrGroup>
+    <supportEquipDescr id="seq-0001">
+      <name>Specialist toolset</name>
+      <identNumber>
+        <manufacturerCode>KZ666</manufacturerCode>
+        <partAndSerialNumber>
+          <partNumber>BSK-TLST-001</partNumber>
+        </partAndSerialNumber>
+      </identNumber>
+      <reqQuantity unitOfMeasure="EA">1</reqQuantity>
+      <footnoteRemarks>
+        <footnoteRef internalRefId="ftn-0001"></footnoteRef>
+      </footnoteRemarks>
+    </supportEquipDescr>
+    <footnote id="ftn-0001">
+      <para>Make sure to use the good tool.</para>
+    </footnote>
+  </supportEquipDescrGroup>
+</reqSupportEquips>
+  
+Example 2 - CSN reference. Two support equipment items that are required:
+
+<reqSupportEquips>
+  <supportEquipDescrGroup>
+    <supportEquipDescr id="seq-0002">
+      <name>Extractor, Puller, Left-hand</name>  
+      <catalogSeqNumberRef modelIdentCode="E2" systemDiffCode="A"
+      systemCode="11" subSystemCode="2" subSubSystemCode="2"
+      assyCode="33" figureNumber="01" item="002" itemVariant="A"
+      itemLocationCode="D"/>
+      <reqQuantity unitOfMeasure="EA">1</reqQuantity>
+    </supportEquipDescr>
+    <supportEquipDescr id="seq-0015">
+      <name>Extractor, Puller, Right-hand</name>
+      <catalogSeqNumberRef modelIdentCode="E2" systemDiffCode="A"
+      systemCode="11" subSystemCode="2" subSubSystemCode="2"
+      assyCode="33" figureNumber="01" item="001" itemLocationCode="D"
+      itemSeqNumberValue="00A"/>
+      <reqQuantity unitOfMeasure="EA">1</reqQuantity>
+    </supportEquipDescr>
+  </supportEquipDescrGroup>
+</reqSupportEquips>
+  
+Example 3 - NATO stock number identification broken into its constituent parts, together with a part number:
+
+<reqSupportEquips>
+  <supportEquipDescrGroup>
+    <supportEquipDescr id="seq-0212">
+      <name>Extractor, D-Puller, Left-hand</name>
+      <natoStockNumber natoSupplyClass="4920" natoCodificationBureau="99" natoItemIdentNumberCore="1234567"/>
+      <identNumber> <manufacturerCode>K0378</manufacturerCode>
+        <partAndSerialNumber>
+          <partNumber>JJ134252</partNumber>
+        </partAndSerialNumber>
+      </identNumber>
+      <reqQuantity unitOfMeasure="EA">1</reqQuantity>
+      <remarks>
+        <simplePara>Serial No. A400 - A500</simplePara>
+      </remarks>
+    </supportEquipDescr>
+    <supportEquipDescr id="seq-0041">
+      <name>Extractor, D-Puller, Right-hand</name>
+      <natoStockNumber natoSupplyClass="4290" natoCodificationBureau="99" natoItemIdentNumberCore="1234561"/>
+      <identNumber>
+        <manufacturerCode>K0378</manufacturerCode>
+        <partAndSerialNumber>
+          <partNumber>JJ134259</partNumber>
+        </partAndSerialNumber>
+      </identNumber>
+      <reqQuantity unitOfMeasure="EA">1</reqQuantity>
+    </supportEquipDescr>
+  </supportEquipDescrGroup>
+</reqSupportEquips>
+  
+Example 4 - A tool set:
+
+<reqSupportEquips>
+  <supportEquipDescr id="seq-0006" materialUsage=”mu05”>
+    <name>The ultimate Chief mechanic daily toolset</name>
+    <shortName>The toolset</shortName>
+    <identNumber>
+      <manufacturerCode>KZ666</manufacturerCode>
+      <partAndSerialNumber>
+        <partNumber>578015T01-00</partNumber>
+      </partAndSerialNumber>
+    </identNumber>
+    <catalogSeqNumberRef modelIdentCode="E2" systemDiffCode="A"
+    systemCode="FD" subSystemCode="1" subSubSystemCode="0"
+    assyCode="10" figureNumber="01" item="000"
+    itemLocationCode="D"/>
+    <reqQuantity unitOfMeasure="EA">1</reqQuantity>
+    <remarks>
+      <simplePara>FBIA111200001403934</simplePara>
+    </remarks>
+    <embeddedSupportEquipDescr>
+      <name>Corkscrew</name>
+      <catalogSeqNumberRef modelIdentCode="E2" systemDiffCode="A"
+      systemCode="FD" subSystemCode="1" subSubSystemCode="0"
+      assyCode="10" figureNumber="12" item="004"
+      itemLocationCode="D"/>
+      <reqQuantity unitOfMeasure="EA">1</reqQuantity>
+    </embeddedSupportEquipDescr>
+    <embeddedSupportEquipDescr>
+      <name>Glass, plastic</name>
+      <identNumber>
+        <manufacturerCode>S5194</manufacturerCode>
+        <partAndSerialNumber>
+          <partNumber>001.906.89</partNumber>
+        </partAndSerialNumber>
+      </identNumber>
+      <reqQuantity unitOfMeasure="EA">2</reqQuantity>
+    </embeddedSupportEquipDescr>
+  </supportEquipDescr>
+  <embeddedSupportEquipDescr>
+    <name>Table napkin</name>
+    <identNumber>
+      <manufacturerCode>S5194</manufacturerCode>
+      <partAndSerialNumber>
+        <partNumber>301.286.05</partNumber>
+      </partAndSerialNumber>
+    </identNumber>
+    <reqQuantity unitOfMeasure="EA">2</reqQuantity>
+  </embeddedSupportEquipDescr>
+</reqSupportEquips>
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.6 Required supplies
+
+Description: The element <reqSupplies> contains information to list any required
+supplies (consumables (eg, oils, greases, locking wire), materials 
+(eg, gasket sheet, sheet metal) and expendables (eg, O-rings, gaskets, tab washers)) 
+required to accomplish the procedure contained in the data module.
+
+Supplies must be identified by a name of the supply, identification and a quantity as applicable.
+As an identification number, the CSN/ISN identifier is recommended in order to provide a direct
+link to the IPD at the relevant location.
+
+If there are no supplies required, then the element <noSupplies> must be used.
+
+Note
+  The use of the element <noSupplies> generates the word "None" at presentation. 
+  At page-oriented presentation "None" is given in the Name column of the Consumables,
+  materials and expendables table.
+  
+If there are supplies required, then the element <supplyDescr>, within the element 
+<supplyDescrGroup>, must be used for each consumable, material and expendable.
+
+  
+Markup element: <reqSupplies>
+
+Attributes:
+- id (O), the identifier of the markup element. Refer to Chap 3.9.5.2.1.2.
+- changeType (O), changeMark (O) and reasonForUpdateRefIds (O), 
+the change indications. Refer to Chap 3.9.5.2.1.1.
+- controlAuthorityRefs (O), the control authority information by referencing 
+the element <controlAuthority>. Refer to Chap 3.9.5.1.
+
+Child elements:
+- <noSupplies>, the indicator of no required supplies as given in the description above
+- <supplyDescrGroup>, contains:
+  • <supplyDescr>. Refer to Para 2.6.1.
+  • <footnote>. Refer to Chap 3.9.5.2.1.10.
+
+The Business rule decision points given for the element <reqSupportEquips> and its
+child elements are also applicable to the element <reqSupplies>. Refer to Para 2.5.
+
+  
+Markup example:
+
+The following example shows that two liter of oil and 0,5 liter of grease are required 
+for this procedure. Here a part number and manufacturer identify the supplies to be used:
+
+<reqSupplies>
+  <supplyDescrGroup>
+    <supplyDescr id="sup-0054">
+      <name>Oil, Engine, Gas turbine</name>
+      <identNumber>
+        <manufacturerCode>K0378</manufacturerCode>
+        <partAndSerialNumber>
+          <partNumber>OIL-HHGA</partNumber>
+        </partAndSerialNumber>
+      </identNumber>
+      <reqQuantity unitOfMeasure="L">2,0</reqQuantity>
+    </supplyDescr>
+    <supplyDescr id="sup-0302">
+      <name>Grease, Lubricating</name>
+      <identNumber>
+        <manufacturerCode>K0378</manufacturerCode>
+        <partAndSerialNumber>
+          <partNumber>GRL-6726</partNumber>
+        </partAndSerialNumber>
+      </identNumber>
+      <reqQuantity unitOfMeasure="L">0,5</reqQuantity>
+    </supplyDescr>
+  </supplyDescrGroup>
+</reqSupplies>
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.6.1 Supply description
+
+Description: The element <supplyDescr> contains the information on each item 
+of supply or set of supplies.
+
+The attribute id in the element <supplyDescr> can be applied so that the supply 
+can be cross-referenced from the procedure.
+
+  
+Markup element: <supplyDescr>
+
+Attributes:
+The element <supplyDescr> contains the same attributes as the element 
+<supportEquipDescr> (refer to Para 2.5.1 ) with the addition of the configurable attributes:
+- supplyCategory (O), the category of supply (identifies if a supply is, for example 
+a consumable, material or expendable). The attribute can have one of the following values:
+  • "supcat01" thru "supcat99". Refer to Chap 3.9.6.1 and with the different use for attribute:
+- materialUsage (O), identifies retained and referenced supplies. It also identifies 
+a material set of supplies. The attribute can have one of the following values:
+  • "mu01" thru "mu99". Refer to Chap 3.9.6.1 and default BREX rule BREX-S1-00074.
+  Use of the attribute materialUsage:
+  • For supplies needed from store and required to do the task, the attribute 
+  materialUsage is not used. It is used only for supplies removed from 
+  the Product or for supplies when used to define a material set 
+  (attribute materialUsage = "mu05"). Refer to Chap 3.9.6.1.
+  • For supplies, the values "Discarded"(attribute materialUsage = "mu01") 
+  and "Modified from" (attribute materialUsage="mu03") must not be used.
+  • For supplies, the value "Retained" (attribute materialUsage = "mu02") 
+  must be used only in the context of a service bulletin.
+
+Child elements:
+The element <supplyDescr> contains the same elements as the element 
+<supportEquipDescr> (refer to Para 2.5.1 ) with the following exceptions:
+- <toolRef> is substituted with the elements <supplyRef> and the element 
+<supplyRqmtRef>. Refer to Para 2.6.1.1 for details on the element <supplyRef>.
+Refer to Para 2.6.1.2 for details on the element <supplyRqmtRef>.
+- <hazards> is added as a child of <supplyDescr>. Refer to Chap 3.9.5.2.11.7.
+- <embeddedSupportEquipDescr> is substituted with the element 
+<embeddedSupplyDescr>. Refer toPara 2.6.1.3.
+
+Business rule decision point BRDP-S1-00155 - Use of the attribute id on the element 
+<supplyDescr> in the element <preliminaryRqmts>:
+– Decide whether to use the attribute id to create cross-references from the procedure 
+to the supplies listed in Preliminary requirements. The attribute id on the element 
+<supplyDescr> is used to establish the link between the two and will guarantee
+consistent use of identification throughout the procedure. 
+The use of cross-references is encouraged.
+
+  
+Markup example:
+
+Material set of supplies
+
+<reqSupplies>
+  <supplyDescrGroup>
+    <supplyDescr materialUsage="mu05" id="sup-0010">
+      <name>Consumable set</name>
+      <materialSetRef materialSetIdent="578015CML01" materialSetIssue="01"/>
+      <reqQuantity unitOfMeasure="EA">1</reqQuantity>
+      <remarks>
+        <simplePara>Issue 1</simplePara>
+      </remarks>
+      <embeddedSupplyDescr id="sup-0054">
+        <name>Oil, Engine, Gas turbine</name>
+        <identNumber>
+          <manufacturerCode>K0378</manufacturerCode>
+          <partAndSerialNumber>
+            <partNumber>OIL-HHGA</partNumber>
+          </partAndSerialNumber>
+        </identNumber>
+        <reqQuantity unitOfMeasure="L">2,0</reqQuantity>
+      </embeddedSupplyDescr>
+      <embeddedSupplyDescr id="sup-0302">
+        <name>Grease, Lubricating</name>
+        <identNumber>
+          <manufacturerCode>K0378</manufacturerCode>
+          <partAndSerialNumber>
+            <partNumber>GRL-6726</partNumber>
+          </partAndSerialNumber>
+        </identNumber>
+        <reqQuantity unitOfMeasure="L">0,5</reqQuantity>
+      </embeddedSupplyDescr>
+    </supplyDescr>
+  </supplyDescrGroup>
+</reqSupplies>
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.6.1.1 Supply reference
+
+Description: The element <supplyRef> contains the references to a supply, for those
+projects that use a supplies common information repository. Refer to Chap 3.9.5.2.11.8.
+
+  
+Markup element: <supplyRef>
+
+Attributes:
+- id (O), the identifier of the markup element. Refer to Chap 3.9.5.2.1.2.
+- changeMark (O), changeType (O) and reasonForUpdateRefIds (O), 
+the change indications. Refer to Chap 3.9.5.2.1.1.
+- supplyNumber (M), the supply number. A unique label set by the project 
+(eg, the supply trade name, a specification number).
+- supplyNumberType (M), contains the type of supply identification. Refer to Chap 3.9.5.2.11.7.
+- controlAuthorityRefs (O), the control authority information by referencing 
+the element <controlAuthority>. Refer to Chap 3.9.5.1.
+- securityClassification (O), commercialClassification (O), 
+caveat (O) and derivativeClassificationRefId (O), the security 
+and restrictive marking. Refer to Chap 3.6.
+
+Child elements:
+- <name>. Refer to Para 2.5.1.1 and Chap 3.9.5.2.1.10.
+- <shortName>. Refer to Para 2.5.1.2 and Chap 3.9.5.2.1.10.
+- <refs>, the explicit link to a supply in the supply common information repository data
+module (explicit reference method). Refer to Chap 3.9.5.2.11.9.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------  
+  
+2.6.1.2 Supply requirement reference
+
+Description: The element <supplyRqmtRef> contains the reference to a consumable,
+material and expendable for projects which manage a common information repository.
+
+  
+Markup element: <supplyRqmtRef>
+
+Attributes:
+- id (O), the identifier of the markup element. Refer to Chap 3.9.5.2.1.2.
+- changeType (O), changeMark (O) and reasonForUpdateRefIds (O), 
+the change indications. Refer to Chap 3.9.5.2.1.1.
+- materialCategory (O), the nature of use of the supply requirement 
+(eg, fuel, cleaning agent, lubricant). Refer to Chap 3.9.5.2.11.8.
+- vendorFlag (O), a flag to indicate if the supply requirement is defined 
+by the Product manufacturer or by a supplier. 
+The attribute can have one of the following values:
+  • "0" - defined by the Product manufacturer
+  • "1" - defined by a supplier
+- supplyRqmtNumber (M), identifies the consumable in the consumable requirement
+repository. Refer to Chap 3.9.5.2.11.8.
+- controlAuthorityRefs (O), the control authority information by referencing 
+the element <controlAuthority>. Refer to Chap 3.9.5.1.
+- securityClassification (O), commercialClassification (O), 
+caveat (O) and derivativeClassificationRefId (O), the security 
+and restrictive marking. Refer to Chap 3.6.
+
+Child elements:
+- <refs>, the link to the supplies requirement common information repository data
+module. Refer to Chap 3.9.5.2.11.8 .
+
+Note
+  Refer to Chap 4.13.1 for more information on referencing to common information repository data modules.
+
+  
+Markup example:
+
+<supplyRqmtRef supplyRqmtNumber="sup-0002"></supplyRqmtRef>
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.6.1.3 Embedded supply description
+
+Description: The element <embeddedSupplyDescr> contains the information 
+of each item included in a supply set.
+
+The hierarchical relation between the element <supplyDescr> and the element 
+<embeddedSupplyDescr> is the following:
+- If the element <supplyDescr> is a material set (supply kit), then the attribute 
+materialUsage is set to "mu05" and the embedded supplies are present in one 
+or several elements <embeddedSupplyDescr>.
+- If the supply is a simple supply provided from the store or already present 
+on the product then the attribute materialUsage follows the business rules described
+in Para 2.6.1and there is no element <embeddedSupplyDescr>.
+
+  
+Markup element: <embeddedSupplyDescr>
+
+Attributes:
+The element <embeddedSupplyDescr> contains the same attributes as the element 
+<supplyDescr>. Refer to Para 2.6.1.
+
+Child elements:
+The element <embeddedSupplyDescr> contains the same elements as the element 
+<supplyDescr> (refer to Para 2.6.1 ) with the following exceptions:
+- The element <materialSetRef> is suppressed.
+- The element <embeddedSupplyDescr> is suppressed.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.7 Required spares
+
+Description: The element <reqSpares> must contain information to list any spares
+required to accomplish the procedure contained in the data module. 
+Parts which are attached to the product and are used during the accomplishment of the procedure 
+can also be listed here.
+
+Spares must be identified by a name of the spare, identification and a quantity 
+as applicable. As an identification number, the CSN/ISN identifier is recommended 
+in order to provide a direct link to the IPD at the relevant location.
+
+  
+Markup element: <reqSpares>
+
+Attributes:
+- id (O), the identifier of the markup element. Refer to Chap 3.9.5.2.1.2.
+- changeType (O), changeMark (O) and reasonForUpdateRefIds (O), the
+change indications. Refer to Chap 3.9.5.2.1.1.
+- controlAuthorityRefs (O), the control authority information by referencing 
+the element <controlAuthority>. Refer to Chap 3.9.5.1 .
+
+Child elements:
+- <noSpares>, the indicator of no required supplies as given in the description above
+- <spareDescrGroup>, contains:
+  • <spareDescr>. Refer toPara 2.7.1.
+  • <footnote>. Refer to Chap 3.9.5.2.1.10.
+
+If there are no spares requirements, then the element <noSpares> must be used.
+
+Note
+  The use of the element <noSpares> generates the word "None" at presentation. 
+  At page-oriented presentation "None" is given in the Name column of the Spares table.
+
+  If there are spares required, then the element <spareDescr>, within the element 
+<spareDescrGroup>, must be used for each spare.
+
+The Business rule decision points given for the element <reqSupportEquips> and its
+child elements are also applicable to the element <reqSpares>. Refer to Para 2.5.
+
+
+Markup example:
+
+<reqSpares>
+  <spareDescrGroup>
+    <spareDescr id="spa-0987">
+      <name>Blade, LP Compressor</name>
+      <natoStockNumber natoSupplyClass="2840" natoCodificationBureau="99" natoItemIdentNumberCore="1234524"/>
+      <catalogSeqNumberRef modelIdentCode="E2" systemDiffCode="A"
+      systemCode="72" subSystemCode="3" subSubSystemCode="2"
+      assyCode="10" figureNumber="01" figureNumberVariant="A"
+      item="010" itemVariant="A" itemLocationCode="D"
+      itemSeqNumberValue="00A"/>
+      <reqQuantity unitOfMeasure="EA">23</reqQuantity>
+      <footnoteRemarks>
+        <footnoteRef internalRefId="ftn-0001"></footnoteRef>
+      </footnoteRemarks>
+    </spareDescr>
+    <spareDescr id="spa-0752">
+      <name>Retainer, Blade, LP Compressor</name>
+      <natoStockNumber natoSupplyClass="2840" natoCodificationBureau="99" natoItemIdentNumberCore="1234584"/>
+      <catalogSeqNumberRef modelIdentCode="E2" systemDiffCode="A"
+      systemCode="72" subSystemCode="3" subSubSystemCode="2"
+      assyCode="10" figureNumber="01" figureNumberVariant="A"
+      item="040" itemVariant="A" itemLocationCode="D"
+      itemSeqNumberValue="00A"/>
+      <reqQuantity unitOfMeasure="EA">23</reqQuantity>
+      <footnoteRemarks>
+        <footnoteRef internalRefId="ftn-0001"></footnoteRef>
+      </footnoteRemarks>
+    </spareDescr>
+    <footnote id="ftn-0001">
+      <para>Make sure that the blade is the good one</para>
+    </footnote>
+  </spareDescrGroup>
+</reqSpares>
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.7.1 Spare description
+
+Description: The element <spareDescr> contains the information on each item of spare or set of spares.
+The attribute id in the element <spareDescr> can be applied so that the spares can be cross-referenced from the procedure.
+
+  
+Markup element: <spareDescr>
+
+Attributes:
+The element <spareDescr> contains the same attributes as the element 
+<supportEquipDescr> (refer to Para 2.5.1 ) with the different use for attribute:
+- materialUsage (O), identifies discarded, retained, modified and referenced spares. 
+It also identifies a material set of spares. The attribute can have one of the following values:
+  • "mu01" thru "mu99". Refer to Chap 3.9.6.1.
+  Use of the attribute materialUsage
+  • For Spares needed from store and required to do the task, the attribute 
+  materialUsage is not used. It is used only for spares removed from the Product
+  or for spares used to define a material set (attribute materialUsage"mu05").
+  Refer to Chap 3.9.6.1 .
+  • For Spares, the values of "Discarded" (attribute materialUsage = "mu01") 
+  and "Retained" (attribute materialUsage = "mu02") is used only in the context 
+  of a service bulletin.
+  • The element <reqQuantity> must be populated with a hyphen [-] 
+  when the element <spareDescr> has the attribute materialUsage set to "mu04" (Referenced).
+
+Child elements:
+
+The element <spareDescr> contains the same elements as the element 
+<supportEquipDescr> (refer to Para 2.5.1 ) with the following exception:
+- The element <toolRef> is substituted with the element <partRef>
+and the element <functionalItemRef>. Refer toPara 2.7.1.1for details 
+on the element <partRef>. Refer toPara 2.7.1.2for details on the element <functionalItemRef>.
+- The element <embeddedSupportEquipDescr> is substituted with the element 
+<embeddedSpareDescr>. Refer to inPara 2.7.1.3.
+
+Business rule decision point BRDP-S1-00156 - Use of the attribute id on the element 
+<spareDescr> in the element <preliminaryRqmts>:
+– Decide whether to use the attribute id to create cross-references from the procedure 
+to the spares listed in Preliminary requirements. The attribute id on the element 
+<spareDescr> is used to establish the link between the two and will guarantee
+consistent identification throughout the procedure.
+The use of cross-references is encouraged.
+
+  
+Markup example:
+
+Two spares within a kit
+
+<spareDescr id="spa-0002" materialUsage="mu05">
+  <name>Blanking set</name>
+  <materialSetRef materialSetIdent="578015B01"
+  materialSetIssue="01"/><catalogSeqNumberRef modelIdentCode="EP"
+  systemDiffCode="A" systemCode="72" subSystemCode="6"
+  subSubSystemCode="1" assyCode="00" figureNumber="02"
+  item="000"/>
+  <reqQuantity unitOfMeasure="EA">1</reqQuantity>
+  <embeddedSpareDescr id="spa-0003">
+    <name>Bag</name>
+    <catalogSeqNumberRef modelIdentCode="EP" systemDiffCode="A"
+    systemCode="72" subSystemCode="6" subSubSystemCode="1"
+    assyCode="00" figureNumber="02" item="001"/>
+    <identNumber>
+      <manufacturerCode>KZ777</manufacturerCode>
+      <partAndSerialNumber>
+        <partNumber>P0RT-10N-12F</partNumber>
+      </partAndSerialNumber>
+    </identNumber>
+    <reqQuantity unitOfMeasure="EA">1</reqQuantity>
+  </embeddedSpareDescr>
+  <embeddedSpareDescr id="spa-0004">
+    <name>Engine assembly protective cover</name>
+    <catalogSeqNumberRef modelIdentCode="EP" systemDiffCode="A"
+    systemCode="72" subSystemCode="6" subSubSystemCode="1"
+    assyCode="00" figureNumber="02" item="002"/>
+    <identNumber>
+      <manufacturerCode>KZ777</manufacturerCode>
+      <partAndSerialNumber>
+        <partNumber>P0RT-10N-B1-12R</partNumber>
+      </partAndSerialNumber>
+    </identNumber>
+    <reqQuantity unitOfMeasure="EA">1</reqQuantity>
+  </embeddedSpareDescr>
+  <embeddedSpareDescr id="spa-0005">
+  ...
+</spareDescr>
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.7.1.1 Part number reference
+
+Description: The element <partRef> is used for projects using part number references.
+Refer to Chap 3.9.5.2.1.10.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.7.1.2 Functional item reference
+
+Description: The element <functionalItemRef> is used for projects using functional item number. 
+Refer to Chap 3.9.5.1 for detail on population of the element <functionalItemRef>.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------  
+
+2.7.1.3 Embedded spare description
+
+Description: The element <embeddedSpareDescr> contains the information of each
+spare item when included in a spare material set or the information of the original spare 
+when included in a modified spare <spareDescr>.
+
+The hierarchical relation between <spareDescr> and <embeddedSpareDescr> is:
+- If the element <spareDescr> is a material set, then its attribute materialUsage
+is set to "mu05" (Material set) and the embedded parts are present in one or several
+elements <embeddedSpareDescr>
+- If the element <spareDescr> is a modified spare from a spare removed from the
+Product, then its attribute materialUsage is set to "mu03" (Modified from) 
+and the element <spareDescr> contains one or several elements 
+<embeddedSpareDescr> with the original spares removed from the Product
+- If the element <spareDescr> is a simple spare provided from the store or already
+present on the product, then the attribute materialUsage follows the instantiation
+rules described inPara 2.7.1and there is no element <embeddedSpareDescr>
+
+  
+Markup element: <embeddedSpareDescr>
+
+Attributes:
+The element <embeddedSpareDescr> contains the same attributes as the element 
+<spareDescr>. Refer to Para 2.7.1.
+
+Child elements:
+The element <embeddedSpareDescr> contains the same elements as the element 
+<spareDescr> (refer to Para 2.7.1) with the following exceptions:
+- The element <materialSetRef> is suppressed.
+- The element <embeddedSpareDescr> is suppressed.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.8 Required safety
+
+Description: The element <reqSafety> must contain information to list any safety requirements.
+Any warnings, cautions and notes applicable to the procedure and the Requirements after job
+completion in the data module must be listed here.
+
+If there are no safety requirements, then the element <noSafety> must be used.
+
+Note
+  The use of the element <noSafety> generates the word "None" at presentation. 
+  At page-oriented presentation "None" is given as a text paragraph under 
+  the default heading "Safety conditions".
+
+    
+Markup element: <reqSafety>
+
+Attributes:
+- id (O), the identifier of the markup element. Refer to Chap 3.9.5.2.1.2.
+- changeType (O), changeMark (O) and reasonForUpdateRefIds (O), the
+change indications. Refer to Chap 3.9.5.2.1.1 .
+- controlAuthorityRefs (O), the control authority information by referencing the
+element <controlAuthority>. Refer to Chap 3.9.5.1.
+
+Child elements:
+- <noSafety> indicates that there are no required preliminary safety requirements
+- <safetyRqmts>. Refer to Para 2.8.1.
+
+  
+Markup example:
+
+The following example shows two warnings in the Safety conditions:
+
+<reqSafety>
+  <safetyRqmts>
+    <warning>
+      <warningAndCautionPara>Sellinium-X is corrosive. Do not get it on your skin. Do not drink it. Use it in a well ventilated area.</warningAndCautionPara>
+    </warning>
+    <warning>
+      <warningAndCautionPara>Make sure you read the standard reqSafety conditions that are given in 
+        <dmRef>
+          <dmRefIdent>
+            <dmCode assyCode="00" disassyCode="00" disassyCodeVariant="A"
+            infoCode="012" infoCodeVariant="A" itemLocationCode="D" modelIdentCode="AE"
+            subSubSystemCode="0" subSystemCode="0" systemCode="00" systemDiffCode="A"/>
+          </dmRefIdent>
+        </dmRef>.
+      </warningAndCautionPara>
+    </warning>
+  </safetyRqmts>
+</reqSafety>
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.8.1 Safety requirements
+
+Description: If there are any safety requirements, then the element <safetyRqmts> 
+must be used. This element can be populated with the attribute warningRefs or the attribute 
+cautionRefs, or the element <warning>, the element <caution>, or the element <note>, as described at Chap 3.9.3.
+
+  
+Markup element: <safetyRqmts>
+
+Attributes:
+- id (O), the identifier of the markup element. Refer to Chap 3.9.5.2.1.2.
+- warningRefs (O), the warning reference to the warnings and cautions collection. Refer to Chap 3.9.3.
+- cautionRefs (O), the caution reference to the warnings and cautions collection. Refer to Chap 3.9.3.
+
+Child elements:
+- <warning>. Refer to Chap 3.9.3.
+- <caution>. Refer to Chap 3.9.3.
+- <note>. Refer to Chap 3.9.3.
+
+  
+Markup example:
+
+<safetyRqmts>
+  <warning>
+    <warningAndCautionPara>Sellinium-X is corrosive. Do not get it on your skin. Do not drink it. Use it in a well ventilated area.</warningAndCautionPara>
+  </warning>
+  <warning>
+    <warningAndCautionPara>Make sure you read the standard reqSafety conditions that are given in 
+      <dmRef>
+        <dmRefIdent>
+          <dmCode assyCode="00" disassyCode="00" disassyCodeVariant="A"
+          infoCode="012" infoCodeVariant="A" itemLocationCode="D" modelIdentCode="AE"
+          subSubSystemCode="0" subSystemCode="0" systemCode="00" systemDiffCode="A"/>
+        </dmRefIdent>
+      </dmRef>.
+    </warningAndCautionPara>
+  </warning>
+</safetyRqmts>
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.9 Example - Preliminary requirements
+
+The following markup example gives the Preliminary requirements for S1000DBIKE-AAA￾D00-00-00-00AA-258A-A. 
+The presentation of the complete <content> of the data module is given in Chap 6.2.3.3 .
+
+<preliminaryRqmts>
+  <reqCondGroup>
+    <reqCondNoRef>
+      <reqCond>The bicycle is outdoors</reqCond>
+    </reqCondNoRef>
+  </reqCondGroup>
+  <reqPersons>
+    <person man="A">
+      <personCategory personCategoryCode="Chemical technician"/>
+      <personSkill skillLevelCode="sk02"/>
+      <trade>Bike cleaner</trade>
+      <estimatedTime unitOfMeasure="h">1,0</estimatedTime>
+    </person>
+  </reqPersons>
+  <reqPersons applicRefId="app-0002">
+    <person man="B">
+      <personCategory personCategoryCode="Operator"/>
+      <personSkill skillLevelCode="sk02"/>
+      <trade>Bike rider</trade>
+      <estimatedTime unitOfMeasure="h">1,0</estimatedTime>
+    </person>
+  </reqPersons>
+  <reqPersons applicRefId="app-0001">
+    <person man="B">
+      <personCategory personCategoryCode="Operator"/>
+      <personSkill skillLevelCode="sk03"/>
+      <trade>Bike rider</trade>
+      <estimatedTime unitOfMeasure="h">0,8</estimatedTime>
+    </person>
+  </reqPersons>
+  <reqTechInfoGroup>
+    <reqTechInfo reqTechInfoCategory="ti01">
+      <pmRef>
+        <pmRefIdent>
+          <pmCode modelIdentCode="S1000DBIKE" pmIssuer="B6865" pmNumber="SAFE1" pmVolume="00"/>
+        </pmRefIdent>
+        <pmRefAddressItems>
+          <pmTitle>Safety Handbook - Greasy Bikes</pmTitle>
+        </pmRefAddressItems>
+      </pmRef>
+    </reqTechInfo>
+    <reqTechInfo reqTechInfoCategory="ti06">
+      <externalPubRef extEntityIdent="EXT-Sticky_stuff-Safety_sheet">
+        <externalPubRefIdent>
+          <externalPubCode>SafeS-12-156B</externalPubCode>
+          <externalPubTitle>Sticky stuff - Safety sheet</externalPubTitle>
+          <externalPubIssueInfo>
+            <externalPubIssue>2014</externalPubIssue>
+          </externalPubIssueInfo>
+        </externalPubRefIdent>
+      </externalPubRef>
+    </reqTechInfo>
+  </reqTechInfoGroup>
+  <reqSupportEquips>
+    <supportEquipDescrGroup>
+      <supportEquipDescr id="seq-0001">
+        <name>Water hose</name>
+        <identNumber>
+          <manufacturerCode>KZ666</manufacturerCode>
+          <partAndSerialNumber>
+            <partNumber>BSK-TLST-001-09</partNumber>
+          </partAndSerialNumber>
+        </identNumber>
+        <reqQuantity unitOfMeasure="EA">1</reqQuantity>
+      </supportEquipDescr>
+      <supportEquipDescr id="seq-0002">
+        <name>Stiff bristle brush</name>
+        <identNumber>
+          <manufacturerCode>KZ666</manufacturerCode>
+          <partAndSerialNumber>
+            <partNumber>BSK-TLST-001-02</partNumber>
+          </partAndSerialNumber>
+        </identNumber>
+        <reqQuantity unitOfMeasure="EA">1</reqQuantity>
+      </supportEquipDescr>
+      <supportEquipDescr id="seq-0003">
+        <name>Sponge</name>
+        <identNumber>
+          <manufacturerCode>KZ666</manufacturerCode>
+          <partAndSerialNumber>
+            <partNumber>BSK-TLST-001-11</partNumber>
+          </partAndSerialNumber>
+        </identNumber>
+        <reqQuantity unitOfMeasure="EA">1</reqQuantity>
+      </supportEquipDescr>
+    </supportEquipDescrGroup>
+  </reqSupportEquips>
+  <reqSupplies>
+    <supplyDescrGroup>
+      <supplyDescr id="sup-0001">
+        <name>ACME super 45 Agent</name>
+        <shortName>Degreasing agent</shortName>
+        <identNumber>
+          <manufacturerCode>KZ222</manufacturerCode>
+          <partAndSerialNumber>
+            <partNumber>LL-004</partNumber>
+          </partAndSerialNumber>
+        </identNumber>
+        <reqQuantity unitOfMeasure="L">1</reqQuantity>
+      </supplyDescr>
+      <supplyDescr id="sup-0002">
+        <name>ACME Middling Detergent 69</name>
+        <shortName>Detergent A</shortName>
+        <identNumber>
+          <manufacturerCode>KZ666</manufacturerCode>
+          <partAndSerialNumber>
+            <partNumber>BSK-TLST-023-14</partNumber>
+          </partAndSerialNumber>
+        </identNumber>
+        <reqQuantity unitOfMeasure="L">1</reqQuantity>
+      </supplyDescr>
+      <supplyDescr id="sup-0003" applicRefId="app-0001"
+      reasonForUpdateRefIds="rfu-Detergent" changeMark="1"
+      changeType="modify">
+        <name>BoeBus DeLux Detergent No.6</name>
+        <shortName>Detergent C</shortName>
+        <identNumber>
+          <manufacturerCode>KZ666</manufacturerCode>
+          <partAndSerialNumber>
+            <partNumber>BSK-TLST-001-15</partNumber>
+          </partAndSerialNumber>
+        </identNumber>
+        <reqQuantity unitOfMeasure="L">1</reqQuantity>
+      </supplyDescr>
+    </supplyDescrGroup>
+  </reqSupplies>
+  <reqSpares>
+    <noSpares/>
+  </reqSpares>
+  <reqSafety>
+    <safetyRqmts>
+      <warning>
+        <warningAndCautionPara>Do not get 
+          <internalRef internalRefId="sup-0002" internalRefTargetType="irtt04"/> 
+          into your eyes. If it gets into your eyes, wash them immediately in clean, warm water.
+        </warningAndCautionPara>
+      </warning>
+      <warning applicRefId="app-0001" changeType="modify" changeMark="1" reasonForUpdateRefIds="rfu-applic">
+        <warningAndCautionPara>Do not get 
+          <internalRef internalRefId="sup-0003" internalRefTargetType="irtt04"/> 
+          into your eyes. If it gets into your eyes, wash them immediately in clean, warm water.
+        </warningAndCautionPara>
+      </warning>
+      <caution>
+        <warningAndCautionPara>Do not use a 
+          <internalRef internalRefId="seq-0001" internalRefTargetType="irtt05"/> 
+          that has high pressure. A water hose that has high pressure can cause some parts to become loose or full of water.
+        </warningAndCautionPara>
+      </caution>
+      <caution>
+        <warningAndCautionPara>Do not point the hose directly at the hub or at the bottom bracket bearings. This can cause damage to the parts.</warningAndCautionPara>
+      </caution>
+      <caution applicRefId="app-0001" changeType="modify" changeMark="1" reasonForUpdateRefIds="rfu-applic">
+        <warningAndCautionPara>Apply 
+          <internalRef internalRefId="sup-0003" internalRefTargetType="irtt04"/> 
+          in accordance with the instruction on the container. The substance may cause damage to the Bike paint if it is not applied correctly.
+        </warningAndCautionPara>
+      </caution>
+    </safetyRqmts>
+  </reqSafety>
+</preliminaryRqmts>
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+3 Requirements after job completion
+3.1 General
+Description: The element <closeRqmts> contains any actions that are required after the
+procedure is complete.
+Markup element: <closeRqmts>
+The element is mandatory in procedural and fault isolation data modules, and optional in
+process data modules.
+If there are no actions, then the child element <noConds> must be used.
+If there are actions, then the elements <reqCondNoRef>, <reqCondDm>, 
+<reqCondCircuitBreaker>, <reqCondPm> or <reqCondExternalPub>
+must be used to give the close up requirement action in accordance withPara 2.2.
+The requirements can reference data modules, publication modules, non-S1000D publications
+or contain no reference at all. It is recommended that details for close up be given by only
+referring to complete data modules. The use of the element <reqCond> without a reference
+must be avoided. The requirements after job completion must be in the order that the
+requirements are satisfied.
+Attributes:
+- id (O), the identifier of the markup element. Refer to Chap 3.9.5.2.1.2 .
+- changeType (O), changeMark (O) and reasonForUpdateRefIds (O), the
+change indications. Refer to Chap 3.9.5.2.1.1 .
 - controlAuthorityRefs (O), the control authority information by referencing the
 element <controlAuthority>. Refer to Chap 3.9.5.1 .
 - securityClassification (O), commercialClassification (O), 
 caveat (O) and derivativeClassificationRefId (O), the security and
-restrictive marking. Refer to Chap 3.6.
-Note
-The element also includes five attributes normally populated by applications to make the
-use of W3C XLink mechanism. Refer to Chap 7.7.4.
+restrictive marking. Refer to Chap 3.6 .
 Child elements:
-- <parameter>. Refer to Chap 3.9.5.2.1.8.
-- <reasonForAmendment>. Refer to Chap 3.9.5.2.1.1.
-Business rule decision point BRDP-S1-00130 - Permitted types of multimedia:
-– Decide what types of multimedia objects are permitted.
+- <reqCondGroup>. Refer toPara 2.2.
+Business rule decision point BRDP-S1-00157 - Use of the element <closeRqmts> in
+the process data modules:
+– Decide whether to use the element <closeRqmts> in the process data modules.
+3.2 Examples - Requirements after job completion
+Example 1 - This example shows markup if no close-up requirements are needed:
+<closeRqmts>
+<reqCondGroup>
+<noConds/>
+</reqCondGroup>
+</closeRqmts>
+Example 2 - This example shows markup if there are close up requirements needed:
+<closeRqmts>
+<reqCondGroup>
+<reqCondDm>
+<reqCond>The access panel is closed.</reqCond>
+<dmRef>
+<dmRefIdent>
+<dmCode assyCode="00" disassyCode="00" disassyCodeVariant="A"
+infoCode="740" infoCodeVariant="A" itemLocationCode="D"
+modelIdentCode="AE" subSubSystemCode="0" subSystemCode="0"
+systemCode="10" systemDiffCode="A"/>
+</dmRefIdent>
+</dmRef>
+</reqCondDm>
+<!--A reference to a non-S1000D publication -->
+<reqCondExternalPub>
+<reqCond>The access panel is closed.</reqCond>
+<externalPubRef>
+<externalPubRefIdent>
+<externalPubTitle>Component Maintenance Manual</
+externalPubTitle>
+</externalPubRefIdent>
+</externalPubRef>
+</reqCondExternalPub>
+<!--A required condition that has no reference -->
+<reqCondNoRef>
+<reqCond>The caps are installed on all orifices</reqCond>
+</reqCondNoRef>
+</reqCondGroup>
+</closeRqmts>
+Example 3
+<closeRqmts>
+<reqCondGroup>
+<reqCondNoRef>
+<reqCond>Replace the tire.</reqCond>
+</reqCondNoRef>
+<reqCondDm>
+<reqCond>Inflate the tire with air.</reqCond>
+<dmRef xlink:type="simple" xlink:actuate="onRequest"
+xlink:show="replace" xlink:href="URN:S1000D:DMC-S1000DBIKE-AAA￾DA0-10-20-00AA-215A-A">
+<dmRefIdent>
+<dmCode modelIdentCode="S1000DBIKE" systemDiffCode="AAA"
+systemCode="DA0" subSystemCode="1" subSubSystemCode="0"
+assyCode="20" disassyCode="00" disassyCodeVariant="AA"
+infoCode="215" infoCodeVariant="A" itemLocationCode="A"/>
+</dmRefIdent>
+</dmRef>
+</reqCondDm>
+</reqCondGroup>
+</closeRqmts>
 
-2.4 Foldouts
-Description: The element <foldout> is used to contain a figure, or table which is larger
-than the default size.
-Note
-Use of foldouts for tables is to be avoided.
-Markup element: <foldout>
-Attributes:
-- None
-Child elements:
-- <figure>. Refer to Para 2.1.
-- <figureAlts>. Refer to Para 2.2.2.
-- <table>. Refer to Chap 3.9.5.2.1.6.
-Business rule decision point BRDP-S1-00131 - Use of foldouts:
-– Decide whether to use the element <foldout> and, if used, where its use is allowed
-(eg, within specific information sets).
-Note
-It is only used for page-oriented publications, as it will not have an effect in the screen
-view of an IETP.
 
-3 Examples
-3.1 Single illustration
-The following example shows the markup for a data module that contains a single CGM
-illustration using the complete ICN in the attribute infoEntityIdent.
-<!DOCTYPE dmodule [
-<!ENTITY ICN-S1000DBIKE-AAA-D000000-0-U8025-00536-A-04-1 SYSTEM
-"../../../illustrations/ICN-S1000DBIKE-AAA-D000000-0-
-U8025-00536-A-04-1.CGM" NDATA cgm>
-]>
-...
-<figure id="fig-0001">
-<title>Complete bicycle</title>
-<graphic infoEntityIdent="ICN-S1000DBIKE-AAA-D000000-0-
-U8025-00536-A-04-1">
-</graphic>
-</figure>
 
-3.2 Multiple illustrations
-The following example shows the markup for a multiple illustration sheet figure:
-<figure id="fig-0001">
-<title>LP compressor - Removal</title>
-<graphic id="fig-0001-gra-0001" infoEntityIdent="ICN-E2-
-A-723200-R-K0378-00232-A-01-1">
-</graphic>
-<graphic id="fig-0001-gra-0002" infoEntityIdent="ICN-E2-
-A-723200-R-K0378-00233-A-01-1">
-</graphic>
-</figure>
-
-3.3 Alternate illustration
-The following example shows the markup for an alternate illustration:
-<figureAlts id="fig-0001">
-<figure id="fig-0002">
-<title>LP compressor - Removal</title>
-<graphic id="fig-0001-gra-0001" infoEntityIdent="ICN-E2-
-A-723200-R-K0378-00232-A-01-1">
-</graphic>
-<graphic id="fig-0001-gra-0002" infoEntityIdent="ICN-E2-
-A-723200-R-K0378-00233-A-01-1">
-</graphic>
-</figure>
-</figureAlts>
-
-3.4 Legend
-The following example shows the markup for a legend:
-<figure id="fig-0001">
-<title>LP compressor - Removal</title>
-<graphic id="fig-0001-gra-0001" infoEntityIdent="ICN-E2-
-A-723200-R-K0378-00232-A-01-1">
-</graphic>
-<graphic id="fig-0001-gra-0002" infoEntityIdent="ICN-E2-
-A-723200-R-K0378-00233-A-01-1">
-</graphic>
-<legend>
-<definitionList>
-<title>Legend for <internalRef internalRefId="fig-0001">
-</internalRef>
-</title>
-<definitionListItem>
-<listItemTerm>1</listItemTerm>
-<listItemDefinition><para>Display</para></listItemDefinition>
-</definitionListItem>
-<definitionListItem>
-<listItemTerm>2</listItemTerm>
-<listItemDefinition><para>Button</para></listItemDefinition>
-</definitionListItem>
-<definitionListItem>
-<listItemTerm>3</listItemTerm>
-<listItemDefinition><para>Widget</para></listItemDefinition>
-</definitionListItem>
-<definitionListItem>
-<listItemTerm>4</listItemTerm>
-<listItemDefinition><para>Adaptor</para></listItemDefinition>
-</definitionListItem>
-...
-<definitionListItem>
-<listItemTerm>102</listItemTerm>
-<listItemDefinition><para>Retainer</para></listItemDefinition>
-</definitionListItem>
-</definitionList>
-</legend>
-</figure>
-
-3.5 Multimedia
-The multimedia element can be inserted into the data module at the same locations as a figure,
-foldout or table. An example of the inserted markup is as follows:
-<multimedia id="mul-0001">
-<multimediaObject autoPlay="0" infoEntityIdent="ICN-S1000DBIKE￾AAA-D000000-0-SF518-00538-A-001-01" multimediaType="3D"
-showPluginControls="hide" fullScreen="0"
-multimediaObjectHeight="300" multimediaObjectWidth="300">
-</multimediaObject>
-</multimedia>
-To refer to an object inside the multimedia object the author must use the standard cross￾reference element <internalRef>. To enable this cross-referencing, additional values
-"multimedia", "multimediaObject" and "param" have been added to the attribute
-type within the element <internalRef>.
-An example of the markup for the cross-reference is as follows:
-3.5 Multimedia
-The multimedia element can be inserted into the data module at the same locations as a figure,
-foldout or table. An example of the inserted markup is as follows:
-<multimedia id="mul-0001">
-<multimediaObject autoPlay="0" infoEntityIdent="ICN-S1000DBIKE￾AAA-D000000-0-SF518-00538-A-001-01" multimediaType="3D"
-showPluginControls="hide" fullScreen="0"
-multimediaObjectHeight="300" multimediaObjectWidth="300">
-</multimediaObject>
-</multimedia>
-To refer to an object inside the multimedia object the author must use the standard cross￾reference element <internalRef>. To enable this cross-referencing, additional values
-"multimedia", "multimediaObject" and "param" have been added to the attribute
-type within the element <internalRef>.
-An example of the markup for the cross-reference is as follows:
-<internalRef internalRefTargetType="irtt12"
-internalRefId="prm-0001"></internalRef>
-The cross reference is linked by the element <multimediaObject> which lists the
-accessible objects in the multimedia object. An example of this markup is as follows:
-<multimedia>
-<multimediaObject autoPlay="0" infoEntityIdent="ICN-S1000DBIKE￾AAA-D000000-0-SF518-00538-A-001-01" multimediaType="3D"
-showPluginControls="hide" fullScreen="0"
-multimediaObjectHeight="300" multimediaObjectWidth="300">
-<parameter id="prm-0001" parameterIdent="param001"
-parameterName="cable"/>
-</multimediaObject>
-<multimediaObject autoPlay="0" infoEntityIdent="ICN-S1000DBIKE￾AAA-D000000-0-SF518-00538-A-001-01" multimediaType="3D"
-showPluginControls="hide" fullScreen="0"
-multimediaObjectHeight="300" multimediaObjectWidth="300">
-<parameter id="prm-0002" parameterIdent="param002"
-parameterName="lever"/>
-</multimediaObject>
-<multimediaObject autoPlay="0" infoEntityIdent="ICN-S1000DBIKE￾AAA-D000000-0-SF518-00538-A-001-01" multimediaType="3D"
-showPluginControls="hide" fullScreen="0"
-multimediaObjectHeight="300" multimediaObjectWidth="300">
-<parameter id="prm-0003" parameterIdent="param003"
-parameterName="guide"/>
-</multimediaObject>
-</multimedia>
-In the example above, referencing the element <parameter> by its attribute id will
-highlight the object in the multimedia object that is identified through the value "param001" of
-the attribute parameterIdent and the value "cable" of the attribute 
-parameterName of the element <parameter>. For details on the element 
-<parameter>, refer to Chap 3.9.5.2.1.8.
-
-3.6 Foldout
-The following example shows the markup for a foldout illustration:
-<foldout>
-<figure id="fig-0001">
-<title>LP compressor - Removal</title>
-<graphic infoEntityIdent="ICN-E2-A-723200-R-K0378-00232-A-01-1">
-</graphic>
-<graphic infoEntityIdent="ICN-E2-A-723200-R-K0378-00233-A-01-1">
-</graphic>
-</figure>
-</foldout>
 
 
 
