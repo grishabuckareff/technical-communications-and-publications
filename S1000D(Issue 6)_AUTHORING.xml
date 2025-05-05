@@ -12944,91 +12944,106 @@ The presentation of the complete <content> of the data module is given in Chap�
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 3 Requirements after job completion
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 3.1 General
-Description: The element <closeRqmts> contains any actions that are required after the
-procedure is complete.
+
+Description: The element <closeRqmts> contains any actions that are required after the procedure is complete.
+
+  
 Markup element: <closeRqmts>
-The element is mandatory in procedural and fault isolation data modules, and optional in
-process data modules.
+
+The element is mandatory in procedural and fault isolation data modules, and optional in process data modules.
 If there are no actions, then the child element <noConds> must be used.
-If there are actions, then the elements <reqCondNoRef>, <reqCondDm>, 
-<reqCondCircuitBreaker>, <reqCondPm> or <reqCondExternalPub>
-must be used to give the close up requirement action in accordance withPara 2.2.
+If there are actions, then the elements <reqCondNoRef>, <reqCondDm>, <reqCondCircuitBreaker>, <reqCondPm> or <reqCondExternalPub>
+must be used to give the close up requirement action in accordance with Para 2.2.
+
 The requirements can reference data modules, publication modules, non-S1000D publications
 or contain no reference at all. It is recommended that details for close up be given by only
 referring to complete data modules. The use of the element <reqCond> without a reference
-must be avoided. The requirements after job completion must be in the order that the
-requirements are satisfied.
+must be avoided. The requirements after job completion must be in the order that 
+the requirements are satisfied.
+
 Attributes:
-- id (O), the identifier of the markup element. Refer to Chap 3.9.5.2.1.2 .
+- id (O), the identifier of the markup element. Refer to Chap 3.9.5.2.1.2.
 - changeType (O), changeMark (O) and reasonForUpdateRefIds (O), the
-change indications. Refer to Chap 3.9.5.2.1.1 .
-- controlAuthorityRefs (O), the control authority information by referencing the
-element <controlAuthority>. Refer to Chap 3.9.5.1 .
+change indications. Refer to Chap 3.9.5.2.1.1.
+- controlAuthorityRefs (O), the control authority information by referencing 
+the element <controlAuthority>. Refer to Chap 3.9.5.1.
 - securityClassification (O), commercialClassification (O), 
-caveat (O) and derivativeClassificationRefId (O), the security and
-restrictive marking. Refer to Chap 3.6 .
+caveat (O) and derivativeClassificationRefId (O), the security 
+and restrictive marking. Refer to Chap 3.6.
+
 Child elements:
-- <reqCondGroup>. Refer toPara 2.2.
-Business rule decision point BRDP-S1-00157 - Use of the element <closeRqmts> in
-the process data modules:
+- <reqCondGroup>. Refer to Para 2.2.
+
+Business rule decision point BRDP-S1-00157 - Use of the element <closeRqmts> 
+in the process data modules:
 – Decide whether to use the element <closeRqmts> in the process data modules.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 3.2 Examples - Requirements after job completion
+
 Example 1 - This example shows markup if no close-up requirements are needed:
+
 <closeRqmts>
-<reqCondGroup>
-<noConds/>
-</reqCondGroup>
+  <reqCondGroup>
+    <noConds/>
+  </reqCondGroup>
 </closeRqmts>
+
 Example 2 - This example shows markup if there are close up requirements needed:
+
 <closeRqmts>
-<reqCondGroup>
-<reqCondDm>
-<reqCond>The access panel is closed.</reqCond>
-<dmRef>
-<dmRefIdent>
-<dmCode assyCode="00" disassyCode="00" disassyCodeVariant="A"
-infoCode="740" infoCodeVariant="A" itemLocationCode="D"
-modelIdentCode="AE" subSubSystemCode="0" subSystemCode="0"
-systemCode="10" systemDiffCode="A"/>
-</dmRefIdent>
-</dmRef>
-</reqCondDm>
-<!--A reference to a non-S1000D publication -->
-<reqCondExternalPub>
-<reqCond>The access panel is closed.</reqCond>
-<externalPubRef>
-<externalPubRefIdent>
-<externalPubTitle>Component Maintenance Manual</
-externalPubTitle>
-</externalPubRefIdent>
-</externalPubRef>
-</reqCondExternalPub>
-<!--A required condition that has no reference -->
-<reqCondNoRef>
-<reqCond>The caps are installed on all orifices</reqCond>
-</reqCondNoRef>
-</reqCondGroup>
+  <reqCondGroup>
+    <reqCondDm>
+      <reqCond>The access panel is closed.</reqCond>
+      <dmRef>
+        <dmRefIdent>
+          <dmCode assyCode="00" disassyCode="00" disassyCodeVariant="A"
+          infoCode="740" infoCodeVariant="A" itemLocationCode="D"
+          modelIdentCode="AE" subSubSystemCode="0" subSystemCode="0"
+          systemCode="10" systemDiffCode="A"/>
+        </dmRefIdent>
+      </dmRef>
+    </reqCondDm>
+    <!--A reference to a non-S1000D publication -->
+    <reqCondExternalPub>
+      <reqCond>The access panel is closed.</reqCond>
+      <externalPubRef>
+        <externalPubRefIdent>
+          <externalPubTitle>Component Maintenance Manual</externalPubTitle>
+        </externalPubRefIdent>
+      </externalPubRef>
+    </reqCondExternalPub>
+    <!--A required condition that has no reference -->
+    <reqCondNoRef>
+      <reqCond>The caps are installed on all orifices</reqCond>
+    </reqCondNoRef>
+  </reqCondGroup>
 </closeRqmts>
+  
 Example 3
+
 <closeRqmts>
-<reqCondGroup>
-<reqCondNoRef>
-<reqCond>Replace the tire.</reqCond>
-</reqCondNoRef>
-<reqCondDm>
-<reqCond>Inflate the tire with air.</reqCond>
-<dmRef xlink:type="simple" xlink:actuate="onRequest"
-xlink:show="replace" xlink:href="URN:S1000D:DMC-S1000DBIKE-AAA￾DA0-10-20-00AA-215A-A">
-<dmRefIdent>
-<dmCode modelIdentCode="S1000DBIKE" systemDiffCode="AAA"
-systemCode="DA0" subSystemCode="1" subSubSystemCode="0"
-assyCode="20" disassyCode="00" disassyCodeVariant="AA"
-infoCode="215" infoCodeVariant="A" itemLocationCode="A"/>
-</dmRefIdent>
-</dmRef>
-</reqCondDm>
-</reqCondGroup>
+  <reqCondGroup>
+    <reqCondNoRef>
+      <reqCond>Replace the tire.</reqCond>
+    </reqCondNoRef>
+    <reqCondDm>
+      <reqCond>Inflate the tire with air.</reqCond>
+      <dmRef xlink:type="simple" xlink:actuate="onRequest" xlink:show="replace" xlink:href="URN:S1000D:DMC-S1000DBIKE-AAA￾DA0-10-20-00AA-215A-A">
+        <dmRefIdent>
+          <dmCode modelIdentCode="S1000DBIKE" systemDiffCode="AAA"
+          systemCode="DA0" subSystemCode="1" subSubSystemCode="0"
+          assyCode="20" disassyCode="00" disassyCodeVariant="AA"
+          infoCode="215" infoCodeVariant="A" itemLocationCode="A"/>
+        </dmRefIdent>
+      </dmRef>
+    </reqCondDm>
+  </reqCondGroup>
 </closeRqmts>
 
 
