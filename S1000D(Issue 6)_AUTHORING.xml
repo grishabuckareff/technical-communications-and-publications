@@ -1,5 +1,7 @@
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 Chapter 3.9.5.2.3
-Content section - Procedural information----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Content section - Procedural information
 
 Chapter 3.9.2.7
 Illustration rules and multimedia - ICN metadata file
@@ -10,8 +12,8 @@ S1000D-A-20-20-0000-00E-024C-D
 
 1 General
 
-In order to allow proper management of illustrations and multimedia objects in the CSDB there
-is a possibility to store and exchange metadata information about an ICN object, ie an
+In order to allow proper management of illustrations and multimedia objects in the CSDB 
+there is a possibility to store and exchange metadata information about an ICN object, ie an
 illustration or a multimedia object, in an ICN metadata file.
 
 The ICN metadata file is connected to its corresponding ICN object by the identity, which is
@@ -15799,6 +15801,2370 @@ The following is a markup example of a procedure using the alternates concept:
     </para>
   </proceduralStep>
 </mainProcedure>
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Chapter 3.9.5.2.4
+Content section - Fault information
+
+S1000D-A-60-40-0000-00A-024C-D
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+1 General
+
+The fault Schema is used to capture and represent fault reporting, fault isolation and fault
+correlation information. The granularity of these data modules must follow the breakdown reflected by the SNS.
+
+For details on the scope of the information, refer to Chap 5.2.1.3.2.
+
+The use of the common entities, elements and attributes is detailed in Chap 3.9.5.2.1.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2 Fault information
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.1 Schema basic rules
+
+The fault Schema has structural elements that are used to support the build-up of the required
+fault information in the project. The fault Schema is used to structure fault reporting and fault isolation. 
+
+The fault Schema is used to structure fault reporting and fault isolation, where fault
+reporting includes isolated fault, detected fault, observed fault and correlated fault. 
+Fault reporting includes a fault isolation procedure.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.2 Content
+
+Description: The fault Schema allows for five types of fault information to be produced 
+as individual data modules. These are fault reporting (in terms of isolated, detected, 
+observed or correlated faults) or fault isolation. Refer to Chap 5.2.1.3.2.
+
+  
+Markup element: <content>
+
+Attributes:
+- id (O), the identifier of the markup element. Refer to Chap 3.9.5.2.1.2.
+- controlAuthorityRefs (O), the control authority information by referencing 
+the element <controlAuthority>. Refer to Chap 3.9.5.1.
+
+Child elements:
+- <refs>. Refer to Chap 3.9.5.2.1.2.
+- <referencedApplicGroup>. Refer to Chap 3.9.5.3.
+- <referencedApplicGroupRef>. Refer to Chap 3.9.5.3.
+- <warningsAndCautions>. Refer to Para 2.4.
+- <warningsAndCautionsRef>. Refer to Para 2.4.
+and one of
+- <faultReporting>. Refer to Para 2.5.
+- <faultIsolation>. Refer to Para 2.6.
+
+  
+Markup example:
+
+<content>
+  <faultReporting>
+    <isolatedFault id=flt-0003" faultCode="NYCJD03">
+      <faultDescr></faultDescr>
+      <locateAndRepair>
+        <locateAndRepairLruItem>
+          <lru></lru>
+        </locateAndRepairLruItem>
+      </locateAndRepair>
+    </isolatedFault>
+  </faultReporting>
+</content>
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  
+2.3 References
+
+References (element <refs>) must be populated in accordance with Chap 3.9.5.2.1.2.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.4 Warnings and cautions
+
+There are two possibilities to collect warnings and cautions, either within the data module
+where they are used (element <warningsAndCautions>) or within a warning 
+and caution common information repository (element <warningsAndCautionsRef>). Refer to Chap 3.9.3.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.5 Fault reporting
+
+Description: The element <faultReporting> contains information to enable technician
+or computerized maintenance systems to indicate faults through data modules.
+
+  
+Markup element: <faultReporting>
+
+Attributes:
+- None
+
+Child elements:
+- <commonInfo>. Refer to Chap 3.9.5.2.1.12.
+- <preliminaryRqmts>. Refer to Chap 3.9.5.2.1.9.
+- <isolatedFault>. Refer to Para 2.5.1.
+- <isolatedFaultAlts>. Refer to Para 2.5.2.
+- <detectedFault>. Refer to Para 2.5.3.
+- <detectedFaultAlts>. Refer to Para 2.5.4.
+- <observedFault>. Refer to Para 2.5.5.
+- <observedFaultAlts>. Refer to Para 2.5.6.
+- <correlatedFault>. Refer to Para 2.5.7.
+- <correlatedFaultAlts>. Refer to Para 2.5.8.
+
+  
+Markup example:
+
+<faultReporting>
+  <isolatedFault id="flt-0003" faultCode="NYCJD03">
+    <faultDescr>
+      <detailedFaultDescr>
+        <systemName>Engine</systemName>
+        <faultMessageBody>Engine will not start.</faultMessageBody>
+      </detailedFaultDescr>
+    </faultDescr>
+    <locateAndRepair>
+      <locateAndRepairLruItem>
+        <lru></lru>
+      </locateAndRepairLruItem>
+    </locateAndRepair>
+  </isolatedFault>
+</faultReporting>
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.5.1 Isolated faults
+
+Description: The element <isolatedFault> is used to capture isolated faults information.
+
+  
+Markup element: <isolatedFault>
+
+Attributes:
+- applicRefId (O), the applicability information. Refer to Chap 3.9.5.3.
+- id (M), the identifier of the markup element. Refer to Chap 3.9.5.2.1.2.
+- changeType (O), changeMark (O) and reasonForUpdateRefIds (O), 
+the change indications. Refer to Chap 3.9.5.2.1.1.
+- faultCode (M), the fault code that is allocated as part of a logistic analysis process
+- controlAuthorityRefs (O), the control authority information by referencing 
+the element <controlAuthority>. Refer to Chap 3.9.5.1.
+
+Child elements:
+- <faultDescr>. Refer to Para 2.5.1.1.
+- <detectionInfo>. Refer to Para 2.5.1.3.
+- <locateAndRepair>. Refer to Para 2.5.1.4.
+- <remarks>. Refer to Chap 3.9.5.1.
+
+
+Markup example:
+
+<isolatedFault id="flt-0003" faultCode="NYCJD03">
+  <faultDescr>
+    <detailedFaultDescr>
+      <systemName>Engine</systemName>
+      <faultMessageBody>Engine will not start.</faultMessageBody>
+    </detailedFaultDescr>
+  </faultDescr>
+  <locateAndRepair>
+    <locateAndRepairLruItem>
+      <lru></lru>
+    </locateAndRepairLruItem>
+  </locateAndRepair>
+</isolatedFault>
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.5.1.1 Description of the isolated fault
+
+Description: The element <faultDescr> contains the description of the isolated fault.
+
+
+Markup element: <faultDescr>
+
+Attributes:
+- id (O), the identifier of the markup element. Refer to Chap 3.9.5.2.1.2.
+- changeType (O), changeMark (O) and reasonForUpdateRefIds (O), 
+the change indications. Refer to Chap 3.9.5.2.1.1.
+- controlAuthorityRefs (O), the control authority information by referencing 
+the element <controlAuthority>. Refer to Chap 3.9.5.1.
+- securityClassification (O), commercialClassification (O), 
+caveat (O) and derivativeClassificationRefId (O), the security 
+and restrictive marking. Refer to Chap 3.6.
+
+Child elements:
+- <descr>, the textual fault description by the message identification 
+as it is displayed to the maintenance crew
+- <detailedFaultDescr>. Refer to Para 2.5.1.2.
+- <refs>, the references to, if required, other data modules, publication modules 
+or non-S1000D publications to complete the description. Refer to Chap 3.9.5.2.1.2.
+
+  
+Markup example:
+
+<faultDescr>
+  <descr>Horn failed</descr>
+</faultDescr>
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.5.1.2 Detailed description of the isolated fault
+
+Description: The element <detailedFaultDescr> contains the detailed description of the isolated fault.
+
+  
+Markup element: <detailedFaultDescr>
+
+Attributes:
+- id (O), the identifier of the markup element. Refer to Chap 3.9.5.2.1.2.
+- changeType (O), changeMark (O) and reasonForUpdateRefIds (O), 
+the change indications. Refer to Chap 3.9.5.2.1.1.
+- controlAuthorityRefs (O), the control authority information by referencing 
+the element <controlAuthority>. Refer to Chap 3.9.5.1.
+- securityClassification (O), commercialClassification (O), 
+caveat (O) and derivativeClassificationRefId (O), the security 
+and restrictive marking. Refer to Chap 3.6.
+
+Child elements:
+All child elements can have a textual content and all have the same set 
+of attributes as the element <faultDescr>.
+- <viewLocation>, the location where the description of the fault is displayed
+- <systemLocation>, the location or panel where the malfunction is shown
+- <systemName>, the faulty system
+- <faultySubSystem>, the faulty subsystem
+- <systemIdent>, the discriminating identification information 
+to identify the faulty system (eg, "yellow" for a hydraulic flag system)
+- <systemPosition>, the discriminating identification information, 
+position-oriented (eg, "left")
+- <faultEquip>, the equipment involved in the malfunction
+- <faultMessageIndication>, the indication part of the fault message 
+(eg, "temperature")
+- <faultMessageBody>, the main part of the fault message
+- <faultCond>, the potential fault condition
+
+  
+Markup example:
+
+<detailedFaultDescr>
+  <systemName>Engine</systemName>
+  <faultMessageBody>Engine will not start.</faultMessageBody>
+</detailedFaultDescr>
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.5.1.3 Fault detecting information
+
+Description: The element <detectionInfo> contains the information for detecting the fault.
+
+  
+Markup element: <detectionInfo>
+
+Attributes:
+- changeType (O), changeMark (O) and reasonForUpdateRefIds (O), 
+the change indications. Refer to Chap 3.9.5.2.1.1.
+- detectionType (O), the type of fault
+- controlAuthorityRefs (O), the control authority information by referencing 
+the element <controlAuthority>. Refer to Chap 3.9.5.1.
+
+Child elements:
+- <detectedLruItem>. Refer to Para 2.5.1.3.1.
+
+  
+Markup example:
+
+<detectionInfo detectionType="Major">
+  <detectedLruItem>
+    <lru>
+      <name>Tire</name>
+      <identNumber>
+        <manufacturerCode>KT666</manufacturerCode>
+        <partAndSerialNumber>
+          <partNumber>TIRES-010101</partNumber>
+        </partAndSerialNumber>
+      </identNumber>
+    </lru>
+  </detectedLruItem>
+</detectionInfo>
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.5.1.3.1 Detected Line Replaceable Unit (LRU) item
+
+Description: The element <detectedLruItem> contains the identification, name and abbreviation of the detected LRU.
+
+  
+Markup element: <detectedLruItem>
+
+Attributes:
+- id (O), the identifier of the markup element. Refer to Chap 3.9.5.2.1.2.
+- changeType (O), changeMark (O) and reasonForUpdateRefIds (O), 
+the change indications. Refer to Chap 3.9.5.2.1.1.
+- faultProbability (O), the probability factor to indicate the likelihood 
+that this particular LRU is faulty
+- controlAuthorityRefs (O), the control authority information by referencing 
+the element <controlAuthority>. Refer to Chap 3.9.5.1.
+- securityClassification (O), commercialClassification (O), 
+caveat (O) and derivativeClassificationRefId (O), the security 
+and restrictive marking. Refer to Chap 3.6.
+
+Child elements:
+- <lru>. Multiple <lru> elements must only contain LRU alternates. 
+Refer to Para 2.5.1.3.2.
+- <remarks>. Refer to Chap 3.9.5.1.
+- <detectedSruItem>. Refer to Para 2.5.1.3.3.
+
+  
+Markup example:
+
+<detectedLruItem>
+  <lru>
+    <name>Tire</name>
+    <identNumber>
+      <manufacturerCode>KT666</manufacturerCode>
+      <partAndSerialNumber>
+        <partNumber>TIRES-010101</partNumber>
+      </partAndSerialNumber>
+    </identNumber>
+  </lru>
+</detectedLruItem>
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.5.1.3.2 LRU identification
+
+Description: The element <lru> contains a name, a short name and an identification of the LRU.
+
+  
+Markup element: <lru>
+
+Attributes:
+- applicRefId (O), the applicability information. Refer to Chap 3.9.5.3.
+- id (O), the identifier of the markup element. Refer to Chap 3.9.5.2.1.2.
+- changeType (O), changeMark (O) and reasonForUpdateRefIds (O), 
+the change indications. Refer to Chap 3.9.5.2.1.1.
+- controlAuthorityRefs (O), the control authority information by referencing 
+the element <controlAuthority>. Refer to Chap 3.9.5.1.
+- securityClassification (O), commercialClassification (O), 
+caveat (O) and derivativeClassificationRefId (O), the security 
+and restrictive marking. Refer to Chap 3.6.
+
+Child elements:
+- <name>, the name of the LRU. Refer to Chap 3.9.5.2.1.10.
+- <shortName>. Refer to Chap 3.9.5.2.1.10.
+- The identification by one or more of the elements <catalogSeqNumberRef> 
+(refer to Chap 3.9.5.2.7), <natoStockNumber> (refer to Chap 3.9.5.2.1.9), 
+<identNumber> (refer to Chap 3.9.5.2.1.9), <partRef> 
+(refer to Chap 3.9.5.2.1.10) and <functionalItemRef> (refer to Chap 3.9.5.1).
+
+
+Markup example:
+
+<lru>
+  <name>Tire</name>
+  <identNumber>
+    <manufacturerCode>KT666</manufacturerCode>
+    <partAndSerialNumber>
+      <partNumber>TIRES-010101</partNumber>
+    </partAndSerialNumber>
+  </identNumber>
+</lru>
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.5.1.3.3 Detected Shop Replaceable Unit (SRU) item
+
+Description: The element <detectedSruItem> contains the identification, 
+name, abbreviation and any remark information of the detected SRU.
+
+  
+Markup element: <detectedSruItem>
+
+Attributes:
+- id (O), the identifier of the markup element. Refer to Chap 3.9.5.2.1.2.
+- changeType (O), changeMark (O) and reasonForUpdateRefIds (O), 
+the change indications. Refer to Chap 3.9.5.2.1.1.
+- faultProbability (O), the probability factor to indicate the likelihood 
+that this particular SRU is faulty
+- controlAuthorityRefs (O), the control authority information by referencing 
+the element <controlAuthority>. Refer to Chap 3.9.5.1.
+- securityClassification (O), commercialClassification (O), 
+caveat (O) and derivativeClassificationRefId (O), the security 
+and restrictive marking. Refer to Chap 3.6.
+
+Child elements:
+- <sru>. Multiple <sru> elements must only contain SRU alternates. 
+Refer to Para 2.5.1.3.4.
+- <remarks>. Refer to Chap 3.9.5.1.
+
+  
+Markup example:
+
+<detectedSruItem>
+  <sru>
+    <identNumber>
+      <manufacturerCode>KT666</manufacturerCode>
+      <partAndSerialNumber>
+        <partNumber>TIRES-010101</partNumber>
+      </partAndSerialNumber>
+    </identNumber>
+  </sru>
+</detectedSruItem>
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.5.1.3.4 SRU identification
+
+Description: The element <sru> contains a name, a short name 
+and an identification of the SRU.
+
+  
+Markup element: <sru>
+
+Attributes:
+- applicRefId (O), the applicability information. Refer to Chap 3.9.5.3.
+- id (O), the identifier of the markup element. Refer to Chap 3.9.5.2.1.2.
+- changeType (O), changeMark (O) and reasonForUpdateRefIds (O), 
+the change indications. Refer to Chap 3.9.5.2.1.1.
+- controlAuthorityRefs (O), the control authority information by referencing 
+the element <controlAuthority>. Refer to Chap 3.9.5.1.
+- securityClassification (O), commercialClassification (O), 
+caveat (O) and derivativeClassificationRefId (O), the security 
+and restrictive marking. Refer to Chap 3.6.
+
+Child elements:
+- <name>, the name of the SRU. Refer to Chap 3.9.5.2.1.10.
+- <shortName>. Refer to Chap 3.9.5.2.1.10.
+- The identification by one or more of the elements <catalogSeqNumberRef> 
+(refer to Chap 3.9.5.2.7), <natoStockNumber> (refer to Chap 3.9.5.2.1.9), 
+<identNumber> (refer to Chap 3.9.5.2.1.9), <partRef> 
+(refer to Chap 3.9.5.2.1.10) and <functionalItemRef> (refer to Chap 3.9.5.1).
+
+  
+Markup example:
+
+<sru>
+  <identNumber>
+    <manufacturerCode>KT666</manufacturerCode>
+    <partAndSerialNumber>
+      <partNumber>TIRES-010101</partNumber>
+    </partAndSerialNumber>
+  </identNumber>
+</sru>
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.5.1.4 Locate and repair/Locate and repair LRU
+
+Description: The child element <locateAndRepairLruItem> of the element 
+<locateAndRepair> contains any locating and repairing tasks and information 
+on the faulty LRU.
+
+  
+Markup element: <locateAndRepairLruItem>
+
+Attributes:
+- id (O), the identifier of the markup element. Refer to Chap 3.9.5.2.1.2.
+- changeType (O), changeMark (O) and reasonForUpdateRefIds (O), 
+the change indications. Refer to Chap 3.9.5.2.1.1.
+- faultProbability (O), the probability factor to indicate the likelihood 
+that this particular LRU is faulty
+- controlAuthorityRefs (O), the control authority information by referencing 
+the element <controlAuthority>. Refer to Chap 3.9.5.1.
+- securityClassification (O), commercialClassification (O), 
+caveat (O) and derivativeClassificationRefId (O), the security 
+and restrictive marking. Refer to Chap 3.6.
+
+Child elements:
+- <lru>. Multiple <lru> elements must only contain LRU alternates. 
+Refer to Para 2.5.1.3.2.
+- <repair>. Refer to Para 2.5.1.4.1.
+- <remarks>. Refer to Chap 3.9.5.1.
+- <locateAndRepairSruItem>. Refer to Para 2.5.1.4.2.
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.5.1.4.1 Repair
+
+Description: The element <repair> contains references to one or more repair procedures.
+
+  
+Markup element: <repair>
+
+Attributes:
+- None
+
+Child elements:
+- <refs>. Refer to Chap 3.9.5.2.1.2.
+
+  
+Markup example:
+
+<repair>
+  <refs>
+    <externalPubRef extEntityIdent="EXT-External_repair_manual">
+      <externalPubRefIdent>
+        <externalPubTitle>External repair publication</externalPubTitle>
+      </externalPubRefIdent>
+    </externalPubRef>
+  </refs>
+</repair>
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.5.1.4.2 Locate and repair SRU
+
+Description: The element <locateAndRepairSruItem> contains any locating 
+and repairing tasks and information on the faulty SRU.
+
+
+Markup element: <locateAndRepairSruItem>
+
+Attributes:
+- id (O), the identifier of the markup element. Refer to Chap 3.9.5.2.1.2.
+- changeType (O), changeMark (O) and reasonForUpdateRefIds (O), 
+the change indications. Refer to Chap 3.9.5.2.1.1.
+- faultProbability (O), the probability factor to indicate the likelihood 
+that this particular LRU is faulty
+- controlAuthorityRefs (O), the control authority information by referencing 
+the element <controlAuthority>. Refer to Chap 3.9.5.1.
+- securityClassification (O), commercialClassification (O), 
+caveat (O) and derivativeClassificationRefId (O), the security 
+and restrictive marking. Refer to Chap 3.6.
+
+Child elements:
+- <sru>. Multiple <sru> elements must only contain SRU alternates. 
+Refer to Para 2.5.1.3.4.
+- <repair>. Refer to Para 2.5.1.4.1.
+- <remarks>. Refer to Chap 3.9.5.1.
+
+  
+Markup example:
+
+<faultReporting>
+  <isolatedFault id="flt-0003" faultCode="NYCJD03">
+    <faultDescr>
+      <descr>Horn failed</descr>
+    </faultDescr>
+    <locateAndRepair>
+      <locateAndRepairLruItem>
+        <lru>
+          <name>Horn</name>
+          <identNumber>
+            <manufacturerCode>KZ444</manufacturerCode>
+            <partAndSerialNumber>
+              <partNumber>Horn-001</partNumber>
+            </partAndSerialNumber>
+          </identNumber>
+        </lru>
+        <repair>
+          <refs>
+            <dmRef>
+              <dmRefIdent>
+                <dmCode modelIdentCode="S1000DBIKE" systemDiffCode="AAA"
+                systemCode="DA3" subSystemCode="1" subSubSystemCode="0"
+                assyCode="00" disassyCode="00" disassyCodeVariant="AA"
+                infoCode="921" infoCodeVariant="A" itemLocationCode="A"/>
+              </dmRefIdent>
+            </dmRef>
+          </refs>
+        </repair>
+      </locateAndRepairLruItem>
+    </locateAndRepair>
+  </isolatedFault>
+</faultReporting>
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.5.2 Isolated faults alternates group
+
+Description: The element <isolatedFaultAlts> is an alternates group that provides
+the capability to group several alternate solutions of the isolated faults. 
+Refer to Chap 4.13.3 for information related to the use of alternates group in data module content.
+
+  
+Markup element: <isolatedFaultAlts>
+
+Attributes:
+- id (O), the identifier of the markup element. Refer to Chap 3.9.5.2.1.2.
+- changeType (O), changeMark (O) and reasonForUpdateRefIds (O), 
+the change indications. Refer to Chap 3.9.5.2.1.1.
+- controlAuthorityRefs (O), the control authority information by referencing 
+the element <controlAuthority>. Refer to Chap 3.9.5.1.
+- securityClassification (O), commercialClassification (O), 
+caveat (O) and derivativeClassificationRefId (O), the security 
+and restrictive marking. Refer to Chap 3.6.
+
+Child elements:
+- <isolatedFault>. Refer to Para 2.5.1.
+
+  
+Markup example:
+
+<isolatedFaultAlts id="fltc-001">
+  <isolatedFault id="flt-0001" faultCode="NYCJD01">
+    <faultDescr>
+      <detailedFaultDescr>
+        <systemName>Engine</systemName>
+        <faultMessageBody>Engine 1 will not start.</faultMessageBody>
+      </detailedFaultDescr>
+    </faultDescr>
+    <locateAndRepair>
+      <locateAndRepairLruItem>
+        <lru></lru>
+      </locateAndRepairLruItem>
+    </locateAndRepair>
+  </isolatedFault>
+  <isolatedFault id="flt-0002" faultCode="NYCJD02">
+    <faultDescr>
+      <detailedFaultDescr>
+        <systemName>Engine</systemName>
+        <faultMessageBody>Engine 2 will not start.</faultMessageBody>
+      </detailedFaultDescr>
+    </faultDescr>
+    <locateAndRepair>
+      <locateAndRepairLruItem>
+        <lru></lru>
+      </locateAndRepairLruItem>
+    </locateAndRepair>
+  </isolatedFault>
+</isolatedFaultAlts>
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.5.3 Detected faults
+
+Description: The element <detectedFault> contains information on detected faults.
+
+  
+Markup element: <detectedFault>
+
+Attributes:
+- applicRefId (O), the applicability information. Refer to Chap 3.9.5.3.
+- id (M), the identifier of the markup element. Refer to Chap 3.9.5.2.1.2.
+- changeType (O), changeMark (O) and reasonForUpdateRefIds (O), 
+the change indications. Refer to Chap 3.9.5.2.1.1.
+- faultCode (M), the fault code that is allocated as part of a logistic analysis process
+- controlAuthorityRefs (O), the control authority information by referencing 
+the element <controlAuthority>. Refer to Chap 3.9.5.1.
+
+Child elements:
+- <faultDescr>. Refer to Para 2.5.1.1.
+- <detectionInfo>. Refer to Para 2.5.1.3.
+- <isolateDetectedFault>. Refer to Para 2.5.3.1.
+- <remarks>. Refer to Chap 3.9.5.1.
+
+  
+Markup example:
+
+<detectedFault id="flt-0002" faultCode="NYCJD00">
+  <faultDescr>
+    <descr>The rear wheel does not operate correctly</descr>
+  </faultDescr>
+  <detectionInfo detectionType="Major">
+    <detectedLruItem>
+      <lru>
+        <name>Tire</name>
+        <identNumber>
+          <manufacturerCode>KT666</manufacturerCode>
+          <partAndSerialNumber>
+            <partNumber>TIRES-010101</partNumber>
+          </partAndSerialNumber>
+        </identNumber>
+      </lru>
+    </detectedLruItem>
+  </detectionInfo>
+  <isolateDetectedFault>
+    <lruItem>
+      <lru>
+        <name>Rear wheel</name>
+        <identNumber>
+          <manufacturerCode>KZ333</manufacturerCode>
+          <partAndSerialNumber>
+            <partNumber>WH-001</partNumber>
+          </partAndSerialNumber>
+        </identNumber>
+      </lru>
+    </lruItem>
+  </isolateDetectedFault>
+  <remarks>
+    <simplePara>Prepare the rear wheel for the removal of the tire</simplePara>
+  </remarks>
+</detectedFault>
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.5.3.1 Isolate detected faults
+
+Description: The element <isolateDetectedFault> contains the information
+needed to isolate the detected fault to an LRU from amongst a list of suspected LRU. 
+This is done by referring out to another data module through the element 
+<faultIsolationRef> or by describing a test on these LRU using the element <lruItem>.
+
+  
+Markup element: <isolateDetectedFault>
+
+Attributes:
+- None
+
+Child elements:
+- <faultIsolationRef>, the reference to information needed to isolate the detected fault
+- <lruItem>. Refer to Para 2.5.3.1.1.
+
+  
+Markup example:
+
+<isolateDetectedFault>
+  <lruItem>
+    <lru>
+      <name>Rear wheel</name>
+      <identNumber>
+        <manufacturerCode>KZ333</manufacturerCode>
+        <partAndSerialNumber>
+          <partNumber>WH-001</partNumber>
+        </partAndSerialNumber>
+      </identNumber>
+    </lru>
+  </lruItem>
+</isolateDetectedFault>
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.5.3.1.1 Fault isolation test - LRU
+
+Description: The element <lruItem> contains the information needed to perform the test on the faulty LRU.
+
+  
+Markup element: <lruItem>
+
+Attributes:
+- id (O), the identifier of the markup element. Refer to Chap 3.9.5.2.1.2.
+- changeType (O), changeMark (O) and reasonForUpdateRefIds (O), 
+the change indications. Refer to Chap 3.9.5.2.1.1.
+- faultProbability (O), the probability factor to indicate the likelihood 
+that this particular LRU is faulty
+- controlAuthorityRefs (O), the control authority information by referencing 
+the element <controlAuthority>. Refer to Chap 3.9.5.1.
+- securityClassification (O), commercialClassification (O), 
+caveat (O) and derivativeClassificationRefId (O), the security 
+and restrictive marking. Refer to Chap 3.6.
+
+Child elements:
+- <lru>. Multiple <lru> elements must only contain LRU alternates. 
+Refer to Para 2.5.1.3.2.
+- <faultIsolationTest>. Refer to Para 2.5.3.1.2.
+- <repair>. Refer to Para 2.5.1.4.1.
+- <remarks>. Refer to Chap 3.9.5.1.
+- <sruItem>. Refer to Para 2.5.3.1.4.
+
+  
+Markup example:
+
+<lruItem>
+  <lru>
+    <name>Rear wheel</name>
+    <identNumber>
+      <manufacturerCode>KZ333</manufacturerCode>
+      <partAndSerialNumber>
+        <partNumber>WH-001</partNumber>
+      </partAndSerialNumber>
+    </identNumber>
+  </lru>
+</lruItem>
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.5.3.1.2 Fault isolation test performance
+
+Description: The element <faultIsolationTest> contains the test description, 
+test parameters and the test procedure.
+
+  
+Markup element: <faultIsolationTest>
+
+Attributes:
+- id (O), the identifier of the markup element. Refer to Chap 3.9.5.2.1.2.
+- changeType (O), changeMark (O) and reasonForUpdateRefIds (O), 
+the change indications. Refer to Chap 3.9.5.2.1.1.
+- testType (M), the type of test
+- testCode (M), the identifier of the test
+- controlAuthorityRefs (O), the control authority information by referencing 
+the element <controlAuthority>. Refer to Chap 3.9.5.1.
+- securityClassification (O), commercialClassification (O), 
+caveat (O) and derivativeClassificationRefId (O), the security 
+and restrictive marking. Refer to Chap 3.6.
+
+Child elements:
+- <testDescr>, the name of the test and any reference to a test description
+- <testParameters>. Refer to Para 2.5.3.1.3.
+- <testProcedure>, the reference to test procedures or any relevant information
+
+  
+Markup example:
+
+<faultIsolationTest testCode="O-001" testType="Operation">
+  <testDescr>
+    <testName>Test the bulbs</testName>
+  </testDescr>
+  <testParameters from="1" to="1" unitOfMeasure="Days"/>
+    <testProcedure>
+    <refs>
+      <dmRef>
+        <dmRefIdent>
+          <dmCode assyCode="00" disassyCode="00" disassyCodeVariant="AA"
+          infoCode="341" infoCodeVariant="A" itemLocationCode="A"
+          modelIdentCode="S1000DLIGHTING" subSubSystemCode="0"
+          subSystemCode="0" systemCode="D00" systemDiffCode="AAA"/>
+        </dmRefIdent>
+      </dmRef>
+    </refs>
+  </testProcedure>
+</faultIsolationTest>
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.5.3.1.3 Test parameters
+
+Description: The element <testParameters> contains a set of attributes to capture parameters for the test.
+
+
+Markup element: <testParameters>
+
+Attributes:
+- changeType (O), changeMark (O) and reasonForUpdateRefIds (O), 
+the change indications. Refer to Chap 3.9.5.2.1.1.
+- from (O), the start value for a range of values
+- to (O), the end value for a range of values
+- unitOfMeasure (O), the unit of measure for the values
+- controlAuthorityRefs (O), the control authority information by referencing 
+the element <controlAuthority>. Refer to Chap 3.9.5.1.
+
+Child elements:
+- None
+
+  
+Markup example:
+
+<testParameters from="1" to="1" unitOfMeasure="Days"/>
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.5.3.1.4 Fault isolation test - SRU
+
+Description: The element <sruItem> contains the information needed 
+to perform the test on the faulty SRU.
+
+  
+Markup element: <sruItem>
+
+Attributes:
+- id (O), the identifier of the markup element. Refer to Chap 3.9.5.2.1.2.
+- changeType (O), changeMark (O) and reasonForUpdateRefIds (O), 
+the change indications. Refer to Chap 3.9.5.2.1.1.
+- faultProbability (O), the probability factor to indicate the likelihood 
+that this particular LRU is faulty
+- controlAuthorityRefs (O), the control authority information by referencing 
+the element <controlAuthority>. Refer to Chap 3.9.5.1.
+- securityClassification (O), commercialClassification (O), 
+caveat (O) and derivativeClassificationRefId (O), the security 
+and restrictive marking. Refer to Chap 3.6.
+
+Child elements:
+- <sru>. Multiple <sru> elements must only contain SRU alternates. 
+Refer to Para 2.5.1.3.4.
+- <faultIsolationTest>. Refer to Para 2.5.3.1.2.
+- <repair>. Refer to Para 2.5.1.4.1.
+- <remarks>. Refer to Chap 3.9.5.1.
+
+  
+Markup example:
+
+<sruItem>
+  <sru>
+    <name>Shop unit</name>
+  </sru>
+</sruItem>
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.5.4 Detected faults alternates group
+
+Description: The element <detectedFaultAlts> is an alternates group that provides
+the capability to group several alternate solutions of a detected faults. 
+
+Refer to Chap 4.13.3.for information related to the use of alternates group in data module content.
+
+  
+Markup element: <detectedFaultAlts>
+
+Attributes:
+- id (O), the identifier of the markup element. Refer to Chap 3.9.5.2.1.2.
+- changeType (O), changeMark (O) and reasonForUpdateRefIds (O), 
+the change indications. Refer to Chap 3.9.5.2.1.1.
+- controlAuthorityRefs (O), the control authority information by referencing 
+the element <controlAuthority>. Refer to Chap 3.9.5.1.
+
+Child elements:
+- <detectedFault>. Refer to Para 2.5.3.
+
+  
+Markup example:
+
+<detectedFaultAlts id="fltc-001">
+  <detectedFault id="flt-0001" faultCode="NYCJD00">
+    <faultDescr>
+      <descr>The rear wheel does not operate correctly</descr>
+    </faultDescr>
+    <detectionInfo detectionType="Major">
+      <detectedLruItem>
+        <lru>
+          <name>Tire</name>
+          <identNumber>
+            <manufacturerCode>KT666</manufacturerCode>
+            <partAndSerialNumber>
+              <partNumber>TIRES-010101</partNumber>
+            </partAndSerialNumber>
+          </identNumber>
+        </lru>
+      </detectedLruItem>
+    </detectionInfo>
+    <!--... -->
+  </detectedFault>
+  <detectedFault id="flt-0002" faultCode="NYCJD01">
+    <faultDescr>
+      <descr>The front wheel does not operate correctly</descr>
+    </faultDescr>
+    <detectionInfo detectionType="Major">
+      <detectedLruItem>
+        <lru>
+          <name>Tire</name>
+          <identNumber>
+            <manufacturerCode>KT666</manufacturerCode>
+              <partAndSerialNumber>
+                <partNumber>TIRES-010101</partNumber>
+              </partAndSerialNumber>
+            </identNumber>
+          </lru>
+        </detectedLruItem>
+      </detectionInfo>
+    <!--... -->
+  </detectedFault>
+</detectedFaultAlts>
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.5.5 Observed faults
+
+Description: The element <observedFault> contains information on observed faults 
+but not detected by the computerized maintenance system.
+
+The element has an attribute faultCode, which can be used to contain the fault code 
+that is allocated as part of a logistic analysis process and an attribute faultType 
+which can capture the type of fault.
+
+  
+Markup element: <observedFault>
+
+Attributes:
+- applicRefId (O), the applicability information. Refer to Chap 3.9.5.3.
+- id (M), the identifier of the markup element. Refer to Chap 3.9.5.2.1.2.
+- changeType (O), changeMark (O) and reasonForUpdateRefIds (O), 
+the change indications. Refer to Chap 3.9.5.2.1.1.
+- faultCode (O), the fault code that is allocated as part of a logistic analysis process
+- faultType (O), the fault type that is allocated as part of a logistic analysis process
+- controlAuthorityRefs (O), the control authority information by referencing 
+the element <controlAuthority>. Refer to Chap 3.9.5.1.
+
+Child elements:
+- <faultDescr>, the description of the isolated fault. Refer to Para 2.5.1.1.
+- <contextAndIsolationInfo>. Refer to Para 2.5.5.1.
+- <remarks>. Refer to Chap 3.9.5.1.
+
+  
+Markup example:
+
+<observedFault faultCode="NYCJD02" id="flt-0001">
+  <faultDescr>
+    <descr>The lights are set to the dim position.</descr>
+  </faultDescr>
+  <contextAndIsolationInfo>
+    <isolationInfo>
+      <lruItem>
+        <lru></lru>
+      </lruItem>
+    </isolationInfo>
+  </contextAndIsolationInfo>
+</observedFault>
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.5.5.1 Context and isolation information
+Description: The element <contextAndIsolationInfo> contains the description of
+the context in which the fault is observed and information needed to isolate the faulty item.
+Markup element: <contextAndIsolationInfo>
+Attributes:
+- None
+Child elements:
+- <faultContext>, the textual description of the context in which the fault is observed
+- <isolationInfo>. Refer to Para 2.5.5.2.
+Markup example:
+<observedFault faultCode="NYCJD02" id="flt-0001">
+<faultDescr>
+<descr>The lights are set to the dim position.</descr>
+</faultDescr>
+<contextAndIsolationInfo>
+<isolationInfo>
+<lruItem>
+<lru></lru>
+</lruItem>
+</isolationInfo>
+</contextAndIsolationInfo>
+</observedFault>
+2.5.5.2 Fault isolation information
+Description: The element <isolationInfo> contains the diagnostic information for the
+observed fault. This is done by referring out using the element <faultIsolationRef>
+or by describing a diagnostic process using the element <diagnosticProcess> or
+simply testing the LRU using the element <lruItem>.
+Markup element: <isolationInfo>
+Attributes:
+- None
+Child elements:
+- <faultIsolationRef>, the references to diagnostic information for the observed
+fault by using the element <refs>. Refer to Chap 3.9.5.2.1.2.
+- <diagnosticProcess>. Refer to Para 2.5.5.3.
+- <lruItem>. Refer to Para 2.5.3.1.1.
+2.5.5.3 Diagnostics
+Description: The element <diagnosticProcess> contains a textual description of the
+reason and a reference to a repair procedure or any locating and repairing tasks and
+information on the faulty LRU.
+Markup element: <diagnosticProcess>
+Attributes:
+- None
+Child elements:
+- <diagnosticsReason>, the textual description of the of the cause of the failure
+- <repair>. Refer to Para 2.5.1.4.1.
+- <locateAndRepairLruItem>. Refer to Para 2.5.1.4.
+2.5.6 Observed faults alternates group
+Description: The element <observedFaultAlts> is an alternates group that provides
+the capability to group alternates of the observed fault. Refer to Chap 4.13.3 for information
+related to the use of alternates group in data module content.
+Markup element: <observedFaultAlts>
+Attributes:
+- id (O), the identifier of the markup element. Refer to Chap 3.9.5.2.1.2.
+- changeType (O), changeMark (O) and reasonForUpdateRefIds (O), the
+change indications. Refer to Chap 3.9.5.2.1.1.
+- controlAuthorityRefs (O), the control authority information by referencing the
+element <controlAuthority>. Refer to Chap 3.9.5.1.
+- securityClassification (O), commercialClassification (O), 
+caveat (O) and derivativeClassificationRefId (O), the security and
+restrictive marking. Refer to Chap 3.6.
+Child elements:
+- <observedFault>. Refer to Para 2.5.5.
+Markup example:
+<observedFaultAlts id="ofc-001">
+<observedFault faultCode="NYCJD01" id="flt-0001">
+<faultDescr>
+<descr>The lights are set to the dim position.</descr>
+</faultDescr>
+<contextAndIsolationInfo>
+<isolationInfo>
+<lruItem>
+<lru></lru>
+</lruItem>
+</isolationInfo>
+</contextAndIsolationInfo>
+</observedFault>
+<observedFault faultCode="NYCJD02" id="flt-0002">
+<faultDescr>
+<descr>The lights are set to the high position.</descr>
+</faultDescr>
+<contextAndIsolationInfo>
+<isolationInfo>
+<lruItem>
+<lru></lru>
+</lruItem>
+</isolationInfo>
+</contextAndIsolationInfo>
+</observedFault>
+</observedFaultAlts>
+2.5.7 Correlated faults
+Description: The element <correlatedFault> contains the information on correlated
+faults.
+Markup element: <correlatedFault>
+Attributes:
+- applicRefId (O), the applicability information. Refer to Chap 3.9.5.3.
+- id (M), the identifier of the markup element. Refer to Chap 3.9.5.2.1.2.
+- changeType (O), changeMark (O) and reasonForUpdateRefIds (O), the
+change indications. Refer to Chap 3.9.5.2.1.1.
+- controlAuthorityRefs (O), the control authority information by referencing the
+element <controlAuthority>. Refer to Chap 3.9.5.1 .
+- securityClassification (O), commercialClassification (O), 
+caveat (O) and derivativeClassificationRefId (O), the security and
+restrictive marking. Refer to Chap 3.6.
+Child elements:
+- <basicCorrelatedFaults>, the descriptions of correlated messages and
+warnings/malfunctions. Refer to Para 2.5.7.1.
+- <isolateDetectedFault>, the information for the correlated fault isolation. Refer
+to Para 2.5.3.1.
+- <remarks>. Refer to Chap 3.9.5.1.
+Markup example:
+<correlatedFault id="CFS0001">
+<basicCorrelatedFaults>
+<bitMessage><fault faultCode="100FC01"/>
+<faultDescr>
+<descr>The pedal mechanism is jammed</descr>
+</faultDescr>
+</bitMessage>
+<bitMessage><fault faultCode="200FC01"/>
+<faultDescr>
+<descr>The derailleur is jammed</descr>
+</faultDescr>
+</bitMessage>
+</basicCorrelatedFaults>
+<isolateDetectedFault>
+<lruItem>
+<lru>
+<name>Bicycle chain</name>
+<identNumber>
+<manufacturerCode>KZ120</manufacturerCode>
+<partAndSerialNumber>
+<partNumber>Tchain-120</partNumber>
+</partAndSerialNumber>
+</identNumber>
+</lru>
+</lruItem>
+</isolateDetectedFault>
+<remarks><simplePara>Prepare the derailleur to put transmission
+chain back on pedal mechanism.</simplePara></remarks>
+</correlatedFault>
+2.5.7.1 Messages and warnings
+Description: The element <basicCorrelatedFaults> contains the list of basic faults
+(messages and/or warnings) that have been correlated.
+Markup element: <basicCorrelatedFaults>
+Attributes:
+- id (O), the identifier of the markup element. Refer to Chap 3.9.5.2.1.2.
+- changeType (O), changeMark (O) and reasonForUpdateRefIds (O), the
+change indications. Refer to Chap 3.9.5.2.1.1.
+- controlAuthorityRefs (O), the control authority information by referencing the
+element <controlAuthority>. Refer to Chap 3.9.5.1.
+- securityClassification (O), commercialClassification (O), 
+caveat (O) and derivativeClassificationRefId (O), the security and
+restrictive marking. Refer to Chap 3.6.
+Child elements:
+- <warningMalfunction>. Refer to Para 2.5.7.1.1.
+- <warningMalfunctionAlts>. Refer to Para 2.5.7.1.2.
+- <assocWarningMalfunction>. Refer to Para 2.5.7.1.3.
+- <assocWarningMalfunctionAlts>. Refer to Para 2.5.7.1.4.
+- <bitMessage>. Refer to Para 2.5.7.1.5.
+- <bitMessageAlts>. Refer to Para 2.5.7.1.6.
+Markup example:
+<basicCorrelatedFaults>
+<bitMessage><fault faultCode="100FC01"/>
+<faultDescr>
+<descr>The pedal mechanism is jammed</descr>
+</faultDescr>
+</bitMessage>
+<bitMessage><fault faultCode="200FC01"/>
+<faultDescr>
+<descr>The derailleur is jammed</descr>
+</faultDescr>
+</bitMessage>
+</basicCorrelatedFaults>
+2.5.7.1.1 Warning or malfunction
+Description: The basic fault (warning or malfunction) which is part of the current correlated
+fault.
+Markup element: <warningMalfunction>
+Attributes:
+- applicRefId (O), the applicability information. Refer to Chap 3.9.5.3.
+- id (O), the identifier of the markup element. Refer to Chap 3.9.5.2.1.2.
+- changeType (O), changeMark (O) and reasonForUpdateRefIds (O), the
+change indications. Refer to Chap 3.9.5.2.1.1.
+- faultPartCategory (O), the category of the fault part of the correlation
+- subCategory (O), the subcategory of the fault part of the correlation
+- controlAuthorityRefs (O), the control authority information by referencing the
+element <controlAuthority>. Refer to Chap 3.9.5.1 .
+- securityClassification (O), commercialClassification (O), 
+caveat (O) and derivativeClassificationRefId (O), the security and
+restrictive marking. Refer to Chap 3.6.
+Child elements:
+- <fault>, the basic fault presented through the attribute faultCode
+- <dmRef>, an optional reference to the data module where the unitary fault has been
+introduced (eg, a reference to a "detected fault list" data module). Refer to
+Chap 3.9.5.2.1.2.
+- <faultDescr>. Refer to Para 2.5.1.1.
+- <detectionInfo>. Refer to Para 2.5.1.3.
+Markup example:
+<warningMalfunction>
+<fault faultCode="100FC01"/>
+</warningMalfunction>
+2.5.7.1.2 Warning or malfunction alternates group
+Description: The element <warningMalfunctionAlts> is an alternates group that
+provides the capability to group several alternate solutions of a basic fault (element 
+<warningMalfunction>). Refer to Chap 4.13.3 for information related to the use of
+alternates group in data module content.
+Markup element: <warningMalfunctionAlts>
+Attributes:
+- id (O), the identifier of the markup element. Refer to Chap 3.9.5.2.1.2.
+- changeType (O), changeMark (O) and reasonForUpdateRefIds (O), the
+change indications. Refer to Chap 3.9.5.2.1.1.
+- controlAuthorityRefs (O), the control authority information by referencing the
+element <controlAuthority>. Refer to Chap 3.9.5.1 .
+- securityClassification (O), commercialClassification (O), 
+caveat (O) and derivativeClassificationRefId (O), the security and
+restrictive marking. Refer to Chap 3.6.
+Child elements:
+- <warningMalfunction>. Refer to Para 2.5.7.1.1.
+Markup example:
+<warningMalfunctionAlts>
+<warningMalfunction id="warn1">
+<fault faultCode="100FC01"/>
+</warningMalfunction>
+<warningMalfunction id="warn2">
+<fault faultCode="100FC02"/>
+</warningMalfunction>
+</warningMalfunctionAlts>
+2.5.7.1.3 Associated warning or malfunction
+Description: The associated fault (warning or malfunction) which is part of the current
+correlated fault.
+Markup element: <assocWarningMalfunction>
+Attributes:
+- applicRefId (O), the applicability information. Refer to Chap 3.9.5.3.
+- id (O), the identifier of the markup element. Refer to Chap 3.9.5.2.1.2.
+- changeType (O), changeMark (O) and reasonForUpdateRefIds (O), the
+change indications. Refer to Chap 3.9.5.2.1.1.
+- faultPartCategory (O), the category of the fault part of the correlation
+- subCategory (O), the subcategory of the fault part of the correlation
+- controlAuthorityRefs (O), the control authority information by referencing the
+element <controlAuthority>. Refer to Chap 3.9.5.1 .
+- securityClassification (O), commercialClassification (O), 
+caveat (O) and derivativeClassificationRefId (O), the security and
+restrictive marking. Refer to Chap 3.6.
+Child elements:
+- <fault>, the basic fault presented through the attribute faultCode
+- <dmRef>, an optional reference to the data module where the unitary fault has been
+introduced (eg, a reference to a "detected fault list" data module). Refer to
+Chap 3.9.5.2.1.2.
+- <faultDescr>. Refer to Para 2.5.1.1.
+- <detectionInfo>. Refer to Para 2.5.1.3.
+Markup example:
+<assocWarningMalfunction>
+<fault faultCode="100FC01"/>
+</assocWarningMalfunction>
+2.5.7.1.4 Associated warning or malfunction alternates group
+Description: The element <assocWarningMalfunctionAlts> is an alternates
+group that provides the capability to group several alternate solutions of element 
+<assocWarningMalfunction>. Refer to Chap 4.13.3 for information related to the
+use of alternates group in data module content.
+Markup element: <assocWarningMalfunctionAlts>
+Attributes:
+- id (O), the identifier of the markup element. Refer to Chap 3.9.5.2.1.2.
+- changeType (O), changeMark (O) and reasonForUpdateRefIds (O), the
+change indications. Refer to Chap 3.9.5.2.1.1.
+- controlAuthorityRefs (O), the control authority information by referencing the
+element <controlAuthority>. Refer to Chap 3.9.5.1 .
+- securityClassification (O), commercialClassification (O), 
+caveat (O) and derivativeClassificationRefId (O), the security and
+restrictive marking. Refer to Chap 3.6.
+Child elements:
+- <assocWarningMalfunction>. Refer to Para 2.5.7.1.3.
+Markup example:
+<assocWarningMalfunctionAlts>
+<assocWarningMalfunction id="assocWarn1">
+<fault faultCode="100FC01"/>
+</assocWarningMalfunction>
+<assocWarningMalfunction id="assocWarn2">
+<fault faultCode="100FC02"/>
+</assocWarningMalfunction>
+</assocWarningMalfunctionAlts>
+2.5.7.1.5 Computerized message from built-in test equipment
+Description: The basic fault (computerized message or warning/malfunction) which is part of
+the current correlated fault.
+Markup element: <bitMessage>
+Attributes:
+- applicRefId (O), the applicability information. Refer to Chap 3.9.5.3.
+- id (O), the identifier of the markup element. Refer to Chap 3.9.5.2.1.2.
+- changeType (O), changeMark (O) and reasonForUpdateRefIds (O), the
+change indications. Refer to Chap 3.9.5.2.1.1.
+- faultPartCategory (O), the category of the fault part of the correlation
+- subCategory (O), the subcategory of the fault part of the correlation
+- controlAuthorityRefs (O), the control authority information by referencing the
+element <controlAuthority>. Refer to Chap 3.9.5.1 .
+- securityClassification (O), commercialClassification (O), 
+caveat (O) and derivativeClassificationRefId (O), the security and
+restrictive marking. Refer to Chap 3.6.
+Child elements:
+- <fault>, the basic fault presented through the attribute faultCode
+- <dmRef>, an optional reference to the data module where the unitary fault has been
+introduced (eg, a reference to a "detected fault list" data module). Refer to
+Chap 3.9.5.2.1.2.
+- <faultDescr>. Refer to Para 2.5.1.1.
+- <detectionInfo>. Refer to Para 2.5.1.3.
+Business rule decision point BRDP-S1-00192 - Use of correlation fault concept:
+– Decide whether to use the correlated fault concept.
+Business rule decision point BRDP-S1-00193 - Use of correlated fault messages and
+warnings:
+– Decide how to populate the elements <warningMalfunction>, 
+<assocWarningMalfunction> and <bitMessage> when using the
+correlated fault concept.
+Business rule decision point BRDP-S1-00194 - Use of detection and description
+information elements:
+– Decide whether the repetition of the detection and description information for the basic
+fault which has been correlated (elements <faultDescr> and 
+<detectionInfo>) is used. Projects can consider that the detection and description
+information can for example be populated during IETP generation by picking up the
+information in the detected fault list data module describing the basic faults.
+Markup example:
+<bitMessage>
+<fault faultCode="100FC01"/>
+<faultDescr>
+<descr>The pedal mechanism is jammed</descr>
+</faultDescr>
+</bitMessage>
+2.5.7.1.6 Computerized message from built-in test equipment alternates group
+Description: The element <bitMessageAlts> is an alternates group that provides the
+capability to group several alternate solutions of element <bitMessage>. Refer to
+Chap 4.13.3 for information related to the use of alternates group in data module content.
+Markup element: <bitMessageAlts>
+Attributes:
+- id (O), the identifier of the markup element. Refer to Chap 3.9.5.2.1.2.
+- changeType (O), changeMark (O) and reasonForUpdateRefIds (O), the
+change indications. Refer to Chap 3.9.5.2.1.1.
+- controlAuthorityRefs (O), the control authority information by referencing the
+element <controlAuthority>. Refer to Chap 3.9.5.1 .
+- securityClassification (O), commercialClassification (O), 
+caveat (O) and derivativeClassificationRefId (O), the security and
+restrictive marking. Refer to Chap 3.6.
+Child elements:
+- <bitMessage>. Refer to Para 2.5.7.1.5.
+Markup example:
+<bitMessageAlts>
+<bitMessage><fault faultCode="100FC01"/>
+<faultDescr>
+<descr>The pedal mechanism is jammed</descr>
+</faultDescr>
+</bitMessage>
+<bitMessage><fault faultCode="200FC01"/>
+<faultDescr>
+<descr>The derailleur is jammed</descr>
+</faultDescr>
+</bitMessage>
+</bitMessageAlts>
+2.5.8 Correlated faults alternates group
+Description: The element <correlatedFaultAlts> is an alternates group that
+provides the capability to group several alternate solutions of a correlated fault. Refer to
+Chap 4.13.3 for information related to the use of alternates group in data module content.
+Markup element: <correlatedFaultAlts>
+Attributes:
+- id (O), the identifier of the markup element. Refer to Chap 3.9.5.2.1.2.
+- changeType (O), changeMark (O) and reasonForUpdateRefIds (O), the
+change indications. Refer to Chap 3.9.5.2.1.1.
+- controlAuthorityRefs (O), the control authority information by referencing the
+element <controlAuthority>. Refer to Chap 3.9.5.1 .
+- securityClassification (O), commercialClassification (O), 
+caveat (O) and derivativeClassificationRefId (O), the security and
+restrictive marking. Refer to Chap 3.6.
+Child elements:
+- <correlatedFault>. Refer to Para 2.5.7.
+Markup example:
+<correlatedFaultAlts id="fltc-001">
+<correlatedFault id="CFS0001">
+<basicCorrelatedFaults>
+<bitMessage><fault faultCode="100FC01"/>
+<faultDescr>
+<descr>The pedal mechanism is jammed</descr>
+</faultDescr>
+</bitMessage>
+<bitMessage><fault faultCode="200FC01"/>
+<faultDescr>
+<descr>The derailleur is jammed</descr>
+</faultDescr>
+</bitMessage>
+</basicCorrelatedFaults>
+<isolateDetectedFault>
+<lruItem>
+<lru></lru>
+</lruItem>
+</isolateDetectedFault></correlatedFault>
+<correlatedFault id="CFS0002">
+<basicCorrelatedFaults>
+<bitMessage><fault faultCode="100FC02"/>
+<faultDescr>
+<descr>The joystick mechanism is jammed</descr>
+</faultDescr>
+</bitMessage>
+<bitMessage><fault faultCode="200FC02"/>
+<faultDescr>
+<descr>The derailleur is jammed</descr>
+</faultDescr>
+</bitMessage>
+</basicCorrelatedFaults>
+<isolateDetectedFault>
+<lruItem>
+<lru></lru>
+</lruItem>
+</isolateDetectedFault></correlatedFault>
+</correlatedFaultAlts>
+2.6 Fault isolation
+Description: The fault isolation branch of the Schema identifies and describes the fault and
+gives the diagnostic path to isolate a faulty item.
+Markup element: <faultIsolation>
+Attributes:
+- id (O), the identifier of the markup element. Refer to Chap 3.9.5.2.1.2.
+- changeType (O), changeMark (O) and reasonForUpdateRefIds (O), the
+change indications. Refer to Chap 3.9.5.2.1.1.
+- controlAuthorityRefs (O), the control authority information by referencing the
+element <controlAuthority>. Refer to Chap 3.9.5.1.
+- securityClassification (O), commercialClassification (O), 
+caveat (O) and derivativeClassificationRefId (O), the security and
+restrictive marking. Refer to Chap 3.6.
+Child elements:
+- <commonInfo>. Refer to Chap 3.9.5.2.1.12.
+- <preliminaryRqmts>. Refer to Chap 3.9.5.2.1.9.
+- <faultIsolationProcedure>. Refer to Para 2.6.1.
+Markup example:
+<faultIsolation>
+<faultIsolationProcedure>
+<fault faultCode="NYCJD04"/>
+<faultDescr><descr>Tire does not function correctly</descr>
+</faultDescr>
+<isolationProcedure>
+<preliminaryRqmts><reqCondGroup><noConds/></reqCondGroup>
+<reqSupportEquips><supportEquipDescrGroup>
+<supportEquipDescr id="seq-0001"><name>Tire pressure gauge</
+name>
+<identNumber><manufacturerCode>KZ666</manufacturerCode>
+<partAndSerialNumber>
+<partNumber>BSK-TLST-001-01</partNumber>
+</partAndSerialNumber>
+</identNumber>
+<reqQuantity unitOfMeasure="EA">1</reqQuantity></
+supportEquipDescr>
+<supportEquipDescr><name>Specialist toolset</name>
+<identNumber><manufacturerCode>KZ666</manufacturerCode>
+<partAndSerialNumber>
+<partNumber>BSK-TLST-001</partNumber>
+</partAndSerialNumber>
+</identNumber>
+<reqQuantity unitOfMeasure="EA">1</reqQuantity></
+supportEquipDescr>
+</supportEquipDescrGroup></reqSupportEquips>
+<reqSupplies><noSupplies/></reqSupplies>
+<reqSpares><noSpares/></reqSpares>
+<reqSafety><noSafety/></reqSafety></preliminaryRqmts>
+<isolationMainProcedure>
+<isolationStep id="stp-0001">
+<action>Use the tire pressure gauge (<internalRef
+internalRefId="seq-0001" internalRefTargetType="irtt05"></
+internalRef>) to do a check of the pressure</action>
+<isolationStepQuestion>What is the tire pressure reading?</
+isolationStepQuestion>
+<isolationStepAnswer>
+<listOfChoices>
+<choice nextActionRefId="stp-0002">More than 2700 hPa</choice>
+<choice nextActionRefId="stp-0003">Between 100 hPa and 2700
+hPa</choice>
+<choice nextActionRefId="stp-0004">Less than 100 hPa</choice>
+</listOfChoices>
+</isolationStepAnswer>
+</isolationStep>
+<isolationProcedureEnd id="stp-0002">
+<action>Deflate the tire until the pressure is 2700 hPa</action>
+</isolationProcedureEnd>
+<isolationProcedureEnd id="stp-0003">
+<action>Inflate the tire as given in
+<dmRef>
+<dmRefIdent>
+<dmCode modelIdentCode="S1000DBIKE" systemDiffCode="AAA"
+systemCode="DA0" subSystemCode="1" subSubSystemCode="0"
+assyCode="20" disassyCode="00" disassyCodeVariant="AA"
+infoCode="215" infoCodeVariant="A" itemLocationCode="A"/>
+</dmRefIdent>
+</dmRef></action>
+</isolationProcedureEnd>
+<isolationStep id="stp-0004"><action>To do a check of the tire
+for damage</action>
+<isolationStepQuestion>Is there damage to the tire?</
+isolationStepQuestion>
+<isolationStepAnswer>
+<yesNoAnswer>
+<yesAnswer nextActionRefId="stp-0005"/>
+<noAnswer nextActionRefId="stp-0006"/>
+</yesNoAnswer>
+</isolationStepAnswer>
+</isolationStep>
+<isolationProcedureEnd id="stp-0005">
+<action>Replace the tire (refer to
+<dmRef>
+<dmRefIdent>
+<dmCode modelIdentCode="S1000DBIKE" systemDiffCode="AAA"
+systemCode="DA0" subSystemCode="1" subSubSystemCode="0"
+assyCode="20" disassyCode="00" disassyCodeVariant="AA"
+infoCode="921" infoCodeVariant="A" itemLocationCode="A"/>
+</dmRefIdent>
+</dmRef>).</action>
+</isolationProcedureEnd>
+<isolationProcedureEnd id="stp-0006">
+<action>Replace the inner-tube (refer to
+<dmRef>
+<dmRefIdent>
+<dmCode modelIdentCode="S1000DBIKE" systemDiffCode="AAA"
+systemCode="DA0" subSystemCode="1" subSubSystemCode="0"
+assyCode="10" disassyCode="00" disassyCodeVariant="AA"
+infoCode="921" infoCodeVariant="A" itemLocationCode="A"/>
+</dmRefIdent>
+</dmRef>).</action>
+</isolationProcedureEnd>
+</isolationMainProcedure>
+<closeRqmts>
+<reqCondGroup><noConds/></reqCondGroup>
+</closeRqmts>
+</isolationProcedure>
+</faultIsolationProcedure>
+</faultIsolation>
+2.6.1 Fault isolation procedure
+Description: The element <faultIsolationProcedure> contains the detailed fault
+isolation procedure including fault code, fault description, and the possible causes of the
+malfunction that can be isolated through the fault isolation procedure.
+Markup element: <faultIsolationProcedure>
+Attributes:
+- applicRefId (O), the applicability information. Refer to Chap 3.9.5.3.
+- id (O), the identifier of the markup element. Refer to Chap 3.9.5.2.1.2.
+- changeType (O), changeMark (O) and reasonForUpdateRefIds (O), the
+change indications. Refer to Chap 3.9.5.2.1.1.
+- controlAuthorityRefs (O), the control authority information by referencing the
+element <controlAuthority>. Refer to Chap 3.9.5.1.
+- securityClassification (O), commercialClassification (O), 
+caveat (O) and derivativeClassificationRefId (O), the security and
+restrictive marking. Refer to Chap 3.6.
+Child elements:
+- <fault>, the basic fault presented through the attribute faultCode
+- <faultDescr>. Refer to Para 2.5.1.1.
+- <possibleCauseGroup>. Refer to Para 2.6.1.1.
+- <isolationProcedure>. Refer to Para 2.6.1.2.
+Markup example:
+<faultIsolationProcedure>
+<fault faultCode="NYCJD04"/>
+<faultDescr><descr>Tire does not function correctly</descr>
+</faultDescr>
+<isolationProcedure>
+<preliminaryRqmts><reqCondGroup><noConds/></reqCondGroup>
+<reqSupportEquips><supportEquipDescrGroup>
+<supportEquipDescr id="seq-0001"><name>Tire pressure gauge</
+name>
+<identNumber><manufacturerCode>KZ666</manufacturerCode>
+<partAndSerialNumber>
+<partNumber>BSK-TLST-001-01</partNumber>
+</partAndSerialNumber>
+</identNumber>
+<reqQuantity unitOfMeasure="EA">1</reqQuantity>
+</supportEquipDescr>
+<supportEquipDescr><name>Specialist toolset</name>
+<identNumber><manufacturerCode>KZ666</manufacturerCode>
+<partAndSerialNumber>
+<partNumber>BSK-TLST-001</partNumber>
+</partAndSerialNumber>
+</identNumber>
+<reqQuantity unitOfMeasure="EA">1</reqQuantity>
+</supportEquipDescr>
+</supportEquipDescrGroup>
+</reqSupportEquips>
+<reqSupplies><noSupplies/></reqSupplies>
+<reqSpares><noSpares/></reqSpares>
+<reqSafety><noSafety/></reqSafety></preliminaryRqmts>
+<isolationMainProcedure>
+<isolationStep id="stp-0001">
+<action>Use the tire pressure gauge (<internalRef
+internalRefId="seq-0001" internalRefTargetType="irtt05"></
+internalRef>) to do a check of the pressure</action>
+<isolationStepQuestion>What is the tire pressure reading?</
+isolationStepQuestion>
+<isolationStepAnswer>
+<listOfChoices>
+<choice nextActionRefId="stp-0002">More than 2700 hPa</choice>
+<choice nextActionRefId="stp-0003">Between 100 hPa and 2700
+hPa</choice>
+<choice nextActionRefId="stp-0004">Less than 100 hPa</choice>
+</listOfChoices>
+</isolationStepAnswer>
+</isolationStep>
+<isolationProcedureEnd id="stp-0002">
+<action>Deflate the tire until the pressure is 2700 hPa</action>
+</isolationProcedureEnd>
+<isolationProcedureEnd id="stp-0003">
+<action>Inflate the tire as given in
+<dmRef>
+<dmRefIdent>
+<dmCode modelIdentCode="S1000DBIKE" systemDiffCode="AAA"
+systemCode="DA0" subSystemCode="1" subSubSystemCode="0"
+assyCode="20" disassyCode="00" disassyCodeVariant="AA"
+infoCode="215" infoCodeVariant="A" itemLocationCode="A"/>
+</dmRefIdent>
+</dmRef></action>
+</isolationProcedureEnd>
+<isolationStep id="stp-0004"><action>To do a check of the tire
+for damage</action>
+<isolationStepQuestion>Is there damage to the tire?</
+isolationStepQuestion>
+<isolationStepAnswer>
+<yesNoAnswer>
+<yesAnswer nextActionRefId="stp-0005"/>
+<noAnswer nextActionRefId="stp-0006"/>
+</yesNoAnswer>
+</isolationStepAnswer>
+</isolationStep>
+<isolationProcedureEnd id="stp-0005">
+<action>Replace the tire (refer to <dmRef><dmRefIdent>
+<dmCode modelIdentCode="S1000DBIKE" systemDiffCode="AAA"
+systemCode="DA0" subSystemCode="1" subSubSystemCode="0"
+assyCode="20" disassyCode="00" disassyCodeVariant="AA"
+infoCode="921" infoCodeVariant="A" itemLocationCode="A"/>
+</dmRefIdent>
+</dmRef>).</action>
+</isolationProcedureEnd>
+<isolationProcedureEnd id="stp-0006">
+<action>Replace the inner-tube (refer to <dmRef><dmRefIdent>
+<dmCode modelIdentCode="S1000DBIKE" systemDiffCode="AAA"
+systemCode="DA0" subSystemCode="1" subSubSystemCode="0"
+assyCode="10" disassyCode="00" disassyCodeVariant="AA"
+infoCode="921" infoCodeVariant="A" itemLocationCode="A"/>
+</dmRefIdent>
+</dmRef>).</action>
+</isolationProcedureEnd>
+</isolationMainProcedure>
+<closeRqmts>
+<reqCondGroup><noConds/></reqCondGroup>
+</closeRqmts>
+</isolationProcedure>
+</faultIsolationProcedure>
+2.6.1.1 List of possible causes
+Description: The element <possibleCauseGroup> provides the list of all possible
+causes of the fault that can be isolated through a fault isolation procedure.
+Markup element: <possibleCauseGroup>
+Attributes:
+- id (O), the identifier of the markup element. Refer to Chap 3.9.5.2.1.2.
+- changeType (O), changeMark (O) and reasonForUpdateRefIds (O), the
+change indications. Refer to Chap 3.9.5.2.1.1.
+- controlAuthorityRefs (O), the control authority information by referencing the
+element <controlAuthority>. Refer to Chap 3.9.5.1.
+Child elements:
+- <lru>. LRU possible cause. Refer to Para 2.5.1.3.2.
+- <wiringPossibleCause>. Wiring path possible cause. Refer to Para 2.6.1.1.1.
+- <otherPossibleCause>. Other possible cause. Refer to Para 2.6.1.1.4.
+- <sru>. SRU possible cause. Refer to Para 2.5.1.3.4.
+Markup example:
+<possibleCauseGroup>
+<lru id="pc1">
+<name>ACTUATOR-AIR INTAKE FLAP</name>
+<functionalItemRef functionalItemNumber="516KB"/>
+</lru>
+<wiringPossibleCause id="pc2">
+<wiringPossibleCauseFrom>
+<functionalItemRef functionalItemNumber="4926VC"/>
+<contactIdentification contactIdent="3"/>
+</wiringPossibleCauseFrom>
+<wiringPossibleCauseTo>
+<name>ground point</name>
+</wiringPossibleCauseTo>
+</wiringPossibleCause>
+<otherPossibleCause id="pc3">Lubrication of the NLG</
+otherPossibleCause>
+<sru id="pc4">
+<identNumber>
+<manufacturerCode>KT666</manufacturerCode>
+<partAndSerialNumber>
+<partNumber>TIRES-010101</partNumber>
+</partAndSerialNumber>
+</identNumber>
+</sru>
+</possibleCauseGroup>
+2.6.1.1.1 Wiring path possible cause
+Description: The element <wiringPossibleCause> describes a wiring path that is a
+possible cause of a fault. It can also be used to identify a single electrical connection point. The
+element <wiringPossibleCause> contains the two ends of the wiring path.
+Markup element: <wiringPossibleCause>
+Attributes:
+- applicRefId (O), the applicability information. Refer to Chap 3.9.5.3.
+- id (O), the identifier of the markup element. Refer to Chap 3.9.5.2.1.2.
+- changeType (O), changeMark (O) and reasonForUpdateRefIds (O), the
+change indications. Refer to Chap 3.9.5.2.1.1.
+- controlAuthorityRefs (O), the control authority information by referencing the
+element <controlAuthority>. Refer to Chap 3.9.5.1.
+Child elements:
+- <wiringPossibleCauseFrom>, the "from" wiring path extremity. Refer to
+Para 2.6.1.1.2.
+- <wiringPossibleCauseTo>, the "to" wiring path extremity (not applicable if the
+possible cause is a single electrical connection point). Refer to Para 2.6.1.1.2.
+Markup example:
+<wiringPossibleCause id="pc2">
+<wiringPossibleCauseFrom>
+<functionalItemRef functionalItemNumber="59KD">
+<name>ECB-APU ELECTRONIC CONTROL BOX</name>
+</functionalItemRef>
+<contactIdentification contactIdent="AC/3"/>
+</wiringPossibleCauseFrom>
+<wiringPossibleCauseTo>
+<functionalItemRef functionalItemNumber="4926VC"/>
+<contactIdentification contactIdent="1"/>
+</wiringPossibleCauseTo>
+</wiringPossibleCause>
+2.6.1.1.2 Wiring path extremities (from/to)
+Description: The wiring path extremity elements <wiringPossibleCauseFrom> and 
+<wiringPossibleCauseTo> contain the wiring path connection information.
+Markup elements: <wiringPossibleCauseFrom> and 
+<wiringPossibleCauseTo>
+Attributes:
+- None
+Child elements:
+- <name>, the wire extremity name (eg, "ground point", "next terminal block"). Refer to
+Chap 3.9.5.2.1.10.
+- <functionalItemRef>, the equipment functional item reference. Refer to
+Chap 3.9.5.1.
+- <contactIdentification>, the contact identification. Refer to Para 2.6.1.1.3.
+Markup example:
+<wiringPossibleCause id="pc3">
+<wiringPossibleCauseFrom>
+<functionalItemRef functionalItemNumber="4926VC"/>
+<contactIdentification contactIdent="3"/>
+</wiringPossibleCauseFrom>
+<wiringPossibleCauseTo>
+<name>ground point</name>
+</wiringPossibleCauseTo>
+</wiringPossibleCause>
+2.6.1.1.3 Contact identification
+Description: The element <contactIdentification> contains the contact
+identification of a functional item.
+Attributes:
+- contactIdent (M), contains the identification of the contact, (eg, "A", "1")
+Child elements:
+- None
+Markup example:
+<contactIdentification contactIdent="1"/>
+2.6.1.1.4 Other possible causes
+Description: The element <otherPossibleCause> contains the textual description of
+any possible cause that is not a lru or a wiring path, such as an immaterial possible cause (eg,
+"MLG wheel balance", "Oil level of the MLG shock absorber").
+Markup element: <otherPossibleCause>
+Attributes:
+- applicRefId (O), the applicability information. Refer to Chap 3.9.5.3.
+- id (O), the identifier of the markup element. Refer to Chap 3.9.5.2.1.2.
+- changeType (O), changeMark (O) and reasonForUpdateRefIds (O), the
+change indications. Refer to Chap 3.9.5.2.1.1.
+- controlAuthorityRefs (O), the control authority information by referencing the
+element <controlAuthority>. Refer to Chap 3.9.5.1.
+Child elements:
+- None
+Markup example:
+<otherPossibleCause id="pc3">Lubrication of the NLG
+</otherPossibleCause>
+2.6.1.2 Isolation procedure
+Description: The element <isolationProcedure> contains the isolation procedure
+including preliminary and close-up requirements.
+Markup element: <isolationProcedure>
+Attributes:
+- id (O), the identifier of the markup element. Refer to Chap 3.9.5.2.1.2.
+- changeType (O), changeMark (O) and reasonForUpdateRefIds (O), the
+change indications. Refer to Chap 3.9.5.2.1.1.
+- independentCheck (O), the complete core procedure must be checked by a
+supervisor with a given qualification
+- skillLevelCode (O), the skill level to which the procedure has been written. Refer to
+Chap 3.9.5.1.
+- controlAuthorityRefs (O), the control authority information by referencing the
+element <controlAuthority>. Refer to Chap 3.9.5.1 .
+- securityClassification (O), commercialClassification (O), 
+caveat (O) and derivativeClassificationRefId (O), the security and
+restrictive marking. Refer to Chap 3.6.
+Child elements:
+- <preliminaryRqmts>. Refer to Chap 3.9.5.2.1.9.
+- <isolationMainProcedure>. Refer to Para 2.6.1.3.
+- <closeRqmts>. Refer to Para 2.6.1.8 and Chap 3.9.5.2.1.9.
+Business rule decision point BRDP-S1-00195 - Use of the attribute 
+independentCheck on the elements <isolationProcedure>, 
+<isolationStep> and <isolationProcedureEnd>:
+– Decide whether to use the attribute independentCheck, which values to use and
+allocate suitable definitions.
+Markup example:
+<isolationProcedure>
+<preliminaryRqmts><reqCondGroup><noConds/></reqCondGroup>
+<reqSupportEquips><supportEquipDescrGroup>
+<supportEquipDescr id="seq-0001"><name>Tire pressure gauge</
+name>
+<identNumber><manufacturerCode>KZ666</manufacturerCode>
+<partAndSerialNumber>
+<partNumber>BSK-TLST-001-01</partNumber>
+</partAndSerialNumber>
+</identNumber>
+<reqQuantity unitOfMeasure="EA">1</reqQuantity>
+</supportEquipDescr>
+<supportEquipDescr><name>Specialist toolset</name>
+<identNumber><manufacturerCode>KZ666</manufacturerCode>
+<partAndSerialNumber>
+<partNumber>BSK-TLST-001</partNumber>
+</partAndSerialNumber>
+</identNumber>
+<reqQuantity unitOfMeasure="EA">1</reqQuantity>
+</supportEquipDescr>
+</supportEquipDescrGroup></reqSupportEquips>
+<reqSupplies><noSupplies/></reqSupplies>
+<reqSpares><noSpares/></reqSpares>
+<reqSafety><noSafety/></reqSafety></preliminaryRqmts>
+<isolationMainProcedure>
+<isolationStep id="stp-0001">
+<action>Use the tire pressure gauge (<internalRef
+internalRefId="seq-0001" internalRefTargetType="irtt05"></
+internalRef>) to do a check of the pressure</action>
+<isolationStepQuestion>What is the tire pressure reading?</
+isolationStepQuestion>
+<isolationStepAnswer>
+<listOfChoices>
+<choice nextActionRefId="stp-0002">More than 2700 hPa</choice>
+<choice nextActionRefId="stp-0003">Between 100 hPa and 2700
+hPa</choice>
+<choice nextActionRefId="stp-0004">Less than 100 hPa</choice>
+</listOfChoices>
+</isolationStepAnswer>
+</isolationStep>
+<isolationProcedureEnd id="stp-0002">
+<action>Deflate the tire until the pressure is 2700 hPa</action>
+</isolationProcedureEnd>
+<isolationProcedureEnd id="stp-0003">
+<action>Inflate the tire as given in <dmRef>
+<dmRefIdent>
+<dmCode modelIdentCode="S1000DBIKE" systemDiffCode="AAA"
+systemCode="DA0" subSystemCode="1" subSubSystemCode="0"
+assyCode="20" disassyCode="00" disassyCodeVariant="AA"
+infoCode="215" infoCodeVariant="A" itemLocationCode="A"/>
+</dmRefIdent>
+</dmRef></action>
+</isolationProcedureEnd>
+<isolationStep id="stp-0004"><action>To do a check of the tire
+for damage</action>
+<isolationStepQuestion>Is there damage to the tire?</
+isolationStepQuestion>
+<isolationStepAnswer>
+<yesNoAnswer>
+<yesAnswer nextActionRefId="stp-0005"/>
+<noAnswer nextActionRefId="stp-0006"/>
+</yesNoAnswer>
+</isolationStepAnswer>
+</isolationStep>
+<isolationProcedureEnd id="stp-0005">
+<action>Replace the tire (refer to <dmRef>
+<dmRefIdent>
+<dmCode modelIdentCode="S1000DBIKE" systemDiffCode="AAA"
+systemCode="DA0" subSystemCode="1" subSubSystemCode="0"
+assyCode="20" disassyCode="00" disassyCodeVariant="AA"
+infoCode="921" infoCodeVariant="A" itemLocationCode="A"/>
+</dmRefIdent>
+</dmRef>).</action>
+</isolationProcedureEnd>
+<isolationProcedureEnd id="stp-0006">
+<action>Replace the inner-tube (refer to <dmRef>
+<dmRefIdent>
+<dmCode modelIdentCode="S1000DBIKE" systemDiffCode="AAA"
+systemCode="DA0" subSystemCode="1" subSubSystemCode="0"
+assyCode="10" disassyCode="00" disassyCodeVariant="AA"
+infoCode="921" infoCodeVariant="A" itemLocationCode="A"/>
+</dmRefIdent>
+</dmRef>).</action>
+</isolationProcedureEnd>
+</isolationMainProcedure>
+<closeRqmts>
+<reqCondGroup><noConds/></reqCondGroup>
+</closeRqmts>
+</isolationProcedure>
+2.6.1.3 Fault isolation main procedure
+Description: The element <isolationMainProcedure> contains the individual
+isolation steps.
+Markup element: <isolationMainProcedure>
+Attributes:
+- id (O), the identifier of the markup element. Refer to Chap 3.9.5.2.1.2.
+- changeType (O), changeMark (O) and reasonForUpdateRefIds (O), the
+change indications. Refer to Chap 3.9.5.2.1.1.
+- controlAuthorityRefs (O), the control authority information by referencing the
+element <controlAuthority>. Refer to Chap 3.9.5.1.
+Child elements:
+- <isolationStep>. Refer to Para 2.6.1.4.
+- <isolationStepAlts>. Refer to Para 2.6.1.5.
+- <isolationProcedureEnd>. Refer to Para 2.6.1.6.
+- <isolationProcedureEndAlts>. Refer to Para 2.6.1.7.
+- <figure>. Refer to Chap 3.9.5.2.1.7.
+- <figureAlts>. Refer to Chap 3.9.5.2.1.7.
+- <multimedia>. Refer to Chap 3.9.5.2.1.7.
+- <multimediaAlts>. Refer to Chap 3.9.5.2.1.7.
+- <foldout>. Refer to Chap 3.9.5.2.1.7.
+- <table>. Refer to Chap 3.9.5.2.1.6.
+Markup example:
+<isolationMainProcedure>
+<isolationStep id="stp-0001">
+<action>Use the tire pressure gauge to do a check of the
+pressure</action>
+<isolationStepQuestion>What is the tire pressure reading?</
+isolationStepQuestion>
+<isolationStepAnswer>
+<listOfChoices>
+<choice nextActionRefId="stp-0002">More than 2700 hPa</choice>
+<choice nextActionRefId="stp-0003">Between 100 hPa and 2700
+hPa</choice>
+<choice nextActionRefId="stp-0004">Less than 100 hPa</choice>
+</listOfChoices>
+</isolationStepAnswer>
+</isolationStep>
+<isolationProcedureEnd id="stp-0002">
+<action>Deflate the tire until the pressure is 2700 hPa</action>
+</isolationProcedureEnd>
+<isolationProcedureEnd id="stp-0003">
+<action>Inflate the tire as given in <dmRef><dmRefIdent>
+<dmCode modelIdentCode="S1000DBIKE" systemDiffCode="AAA"
+systemCode="DA0" subSystemCode="1" subSubSystemCode="0"
+assyCode="20" disassyCode="00" disassyCodeVariant="AA"
+infoCode="215" infoCodeVariant="A" itemLocationCode="A"/>
+</dmRefIdent></dmRef></action></isolationProcedureEnd>
+<isolationStep id="stp-0004"><action>To do a check of the tire
+for damage</action>
+<isolationStepQuestion>Is there damage to the tire?</
+isolationStepQuestion>
+<isolationStepAnswer>
+<yesNoAnswer>
+<yesAnswer nextActionRefId="stp-0005"/>
+<noAnswer nextActionRefId="stp-0006"/>
+</yesNoAnswer>
+</isolationStepAnswer>
+</isolationStep>
+<isolationProcedureEnd id="stp-0005">
+<action>Replace the tire (refer to <dmRef><dmRefIdent>
+<dmCode modelIdentCode="S1000DBIKE" systemDiffCode="AAA"
+systemCode="DA0" subSystemCode="1" subSubSystemCode="0"
+assyCode="20" disassyCode="00" disassyCodeVariant="AA"
+infoCode="921" infoCodeVariant="A" itemLocationCode="A"/>
+</dmRefIdent>
+</dmRef>).</action>
+</isolationProcedureEnd>
+<isolationProcedureEnd id="stp-0006">
+<action>Replace the inner-tube (refer to <dmRef>
+<dmRefIdent>
+<dmCode modelIdentCode="S1000DBIKE" systemDiffCode="AAA"
+systemCode="DA0" subSystemCode="1" subSubSystemCode="0"
+assyCode="10" disassyCode="00" disassyCodeVariant="AA"
+infoCode="921" infoCodeVariant="A" itemLocationCode="A"/>
+</dmRefIdent>
+</dmRef>).</action>
+</isolationProcedureEnd>
+</isolationMainProcedure>
+2.6.1.4 Fault isolation step
+Description: The element <isolationStep> contains the textual description of the
+action, the question and answer alternatives. It can also include a title, warnings, cautions and
+notes.
+Markup element: <isolationStep>
+Attributes:
+- applicRefId (O), the applicability information. Refer to Chap 3.9.5.3.
+- id (M), the identifier of the markup element. Refer to Chap 3.9.5.2.1.2.
+- changeType (O), changeMark (O) and reasonForUpdateRefIds (O), the
+change indications. Refer to Chap 3.9.5.2.1.1.
+- keepWithNext (O), the indication whether a step must be presented together with the
+next step, if possible. The attribute keepWithNext is intended for use only when
+absolutely necessary in a situation where for instance scrolling is not practical for the user,
+or the viewing device does not allow scrolling.The attribute keepWithNext can have
+one of the following values:
+• "0" (D) - No, the step must not be kept with the next sibling step.
+• "1" - Yes, the step must be kept with the next sibling step (if one exists) and all
+children of the element for which the attribute is set should be kept together as well (if
+possible). The attribute keepWithNext has no meaning on a final step.
+- warningRefs (O), the warning reference to the warnings and cautions collection.
+Refer to Chap 3.9.3.
+- cautionRefs (O), the caution reference to the warnings and cautions collection. Refer
+to Chap 3.9.3.
+- independentCheck (O), the isolation step must be checked by a supervisor with a
+given qualification
+- skillLevelCode (O), the skill level to which the procedure has been written. Refer to
+Chap 3.9.5.1.
+- controlAuthorityRefs (O), the control authority information by referencing the
+element <controlAuthority>. Refer to Chap 3.9.5.1 .
+Child elements:
+- <title>. Refer to Para 2.6.1.4.1 for the use of titles. Refer to Chap 3.9.5.2.1.5 for
+general rules.
+- <warning>. Refer to Chap 3.9.3.
+- <caution>. Refer to Chap 3.9.3.
+- <note>. Refer to Chap 3.9.3.
+- <action>. Refer to Para 2.6.1.4.2.
+- <actionAlts>. Refer to Para 2.6.1.4.3.
+- <figure>. Refer to Chap 3.9.5.2.1.7.
+- <figureAlts>. Refer to Chap 3.9.5.2.1.7.
+- <multimedia>. Refer to Chap 3.9.5.2.1.7.
+- <multimediaAlts>. Refer to Chap 3.9.5.2.1.7.
+- <foldout>. Refer to Chap 3.9.5.2.1.7.
+- <table>. Refer to Chap 3.9.5.2.1.6.
+- <isolationStepQuestion>, the textual question based on the corresponding
+action. Refer to Para 2.6.1.4.4.
+- <isolationStepAnswer>, the answers to the question. Refer to Para 2.6.1.4.5.
+2.6.1.4.1 Title
+Description: The element <title> contains the title of the step.
+Markup element: <title>
+Attributes:
+- changeType (O), changeMark (O) and reasonForUpdateRefIds (O), the
+change indications. Refer to Chap 3.9.5.2.1.1.
+- controlAuthorityRefs (O), the control authority information by referencing the
+element <controlAuthority>. Refer to Chap 3.9.5.1.
+- securityClassification (O), commercialClassification (O), 
+caveat (O) and derivativeClassificationRefId (O), the security and
+restrictive marking. Refer to Chap 3.6.
+Child elements:
+- All child text elements of the element <action> can be used. Refer to Para 2.6.1.4.2
+and Chap 3.9.5.2.1.10.
+Markup example:
+<title>Tire Pressure</title>
+2.6.1.4.2 Action
+Description: The element <action> contains an action in the isolation procedure.
+Markup element: <action>
+Attributes:
+- applicRefId (O), the applicability information. Refer to Chap 3.9.5.3.
+- id (O), the identifier of the markup element. Refer to Chap 3.9.5.2.1.2.
+- changeType (O), changeMark (O) and reasonForUpdateRefIds (O), the
+change indications. Refer to Chap 3.9.5.2.1.1.
+- controlAuthorityRefs (O), the control authority information by referencing the
+element <controlAuthority>. Refer to Chap 3.9.5.1.
+- securityClassification (O), commercialClassification (O), 
+caveat (O) and derivativeClassificationRefId (O), the security and
+restrictive marking. Refer to Chap 3.6.
+Child elements:
+- All text elements given in Fig 24 can be used. Refer to Chap 3.9.5.2.1.10.
+- <randomList>. Refer to Chap 3.9.5.2.1.3.
+Markup example:
+<action>Use the tire pressure gauge (<internalRef
+internalRefId="seq-0001" internalRefTargetType="irtt05"/> to do
+a check of the pressure</action>
+2.6.1.4.3 Action alternates group
+Description: The element <actionAlts> is an alternates group that provides the
+capability to group several alternate solutions of the action. Refer to Chap 4.13.3 for information
+related to the use of alternates group in data module content.
+Markup element: <actionAlts>
+Attributes:
+- id (O), the identifier of the markup element. Refer to Chap 3.9.5.2.1.2.
+- changeType (O), changeMark (O) and reasonForUpdateRefIds (O), the
+change indications. Refer to Chap 3.9.5.2.1.1.
+- controlAuthorityRefs (O), the control authority information by referencing the
+element <controlAuthority>. Refer to Chap 3.9.5.1 .
+- securityClassification (O), commercialClassification (O), 
+caveat (O) and derivativeClassificationRefId (O), the security and
+restrictive marking. Refer to Chap 3.6.
+Child elements:
+- <action>. Refer to Para 2.6.1.4.2.
+2.6.1.4.4 Question
+Description: The element <isolationStepQuestion> contains the question that is
+prompted by the action contained in the element <action>.
+Markup element: <isolationStepQuestion>
+Attributes:
+- changeType (O), changeMark (O) and reasonForUpdateRefIds (O), the
+change indications. Refer to Chap 3.9.5.2.1.1.
+- controlAuthorityRefs (O), the control authority information by referencing the
+element <controlAuthority>. Refer to Chap 3.9.5.1.
+Child elements:
+- <subScript>. The items to be subscripted. Refer to Chap 3.9.5.2.1.10.
+- <superScript>. The items to be superscripted. Refer to Chap 3.9.5.2.1.10.
+Markup example:
+<isolationStepQuestion>What is the tire pressure reading?
+</isolationStepQuestion>
+2.6.1.4.5 Answer
+Description: The element <isolationStepAnswer> contains the answers to the
+corresponding question (element <isolationStepQuestion>). The answers are
+given in the form of a reference to another action, to one or more final actions (element 
+<isolationProcedureEnd>) or to close-up requirements (element 
+<closeRqmts>).
+Markup element: <isolationStepAnswer>
+Attributes:
+- id (O), the identifier of the markup element. Refer to Chap 3.9.5.2.1.2.
+- changeType (O), changeMark (O) and reasonForUpdateRefIds (O), the
+change indications. Refer to Chap 3.9.5.2.1.1.
+- controlAuthorityRefs (O), the control authority information by referencing the
+element <controlAuthority>. Refer to Chap 3.9.5.1.
+- securityClassification (O), commercialClassification (O), 
+caveat (O) and derivativeClassificationRefId (O), the security and
+restrictive marking. Refer to Chap 3.6.
+Child elements:
+- <yesNoAnswer>. Refer to Para 2.6.1.4.6.
+- <listOfChoices>. Refer to Para 2.6.1.4.9.
+2.6.1.4.6 Answers - Yes or No
+Description: The element <yesNoAnswer> contains the selection of the two answers Yes
+(element <yesAnswer>) or No (element <noAnswer>).
+Markup element: <yesNoAnswer>
+Attributes:
+- None
+Child elements:
+- <yesAnswer>, contains the action for a positive answer. Refer to Para 2.6.1.4.7.
+- <noAnswer>, contains the action for a negative answer. Refer to Para 2.6.1.4.8.
+2.6.1.4.7 Yes answer
+Description: The element <yesAnswer> provides the internal link to the next action related
+to a positive answer.
+Markup element: <yesAnswer>
+Attributes:
+- changeType (O), changeMark (O) and reasonForUpdateRefIds (O), the
+change indications. Refer to Chap 3.9.5.2.1.1.
+- nextActionRefId (M), the identifier for the next action
+- controlAuthorityRefs (O), the control authority information by referencing the
+element <controlAuthority>. Refer to Chap 3.9.5.1.
+Child elements:
+- None
+2.6.1.4.8 No answer
+Description: The element <noAnswer> provides the internal link to the next action related
+to a negative answer.
+Markup element: <noAnswer>
+Attributes:
+- changeType (O), changeMark (O) and reasonForUpdateRefIds (O), the
+change indications. Refer to Chap 3.9.5.2.1.1.
+- nextActionRefId (M), the identifier for the next action
+- controlAuthorityRefs (O), the control authority information by referencing the
+element <controlAuthority>. Refer to Chap 3.9.5.1.
+Child elements:
+- None
+2.6.1.4.9 Answers - Selection of choices
+Description: The element <listOfChoices> contains a selection of multiple (one or
+more) choices.
+Markup element: <listOfChoices>
+Attributes:
+- None
+Child elements:
+- <choice>, a possible choice. Refer to Para 2.6.1.4.10.
+2.6.1.4.10 Choice
+Description: The element <choice> provides the internal link to the next action related to a
+selection from a choice of answers.
+Markup element: <choice>
+Attributes:
+- changeType (O), changeMark (O) and reasonForUpdateRefIds (O), the
+change indications. Refer to Chap 3.9.5.2.1.1.
+- nextActionRefId (M), the identifier for the next action
+- controlAuthorityRefs (O), the control authority information by referencing the
+element <controlAuthority>. Refer to Chap 3.9.5.1.
+Child elements:
+- <subScript>. Refer to Chap 3.9.5.2.1.10.
+- <superScript>. Refer to Chap 3.9.5.2.1.10.
+2.6.1.5 Isolation step alternates group
+Description: The element <isolationStepAlts> is an alternates group that provides
+the capability to group several alternate solutions of the fault isolation step. Refer to
+Chap 4.13.3 for information related to the use of alternates group in data module content.
+Markup element: <isolationStepAlts>
+Attributes:
+- id (O), the identifier of the markup element. Refer to Chap 3.9.5.2.1.2.
+- changeType (O), changeMark (O) and reasonForUpdateRefIds (O), the
+change indications. Refer to Chap 3.9.5.2.1.1.
+- controlAuthorityRefs (O), the control authority information by referencing the
+element <controlAuthority>. Refer to Chap 3.9.5.1 .
+- securityClassification (O), commercialClassification (O), 
+caveat (O) and derivativeClassificationRefId (O), the security and
+restrictive marking. Refer to Chap 3.6.
+Child elements:
+- <isolationStep>. Refer to Para 2.6.1.4.
+Markup example:
+<isolationStepAlts id="stpc-0001">
+<isolationStep id="stp-0001">
+<action>To do a check of the tire for damage</action>
+<isolationStepQuestion>Is there damage to the tire?</
+isolationStepQuestion>
+<isolationStepAnswer>
+<yesNoAnswer>
+<yesAnswer nextActionRefId="stp-0003"/>
+<noAnswer nextActionRefId="stp-0004"/>
+</yesNoAnswer>
+</isolationStepAnswer>
+</isolationStep>
+<isolationStep id="stp-0002">
+<action>To do a check of the wheel for damage</action>
+<isolationStepQuestion>Is there damage to the wheel?</
+isolationStepQuestion>
+<isolationStepAnswer>
+<yesNoAnswer>
+<yesAnswer nextActionRefId="stp-0005"/>
+<noAnswer nextActionRefId="stp-0006"/>
+</yesNoAnswer>
+</isolationStepAnswer>
+</isolationStep>
+</isolationStepAlts>
+2.6.1.6 Isolation procedure end
+Description: The element <isolationProcedureEnd> contains further isolation
+actions (these are either within the data module or referenced out to another data module) or to
+the element <closeRqmts> containing a closeup procedure.
+Markup element: <isolationProcedureEnd>
+Attributes:
+- applicRefId (O), the applicability information. Refer to Chap 3.9.5.3.
+- id (M), the identifier of the markup element. Refer to Chap 3.9.5.2.1.2.
+- changeType (O), changeMark (O) and reasonForUpdateRefIds (O), the
+change indications. Refer to Chap 3.9.5.2.1.1.
+- warningRefs (O), the warning reference to the warnings and cautions collection.
+Refer to Chap 3.9.3.
+- cautionRefs (O), the caution reference to the warnings and cautions collection. Refer
+to Chap 3.9.3.
+- independentCheck (O), the isolation step must be checked by a supervisor with a
+given qualification
+- skillLevelCode (O), the skill level to which the procedure has been written. Refer to
+Chap 3.9.5.1.
+- controlAuthorityRefs (O), the control authority information by referencing the
+element <controlAuthority>. Refer to Chap 3.9.5.1 .
+Child elements:
+- <title>. Refer to Para 2.6.1.4.1 for the use of titles. Refer to Chap 3.9.5.2.1.5 for
+general rules.
+<warning>. Refer to Chap 3.9.3.
+- <caution>. Refer to Chap 3.9.3.
+- <note>. Refer to Chap 3.9.3.
+- <action>. Refer to Para 2.6.1.4.2.
+- <figure>. Refer to Chap 3.9.5.2.1.7.
+- <figureAlts>. Refer to Chap 3.9.5.2.1.7.
+- <multimedia>. Refer to Chap 3.9.5.2.1.7.
+- <multimediaAlts>. Refer to Chap 3.9.5.2.1.7.
+- <foldout>. Refer to Chap 3.9.5.2.1.7.
+- <table>. Refer to Chap 3.9.5.2.1.6.
+Markup example:
+<isolationProcedureEnd id="stp-0002">
+<action>Deflate the tire until the pressure is 2700 hPa</action>
+</isolationProcedureEnd>
+2.6.1.7 Isolation procedure end alternates group
+Description: The element <isolationProcedureEndAlts> is an alternates group
+that provides the capability to group several alternate solutions of the isolation procedure end.
+Refer to Chap 4.13.3 for information related to the use of alternates group in data module
+content.
+Markup element: <isolationProcedureEndAlts>
+Attributes:
+- id (O), the identifier of the markup element. Refer to Chap 3.9.5.2.1.2.
+- changeType (O), changeMark (O) and reasonForUpdateRefIds (O), the
+change indications. Refer to Chap 3.9.5.2.1.1.
+- controlAuthorityRefs (O), the control authority information by referencing the
+element <controlAuthority>. Refer to Chap 3.9.5.1 .
+- securityClassification (O), commercialClassification (O), 
+caveat (O) and derivativeClassificationRefId (O), the security and
+restrictive marking. Refer to Chap 3.6.
+Child elements:
+- <isolationProcedureEnd>. Refer to Para 2.6.1.6.
+Markup example:
+<isolationProcedureEndAlts id="ipec-0002">
+<isolationProcedureEnd id="ipe-0002">
+<action>Deflate the tire until the pressure is 2700 hPa</action>
+</isolationProcedureEnd>
+<isolationProcedureEnd id="ipe-0003">
+<action>Inflate the tire as given in <dmRef>
+<dmRefIdent>
+<dmCode modelIdentCode="S1000DBIKE" systemDiffCode="AAA"
+systemCode="DA0" subSystemCode="1" subSubSystemCode="0"
+assyCode="20" disassyCode="00" disassyCodeVariant="AA"
+infoCode="215" infoCodeVariant="A" itemLocationCode="A"/>
+</dmRefIdent>
+</dmRef>
+</action>
+</isolationProcedureEnd>
+</isolationProcedureEndAlts>
+2.6.1.8 Close-up requirements
+Description: The element <closeRqmts> contains any actions/conditions that must be in
+place before the equipment, which was the object of the procedure, is returned to operation.
+Refer to Chap 3.9.5.2.1.9.
+Markup element: <closeRqmts>
+Attributes:
+- id (O), the identifier of the markup element. Refer to Chap 3.9.5.2.1.2.
+- changeType (O), changeMark (O) and reasonForUpdateRefIds (O), the
+change indications. Refer to Chap 3.9.5.2.1.1.
+- controlAuthorityRefs (O), the control authority information by referencing the
+element <controlAuthority>. Refer to Chap 3.9.5.1.
+- securityClassification (O), commercialClassification (O), 
+caveat (O) and derivativeClassificationRefId (O), the security and
+restrictive marking. Refer to Chap 3.6.
+Child elements:
+- <reqCondGroup>. Refer to Chap 3.9.5.2.1.9.
+Markup example:
+<faultIsolation>
+<faultIsolationProcedure>
+<fault faultCode="NYCJD04"/>
+<faultDescr><descr>Tire does not function correctly</descr>
+</faultDescr>
+<isolationProcedure>
+<preliminaryRqmts><reqCondGroup><noConds/></reqCondGroup>
+<reqSupportEquips><supportEquipDescrGroup>
+<supportEquipDescr id="seq-0001"><name>Tire pressure gauge</
+name>
+<identNumber><manufacturerCode>KZ666</manufacturerCode>
+<partAndSerialNumber>
+<partNumber>BSK-TLST-001-01</partNumber>
+</partAndSerialNumber>
+</identNumber>
+<reqQuantity unitOfMeasure="EA">1</reqQuantity>
+</supportEquipDescr>
+<supportEquipDescr><name>Specialist toolset</name>
+<identNumber><manufacturerCode>KZ666</manufacturerCode>
+<partAndSerialNumber>
+<partNumber>BSK-TLST-001</partNumber>
+</partAndSerialNumber>
+</identNumber>
+<reqQuantity unitOfMeasure="EA">1</reqQuantity>
+</supportEquipDescr>
+</supportEquipDescrGroup></reqSupportEquips>
+<reqSupplies><noSupplies/></reqSupplies>
+<reqSpares><noSpares/></reqSpares>
+<reqSafety><noSafety/></reqSafety></preliminaryRqmts>
+<isolationMainProcedure>
+<isolationStep id="stp-0001">
+<action>Use the tire pressure gauge (<internalRef
+internalRefId="seq-0001" internalRefTargetType="irtt05"></
+internalRef>) to do a check of the pressure</action>
+<isolationStepQuestion>What is the tire pressure reading?</
+isolationStepQuestion>
+<isolationStepAnswer>
+<listOfChoices>
+<choice nextActionRefId="stp-0002">More than 2700 hPa</choice>
+<choice nextActionRefId="stp-0003">Between 100 hPa and 2700
+hPa</choice>
+<choice nextActionRefId="stp-0004">Less than 100 hPa</choice>
+</listOfChoices>
+</isolationStepAnswer>
+</isolationStep>
+<isolationProcedureEnd id="stp-0002">
+<action>Deflate the tire until the pressure is 2700 hPa</action>
+</isolationProcedureEnd>
+<isolationProcedureEnd id="stp-0003">
+<action>Inflate the tire as given in <dmRef>
+<dmRefIdent>
+<dmCode modelIdentCode="S1000DBIKE" systemDiffCode="AAA"
+systemCode="DA0" subSystemCode="1" subSubSystemCode="0"
+assyCode="20" disassyCode="00" disassyCodeVariant="AA"
+infoCode="215" infoCodeVariant="A" itemLocationCode="A"/>
+</dmRefIdent>
+</dmRef>
+</action>
+</isolationProcedureEnd>
+<isolationStep id="stp-0004"><action>To do a check of the tire
+for damage</action>
+<isolationStepQuestion>Is there damage to the tire?</
+isolationStepQuestion>
+<isolationStepAnswer>
+<yesNoAnswer>
+<yesAnswer nextActionRefId="stp-0005"/>
+<noAnswer nextActionRefId="stp-0006"/>
+</yesNoAnswer>
+</isolationStepAnswer>
+</isolationStep>
+<isolationProcedureEnd id="stp-0005">
+<action>Replace the tire (refer to <dmRef>
+<dmRefIdent>
+<dmCode modelIdentCode="S1000DBIKE" systemDiffCode="AAA"
+systemCode="DA0" subSystemCode="1" subSubSystemCode="0"
+assyCode="20" disassyCode="00" disassyCodeVariant="AA"
+infoCode="921" infoCodeVariant="A" itemLocationCode="A"/>
+</dmRefIdent>
+</dmRef>).</action>
+</isolationProcedureEnd>
+<isolationProcedureEnd id="stp-0006">
+<action>Replace the inner-tube (refer to <dmRef>
+<dmRefIdent>
+<dmCode modelIdentCode="S1000DBIKE" systemDiffCode="AAA"
+systemCode="DA0" subSystemCode="1" subSubSystemCode="0"
+assyCode="10" disassyCode="00" disassyCodeVariant="AA"
+infoCode="921" infoCodeVariant="A" itemLocationCode="A"/>
+</dmRefIdent>
+</dmRef>).</action>
+</isolationProcedureEnd>
+</isolationMainProcedure>
+<closeRqmts>
+<reqCondGroup><noConds/></reqCondGroup>
+</closeRqmts>
+</isolationProcedure>
+</faultIsolationProcedure>
+</faultIsolation>
+
 
 
 
