@@ -16801,94 +16801,132 @@ Markup example:
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 2.5.5.1 Context and isolation information
-Description: The element <contextAndIsolationInfo> contains the description of
-the context in which the fault is observed and information needed to isolate the faulty item.
+
+Description: The element <contextAndIsolationInfo> contains the description 
+of the context in which the fault is observed and information needed to isolate the faulty item.
+
+  
 Markup element: <contextAndIsolationInfo>
+
 Attributes:
 - None
+
 Child elements:
 - <faultContext>, the textual description of the context in which the fault is observed
 - <isolationInfo>. Refer to Para 2.5.5.2.
+
+  
 Markup example:
+
 <observedFault faultCode="NYCJD02" id="flt-0001">
-<faultDescr>
-<descr>The lights are set to the dim position.</descr>
-</faultDescr>
-<contextAndIsolationInfo>
-<isolationInfo>
-<lruItem>
-<lru></lru>
-</lruItem>
-</isolationInfo>
-</contextAndIsolationInfo>
+  <faultDescr>
+    <descr>The lights are set to the dim position.</descr>
+  </faultDescr>
+  <contextAndIsolationInfo>
+    <isolationInfo>
+      <lruItem>
+        <lru></lru>
+      </lruItem>
+    </isolationInfo>
+  </contextAndIsolationInfo>
 </observedFault>
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 2.5.5.2 Fault isolation information
-Description: The element <isolationInfo> contains the diagnostic information for the
-observed fault. This is done by referring out using the element <faultIsolationRef>
-or by describing a diagnostic process using the element <diagnosticProcess> or
-simply testing the LRU using the element <lruItem>.
+
+Description: The element <isolationInfo> contains the diagnostic information 
+for the observed fault. This is done by referring out using the element <faultIsolationRef>
+or by describing a diagnostic process using the element <diagnosticProcess> 
+or simply testing the LRU using the element <lruItem>.
+
+  
 Markup element: <isolationInfo>
+
 Attributes:
 - None
+
 Child elements:
-- <faultIsolationRef>, the references to diagnostic information for the observed
-fault by using the element <refs>. Refer to Chap 3.9.5.2.1.2.
+- <faultIsolationRef>, the references to diagnostic information 
+for the observed fault by using the element <refs>. Refer to Chap 3.9.5.2.1.2.
 - <diagnosticProcess>. Refer to Para 2.5.5.3.
 - <lruItem>. Refer to Para 2.5.3.1.1.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 2.5.5.3 Diagnostics
-Description: The element <diagnosticProcess> contains a textual description of the
-reason and a reference to a repair procedure or any locating and repairing tasks and
-information on the faulty LRU.
+
+Description: The element <diagnosticProcess> contains a textual description 
+of the reason and a reference to a repair procedure or any locating and repairing tasks 
+and information on the faulty LRU.
+
+  
 Markup element: <diagnosticProcess>
+
 Attributes:
 - None
+
 Child elements:
-- <diagnosticsReason>, the textual description of the of the cause of the failure
+- <diagnosticsReason>, the textual description of the cause of the failure
 - <repair>. Refer to Para 2.5.1.4.1.
 - <locateAndRepairLruItem>. Refer to Para 2.5.1.4.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------  
+
 2.5.6 Observed faults alternates group
+
 Description: The element <observedFaultAlts> is an alternates group that provides
-the capability to group alternates of the observed fault. Refer to Chap 4.13.3 for information
-related to the use of alternates group in data module content.
+the capability to group alternates of the observed fault. 
+Refer to Chap 4.13.3 for information related to the use of alternates group in data module content.
+
+  
 Markup element: <observedFaultAlts>
+
 Attributes:
 - id (O), the identifier of the markup element. Refer to Chap 3.9.5.2.1.2.
-- changeType (O), changeMark (O) and reasonForUpdateRefIds (O), the
-change indications. Refer to Chap 3.9.5.2.1.1.
-- controlAuthorityRefs (O), the control authority information by referencing the
-element <controlAuthority>. Refer to Chap 3.9.5.1.
+- changeType (O), changeMark (O) and reasonForUpdateRefIds (O), 
+the change indications. Refer to Chap 3.9.5.2.1.1.
+- controlAuthorityRefs (O), the control authority information by referencing 
+the element <controlAuthority>. Refer to Chap 3.9.5.1.
 - securityClassification (O), commercialClassification (O), 
-caveat (O) and derivativeClassificationRefId (O), the security and
-restrictive marking. Refer to Chap 3.6.
+caveat (O) and derivativeClassificationRefId (O), the security 
+and restrictive marking. Refer to Chap 3.6.
+
 Child elements:
 - <observedFault>. Refer to Para 2.5.5.
+
+  
 Markup example:
+
 <observedFaultAlts id="ofc-001">
-<observedFault faultCode="NYCJD01" id="flt-0001">
-<faultDescr>
-<descr>The lights are set to the dim position.</descr>
-</faultDescr>
-<contextAndIsolationInfo>
-<isolationInfo>
-<lruItem>
-<lru></lru>
-</lruItem>
-</isolationInfo>
-</contextAndIsolationInfo>
-</observedFault>
-<observedFault faultCode="NYCJD02" id="flt-0002">
-<faultDescr>
-<descr>The lights are set to the high position.</descr>
-</faultDescr>
-<contextAndIsolationInfo>
-<isolationInfo>
-<lruItem>
-<lru></lru>
-</lruItem>
-</isolationInfo>
-</contextAndIsolationInfo>
-</observedFault>
+  <observedFault faultCode="NYCJD01" id="flt-0001">
+    <faultDescr>
+      <descr>The lights are set to the dim position.</descr>
+    </faultDescr>
+    <contextAndIsolationInfo>
+      <isolationInfo>
+        <lruItem>
+          <lru></lru>
+        </lruItem>
+      </isolationInfo>
+    </contextAndIsolationInfo>
+  </observedFault>
+  <observedFault faultCode="NYCJD02" id="flt-0002">
+    <faultDescr>
+      <descr>The lights are set to the high position.</descr>
+    </faultDescr>
+    <contextAndIsolationInfo>
+      <isolationInfo>
+        <lruItem>
+          <lru></lru>
+        </lruItem>
+      </isolationInfo>
+    </contextAndIsolationInfo>
+  </observedFault>
 </observedFaultAlts>
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 2.5.7 Correlated faults
 Description: The element <correlatedFault> contains the information on correlated
 faults.
