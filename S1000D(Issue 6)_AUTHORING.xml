@@ -12994,7 +12994,7 @@ Example 1 - This example shows markup if no close-up requirements are needed:
   </reqCondGroup>
 </closeRqmts>
 
-Example 2 - This example shows markup if there are close up requirements needed:
+Example 2 - This example shows markup if there are close-up requirements needed:
 
 <closeRqmts>
   <reqCondGroup>
@@ -13045,6 +13045,2166 @@ Example 3
     </reqCondDm>
   </reqCondGroup>
 </closeRqmts>
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Chapter 3.9.5.2.1.10
+Common constructs - Text elements
+
+S1000D-A-40-50-0000-00M-024C-D
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+1 General
+
+The paragraph elements are used to capture text. Several different paragraph models are
+available depending on which data module type is used and where the paragraph is used. 
+The available elements for each paragraph model are tailored dependent on its use. 
+For example, including a list within a paragraph is desirable in a procedural step (in the element <para>),
+but is not desirable in an applicability statement (in the element <simplePara>). 
+The different models are detailed within this paragraph. Usage of the individual 
+content elements is detailed in Para 2.
+
+This chapter also describes the three frequently used text elements:
+- <name>. Refer to Para 2.5.1.
+- <shortName>. Refer to Para 2.5.2.
+- <partRef>. Refer to Para 2.5.3.
+
+The rules for presentation of text, including tables and figures are given in Chapter 6.
+Care must be taken when authoring text and placing spaces around elements embedded within
+the element <para>. Ensure that spaces are inserted correctly in order to get the desired
+presentation result.
+
+  
+Example:
+
+<para>This is <emphasis emphasisType="em01">bold</emphasis>text.</para>
+
+The display of this markup is:
+"This is bold text."
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  
+1.1 Paragraph models
+
+The paragraph model holds seven types of paragraph elements:
+- <para>
+- <warningAndCautionPara>. Refer to Chap 3.9.3.
+- <attentionListItemPara>. Refer to Chap 3.9.3.
+- <notePara>. Refer to Chap 3.9.3.
+- <simplePara>. Refer to Para 2.2.
+- <simpleRefPara>. Refer to Para 2.3.
+- <reducedPara>. Refer to Para 2.4.
+- <copyrightPara>. Refer to Chap 3.9.5.1.
+
+The element <para> consists of two groups of elements:
+- textElemGroup which is detailed in this chapter. Refer to Para 1.1.1 and Para 2.
+- listElemGroup. Refer to Para 1.1.2 and Chap 3.9.5.2.1.3.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+1.1.1 Text element group
+
+The content of the textElemGroup varies depending on data module type but the name 
+of the group is still the same for all data module types. The full (maximum) content 
+of the textElemGroup is shown in Fig 2.
+
+Note
+  The textElemGroup is used by several other text elements (eg, by the element 
+  <action> in the fault isolation schema). The content of the textElemGroup is
+  always the same within the same data module type, wherever it appears.
+
+The content of the different paragraph types are detailed in Fig 3. The figure provides the
+element name, which data module types the element is available in, and which child elements
+are available in that context.
+
+Note
+  The para elements <warningAndCautionPara>, 
+  <attentionListItemPara> and <notePara>, and the attentionText
+  group are detailed in Chap 3.9.3.
+
+Note
+  The reducedElemGroup is detailed in Chap 3.9.5.2.16.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+1.1.2 List element group
+
+The content of the listElemGroup is:
+- sequential (ordered) lists
+- random lists
+- definition lists
+
+For details of authoring lists, refer to Chap 3.9.5.2.1.3.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2 Text elements
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.1 Available elements in the text element group
+
+The complete list of possible elements in the textElemGroup is:
+- content-specific data, including:
+• elements with a dedicated common information repository:
+- <functionalItemRef>. Refer to Chap 3.9.5.1.
+- <circuitBreakerRef>. Refer to Para 2.1.1.
+- <controlIndicatorRef>. Refer toPara 2.1.2.
+- <zoneRef>. Refer to Para 2.1.5.
+- <accessPointRef>. Refer to Para 2.1.6.
+- <terminologyRef>. Refer to Para 2.1.16.
+
+Note
+  There are additional content specific data with a dedicated common information
+  repository (eg, supplies and tools). Refer to Chap 4.16.
+
+  • elements without a dedicated common information repository (paragraph significant
+  data):
+    - <inlineSignificantData>. Refer to Para 2.1.3.
+    - <quantity>. Refer to Para 2.1.4.
+- <identNumber>. Refer to Chap 3.9.5.2.1.9.
+- <indexFlag>. Refer to Para 2.1.7.
+- <changeInline>. Refer toChap 3.9.5.2.1.1.
+- <emphasis>. Refer to Para 2.1.8.
+- <symbol>. Refer to Para 2.1.9.
+- <subScript>. Refer to Para 2.1.10.
+- <superScript>. Refer to Para 2.1.11.
+- <internalRef>. Refer to Chap 3.9.5.2.1.2.
+- <dmRef>. Refer to Chap 3.9.5.2.1.2.
+- <pmRef>. Refer to Chap 3.9.5.2.1.2.
+- <externalPubRef>. Refer to Chap 3.9.5.2.1.2.
+- <brDecisionRef>. Refer to Chap 4.10.1.
+- <brDecisionPointRef>. Refer to Chap 4.10.1.
+- <sourceDocRef>. Refer to Chap 4.10.1.
+- <footnote>. Refer to Para 2.1.12.
+- <footnoteRef>. Refer to Para 2.1.13.
+- <acronym>. Refer to Para 2.1.14.
+- <acronymTerm>. Refer to Para 2.1.14.1.
+- <captionGroup> and <caption>. Refer to Chap 3.9.5.2.1.4.
+- <verbatimText>. Refer to Para 2.1.15.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.1.1 Circuit breaker
+
+Description: The element <circuitBreakerRef> contains the details about the circuit
+breaker (eg, number, circuit breaker action and circuit breaker type).
+
+  
+Markup element: <circuitBreakerRef>
+
+Attributes:
+- id (O), the identifier of the markup element. Refer to Chap 3.9.5.2.1.2.
+- changeType (O), changeMark (O) and reasonForUpdateRefIds (O), 
+the change indications. Refer to Chap 3.9.5.2.1.1.
+- circuitBreakerNumber (M), the circuit breaker identifier (number).
+- circuitBreakerType (O), the circuit breaker type (electronic, electro-mechanic, 
+or another type). The project or the organization is allowed to define its own circuit breaker
+types. The attribute can have one of the following values:
+  • "cbt01" thru "cbt99". Refer to Chap 3.9.6.1.
+- circuitBreakerAction (O), contains the action to perform on the circuit breaker.
+The attribute can have one of the following values:
+  • "open" - the action "to open"
+  • "close" - the action "to close"
+  • "verify-open" - the check of the condition: "is open"
+  • "verify-close" - the check of the condition: "is closed"
+
+  Note
+    The values "open-order" and "close-order" are not allowed for the attribute
+    "circuitBreakerAction" in the element<circuitBreakerRef>. 
+    Use the values "open" and "close". Refer to default BREX rule BREX-S1-00071.
+
+- checkSum (O), the entered data which allows potential integrity verification
+- installationIdent (O), the installation identifier
+- contextIdent (O), the context identification which is used in combination with the
+attribute manufacturerCodeValue to ensure the uniqueness of vendor equipment
+data. Context identification contains an identifier (eg, the part number of the next higher
+assembly that has been given to the assembly by the vendor).
+- manufacturerCodeValue (O), the manufacturer CAGE code
+- itemOriginator (O), the origin of the circuit breaker (eg, whether the circuit breaker
+has been defined by the Product manufacturer or by a supplier). The attribute can have
+one of the following values:
+  • "orig01" thru "orig99". Refer to Chap 3.9.6.1.
+- controlAuthorityRefs (O), the control authority information by referencing 
+the element <controlAuthority>. Refer to Chap 3.9.5.1.
+- securityClassification (O), commercialClassification (O), 
+caveat (O) and derivativeClassificationRefId (O), the security
+and restrictive marking. Refer to Chap 3.6.
+
+Child elements:
+- <name>, the name of the circuit breaker. Refer to Para 2.5.1.
+- <shortName>. Refer to Para 2.5.2.
+- <refs>, references providing a link to the circuit breaker. Refer to Chap 3.9.5.2.1.2.
+
+Business rule decision point BRDP-S1-00158 - Use of the attribute 
+circuitBreakerAction in text element <circuitBreakerRef>:
+– Decide whether to use the attribute circuitBreakerAction. If used, establish
+writing rules to ensure that authors will be consistent in the paragraph text and the value 
+of the attribute itself.
+
+Business rule decision point BRDP-S1-00159 - Use of the attribute checkSum in text
+element <circuitBreakerRef>:
+– Decide whether to use and how to populate the attribute checkSum.
+
+  
+Markup examples:
+
+Circuit breaker type
+
+<circuitBreakerRef circuitBreakerNumber="42RT" circuitBreakerType="cbt02"></circuitBreakerRef>
+
+Circuit breaker action
+
+<circuitBreakerRef circuitBreakerNumber="809-VM" circuitBreakerAction="open" checkSum="f9f62226"/>
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------  
+  
+2.1.2 Controls and indicators
+
+Description: The element <controlIndicatorRef> contains the number and name 
+of the controls or indicators and the reference to the control and indicator repository data module.
+
+  
+Markup element: <controlIndicatorRef>
+
+Attributes:
+- id (O), the identifier of the markup element. Refer to Chap 3.9.5.2.1.2.
+- changeType (O), changeMark (O) and reasonForUpdateRefIds (O), 
+the change indications. Refer to Chap 3.9.5.2.1.1.
+- controlIndicatorNumber (O), the control or indicator number identified 
+in the common information repository data module. Refer to Chap 3.9.5.2.11.11 and Chap 4.13.1.
+- controlAuthorityRefs (O), the control authority information by referencing 
+the element <controlAuthority>. Refer to Chap 3.9.5.1.
+- securityClassification (O), commercialClassification (O), 
+caveat (O) and derivativeClassificationRefId (O), the security 
+and restrictive marking. Refer to Chap 3.6.
+
+Child elements:
+- <name>, the name of the control or indicator. Refer to Para 2.5.1.
+- <shortName>. Refer to Para 2.5.2.
+- <refs>, provides a link to the control and indicator repository data module.
+Refer to Chap 3.9.5.2.1.2.
+
+  
+Markup example:
+
+<controlIndicatorRef controlIndicatorNumber="ci-0001">
+...
+</controlIndicatorRef>
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.1.3 Paragraph significant data
+
+Description: The element <inlineSignificantData> contains data with 
+a significant meaning, such as a lubricant or manufacturer code.
+
+  
+Markup element: <inlineSignificantData>
+
+Attributes:
+- changeType (O), changeMark (O) and reasonForUpdateRefIds (O), 
+the change indications. Refer to Chap 3.9.5.2.1.1.
+- significantParaDataType (M), the meaning of the data. 
+The attribute can have one of the following values:
+  • "psd01" thru "psd99". Refer to Chap 3.9.6.1.
+- controlAuthorityRefs (O), the control authority information by referencing 
+the element <controlAuthority>. Refer to Chap 3.9.5.1.
+
+Child elements:
+- None
+
+Business rule decision point BRDP-S1-00160 - Types of inline significant data to markup
+using the attribute significantParaDataType in the text element <inlineSignificantData>:
+– Decide whether to use the attribute significantParaDataType and which types
+of data to mark up and in what contexts.
+
+Note
+  It must also be considered that data modules can be less portable if the paragraph
+  significant data types are extended in the BREX file past the standard types.
+
+  
+Markup example:
+
+The following markup example illustrates the use of <inlineSignificantData>:
+
+<para>Use lubricant (
+  <inlineSignificantData significantParaDataType="psd03">1X234</inlineSignificantData>
+  ) on threads...
+</para>
+
+The display of this markup can be as follows:
+"Use lubricant (1X234) on threads..."
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.1.4 Quantity data
+
+Description: The element <quantity> provides the capability to identify a portion of 
+a paragraph that corresponds to a numeric value with a special meaning, such as a torque value.
+
+The exact meaning of the quantity data can be specified using a set of predefined S1000D
+values, or extended to support specific project or organization needs.
+
+The quantity data provides the ability to define numerical values to a very precise level. Use of
+the quantity group structure within quantity data provides the following capabilities:
+- Specify a decimal value that does not contain display format information 
+(ie, adheres to the W3C XML standard for decimal numbers)
+- Specify a unit of measure that applies to the value
+- Group a value and a tolerance together
+- Specify units of measure to the value/tolerance group or to value and tolerance individually
+- Group multiple values and tolerances together, units can be apply to the group 
+or individual values
+
+  
+Markup element: <quantity>
+
+Attributes:
+- changeType (O), changeMark (O) and reasonForUpdateRefIds (O), 
+the change indications. Refer to Chap 3.9.5.2.1.1.
+- quantityType (O), the type of quantity (eg, length, time). 
+The attribute can have one of the following values:
+  • "qty01" thru "qty99". Refer to Chap 3.9.6.1.
+- quantityTypeSpecifics (O), the currency code when the attribute 
+quantityType is set to "qty02" (price). The attribute can have the values 
+of any currency code as defined in ISO 4217. Refer to default BREX rules BREX-S1-00075
+and BREX-S1-00076.
+
+Note
+  Consider that data modules can be less portable if the quantity data types 
+  are extended in the BREX file past the standard types.
+
+- controlAuthorityRefs (O), the control authority information by referencing 
+the element <controlAuthority>. Refer to Chap 3.9.5.1.
+
+Child elements:
+- <quantityGroup>. Refer to Para 2.1.4.1.
+
+  
+Markup examples:
+
+Example 1: Simple quantity markup using the attribute quantityType:
+
+<para>Maximum torque not to exceed
+  <quantity quantityType="qty05">8 Nm</quantity>.
+</para>
+
+The display of this markup can be as follows:
+"Maximum torque not to exceed 8 Nm."
+
+Example 2: Quantity markup using the child element <quantityGroup>:
+
+<para>Maximum torque not to exceed
+  <quantity quantityType="qty05">
+    <quantityGroup quantityGroupType="nominal">
+      <quantityValue quantityUnitOfMeasure="N.m">8</quantityValue>
+    </quantityGroup>
+  </quantity>.
+</para>
+  
+The display of this markup can be as follows:
+"Maximum torque not to exceed 8 Nm."
+
+Example 3: Quantity markup using price and currency:
+
+<para>The price of the kit is
+  <quantity quantityType="qty02" quantityTypeSpecifics="USD">1500</quantity>.
+</para>
+
+The display of this markup can be as follows:
+"The price of the kit is 1500 USD."
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.1.4.1 Quantity group
+
+Description: The element <quantityGroup> contains a group of values and tolerances
+and/or multiple values in the case where multiple units of measure are used (eg, 2 h 30 min).
+
+  
+Markup element: <quantityGroup>
+
+Attributes:
+- quantityGroupType (O). The attribute can have one of the following values:
+  • "nominal" (D) - a single value
+  • "minimum" - a "from" (beginning of a range) or "minimum" value
+  • "maximum" - a "to" (end of a range) or "maximum" value
+- quantityUnitOfMeasure (O), the unit of measure (eg, "m" for meter, "kg" for
+kilogram). Refer to Chap 3.9.6.2 for an enumerated list of standard quantity units 
+of measure. These can be extended using the standard BREX mechanism. 
+The value within the attribute quantityUnitOfMeasure is a code specifying the exact unit 
+of measure. A quantityUnitOfMeasure at this level indicates that 
+the quantityUnitOfMeasure applies to the entire group, possibly including several
+values and/or tolerances. The implication is that by default the unit of measure 
+will be displayed once after the value/tolerance (eg, "0,250 + 0,003 - 0,000 in."), 
+but other formats can be applied by stylesheets.
+Refer to Chap 3.9.1 for presentation rules for units of measure and fractions.
+
+About units of measure:
+- attribute quantityUnitOfMeasure not used at all indicates that no unit of measure
+must be displayed
+- attribute quantityUnitOfMeasure on the element <quantityValue> 
+and on the element <quantityTolerance> within the same element 
+<quantityGroup> applies to each value or tolerance independent of the others
+- attribute quantityUnitOfMeasure on two elements <quantityValue>
+within the same element <quantityGroup> applies to each value independent 
+of the other or others
+
+Note
+  In cases where the attribute quantityUnitOfMeasure is specified at both 
+  the element <quantityGroup> level and at the element <quantityValue> 
+  or element <quantityTolerance> level, the quantityUnitOfMeasure
+  value from the lower level (element <quantityValue> or element 
+  <quantityTolerance>) must take precedence over the attribute 
+  quantityUnitOfMeasure value from the element <quantityGroup>.
+
+Note
+  Due to the large number of units of measure, it is expected that a project or an
+  organization will only use a small subset of the available units of measure. It must also
+  be considered that data modules can be less portable if the units of measure types are
+  extended by the BREX mechanism past the standard types.
+
+Child elements:
+- <quantityValue>, the value and an optional unit of measure. Refer to Para 2.1.4.1.1.
+- <quantityTolerance>, the tolerance value. Refer to Para 2.1.4.1.2.
+
+Business rule decision point BRDP-S1-00163 - Use of the value (element 
+<quantityValue>) and tolerance (element <quantityTolerance>)
+decomposition in the text element <quantity>:
+– Decide whether and how to use to use the element <quantityValue> and the
+element <quantityTolerance> decomposition.
+
+Business rule decision point BRDP-S1-00164 - Unit of measure to be used:
+– If using the value and tolerance decomposition, decide at which level of the markup 
+the attribute quantityUnitOfMeasure must be included. Allowable locations are on
+the parent element <quantityGroup> which applies to all child elements or on 
+the individual child elements <quantityValue> and <quantityTolerance>. 
+A consistent usage of the attribute quantityUnitOfMeasure is required to produce
+a consistent display or printout to the user.
+
+  
+Markup example:
+
+Example 1: Quantity group and is a simple quantity with value and unit of measure:
+
+<para>The windshield assembly weighs approximately
+  <quantity>
+    <quantityGroup quantityGroupType="nominal">
+      <quantityValue quantityUnitOfMeasure="kg">40</quantityValue>
+    </quantityGroup>
+  </quantity>
+  and requires two persons ...
+</para>
+
+The display of this markup can be as follows:
+"The windshield assembly weighs approximately 40 kg and requires two persons ..."
+
+Example 2: Quantity where value and tolerance have the same unit of measure:
+
+<para>If hole tolerance of
+  <quantity>
+    <quantityGroup quantityGroupType="nominal" quantityUnitOfMeasure="mm">
+      <quantityValue>0.700</quantityValue>
+      <quantityTolerance quantityToleranceType="plus">0.010</quantityTolerance>
+      <quantityTolerance quantityToleranceType="minus">0.000</quantityTolerance>
+    </quantityGroup>
+  </quantity>
+  has been exceeded ...
+</para>
+
+The display of this markup can be as follows:
+"If hole tolerance of 0,700 +0,010 -0,000 mm has been exceeded ..."
+
+Example 3: Quantity with minimum/maximum values:
+
+<para>Tighten fasteners
+  <quantity quantityType="qty05">
+    <quantityGroup quantityGroupType="minimum">
+      <quantityValue quantityUnitOfMeasure="N.m">18.0</quantityValue>
+    </quantityGroup>
+    <quantityGroup quantityGroupType="maximum">
+      <quantityValue quantityUnitOfMeasure="N.m">22.0</quantityValue>
+    </quantityGroup>
+  </quantity>
+  using torque wrench ...
+</para>
+
+The display of this markup can be as follows:
+"Tighten fasteners from 18,0 Nm to 22,0 Nm using torque wrench ..."
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  
+2.1.4.1.1 Value
+
+Description: The element <quantityValue> contains a decimal value and an optional
+unit of measure. The value must conform to the W3C XML standard for decimal values which
+requires use a period [.] for the separator between the integral part and the fractional part, 
+and no thousands separator. The display format is not specified in the XML code but, must conform
+to program or country requirements at presentation. Refer to Chap 3.9.1 for rules on presentation.
+
+                                                                      
+Markup element: <quantityValue>
+
+Attributes:
+- quantityUnitOfMeasure (O), the unit of measure. Refer to Para 2.1.4.1.
+
+Child elements:
+- None
+
+  
+Markup example:
+
+The following markup example illustrates the use of quantity group 
+and is a simple quantity with value and unit of measure:
+<quantityValue quantityUnitOfMeasure="kg">40</quantityValue>
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  
+2.1.4.1.2 Tolerance
+
+Description: The element <quantityTolerance> contains a decimal tolerance value,
+the type of tolerance, and an optional unit of measure. The tolerance value must conform 
+to the W3C XML standard for decimal values which requires to use a period [.] for the separator
+between the integral part and the fractional part, and no thousands separator. 
+The display format is not specified in the XML code, but must conform to program or country requirements
+at presentation. Refer to Chap 3.9.1 for presentation rules.
+
+  
+Markup element: <quantityTolerance>
+
+Attributes:
+- quantityToleranceType (O), the type of tolerance with allowable values. 
+The attribute can have one of the following values:
+  • "plus" - the upper tolerance
+  • "minus" - the lower tolerance
+  • "plusorminus" - both the upper and the lower tolerance
+- quantityUnitOfMeasure (O), the unit of measure. Refer to Para 2.1.4.1.
+
+Child elements:
+- None
+
+  
+Markup example:
+
+Example 1: Quantity with type, value, tolerance, and unit of measure:
+
+<para>Holding nut, torque bolt to
+  <quantity quantityType="qty05">
+    <quantityGroup quantityGroupType="nominal" unitOfMeasure="N.m">
+      <quantityValue>20</quantityValue>
+      <quantityTolerance quantityToleranceType="plusorminus">2</quantityTolerance>
+    </quantityGroup>
+  </quantity>.
+</para>
+
+The display of this markup can be as follows:
+"Holding nut, torque bolt to 20 ± 2 Nm."
+
+Example 2: Quantity with multiple value groups and value and tolerance with different units:
+
+<para>Chamfer both sides of rib
+  <quantity>
+    <quantityGroup quantityGroupType="nominal">
+      <quantityValue>0.153</quantityValue>
+      <quantityTolerance quantityToleranceType="plusorminus">0.005</quantityTolerance>
+    </quantityGroup>
+    x
+    <quantityGroup quantityGroupType="nominal">
+      <quantityValue quantityUnitOfMeasure="dega">45</quantityValue>
+      <quantityTolerance quantityToleranceType="plusorminus" quantityUnitOfMeasure="mina">30</quantityTolerance>
+    </quantityGroup>
+  </quantity>.
+</para>
+
+The display of this markup formatted for Système International d'Unites (SI) can be as follows:
+"Chamfer both sides of rib 0,153 ± 0,005 × 45° ± 30´."
+The display of this markup formatted for imperial can be as follows:
+"Chamfer both sides of rib 0.153 ± 0.005 × 45° ± 30´."
+
+Example 3: Quantity with tolerance only:
+
+<para>Make sure that spacing is within
+  <quantity>
+    <quantityGroup quantityGroupType="nominal">
+      <quantityTolerance quantityToleranceType="plusorminus">0.030</quantityTolerance>
+    </quantityGroup>
+  </quantity>
+  on each side ...
+</para>
+
+The display of this markup formatted for SI can be as follows (comma separator):
+"Make sure that spacing is within ± 0,030 on each side ..."
+The display of this markup formatted for imperial can be as follows (period separator):
+"Make sure that spacing is within ± 0.030 on each side ..."
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.1.5 Zone
+
+Description: The element <zoneRef> contains the zoning information (one or more), 
+as described in Chap 3.4. For the use of the element <zoneRef> in connection with common
+information repositories, refer to Chap 4.13.1.
+
+This element is available in the product management data within the element 
+<productionMaintData> of preliminary requirements (refer to Chap 3.9.5.2.1.9) 
+and within the element <para> of descriptive data modules.
+
+  
+Markup element: <zoneRef>
+
+Attributes:
+- id (O), the identifier of the markup element. Refer to Chap 3.9.5.2.1.2.
+- applicRefId (O), the applicability information. Refer to Chap 3.9.5.3.
+- changeType (O), changeMark (O) and reasonForUpdateRefIds (O), 
+the change indications. Refer to Chap 3.9.5.2.1.1.
+- zoneNumber (O), the zone identifier
+- lsarData (O), a flag to indicate if the reference is derived from a Logistics Support
+Analysis Record (LSAR) or not. The attribute can have one of the following values:
+  • "0" (D) - No, when not derived from an LSAR
+  • "1" - Yes, when derived from an LSAR
+- controlAuthorityRefs (O), the control authority information by referencing the
+element <controlAuthority>. Refer to Chap 3.9.5.1.
+- securityClassification (O), commercialClassification (O), 
+caveat (O) and derivativeClassificationRefId (O), the security 
+and restrictive marking. Refer to Chap 3.6.
+
+Child elements:
+- <name>, the name of the zone. Refer to Para 2.5.1.
+- <shortName>. Refer to Para 2.5.2.
+- <refs>. Refer to Chap 3.9.5.2.1.2.
+
+Business rule decision point BRDP-S1-00166 - Use of the element <zoneRef>:
+– Decide whether and how to use the element <zoneRef>. Consideration for duplication
+and mismatch of data given in the maintenance planning information has to be taken.
+
+  
+Markup example:
+
+Example 1: A zone with a name, zone number and indicating the use of LSAR data:
+
+<zoneRef lsarData="1" zoneNumber="500">
+  <name>Left wing</name>
+</zoneRef>
+
+Example 2: A zone with a zone identifier and a zone number:
+
+<zoneRef id="zoneRef-210" zoneNumber="210"/>
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  
+2.1.6 Access point
+
+Description: The element <accessPointRef> describes and/or identifies any access
+points such as panels, doors and hatches. The identifier of the access point can 
+be given either through the attribute accessPointNumber and/or the elements <name> and <refs>.
+
+For the use of the element <accessPointRef> in connection with common information
+repositories, refer to Chap 4.13.1 and Chap 3.9.5.2.11.5.
+
+This element is available in the product management data within the element 
+<productionMaintData> and <reqCondCircuitBreaker> of preliminary
+requirements (refer to Chap 3.9.5.2.1.9) and within the element <para> of descriptive data modules.
+
+  
+Markup element: <accessPointRef>
+
+Attributes:
+- id (O), the identifier of the markup element. Refer to Chap 3.9.5.2.1.2.
+- applicRefId (O), the applicability information. Refer to Chap 3.9.5.3.
+- changeType (O), changeMark (O) and reasonForUpdateRefIds (O), 
+the change indications. Refer to Chap 3.9.5.2.1.1.
+- accessPointNumber (O), the identifier of the access point
+- accessPointTypeValue (O), the access point type. The attribute can have 
+one of the following values:
+  • "accpnl01" thru "accpnl99". Refer to Chap 3.9.6.1.
+
+  Note
+    The use of the attribute supports the presentation, as its value can be presented 
+    in front of the value of the attribute value of accessPointNumber. 
+    Refer to Chap 6.2.3.3 for examples.
+
+- lsarData (O), a flag to indicate if the reference is derived from an LSAR or not. 
+The attribute can have one of the following values:
+  • "0" (D) - No, when not derived from an LSAR
+  • "1" - Yes, when derived from an LSAR
+- controlAuthorityRefs (O), the control authority information by referencing 
+the element <controlAuthority>. Refer to Chap 3.9.5.1.
+- securityClassification (O), commercialClassification (O), 
+caveat (O) and derivativeClassificationRefId (O), the security 
+and restrictive marking. Refer to Chap 3.6.
+
+Child elements:
+- <name>, the name of the access point. Refer to Para 2.5.1.
+- <shortName>. Refer to Para 2.5.2.
+- <refs>. Refer to Chap 3.9.5.2.1.2.
+
+Business rule decision point BRDP-S1-00167 - Use of the element <accessPointRef>:
+– Decide whether and how to use the element <accessPointRef>. Consideration for
+duplication and mismatch of data given in the maintenance planning information has to be taken.
+
+  
+Markup example:
+
+Example 1: An access point with a name, access point number, 
+and indicating the use of LSAR data:
+
+<accessPointRef accessPointNumber="2514VU" lsarData="1">
+  <name>Panel A</name>
+</accessPointRef>
+
+Markup example:
+
+Example 2: An access point with an identifier and an access point number:
+
+<accessPointRef id="accessRef-210" accessPointNumber="210"/>
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.1.7 Index
+  
+Description: The element <indexFlag> is used to contain the text of an item that 
+is required to be included in an automatically generated index, usually arranged alphabetically, 
+of the specific information in a data module or a publication. Such an index is usually 
+an alphabetical listing of selected items/keywords and their location in a publication.
+
+Example: The index of a book lists words or expressions and the pages of the book 
+upon which they are to be found.
+
+  
+Markup element: <indexFlag>
+Attributes:
+- indexLevelOne (O), indexLevelTwo (O), indexLevelThree (O) 
+and indexLevelFour (O), the indications of the four permissible levels of indexing
+
+Child elements:
+- None
+
+Business rule decision point BRDP-S1-00169 - Use of the text element <indexFlag>:
+– Decide whether a publishing index is required and to what index level.
+
+  
+Markup example:
+
+<para>The most important part of the bicycle
+  <indexFlag indexLevelOne="bicycle"/> is the brake system
+  <indexFlag indexLevelTwo="brake system"/>. Only a minimum
+  maintenance of the brake system is necessary. 
+  But, when a problem does occur, make sure you to do the necessary
+  maintenance as quickly as possible. If you do not do this the bicycle
+  <indexFlag indexLevelOne="bicycle"/> will be dangerous to use.
+</para>
+
+<para>There are nine different types of brake systems. The one found on most bicycles is the cantilever
+  <indexFlag indexLevelFour="cantilever"/> brake
+  <indexFlag indexLevelThree="brake"/>.
+</para>
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  
+2.1.8 Emphasis
+
+Description: The element <emphasis> contains textual information 
+(eg, a word, an expression or a sentence) to be highlighted.
+
+To highlight a word, an expression or a sentence, bold text is the preferred method.
+Alternatively, the use of color is permitted. Capital (uppercase) letters, italics or underlining 
+are not permitted to highlight text, except for legacy data. Refer to Chap 3.9.1.
+
+  
+Markup element: <emphasis>
+
+Attributes:
+- emphasisType (O), the type of emphasis such as bold. The attribute can have 
+one of the following values:
+  • "em01" thru "em99". Refer to Chap 3.9.6.1.
+
+Child elements:
+- Includes the same set of child elements as the textElemGroup applicable 
+to the actual data module type. Refer to Para 1.1.1.
+
+  
+Markup example:
+
+Example 1: A paragraph with a highlighted word which is intended by the author 
+to be presented in bold:
+
+<para>This is some text which has the word 
+  <emphasis emphasisType="em01">emphasis</emphasis> 
+  emphasized in bold.
+</para>
+
+Example 2: Use of the overline function for the signal name CONTROL:
+
+<para>Pin 12 carries the negatively going signal 
+  <emphasis emphasisType="em04">CONTROL</emphasis> 
+  which goes more negative when active.
+</para>
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.1.9 Symbol
+
+Description: The element <symbol> contains illustrations and graphics that are intended 
+to be presented in line within the normal text. Symbols must be controlled using the ICN 
+as described in Chap 4.4. However, the ICN must not be presented.
+
+
+Markup element: <symbol>
+
+Attributes:
+- applicRefId (O), the applicability information by referencing the element <applic>. Refer to Chap 3.9.5.3.
+- id (O), the identifier of the markup element. Refer to Chap 3.9.5.2.1.2.
+- infoEntityIdent (M), the link to the external entity declaration which points 
+to the illustration file. The population of this attribute must include the complete ICN 
+with the prefix "ICN-".
+- reproductionHeight (O), reproductionWidth (O), 
+and reproductionScale (O), the presentation sizes and scaling for the presentation system
+- controlAuthorityRefs (O), the control authority information by referencing 
+the element <controlAuthority>. Refer to Chap 3.9.5.1.
+
+Note
+  The element <symbol> also includes five attributes normally populated by applications
+  to make use of the W3C XLink mechanism. Refer to Chap 7.7.4.
+
+Child elements:
+- None
+
+Business rule decision point BRDP-S1-00171 - Use of the symbols:
+– Decide whether and how to use symbols using the text element <symbol>.
+
+  
+Markup example:
+
+The following example shows a paragraph with a symbol which is intended to be displayed inline.
+
+<para>When this condition occurs, the symbol
+  <symbol infoEntityIdent="ICN-S1000DBIKE-AAA-DA10000-0-U8025-09999-A-001-01"></symbol> 
+  will show on the display.
+</para>
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.1.10 Subscript
+
+Description: The element <subScript> contains the text that is intended to be presented subscripted.
+
+  
+Markup element: <subScript>
+
+Attributes:
+- None
+
+Child elements:
+- None
+
+  
+Markup example:
+
+The following example shows a paragraph with text that is subscripted:
+
+<para>The chemical symbol for water is H
+  <subScript>2</subScript>O.
+</para>
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.1.11 Superscript
+
+Description: The element <superScript> contains the text that is intended 
+to be presented superscripted.
+
+Note
+  Superscript is the default value for inline and table footnotes.
+
+  
+Markup element: <superScript>
+
+Attributes:
+- None
+
+Child elements:
+- None
+
+  
+Markup example:
+
+The following example shows a paragraph with text that is superscripted:
+
+<para>The symbol for a square meter is m
+  <superScript>2</superScript>.
+</para>
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.1.12 Footnote
+
+Description: The element <footnote> contains bibliographic references or explanations
+which would take too much space or in any other way would be annoying for the reader 
+in the running text.
+
+The element <footnote> is a wrapper around the contents of a footnote. The element 
+<footnote> typically generates a marker (eg, a superscripted number) at the place 
+in the flow of text where it occurs. The footnote itself is then generally presented 
+at the bottom of the page or at the end of the table.
+
+Footnotes are used in tables (table footnotes) or in regular text and titles (inline footnotes).
+Footnotes must not
+- be used for references and cross-references
+- include footnotes
+
+Note
+  Additional information that is useful for the user in understanding descriptive information
+  (eg, to carry out an action) can be presented in notes. Refer to Chap 3.9.3.
+
+Note
+  The use of footnotes puts demands on the presentation of the footnote markers 
+  and the footnotes themselves. Project or organization decisions on the presentation 
+  have to be taken dependent on the publishing as page-oriented or IETP or both. 
+  Refer to Chap 6.2 and Chap 6.3.
+
+
+Markup element: <footnote>
+
+Attributes:
+- applicRefId (O), the applicability information by referencing the element 
+<applic>. Refer to Chap 3.9.5.3.
+- id (O), the identifier of the markup element. Refer to Chap 3.9.5.2.1.2.
+- changeType (O), changeMark (O) and reasonForUpdateRefIds (O), 
+the change indications. Refer to Chap 3.9.5.2.1.1.
+- footnoteMark (O), the type of footnote marker to identify a footnote. 
+Only one type of footnote marker must be used for each of the table footnotes 
+and inline footnotes throughout a data module. The attribute can have one of the following values:
+  • "num" (D) - superscripted numbers will be used
+  • "sym" - symbols such as asterisk (*) and dagger (†) will be used
+  • "alpha" - alpha characters will be used
+- controlAuthorityRefs (O), the control authority information by referencing 
+the element <controlAuthority>. Refer to Chap 3.9.5.1.
+- securityClassification (O), commercialClassification (O), 
+caveat (O) and derivativeClassificationRefId (O), the security 
+and restrictive marking. Refer to Chap 3.6.
+
+Child elements:
+- <para>, the footnote text. Refer to Para 1.1.
+
+Business rule decision point BRDP-S1-00172 - Use of footnotes:
+– Decide whether and how to use the text element <footnote> and when used, 
+decide whether the use of footnotes is limited to regular text and titles (inline) 
+and/or to tables (table footnotes).
+
+Business rule decision point BRDP-S1-00173 - Types of footnote markers:
+– Decide on the types of footnote markers (attribute footnoteMark) to use. 
+It is recommended to use:
+  • only one type of footnote marker for each of the table footnotes 
+  and the inline footnotes throughout a project
+  • superscripted numbers for both
+
+  
+Markup example:
+
+Example 1: An inline page footnote:
+
+<para>This paragraph includes a footnote. I would like to further define a footnote
+  <footnote id="ftn-1234" footnoteMark="num">
+    <para>A footnote is used to further define information and it is printed at the bottom of the page</para>
+  </footnote> and where the footnote is printed.
+</para>
+
+Example 2: Table footnotes:
+
+<table frame="topbot">
+  <title>Example table with footnotes</title>
+  <tgroup cols="3">
+    <colspec colnum="1" colname="col1"/>
+    <colspec colnum="2" colname="col2"/>
+    <colspec colnum="3" colname="col3"/>
+    <thead>
+      <row rowsep="1">
+        <entry>
+          <para>Col 1 Heading</para>
+        </entry>
+        <entry>
+          <para>Col 2 Heading</para>
+        </entry>
+        <entry>
+          <para>Col 3 Heading</para>
+        </entry>
+      </row>
+    </thead>
+    <tfoot>
+      <row>
+        <entry namest="col1" nameend="col3">
+          <para>This is footer information and spans the bottom of the table. The footer can give information about the table content such as "All units are measured in inches".</para>
+        </entry>
+      </row>
+    </tfoot>
+    <tbody>
+      <row>
+        <entry>
+          <para>Row 1 entry 1 has a footnote
+            <footnote id="ftn-0001">
+              <para>This is a footnote for entry 1</para>
+            </footnote>
+          </para>
+        </entry>
+        <entry>
+          <para>Row 1 entry 2</para>
+        </entry>
+        <entry>
+          <para>Row 1 entry 3</para>
+        </entry>
+      </row>
+      <row>
+        <entry>
+          <para>Row 2 entry 1 continues on a second line</para>
+        </entry>
+        <entry>
+          <para>Row 2 entry 2</para>
+        </entry>
+        <entry>
+          <para>Row 2 entry 3 uses the first footnote for the second time
+            <footnoteRef internalRefId="ftn-0001"/>
+          </para>
+        </entry>
+      </row>
+      <row rowsep="1">
+        <entry>
+          <para>Row 3 entry 1 also has a footnote
+            <footnote id="ftn-0002">
+              <para>Second footnote</para>
+            </footnote>
+          </para>
+        </entry>
+        <entry>
+          <para>Row 3 entry 2</para>
+        </entry>
+        <entry>
+          <para>Row 3 entry 3</para>
+        </entry>
+      </row>
+    </tbody>
+  </tgroup>
+</table>
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.1.13 Footnote reference
+
+Description: The element <footnoteRef> contains the link information to a previously
+defined footnote. This link information is used each time when referring to the same footnote.
+
+  
+Markup element: <footnoteRef>
+
+Attributes:
+- internalRefId (O), the target id of the footnote. Refer to Chap 3.9.5.2.1.2.
+- changeType (O), changeMark (O) and reasonForUpdateRefIds (O), 
+the change indications. Refer to Chap 3.9.5.2.1.1.
+- controlAuthorityRefs (O), the control authority information by referencing 
+the element <controlAuthority>. Refer to Chap 3.9.5.1.
+
+Child elements:
+- None
+
+  
+Markup example:
+
+The following markup example illustrates a footnote reference:
+
+<para>This paragraph includes the same footnote
+  <footnoteRefinternalRefId="ftn-1234"/>given in the previous paragraph.
+</para>
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.1.14 Acronym
+
+Description: The element <acronym> contains an acronym and its definition when 
+the acronym is first introduced.
+
+Once an acronym has been defined in text using the element <acronym>, it can be reused,
+and its definition be referred to, multiple times. Refer to Para 2.1.14.1.
+
+  
+Markup element: <acronym>
+
+Attributes:
+- id (O), the identifier of the markup element. Refer to Chap 3.9.5.2.1.2.
+- changeType (O), changeMark (O) and reasonForUpdateRefIds (O), 
+the change indications. Refer to Chap 3.9.5.2.1.1.
+- acronymType (O), the type of acronym. The attribute can have one of the following values:
+  • "at01" thru "at99". The default value is "at01". Refer toChap 3.9.6.1.
+- controlAuthorityRefs (O), the control authority information by referencing 
+the element <controlAuthority>. Refer to Chap 3.9.5.1.
+- securityClassification (O), commercialClassification (O), 
+caveat (O) and derivativeClassificationRefId (O), the security 
+and restrictive marking. Refer to Chap 3.6.
+
+Child elements:
+- <acronymTerm>, the term of the acronym. Refer to Para 2.1.14.1.
+- <acronymDefinition>, the definition of the acronym when that acronym 
+is first used. Refer to Para 2.1.14.2.
+
+  
+Markup example:
+
+<acronym>
+  <acronymTerm>ASD</acronymTerm>
+  <acronymDefinition id="acr-0001">Aerospace, Security and DefenceIndustries Association of Europe</acronymDefinition>
+</acronym>
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.1.14.1 Acronym term
+
+Description: The element <acronymTerm> contains the acronym itself and a reference to its definition.
+
+  
+Markup element: <acronymTerm>
+
+Attributes:
+- internalRefId (O), the target id of the acronym definition. Refer to Chap 3.9.5.2.1.2.
+
+Child elements:
+- <subScript>, the items to be subscripted. Refer to Para 2.1.10.
+- <superScript>, the items to be superscripted. Refer to Para 2.1.11.
+
+  
+Markup example:
+  
+The following example shows the markup of an acronym term with a reference 
+to its definition (refer to the markup example in Para 2.1.14):
+
+<acronymTerm internalRefId="acr-0001">ASD</acronymTerm>
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.1.14.2 Acronym definition
+
+Description: The element <acronymDefinition> contains the definition 
+of the acronym when that acronym is first used. The use of this element 
+without its parent element <acronym> and its sibling element <acronymTerm> is not sensible.
+
+  
+Markup element: <acronymDefinition>
+
+Attributes:
+- id (O), the identifier of the markup element. Refer to Chap 3.9.5.2.1.2.
+- changeType (O), changeMark (O) and reasonForUpdateRefIds (O), 
+the change indications. Refer to Chap 3.9.5.2.1.1.
+- controlAuthorityRefs (O), the control authority information by referencing 
+the element <controlAuthority>. Refer to Chap 3.9.5.1.
+- securityClassification (O), commercialClassification (O), 
+caveat (O) and derivativeClassificationRefId (O), the security 
+and restrictive marking. Refer to Chap 3.6.
+
+Child elements:
+- <subScript>, the items to be subscripted. Refer to Para 2.1.10.
+- <superScript>, the items to be superscripted. Refer to Para 2.1.11.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.1.15 Verbatim text
+
+Description: The element <verbatimText> contains text that must be presented as is,
+without distorting the content. Typically, using the element <verbatimText>, the included
+text represents information such as computer program text or non-proportional display text.
+
+Whitespaces and line breaks within the included text must be preserved.
+
+When the element contains markup, the information must be entered in such a way that 
+the marked up information does not interfere with the data module markup itself. 
+One way to achieve this is to use a CDATA marked section for that information.
+
+  
+Markup element: <verbatimText>
+
+Attributes:
+- id (O), the identifier of the markup element. Refer to Chap 3.9.5.2.1.2.
+- changeType (O), changeMark (O) and reasonForUpdateRefIds (O), 
+the change indications. Refer to Chap 3.9.5.2.1.1.
+- verbatimStyle (O), the style of verbatim text in cases where there are more than
+one type of verbatim information, and the types must be recognized and/or presented
+differently. The attribute can have one of the following values:
+  • "vs01" thru "vs99". Refer to Chap 3.9.6.1.
+- xml:space, specifies the handling of whitespace characters. 
+The attribute is fixed with a value of:
+  • "preserve"
+- controlAuthorityRefs (O), the control authority information by referencing 
+the element <controlAuthority>. Refer to Chap 3.9.5.1.
+- securityClassification (O), commercialClassification (O), 
+caveat (O) and derivativeClassificationRefId (O), the security 
+and restrictive marking. Refer to Chap 3.6.
+
+Child elements:
+- None
+
+  
+Markup examples:
+
+Example 1: A paragraph containing a command line sequence. Whitespace and line breaks must be preserved.
+
+<para>
+  <verbatimText>
+  C:\>cd C:\BikeDS\the_text_xml
+  C:\BikeDS\the_text_xml>dir data module code-S1000DBIKE-AAA￾DA0-20*.* /b
+  data module code-S1000DBIKE-AAA-DA0-20-00-0000-412A-A_000-02.XML
+  data module code-S1000DBIKE-AAA-DA0-20-00-0000-520A-A_000-02.XML
+  C:\BikeDS\the_text_xml>
+  </verbatimText>
+</para>
+
+Example 2: The markup of the same paragraph as in Example 1 containing a command line
+sequence using a CDATA marked section. Whitespace and line breaks must be preserved.
+
+<para>
+  <verbatimText>
+  <![CDATA[
+  C:\>cd C:\BikeDS\the_text_xml
+  C:\BikeDS\the_text_xml>dir DMC-S1000DBIKE-AAA-DA0-20*.* /b
+  DMC-S1000DBIKE-AAA-DA0-20-00-0000-412A-A_000-02.XML
+  DMC-S1000DBIKE-AAA-DA0-20-00-0000-520A-A_000-02.XML
+  C:\BikeDS\the_text_xml>
+  ]]>
+  </verbatimText>
+</para>
+
+Example 3: A paragraph of marked up text (such as XML) using a CDATA marked section.
+Whitespace and line breaks must be preserved.
+
+<para>
+  <verbatimText>
+  <![CDATA[
+    <para>For a full description of the headset, refer to 
+      <dmRef>
+        <dmRefIdent><dmCode modelIdentCode="S1000DBIKE"
+        systemDiffCode="AAA" systemCode="DA2" subSystemCode="3"
+        subSubSystemCode="0" assyCode="00" disassyCode="00"
+        disassyCodeVariant="AA" infoCode="041" infoCodeVariant="A"
+        itemLocationCode="A"/>
+        </dmRefIdent>
+      </dmRef>.
+    </para>
+  ]]>
+  </verbatimText>
+</para>
+
+Example 4: A paragraph of marked up text (such as XML) using character entities to avoid
+markup character conflicts. Whitespace and line breaks must be preserved.
+
+<para>
+  <verbatimText>
+    <para>For a full description of the headset, refer to 
+      <dmRef>
+        <dmRefIdent>
+          <dmCode modelIdentCode="S1000DBIKE"
+          systemDiffCode="AAA" systemCode="DA2" subSystemCode="3"
+          subSubSystemCode="0" assyCode="00" disassyCode="00"
+          disassyCodeVariant="AA" infoCode="041" infoCodeVariant="A"
+          itemLocationCode="A"/>
+        </dmRefIdent>
+      </dmRef>.
+    </para>
+  </verbatimText>
+</para>
+
+Example 5: A paragraph of text containing an example of inline XML markup 
+that has to be recognized in its context:
+
+<para>This is a running text demonstrating how the attribute
+  <verbatimText verbatimStyle="vs01">verbatimStyle</verbatimText>
+  itself could be marked up in some context.
+</para>
+
+This text would typically be presented as:
+"This is a running text demonstrating how the attribute verbatimStyle itself 
+could be marked up in some context."
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.1.16 Terminology reference
+
+Description: The element <terminologyRef> identifies a term that exists 
+in the terminology repository. The identifier of the term is through the attribute 
+terminologyIdentNumber. 
+
+For the use of the element <terminologyRef> in connection with common information repositories, 
+refer to Chap 4.13.1 and Chap 3.9.5.2.11.16. This element is available within the element <para>.
+
+  
+Markup element: <terminologyRef>
+
+Attributes:
+- id (O), the identifier of the markup element. Refer to Chap 3.9.5.2.1.2.
+- applicRefId (O), the applicability information by referencing the element <applic>. Refer to Chap 3.9.5.3.
+- changeType (O), changeMark (O) and reasonForUpdateRefIds (O), 
+the change indications. Refer to Chap 3.9.5.2.1.1.
+- terminologyIdentNumber (M), the unique identifier of the term.
+- controlAuthorityRefs (O), the control authority information by referencing 
+the element <controlAuthority>. Refer to Chap 3.9.5.1.
+- securityClassification (O), commercialClassification (O), 
+caveat (O) and derivativeClassificationRefId (O), the security 
+and restrictive marking. Refer to Chap 3.6.
+
+Child elements:
+- <dmRef>, refer to Chap Chap 3.9.5.2.1.2.
+
+  
+Markup examples:
+
+A term with an identifier and a terminology number:
+
+<terminologyRef id="trid-210" terminologyIdentNumber="trm￾acr00a5001-1">
+  <dmRef>
+    <dmRefIdentf>
+      <dmCode modelIdentCode="S1000DLIGHTING"
+      systemDiffCode="AAA" systemCode="D00" subSystemCode="0"
+      subSubSystemCode="0" assyCode="00" disassyCode="00"
+      disassyCodeVariant="AA" infoCode="0A6" infoCodeVariant="A"
+      itemLocationCode="D"/>
+    </dmRefIdent>
+  </dmRef>
+</terminologyRef>
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.2 Simple paragraph
+
+Description: The element <simplePara> contains a minimum set of text elements. 
+It is used where the full set of elements that are available in a full paragraph 
+(in the element <para>) is not required. Simple paragraphs are used for example 
+in the elements <displayText> and <remarks>.
+
+  
+Markup element: <simplePara>
+
+Attributes:
+- id (O), the identifier of the markup element. Refer to Chap 3.9.5.2.1.2.
+- changeType (O), changeMark (O) and reasonForUpdateRefIds (O), 
+the change indications. Refer to Chap 3.9.5.2.1.1.
+- controlAuthorityRefs (O), the control authority information by referencing 
+the element <controlAuthority>. Refer to Chap 3.9.5.1.
+- securityClassification (O), commercialClassification (O), 
+caveat (O) and derivativeClassificationRefId (O), the security 
+and restrictive marking. Refer to Chap 3.6.
+
+Child elements:
+- <subScript>, the items to be subscripted. Refer to Para 2.1.10.
+- <superScript>, the items to be superscripted. Refer to Para 2.1.11.
+
+  
+Markup example:
+
+<remarks>
+  <simplePara>This data module was authored in line with Repairscheme ME-BAB1EE.</simplePara>
+</remarks>
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.3 Simple paragraph with reference
+
+Description: The element <simpleRefPara> contains a minimum set of text elements. 
+It is used where the full set of elements that are available in a full paragraph 
+(in the element <para>) is not required, but a reference to a data module, a publication module 
+or a non-S1000D publication required. Simple paragraphs with reference are used, for example, 
+in the elements <reasonForUpdate>.
+
+  
+Markup element: <simpleRefPara>
+
+Attributes:
+- id (O), the identifier of the markup element. Refer to Chap 3.9.5.2.1.2.
+- changeType (O), changeMark (O) and reasonForUpdateRefIds (O), 
+the change indications. Refer to Chap 3.9.5.2.1.1.
+- controlAuthorityRefs (O), the control authority information by referencing 
+the element <controlAuthority>. Refer to Chap 3.9.5.1.
+- securityClassification (O), commercialClassification (O), 
+caveat (O) and derivativeClassificationRefId (O), the security 
+and restrictive marking. Refer to Chap 3.6.
+
+Child elements:
+- <subScript>, the items to be subscripted. Refer to Para 2.1.10.
+- <superScript>, the items to be superscripted. Refer to Para 2.1.11.
+- <verbatimText>. Refer to Para 2.1.15.
+- <emphasis>. Refer to Para 2.1.8.
+- <inlineSignificantData>. Refer to Para 2.1.3.
+- <dmRef>, a reference to a data module from the reason for update. Refer to Chap 3.9.5.2.1.2.
+- <pmRef>, a reference to a publication module from the reason for update. Refer to Chap 3.9.5.2.1.2.
+- <externalPubRef>, a reference to an external publication from the reason for update. Refer to Chap 3.9.5.2.1.2.
+
+  
+Markup example:
+
+<reasonForUpdate>
+  <simpleRefPara id="rfu-001">Updated to include requirements of
+    <externalPubRef>
+      <externalPubRefIdent>
+        <externalPubCode>JSP-ORT-1ON</externalPubCode>
+        <externalPubTitle>Modification of handlebar mountings to give extra strength in downhill racing.</externalPubTitle>
+      </externalPubRefIdent>
+    </externalPubRef>.
+  </simpleRefPara>
+  <simpleRefPara id="rfu-002">Updated to incorporate the scope of data module 
+    <dmRef>
+      <dmRefIdent>
+        <dmCode modelIdentCode="ME" systemDiffCode="B" systemCode="34" 
+        subSystemCode="1" subSubSystemCode="1" assyCode="00" disassyCode="00"
+        disassyCodeVariant="A" infoCode="251" infoCodeVariant="A" itemLocationCode="C"/>
+      </dmRefIdent>
+    </dmRef>.
+  </simpleRefPara>
+</reasonForUpdate>
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.4 Reduced paragraph
+
+Description: The element <reducedPara> contains a reduced set of text elements. 
+It is used where the full set of elements that are available in a full paragraph 
+(in the element <para>) is not required. 
+Reduced paragraphs are used for example in the elements <frontMatterInfo>.
+
+  
+Markup element: <reducedPara>
+
+Attributes:
+- None
+
+Child elements:
+- <reducedRandomList>. Refer to Para 2.4.2.
+- The elements of the reducedParaElemGroup. Refer to Para 2.4.1.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------  
+
+2.4.1 Reduced para element group
+
+The reducedParaElemGroup contains the elements given in Fig 14.
+Description of these elements are given in Para 2.1.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------  
+                                                               
+2.4.2 Reduced random list
+
+Description: The element <reducedRandomList> contains any listing of information.
+The listing is limited to one level of random list.
+
+  
+Markup element: <reducedRandomList>
+
+Attributes:
+- None of the attributes must be used except for the attribute listItemPrefix 
+which is set to the value "pf03". Refer to default BREX rule BREX-S1-00117.
+
+Child elements:
+- <reducedRandomListItem>. Refer to Para 2.4.3.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------  
+
+2.4.3 Reduced random list item
+
+Description: The element <reducedRandomListItem> contains a random list item.
+
+  
+Markup element: <reducedRandomListItem>
+
+Attributes:
+- applicRefId, id, and controlAuthorityRefs must not be used. 
+Refer to default BREX rule BREX-S1-00118.
+- changeType (O), changeMark (O) and reasonForUpdateRefIds (O), 
+the change indications. Refer to Chap 3.9.5.2.1.1.
+- securityClassification (O), commercialClassification (O), 
+caveat (O) and derivativeClassificationRefId (O), the security 
+and restrictive marking. Refer to Chap 3.6.
+
+Child elements:
+- <reducedListItemPara>. Refer to Para 2.4.4.
+
+change indications. Refer to Chap 3.9.5.2.1.1.  
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.4.4 Reduced list item para
+
+Description: The element <reducedListItemPara> contains the random list items.
+
+  
+Markup element: <reducedListItemPara>
+
+Attributes:
+- applicRefId and id must not be used. Refer to default BREX rule BREX-S1-00119.
+- changeType (O), changeMark (O) and reasonForUpdateRefIds (O), 
+the change indications. Refer to Chap 3.9.5.2.1.1.
+- controlAuthorityRefs (O), the control authority information by referencing 
+the element <controlAuthority>. Refer to Chap 3.9.5.1.
+- securityClassification (O), commercialClassification (O), 
+caveat (O) and derivativeClassificationRefId (O), the security 
+and restrictive marking. Refer to Chap 3.6.
+
+Child elements:
+- Includes the elements of the reducedParaElemGroup. Refer to Para 2.4.1.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  
+2.5 Frequently used text elements
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.5.1 Name
+
+Description: The element <name> contains, for example, the name of an enterprise, 
+a function, a circuit breaker, a control and indicator, a zone or an access point. 
+If common information repositories are used in the authoring process, the name is optional 
+as it will be populated during the publication process.
+
+  
+Markup element: <name>
+
+Attributes:
+- changeType (O), changeMark (O) and reasonForUpdateRefIds (O), 
+the change indications. Refer to Chap 3.9.5.2.1.1.
+- controlAuthorityRefs (O), the control authority information by referencing 
+the element <controlAuthority>. Refer to Chap 3.9.5.1.
+
+Child elements:
+- None
+
+  
+Mark-up examples:
+
+<name>Fueltank sealant polysulfide</name>
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  
+2.5.2 Short name
+
+Description: The element <shortName> contains an abbreviated alternate name 
+of the corresponding element <name>. This short form of the name is meant 
+to be presented in the narrative of the data module to make the reading easier.
+
+The project or organization must make sure that any used short name is unique to avoid
+mistakes which could result in death or injuries to personnel, or damage to the Product.
+
+  
+Markup element: <shortName>
+
+Attributes:
+- changeType (O), changeMark (O) and reasonForUpdateRefIds (O), 
+the change indications. Refer to Chap 3.9.5.2.1.1.
+- controlAuthorityRefs (O), the control authority information by referencing 
+the element <controlAuthority>. Refer to Chap 3.9.5.1.
+
+Child elements:
+- None
+
+  
+Mark-up examples:
+
+<shortName>Sealant4EVER</shortName>
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------  
+
+2.5.3 Part reference
+
+Description: The element <partRef> is used to markup a part and allows reference 
+to its position in the part common information repository.
+
+  
+Markup element: <partRef>
+
+Attributes:
+- id (O), the identifier of the markup element. Refer to Chap 3.9.5.2.1.2.
+- changeType (O), changeMark (O) and reasonForUpdateRefIds (O), 
+the change indications. Refer to Chap 3.9.5.2.1.1.
+- partNumberValue (M), the part number of an item which is allocated by the design
+authority of the equipment, or which is renamed by the OEM for use in technical publications.
+- manufacturerCodeValue (M), the CAGE code of the manufacturer.
+- controlAuthorityRefs (O), the control authority information by referencing 
+the element <controlAuthority>. Refer to Chap 3.9.5.1.
+- securityClassification (O), commercialClassification (O), 
+caveat (O) and derivativeClassificationRefId (O), the security 
+and restrictive marking. Refer to Chap 3.6.
+
+Note
+  As there is no standardized rule to assign a part number, the CAGE code of the part
+  manufacturer ensures the uniqueness of a part number.
+
+Child elements:
+- <refs>, the explicit reference (link) to a part in the part common information repository
+data module (explicit reference method, refer to Chap 4.13.1). For implicit references, 
+the part semantic identifiers (part number and manufacturer code) are sufficient. 
+Refer to Chap 3.9.5.2.1.2.
+
+Business rule decision point BRDP-S1-00560 - Identification of parts:
+– Decide whether the project can use OEM renamed part numbers instead of part numbers
+allocated by the part design authority in the attribute partNumberValue.
+
+  
+Markup example:
+  
+<partRef partNumberValue="0-0204504-1" manufacturerCodeValue="F0286"/>
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Chapter 3.9.5.2.1.11
+Common constructs - Controlled content
+
+S1000D-A-20-50-0000-00A-024C-D
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+1 General
+This chapter contains the definition and handling of the element <commonInfo> from an
+author's point of view. It gives details about the available elements and attributes and how to
+use them to populate <commonInfo>.
+
+Common information provides data to the user that applies to the entire data module. The
+information can contain a general description or introduction of the task or subtask contained 
+in the data module. The element <commonInfo> must not contain procedural steps.
+
+The element <commonInfo> is contained in the business rules exchange, procedural,
+process, fault, maintenance checklist, common repository, service bulletin and maintenance
+planning data modules.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2 Common information
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.1 Definition
+
+Description: The element <commonInfo> contains descriptive information 
+that applies to an entire data module.
+
+  
+Markup element: <commonInfo>
+
+Attributes:
+- id (O), the identifier of the markup element. Refer to Chap 3.9.5.2.1.2.
+- changeType (O), changeMark (O) and reasonForUpdateRefIds (O), 
+the change indications. Refer to Chap 3.9.5.2.1.1.
+- controlAuthorityRefs (O), the control authority information by referencing
+the element <controlAuthority>. Refer to Chap 3.9.5.1.
+
+Child elements:
+- <title>. Refer to Chap 3.9.5.2.1.5.
+<figure>. Refer to Chap 3.9.5.2.1.7.
+- <figureAlts>. Refer to Chap 3.9.5.2.1.7.
+- <note>. Refer to Chap 3.9.3.
+- <para>. Refer to Chap 3.9.5.2.1.10.
+- <commonInfoDescrPara>. Refer to Para 2.1.1.2.
+- <commonInfoDescrParaAlts>. Refer to Para 2.1.1.3.
+
+Business rule decision point BRDP-S1-00177 - Use of common information:
+– Decide whether to use the element <commonInfo> in business rules exchange,
+common repositories, fault, maintenance checklist, maintenance planning, procedural,
+process, and service bulletin data modules. If decided to be used, then determine the
+circumstances for its use for each related data module type, and give guidance and rules
+that will make sure it is consistently used.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------  
+
+2.1.1 Paragraph text
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.1.1.1 Definition
+
+The common information text can be marked up using one of two methods. 
+One method makes use of an optional element <note>, one or more element <para>, 
+and optional and repeatable element <commonInfoDescrPara> 
+(or optional and repeatable element <commonInfoDescrParaAlts>). 
+
+The other method makes use of one or more element <commonInfoDescrPara> 
+and/or one or more element <commonInfoDescrParaAlts>.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------  
+
+2.1.1.2 Descriptive paragraph definition
+
+Description: The element <commonInfoDescrPara> 
+is used to contain text information.
+
+  
+Markup element: <commonInfoDescrPara>
+
+Attributes:
+- applicRefId (O), the applicability information by referencing 
+the element <applic>. Refer to Chap 3.9.5.3.
+- id (O), the identifier of the markup element. Refer to Chap 3.9.5.2.1.2.
+- changeType (O), changeMark (O) and reasonForUpdateRefIds (O), 
+the change indications. Refer to Chap 3.9.5.2.1.1.
+- controlAuthorityRefs (O), the control authority information by referencing 
+the element <controlAuthority>. Refer to Chap 3.9.5.1.
+- securityClassification (O), commercialClassification (O) 
+caveat (O) and derivativeClassificationRefId (O), the security 
+and restrictive marking. Refer to Chap 3.6.
+
+Child elements:
+- <note>. Refer to Chap 3.9.3.
+- <circuitBreakerDescrGroup>. Refer to Chap 3.9.5.2.1.9.
+- <para>. Refer to Chap 3.9.5.2.1.10.
+- <figure>. Refer to Chap 3.9.5.2.1.7.
+- <figureAlts>. Refer to Chap 3.9.5.2.1.7.
+- <multimedia>. Refer to Chap 3.9.5.2.1.7.
+- <multimediaAlts>. Refer to Chap 3.9.5.2.1.7.
+- <foldout>. Refer to Chap 3.9.5.2.1.7.
+- <table>. Refer to Chap 3.9.5.2.1.6.
+- <commonInfoDescrPara>.
+- <commonInfoDescrParaAlts>. Refer to Para 2.1.1.3.
+
+Business rule decision point BRDP-S1-00178 - Markup method for common information text:
+– Decide which markup method to use for common information text:
+  • the method containing <note>, <para> and <commonInfoDescrPara>
+  or
+  • the method containing only <commonInfoDescrPara>
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.1.1.3 Descriptive paragraph alternates group definition
+  
+Description: The element <commonInfoDescrParaAlts> is an alternates group 
+that provides the capability to group several alternate solutions 
+of a descriptive text <commonInfoDescrPara>. 
+
+Refer to Chap 4.13.3 for information related to the use 
+of alternates group in data module content.
+
+
+Markup element: <commonInfoDescrParaAlts>
+
+Attributes:
+- id (O), the identifier of the markup element. Refer to Chap 3.9.5.2.1.2.
+- changeType (O), changeMark (O) and reasonForUpdateRefIds (O), 
+the change indications. Refer to Chap 3.9.5.2.1.1.
+- controlAuthorityRefs (O), the control authority information by referencing 
+the element <controlAuthority>. Refer to Chap 3.9.5.1.
+- securityClassification (O), commercialClassification (O), 
+caveat (O) and derivativeClassificationRefId (O), the security 
+and restrictive marking. Refer to Chap 3.6.
+
+Child elements:
+- <commonInfoDescrPara>. Refer to Para 2.1.1.2.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+3 Examples
+
+The following markup examples show the use of the <commonInfo> element.
+
+Example 1: The use of multiple <commonInfoDescrPara> elements:
+
+<commonInfo>
+  <title>General Information</title>
+  <commonInfoDescrPara>
+    <title>Components Involved in an Accident</title>
+    <para>Any component removed for reason of accident shall be preserved and shall be shipped in the same condition it was in after the accident</para>
+  </commonInfoDescrPara>
+</commonInfo>
+
+<commonInfo>
+  <title>Special Instructions</title>
+  <commonInfoDescrPara>
+    <para>The columns headed I and P are used to indicate the requirements for Intermediate and Periodic inspections respectively. 
+    When item is required with a frequency other than that indicated by these column headings, the proper frequency is indicated in the appropriate column.</para>
+  </commonInfoDescrPara>
+  <commonInfoDescrPara>
+    <para>Work time requirements for individual items are stated in the W/T column.</para>
+  </commonInfoDescrPara>
+</commonInfo>
+  
+Example 2: The use of a single <para> element:
+
+<commonInfo>
+  <title>Condition Inspection</title>
+  <para>Operators have periodically experienced frame vibration and have had difficulty identifying the cause of vibration.
+  Troubleshooting frame vibration can consume a number of man￾hours and cause considerable amount of concern. 
+  This procedure provides a compliation of known causes of frame vibration and the required corrective action.</para>
+</commonInfo>
+
+Example 3: The use of <commonInfoDescrParaAlts>:
+
+<commonInfo>
+  <title>Special Instructions</title>
+  <commonInfoDescrParaAlts>
+    <commonInfoDescrPara applicRefId="app-0001">
+      <para>The columns headed I and P are used to indicate the requirements for Intermediate and Periodic inspections respectively. 
+      When item is required with a frequency other than that indicated by these column headings, the proper frequency is indicated in the appropriate column.</para>
+      <para>Work time requirements for individual items are stated in the W/T column.</para>
+    </commonInfoDescrPara>
+    <commonInfoDescrPara applicRefId="app-0002">
+      <para>The columns headed A and B are used to indicate the requirements for Intermediate and Periodic inspections respectively. 
+      When item is required with a frequency other than that indicated by these column headings, the proper frequency is indicated in the appropriate column.</para>
+      <para>Work time requirements for individual items are stated in the W/T column.</para>
+    </commonInfoDescrPara>
+  </commonInfoDescrParaAlts>
+</commonInfo>
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------                                                                                                                          
+
+Chapter 3.9.5.2.1.13
+Common constructs - Externalization
+
+S1000D-A-00-80-0000-00A-024C-D
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+1 General
+
+Specific information can be externalized into a dedicated Common Information Repository
+(CIR) data module in order to avoid duplication of data. 
+This concerns applicability annotations, warnings and cautions. Refer to Chap 4.13.1.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2 Reference to externalized data elements
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.1 References to externalized applicability annotations
+
+Description: The element <applicRef> contains the reference to an applicability
+annotation in an applicability annotations CIR data module. 
+It is used for externalizing applicability annotations. Refer to Chap 3.9.5.2.11.12.
+
+
+Markup element: <applicRef>
+
+Attributes:
+- id (O), the identifier of the markup element. Refer to Chap 3.9.5.2.1.2.
+- changeType (O), changeMark (O) and reasonForUpdateRefIds (O), 
+the change indications. Refer to Chap 3.9.5.2.1.1.
+- applicIdentValue (M), the unique identification of the externalized applicability annotation
+- controlAuthorityRefs (O), the control authority information by referencing 
+the element <controlAuthority>. Refer to Chap 3.9.5.1.
+- securityClassification (O), commercialClassification (O), 
+caveat (O) and derivativeClassificationRefId (O), the security 
+and restrictive marking. Refer to Chap 3.6.
+
+Child elements:
+- <dmRef>, the data module reference. Refer to Chap 3.9.5.2.1.2 and default BREX rule BREX-S1-00133.
+
+  
+Markup example:
+
+<applicRef applicIdentValue="app-00000000AA056A-0000"/>
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.2 References to externalized warnings
+
+Description: The element <warningRef> contains the reference to a warning in a
+warnings CIR data module. It is used for externalizing warnings. Refer to Chap 3.9.5.2.11.13.
+
+  
+Markup element: <warningRef>
+
+Attributes:
+- id (O), the identifier of the markup element. Refer to Chap 3.9.5.2.1.2.
+- changeType (O), changeMark (O) and reasonForUpdateRefIds (O), 
+the change indications. Refer to Chap 3.9.5.2.1.1.
+- warningIdentNumber (M), the unique identification of the externalized warning
+- controlAuthorityRefs (O), the control authority information by referencing 
+the element <controlAuthority>. Refer to Chap 3.9.5.1.
+- securityClassification (O), commercialClassification (O), 
+caveat (O) and derivativeClassificationRefId (O), the security 
+and restrictive marking. Refer to Chap 3.6.
+
+Child elements:
+- <dmRef>, the data module reference. Refer to Chap 3.9.5.2.1.2.
+
+  
+Markup example:
+
+<warningRef warningIdentNumber="warn-00000000AA056A-0001"/>
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.3 References to externalized cautions
+
+Description: The element <cautionRef> contains the reference to a caution in a cautions
+CIR data module. It is used for externalizing cautions. Refer to Chap 3.9.5.2.11.14.
+
+  
+Markup element: <cautionRef>
+
+Attributes:
+- id (O), the identifier of the markup element. Refer to Chap 3.9.5.2.1.2.
+- changeType (O), changeMark (O) and reasonForUpdateRefIds (O), 
+the change indications. Refer to Chap 3.9.5.2.1.1.
+- cautionIdentNumber (M), the unique identification of the externalized caution
+- controlAuthorityRefs (O), the control authority information by referencing 
+the element <controlAuthority>. Refer to Chap 3.9.5.1.
+- securityClassification (O), commercialClassification (O), 
+caveat (O) and derivativeClassificationRefId (O), the security 
+and restrictive marking. Refer to Chap 3.6.
+
+Child elements:
+- <dmRef>, the data module reference. Refer to Chap 3.9.5.2.1.2.
+
+  
+Markup example:
+<cautionRef cautionIdentNumber="caut-00000000AA056A-0003"/>
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Chapter 3.9.5.2.2
+Content section - Descriptive information
+
+S1000D-A-60-20-0000-00A-024C-D
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+1 General
+
+The descriptive Schema is used to capture and represent descriptive information.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2 Descriptive information
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.1 Schema basic rules
+
+The granularity of descriptive data modules must follow the breakdown 
+reflected by the SNS providing descriptions at:
+- system
+- subsystem
+- sub-subsystem levels
+as required by the:
+- maintenance philosophy
+- scope of information required
+
+For details on the scope of information, refer to Chap 5.2.1.2.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.2 Content
+
+Description: This element contains all descriptive types of information.
+
+  
+Markup element: <content>
+
+Attributes:
+- id (O), the identifier of the <content> element. Refer to Chap 3.9.5.2.1.2.
+controlAuthorityRefs (O), the control authority information by referencing 
+the element <controlAuthority>. Refer to Chap 3.9.5.1.
+
+Child elements:
+- <refs>. Refer to Chap 3.9.5.2.1.2.
+- <referencedApplicGroup>). Refer to Chap 3.9.5.3.
+- <referencedApplicGroupRef>. Refer to Chap 3.9.5.3.
+- <warningsAndCautions>. Refer to Chap 3.9.3.
+- <warningsAndCautionsRef>. Refer to Chap 3.9.3.
+- <description>. Refer to Para 2.3.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.3 Description
+
+Description: The element <description> contains the descriptive information.
+Descriptive paragraphs can be broken down into subparagraphs, which can be broken down
+further into sub-subparagraphs and so on. Refer to Para 2.4.
+
+This element also contains the elements <figure>, <figureAlts>, <multimedia> and <multimediaAlts>.
+
+Note
+  The descriptive data module uses common constructs. For the detailed explanations and
+  rules for common constructs, refer to Chap 3.9.5.2.1.
+
+
+Markup element: <description>
+
+Attributes:
+- warningRefs (O), the warning reference to the warnings and cautions collection. 
+Refer to Chap 3.9.3.
+- cautionRefs (O), the caution reference to the warnings and cautions collection. 
+Refer to Chap 3.9.3.
+
+Child elements:
+- <para>. Used for introductory unnumbered paragraphs before the description starts. 
+Refer to Chap 3.9.5.2.1.10.
+- <warning>. The use of warnings in descriptive information is a project or an organization decision. 
+Refer to Chap 3.9.3.
+- <caution>. The use of cautions in descriptive information is a project or an organization decision. 
+Refer to Chap 3.9.3.
+- <note>. Refer to Chap 3.9.3.
+- <levelledPara>. Used for breaking down the descriptive content into numbered paragraphs. 
+Refer to Para 2.4 and Chap 3.9.5.2.1.10.
+- <levelledParaAlts>. Refer to Para 2.5.
+- <figure>. Refer to Chap 3.9.5.2.1.7.
+- <figureAlts>. Refer to Chap 3.9.5.2.1.7.
+- <multimedia>. Refer to Chap 3.9.5.2.1.7.
+- <multimediaAlts>. Refer to Chap 3.9.5.2.1.7.
+- <foldout>. Refer to Chap 3.9.5.2.1.7 and Chap 3.9.5.2.1.6.
+- <table>. Refer to Chap 3.9.5.2.1.6.
+- <caption>. Refer to Chap 3.9.5.2.1.4.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.4 Levelled paragraphs
+
+Description: The element <levelledPara> is the equivalent of a headed paragraph 
+and subparagraphs. It can have one or more <levelledPara> elements nested within it
+and/or one or more <levelledParaAlts> elements. The depth of this structure 
+is unlimited, however, it is recommended to not exceed five levels of depth. 
+Refer to default BREX rule BREX-S1-00077.
+
+When a <levelledPara> or <levelledParaAlts> contain nested 
+<levelledPara> or <levelledParaAlts> children, it is recommended that 
+the occurrence of these children be two or more. It is further recommended that additional levels
+only be used in a conversion effort, where existing data is authored to such a depth 
+and restructuring of data is not feasible. In these cases, the structure must never exceed eight
+levels of depth. Refer to default BREX rule BREX-S1-00078.
+
+
+Markup element: <levelledPara>
+
+Attributes:
+- applicRefId (O), the applicability information referencing the element <applic>. 
+Refer to Chap 3.9.5.3.
+- id (O), the identifier of the markup element. 
+Refer to Chap 3.9.5.2.1.2.
+- changeType (O), changeMark (O) and reasonForUpdateRefIds (O), the change indications. 
+Refer to Chap 3.9.5.2.1.1.
+- warningRefs (O), the warning reference to the warnings and cautions collection. 
+Refer to Chap 3.9.3.
+- cautionRefs (O), the caution reference to the warnings and cautions collection. 
+Refer to Chap 3.9.3.
+- controlAuthorityRefs (O), the control authority information by referencing 
+the element <controlAuthority>. Refer to Chap 3.9.5.1 .
+- securityClassification (O), commercialClassification (O), 
+caveat (O), and derivativeClassificationRefId (O), the security 
+and restrictive marking. Refer to Chap 3.6.
+
+Child elements:
+- <title>. Refer to Chap 3.9.5.2.1.5.
+- <captionGroup>. Refer to Chap 3.9.5.2.1.4.
+<warning>. The use of warnings in descriptive information is a project 
+or an organization decision. Refer to Chap 3.9.3.
+- <caution>. The use of cautions in descriptive information is a project 
+or an organization decision. Refer to Chap 3.9.3.
+- <note>. Refer to Chap 3.9.3.
+- <circuitBreakerDescrGroup>. Refer to Chap 3.9.5.2.1.9.
+- <para>. Refer to Chap 3.9.5.2.1.10.
+- <figure>. Refer to Chap 3.9.5.2.1.7.
+- <figureAlts>. Refer to Chap 3.9.5.2.1.7.
+- <multimedia>. Refer to Chap 3.9.5.2.1.7.
+- <multimediaAlts>. Refer to Chap 3.9.5.2.1.7.
+- <foldout>. Refer to Chap 3.9.5.2.1.7 and Chap 3.9.5.2.1.6.
+- <table>. Refer to Chap 3.9.5.2.1.6.
+- <caption>. Refer to Chap 3.9.5.2.1.4.
+- <levelledPara>.
+- <levelledParaAlts>. Refer to Para 2.5.
+
+Business rule decision point BRDP-S1-00180 - Maximum number of subordinate levelled
+paragraphs in a descriptive data module:
+– Decide on the maximum number of levelled paragraphs allowed in a descriptive data
+module. Exceeding five levels of depth is strongly discouraged in development of new
+data. It is recommended that additional levels are only used in a conversion effort where
+the existing data is authored to this depth (maximum eight levels) and restructuring 
+of data is not feasible.
+
+Business rule decision point BRDP-S1-00181 - Minimum levelled para occurrences:
+– Decide whether to impose a minimum of two occurrences of child elements 
+<levelledPara> and/or <levelledParaAlts>.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.5 Levelled paragraphs alternates group
+
+Description: The element <levelledParaAlts> is an alternates group that provides
+the capability to group several alternates to levelled paragraphs. 
+The element <levelledParaAlts> can be used in conjunction with the element 
+<levelledPara>. Refer to Chap 4.13.3 for information related to the use of alternates
+group in data module content.
+
+
+Markup element: <levelledParaAlts>
+
+Attributes:
+- id (O), the identifier of the markup element. Refer to Chap 3.9.5.2.1.2.
+- changeType (O), changeMark (O) and reasonForUpdateRefIds (O), the change
+indications. Refer to Chap 3.9.5.2.1.1.
+- controlAuthorityRefs (O), the control authority information by referencing 
+the element <controlAuthority>. Refer to Chap 3.9.5.1.
+- securityClassification (O), commercialClassification (O), 
+caveat (O) and derivativeClassificationRefId (O) the security 
+and restrictive marking. Refer to Chap 3.6.
+
+Child elements:
+- <levelledPara>. Refer to Para 2.4.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+3 Example
+
+<levelledPara>
+  <title>The bicycle wheel</title>
+  <para>The wheel (refer to 
+    <internalRef internalRefId="fig-0001" internalRefTargetType="irtt01"></internalRef>) 
+    of a bicycle is a complex structure. The wheel assembly has these parts:
+    <randomList listItemPrefix="pf01">
+      <listItem>
+        <para>the tire</para>
+      </listItem>
+      <listItem>
+        <para>the tube</para>
+      </listItem>
+      <listItem>
+        <para>the spokes</para>
+      </listItem>
+      <listItem>
+        <para>the spoke nipples</para>
+      </listItem>
+      <listItem>
+        <para>the valve</para>
+      </listItem>
+      <listItem>
+        <para>the hub</para>
+      </listItem>
+    </randomList>
+    On their own, the individual components are not very strong.
+    But, when they are installed together, the components make the complete wheel (refer to <internalRef internalRefId="fig-0001" internalRefTargetType="irtt01"></internalRef>). 
+    The complete wheel is resistant to almost any type of heavy loads and operation.
+  </para>
+  <figure id="fig-0001">
+    <title>Parts of the wheel</title>
+    <graphic infoEntityIdent="ICN-S1000DBIKE-AAA-DA00000-0-U8025-00504-A-03-1" reproductionWidth="510mm"></graphic>
+  </figure>
+  <levelledPara id="par-0001">
+    <title>Spokes</title>
+    <para>The spokes go out from the hub and go across and below each other. The spoke nipples attach the spokes to the rim
+    with the threads on the end of the spokes. You can use the spoke nipples to adjust the tension of the spokes. The tension on each of the spokes must be equal.</para>
+  </levelledPara>
+  <levelledPara id="par-0002">
+    <title>Wheel rim</title>
+    <para>The rim (refer to 
+      <internalRef internalRefId="fig-0002" internalRefTargetType="irtt01"></internalRef>) of the wheel has a lining of rim tape. 
+      This tape protects the tube from damage that the rough edges on the spoke nipples can cause.</para>
+    <figure id="fig-0002">
+      <title>The tire and rim</title>
+      <graphic infoEntityIdent="ICN-S1000DBIKE-AAA-DA00000-0-U8025-00504-B-03-1" reproductionWidth="510mm"></graphic>
+    </figure>
+  </levelledPara>
+  <levelledPara id="par-0003">
+    <title>Tube and tire</title>
+    <para>The tube and the tire install on the rim. The sidewalls of the tire have markings on them. 
+    These which are used to indicate the correct direction of rotation. 
+    The markings also make sure the tire installs on the rim and that the directional arrows
+    points in the correct direction. You install the tube into the tire before you inflate it. 
+    The tube has a valve (refer to <internalRef internalRefId="fig-0003" internalRefTargetType="irtt01"></internalRef>) 
+    which you put through the hole in the rim. This valve (refer to <internalRef internalRefId="fig-0003" internalRefTargetType="irtt01"></internalRef>) 
+    is used to inflate the tube and the tire to the correct pressure. A dust cap installs on the valve (refer to <internalRef internalRefId="fig-0003" internalRefTargetType="irtt01"></internalRef>) 
+    to prevent damage that dust and debris can cause.</para>
+    <figure id="fig-0003">
+      <title>Valve</title>
+      <graphic infoEntityIdent="ICN-S1000DBIKE-AAA-DA00000-0-U8025-00505-A-03-1" reproductionWidth="510mm"></graphic>
+    </figure>
+  </levelledPara>
+</levelledPara>
 
 
 
