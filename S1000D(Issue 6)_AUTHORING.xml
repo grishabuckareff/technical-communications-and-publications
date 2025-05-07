@@ -15207,6 +15207,7 @@ Child elements:
   </levelledPara>
 </levelledPara>
 
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 Chapter 3.9.5.2.3
 Content section - Procedural information
@@ -15214,29 +15215,45 @@ Content section - Procedural information
 S1000D-A-60-30-0000-00A-024C-D
 
 1 General
-The procedural Schema is used to capture and represent procedural information. The
-granularity of maintenance procedural data modules must follow the breakdown reflected by
-the SNS and the information codes, and must reflect the tasks identified in the maintenance
-plan. The granularity of crew/operator procedural data modules must follow the breakdown
+The procedural Schema is used to capture and represent procedural information. 
+The granularity of maintenance procedural data modules must follow the breakdown reflected 
+by the SNS and the information codes, and must reflect the tasks identified in the maintenance plan. 
+
+The granularity of crew/operator procedural data modules must follow the breakdown
 reflected by the SNS and the information codes, and must reflect the operations identified.
 Common entities, elements and attributes must be used as detailed in Chap 3.9.5.2.1.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------  
+
 2 Procedural information
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 2.1 Schema basic rules
+
 The procedural Schema has structural elements that are used to provide a hierarchy of steps
-and substeps. Note that if a condition (eg, warning, caution and/or security) applies to a step or
-substep, then that condition also applies to all its substeps.
-This Schema can be used for all types of information of procedural or instructional type (eg, for
-the technical content in maintenance procedures, refer to Chap 5.2.1.3.1).
-This Schema contains alternates for various elements. For related business rule decisions,
-refer to Chap 4.13.3.
+and substeps. Note that if a condition (eg, warning, caution and/or security) applies to a step 
+or substep, then that condition also applies to all its substeps.
+
+This Schema can be used for all types of information of procedural or instructional type 
+(eg, for the technical content in maintenance procedures, refer to Chap 5.2.1.3.1).
+
+This Schema contains alternates for various elements. For related business rule decisions, refer to Chap 4.13.3.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 2.2 Content
-Description: The element <content> contains the content section of the procedural data
-module.
+
+Description: The element <content> contains the content section of the procedural data module.
+
+  
 Markup element: <content>
+
 Attributes:
 - id (O), the identifier of the markup element. Refer to Chap 3.9.5.2.1.2.
-- controlAuthorityRefs (O), the control authority information by referencing the
-element <controlAuthority>. Refer to Chap 3.9.5.1.
+- controlAuthorityRefs (O), the control authority information by referencing 
+the element <controlAuthority>. Refer to Chap 3.9.5.1.
+
 Child elements:
 - <refs>. Refer to Chap 3.9.5.2.1.2.
 - <referencedApplicGroup>. Refer to Chap 3.9.5.3.
@@ -15244,35 +15261,50 @@ Child elements:
 - <warningsAndCautions>. Refer to Chap 3.9.3.
 - <warningsAndCautionsRef>. Refer to Chap 3.9.3.
 - <procedure>. Refer to Para 2.3.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 2.3 Procedure
-Description: The element <procedure> contains all information necessary to carry out the
-task or the main objective of the procedural information.
+
+Description: The element <procedure> contains all information necessary to carry out 
+the task or the main objective of the procedural information.
+
+  
 Markup element: <procedure>
+
 Attributes:
 - None
+
 Child elements:
 - <commonInfo> . Refer to Chap 3.9.5.2.1.12.
 - <preliminaryRqmts>. Refer to Chap 3.9.5.2.1.9.
 - <mainProcedure>. Refer to Para 2.4.
 - <closeRqmts>. Refer to Chap 3.9.5.2.1.9.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 2.4 Main procedure
-Description: The element <mainProcedure> contains the detailed procedural steps to
-be done, properly supported by figures, multimedia, foldouts and tables.
+
+Description: The element <mainProcedure> contains the detailed procedural steps 
+to be done, properly supported by figures, multimedia, foldouts and tables.
+
+  
 Markup element: <mainProcedure>
+
 Attributes:
 - id (O), the identifier of the markup element. Refer to Chap 3.9.5.2.1.2.
-- changeType (O), changeMark (O), and reasonForUpdateRefIds (O), the
-change indications. Refer to Chap 3.9.5.2.1.1.
-- skillLevelCode (O), the skill level required for the complete procedure. Refer to
-Chap 3.9.5.1. The attribute skillLevelCode can have one of the following values:
-• "sk01" thru "sk99". Refer to Chap 3.9.6.1.
-- independentCheck (O), the complete procedure must be checked by a supervisor
-with a given qualification
-- controlAuthorityRefs (O), the control authority information by referencing the
-element <controlAuthority>. Refer to Chap 3.9.5.1.
+- changeType (O), changeMark (O), and reasonForUpdateRefIds (O), 
+the change indications. Refer to Chap 3.9.5.2.1.1.
+- skillLevelCode (O), the skill level required for the complete procedure. 
+Refer to Chap 3.9.5.1. The attribute skillLevelCode can have one of the following values:
+  • "sk01" thru "sk99". Refer to Chap 3.9.6.1.
+- independentCheck (O), the complete procedure must be checked by a supervisor with a given qualification
+- controlAuthorityRefs (O), the control authority information by referencing 
+the element <controlAuthority>. Refer to Chap 3.9.5.1.
 - securityClassification (O), commercialClassification (O), 
-caveat (O) and derivativeClassificationRefId (O), the security and
-restrictive marking. Refer to Chap 3.6.
+caveat (O) and derivativeClassificationRefId (O), the security 
+and restrictive marking. Refer to Chap 3.6.
+
 Child elements:
 - <proceduralStep>. Refer to Para 2.4.1.
 - <proceduralStepAlts>. Refer to Para 2.4.2.
@@ -15282,62 +15314,66 @@ Child elements:
 - <multimediaAlts>. Refer to Chap 3.9.5.2.1.7.
 - <foldout>. Refer to Chap 3.9.5.2.1.7.
 - <table>. Refer to Chap 3.9.5.2.1.6.
-Business rule decision point BRDP-S1-00185 - Use of the alternates concept within the
-element <mainProcedure>:
-– Decide whether to use the alternates concept for steps, figures and multimedia within the
-element <mainProcedure>. This concerns the child elements 
-<proceduralStepAlts> (refer to Para 2.4.2), <figureAlts> (refer to
-Chap 3.9.5.2.1.7) and <multimediaAlts> (refer to Chap 3.9.5.2.1.7).
+
+Business rule decision point BRDP-S1-00185 - Use of the alternates concept 
+within  the element <mainProcedure>:
+– Decide whether to use the alternates concept for steps, figures and multimedia 
+within the element <mainProcedure>. This concerns the child elements 
+<proceduralStepAlts> (refer to Para 2.4.2), <figureAlts>  (refer to Chap 3.9.5.2.1.7) 
+and <multimediaAlts> (refer to Chap 3.9.5.2.1.7).
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 2.4.1 Procedural step
-Description: The element <proceduralStep> contains a step in the procedure. A step
-can be broken down into substeps by including another element <proceduralStep> (or 
-<proceduralStepAlts>), which can itself be broken down further into substeps by
-including another element <proceduralStep> (or <proceduralStepAlts>), and
-so on. In this way, any depth of substep breakdown can be achieved. However, exceeding five
-levels of depth is strongly discouraged. Refer to default BREX rule BREX-S1-00079. The
-substep breakdown must never exceed eight levels of depth. Refer to default BREX rule BREX￾S1-00080.
+
+Description: The element <proceduralStep> contains a step in the procedure. 
+A step can be broken down into substeps by including another element <proceduralStep> 
+(or <proceduralStepAlts>), which can itself be broken down further into substeps 
+by including another element <proceduralStep> (or <proceduralStepAlts>), 
+and so on. In this way, any depth of substep breakdown can be achieved. 
+However, exceeding five levels of depth is strongly discouraged. Refer to default BREX rule BREX-S1-00079. 
+The substep breakdown must never exceed eight levels of depth. Refer to default BREX rule BREX￾S1-00080.
+
+  
 Markup element: <proceduralStep>
+
 Attributes:
-- applicRefId (O), the applicability information by referencing the element 
-<applic>. Refer to Chap 3.9.5.3.
+- applicRefId (O), the applicability information by referencing 
+the element  <applic>. Refer to Chap 3.9.5.3.
 - id (O), the identifier of the markup element. Refer to Chap 3.9.5.2.1.2.
-- changeType (O), changeMark (O), and reasonForUpdateRefIds (O), the
-change indications. Refer to Chap 3.9.5.2.1.1.
+- changeType (O), changeMark (O), and reasonForUpdateRefIds (O), 
+the change indications. Refer to Chap 3.9.5.2.1.1.
 - warningRefs (O), the warning reference to the warnings and cautions collection.
 Refer to Chap 3.9.3.
-- cautionRefs (O), the caution reference to the warnings and cautions collection. Refer
-to Chap 3.9.3.
-- independentCheck (O), the step must be checked (eg, by a supervisor with a given
-qualification).
-- skillLevelCode (O), the skill level required for this procedural step. Refer to
-Chap 3.9.5.1. The attribute skillLevelCode can have one of the following values:
-• "sk01" thru "sk99". Refer to Chap 3.9.6.1.
+- cautionRefs (O), the caution reference to the warnings and cautions collection. 
+Refer to Chap 3.9.3.
+- independentCheck (O), the step must be checked (eg, by a supervisor with a given qualification).
+- skillLevelCode (O), the skill level required for this procedural step. 
+Refer to Chap 3.9.5.1. The attribute skillLevelCode can have one of the following values:
+ • "sk01" thru "sk99". Refer to Chap 3.9.6.1.
 - keepWithNext (O), the indication whether a step is presented together with the next
 step, if possible. The attribute keepWithNext is intended for use only when absolutely
-necessary in a given situation (eg, where scrolling is not practical for the user or the
-viewing device does not allow scrolling). The attribute keepWithNext can have one of
-the following values:
-• "0" (D) - No, the step is not kept with the next sibling step
-• "1" - Yes, the step is kept with the next sibling step (if one exists) and therefore, all
-children of the element for which the attribute keepWithNext is set, must be kept
-together as well (if possible). The attribute keepWithNext has no meaning when
-placed on a final step.
+necessary in a given situation (eg, where scrolling is not practical for the user or 
+the viewing device does not allow scrolling). The attribute keepWithNext can have one 
+of the following values:
+ • "0" (D) - No, the step is not kept with the next sibling step
+ • "1" - Yes, the step is kept with the next sibling step (if one exists) and therefore, 
+  all children of the element for which the attribute keepWithNext is set, must be kept
+  together as well (if possible). The attribute keepWithNext has no meaning when placed on a final step.
 - itemCharacteristic (O), used to indicate the characteristics of the item that is the
-subject of a given procedural step. If used, the attribute itemCharacteristic can
-have one or more of the following values:
-• "ic01" thru "ic99". Refer to Chap 3.9.6.1.
-- controlAuthorityRefs (O), the control authority information by referencing the
-element <controlAuthority>. Refer to Chap 3.9.5.1.
+subject of a given procedural step. If used, the attribute itemCharacteristic 
+can have one or more of the following values:
+  • "ic01" thru "ic99". Refer to Chap 3.9.6.1.
+- controlAuthorityRefs (O), the control authority information by referencing 
+the element <controlAuthority>. Refer to Chap 3.9.5.1.
 - securityClassification (O), commercialClassification (O), 
-caveat (O) and derivativeClassificationRefId (O), the security and
-restrictive marking. Refer to Chap 3.6.
+caveat (O) and derivativeClassificationRefId (O), the security 
+and restrictive marking. Refer to Chap 3.6.
+
 Child elements:
-- <title>. Refer to Para 2.4.3 for the use of titles. Refer to Chap 3.9.5.2.1.5 for general
-rules on titles.
-- <warning>. Refer to Para 2.4.4 for the validity of warnings. Refer to Chap 3.9.3 for
-general rules on warnings.
-- <caution>. Refer to Para 2.4.4 for the validity of cautions. Refer to Chap 3.9.3 for
-general rules on cautions.
+- <title>. Refer to Para 2.4.3 for the use of titles. Refer to Chap 3.9.5.2.1.5 for general rules on titles.
+- <warning>. Refer to Para 2.4.4 for the validity of warnings. Refer to Chap 3.9.3 for general rules on warnings.
+- <caution>. Refer to Para 2.4.4 for the validity of cautions. Refer to Chap 3.9.3 for general rules on cautions.
 - <note>. Refer to Chap 3.9.3.
 - <circuitBreakerDescrGroup>. Refer to Chap 3.9.5.2.1.9.
 - <para>. Refer to Chap 3.9.5.2.1.10.
@@ -15350,282 +15386,418 @@ general rules on cautions.
 - <caption>. Refer to Chap 3.9.5.2.1.4.
 - <proceduralStep>.
 - <proceduralStepAlts>. Refer to Para 2.4.2.
-Business rule decision point BRDP-S1-00186 - Maximum number of step levels in a
-procedure:
+
+Business rule decision point BRDP-S1-00186 - Maximum number of step levels in a procedure:
 – Decide on the maximum number of step levels allowed in a procedure. Exceeding five
 levels of depth is strongly discouraged in development of new data. It is recommended that
-additional levels are only used in a conversion effort where the existing data is authored to
-this depth (maximum eight levels) and restructuring of data is not feasible.
+additional levels are only used in a conversion effort where the existing data is authored 
+to this depth (maximum eight levels) and restructuring of data is not feasible.
+
 Business rule decision point BRDP-S1-00187 - Minimum number of substeps in a step:
-– Decide whether to allow for a single substep, or to insist on a minimum of two substeps in
-a step.
+– Decide whether to allow for a single substep, or to insist on a minimum of two substeps in a step.
+
 Note
-The Schema allows for a single substep.
+  The Schema allows for a single substep.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 2.4.2 Procedural step alternates group
+
 Description: The element <proceduralStepAlts> is an alternate group that provides
-the capability to group several alternatives of a step. Refer to Chap 4.13.3 for information
-related to the use of alternate groups in data module content.
+the capability to group several alternatives of a step. Refer to Chap 4.13.3 
+for information related to the use of alternate groups in data module content.
+
+  
 Markup element: <proceduralStepAlts>
+
 Attributes:
 - id (O), the identifier of the markup element. Refer to Chap 3.9.5.2.1.2.
-- changeType (O), changeMark (O), and reasonForUpdateRefIds (O), the
-change indications. Refer to Chap 3.9.5.2.1.1.
+- changeType (O), changeMark (O), and reasonForUpdateRefIds (O), 
+the change indications. Refer to Chap 3.9.5.2.1.1.
 - altsName (O), the name of the alternate group
-- controlAuthorityRefs (O), the control authority information by referencing the
-element <controlAuthority>. Refer to Chap 3.9.5.1.
+- controlAuthorityRefs (O), the control authority information by referencing 
+the element <controlAuthority>. Refer to Chap 3.9.5.1.
 - securityClassification (O), commercialClassification (O), 
-caveat (O) and derivativeClassificationRefId (O), the security and
-restrictive marking. Refer to Chap 3.6.
+caveat (O) and derivativeClassificationRefId (O), the security 
+and restrictive marking. Refer to Chap 3.6.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------  
+                           
 2.4.3 Title
-Description: The element <title> contains the title of a step or gives the title for a
-sequence of substeps. The element <title> must be used consistently in a procedure
+
+Description: The element <title> contains the title of a step or gives the title 
+for a sequence of substeps. The element <title> must be used consistently in a procedure
 (refer to default BREX rule BREX-S1-00264). The following rules apply:
-1 A step must have a title if any of its sibling steps have a title
-2 A substep can have a title only if its parent step has a title
-2.4.4 Warnings, cautions and notes
-A warning, caution or note, or a warning or caution reference that is placed in a step (element 
-<proceduralStep>) applies to all substeps (element <proceduralStep>).
+  1 A step must have a title if any of its sibling steps have a title
+  2 A substep can have a title only if its parent step has a title
+  2.4.4 Warnings, cautions and notes
+
+A warning, caution or note, or a warning or caution reference that is placed in a step 
+(element <proceduralStep>) applies to all substeps (element <proceduralStep>).
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 3 Examples
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 3.1 Not using the alternates concept
+
 The following is a markup example of a procedure not using the alternates concept:
+
 <procedure>
-<preliminaryRqmts>
-<reqCondGroup>
-<reqCondNoRef>
-<reqCond>The bicycle is outdoors</reqCond>
-</reqCondNoRef></reqCondGroup>
-<reqPersons applicRefId="apMK9">
-<person man="A">
-<personCategory personCategoryCode="Chemical technician"/>
-<personSkill skillLevelCode="sk02"/>
-<trade>Bike cleaner</trade>
-<estimatedTime unitOfMeasure="h">1,0</estimatedTime>
-</person></reqPersons>
-<reqPersons applicRefId="apMK1">
-<person man="B">
-<personCategory personCategoryCode="Operator"/>
-<personSkill skillLevelCode="sk02"/>
-<trade>Bike rider</trade>
-<estimatedTime unitOfMeasure="h">1,0</estimatedTime>
-</person></reqPersons>
-<reqSupportEquips><supportEquipDescrGroup>
-<supportEquipDescr id="seq-0001"><name>Water hose</name>
-<identNumber><manufacturerCode>KZ666</manufacturerCode>
-<partAndSerialNumber><partNumber>BSK-TLST-001-09</partNumber>
-</partAndSerialNumber></identNumber>
-<reqQuantity unitOfMeasure="EA">1</reqQuantity>
-</supportEquipDescr>
-<supportEquipDescr id="seq-0002">
-<name>Stiff bristle brush</name>
-<identNumber><manufacturerCode>KZ666</manufacturerCode>
-<partAndSerialNumber><partNumber>BSK-TLST-001-02</partNumber>
-</partAndSerialNumber></identNumber>
-<reqQuantity unitOfMeasure="EA">1</reqQuantity>
-</supportEquipDescr>
-<supportEquipDescr id="seq-0003"><name>Sponge</name>
-<identNumber><manufacturerCode>KZ666</manufacturerCode>
-<partAndSerialNumber><partNumber>BSK-TLST-001-11</partNumber>
-</partAndSerialNumber></identNumber>
-<reqQuantity unitOfMeasure="EA">1</reqQuantity>
-</supportEquipDescr></supportEquipDescrGroup></reqSupportEquips>
-<reqSupplies><supplyDescrGroup>
-<supplyDescr id="sup-0001"><name>Degreasing agent</name>
-<identNumber><manufacturerCode>KZ222</manufacturerCode>
-<partAndSerialNumber><partNumber>LL-004</partNumber>
-</partAndSerialNumber></identNumber>
-<reqQuantity unitOfMeasure="L">1</reqQuantity></supplyDescr>
-<supplyDescr id="sup-0002"><name>Detergent A</name>
-<identNumber><manufacturerCode>KZ666</manufacturerCode>
-<partAndSerialNumber><partNumber>BSK-TLST-023-14</partNumber>
-</partAndSerialNumber></identNumber>
-<reqQuantity unitOfMeasure="L">1</reqQuantity></supplyDescr>
-<supplyDescr id="sup-0003" applicRefId="apMK9">
-<name>Detergent B</name>
-<identNumber><manufacturerCode>KZ666</manufacturerCode>
-<partAndSerialNumber><partNumber>BSK-TLST-001-15</partNumber>
-</partAndSerialNumber></identNumber>
-<reqQuantity unitOfMeasure="L">1</reqQuantity></supplyDescr>
-</supplyDescrGroup></reqSupplies>
-<reqSpares><noSpares/></reqSpares>
-<reqSafety><safetyRqmts>
-<warning><warningAndCautionPara>Do not get <internalRef
-internalRefId="sup-0002" internalRefTargetType="irtt04"/>
-into your eyes. If it gets into your eyes, wash them immediately
-in clean warm water.</warningAndCautionPara></warning>
-<warning><warningAndCautionPara>Do not get <internalRef
-internalRefId="sup-0003" internalRefTargetType="irtt04"/>
-into your eyes. If it gets into your eyes, wash them immediately
-in clean warm water.</warningAndCautionPara></warning>
-<caution><warningAndCautionPara>Do not use a <internalRef
-internalRefId="seq-0001" internalRefTargetType="irtt05"/>
-that has high pressure. A water hose that has high pressure can
-cause some parts to become loose or full of water.</
-warningAndCautionPara></caution>
-<caution><warningAndCautionPara>Do not point the hose directly
-at the hub or at the bottom bracket bearings. This can cause
-damage to the parts.</warningAndCautionPara></caution>
-<caution><warningAndCautionPara>Apply <internalRef
-internalRefId="sup-0003" internalRefTargetType="irtt04"/>
-in accordance with the instruction on the container. The
-substance may cause damage to the Bike paint if it is not
-applied correctly.</warningAndCautionPara></caution>
-</safetyRqmts></reqSafety></preliminaryRqmts>
-<mainProcedure>
-<proceduralStep><para>Clean the bicycle with water to remove all
-dirt. Refer to <internalRef internalRefId="fig-0001"
-internalRefTargetType="irtt01"/>.</para>
-<figure id="fig-0001"><title>Cleaning the bike</title>
-<graphic infoEntityIdent="ICN-S1000DBIKE-AAA-D000000-0-
-U8025-00502-A-04-1"/></figure></proceduralStep>
-<proceduralStep><para>Use a <internalRef
-internalRefId="seq-0002" internalRefTargetType="irtt05"/> to get
-access to areas that are not easy to clean. These are the shift
-levers, the knobbly tires, and the brakes.</para></
-proceduralStep>
-<proceduralStep><para>Clean the caked grime from the chain and
-the sprockets with a screwdriver that has a small blade.</
-para></proceduralStep>
-<proceduralStep><para>Remove the grease from the freewheel
-assembly with the <internalRef internalRefId="sup-0001"
-internalRefTargetType="irtt04"/> as shown in <internalRef
-internalRefId="fig-0002" internalRefTargetType="irtt01"/> . Use
-a brush to remove the grease from these parts:
-<randomList listItemPrefix="pf02">
-<listItem><para>sprockets</para></listItem>
-<listItem><para>guide and tension wheels of the derailleur</
-para></listItem>
-<listItem><para>chain ring teeth</para></listItem>
-</randomList></para>
-<figure id="fig-0002"><title>Degreasing the freehub</title>
-<graphic infoEntityIdent="ICN-S1000DBIKE-AAA-DA52000-0-
-U8025-00523-A-04-1"/></figure>
-</proceduralStep>
-<proceduralStep><para>Flush the sprockets, the derailleurs, the
-chain rings and the chain with water.</para>
-<note><notePara>If necessary, do the flush procedure again.</
-notePara></note></proceduralStep>
-<proceduralStep applicRefId="apMK1"><title>Wash the Bike</title>
-<proceduralStep><para>Soak the <internalRef
-internalRefId="seq-0003" internalRefTargetType="irtt05"/> into
-<internalRef internalRefId="sup-0002"
-internalRefTargetType="irtt04"/> and water.</para></
-proceduralStep>
-<proceduralStep><para>Clean the bicycle with the soaked
-sponge.</para></proceduralStep>
-<proceduralStep><para>Flush the bicycle and make sure that all
-<internalRef internalRefId="sup-0002"
-internalRefTargetType="irtt04"/> is removed.</para></
-proceduralStep>
-<proceduralStep><para>Move the bicycle up and down on its tires
-to remove all water.</para></proceduralStep></proceduralStep>
-<proceduralStep applicRefId="apMK9"><title>Wash the Bike</
-title><proceduralStep><para>Soak the <internalRef
-internalRefId="seq-0003" internalRefTargetType="irtt05"/> into
-<internalRef internalRefId="sup-0003"
-internalRefTargetType="irtt04"/> and water.</para></
-proceduralStep>
-<proceduralStep><para>Clean the bicycle with the soaked
-sponge.</para></proceduralStep>
-<proceduralStep><para>Soak the <internalRef
-internalRefId="seq-0003" internalRefTargetType="irtt05"/> into
-<internalRef internalRefId="sup-0002"
-internalRefTargetType="irtt04"/> and water.</para></
-proceduralStep>
-<proceduralStep><para>Fully clean the bicycle with the soaked
-sponge.</para></proceduralStep>
-<proceduralStep><para>Flush the bicycle to make sure that all
-detergents are removed.</para></proceduralStep>
-<proceduralStep><para>Move the bicycle up and down on its tires
-to remove all water.</para></proceduralStep></proceduralStep>
-<proceduralStep><para>Lubricate the bicycle (refer to <dmRef
-><dmRefIdent><dmCode modelIdentCode="S1000DBIKE"
-systemDiffCode="AAA" systemCode="DA4" subSystemCode="1"
-subSubSystemCode="0" assyCode="00" disassyCode="00"
-disassyCodeVariant="AA" infoCode="241" infoCodeVariant="A"
-itemLocationCode="A"/></dmRefIdent></dmRef>).</para></
-proceduralStep></mainProcedure>
-<closeRqmts><reqCondGroup>
-<reqCondNoRef><reqCond>Make sure the bicycle is dry</reqCond>
-</reqCondNoRef></reqCondGroup></closeRqmts>
+  <preliminaryRqmts>
+    <reqCondGroup>
+      <reqCondNoRef>
+        <reqCond>The bicycle is outdoors</reqCond>
+      </reqCondNoRef>
+    </reqCondGroup>
+    <reqPersons applicRefId="apMK9">
+      <person man="A">
+        <personCategory personCategoryCode="Chemical technician"/>
+        <personSkill skillLevelCode="sk02"/>
+        <trade>Bike cleaner</trade>
+        <estimatedTime unitOfMeasure="h">1,0</estimatedTime>
+      </person>
+    </reqPersons>
+    <reqPersons applicRefId="apMK1">
+      <person man="B">
+        <personCategory personCategoryCode="Operator"/>
+        <personSkill skillLevelCode="sk02"/>
+        <trade>Bike rider</trade>
+        <estimatedTime unitOfMeasure="h">1,0</estimatedTime>
+      </person>
+    </reqPersons>
+    <reqSupportEquips>
+      <supportEquipDescrGroup>
+        <supportEquipDescr id="seq-0001">
+          <name>Water hose</name>
+          <identNumber>
+            <manufacturerCode>KZ666</manufacturerCode>
+            <partAndSerialNumber>
+              <partNumber>BSK-TLST-001-09</partNumber>
+            </partAndSerialNumber>
+          </identNumber>
+          <reqQuantity unitOfMeasure="EA">1</reqQuantity>
+        </supportEquipDescr>
+        <supportEquipDescr id="seq-0002">
+          <name>Stiff bristle brush</name>
+          <identNumber>
+            <manufacturerCode>KZ666</manufacturerCode>
+            <partAndSerialNumber>
+              <partNumber>BSK-TLST-001-02</partNumber>
+            </partAndSerialNumber>
+          </identNumber>
+          <reqQuantity unitOfMeasure="EA">1</reqQuantity>
+        </supportEquipDescr>
+        <supportEquipDescr id="seq-0003">
+          <name>Sponge</name>
+          <identNumber>
+            <manufacturerCode>KZ666</manufacturerCode>
+            <partAndSerialNumber>
+              <partNumber>BSK-TLST-001-11</partNumber>
+            </partAndSerialNumber>
+          </identNumber>
+          <reqQuantity unitOfMeasure="EA">1</reqQuantity>
+        </supportEquipDescr>
+      </supportEquipDescrGroup>
+    </reqSupportEquips>
+    <reqSupplies>
+      <supplyDescrGroup>
+        <supplyDescr id="sup-0001">
+          <name>Degreasing agent</name>
+          <identNumber>
+            <manufacturerCode>KZ222</manufacturerCode>
+            <partAndSerialNumber>
+              <partNumber>LL-004</partNumber>
+            </partAndSerialNumber>
+          </identNumber>
+          <reqQuantity unitOfMeasure="L">1</reqQuantity>
+        </supplyDescr>
+        <supplyDescr id="sup-0002">
+          <name>Detergent A</name>
+          <identNumber>
+            <manufacturerCode>KZ666</manufacturerCode>
+            <partAndSerialNumber>
+              <partNumber>BSK-TLST-023-14</partNumber>
+            </partAndSerialNumber>
+          </identNumber>
+          <reqQuantity unitOfMeasure="L">1</reqQuantity>
+        </supplyDescr>
+        <supplyDescr id="sup-0003" applicRefId="apMK9">
+          <name>Detergent B</name>
+          <identNumber>
+            <manufacturerCode>KZ666</manufacturerCode>
+            <partAndSerialNumber>
+              <partNumber>BSK-TLST-001-15</partNumber>
+            </partAndSerialNumber>
+          </identNumber>
+          <reqQuantity unitOfMeasure="L">1</reqQuantity>
+        </supplyDescr>
+      </supplyDescrGroup>
+    </reqSupplies>
+    <reqSpares>
+      <noSpares/>
+    </reqSpares>
+    <reqSafety>
+      <safetyRqmts>
+        <warning>
+          <warningAndCautionPara>Do not get 
+            <internalRef internalRefId="sup-0002" internalRefTargetType="irtt04"/>
+            into your eyes. If it gets into your eyes, wash them immediately in clean warm water.</warningAndCautionPara>
+        </warning>
+        <warning><warningAndCautionPara>Do not get 
+          <internalRef internalRefId="sup-0003" internalRefTargetType="irtt04"/>
+          into your eyes. If it gets into your eyes, wash them immediately in clean warm water.</warningAndCautionPara>
+        </warning>
+        <caution>
+          <warningAndCautionPara>Do not use a 
+            <internalRef internalRefId="seq-0001" internalRefTargetType="irtt05"/>
+            that has high pressure. A water hose that has high pressure can cause some parts to become loose or full of water.</warningAndCautionPara>
+        </caution>
+        <caution>
+          <warningAndCautionPara>Do not point the hose directly at the hub or at the bottom bracket bearings. This can cause damage to the parts.</warningAndCautionPara>
+        </caution>
+        <caution>
+          <warningAndCautionPara>Apply 
+            <internalRef internalRefId="sup-0003" internalRefTargetType="irtt04"/>
+            in accordance with the instruction on the container. The substance may cause damage to the Bike paint if it is not applied correctly.</warningAndCautionPara>
+        </caution>
+      </safetyRqmts>
+    </reqSafety>
+  </preliminaryRqmts>
+  <mainProcedure>
+    <proceduralStep>
+      <para>Clean the bicycle with water to remove all dirt. Refer to 
+        <internalRef internalRefId="fig-0001" internalRefTargetType="irtt01"/>.</para>
+      <figure id="fig-0001">
+        <title>Cleaning the bike</title>
+        <graphic infoEntityIdent="ICN-S1000DBIKE-AAA-D000000-0-U8025-00502-A-04-1"/>
+      </figure>
+    </proceduralStep>
+    <proceduralStep>
+      <para>Use a 
+        <internalRef internalRefId="seq-0002" internalRefTargetType="irtt05"/> 
+        to get access to areas that are not easy to clean. These are the shift levers, the knobbly tires, and the brakes.</para>
+    </proceduralStep>
+    <proceduralStep>
+      <para>Clean the caked grime from the chain and the sprockets with a screwdriver that has a small blade.</para>
+    </proceduralStep>
+    <proceduralStep>
+      <para>Remove the grease from the freewheel assembly with the 
+        <internalRef internalRefId="sup-0001" internalRefTargetType="irtt04"/> 
+        as shown in 
+        <internalRefinternalRefId="fig-0002" internalRefTargetType="irtt01"/>. 
+        Use a brush to remove the grease from these parts:
+          <randomList listItemPrefix="pf02">
+            <listItem>
+              <para>sprockets</para>
+            </listItem>
+            <listItem>
+              <para>guide and tension wheels of the derailleur</para>
+            </listItem>
+            <listItem>
+              <para>chain ring teeth</para>
+            </listItem>
+          </randomList>
+      </para>
+      <figure id="fig-0002">
+        <title>Degreasing the freehub</title>
+        <graphic infoEntityIdent="ICN-S1000DBIKE-AAA-DA52000-0-U8025-00523-A-04-1"/>
+      </figure>
+    </proceduralStep>
+    <proceduralStep>
+      <para>Flush the sprockets, the derailleurs, the chain rings and the chain with water.</para>
+      <note>
+        <notePara>If necessary, do the flush procedure again.</notePara>
+      </note>
+    </proceduralStep>
+    <proceduralStep applicRefId="apMK1">
+      <title>Wash the Bike</title>
+      <proceduralStep>
+        <para>Soak the <internalRef internalRefId="seq-0003" internalRefTargetType="irtt05"/> 
+        into
+          <internalRef internalRefId="sup-0002" internalRefTargetType="irtt04"/> 
+          and water.</para>
+      </proceduralStep>
+      <proceduralStep>
+        <para>Clean the bicycle with the soaked sponge.</para>
+      </proceduralStep>
+      <proceduralStep>
+        <para>Flush the bicycle and make sure that all
+          <internalRef internalRefId="sup-0002" internalRefTargetType="irtt04"/> 
+          is removed.</para>
+      </proceduralStep>
+      <proceduralStep>
+        <para>Move the bicycle up and down on its tires to remove all water.</para>
+      </proceduralStep>
+    </proceduralStep>
+    <proceduralStep applicRefId="apMK9">
+      <title>Wash the Bike</title>
+      <proceduralStep>
+        <para>Soak the 
+          <internalRef internalRefId="seq-0003" internalRefTargetType="irtt05"/> 
+          into
+            <internalRef internalRefId="sup-0003" internalRefTargetType="irtt04"/> 
+          and water.</para>
+      </proceduralStep>
+      <proceduralStep>
+        <para>Clean the bicycle with the soaked sponge.</para>
+      </proceduralStep>
+      <proceduralStep>
+        <para>Soak the 
+          <internalRef internalRefId="seq-0003" internalRefTargetType="irtt05"/> 
+          into 
+          <internalRef internalRefId="sup-0002" internalRefTargetType="irtt04"/> 
+          and water.</para>
+      </proceduralStep>
+      <proceduralStep>
+        <para>Fully clean the bicycle with the soaked sponge.</para>
+      </proceduralStep>
+      <proceduralStep>
+        <para>Flush the bicycle to make sure that all detergents are removed.</para>
+      </proceduralStep>
+      <proceduralStep>
+        <para>Move the bicycle up and down on its tires to remove all water.</para>
+      </proceduralStep>
+    </proceduralStep>
+    <proceduralStep>
+      <para>Lubricate the bicycle (refer to 
+        <dmRef>
+          <dmRefIdent>
+            <dmCode modelIdentCode="S1000DBIKE" systemDiffCode="AAA" 
+            systemCode="DA4" subSystemCode="1" subSubSystemCode="0" 
+            assyCode="00" disassyCode="00" disassyCodeVariant="AA" 
+            infoCode="241" infoCodeVariant="A" itemLocationCode="A"/>
+          </dmRefIdent>
+        </dmRef>).
+      </para>
+    </proceduralStep>
+  </mainProcedure>
+  <closeRqmts>
+    <reqCondGroup>
+      <reqCondNoRef>
+        <reqCond>Make sure the bicycle is dry</reqCond>
+      </reqCondNoRef>
+    </reqCondGroup>
+  </closeRqmts>
 </procedure>
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 3.2 Using the alternates concept
+
 The following is a markup example of a procedure using the alternates concept:
+
 <mainProcedure>
-<proceduralStep><para>Clean the bicycle with water to remove all
-dirt. Refer to <internalRef internalRefId="fig-0001"
-internalRefTargetType="irtt01"/>.</para>
-<figure id="fig-0001"><title>Cleaning the bike</title>
-<graphic infoEntityIdent="ICN-S1000DBIKE-AAA-D000000-0-
-U8025-00502-A-04-1"/></figure></proceduralStep>
-<proceduralStep><para>Use a <internalRef
-internalRefId="seq-0002" internalRefTargetType="irtt05"/> to get
-access to areas that are not easy to clean. These are the shift
-levers, the knobbly tires, and the brakes.</para></
-proceduralStep>
-<proceduralStep><para>Clean the caked grime from the chain and
-the sprockets with a screwdriver that has a small blade.</
-para></proceduralStep>
-<proceduralStep><para>Remove the grease from the freewheel
-assembly with the <internalRef internalRefId="sup-0001"
-internalRefTargetType="irtt04"/> as shown in <internalRef
-internalRefId="fig-0002" internalRefTargetType="irtt01"/> . Use
-a brush to remove the grease from these parts:
-<randomList listItemPrefix="pf02">
-<listItem><para>sprockets</para></listItem>
-<listItem><para>guide and tension wheels of the derailleur</
-para></listItem>
-<listItem><para>chain ring teeth</para></listItem>
-</randomList></para>
-<figure id="fig-0002"><title>Degreasing the freehub</title>
-<graphic infoEntityIdent="ICN-S1000DBIKE-AAA-DA52000-0-
-U8025-00523-A-04-1"/></figure></proceduralStep>
-<proceduralStep><para>Flush the sprockets, the derailleurs, the
-chain rings and the chain with water.</para>
-<note><notePara>If necessary, do the flush procedure again.</
-notePara></note></proceduralStep>
-<proceduralStepAlts>
-<proceduralStep applicRefId="apMK1"><para>Wash the Bike</para>
-<proceduralStep><para>Soak the <internalRef
-internalRefId="seq-0003" internalRefTargetType="irtt05"/> into
-<internalRef internalRefId="sup-0002"
-internalRefTargetType="irtt04"/> and water.</para></
-proceduralStep>
-<proceduralStep><para>Clean the bicycle with the soaked
-sponge.</para></proceduralStep>
-<proceduralStep><para>Flush the bicycle and make sure that all
-<internalRef internalRefId="sup-0002"
-internalRefTargetType="irtt04"/> is removed.</para></
-proceduralStep>
-<proceduralStep><para>Move the bicycle up and down on its tires
-to remove all water.</para></proceduralStep>
-</proceduralStep>
-<proceduralStep applicRefId="apMK9"><para>Wash the Bike</para>
-<proceduralStep><para>Soak the <internalRef
-internalRefId="seq-0003" internalRefTargetType="irtt05"/> into
-<internalRef internalRefId="sup-0003"
-internalRefTargetType="irtt04"/> and water.</para></
-proceduralStep>
-<proceduralStep><para>Clean the bicycle with the soaked
-sponge.</para></proceduralStep>
-<proceduralStep><para>Soak the <internalRef
-internalRefId="seq-0003" internalRefTargetType="irtt05"/> into
-<internalRef internalRefId="sup-0002"
-internalRefTargetType="irtt04"/> and water.</para></
-proceduralStep>
-<proceduralStep><para>Fully clean the bicycle with the soaked
-sponge.</para></proceduralStep>
-<proceduralStep><para>Flush the bicycle to make sure that all
-detergents are removed.</para></proceduralStep>
-<proceduralStep><para>Move the bicycle up and down on its tires
-to remove all water.</para></proceduralStep></proceduralStep>
-</proceduralStepAlts>
-<proceduralStep><para>Lubricate the bicycle (refer to <dmRef
-><dmRefIdent><dmCode modelIdentCode="S1000DBIKE"
-systemDiffCode="AAA" systemCode="DA4" subSystemCode="1"
-subSubSystemCode="0" assyCode="00" disassyCode="00"
-disassyCodeVariant="AA" infoCode="241" infoCodeVariant="A"
-itemLocationCode="A"/></dmRefIdent></dmRef>).</para>
-</proceduralStep>
+  <proceduralStep>
+    <para>Clean the bicycle with water to remove all dirt. Refer to 
+      <internalRef internalRefId="fig-0001" internalRefTargetType="irtt01"/>.
+    </para>
+    <figure id="fig-0001">
+      <title>Cleaning the bike</title>
+      <graphic infoEntityIdent="ICN-S1000DBIKE-AAA-D000000-0-U8025-00502-A-04-1"/>
+    </figure>
+  </proceduralStep>
+  <proceduralStep>
+    <para>Use a 
+      <internalRef internalRefId="seq-0002" internalRefTargetType="irtt05"/> 
+      to get access to areas that are not easy to clean. These are the shift levers, the knobbly tires, and the brakes.</para>
+  </proceduralStep>
+  <proceduralStep>
+    <para>Clean the caked grime from the chain and the sprockets with a screwdriver that has a small blade.</para>
+  </proceduralStep>
+  <proceduralStep><para>Remove the grease from the freewheel assembly with the 
+    <internalRef internalRefId="sup-0001" internalRefTargetType="irtt04"/> 
+    as shown in 
+    <internalRef internalRefId="fig-0002" internalRefTargetType="irtt01"/>. 
+    Use a brush to remove the grease from these parts:
+      <randomList listItemPrefix="pf02">
+        <listItem>
+          <para>sprockets</para>
+        </listItem>
+        <listItem>
+          <para>guide and tension wheels of the derailleur</para>
+        </listItem>
+        <listItem>
+          <para>chain ring teeth</para>
+        </listItem>
+      </randomList>
+    </para>
+    <figure id="fig-0002">
+      <title>Degreasing the freehub</title>
+      <graphic infoEntityIdent="ICN-S1000DBIKE-AAA-DA52000-0-U8025-00523-A-04-1"/>
+    </figure>
+  </proceduralStep>
+  <proceduralStep>
+    <para>Flush the sprockets, the derailleurs, the chain rings and the chain with water.</para>
+    <note>
+      <notePara>If necessary, do the flush procedure again.</notePara>
+    </note>
+  </proceduralStep>
+  <proceduralStepAlts>
+    <proceduralStep applicRefId="apMK1">
+      <para>Wash the Bike</para>
+      <proceduralStep>
+        <para>Soak the 
+          <internalRef internalRefId="seq-0003" internalRefTargetType="irtt05"/> 
+          into
+            <internalRef internalRefId="sup-0002" internalRefTargetType="irtt04"/> 
+          and water.</para>
+      </proceduralStep>
+      <proceduralStep>
+        <para>Clean the bicycle with the soaked sponge.</para>
+      </proceduralStep>
+      <proceduralStep>
+        <para>Flush the bicycle and make sure that all
+          <internalRef internalRefId="sup-0002" internalRefTargetType="irtt04"/> 
+          is removed.</para>
+      </proceduralStep>
+      <proceduralStep>
+        <para>Move the bicycle up and down on its tires to remove all water.</para>
+      </proceduralStep>
+    </proceduralStep>
+    <proceduralStep applicRefId="apMK9">
+      <para>Wash the Bike</para>
+      <proceduralStep>
+        <para>Soak the 
+          <internalRef internalRefId="seq-0003" internalRefTargetType="irtt05"/> 
+          into
+          <internalRef internalRefId="sup-0003" internalRefTargetType="irtt04"/> 
+          and water.</para>
+      </proceduralStep>
+      <proceduralStep>
+        <para>Clean the bicycle with the soaked sponge.</para>
+      </proceduralStep>
+      <proceduralStep><para>Soak the 
+        <internalRef internalRefId="seq-0003" internalRefTargetType="irtt05"/> 
+        into
+        <internalRef internalRefId="sup-0002" internalRefTargetType="irtt04"/> 
+        and water.</para>
+      </proceduralStep>
+      <proceduralStep>
+        <para>Fully clean the bicycle with the soaked sponge.</para>
+      </proceduralStep>
+      <proceduralStep>
+        <para>Flush the bicycle to make sure that all detergents are removed.</para>
+      </proceduralStep>
+      <proceduralStep>
+        <para>Move the bicycle up and down on its tires to remove all water.</para>
+      </proceduralStep>
+    </proceduralStep>
+  </proceduralStepAlts>
+  <proceduralStep>
+    <para>Lubricate the bicycle (refer to 
+      <dmRef>
+        <dmRefIdent>
+          <dmCode modelIdentCode="S1000DBIKE" systemDiffCode="AAA" 
+          systemCode="DA4" subSystemCode="1" subSubSystemCode="0" 
+          assyCode="00" disassyCode="00" disassyCodeVariant="AA" 
+          infoCode="241" infoCodeVariant="A" itemLocationCode="A"/>
+        </dmRefIdent>
+      </dmRef>).
+    </para>
+  </proceduralStep>
 </mainProcedure>
 
 
