@@ -17918,47 +17918,60 @@ Markup example:
       <action>To do a check of the tirefor damage</action>
       <isolationStepQuestion>Is there damage to the tire?</isolationStepQuestion>
       <isolationStepAnswer>
-<yesNoAnswer>
-<yesAnswer nextActionRefId="stp-0005"/>
-<noAnswer nextActionRefId="stp-0006"/>
-</yesNoAnswer>
-</isolationStepAnswer>
-</isolationStep>
-<isolationProcedureEnd id="stp-0005">
-<action>Replace the tire (refer to <dmRef>
-<dmRefIdent>
-<dmCode modelIdentCode="S1000DBIKE" systemDiffCode="AAA"
-systemCode="DA0" subSystemCode="1" subSubSystemCode="0"
-assyCode="20" disassyCode="00" disassyCodeVariant="AA"
-infoCode="921" infoCodeVariant="A" itemLocationCode="A"/>
-</dmRefIdent>
-</dmRef>).</action>
-</isolationProcedureEnd>
-<isolationProcedureEnd id="stp-0006">
-<action>Replace the inner-tube (refer to <dmRef>
-<dmRefIdent>
-<dmCode modelIdentCode="S1000DBIKE" systemDiffCode="AAA"
-systemCode="DA0" subSystemCode="1" subSubSystemCode="0"
-assyCode="10" disassyCode="00" disassyCodeVariant="AA"
-infoCode="921" infoCodeVariant="A" itemLocationCode="A"/>
-</dmRefIdent>
-</dmRef>).</action>
-</isolationProcedureEnd>
-</isolationMainProcedure>
-<closeRqmts>
-<reqCondGroup><noConds/></reqCondGroup>
-</closeRqmts>
+        <yesNoAnswer>
+          <yesAnswer nextActionRefId="stp-0005"/>
+          <noAnswer nextActionRefId="stp-0006"/>
+        </yesNoAnswer>
+      </isolationStepAnswer>
+    </isolationStep>
+    <isolationProcedureEnd id="stp-0005">
+      <action>Replace the tire (refer to 
+        <dmRef>
+          <dmRefIdent>
+            <dmCode modelIdentCode="S1000DBIKE" systemDiffCode="AAA"
+            systemCode="DA0" subSystemCode="1" subSubSystemCode="0"
+            assyCode="20" disassyCode="00" disassyCodeVariant="AA"
+            infoCode="921" infoCodeVariant="A" itemLocationCode="A"/>
+          </dmRefIdent>
+        </dmRef>).
+      </action>
+    </isolationProcedureEnd>
+    <isolationProcedureEnd id="stp-0006">
+      <action>Replace the inner-tube (refer to 
+        <dmRef>
+          <dmRefIdent>
+            <dmCode modelIdentCode="S1000DBIKE" systemDiffCode="AAA"
+            systemCode="DA0" subSystemCode="1" subSubSystemCode="0"
+            assyCode="10" disassyCode="00" disassyCodeVariant="AA"
+            infoCode="921" infoCodeVariant="A" itemLocationCode="A"/>
+          </dmRefIdent>
+        </dmRef>).
+      </action>
+    </isolationProcedureEnd>
+  </isolationMainProcedure>
+  <closeRqmts>
+    <reqCondGroup>
+      <noConds/>
+    </reqCondGroup>
+  </closeRqmts>
 </isolationProcedure>
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 2.6.1.3 Fault isolation main procedure
-Description: The element <isolationMainProcedure> contains the individual
-isolation steps.
+
+Description: The element <isolationMainProcedure> contains the individual isolation steps.
+
+  
 Markup element: <isolationMainProcedure>
+
 Attributes:
 - id (O), the identifier of the markup element. Refer to Chap 3.9.5.2.1.2.
-- changeType (O), changeMark (O) and reasonForUpdateRefIds (O), the
-change indications. Refer to Chap 3.9.5.2.1.1.
-- controlAuthorityRefs (O), the control authority information by referencing the
-element <controlAuthority>. Refer to Chap 3.9.5.1.
+- changeType (O), changeMark (O) and reasonForUpdateRefIds (O), 
+the change indications. Refer to Chap 3.9.5.2.1.1.
+- controlAuthorityRefs (O), the control authority information by referencing 
+the element <controlAuthority>. Refer to Chap 3.9.5.1.
+
 Child elements:
 - <isolationStep>. Refer to Para 2.6.1.4.
 - <isolationStepAlts>. Refer to Para 2.6.1.5.
@@ -17970,95 +17983,107 @@ Child elements:
 - <multimediaAlts>. Refer to Chap 3.9.5.2.1.7.
 - <foldout>. Refer to Chap 3.9.5.2.1.7.
 - <table>. Refer to Chap 3.9.5.2.1.6.
+
+  
 Markup example:
+
 <isolationMainProcedure>
-<isolationStep id="stp-0001">
-<action>Use the tire pressure gauge to do a check of the
-pressure</action>
-<isolationStepQuestion>What is the tire pressure reading?</
-isolationStepQuestion>
-<isolationStepAnswer>
-<listOfChoices>
-<choice nextActionRefId="stp-0002">More than 2700 hPa</choice>
-<choice nextActionRefId="stp-0003">Between 100 hPa and 2700
-hPa</choice>
-<choice nextActionRefId="stp-0004">Less than 100 hPa</choice>
-</listOfChoices>
-</isolationStepAnswer>
-</isolationStep>
-<isolationProcedureEnd id="stp-0002">
-<action>Deflate the tire until the pressure is 2700 hPa</action>
-</isolationProcedureEnd>
-<isolationProcedureEnd id="stp-0003">
-<action>Inflate the tire as given in <dmRef><dmRefIdent>
-<dmCode modelIdentCode="S1000DBIKE" systemDiffCode="AAA"
-systemCode="DA0" subSystemCode="1" subSubSystemCode="0"
-assyCode="20" disassyCode="00" disassyCodeVariant="AA"
-infoCode="215" infoCodeVariant="A" itemLocationCode="A"/>
-</dmRefIdent></dmRef></action></isolationProcedureEnd>
-<isolationStep id="stp-0004"><action>To do a check of the tire
-for damage</action>
-<isolationStepQuestion>Is there damage to the tire?</
-isolationStepQuestion>
-<isolationStepAnswer>
-<yesNoAnswer>
-<yesAnswer nextActionRefId="stp-0005"/>
-<noAnswer nextActionRefId="stp-0006"/>
-</yesNoAnswer>
-</isolationStepAnswer>
-</isolationStep>
-<isolationProcedureEnd id="stp-0005">
-<action>Replace the tire (refer to <dmRef><dmRefIdent>
-<dmCode modelIdentCode="S1000DBIKE" systemDiffCode="AAA"
-systemCode="DA0" subSystemCode="1" subSubSystemCode="0"
-assyCode="20" disassyCode="00" disassyCodeVariant="AA"
-infoCode="921" infoCodeVariant="A" itemLocationCode="A"/>
-</dmRefIdent>
-</dmRef>).</action>
-</isolationProcedureEnd>
-<isolationProcedureEnd id="stp-0006">
-<action>Replace the inner-tube (refer to <dmRef>
-<dmRefIdent>
-<dmCode modelIdentCode="S1000DBIKE" systemDiffCode="AAA"
-systemCode="DA0" subSystemCode="1" subSubSystemCode="0"
-assyCode="10" disassyCode="00" disassyCodeVariant="AA"
-infoCode="921" infoCodeVariant="A" itemLocationCode="A"/>
-</dmRefIdent>
-</dmRef>).</action>
-</isolationProcedureEnd>
+  <isolationStep id="stp-0001">
+    <action>Use the tire pressure gauge to do a check of thepressure</action>
+    <isolationStepQuestion>What is the tire pressure reading?</isolationStepQuestion>
+    <isolationStepAnswer>
+      <listOfChoices>
+        <choice nextActionRefId="stp-0002">More than 2700 hPa</choice>
+        <choice nextActionRefId="stp-0003">Between 100 hPa and 2700 hPa</choice>
+        <choice nextActionRefId="stp-0004">Less than 100 hPa</choice>
+      </listOfChoices>
+    </isolationStepAnswer>
+  </isolationStep>
+  <isolationProcedureEnd id="stp-0002">
+    <action>Deflate the tire until the pressure is 2700 hPa</action>
+  </isolationProcedureEnd>
+  <isolationProcedureEnd id="stp-0003">
+    <action>Inflate the tire as given in 
+      <dmRef>
+        <dmRefIdent>
+          <dmCode modelIdentCode="S1000DBIKE" systemDiffCode="AAA"
+          systemCode="DA0" subSystemCode="1" subSubSystemCode="0"
+          assyCode="20" disassyCode="00" disassyCodeVariant="AA"
+          infoCode="215" infoCodeVariant="A" itemLocationCode="A"/>
+        </dmRefIdent>
+      </dmRef>
+    </action>
+  </isolationProcedureEnd>
+  <isolationStep id="stp-0004">
+    <action>To do a check of the tire for damage</action>
+    <isolationStepQuestion>Is there damage to the tire?</isolationStepQuestion>
+    <isolationStepAnswer>
+      <yesNoAnswer>
+        <yesAnswer nextActionRefId="stp-0005"/>
+        <noAnswer nextActionRefId="stp-0006"/>
+      </yesNoAnswer>
+    </isolationStepAnswer>
+  </isolationStep>
+  <isolationProcedureEnd id="stp-0005">
+    <action>Replace the tire (refer to 
+      <dmRef>
+        <dmRefIdent>
+          <dmCode modelIdentCode="S1000DBIKE" systemDiffCode="AAA"
+          systemCode="DA0" subSystemCode="1" subSubSystemCode="0"
+          assyCode="20" disassyCode="00" disassyCodeVariant="AA"
+          infoCode="921" infoCodeVariant="A" itemLocationCode="A"/>
+        </dmRefIdent>
+      </dmRef>).
+    </action>
+  </isolationProcedureEnd>
+  <isolationProcedureEnd id="stp-0006">
+    <action>Replace the inner-tube (refer to 
+      <dmRef>
+        <dmRefIdent>
+          <dmCode modelIdentCode="S1000DBIKE" systemDiffCode="AAA"
+          systemCode="DA0" subSystemCode="1" subSubSystemCode="0"
+          assyCode="10" disassyCode="00" disassyCodeVariant="AA"
+          infoCode="921" infoCodeVariant="A" itemLocationCode="A"/>
+        </dmRefIdent>
+      </dmRef>).
+    </action>
+  </isolationProcedureEnd>
 </isolationMainProcedure>
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 2.6.1.4 Fault isolation step
+
 Description: The element <isolationStep> contains the textual description of the
-action, the question and answer alternatives. It can also include a title, warnings, cautions and
-notes.
+action, the question and answer alternatives. It can also include a title, warnings, 
+cautions and notes.
+
+  
 Markup element: <isolationStep>
+
 Attributes:
 - applicRefId (O), the applicability information. Refer to Chap 3.9.5.3.
 - id (M), the identifier of the markup element. Refer to Chap 3.9.5.2.1.2.
-- changeType (O), changeMark (O) and reasonForUpdateRefIds (O), the
-change indications. Refer to Chap 3.9.5.2.1.1.
-- keepWithNext (O), the indication whether a step must be presented together with the
-next step, if possible. The attribute keepWithNext is intended for use only when
-absolutely necessary in a situation where for instance scrolling is not practical for the user,
-or the viewing device does not allow scrolling.The attribute keepWithNext can have
-one of the following values:
-• "0" (D) - No, the step must not be kept with the next sibling step.
-• "1" - Yes, the step must be kept with the next sibling step (if one exists) and all
-children of the element for which the attribute is set should be kept together as well (if
-possible). The attribute keepWithNext has no meaning on a final step.
-- warningRefs (O), the warning reference to the warnings and cautions collection.
-Refer to Chap 3.9.3.
-- cautionRefs (O), the caution reference to the warnings and cautions collection. Refer
-to Chap 3.9.3.
-- independentCheck (O), the isolation step must be checked by a supervisor with a
-given qualification
-- skillLevelCode (O), the skill level to which the procedure has been written. Refer to
-Chap 3.9.5.1.
+- changeType (O), changeMark (O) and reasonForUpdateRefIds (O), 
+the change indications. Refer to Chap 3.9.5.2.1.1.
+- keepWithNext (O), the indication whether a step must be presented together 
+with the next step, if possible. The attribute keepWithNext is intended for use only when
+absolutely necessary in a situation where for instance scrolling is not practical 
+for the user, or the viewing device does not allow scrolling.The attribute keepWithNext 
+can have one of the following values:
+  • "0" (D) - No, the step must not be kept with the next sibling step.
+  • "1" - Yes, the step must be kept with the next sibling step (if one exists) and all
+  children of the element for which the attribute is set should be kept together as well (if
+  possible). The attribute keepWithNext has no meaning on a final step.
+- warningRefs (O), the warning reference to the warnings and cautions collection. Refer to Chap 3.9.3.
+- cautionRefs (O), the caution reference to the warnings and cautions collection. Refer to Chap 3.9.3.
+- independentCheck (O), the isolation step must be checked by a supervisor with a given qualification
+- skillLevelCode (O), the skill level to which the procedure has been written. Refer to Chap 3.9.5.1.
 - controlAuthorityRefs (O), the control authority information by referencing the
 element <controlAuthority>. Refer to Chap 3.9.5.1 .
+
 Child elements:
-- <title>. Refer to Para 2.6.1.4.1 for the use of titles. Refer to Chap 3.9.5.2.1.5 for
-general rules.
+- <title>. Refer to Para 2.6.1.4.1 for the use of titles. Refer to Chap 3.9.5.2.1.5 for general rules.
 - <warning>. Refer to Chap 3.9.3.
 - <caution>. Refer to Chap 3.9.3.
 - <note>. Refer to Chap 3.9.3.
@@ -18070,213 +18095,311 @@ general rules.
 - <multimediaAlts>. Refer to Chap 3.9.5.2.1.7.
 - <foldout>. Refer to Chap 3.9.5.2.1.7.
 - <table>. Refer to Chap 3.9.5.2.1.6.
-- <isolationStepQuestion>, the textual question based on the corresponding
-action. Refer to Para 2.6.1.4.4.
+- <isolationStepQuestion>, the textual question based on the corresponding action. Refer to Para 2.6.1.4.4.
 - <isolationStepAnswer>, the answers to the question. Refer to Para 2.6.1.4.5.
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------  
+
 2.6.1.4.1 Title
+
 Description: The element <title> contains the title of the step.
+
+  
 Markup element: <title>
+
 Attributes:
-- changeType (O), changeMark (O) and reasonForUpdateRefIds (O), the
-change indications. Refer to Chap 3.9.5.2.1.1.
-- controlAuthorityRefs (O), the control authority information by referencing the
-element <controlAuthority>. Refer to Chap 3.9.5.1.
+- changeType (O), changeMark (O) and reasonForUpdateRefIds (O), 
+the change indications. Refer to Chap 3.9.5.2.1.1.
+- controlAuthorityRefs (O), the control authority information by referencing 
+the element <controlAuthority>. Refer to Chap 3.9.5.1.
 - securityClassification (O), commercialClassification (O), 
-caveat (O) and derivativeClassificationRefId (O), the security and
-restrictive marking. Refer to Chap 3.6.
+caveat (O) and derivativeClassificationRefId (O), the security 
+and restrictive marking. Refer to Chap 3.6.
+
 Child elements:
-- All child text elements of the element <action> can be used. Refer to Para 2.6.1.4.2
-and Chap 3.9.5.2.1.10.
+- All child text elements of the element <action> can be used. 
+Refer to Para 2.6.1.4.2 and Chap 3.9.5.2.1.10.
+
+  
 Markup example:
+
 <title>Tire Pressure</title>
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 2.6.1.4.2 Action
+
 Description: The element <action> contains an action in the isolation procedure.
+
+  
 Markup element: <action>
+
 Attributes:
 - applicRefId (O), the applicability information. Refer to Chap 3.9.5.3.
 - id (O), the identifier of the markup element. Refer to Chap 3.9.5.2.1.2.
 - changeType (O), changeMark (O) and reasonForUpdateRefIds (O), the
 change indications. Refer to Chap 3.9.5.2.1.1.
-- controlAuthorityRefs (O), the control authority information by referencing the
-element <controlAuthority>. Refer to Chap 3.9.5.1.
+- controlAuthorityRefs (O), the control authority information by referencing 
+the element <controlAuthority>. Refer to Chap 3.9.5.1.
 - securityClassification (O), commercialClassification (O), 
-caveat (O) and derivativeClassificationRefId (O), the security and
-restrictive marking. Refer to Chap 3.6.
+caveat (O) and derivativeClassificationRefId (O), the security 
+and restrictive marking. Refer to Chap 3.6.
+
 Child elements:
 - All text elements given in Fig 24 can be used. Refer to Chap 3.9.5.2.1.10.
 - <randomList>. Refer to Chap 3.9.5.2.1.3.
+
+  
 Markup example:
-<action>Use the tire pressure gauge (<internalRef
-internalRefId="seq-0001" internalRefTargetType="irtt05"/> to do
-a check of the pressure</action>
+
+<action>Use the tire pressure gauge (
+  <internalRef internalRefId="seq-0001" internalRefTargetType="irtt05"/> 
+  to do a check of the pressure
+</action>
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 2.6.1.4.3 Action alternates group
-Description: The element <actionAlts> is an alternates group that provides the
-capability to group several alternate solutions of the action. Refer to Chap 4.13.3 for information
-related to the use of alternates group in data module content.
+
+Description: The element <actionAlts> is an alternates group that provides 
+the capability to group several alternate solutions of the action. Refer to Chap 4.13.3 
+for information related to the use of alternates group in data module content.
+
 Markup element: <actionAlts>
+
 Attributes:
 - id (O), the identifier of the markup element. Refer to Chap 3.9.5.2.1.2.
-- changeType (O), changeMark (O) and reasonForUpdateRefIds (O), the
-change indications. Refer to Chap 3.9.5.2.1.1.
-- controlAuthorityRefs (O), the control authority information by referencing the
-element <controlAuthority>. Refer to Chap 3.9.5.1 .
+- changeType (O), changeMark (O) and reasonForUpdateRefIds (O), 
+the change indications. Refer to Chap 3.9.5.2.1.1.
+- controlAuthorityRefs (O), the control authority information by referencing 
+the element <controlAuthority>. Refer to Chap 3.9.5.1.
 - securityClassification (O), commercialClassification (O), 
-caveat (O) and derivativeClassificationRefId (O), the security and
-restrictive marking. Refer to Chap 3.6.
+caveat (O) and derivativeClassificationRefId (O), the security 
+and restrictive marking. Refer to Chap 3.6.
+
 Child elements:
 - <action>. Refer to Para 2.6.1.4.2.
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------  
+
 2.6.1.4.4 Question
-Description: The element <isolationStepQuestion> contains the question that is
-prompted by the action contained in the element <action>.
+
+Description: The element <isolationStepQuestion> contains the question 
+that is prompted by the action contained in the element <action>.
+
+  
 Markup element: <isolationStepQuestion>
+
 Attributes:
-- changeType (O), changeMark (O) and reasonForUpdateRefIds (O), the
-change indications. Refer to Chap 3.9.5.2.1.1.
-- controlAuthorityRefs (O), the control authority information by referencing the
-element <controlAuthority>. Refer to Chap 3.9.5.1.
+- changeType (O), changeMark (O) and reasonForUpdateRefIds (O), 
+the change indications. Refer to Chap 3.9.5.2.1.1.
+- controlAuthorityRefs (O), the control authority information by referencing 
+the element <controlAuthority>. Refer to Chap 3.9.5.1.
+
 Child elements:
 - <subScript>. The items to be subscripted. Refer to Chap 3.9.5.2.1.10.
 - <superScript>. The items to be superscripted. Refer to Chap 3.9.5.2.1.10.
+
+  
 Markup example:
-<isolationStepQuestion>What is the tire pressure reading?
-</isolationStepQuestion>
+
+<isolationStepQuestion>What is the tire pressure reading?</isolationStepQuestion>
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- 
+
 2.6.1.4.5 Answer
-Description: The element <isolationStepAnswer> contains the answers to the
-corresponding question (element <isolationStepQuestion>). The answers are
-given in the form of a reference to another action, to one or more final actions (element 
-<isolationProcedureEnd>) or to close-up requirements (element 
-<closeRqmts>).
+
+Description: The element <isolationStepAnswer> contains the answers 
+to the corresponding question (element <isolationStepQuestion>). 
+The answers are given in the form of a reference to another action, 
+to one or more final actions (element <isolationProcedureEnd>) or to close-up requirements 
+(element <closeRqmts>).
+
+  
 Markup element: <isolationStepAnswer>
+
 Attributes:
 - id (O), the identifier of the markup element. Refer to Chap 3.9.5.2.1.2.
-- changeType (O), changeMark (O) and reasonForUpdateRefIds (O), the
-change indications. Refer to Chap 3.9.5.2.1.1.
-- controlAuthorityRefs (O), the control authority information by referencing the
-element <controlAuthority>. Refer to Chap 3.9.5.1.
+- changeType (O), changeMark (O) and reasonForUpdateRefIds (O), 
+the change indications. Refer to Chap 3.9.5.2.1.1.
+- controlAuthorityRefs (O), the control authority information by referencing 
+the element <controlAuthority>. Refer to Chap 3.9.5.1.
 - securityClassification (O), commercialClassification (O), 
-caveat (O) and derivativeClassificationRefId (O), the security and
-restrictive marking. Refer to Chap 3.6.
+caveat (O) and derivativeClassificationRefId (O), the security 
+and restrictive marking. Refer to Chap 3.6.
+
 Child elements:
 - <yesNoAnswer>. Refer to Para 2.6.1.4.6.
 - <listOfChoices>. Refer to Para 2.6.1.4.9.
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------  
+
 2.6.1.4.6 Answers - Yes or No
-Description: The element <yesNoAnswer> contains the selection of the two answers Yes
-(element <yesAnswer>) or No (element <noAnswer>).
+
+Description: The element <yesNoAnswer> contains the selection of the two answers 
+Yes (element <yesAnswer>) or No (element <noAnswer>).
+
+  
 Markup element: <yesNoAnswer>
+
 Attributes:
 - None
+
 Child elements:
 - <yesAnswer>, contains the action for a positive answer. Refer to Para 2.6.1.4.7.
 - <noAnswer>, contains the action for a negative answer. Refer to Para 2.6.1.4.8.
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 2.6.1.4.7 Yes answer
-Description: The element <yesAnswer> provides the internal link to the next action related
-to a positive answer.
+
+Description: The element <yesAnswer> provides the internal link to the next action 
+related to a positive answer.
+
+  
 Markup element: <yesAnswer>
+
 Attributes:
-- changeType (O), changeMark (O) and reasonForUpdateRefIds (O), the
-change indications. Refer to Chap 3.9.5.2.1.1.
+- changeType (O), changeMark (O) and reasonForUpdateRefIds (O), 
+the change indications. Refer to Chap 3.9.5.2.1.1.
 - nextActionRefId (M), the identifier for the next action
-- controlAuthorityRefs (O), the control authority information by referencing the
-element <controlAuthority>. Refer to Chap 3.9.5.1.
+- controlAuthorityRefs (O), the control authority information by referencing 
+the element <controlAuthority>. Refer to Chap 3.9.5.1.
+
 Child elements:
 - None
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  
 2.6.1.4.8 No answer
-Description: The element <noAnswer> provides the internal link to the next action related
-to a negative answer.
+
+Description: The element <noAnswer> provides the internal link to the next action 
+related to a negative answer.
+
+  
 Markup element: <noAnswer>
+
 Attributes:
-- changeType (O), changeMark (O) and reasonForUpdateRefIds (O), the
-change indications. Refer to Chap 3.9.5.2.1.1.
+- changeType (O), changeMark (O) and reasonForUpdateRefIds (O), 
+the change indications. Refer to Chap 3.9.5.2.1.1.
 - nextActionRefId (M), the identifier for the next action
-- controlAuthorityRefs (O), the control authority information by referencing the
-element <controlAuthority>. Refer to Chap 3.9.5.1.
+- controlAuthorityRefs (O), the control authority information by referencing 
+the element <controlAuthority>. Refer to Chap 3.9.5.1.
+
 Child elements:
 - None
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 2.6.1.4.9 Answers - Selection of choices
-Description: The element <listOfChoices> contains a selection of multiple (one or
-more) choices.
+
+Description: The element <listOfChoices> contains a selection of multiple 
+(one or more) choices.
+
+  
 Markup element: <listOfChoices>
+
 Attributes:
 - None
+
 Child elements:
 - <choice>, a possible choice. Refer to Para 2.6.1.4.10.
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 2.6.1.4.10 Choice
-Description: The element <choice> provides the internal link to the next action related to a
-selection from a choice of answers.
+
+Description: The element <choice> provides the internal link to the next action 
+related to a selection from a choice of answers.
+
+  
 Markup element: <choice>
+
 Attributes:
-- changeType (O), changeMark (O) and reasonForUpdateRefIds (O), the
-change indications. Refer to Chap 3.9.5.2.1.1.
+- changeType (O), changeMark (O) and reasonForUpdateRefIds (O), 
+the change indications. Refer to Chap 3.9.5.2.1.1.
 - nextActionRefId (M), the identifier for the next action
-- controlAuthorityRefs (O), the control authority information by referencing the
-element <controlAuthority>. Refer to Chap 3.9.5.1.
+- controlAuthorityRefs (O), the control authority information by referencing 
+the element <controlAuthority>. Refer to Chap 3.9.5.1.
+
 Child elements:
 - <subScript>. Refer to Chap 3.9.5.2.1.10.
 - <superScript>. Refer to Chap 3.9.5.2.1.10.
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 2.6.1.5 Isolation step alternates group
+
 Description: The element <isolationStepAlts> is an alternates group that provides
-the capability to group several alternate solutions of the fault isolation step. Refer to
-Chap 4.13.3 for information related to the use of alternates group in data module content.
+the capability to group several alternate solutions of the fault isolation step. 
+Refer to Chap 4.13.3 for information related to the use of alternates group in data module content.
+
+  
 Markup element: <isolationStepAlts>
+
 Attributes:
 - id (O), the identifier of the markup element. Refer to Chap 3.9.5.2.1.2.
-- changeType (O), changeMark (O) and reasonForUpdateRefIds (O), the
-change indications. Refer to Chap 3.9.5.2.1.1.
-- controlAuthorityRefs (O), the control authority information by referencing the
-element <controlAuthority>. Refer to Chap 3.9.5.1 .
+- changeType (O), changeMark (O) and reasonForUpdateRefIds (O), 
+the change indications. Refer to Chap 3.9.5.2.1.1.
+- controlAuthorityRefs (O), the control authority information by referencing 
+the element <controlAuthority>. Refer to Chap 3.9.5.1 .
 - securityClassification (O), commercialClassification (O), 
-caveat (O) and derivativeClassificationRefId (O), the security and
-restrictive marking. Refer to Chap 3.6.
+caveat (O) and derivativeClassificationRefId (O), the security 
+and restrictive marking. Refer to Chap 3.6.
+
 Child elements:
 - <isolationStep>. Refer to Para 2.6.1.4.
+
+  
 Markup example:
+
 <isolationStepAlts id="stpc-0001">
-<isolationStep id="stp-0001">
-<action>To do a check of the tire for damage</action>
-<isolationStepQuestion>Is there damage to the tire?</
-isolationStepQuestion>
-<isolationStepAnswer>
-<yesNoAnswer>
-<yesAnswer nextActionRefId="stp-0003"/>
-<noAnswer nextActionRefId="stp-0004"/>
-</yesNoAnswer>
-</isolationStepAnswer>
-</isolationStep>
-<isolationStep id="stp-0002">
-<action>To do a check of the wheel for damage</action>
-<isolationStepQuestion>Is there damage to the wheel?</
-isolationStepQuestion>
-<isolationStepAnswer>
-<yesNoAnswer>
-<yesAnswer nextActionRefId="stp-0005"/>
-<noAnswer nextActionRefId="stp-0006"/>
-</yesNoAnswer>
-</isolationStepAnswer>
-</isolationStep>
+  <isolationStep id="stp-0001">
+    <action>To do a check of the tire for damage</action>
+    <isolationStepQuestion>Is there damage to the tire?</isolationStepQuestion>
+    <isolationStepAnswer>
+      <yesNoAnswer>
+        <yesAnswer nextActionRefId="stp-0003"/>
+        <noAnswer nextActionRefId="stp-0004"/>
+      </yesNoAnswer>
+    </isolationStepAnswer>
+  </isolationStep>
+  <isolationStep id="stp-0002">
+    <action>To do a check of the wheel for damage</action>
+    <isolationStepQuestion>Is there damage to the wheel?</isolationStepQuestion>
+    <isolationStepAnswer>
+      <yesNoAnswer>
+        <yesAnswer nextActionRefId="stp-0005"/>
+        <noAnswer nextActionRefId="stp-0006"/>
+      </yesNoAnswer>
+    </isolationStepAnswer>
+  </isolationStep>
 </isolationStepAlts>
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 2.6.1.6 Isolation procedure end
+
 Description: The element <isolationProcedureEnd> contains further isolation
-actions (these are either within the data module or referenced out to another data module) or to
-the element <closeRqmts> containing a closeup procedure.
+actions (these are either within the data module or referenced out to another data module) 
+or to the element <closeRqmts> containing a closeup procedure.
+
+  
 Markup element: <isolationProcedureEnd>
+
 Attributes:
 - applicRefId (O), the applicability information. Refer to Chap 3.9.5.3.
 - id (M), the identifier of the markup element. Refer to Chap 3.9.5.2.1.2.
-- changeType (O), changeMark (O) and reasonForUpdateRefIds (O), the
-change indications. Refer to Chap 3.9.5.2.1.1.
-- warningRefs (O), the warning reference to the warnings and cautions collection.
-Refer to Chap 3.9.3.
-- cautionRefs (O), the caution reference to the warnings and cautions collection. Refer
-to Chap 3.9.3.
-- independentCheck (O), the isolation step must be checked by a supervisor with a
-given qualification
-- skillLevelCode (O), the skill level to which the procedure has been written. Refer to
-Chap 3.9.5.1.
-- controlAuthorityRefs (O), the control authority information by referencing the
-element <controlAuthority>. Refer to Chap 3.9.5.1 .
+- changeType (O), changeMark (O) and reasonForUpdateRefIds (O), 
+the change indications. Refer to Chap 3.9.5.2.1.1.
+- warningRefs (O), the warning reference to the warnings and cautions collection. Refer to Chap 3.9.3.
+- cautionRefs (O), the caution reference to the warnings and cautions collection. Refer to Chap 3.9.3.
+- independentCheck (O), the isolation step must be checked by a supervisor with a given qualification
+- skillLevelCode (O), the skill level to which the procedure has been written. Refer to Chap 3.9.5.1.
+- controlAuthorityRefs (O), the control authority information by referencing the element <controlAuthority>. Refer to Chap 3.9.5.1 .
+
 Child elements:
-- <title>. Refer to Para 2.6.1.4.1 for the use of titles. Refer to Chap 3.9.5.2.1.5 for
-general rules.
+- <title>. Refer to Para 2.6.1.4.1 for the use of titles. Refer to Chap 3.9.5.2.1.5 for general rules.
 <warning>. Refer to Chap 3.9.3.
 - <caution>. Refer to Chap 3.9.3.
 - <note>. Refer to Chap 3.9.3.
