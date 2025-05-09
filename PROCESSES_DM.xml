@@ -240,3 +240,403 @@ Flight Deck Escape Hatch - Operational Check, Leak Test, and Minor Repairs
 
   </content>
 </dmodule>
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+<dmodule xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://www.s1000d.org/S1000D_4-1/xml/issue"
+         xsi:schemaLocation="http://www.s1000d.org/S1000D_4-1/xml/issue S1000D_4-1.xsd">
+
+  <identAndStatusSection>
+    <dmAddress>
+      <modelIdentCode>777</modelIdentCode>
+      <systemDiffCode>00</systemDiffCode>
+      <systemCode>32</systemCode>
+      <subSystemCode>15</subSystemCode>
+      <subSubSystemCode>02</subSubSystemCode>
+      <assyCode>61</assyCode>
+      <disassyCode>00A</disassyCode>
+      <infoCode>610</infoCode>
+      <infoCodeVariant>A</infoCodeVariant>
+      <itemLocationCode>P</itemLocationCode>
+    </dmAddress>
+    <issueInfo>
+      <issueNumber>001</issueNumber>
+      <issueDate>2025-05-09</issueDate>
+      <inWork>01</inWork>
+      <authority>Boeing</authority>
+    </issueInfo>
+    <dmStatus>
+      <security>01</security>
+      <responsiblePartnerCompany>Boeing</responsiblePartnerCompany>
+      <originator>Landing Gear Engineering</originator>
+      <dmType>procedural</dmType>
+      <issueType>standard</issueType>
+      <qualityAssurance>Q2</qualityAssurance>
+      <updateStatus>Initial</updateStatus>
+    </dmStatus>
+    <applicability>
+      <applic>
+        <model>777-300ER</model>
+        <effectivity>
+          <aircraftSerialNumber>All</aircraftSerialNumber>
+        </effectivity>
+      </applic>
+    </applicability>
+    <language country="US">en</language>
+    <title>
+      <techName>Shock Strut Servicing</techName>
+      <infoName>Nose Landing Gear - Inflate and Verify</infoName>
+    </title>
+  </identAndStatusSection>
+
+  <content>
+    <initialSetup>
+      <toolReqt>
+        <tool>
+          <toolIdent>
+            <toolName>Regulated Nitrogen Service Cart</toolName>
+            <toolRef>P/N N2-777-SC</toolRef>
+            <toolSupplier>HydroServ Intl.</toolSupplier>
+          </toolIdent>
+        </tool>
+        <tool>
+          <toolIdent>
+            <toolName>Torque Wrench (20-100 in\u00b7lb)</toolName>
+            <toolRef>TW-100IN</toolRef>
+            <toolSupplier>Snap-On Aviation</toolSupplier>
+          </toolIdent>
+        </tool>
+        <tool>
+          <toolIdent>
+            <toolName>Extension Measuring Ruler, Calibrated</toolName>
+            <toolRef>RUL-CAL-777</toolRef>
+            <toolSupplier>CalTools Inc.</toolSupplier>
+          </toolIdent>
+        </tool>
+      </toolReqt>
+      <supportEquipmentRequirement>
+        <supportEquipment>
+          <equipmentName>Wheel Chocks</equipmentName>
+        </supportEquipment>
+        <supportEquipment>
+          <equipmentName>Jack Stand (NLG, Optional)</equipmentName>
+        </supportEquipment>
+      </supportEquipmentRequirement>
+      <zoneRef zoneId="700">Nose Landing Gear Bay</zoneRef>
+      <accessPoint panelRef="312DR">Access Panel 312DR (Starboard Nose Door)</accessPoint>
+    </initialSetup>
+
+    <procedure>
+      <task>
+        <title>Perform Nose Landing Gear Oleo Strut Servicing</title>
+        <preliminaryRqmts>
+          <simplePara>Ensure aircraft is on level surface per DMC <xref xrefid="08-21-00-580-801"/>, with parking brake set, gear downlock pins installed <xref xrefid="32-00-30-480-801"/>, and hydraulic systems OFF per <xref xrefid="29-00-00-860-801"/>.</simplePara>
+          <specialSafety>
+            <warning>
+              <para>Ensure hydraulic isolation before servicing the strut. Pressurized fluid can cause unintentional gear movement, leading to serious injury or equipment damage.</para>
+            </warning>
+            <caution>
+              <para>Use dry nitrogen only. Compressed air or oxygen may cause internal corrosion or explosion under pressure.</para>
+            </caution>
+            <note>
+              <para>Allow 2-3 minutes after initial charge for nitrogen stabilization before taking extension measurement.</para>
+            </note>
+          </specialSafety>
+        </preliminaryRqmts>
+
+        <stepGroup>
+          <title>Prepare and Connect Nitrogen Equipment</title>
+          <step>
+            <para>Remove protective cap from Schrader valve on nose gear shock strut assembly.</para>
+          </step>
+          <step>
+            <para>Connect service cart regulator line:</para>
+            <substep><para>Ensure regulator is set to 0 psi.</para></substep>
+            <substep><para>Bleed regulator hose using bleed valve to avoid air entry.</para></substep>
+            <substep><para>Attach service hose to Schrader valve; torque hand-tight then final torque 25 in\u00b7lb using <toolRef>TW-100IN</toolRef>.</para></substep>
+          </step>
+        </stepGroup>
+
+        <stepGroup>
+          <title>Inflate Strut and Verify Extension</title>
+          <step>
+            <para>Slowly open regulator to charge strut:</para>
+            <definitionList>
+              <definition>
+                <term>Ramp Temp (\u2265 20\u00b0C)</term>
+                <definition>Target extension: <emphasis>19.00 in. \u00b1 0.25 in.</emphasis></definition>
+              </definition>
+              <definition>
+                <term>Cold Soak (< 15\u00b0C)</term>
+                <definition>Target extension: <emphasis>18.42 in. \u00b1 0.25 in.</emphasis></definition>
+              </definition>
+            </definitionList>
+            <warning>
+              <para>Do not exceed 300 psi during charging. Overpressure may rupture seals or damage valve components.</para>
+            </warning>
+          </step>
+          <step>
+            <para>Wait 2-3 minutes for internal pressure stabilization.</para>
+          </step>
+          <step>
+            <para>Use ruler <toolRef>RUL-CAL-777</toolRef> to measure exposed chrome cylinder from strut seal to lower collar.</para>
+            <expectedResult><para>Extension should be within defined temperature-specific target range.</para></expectedResult>
+          </step>
+        </stepGroup>
+
+        <stepGroup>
+          <title>Disconnect and Finalize Service</title>
+          <step>
+            <para>Close regulator valve and bleed nitrogen line.</para>
+          </step>
+          <step>
+            <para>Remove hose fitting. Inspect Schrader valve for debris or damage.</para>
+          </step>
+          <step>
+            <para>Apply Teflon tape to threads and install dust cap. Torque to 20-25 in\u00b7lb.</para>
+            <caution>
+              <para>Ensure torque does not exceed 30 in\u00b7lb to avoid cap cracking or thread stripping.</para>
+            </caution>
+          </step>
+          <step>
+            <para>Apply soapy water solution to valve base and fitting.</para>
+            <expectedResult><para>No bubbles or leakage should appear within 30 seconds.</para></expectedResult>
+          </step>
+        </stepGroup>
+
+        <stepGroup>
+          <title>Document and Restore Configuration</title>
+          <step>
+            <para>Log pressure and final extension in maintenance form <abbreviation>F-MX-STRUT-777</abbreviation>.</para>
+          </step>
+          <step>
+            <para>Remove all tools and equipment. Restore <accessPoint>312DR</accessPoint> and zone <zoneRef zoneId="700"/>.</para>
+          </step>
+          <step>
+            <para>If part of gear test prep, refer to <xref xrefid="32-00-00-860-801">Gear Swing Task</xref>.</para>
+          </step>
+        </stepGroup>
+
+      </task>
+    </procedure>
+  </content>
+</dmodule>
+
+
+<dmodule xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://www.s1000d.org/S1000D_4-1/xml/issue"
+         xsi:schemaLocation="http://www.s1000d.org/S1000D_4-1/xml/issue S1000D_4-1.xsd">
+
+  <identAndStatusSection>
+    <dmAddress>
+      <modelIdentCode>777</modelIdentCode>
+      <systemDiffCode>00</systemDiffCode>
+      <systemCode>32</systemCode>
+      <subSystemCode>15</subSystemCode>
+      <subSubSystemCode>02</subSubSystemCode>
+      <assyCode>61</assyCode>
+      <disassyCode>00A</disassyCode>
+      <infoCode>610</infoCode>
+      <infoCodeVariant>A</infoCodeVariant>
+      <itemLocationCode>P</itemLocationCode>
+    </dmAddress>
+    <issueInfo>
+      <issueNumber>001</issueNumber>
+      <issueDate>2025-05-09</issueDate>
+      <inWork>01</inWork>
+      <authority>Boeing</authority>
+    </issueInfo>
+    <dmStatus>
+      <security>01</security>
+      <responsiblePartnerCompany>Boeing</responsiblePartnerCompany>
+      <originator>Landing Gear Engineering</originator>
+      <dmType>procedural</dmType>
+      <issueType>standard</issueType>
+      <qualityAssurance>Q2</qualityAssurance>
+      <updateStatus>Initial</updateStatus>
+    </dmStatus>
+    <applicability>
+      <applic>
+        <model>777-300ER</model>
+        <effectivity>
+          <aircraftSerialNumber>All</aircraftSerialNumber>
+        </effectivity>
+      </applic>
+    </applicability>
+    <language country="US">en</language>
+    <title>
+      <techName>Shock Strut Servicing</techName>
+      <infoName>Nose Landing Gear - Inflate and Verify</infoName>
+    </title>
+  </identAndStatusSection>
+
+  <content>
+    <initialSetup>
+      <toolReqt>
+        <tool>
+          <toolIdent>
+            <toolName>Regulated Nitrogen Service Cart</toolName>
+            <toolRef>P/N N2-777-SC</toolRef>
+            <toolSupplier>HydroServ Intl.</toolSupplier>
+          </toolIdent>
+        </tool>
+        <tool>
+          <toolIdent>
+            <toolName>Torque Wrench (20-100 in·lb)</toolName>
+            <toolRef>TW-100IN</toolRef>
+            <toolSupplier>Snap-On Aviation</toolSupplier>
+          </toolIdent>
+        </tool>
+        <tool>
+          <toolIdent>
+            <toolName>Extension Measuring Ruler, Calibrated</toolName>
+            <toolRef>RUL-CAL-777</toolRef>
+            <toolSupplier>CalTools Inc.</toolSupplier>
+          </toolIdent>
+        </tool>
+      </toolReqt>
+      <supportEquipmentRequirement>
+        <supportEquipment>
+          <equipmentName>Wheel Chocks</equipmentName>
+        </supportEquipment>
+        <supportEquipment>
+          <equipmentName>Jack Stand (NLG, Optional)</equipmentName>
+        </supportEquipment>
+      </supportEquipmentRequirement>
+      <zoneRef zoneId="700">Nose Landing Gear Bay</zoneRef>
+      <accessPoint panelRef="312DR">Access Panel 312DR (Starboard Nose Door)</accessPoint>
+    </initialSetup>
+
+    <procedure>
+      <task>
+        <title>Perform Nose Landing Gear Oleo Strut Servicing</title>
+        <preliminaryRqmts>
+          <simplePara>Ensure aircraft is on level surface per DMC <xref xrefid="08-21-00-580-801"/>, with parking brake set, gear downlock pins installed <xref xrefid="32-00-30-480-801"/>, and hydraulic systems OFF per <xref xrefid="29-00-00-860-801"/>.</simplePara>
+          <specialSafety>
+            <warning>
+              <para>Ensure hydraulic isolation before servicing the strut. Pressurized fluid can cause unintentional gear movement, leading to serious injury or equipment damage.</para>
+            </warning>
+            <caution>
+              <para>Use dry nitrogen only. Compressed air or oxygen may cause internal corrosion or explosion under pressure.</para>
+            </caution>
+            <note>
+              <para>Allow 2-3 minutes after initial charge for nitrogen stabilization before taking extension measurement.</para>
+            </note>
+          </specialSafety>
+        </preliminaryRqmts>
+
+        <stepGroup>
+          <title>Prepare and Connect Nitrogen Equipment</title>
+          <step>
+            <para>Remove protective cap from Schrader valve on nose gear shock strut assembly.</para>
+          </step>
+          <step>
+            <para>Connect service cart regulator line:</para>
+            <substep><para>Ensure regulator is set to 0 psi.</para></substep>
+            <substep><para>Bleed regulator hose using bleed valve to avoid air entry.</para></substep>
+            <substep><para>Attach service hose to Schrader valve; torque hand-tight then final torque 25 in·lb using <toolRef>TW-100IN</toolRef>.</para></substep>
+            <multimediaObject>
+              <graphic infoEntityIdent="IMG-VALVE-CONNECT"/>
+              <figTitle>Service Cart Hose Connection to Schrader Valve</figTitle>
+            </multimediaObject>
+          </step>
+        </stepGroup>
+
+        <stepGroup>
+          <title>Inflate Strut and Verify Extension</title>
+          <step>
+            <para>Slowly open regulator to charge strut:</para>
+            <definitionList>
+              <definition>
+                <term>Ramp Temp (≥ 20°C)</term>
+                <definition>Target extension: <emphasis>19.00 in. ± 0.25 in.</emphasis></definition>
+              </definition>
+              <definition>
+                <term>Cold Soak (< 15°C)</term>
+                <definition>Target extension: <emphasis>18.42 in. ± 0.25 in.</emphasis></definition>
+              </definition>
+            </definitionList>
+            <warning>
+              <para>Do not exceed 300 psi during charging. Overpressure may rupture seals or damage valve components.</para>
+            </warning>
+            <video infoEntityIdent="VID-CHARGE-PROCEDURE">
+              <caption>Video: Demonstration of Proper Strut Charging Procedure</caption>
+            </video>
+          </step>
+          <step>
+            <para>Wait 2-3 minutes for internal pressure stabilization.</para>
+          </step>
+          <step>
+            <para>Use ruler <toolRef>RUL-CAL-777</toolRef> to measure exposed chrome cylinder from strut seal to lower collar.</para>
+            <expectedResult><para>Extension should be within defined temperature-specific target range.</para></expectedResult>
+            <graphic infoEntityIdent="IMG-MEASURE-STRUT"/>
+          </step>
+        </stepGroup>
+
+        <stepGroup>
+          <title>Disconnect and Finalize Service</title>
+          <step>
+            <para>Close regulator valve and bleed nitrogen line.</para>
+          </step>
+          <step>
+            <para>Remove hose fitting. Inspect Schrader valve for debris or damage.</para>
+          </step>
+          <step>
+            <para>Apply Teflon tape to threads and install dust cap. Torque to 20-25 in·lb.</para>
+            <caution>
+              <para>Ensure torque does not exceed 30 in·lb to avoid cap cracking or thread stripping.</para>
+            </caution>
+          </step>
+          <step>
+            <para>Apply soapy water solution to valve base and fitting.</para>
+            <expectedResult><para>No bubbles or leakage should appear within 30 seconds.</para></expectedResult>
+            <animation infoEntityIdent="ANIM-LEAK-CHECK"/>
+          </step>
+        </stepGroup>
+
+        <stepGroup>
+          <title>Document and Restore Configuration</title>
+          <step>
+            <para>Log pressure and final extension in maintenance form <abbreviation>F-MX-STRUT-777</abbreviation>.</para>
+          </step>
+          <step>
+            <para>Remove all tools and equipment. Restore <accessPoint>312DR</accessPoint> and zone <zoneRef zoneId="700"/>.</para>
+          </step>
+          <step>
+            <para>If part of gear test prep, refer to <xref xrefid="32-00-00-860-801">Gear Swing Task</xref>.</para>
+          </step>
+        </stepGroup>
+      </task>
+    </procedure>
+
+    <learningData>
+      <learningObjective>
+        <learningTask>Identify safe nitrogen servicing procedures</learningTask>
+        <learningStep>Demonstrate connection to Schrader valve with safety torque</learningStep>
+        <learningStep>Recall temperature-adjusted extension limits</learningStep>
+        <learningStep>Interpret leak detection indicators</learningStep>
+        <learningSummary>
+          <para>Following this module, the technician will safely and accurately perform NLG strut servicing per Boeing AMM.</para>
+        </learningSummary>
+      </learningObjective>
+    </learningData>
+
+    <faultIsolationProcedure>
+      <symptom>Shock strut collapses after inflation</symptom>
+      <faultIsolationStep>
+        <testStep>
+          <para>Check for nitrogen leakage using soap solution</para>
+          <yesCondition>
+            <correctiveAction>Replace Schrader valve core</correctiveAction>
+          </yesCondition>
+          <noCondition>
+            <correctiveAction>Inspect strut for seal damage; refer to 32-15-02-710-801</correctiveAction>
+          </noCondition>
+        </testStep>
+      </faultIsolationStep>
+    </faultIsolationProcedure>
+
+  </content>
+</dmodule>
+
