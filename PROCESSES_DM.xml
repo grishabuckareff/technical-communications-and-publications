@@ -850,3 +850,338 @@ Flight Deck Escape Hatch - Operational Check, Leak Test, and Minor Repairs
 </dmodule>
 
 
+
+<dmodule xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://www.s1000d.org/S1000D_4-1/xml/issue"
+         xsi:schemaLocation="http://www.s1000d.org/S1000D_4-1/xml/issue S1000D_4-1.xsd">
+
+  <identAndStatusSection>
+    <dmAddress>
+      <modelIdentCode>777</modelIdentCode>
+      <systemDiffCode>00</systemDiffCode>
+      <systemCode>26</systemCode>
+      <subSystemCode>21</subSystemCode>
+      <subSubSystemCode>00</subSubSystemCode>
+      <assyCode>02</assyCode>
+      <disassyCode>00A</disassyCode>
+      <infoCode>720</infoCode>
+      <infoCodeVariant>A</infoCodeVariant>
+      <itemLocationCode>P</itemLocationCode>
+    </dmAddress>
+    <issueInfo>
+      <issueNumber>001</issueNumber>
+      <issueDate>2025-05-09</issueDate>
+      <inWork>01</inWork>
+      <authority>Boeing</authority>
+    </issueInfo>
+    <dmStatus>
+      <security>01</security>
+      <responsiblePartnerCompany>Boeing</responsiblePartnerCompany>
+      <originator>Fire Protection Engineering</originator>
+      <dmType>procedural</dmType>
+      <issueType>standard</issueType>
+      <qualityAssurance>Q2</qualityAssurance>
+      <updateStatus>Initial</updateStatus>
+    </dmStatus>
+    <applicability>
+      <applic>
+        <model>777-300ER</model>
+        <effectivity>
+          <aircraftSerialNumber>All</aircraftSerialNumber>
+        </effectivity>
+      </applic>
+    </applicability>
+    <language country="US">en</language>
+    <title>
+      <techName>APU Fire Extinguisher</techName>
+      <infoName>Bottle Removal and Installation</infoName>
+    </title>
+  </identAndStatusSection>
+
+  <content>
+    <descript>
+      <systemDescription>
+        <para>The Auxiliary Power Unit (APU) fire extinguisher system is designed to suppress fires using a single Halon bottle and electrically activated squib.</para>
+      </systemDescription>
+      <physicalDescription>
+        <para>The bottle is located in the APU compartment, accessed via aft fuselage panel 323AR. The squib connector is safety wired and sealed.</para>
+      </physicalDescription>
+    </descript>
+
+    <initialSetup>
+      <toolReqt>
+        <tool>
+          <toolIdent>
+            <toolName>Torque Wrench (40–120 in·lb)</toolName>
+            <toolRef>TRQ-APU-120</toolRef>
+          </toolIdent>
+        </tool>
+      </toolReqt>
+      <spareReqt>
+        <spare>
+          <itemRef>Halon Bottle (P/N: HAL-777-A)</itemRef>
+        </spare>
+      </spareReqt>
+      <zoneRef zoneId="750">APU Compartment</zoneRef>
+      <accessPoint panelRef="323AR">Access Panel 323AR</accessPoint>
+    </initialSetup>
+
+    <procedure>
+      <task>
+        <title>Remove and Install APU Fire Bottle</title>
+        <preliminaryRqmts>
+          <para>Ensure APU shutdown is complete. Pull and tag circuit breakers 26-21-FIRE-1 and 26-21-FIRE-2.</para>
+          <hazards>
+            <hazard>
+              <para>Squib connector is electrically sensitive. ESD precautions must be taken to avoid inadvertent firing.</para>
+            </hazard>
+          </hazards>
+        </preliminaryRqmts>
+        <stepGroup>
+          <step>
+            <para>Remove panel 323AR and identify fire bottle assembly.</para>
+          </step>
+          <step>
+            <para>Disconnect squib connector; install ESD cap on wire lead.</para>
+          </step>
+          <step>
+            <para>Loosen mounting bolts. Remove fire bottle and support with protective cradle.</para>
+          </step>
+          <step>
+            <para>Inspect mounting bracket and check for heat damage or corrosion.</para>
+          </step>
+          <step>
+            <para>Install new or serviceable fire bottle:</para>
+            <substep><para>Align mounting flange and hand-tighten bolts.</para></substep>
+            <substep><para>Torque bolts to 85 in·lb using <toolRef>TRQ-APU-120</toolRef>.</para></substep>
+            <substep><para>Reconnect squib and torque to 30 in·lb.</para></substep>
+          </step>
+          <step>
+            <para>Reinstall panel 323AR and remove tags from breakers.</para>
+            <expectedResult><para>Bottle securely mounted; connector torqued and sealed.</para></expectedResult>
+          </step>
+        </stepGroup>
+      </task>
+    </procedure>
+
+    <faultIsolationProcedure>
+      <symptom>Fire bottle does not discharge during fire test</symptom>
+      <faultIsolationStep>
+        <testStep>
+          <para>Check squib continuity at connector using multimeter.</para>
+          <yesCondition>
+            <correctiveAction>Replace fire bottle assembly.</correctiveAction>
+          </yesCondition>
+          <noCondition>
+            <correctiveAction>Inspect wiring harness. Refer to 26-21-00-870-801.</correctiveAction>
+          </noCondition>
+        </testStep>
+      </faultIsolationStep>
+    </faultIsolationProcedure>
+
+    <partsData>
+      <partsList>
+        <item>
+          <itemIdent>
+            <itemRef>HAL-777-A</itemRef>
+            <itemLocation>APU Compartment</itemLocation>
+          </itemIdent>
+        </item>
+      </partsList>
+    </partsData>
+
+  </content>
+</dmodule>
+
+
+<dmodule xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://www.s1000d.org/S1000D_4-1/xml/issue"
+         xsi:schemaLocation="http://www.s1000d.org/S1000D_4-1/xml/issue S1000D_4-1.xsd">
+
+  <identAndStatusSection>
+    <dmAddress>
+      <modelIdentCode>777</modelIdentCode>
+      <systemDiffCode>00</systemDiffCode>
+      <systemCode>26</systemCode>
+      <subSystemCode>21</subSystemCode>
+      <subSubSystemCode>00</subSubSystemCode>
+      <assyCode>02</assyCode>
+      <disassyCode>00A</disassyCode>
+      <infoCode>720</infoCode>
+      <infoCodeVariant>A</infoCodeVariant>
+      <itemLocationCode>P</itemLocationCode>
+    </dmAddress>
+    <issueInfo>
+      <issueNumber>001</issueNumber>
+      <issueDate>2025-05-09</issueDate>
+      <inWork>01</inWork>
+      <authority>Boeing</authority>
+    </issueInfo>
+    <dmStatus>
+      <security>01</security>
+      <responsiblePartnerCompany>Boeing</responsiblePartnerCompany>
+      <originator>Fire Protection Engineering</originator>
+      <dmType>procedural</dmType>
+      <issueType>standard</issueType>
+      <qualityAssurance>Q2</qualityAssurance>
+      <updateStatus>Initial</updateStatus>
+    </dmStatus>
+    <applicability>
+      <applic>
+        <model>777-300ER</model>
+        <effectivity>
+          <aircraftSerialNumber>All</aircraftSerialNumber>
+        </effectivity>
+      </applic>
+    </applicability>
+    <language country="US">en</language>
+    <title>
+      <techName>APU Fire Extinguisher</techName>
+      <infoName>Bottle Removal and Installation</infoName>
+    </title>
+  </identAndStatusSection>
+
+  <content>
+    <descript>
+      <systemDescription>
+        <para>The Auxiliary Power Unit (APU) fire extinguisher system is designed to suppress fires using a single Halon bottle and electrically activated squib.</para>
+      </systemDescription>
+      <physicalDescription>
+        <para>The bottle is located in the APU compartment, accessed via aft fuselage panel 323AR. The squib connector is safety wired and sealed.</para>
+      </physicalDescription>
+    </descript>
+
+    <initialSetup>
+      <toolReqt>
+        <tool>
+          <toolIdent>
+            <toolName>Torque Wrench (40–120 in·lb)</toolName>
+            <toolRef>TRQ-APU-120</toolRef>
+          </toolIdent>
+        </tool>
+      </toolReqt>
+      <spareReqt>
+        <spare>
+          <itemRef>Halon Bottle (P/N: HAL-777-A)</itemRef>
+        </spare>
+      </spareReqt>
+      <zoneRef zoneId="750">APU Compartment</zoneRef>
+      <accessPoint panelRef="323AR">Access Panel 323AR</accessPoint>
+    </initialSetup>
+
+    <procedure>
+      <task>
+        <title>Remove and Install APU Fire Bottle</title>
+        <preliminaryRqmts>
+          <para>Ensure APU shutdown is complete. Pull and tag circuit breakers 26-21-FIRE-1 and 26-21-FIRE-2.</para>
+          <hazards>
+            <hazard>
+              <para>Squib connector is electrically sensitive. ESD precautions must be taken to avoid inadvertent firing.</para>
+            </hazard>
+          </hazards>
+        </preliminaryRqmts>
+        <stepGroup>
+          <step>
+            <para>Remove panel 323AR and identify fire bottle assembly.</para>
+            <graphic infoEntityIdent="IMG-FIRE-BOTTLE-LOC"/>
+          </step>
+          <step>
+            <para>Disconnect squib connector; install ESD cap on wire lead.</para>
+          </step>
+          <step>
+            <para>Loosen mounting bolts. Remove fire bottle and support with protective cradle.</para>
+            <video infoEntityIdent="VID-FIRE-BOTTLE-REMOVAL">
+              <caption>APU Fire Bottle Removal</caption>
+            </video>
+          </step>
+          <step>
+            <para>Inspect mounting bracket and check for heat damage or corrosion.</para>
+          </step>
+          <step>
+            <para>Install new or serviceable fire bottle:</para>
+            <substep><para>Align mounting flange and hand-tighten bolts.</para></substep>
+            <substep><para>Torque bolts to 85 in·lb using <toolRef>TRQ-APU-120</toolRef>.</para></substep>
+            <substep><para>Reconnect squib and torque to 30 in·lb.</para></substep>
+          </step>
+          <step>
+            <para>Reinstall panel 323AR and remove tags from breakers.</para>
+            <expectedResult><para>Bottle securely mounted; connector torqued and sealed.</para></expectedResult>
+          </step>
+        </stepGroup>
+      </task>
+    </procedure>
+
+    <faultIsolationProcedure>
+      <symptom>Fire bottle does not discharge during fire test</symptom>
+      <faultIsolationStep>
+        <testStep>
+          <para>Check squib continuity at connector using multimeter.</para>
+          <yesCondition>
+            <correctiveAction>Replace fire bottle assembly.</correctiveAction>
+          </yesCondition>
+          <noCondition>
+            <correctiveAction>Inspect wiring harness. Refer to 26-21-00-870-801.</correctiveAction>
+          </noCondition>
+        </testStep>
+      </faultIsolationStep>
+    </faultIsolationProcedure>
+
+    <learningData>
+      <learningObjective>
+        <learningTask>Safely remove, inspect, and reinstall APU fire extinguisher bottle</learningTask>
+        <learningSupportMaterial>
+          <video infoEntityIdent="VID-FIRE-BOTTLE-REMOVAL">
+            <caption>Fire Bottle Removal Training Video</caption>
+          </video>
+        </learningSupportMaterial>
+        <assessment>
+          <question>What torque should be applied to the fire bottle mounting bolts?</question>
+          <answer>85 in·lb</answer>
+          <question>What is the function of the squib in this system?</question>
+          <answer>To discharge Halon from the fire bottle when activated.</answer>
+        </assessment>
+      </learningObjective>
+    </learningData>
+
+    <partsData>
+      <partsList>
+        <item>
+          <itemIdent>
+            <itemRef>HAL-777-A</itemRef>
+            <itemLocation>APU Compartment</itemLocation>
+          </itemIdent>
+        </item>
+      </partsList>
+      <illustration>
+        <figure>
+          <figTitle>Fire Bottle Mounting Location</figTitle>
+          <figCaption>Location of bottle within APU bay with connection callouts</figCaption>
+        </figure>
+      </illustration>
+    </partsData>
+
+    <brex>
+      <businessRules>
+        <rule>
+          <ruleIdent>BR-APU-FIRE-TORQUE</ruleIdent>
+          <ruleCondition>Torque fire bottle bolts to 85 in·lb using calibrated tools.</ruleCondition>
+        </rule>
+      </businessRules>
+    </brex>
+
+    <process>
+      <variableDeclarations>
+        <variable name="panelClosed" type="boolean" default="false"/>
+      </variableDeclarations>
+      <dmIf condition="panelClosed = false">
+        <dmThenSeq>
+          <message>Warning: Ensure access panel 323AR is reinstalled before powering up systems.</message>
+        </dmThenSeq>
+      </dmIf>
+    </process>
+
+  </content>
+</dmodule>
+
+
+
