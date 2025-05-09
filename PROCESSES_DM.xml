@@ -640,3 +640,213 @@ Flight Deck Escape Hatch - Operational Check, Leak Test, and Minor Repairs
   </content>
 </dmodule>
 
+
+<dmodule xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://www.s1000d.org/S1000D_4-1/xml/issue"
+         xsi:schemaLocation="http://www.s1000d.org/S1000D_4-1/xml/issue S1000D_4-1.xsd">
+
+  <identAndStatusSection>
+    <dmAddress>
+      <modelIdentCode>777</modelIdentCode>
+      <systemDiffCode>00</systemDiffCode>
+      <systemCode>32</systemCode>
+      <subSystemCode>15</subSystemCode>
+      <subSubSystemCode>02</subSubSystemCode>
+      <assyCode>61</assyCode>
+      <disassyCode>00A</disassyCode>
+      <infoCode>610</infoCode>
+      <infoCodeVariant>A</infoCodeVariant>
+      <itemLocationCode>P</itemLocationCode>
+    </dmAddress>
+    <issueInfo>
+      <issueNumber>001</issueNumber>
+      <issueDate>2025-05-09</issueDate>
+      <inWork>01</inWork>
+      <authority>Boeing</authority>
+    </issueInfo>
+    <dmStatus>
+      <security>01</security>
+      <responsiblePartnerCompany>Boeing</responsiblePartnerCompany>
+      <originator>Landing Gear Engineering</originator>
+      <dmType>procedural</dmType>
+      <issueType>standard</issueType>
+      <qualityAssurance>Q2</qualityAssurance>
+      <updateStatus>Initial</updateStatus>
+    </dmStatus>
+    <applicability>
+      <applic>
+        <model>777-300ER</model>
+        <effectivity>
+          <aircraftSerialNumber>All</aircraftSerialNumber>
+        </effectivity>
+      </applic>
+    </applicability>
+    <language country="US">en</language>
+    <title>
+      <techName>Shock Strut Servicing</techName>
+      <infoName>Nose Landing Gear - Inflate and Verify</infoName>
+    </title>
+  </identAndStatusSection>
+
+  <content>
+    <descript>
+      <systemDescription>
+        <para>The Nose Landing Gear (NLG) shock strut is a nitrogen-oil charged oleo assembly designed to absorb loads during taxi, takeoff, and landing.</para>
+      </systemDescription>
+      <physicalDescription>
+        <para>The strut consists of an upper cylinder containing dry nitrogen and a lower chrome-plated cylinder that compresses during landing. Schrader valve port is located on the starboard side.</para>
+      </physicalDescription>
+      <theoryOfOperation>
+        <para>The strut absorbs vertical loads and translates them into pressure displacement. Nitrogen expansion creates restoring force after compression.</para>
+      </theoryOfOperation>
+    </descript>
+
+    <initialSetup>
+      <toolReqt>
+        <tool>
+          <toolIdent>
+            <toolName>Regulated Nitrogen Service Cart</toolName>
+            <toolRef>P/N N2-777-SC</toolRef>
+          </toolIdent>
+        </tool>
+      </toolReqt>
+      <spareReqt>
+        <spare>
+          <itemRef>Schrader Valve Core (P/N: SV-777-A)</itemRef>
+        </spare>
+      </spareReqt>
+      <consumableReqt>
+        <consumable>
+          <itemRef>Teflon Thread Tape</itemRef>
+        </consumable>
+      </consumableReqt>
+      <zoneRef zoneId="700">Nose Gear Bay</zoneRef>
+      <accessPoint panelRef="312DR">Access Panel 312DR</accessPoint>
+    </initialSetup>
+
+    <procedure>
+      <task>
+        <title>Perform Nose Gear Strut Servicing</title>
+        <preliminaryRqmts>
+          <para>Ensure aircraft is level and secured. Install downlock pins and disconnect hydraulic power.</para>
+          <hazards>
+            <hazard>
+              <para>High pressure nitrogen can cause injury if released suddenly.</para>
+            </hazard>
+          </hazards>
+        </preliminaryRqmts>
+        <stepGroup>
+          <step>
+            <para>Remove valve cap and inspect Schrader fitting. If damaged, replace per <crossRef xrefid="32-15-02-710-801">valve repair procedure</crossRef>.</para>
+          </step>
+          <step>
+            <para>Connect service hose and torque to 25 in·lb.</para>
+          </step>
+          <step>
+            <para>Charge to target extension per temperature reference:</para>
+            <definitionList>
+              <definition>
+                <term>Hot Ramp (>20°C)</term>
+                <definition>19.00 ± 0.25 in.</definition>
+              </definition>
+              <definition>
+                <term>Cold Soak (<15°C)</term>
+                <definition>18.42 ± 0.25 in.</definition>
+              </definition>
+            </definitionList>
+          </step>
+          <step>
+            <para>Check for leaks with soapy water. Look for bubbles around the valve.</para>
+            <expectedResult><para>No leaks or foam visible within 30 seconds.</para></expectedResult>
+          </step>
+        </stepGroup>
+      </task>
+    </procedure>
+
+    <learningData>
+      <learningObjective>
+        <learningTask>Understand how to safely service and verify oleo extension</learningTask>
+        <learningSupportMaterial>
+          <multimediaObject>
+            <video infoEntityIdent="VID-SERV-001">
+              <caption>Strut Servicing Walkthrough</caption>
+            </video>
+          </multimediaObject>
+        </learningSupportMaterial>
+        <assessment>
+          <question>What is the proper torque for the Schrader cap?</question>
+          <answer>25 in·lb</answer>
+        </assessment>
+      </learningObjective>
+    </learningData>
+
+    <faultIsolationProcedure>
+      <symptom>Strut fails to maintain extension after servicing</symptom>
+      <faultIsolationStep>
+        <testStep>
+          <para>Perform leak check using soapy water</para>
+          <yesCondition>
+            <correctiveAction>Replace valve core (P/N SV-777-A)</correctiveAction>
+          </yesCondition>
+          <noCondition>
+            <correctiveAction>Refer to <xref xrefid="32-15-02-720-801">Strut Repack Task</xref></correctiveAction>
+          </noCondition>
+        </testStep>
+      </faultIsolationStep>
+    </faultIsolationProcedure>
+
+    <maintenancePlanningInfo>
+      <scheduledMaintenance>
+        <threshold unit="FH">500</threshold>
+        <sampling unit="FH">50</sampling>
+        <rqmtSource>MSG-3</rqmtSource>
+      </scheduledMaintenance>
+      <unscheduledMaintenance>
+        <serviceBulletin>SB32-777-0501</serviceBulletin>
+      </unscheduledMaintenance>
+    </maintenancePlanningInfo>
+
+    <partsData>
+      <partsList>
+        <item>
+          <itemIdent>
+            <itemRef>SV-777-A</itemRef>
+            <itemLocation>Valve port</itemLocation>
+          </itemIdent>
+        </item>
+      </partsList>
+      <illustration>
+        <figure>
+          <figTitle>Shock Strut Valve Location</figTitle>
+          <figCaption>Illustration of Schrader valve and measuring points</figCaption>
+        </figure>
+      </illustration>
+    </partsData>
+
+    <brex>
+      <businessRules>
+        <rule>
+          <ruleIdent>BR-TORQ</ruleIdent>
+          <ruleCondition>All Schrader valve caps shall be torqued per spec: 25 in·lb</ruleCondition>
+        </rule>
+      </businessRules>
+    </brex>
+
+    <process>
+      <variableDeclarations>
+        <variable name="tempCondition" type="string" default="HotRamp"/>
+      </variableDeclarations>
+      <dmIf condition="tempCondition = 'ColdSoak'">
+        <dmThenSeq>
+          <message>Set extension to 18.42 in ± 0.25 in.</message>
+        </dmThenSeq>
+        <dmElseSeq>
+          <message>Set extension to 19.00 in ± 0.25 in.</message>
+        </dmElseSeq>
+      </dmIf>
+    </process>
+
+  </content>
+</dmodule>
+
+
