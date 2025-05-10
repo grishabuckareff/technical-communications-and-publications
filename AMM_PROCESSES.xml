@@ -92,9 +92,10 @@ __________________________________________|_____________________________________
     <dmAddress>
       <dmIdent>
         <dmCode modelIdentCode="XXXXXX" systemDiffCode="A" 
-                systemCode="27" subSystemCode="31" subSubSystemCode="01" 
-                assyCode="00A" disassyCode="00" disassyCodeVariant="A" 
-                infoCode="710A" infoCodeVariant="A" itemLocationCode="A"/> <issueInfo issueNumber="001" inWork="00"/>
+         systemCode="27" subSystemCode="31" subSubSystemCode="01" 
+         assyCode="00A" disassyCode="00" disassyCodeVariant="A" 
+         infoCode="710A" infoCodeVariant="A" itemLocationCode="A"/>
+        <issueInfo issueNumber="001" inWork="00"/>
         <language languageIsoCode="en" countryIsoCode="ZZ"/>
       </dmIdent>
       <dmAddressItems>
@@ -108,25 +109,25 @@ __________________________________________|_____________________________________
     <dmStatus>
       <security securityClassification="01"/>
       <responsiblePartnerCompany>
-          <enterpriseName>Generic Manufacturer</enterpriseName>
+        <enterpriseName>Generic Manufacturer</enterpriseName>
       </responsiblePartnerCompany>
       <originator>
-          <enterpriseName>Generic Manufacturer</enterpriseName>
+        <enterpriseName>Generic Manufacturer</enterpriseName>
       </originator>
       <applic>
           <displayText>All Applicable Configurations</displayText>
       </applic>
       <brexDmRef>
-          <dmRef>
-              <dmIdent>
-                  <dmCode modelIdentCode="S1000D" systemDiffCode="G" systemCode="00" 
-                  subSystemCode="00" subSubSystemCode="00" assyCode="00" disassyCode="00" 
-                  disassyCodeVariant="A" infoCode="022" infoCodeVariant="A" itemLocationCode="A"/>
-              </dmIdent>
-          </dmRef>
+        <dmRef>
+           <dmIdent>
+              <dmCode modelIdentCode="S1000D" systemDiffCode="G" systemCode="00" 
+              subSystemCode="00" subSubSystemCode="00" assyCode="00" disassyCode="00" 
+              disassyCodeVariant="A" infoCode="022" infoCodeVariant="A" itemLocationCode="A"/>
+           </dmIdent>
+        </dmRef>
       </brexDmRef>
       <qualityAssurance>
-          <firstVerification verificationType="inspection"/>
+        <firstVerification verificationType="inspection"/>
       </qualityAssurance>
       <skillLevelCode skillLevel="02"/>
     </dmStatus>
@@ -144,7 +145,7 @@ __________________________________________|_____________________________________
           </reqCond>
           <reqCond id="RC_INSP003">
             <para>Remove access panels [PANEL_ID_LIST] to gain access to the actuator inspection area. Refer to AMM [ACCESS_PANEL_REMOVAL_TASK_DM_CODE]. Refer to 
-                <figureRef internalRefId="FIG_ACTUATOR_LOCATION"/>.
+               <figureRef internalRefId="FIG_ACTUATOR_LOCATION"/>.
             </para>
           </reqCond>
         </reqCondGroup>
@@ -314,7 +315,13 @@ __________________________________________|_____________________________________
 
         <proceduralStep id="INSP_STEP004_DIMENSIONAL" applicRefId="APPLIC_DIM_CHECK"> 
           <title>Dimensional Checks (If Required)</title>
-          <para>If specified by CMM or engineering disposition for this actuator type/service life, perform the following dimensional checks using <toolRef internalRefId="TOOL_DEPTH_GAUGE"/> or other specified metrology equipment. Refer to <dmRef internalRefId="REF_CMM_ACTUATOR"/> for tolerances and detailed procedures. Refer to <figureRef internalRefId="FIG_DIM_CHECK_GUIDE"/>.</para>
+          <para>If specified by CMM or engineering disposition for this actuator type/service life, perform the following dimensional checks using 
+              <toolRef internalRefId="TOOL_DEPTH_GAUGE"/> 
+              or other specified metrology equipment. Refer to 
+              <dmRef internalRefId="REF_CMM_ACTUATOR"/> 
+              for tolerances and detailed procedures. Refer to 
+              <figureRef internalRefId="FIG_DIM_CHECK_GUIDE"/>.
+          </para>
           <proceduralStep id="INSP_STEP004_SUB1_PLAY">
               <para>Check actuator rod end axial and radial play. Record values.</para>
           </proceduralStep>
@@ -569,19 +576,35 @@ __________________________________________|_____________________________________
         <title>VHF Transceiver No.1 Functional Test</title>
         <proceduralStep id="TEST_STEP001">
           <title>System Power-Up and BITE Check</title>
-          <para>On the flight deck, ensure VHF COMM 1 power switch on the [Audio Control Panel / Overhead Panel - specify] is ON. Refer to <figureRef internalRefId="FIG_VHF_CTRL_PNL"/>.</para>
+          <para>On the flight deck, ensure VHF COMM 1 power switch on the [Audio Control Panel / Overhead Panel - specify] is ON. Refer to 
+              <figureRef internalRefId="FIG_VHF_CTRL_PNL"/>.
+          </para>
           <para>Observe the VHF Control Panel for normal power-on indications.</para>
           <para>Initiate the VHF Transceiver No.1 BITE test as follows:</para>
           <proceduralStep id="TEST_STEP001_SUB1">
             <para>[Specific BITE initiation steps, e.g., Press and hold TEST button for 3 seconds].</para>
           </proceduralStep>
-          <para>Observe BITE results displayed. A successful test is indicated by [Specify indication, e.g., "VHF1 OK" message or green status light]. Refer to <figureRef internalRefId="FIG_BITE_DISPLAY_EX"/>.</para>
-          <para>If BITE indicates a fault, record fault code and refer to Fault Isolation DM <dmRef><dmIdent><dmCode modelIdentCode="" systemDiffCode="A" systemCode="23" subSystemCode="12" subSubSystemCode="11" infoCode="500"/></dmIdent></dmRef>.</para>
+          <para>Observe BITE results displayed. A successful test is indicated by [Specify indication, e.g., "VHF1 OK" message or green status light]. Refer to 
+              <figureRef internalRefId="FIG_BITE_DISPLAY_EX"/>.
+          </para>
+          <para>If BITE indicates a fault, record fault code and refer to Fault Isolation DM 
+              <dmRef>
+                  <dmIdent>
+                      <dmCode modelIdentCode="" systemDiffCode="A" systemCode="23" 
+                      subSystemCode="12" subSubSystemCode="11" infoCode="500"/>
+                  </dmIdent>
+              </dmRef>.
+          </para>
         </proceduralStep>
 
         <proceduralStep id="TEST_STEP002">
           <title>Transmit/Receive Check with Ramp Test Set</title>
-          <para>Connect the Ramp Test Set <toolRef internalRefId="TE001_RAMP_TEST_SET"/> to the aircraft's No.1 VHF antenna test port. Refer to <figureRef internalRefId="FIG_RAMP_TEST_CONNECT"/> and <externalPubRef internalRefId="REF_TEST_SET_MANUAL"/>.</para>
+          <para>Connect the Ramp Test Set 
+              <toolRef internalRefId="TE001_RAMP_TEST_SET"/> 
+              to the aircraft's No.1 VHF antenna test port. Refer to 
+              <figureRef internalRefId="FIG_RAMP_TEST_CONNECT"/> and 
+              <externalPubRef internalRefId="REF_TEST_SET_MANUAL"/>.
+          </para>
           <warning internalRefId="WARN_RF_RADIATION"/>
             <proceduralStep id="TEST_STEP002_SUB1">
             <para>On the VHF Control Panel, select test frequency [e.g., 121.5 MHz].</para>
@@ -741,7 +764,8 @@ __________________________________________|_____________________________________
         <dmCode modelIdentCode="XXXXXX" systemDiffCode="A" 
                 systemCode="29" subSystemCode="13" subSubSystemCode="01" 
                 assyCode="00A" disassyCode="00" disassyCodeVariant="A" 
-                infoCode="615A" infoCodeVariant="A" itemLocationCode="A"/> <issueInfo issueNumber="001" inWork="00"/>
+                infoCode="615A" infoCodeVariant="A" itemLocationCode="A"/>
+          <issueInfo issueNumber="001" inWork="00"/>
         <language languageIsoCode="en" countryIsoCode="ZZ"/>
       </dmIdent>
       <dmAddressItems>
