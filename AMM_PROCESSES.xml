@@ -77,7 +77,7 @@ __________________________________________|_____________________________________
          xsi:noNamespaceSchemaLocation="S1000D_6-0_proced.xsd"> <identAndStatusSection>
     <dmAddress>
       <dmIdent>
-        <dmCode modelIdentCode="B777" systemDiffCode="A" 
+        <dmCode modelIdentCode="" systemDiffCode="A" 
                 systemCode="23" subSystemCode="12" subSubSystemCode="11" 
                 assyCode="00" disassyCode="00" disassyCodeVariant="A" 
                 infoCode="750" infoCodeVariant="A" itemLocationCode="A"/>
@@ -94,9 +94,9 @@ __________________________________________|_____________________________________
     </dmAddress>
     <dmStatus>
       <security securityClassification="01"/>
-      <responsiblePartnerCompany><enterpriseName>Boeing Commercial Airplanes</enterpriseName></responsiblePartnerCompany>
-      <originator><enterpriseName>Boeing Commercial Airplanes</enterpriseName></originator>
-      <applic><displayText>Boeing 777-300ER Aircraft</displayText></applic>
+      <responsiblePartnerCompany><enterpriseName></enterpriseName></responsiblePartnerCompany>
+      <originator><enterpriseName></enterpriseName></originator>
+      <applic><displayText></displayText></applic>
       <brexDmRef><dmRef><dmIdent><dmCode modelIdentCode="S1000D" systemDiffCode="G" systemCode="00" subSystemCode="00" subSubSystemCode="00" assyCode="00" disassyCode="00" disassyCodeVariant="A" infoCode="022" infoCodeVariant="A" itemLocationCode="A"/></dmIdent></dmRef></brexDmRef>
       <qualityAssurance><firstVerification verificationType="functionalTest"/></qualityAssurance>
       <skillLevelCode skillLevel="02"/> </dmStatus>
