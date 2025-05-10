@@ -863,13 +863,19 @@ __________________________________________|_____________________________________
         <title>Hydraulic Reservoir Fluid Level Check and Replenishment Steps</title>
         <proceduralStep id="SERV_STEP001_ACCESS">
           <title>Gain Access and Prepare Area</title>
-          <para>Locate and open the hydraulic reservoir servicing access panel for the [System Designator] system. Refer to <figureRef internalRefId="FIG_SERV_PANEL_LOC"/>.</para>
-          <para>Place drip pans <toolRef internalRefId="EQUIP_DRIP_PAN"/> under the servicing area.</para>
+          <para>Locate and open the hydraulic reservoir servicing access panel for the [System Designator] system. Refer to 
+              <figureRef internalRefId="FIG_SERV_PANEL_LOC"/>.
+          </para>
+          <para>Place drip pans 
+              <toolRef internalRefId="EQUIP_DRIP_PAN"/> 
+              under the servicing area.</para>
         </proceduralStep>
 
         <proceduralStep id="SERV_STEP002_LEVEL_CHECK">
           <title>Check Fluid Level</title>
-          <para>Visually inspect the fluid level indicator on the [System Designator] hydraulic reservoir. Refer to <figureRef internalRefId="FIG_LEVEL_INDICATOR"/>.</para>
+          <para>Visually inspect the fluid level indicator on the [System Designator] hydraulic reservoir. Refer to 
+              <figureRef internalRefId="FIG_LEVEL_INDICATOR"/>.
+          </para>
           <para>Interpret the markings (e.g., FULL-HOT, FULL-COLD, ADD, REFILL) according to the current system condition (depressurized, ambient temperature).</para>
           <randomAction id="RA_LEVEL_CHECK_OUTCOME">
             <choice>
@@ -878,7 +884,9 @@ __________________________________________|_____________________________________
                     <para>Fluid level is within the acceptable range (e.g., between ADD and FULL COLD marks).</para>
                 </condition>
                 <then>
-                  <para>No replenishment is required. Proceed to Close-Up Requirements: <internalRef internalRefId="SERV_STEP005_CLOSEUP" internalRefTargetType="step"/>.</para>
+                  <para>No replenishment is required. Proceed to Close-Up Requirements: 
+                      <internalRef internalRefId="SERV_STEP005_CLOSEUP" internalRefTargetType="step"/>.
+                  </para>
                 </then>
               </if>
               <else id="ELSE_LEVEL_LOW">
@@ -886,7 +894,9 @@ __________________________________________|_____________________________________
                     <para>Fluid level is below the ADD mark or at REFILL.</para>
                 </condition>
                 <then>
-                  <para>Replenishment is required. Proceed to next step: <internalRef internalRefId="SERV_STEP003_CONNECT_CART" internalRefTargetType="step"/>.</para>
+                  <para>Replenishment is required. Proceed to next step: 
+                      <internalRef internalRefId="SERV_STEP003_CONNECT_CART" internalRefTargetType="step"/>.
+                  </para>
                 </then>
               </else>
             </choice>
@@ -896,9 +906,17 @@ __________________________________________|_____________________________________
         <proceduralStep id="SERV_STEP003_CONNECT_CART">
           <title>Prepare and Connect Servicing Cart</title>
           <caution internalRefId="CAUT_CONTAMINATION"/>
-            <para>Ensure the hydraulic servicing cart <toolRef internalRefId="EQUIP_SERV_CART"/> is filled with new, filtered, approved hydraulic fluid <supplyRef internalRefId="SUPPLY_HYD_FLUID"/>.</para>
-          <para>Clean the reservoir fill port and the servicing cart hose nozzle with <supplyRef internalRefId="SUPPLY_CLEAN_WIPES"/>.</para>
-          <para>Connect the servicing cart hose to the [System Designator] reservoir fill port. Refer to <figureRef internalRefId="FIG_CART_CONNECT"/>.</para>
+            <para>Ensure the hydraulic servicing cart 
+                <toolRef internalRefId="EQUIP_SERV_CART"/> 
+                is filled with new, filtered, approved hydraulic fluid 
+                <supplyRef internalRefId="SUPPLY_HYD_FLUID"/>.
+            </para>
+          <para>Clean the reservoir fill port and the servicing cart hose nozzle with 
+              <supplyRef internalRefId="SUPPLY_CLEAN_WIPES"/>.
+          </para>
+          <para>Connect the servicing cart hose to the [System Designator] reservoir fill port. Refer to 
+              <figureRef internalRefId="FIG_CART_CONNECT"/>.
+          </para>
         </proceduralStep>
         
         <proceduralStep id="SERV_STEP004_REPLENISH">
@@ -914,7 +932,9 @@ __________________________________________|_____________________________________
 
         <proceduralStep id="SERV_STEP005_CLOSEUP">
           <title>Close-Up</title>
-          <para>Clean any spilled hydraulic fluid immediately using <supplyRef internalRefId="SUPPLY_CLEAN_WIPES"/>.</para>
+          <para>Clean any spilled hydraulic fluid immediately using 
+              <supplyRef internalRefId="SUPPLY_CLEAN_WIPES"/>.
+          </para>
           <para>Remove drip pans.</para>
           <para>Close and secure the hydraulic reservoir servicing access panel.</para>
           <para>Record the servicing action, date, fluid type/batch, and quantity added in the Aircraft Maintenance Log.</para>
