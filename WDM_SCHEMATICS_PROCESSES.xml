@@ -1,34 +1,40 @@
- Flight Control Surface Actuator - Detailed Inspection
+Flight Control Surface Actuator - Detailed Inspection
 
 ATA Chapter (Illustrative): 27 — Flight Controls
 S1000D DMC (Illustrative & Generic): XXXXXX-A-27-31-01-00A-710A-A
-(ModelIdentCode: XXXXXX (Generic), SystemDiffCode: A, SystemCode: 27 (Flight Controls), SubSystemCode: 31 (Actuation System - Primary Surface), SubSubSystemCode: 01 (Specific Actuator Assembly), AssyCode: 00A, InfoCode: 710A (Detailed Inspection), InfoCodeVariant: A, ItemLocationCode: A)
 Aircraft/Company: Not Specified / Generic Manufacturer
-🇺🇸 This task involves:
 
-    Gaining access to the specified flight control surface actuator.
-    Cleaning the actuator and surrounding area to facilitate inspection.
-    Performing detailed visual checks for:
-        Corrosion, pitting, or flaking on the actuator body, rod, and end fittings.
-        Cracks, dents, or physical damage to the actuator housing and mounting points.
-        Condition and security of hydraulic lines, fittings, and electrical connectors.
-        Evidence of hydraulic fluid leakage from seals, lines, or the actuator body.
-        Security of all attachment hardware (bolts, nuts, cotter pins).
-        Condition of protective finishes and markings.
-    Performing dimensional checks (if specified by engineering sources) for rod extension play or bushing wear using appropriate measuring tools.
-    Checking for proper lubrication at pivot points.
-    Recording all findings and discrepancies.
 
-📚 Engineering Sources Required (Conceptual - Generic)
-Document	Purpose
-AMM XX-XX-XX-XXX-XXX (Access Procedure)	Procedure for removing and installing access panels to the actuator area.
-AMM 20-XX-XX-XXX-XXX (Cleaning Proc.)	Standard aircraft cleaning procedures and approved materials.
-AMM 20-XX-XX-XXX-XXX (Lubrication Proc.)	Standard lubrication procedures and approved lubricants.
-SRM XX-XX-XX (Structural Repair Manual)	Allowable damage limits for actuator mounting structure; corrosion limits.
-CMM XX-XX-XX (Actuator Vendor CMM)	Specific inspection criteria, wear limits, and overhaul information for the actuator.
-Standard Practices Manual	General torquing values (if re-torquing checks are part of inspection), corrosion control information.
-Aircraft Maintenance Log	For recording inspection findings and actions taken.
-✍️ Key Authoring Considerations
+This task involves:
+
+    - Gaining access to the specified flight control surface actuator.
+    - Cleaning the actuator and surrounding area to facilitate inspection.
+    - Performing detailed visual checks for:
+        - Corrosion, pitting, or flaking on the actuator body, rod, and end fittings.
+        - Cracks, dents, or physical damage to the actuator housing and mounting points.
+        - Condition and security of hydraulic lines, fittings, and electrical connectors.
+        - Evidence of hydraulic fluid leakage from seals, lines, or the actuator body.
+        - Security of all attachment hardware (bolts, nuts, cotter pins).
+        - Condition of protective finishes and markings.
+    - Performing dimensional checks (if specified by engineering sources) for rod extension play or bushing wear using appropriate measuring tools.
+    - Checking for proper lubrication at pivot points.
+    - Recording all findings and discrepancies.
+
+
+Engineering Sources Required
+
+ Document	Purpose
+ AMM XX-XX-XX-XXX-XXX (Access Procedure)	Procedure for removing and installing access panels to the actuator area.
+ AMM 20-XX-XX-XXX-XXX (Cleaning Proc.)	Standard aircraft cleaning procedures and approved materials.
+ AMM 20-XX-XX-XXX-XXX (Lubrication Proc.)	Standard lubrication procedures and approved lubricants.
+ SRM XX-XX-XX (Structural Repair Manual)	Allowable damage limits for actuator mounting structure; corrosion limits.
+ CMM XX-XX-XX (Actuator Vendor CMM)	Specific inspection criteria, wear limits, and overhaul information for the actuator.
+ Standard Practices Manual	General torquing values (if re-torquing checks are part of inspection), corrosion control information.
+ Aircraft Maintenance Log	For recording inspection findings and actions taken.
+
+
+Key Authoring Considerations
+
 Factor	Importance
 Flight Control Safety	Ensure flight controls are safetied/deactivated and tagged out per AMM general procedures before starting work. Accidental movement can cause severe injury or damage.
 Hydraulic System Pressure	Verify hydraulic system pressure is OFF and residual pressure is bled before disturbing any hydraulic connections (even for visual checks near fittings).
