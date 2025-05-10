@@ -90,11 +90,25 @@ __________________________________________|_____________________________________
     </dmAddress>
     <dmStatus>
       <security securityClassification="01"/>
-      <responsiblePartnerCompany><enterpriseName>Generic System Manufacturer</enterpriseName></responsiblePartnerCompany>
-      <originator><enterpriseName>Generic Design Organization</enterpriseName></originator>
-      <applic><displayText>All Aircraft Configurations Equipped with [Generic Hydraulic System Type]</displayText></applic>
-      <brexDmRef><dmRef><dmIdent><dmCode modelIdentCode="S1000D" systemDiffCode="G" systemCode="00" infoCode="022"/></dmIdent></dmRef></brexDmRef>
-      <qualityAssurance><firstVerification verificationType="verified"/></qualityAssurance>
+      <responsiblePartnerCompany>
+          <enterpriseName>Generic System Manufacturer</enterpriseName>
+      </responsiblePartnerCompany>
+      <originator>
+          <enterpriseName>Generic Design Organization</enterpriseName>
+      </originator>
+      <applic>
+          <displayText>All Aircraft Configurations Equipped with [Generic Hydraulic System Type]</displayText>
+      </applic>
+      <brexDmRef>
+          <dmRef>
+              <dmIdent>
+                  <dmCode modelIdentCode="S1000D" systemDiffCode="G" systemCode="00" infoCode="022"/>
+              </dmIdent>
+          </dmRef>
+      </brexDmRef>
+      <qualityAssurance>
+          <firstVerification verificationType="verified"/>
+      </qualityAssurance>
     </dmStatus>
   </identAndStatusSection>
 
