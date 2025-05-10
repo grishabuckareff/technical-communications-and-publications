@@ -6,40 +6,69 @@ S1000D DMC (Illustrative): B777-A-23-12-11-00-750A-A01A-P
 
 This task involves:
 
-    Powering up the selected VHF Communication system.
-    Performing Built-In Test Equipment (BITE) check of the VHF Transceiver.
-    Verifying control panel indications and operation.
-    Conducting a transmit and receive check on specified test frequencies using a Ramp Test Set.
-    Confirming audio clarity and signal strength indications.
-    Verifying communication with Air Traffic Control (ATC) via ground communications (if permitted and coordinated).
-    Recording test results.
+    - Powering up the selected VHF Communication system.
+    - Performing Built-In Test Equipment (BITE) check of the VHF Transceiver.
+    - Verifying control panel indications and operation.
+    - Conducting a transmit and receive check on specified test frequencies using a Ramp Test Set.
+    - Confirming audio clarity and signal strength indications.
+    - Verifying communication with Air Traffic Control (ATC) via ground communications (if permitted and coordinated).
+    - Recording test results.
 
 
 Engineering Sources Required
-Document	Purpose
-AMM 23-12-11-700-801 (Hypothetical)	Removal and Installation of VHF Transceiver No.1
-AMM 24-XX-XX-XXX-XXX	Circuit Breaker Locations and Safety Procedures
-WDM XX-XX-XX (Relevant Wiring Diagram)	Electrical interface details for power and control.
-Ramp Test Set User Manual [MODEL_XYZ]	Operating instructions for the specific ramp test equipment.
-ARINC Specification 716 (or later)	Technical characteristics for Airborne VHF Communications Transceiver.
-Aircraft Logbook	For recording maintenance actions and test results.
+__________________________________________________________________________________________________________________________
+ Document                                 |   Purpose
+__________________________________________|_______________________________________________________________________________
+ AMM 23-12-11-700-801 (Hypothetical)      |   Removal and Installation of VHF Transceiver No.1
+__________________________________________|_______________________________________________________________________________
+ AMM 24-XX-XX-XXX-XXX                     |   Circuit Breaker Locations and Safety Procedures
+__________________________________________|_______________________________________________________________________________
+ WDM XX-XX-XX (Relevant Wiring Diagram)   |   Electrical interface details for power and control.
+__________________________________________|_______________________________________________________________________________
+ Ramp Test Set User Manual [MODEL_XYZ]    |   Operating instructions for the specific ramp test equipment.
+__________________________________________|_______________________________________________________________________________
+ ARINC Specification 716 (or later)       |   Technical characteristics for Airborne VHF Communications Transceiver.
+__________________________________________|_______________________________________________________________________________
+ Aircraft Logbook                         |   For recording maintenance actions and test results.
+__________________________________________|_______________________________________________________________________________
+
+
 Key Authoring Considerations
-Factor	Importance
-RF Radiation Safety	Ensure personnel are clear of antenna radiation zones during transmit tests. Post warning placards. (Ref: AMM 20-00-01 Safety Precautions).
-Antenna Clearance	Verify no obstructions are in front of the VHF antenna.
-Test Frequency Coordination	Use only approved test frequencies. Coordinate with local ATC or airport authority if live transmissions are planned to avoid interference.
-Ramp Test Set Calibration	Ensure Ramp Test Set [MODEL_XYZ] has a valid calibration sticker (e.g., within last 12 months).
-Aircraft Power Requirements	Confirm required AC and/or DC electrical buses are energized. Check APU or Ground Power availability and stability.
-Audio Panel Configuration	Ensure correct audio panel selections are made on flight deck to monitor VHF audio.
-BITE Test Interpretation	Familiarity with BITE codes and messages specific to the installed VHF Transceiver model is necessary. (Ref: Vendor CMM XX-XX-XX).
-Recording Discrepancies	Any failures or deviations from expected results during the test must be accurately recorded and reported.
+__________________________________________________________________________________________________________________________
+ Factor                                   |   Importance
+__________________________________________|_______________________________________________________________________________
+ RF Radiation Safety                      |   Ensure personnel are clear of antenna radiation zones during transmit tests. Post warning placards. (Ref: AMM 20-00-01 Safety Precautions).
+__________________________________________|_______________________________________________________________________________
+ Antenna Clearance                        |   Verify no obstructions are in front of the VHF antenna.
+__________________________________________|_______________________________________________________________________________
+ Test Frequency Coordination              |   Use only approved test frequencies. Coordinate with local ATC or airport authority if live transmissions are planned to avoid interference.
+__________________________________________|_______________________________________________________________________________
+ Ramp Test Set Calibration                |   Ensure Ramp Test Set [MODEL_XYZ] has a valid calibration sticker (e.g., within last 12 months).
+__________________________________________|_______________________________________________________________________________
+ Aircraft Power Requirements              |   Confirm required AC and/or DC electrical buses are energized. Check APU or Ground Power availability and stability.
+__________________________________________|_______________________________________________________________________________
+ Audio Panel Configuration                |   Ensure correct audio panel selections are made on flight deck to monitor VHF audio.
+__________________________________________|_______________________________________________________________________________
+ BITE Test Interpretation                 |   Familiarity with BITE codes and messages specific to the installed VHF Transceiver model is necessary. (Ref: Vendor CMM XX-XX-XX).
+__________________________________________|_______________________________________________________________________________
+ Recording Discrepancies                  |   Any failures or deviations from expected results during the test must be accurately recorded and reported.
+__________________________________________|_______________________________________________________________________________
+
+
 Required Illustrations
-Type	Content
-VHF Control Panel (Flight Deck)	Callouts for switches, knobs, and displays used during the test.
-VHF Transceiver Location (E/E Bay)	Shows physical location of the transceiver unit and relevant connectors/BITE indicators.
-Ramp Test Set Connection	Diagram showing connection of Ramp Test Set to aircraft antenna port or test port, and power connections.
-Expected BITE Display (Example)	Visual example of a successful BITE test result on the control panel or maintenance interface.
-Antenna Keep-Out Zone Diagram (Safety)	Illustration showing safe distances from the VHF antenna during transmission.
+__________________________________________________________________________________________________________________________
+ Type                                     |   Content
+__________________________________________|_______________________________________________________________________________
+ VHF Control Panel (Flight Deck)          |   Callouts for switches, knobs, and displays used during the test.
+__________________________________________|_______________________________________________________________________________
+ VHF Transceiver Location (E/E Bay)       |   Shows physical location of the transceiver unit and relevant connectors/BITE indicators.
+__________________________________________|_______________________________________________________________________________
+ Ramp Test Set Connection                 |   Diagram showing connection of Ramp Test Set to aircraft antenna port or test port, and power connections.
+__________________________________________|_______________________________________________________________________________
+ Expected BITE Display (Example)          |   Visual example of a successful BITE test result on the control panel or maintenance interface.
+__________________________________________|_______________________________________________________________________________
+ Antenna Keep-Out Zone Diagram (Safety)   |   Illustration showing safe distances from the VHF antenna during transmission.
+__________________________________________|_______________________________________________________________________________
 
 
 <?xml version="1.0" encoding="UTF-8"?>
