@@ -16,32 +16,56 @@ This Data Module provides:
 
 
 Data Sources (Conceptual - Generic)
-
-Document/Source	Purpose
-Master System Functional Diagram (CAD)	The source engineering drawing for the simplified hydraulic system schematic.
-Hydraulic System Design Specification	Detailed engineering specifications for system architecture, performance, and components.
-Component Technical Specifications	Specifications for individual components like pumps, reservoirs, valves, and actuators.
-Aircraft Level System Descriptions	Narrative descriptions of overall aircraft system functionality and integration.
+__________________________________________________________________________________________________________________________
+ Document/Source                          |   Purpose
+__________________________________________|_______________________________________________________________________________
+ Master System Functional Diagram (CAD)   |   The source engineering drawing for the simplified hydraulic system schematic.
+__________________________________________|_______________________________________________________________________________
+ Hydraulic System Design Specification    |   Detailed engineering specifications for system architecture, performance, and components.
+__________________________________________|_______________________________________________________________________________
+ Component Technical Specifications       |   Specifications for individual components like pumps, reservoirs, valves, and actuators.
+__________________________________________|_______________________________________________________________________________
+ Aircraft Level System Descriptions       |   Narrative descriptions of overall aircraft system functionality and integration.
+__________________________________________|_______________________________________________________________________________
 
 
 Key Authoring/Data Considerations
-
-Factor	Importance
-Simplification Level	The diagram must be simplified enough for easy understanding of overall function but detailed enough to show key components and interactions.
-Accuracy of Flow Paths	Primary pressure, return, and any critical auxiliary flow paths must be accurately depicted.
-Component Representation	Standardized and recognizable symbols for hydraulic components should be used. Component labels must be clear and consistent with other documentation.
-System Boundaries	Clearly define the boundaries of the hydraulic system(s) shown and indicate interfaces to other aircraft systems (e.g., flight controls, landing gear, power sources).
-Functional Logic	Key control inputs and resulting actions (e.g., pump activation logic, valve operation under specific conditions) should be clearly, if simply, represented.
-Graphic File Integrity	The referenced graphical file (e.g., ICN) must be the correct, revision-controlled version of the schematic.
-Consistency with Detailed Schematics	Information must align with more detailed hydraulic schematics (e.g., WDM piping diagrams or detailed component interface diagrams).
+__________________________________________________________________________________________________________________________
+ Factor                                   |   Importance
+__________________________________________|_______________________________________________________________________________
+ Simplification Level                     |   The diagram must be simplified enough for easy understanding of overall function but detailed enough 
+                                          |   to show key components and interactions.
+__________________________________________|_______________________________________________________________________________
+ Accuracy of Flow Paths                   |   Primary pressure, return, and any critical auxiliary flow paths must be accurately depicted.
+__________________________________________|_______________________________________________________________________________
+ Component Representation                 |   Standardized and recognizable symbols for hydraulic components should be used. 
+                                          |   Component labels must be clear and consistent with other documentation.
+__________________________________________|_______________________________________________________________________________
+ System Boundaries                        |   Clearly define the boundaries of the hydraulic system(s) shown and indicate interfaces to other aircraft systems 
+                                          |   (e.g., flight controls, landing gear, power sources).
+__________________________________________|_______________________________________________________________________________
+ Functional Logic                         |   Key control inputs and resulting actions (e.g., pump activation logic, valve operation under specific conditions) 
+                                          |   should be clearly, if simply, represented.
+__________________________________________|_______________________________________________________________________________
+ Graphic File Integrity                   |   The referenced graphical file (e.g., ICN) must be the correct, revision-controlled version of the schematic.
+__________________________________________|_______________________________________________________________________________
+ Consistency with Detailed Schematics     |   Information must align with more detailed hydraulic schematics 
+                                          |   (e.g., WDM piping diagrams or detailed component interface diagrams).
+__________________________________________|_______________________________________________________________________________
 
 
 Required Illustrations (This DM is primarily about an illustration)
-
-Type	Content
-Primary System Schematic Graphic	The main functional block diagram of the hydraulic system, showing major components, flow paths, and control logic.
-(Optional) Component Detail Callouts	If the primary graphic is very dense, supplementary graphics might show enlarged views of specific component clusters or control elements.
-(Optional) System State Variations	Supplementary graphics could illustrate system configuration in different states (e.g., normal operation, emergency operation, specific pump failures).
+__________________________________________________________________________________________________________________________
+ Type                                     |   Content
+__________________________________________|_______________________________________________________________________________
+ Primary System Schematic Graphic         |   The main functional block diagram of the hydraulic system, showing major components, flow paths, and control logic.
+__________________________________________|_______________________________________________________________________________
+ (Optional) Component Detail Callouts     |   If the primary graphic is very dense, supplementary graphics might show enlarged views 
+                                          |   of specific component clusters or control elements.
+__________________________________________|_______________________________________________________________________________
+ (Optional) System State Variations       |   Supplementary graphics could illustrate system configuration in different states 
+                                          |   (e.g., normal operation, emergency operation, specific pump failures).
+__________________________________________|_______________________________________________________________________________
 
 
 <?xml version="1.0" encoding="UTF-8"?>
