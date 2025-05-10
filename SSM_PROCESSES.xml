@@ -130,10 +130,18 @@ __________________________________________|_____________________________________
         <title>General Functional Description</title>
         <para>The aircraft is equipped with three independent hydraulic systems, typically designated Left, Center, and Right (or Standby), each normally operating at [XXXX] PSI. Each system has its own reservoir, primary and/or backup pumps, filtration, and distribution network to various user systems. This schematic depicts the main power generation sources for each system (Engine Driven Pumps - EDPs, Electric Motor Pumps - EMPs, Air Driven Pumps - ADPs, Ram Air Turbine - RAT, Power Transfer Units - PTUs), their connections to system reservoirs, and the primary distribution paths to major user groups such as:</para>
         <unorderedList>
-            <listItem><para>Primary Flight Controls (Ailerons, Elevators, Rudder, Spoilers)</para></listItem>
-            <listItem><para>Secondary Flight Controls (Leading Edge Slats, Trailing Edge Flaps)</para></listItem>
-            <listItem><para>Landing Gear (Extension, Retraction, Steering, Brakes)</para></listItem>
-            <listItem><para>Other users (e.g., Cargo Doors, Thrust Reversers - if hydraulically actuated)</para></listItem>
+            <listItem>
+                <para>Primary Flight Controls (Ailerons, Elevators, Rudder, Spoilers)</para>
+            </listItem>
+            <listItem>
+                <para>Secondary Flight Controls (Leading Edge Slats, Trailing Edge Flaps)</para>
+            </listItem>
+            <listItem>
+                <para>Landing Gear (Extension, Retraction, Steering, Brakes)</para>
+            </listItem>
+            <listItem>
+                <para>Other users (e.g., Cargo Doors, Thrust Reversers - if hydraulically actuated)</para>
+            </listItem>
         </unorderedList>
         <para>Key isolation features, such as engine fire shutoff valves and PTU control logic, are functionally represented.</para>
       </levelledPara>
@@ -143,27 +151,39 @@ __________________________________________|_____________________________________
         <definitionList>
           <definitionListItem id="COMP_EDP_L">
             <term>EDP-L (Engine Driven Pump - Left System)</term>
-            <definition><para>Primary pump for the Left hydraulic system, typically driven by Engine No.1. Provides main system pressure.</para></definition>
+            <definition>
+                <para>Primary pump for the Left hydraulic system, typically driven by Engine No.1. Provides main system pressure.</para>
+            </definition>
           </definitionListItem>
           <definitionListItem id="COMP_EMP_C1">
             <term>EMP-C1 (Electric Motor Pump - Center System 1)</term>
-            <definition><para>Primary electric pump for the Center hydraulic system. Can be powered by AC Bus 1 or Ground Service Bus.</para></definition>
+            <definition>
+                <para>Primary electric pump for the Center hydraulic system. Can be powered by AC Bus 1 or Ground Service Bus.</para>
+            </definition>
           </definitionListItem>
           <definitionListItem id="COMP_RES_R">
             <term>RES-R (Reservoir - Right System)</term>
-            <definition><para>Stores, conditions (de-aerates), and provides a positive head of hydraulic fluid to the Right system pumps. Includes quantity sensors and overpressure relief.</para></definition>
+            <definition>
+                <para>Stores, conditions (de-aerates), and provides a positive head of hydraulic fluid to the Right system pumps. Includes quantity sensors and overpressure relief.</para>
+            </definition>
           </definitionListItem>
           <definitionListItem id="COMP_PTU_LC">
             <term>PTU-L/C (Power Transfer Unit - Left/Center)</term>
-            <definition><para>Allows the Left system to pressurize the Center system (or vice-versa, depending on design) under certain conditions without fluid transfer.</para></definition>
+            <definition>
+                <para>Allows the Left system to pressurize the Center system (or vice-versa, depending on design) under certain conditions without fluid transfer.</para>
+            </definition>
           </definitionListItem>
           <definitionListItem id="COMP_ACCUM_BRK">
             <term>ACCUM-BRK (Accumulator - Brake System)</term>
-            <definition><para>Stores hydraulic pressure for brake operation, particularly for parking brake or emergency braking.</para></definition>
+            <definition>
+                <para>Stores hydraulic pressure for brake operation, particularly for parking brake or emergency braking.</para>
+            </definition>
           </definitionListItem>
           <definitionListItem id="COMP_MANIFOLD_FLTCTRL_PRI">
             <term>MANIFOLD-FLTCTRL-PRI (Manifold - Primary Flight Controls)</term>
-            <definition><para>Distributes hydraulic power from multiple sources to the primary flight control actuators.</para></definition>
+            <definition>
+                <para>Distributes hydraulic power from multiple sources to the primary flight control actuators.</para>
+            </definition>
           </definitionListItem>
           </definitionList>
       </levelledPara>
@@ -179,10 +199,18 @@ __________________________________________|_____________________________________
       <levelledPara id="SSM_RELATED_DATA_HYD">
         <title>Related Detailed Data</title>
         <unorderedList>
-          <listItem><para>Detailed Component Descriptions: Refer to AMM Chapter 29-XX-XX for specific components.</para></listItem>
-          <listItem><para>Hydraulic System Maintenance Procedures: Refer to AMM Chapter 29-XX-XX for servicing, testing, and R&I.</para></listItem>
-          <listItem><para>Detailed Piping and Instrumentation Diagrams (P&IDs) or Wiring Diagrams (for pump controls): Refer to WDM Chapter 29-XX-XX or specific system interface DMs.</para></listItem>
-          <listItem><para>Component Maintenance Manuals (CMMs) for individual hydraulic components.</para></listItem>
+          <listItem>
+              <para>Detailed Component Descriptions: Refer to AMM Chapter 29-XX-XX for specific components.</para>
+          </listItem>
+          <listItem>
+              <para>Hydraulic System Maintenance Procedures: Refer to AMM Chapter 29-XX-XX for servicing, testing, and R&I.</para>
+          </listItem>
+          <listItem>
+              <para>Detailed Piping and Instrumentation Diagrams (P&IDs) or Wiring Diagrams (for pump controls): Refer to WDM Chapter 29-XX-XX or specific system interface DMs.</para>
+          </listItem>
+          <listItem>
+              <para>Component Maintenance Manuals (CMMs) for individual hydraulic components.</para>
+          </listItem>
         </unorderedList>
       </levelledPara>
     </description>
@@ -283,11 +311,25 @@ __________________________________________|_____________________________________
     </dmAddress>
     <dmStatus>
       <security securityClassification="01"/>
-      <responsiblePartnerCompany><enterpriseName>Generic Airframe Manufacturer</enterpriseName></responsiblePartnerCompany>
-      <originator><enterpriseName>Generic Design Organization</enterpriseName></originator>
-      <applic><displayText>All Aircraft Configurations with Type ABC Ventilation System</displayText></applic>
-      <brexDmRef><dmRef><dmIdent><dmCode modelIdentCode="S1000D" systemDiffCode="G" systemCode="00" infoCode="022"/></dmIdent></dmRef></brexDmRef>
-      <qualityAssurance><firstVerification verificationType="verifiedDeskTop"/></qualityAssurance>
+      <responsiblePartnerCompany>
+          <enterpriseName>Generic Airframe Manufacturer</enterpriseName>
+      </responsiblePartnerCompany>
+      <originator>
+          <enterpriseName>Generic Design Organization</enterpriseName>
+      </originator>
+      <applic>
+          <displayText>All Aircraft Configurations with Type ABC Ventilation System</displayText>
+      </applic>
+      <brexDmRef>
+          <dmRef>
+              <dmIdent>
+                  <dmCode modelIdentCode="S1000D" systemDiffCode="G" systemCode="00" infoCode="022"/>
+              </dmIdent>
+          </dmRef>
+      </brexDmRef>
+      <qualityAssurance>
+          <firstVerification verificationType="verifiedDeskTop"/>
+      </qualityAssurance>
     </dmStatus>
   </identAndStatusSection>
 
