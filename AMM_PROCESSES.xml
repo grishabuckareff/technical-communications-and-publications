@@ -143,7 +143,9 @@ __________________________________________|_____________________________________
             <para>Ensure applicable hydraulic system(s) are depressurized. Refer to AMM Chapter 29.</para>
           </reqCond>
           <reqCond id="RC_INSP003">
-            <para>Remove access panels [PANEL_ID_LIST] to gain access to the actuator inspection area. Refer to AMM [ACCESS_PANEL_REMOVAL_TASK_DM_CODE]. Refer to <figureRef internalRefId="FIG_ACTUATOR_LOCATION"/>.</para>
+            <para>Remove access panels [PANEL_ID_LIST] to gain access to the actuator inspection area. Refer to AMM [ACCESS_PANEL_REMOVAL_TASK_DM_CODE]. Refer to 
+                <figureRef internalRefId="FIG_ACTUATOR_LOCATION"/>.
+            </para>
           </reqCond>
         </reqCondGroup>
         <reqSafety>
@@ -158,16 +160,35 @@ __________________________________________|_____________________________________
         </reqSafety>
         <reqSupportEquips>
           <supportEquipDescrGroup>
-            <supportEquipDescr id="TOOL_INSP_LIGHT"><name>Inspection Lamp (Intrinsically Safe if in fuel vapor area)</name><quantity>1</quantity></supportEquipDescr>
-            <supportEquipDescr id="TOOL_MIRROR"><name>Inspection Mirror</name><quantity>1</quantity></supportEquipDescr>
-            <supportEquipDescr id="TOOL_MAGNIFIER"><name>Magnifying Glass (5x or 10x)</name><quantity>1</quantity></supportEquipDescr>
-            <supportEquipDescr id="TOOL_DEPTH_GAUGE"保健品><name>Depth Gauge (0-1 inch, resolution 0.001 inch)</name><quantity>1</quantity><descr>If dimensional checks are required.</descr></supportEquipDescr>
+            <supportEquipDescr id="TOOL_INSP_LIGHT">
+                <name>Inspection Lamp (Intrinsically Safe if in fuel vapor area)</name>
+                <quantity>1</quantity>
+            </supportEquipDescr>
+            <supportEquipDescr id="TOOL_MIRROR">
+                <name>Inspection Mirror</name>
+                <quantity>1</quantity></supportEquipDescr>
+            <supportEquipDescr id="TOOL_MAGNIFIER">
+                <name>Magnifying Glass (5x or 10x)</name>
+                <quantity>1</quantity>
+            </supportEquipDescr>
+            <supportEquipDescr id="TOOL_DEPTH_GAUGE"保健品>
+                <name>Depth Gauge (0-1 inch, resolution 0.001 inch)</name>
+                <quantity>1</quantity>
+                <descr>If dimensional checks are required.</descr>
+            </supportEquipDescr>
           </supportEquipDescrGroup>
         </reqSupportEquips>
         <reqSupplies>
             <supplyDescrGroup>
-                <supplyDescr id="SUPPLY_CLEANER"><name>Approved Cleaning Solvent</name><partOrConfigNumber>[SOLVENT_SPEC]</partOrConfigNumber><quantity>AR</quantity></supplyDescr>
-                <supplyDescr id="SUPPLY_WIPES"><name>Lint-Free Wipes</name><quantity>AR</quantity></supplyDescr>
+                <supplyDescr id="SUPPLY_CLEANER">
+                    <name>Approved Cleaning Solvent</name>
+                    <partOrConfigNumber>[SOLVENT_SPEC]</partOrConfigNumber>
+                    <quantity>AR</quantity>
+                </supplyDescr>
+                <supplyDescr id="SUPPLY_WIPES">
+                    <name>Lint-Free Wipes</name>
+                    <quantity>AR</quantity>
+                </supplyDescr>
             </supplyDescrGroup>
         </reqSupplies>
         <refs>
@@ -209,7 +230,11 @@ __________________________________________|_____________________________________
         <title>Detailed Inspection Steps</title>
         <proceduralStep id="INSP_STEP001_CLEAN">
           <title>Clean Inspection Area</title>
-          <para>Thoroughly clean the actuator and surrounding mounting structure using approved <supplyRef internalRefId="SUPPLY_CLEANER"/> and <supplyRef internalRefId="SUPPLY_WIPES"/>. Ensure all grease, dirt, and hydraulic fluid residue are removed.</para>
+          <para>Thoroughly clean the actuator and surrounding mounting structure using approved 
+              <supplyRef internalRefId="SUPPLY_CLEANER"/> and 
+              <supplyRef internalRefId="SUPPLY_WIPES"/>. 
+              Ensure all grease, dirt, and hydraulic fluid residue are removed.
+          </para>
           <note>
               <para>Refer to AMM 20-XX-XX for standard cleaning procedures.</para>
           </note>
@@ -217,7 +242,15 @@ __________________________________________|_____________________________________
 
         <proceduralStep id="INSP_STEP002_VISUAL_BODY">
           <title>Visual Inspection - Actuator Body and Rod</title>
-          <para>Using <toolRef internalRefId="TOOL_INSP_LIGHT"/>, <toolRef internalRefId="TOOL_MIRROR"/>, and <toolRef internalRefId="TOOL_MAGNIFIER"/> as necessary, visually inspect the entire actuator body and exposed portions of the actuator rod for the following. Refer to <figureRef internalRefId="FIG_INSP_POINTS"/> and <figureRef internalRefId="FIG_DAMAGE_EXAMPLES"/>:</para>
+          <para>Using 
+              <toolRef internalRefId="TOOL_INSP_LIGHT"/>, 
+              <toolRef internalRefId="TOOL_MIRROR"/>, and 
+              <toolRef internalRefId="TOOL_MAGNIFIER"/> 
+              as necessary, visually inspect the entire actuator body and exposed portions of the actuator rod for the following. 
+              Refer to 
+              <figureRef internalRefId="FIG_INSP_POINTS"/> and 
+              <figureRef internalRefId="FIG_DAMAGE_EXAMPLES"/>:
+          </para>
           <proceduralStep id="INSP_STEP002_SUB1_CRACKS">
               <para>
                   <emphasis emphasisType="bold">Cracks or Dents:</emphasis> 
@@ -549,7 +582,8 @@ __________________________________________|_____________________________________
         <proceduralStep id="TEST_STEP002">
           <title>Transmit/Receive Check with Ramp Test Set</title>
           <para>Connect the Ramp Test Set <toolRef internalRefId="TE001_RAMP_TEST_SET"/> to the aircraft's No.1 VHF antenna test port. Refer to <figureRef internalRefId="FIG_RAMP_TEST_CONNECT"/> and <externalPubRef internalRefId="REF_TEST_SET_MANUAL"/>.</para>
-          <warning internalRefId="WARN_RF_RADIATION"/> <proceduralStep id="TEST_STEP002_SUB1">
+          <warning internalRefId="WARN_RF_RADIATION"/>
+            <proceduralStep id="TEST_STEP002_SUB1">
             <para>On the VHF Control Panel, select test frequency [e.g., 121.5 MHz].</para>
             <para>Using the Ramp Test Set, initiate a transmission from the aircraft on the selected frequency. Verify power output is within [X dBm +/- Y dB] tolerance.</para>
           </proceduralStep>
@@ -561,7 +595,9 @@ __________________________________________|_____________________________________
 
         <proceduralStep id="TEST_STEP003">
           <title>ATC Communication Check (Optional and Coordinated)</title>
-          <note><para>This step is to be performed only if authorized and coordinated with local airport/ATC authorities.</para></note>
+          <note>
+              <para>This step is to be performed only if authorized and coordinated with local airport/ATC authorities.</para>
+          </note>
           <para>Select an appropriate ground control or clearance delivery frequency on VHF 1.</para>
           <para>Attempt a brief communication with ATC. Verify clear two-way communication.</para>
         </proceduralStep>
@@ -633,8 +669,8 @@ ________________________________________________________________________________
 __________________________________________|_______________________________________________________________________________
  AMM XX-XX-XX-XXX-XXX (Access Procedure)  |   Procedure for opening/closing relevant access panels or doors.
 __________________________________________|_______________________________________________________________________________
- AMM 29-00-00-XXX-XXX                     |
- (Hydraulic Sys Safety)                   |   General safety precautions for hydraulic system maintenance.
+ AMM 29-00-00-XXX-XXX                     |   General safety precautions for hydraulic system maintenance.
+ (Hydraulic Sys Safety)                   | 
 __________________________________________|_______________________________________________________________________________
  Material Specification [FLUID_SPEC_NO]   |   Specification for the approved hydraulic fluid type.
 __________________________________________|_______________________________________________________________________________
@@ -750,7 +786,9 @@ __________________________________________|_____________________________________
           </reqCond>
           <reqCond id="RC_SERV002">
             <para>Ensure the [System Designator] hydraulic system is depressurized. Refer to AMM Task 29-00-00-XXX-XXX (System Depressurization).</para>
-            <note><para>Accurate fluid level check is typically performed with the system depressurized and fluid at ambient temperature, unless otherwise specified by the level indicator markings.</para></note>
+            <note>
+                <para>Accurate fluid level check is typically performed with the system depressurized and fluid at ambient temperature, unless otherwise specified by the level indicator markings.</para>
+            </note>
           </reqCond>
           <reqCond id="RC_SERV003">
             <para>Ensure all flight controls normally powered by the [System Designator] hydraulic system are in their neutral or specified positions (refer to specific aircraft configuration for details).</para>
@@ -772,20 +810,52 @@ __________________________________________|_____________________________________
         </reqSafety>
         <reqSupportEquips>
           <supportEquipDescrGroup>
-            <supportEquipDescr id="EQUIP_SERV_CART"><name>Hydraulic Servicing Cart</name><descr>Equipped with filter and filled with approved hydraulic fluid type [FLUID_SPEC_NO].</descr><partOrConfigNumber>[CART_MODEL_XYZ]</partOrConfigNumber><quantity>1</quantity></supportEquipDescr>
-            <supportEquipDescr id="EQUIP_DRIP_PAN"><name>Drip Pans</name><quantity>AR</quantity></supportEquipDescr>
-            <supportEquipDescr id="EQUIP_LIGHT"><name>Inspection Lamp</name><quantity>1</quantity></supportEquipDescr>
+            <supportEquipDescr id="EQUIP_SERV_CART">
+                <name>Hydraulic Servicing Cart</name>
+                <descr>Equipped with filter and filled with approved hydraulic fluid type [FLUID_SPEC_NO].</descr>
+                <partOrConfigNumber>[CART_MODEL_XYZ]</partOrConfigNumber>
+                <quantity>1</quantity>
+            </supportEquipDescr>
+            <supportEquipDescr id="EQUIP_DRIP_PAN">
+                <name>Drip Pans</name>
+                <quantity>AR</quantity>
+            </supportEquipDescr>
+            <supportEquipDescr id="EQUIP_LIGHT">
+                <name>Inspection Lamp</name>
+                <quantity>1</quantity>
+            </supportEquipDescr>
           </supportEquipDescrGroup>
         </reqSupportEquips>
         <reqSupplies>
             <supplyDescrGroup>
-                <supplyDescr id="SUPPLY_HYD_FLUID"><name>Hydraulic Fluid, [Fluid Type, e.g., Phosphate Ester Based]</name><partOrConfigNumber>[FLUID_SPEC_NO / MIL-PRF-XXXXX]</partOrConfigNumber><quantity>AR</quantity><descr>Must be from a new, sealed container.</descr><figureRef internalRefId="FIG_FLUID_CONTAINER"/></supplyDescr>
-                <supplyDescr id="SUPPLY_CLEAN_WIPES"><name>Lint-Free Cleaning Wipes</name><quantity>AR</quantity></supplyDescr>
+                <supplyDescr id="SUPPLY_HYD_FLUID">
+                    <name>Hydraulic Fluid, [Fluid Type, e.g., Phosphate Ester Based]</name>
+                    <partOrConfigNumber>[FLUID_SPEC_NO / MIL-PRF-XXXXX]</partOrConfigNumber>
+                    <quantity>AR</quantity>
+                    <descr>Must be from a new, sealed container.</descr>
+                    <figureRef internalRefId="FIG_FLUID_CONTAINER"/>
+                </supplyDescr>
+                <supplyDescr id="SUPPLY_CLEAN_WIPES">
+                    <name>Lint-Free Cleaning Wipes</name>
+                    <quantity>AR</quantity>
+                </supplyDescr>
             </supplyDescrGroup>
         </reqSupplies>
         <refs>
-          <dmRef id="REF_AMM_HYD_DEPRESS"><dmIdent><dmCode modelIdentCode="XXXXXX" systemCode="29" infoCode="XXX"/></dmIdent><dmAddressItems><dmTitle><infoName>Hydraulic System Depressurization</infoName></dmTitle></dmAddressItems></dmRef>
-          <externalPubRef id="REF_MSDS_FLUID"><externalPubCode>[FLUID_MSDS_ID]</externalPubCode><externalPubTitle>MSDS for Hydraulic Fluid [FLUID_SPEC_NO]</externalPubTitle></externalPubRef>
+          <dmRef id="REF_AMM_HYD_DEPRESS">
+              <dmIdent>
+                  <dmCode modelIdentCode="XXXXXX" systemCode="29" infoCode="XXX"/>
+              </dmIdent>
+              <dmAddressItems>
+                  <dmTitle>
+                      <infoName>Hydraulic System Depressurization</infoName>
+                  </dmTitle>
+              </dmAddressItems>
+          </dmRef>
+          <externalPubRef id="REF_MSDS_FLUID">
+              <externalPubCode>[FLUID_MSDS_ID]</externalPubCode>
+              <externalPubTitle>MSDS for Hydraulic Fluid [FLUID_SPEC_NO]</externalPubTitle>
+          </externalPubRef>
         </refs>
       </preliminaryRqmts>
 
@@ -804,13 +874,17 @@ __________________________________________|_____________________________________
           <randomAction id="RA_LEVEL_CHECK_OUTCOME">
             <choice>
               <if id="IF_LEVEL_OK">
-                <condition><para>Fluid level is within the acceptable range (e.g., between ADD and FULL COLD marks).</para></condition>
+                <condition>
+                    <para>Fluid level is within the acceptable range (e.g., between ADD and FULL COLD marks).</para>
+                </condition>
                 <then>
                   <para>No replenishment is required. Proceed to Close-Up Requirements: <internalRef internalRefId="SERV_STEP005_CLOSEUP" internalRefTargetType="step"/>.</para>
                 </then>
               </if>
               <else id="ELSE_LEVEL_LOW">
-                <condition><para>Fluid level is below the ADD mark or at REFILL.</para></condition>
+                <condition>
+                    <para>Fluid level is below the ADD mark or at REFILL.</para>
+                </condition>
                 <then>
                   <para>Replenishment is required. Proceed to next step: <internalRef internalRefId="SERV_STEP003_CONNECT_CART" internalRefTargetType="step"/>.</para>
                 </then>
@@ -821,14 +895,17 @@ __________________________________________|_____________________________________
 
         <proceduralStep id="SERV_STEP003_CONNECT_CART">
           <title>Prepare and Connect Servicing Cart</title>
-          <caution internalRefId="CAUT_CONTAMINATION"/> <para>Ensure the hydraulic servicing cart <toolRef internalRefId="EQUIP_SERV_CART"/> is filled with new, filtered, approved hydraulic fluid <supplyRef internalRefId="SUPPLY_HYD_FLUID"/>.</para>
+          <caution internalRefId="CAUT_CONTAMINATION"/>
+            <para>Ensure the hydraulic servicing cart <toolRef internalRefId="EQUIP_SERV_CART"/> is filled with new, filtered, approved hydraulic fluid <supplyRef internalRefId="SUPPLY_HYD_FLUID"/>.</para>
           <para>Clean the reservoir fill port and the servicing cart hose nozzle with <supplyRef internalRefId="SUPPLY_CLEAN_WIPES"/>.</para>
           <para>Connect the servicing cart hose to the [System Designator] reservoir fill port. Refer to <figureRef internalRefId="FIG_CART_CONNECT"/>.</para>
         </proceduralStep>
         
         <proceduralStep id="SERV_STEP004_REPLENISH">
           <title>Replenish Hydraulic Fluid</title>
-          <caution id="CAUT_OVERFILL"><para>DO NOT OVERFILL the reservoir. Overfilling can lead to system malfunctions or fluid expulsion through vents.</para></caution>
+          <caution id="CAUT_OVERFILL">
+              <para>DO NOT OVERFILL the reservoir. Overfilling can lead to system malfunctions or fluid expulsion through vents.</para>
+          </caution>
           <para>Slowly add hydraulic fluid from the servicing cart, continuously monitoring the fluid level indicator.</para>
           <para>Stop filling when the fluid level reaches the [Specify exact mark, e.g., FULL COLD] mark on the indicator.</para>
           <para>Disconnect the servicing cart hose. Install the cap on the reservoir fill port. Torque cap to [XX] lb-in (if specified).</para>
@@ -848,11 +925,26 @@ __________________________________________|_____________________________________
       </procedure>
     
     <figureList>
-        <figure id="FIG_PPE_HYD"><title>Required PPE for Hydraulic Fluid Handling</title><graphic infoEntityIdent="ICN-XXXXXX-S-200000-A-PPE01-A-001A-A"/></figure>
-        <figure id="FIG_SERV_PANEL_LOC"><title>Hydraulic Reservoir Servicing Access Panel</title><graphic infoEntityIdent="ICN-XXXXXX-A-291301-D-LOC01-A-001A-A"/></figure>
-        <figure id="FIG_LEVEL_INDICATOR"><title>Reservoir Fluid Level Indicator Details</title><graphic infoEntityIdent="ICN-XXXXXX-A-291301-D-IND01-A-001A-A"/></figure>
-        <figure id="FIG_CART_CONNECT"><title>Servicing Cart Connection to Reservoir Fill Port</title><graphic infoEntityIdent="ICN-XXXXXX-A-291301-D-CONN1-A-001A-A"/></figure>
-        <figure id="FIG_FLUID_CONTAINER"><title>Approved Hydraulic Fluid Container Example</title><graphic infoEntityIdent="ICN-XXXXXX-A-120000-S-MAT01-A-001A-A"/></figure>
+        <figure id="FIG_PPE_HYD">
+            <title>Required PPE for Hydraulic Fluid Handling</title>
+            <graphic infoEntityIdent="ICN-XXXXXX-S-200000-A-PPE01-A-001A-A"/>
+        </figure>
+        <figure id="FIG_SERV_PANEL_LOC">
+            <title>Hydraulic Reservoir Servicing Access Panel</title>
+            <graphic infoEntityIdent="ICN-XXXXXX-A-291301-D-LOC01-A-001A-A"/>
+        </figure>
+        <figure id="FIG_LEVEL_INDICATOR">
+            <title>Reservoir Fluid Level Indicator Details</title>
+            <graphic infoEntityIdent="ICN-XXXXXX-A-291301-D-IND01-A-001A-A"/>
+        </figure>
+        <figure id="FIG_CART_CONNECT">
+            <title>Servicing Cart Connection to Reservoir Fill Port</title>
+            <graphic infoEntityIdent="ICN-XXXXXX-A-291301-D-CONN1-A-001A-A"/>
+        </figure>
+        <figure id="FIG_FLUID_CONTAINER">
+            <title>Approved Hydraulic Fluid Container Example</title>
+            <graphic infoEntityIdent="ICN-XXXXXX-A-120000-S-MAT01-A-001A-A"/>
+        </figure>
     </figureList>
   </content>
 </dmodule>
