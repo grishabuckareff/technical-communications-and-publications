@@ -1,0 +1,144 @@
+Hydraulic Power System - Simplified Functional Diagram
+
+ATA Chapter (Illustrative): 29 — Hydraulic Power
+S1000D DMC (Illustrative & Generic): XXXXXX-A-29-00-00-00A-024A-A
+(ModelIdentCode: XXXXXX (Generic), SystemDiffCode: A, SystemCode: 29 (Hydraulic Power), SubSystemCode: 00 (General), SubSubSystemCode: 00 (General), AssyCode: 00A, InfoCode: 024A (Schematic diagram - functional/block), InfoCodeVariant: A, ItemLocationCode: A)
+Aircraft/Company: Not Specified / Generic Manufacturer
+🇺🇸 This Data Module provides:
+
+    A high-level functional overview of the aircraft's main hydraulic power generation and distribution systems.
+    Identification of major hydraulic components (e.g., pumps, reservoirs, accumulators, primary manifolds, key user systems).
+    Illustration of the primary hydraulic fluid flow paths (pressure, return, case drain) between these major components.
+    Indication of system redundancy (e.g., multiple independent hydraulic systems) and power sources for pumps.
+    Simplified representation of control logic for pump operation and system isolation (e.g., fire shutoff valves).
+    A reference to the master graphical file for the system schematic diagram.
+
+📚 Data Sources (Conceptual - Generic)
+Document/Source	Purpose
+Master System Functional Diagram (CAD)	The source engineering drawing for the simplified hydraulic system schematic.
+Hydraulic System Design Specification	Detailed engineering specifications for system architecture, performance, and components.
+Component Technical Specifications	Specifications for individual components like pumps, reservoirs, valves, and actuators.
+Aircraft Level System Descriptions	Narrative descriptions of overall aircraft system functionality and integration.
+✍️ Key Authoring/Data Considerations
+Factor	Importance
+Simplification Level	The diagram must be simplified enough for easy understanding of overall function but detailed enough to show key components and interactions.
+Accuracy of Flow Paths	Primary pressure, return, and any critical auxiliary flow paths must be accurately depicted.
+Component Representation	Standardized and recognizable symbols for hydraulic components should be used. Component labels must be clear and consistent with other documentation.
+System Boundaries	Clearly define the boundaries of the hydraulic system(s) shown and indicate interfaces to other aircraft systems (e.g., flight controls, landing gear, power sources).
+Functional Logic	Key control inputs and resulting actions (e.g., pump activation logic, valve operation under specific conditions) should be clearly, if simply, represented.
+Graphic File Integrity	The referenced graphical file (e.g., ICN) must be the correct, revision-controlled version of the schematic.
+Consistency with Detailed Schematics	Information must align with more detailed hydraulic schematics (e.g., WDM piping diagrams or detailed component interface diagrams).
+🖼️ Required Illustrations (This DM is primarily about an illustration)
+Type	Content
+Primary System Schematic Graphic	The main functional block diagram of the hydraulic system, showing major components, flow paths, and control logic.
+(Optional) Component Detail Callouts	If the primary graphic is very dense, supplementary graphics might show enlarged views of specific component clusters or control elements.
+(Optional) System State Variations	Supplementary graphics could illustrate system configuration in different states (e.g., normal operation, emergency operation, specific pump failures).
+
+Now, here is the conceptual S1000D Issue 6.0 XML instance for this generic "Hydraulic Power System - Simplified Functional Diagram." This example will use a descriptive Data Module (descript.xsd) to present the information about the schematic.
+XML
+
+<?xml version="1.0" encoding="UTF-8"?>
+<dmodule xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns:xlink="http://www.w3.org/1999/xlink"
+         xsi:noNamespaceSchemaLocation="S1000D_6-0_descript.xsd"> <identAndStatusSection>
+    <dmAddress>
+      <dmIdent>
+        <dmCode modelIdentCode="XXXXXX" systemDiffCode="A" 
+                systemCode="29" subSystemCode="00" subSubSystemCode="00" 
+                assyCode="00A" disassyCode="00" disassyCodeVariant="A" 
+                infoCode="024A" infoCodeVariant="A" itemLocationCode="A"/> <issueInfo issueNumber="001" inWork="00"/>
+        <language languageIsoCode="en" countryIsoCode="ZZ"/>
+      </dmIdent>
+      <dmAddressItems>
+        <dmTitle>
+          <techName>Hydraulic Power System</techName>
+          <infoName>Simplified Functional Diagram</infoName>
+        </dmTitle>
+        <issueDate year="2025" month="05" day="10"/>
+      </dmAddressItems>
+    </dmAddress>
+    <dmStatus>
+      <security securityClassification="01"/>
+      <responsiblePartnerCompany><enterpriseName>Generic System Manufacturer</enterpriseName></responsiblePartnerCompany>
+      <originator><enterpriseName>Generic Design Organization</enterpriseName></originator>
+      <applic><displayText>All Aircraft Configurations Equipped with [Generic Hydraulic System Type]</displayText></applic>
+      <brexDmRef><dmRef><dmIdent><dmCode modelIdentCode="S1000D" systemDiffCode="G" systemCode="00" infoCode="022"/></dmIdent></dmRef></brexDmRef>
+      <qualityAssurance><firstVerification verificationType="verified"/></qualityAssurance>
+    </dmStatus>
+  </identAndStatusSection>
+
+  <content>
+    <description>
+      <levelledPara id="SSM_DIAG_OVERVIEW_HYD">
+        <title>Hydraulic System Schematic - Diagram [Generic_Diagram_ID: HYD-SYS-FUNC-001]</title>
+        <para>This Data Module describes the System Schematic Diagram [Generic_Diagram_ID: HYD-SYS-FUNC-001]. This diagram illustrates the overall functional layout and primary interconnections of the aircraft's main hydraulic power systems (Left, Center, and Right/Standby).</para>
+      </levelledPara>
+
+      <figure id="FIG_SSM_HYD_SYSTEM_MAIN">
+        <title>Hydraulic Power System - Simplified Functional Block Diagram</title>
+        <graphic infoEntityIdent="ICN-XXXXXX-A-290000-S-SCH01-A-001A-A"> <shortName>Hydraulic System Overview Schematic</shortName>
+        </graphic>
+      </figure>
+
+      <levelledPara id="SSM_FUNC_DESC_HYD">
+        <title>General Functional Description</title>
+        <para>The aircraft is equipped with three independent hydraulic systems, typically designated Left, Center, and Right (or Standby), each normally operating at [XXXX] PSI. Each system has its own reservoir, primary and/or backup pumps, filtration, and distribution network to various user systems. This schematic depicts the main power generation sources for each system (Engine Driven Pumps - EDPs, Electric Motor Pumps - EMPs, Air Driven Pumps - ADPs, Ram Air Turbine - RAT, Power Transfer Units - PTUs), their connections to system reservoirs, and the primary distribution paths to major user groups such as:</para>
+        <unorderedList>
+            <listItem><para>Primary Flight Controls (Ailerons, Elevators, Rudder, Spoilers)</para></listItem>
+            <listItem><para>Secondary Flight Controls (Leading Edge Slats, Trailing Edge Flaps)</para></listItem>
+            <listItem><para>Landing Gear (Extension, Retraction, Steering, Brakes)</para></listItem>
+            <listItem><para>Other users (e.g., Cargo Doors, Thrust Reversers - if hydraulically actuated)</para></listItem>
+        </unorderedList>
+        <para>Key isolation features, such as engine fire shutoff valves and PTU control logic, are functionally represented.</para>
+      </levelledPara>
+
+      <levelledPara id="SSM_KEY_COMPONENTS_HYD">
+        <title>Major Components Depicted (Illustrative)</title>
+        <definitionList>
+          <definitionListItem id="COMP_EDP_L">
+            <term>EDP-L (Engine Driven Pump - Left System)</term>
+            <definition><para>Primary pump for the Left hydraulic system, typically driven by Engine No.1. Provides main system pressure.</para></definition>
+          </definitionListItem>
+          <definitionListItem id="COMP_EMP_C1">
+            <term>EMP-C1 (Electric Motor Pump - Center System 1)</term>
+            <definition><para>Primary electric pump for the Center hydraulic system. Can be powered by AC Bus 1 or Ground Service Bus.</para></definition>
+          </definitionListItem>
+          <definitionListItem id="COMP_RES_R">
+            <term>RES-R (Reservoir - Right System)</term>
+            <definition><para>Stores, conditions (de-aerates), and provides a positive head of hydraulic fluid to the Right system pumps. Includes quantity sensors and overpressure relief.</para></definition>
+          </definitionListItem>
+          <definitionListItem id="COMP_PTU_LC">
+            <term>PTU-L/C (Power Transfer Unit - Left/Center)</term>
+            <definition><para>Allows the Left system to pressurize the Center system (or vice-versa, depending on design) under certain conditions without fluid transfer.</para></definition>
+          </definitionListItem>
+          <definitionListItem id="COMP_ACCUM_BRK">
+            <term>ACCUM-BRK (Accumulator - Brake System)</term>
+            <definition><para>Stores hydraulic pressure for brake operation, particularly for parking brake or emergency braking.</para></definition>
+          </definitionListItem>
+          <definitionListItem id="COMP_MANIFOLD_FLTCTRL_PRI">
+            <term>MANIFOLD-FLTCTRL-PRI (Manifold - Primary Flight Controls)</term>
+            <definition><para>Distributes hydraulic power from multiple sources to the primary flight control actuators.</para></definition>
+          </definitionListItem>
+          </definitionList>
+      </levelledPara>
+
+      <levelledPara id="SSM_KEY_FUNCTIONAL_PATHS_HYD">
+        <title>Key Functional Paths Illustrated</title>
+        <para><emphasis>Normal Operation - Left System:</emphasis> Fluid is drawn from RES-L by EDP-L, pressurized, filtered, and supplied to the Left system distribution manifold. This manifold typically supplies primary flight controls, thrust reverser, and other services. Return fluid from all Left system users is filtered before returning to RES-L.</para>
+        <para><emphasis>Center System Backup:</emphasis> In case of Center system pump failures, PTU-L/C and/or PTU-R/C can be activated (often automatically) to provide pressure to essential Center system functions, primarily flight controls.</para>
+        <para><emphasis>Emergency Power (RAT):</emphasis> If depicted, the Ram Air Turbine (RAT) deploys under certain emergency conditions to provide limited hydraulic power to essential flight controls from a dedicated RAT-driven pump.</para>
+        <para><emphasis>System Isolation:</emphasis> Engine Fire Shutoff Valves (e.g., SOV-ENG1-HYD-FIRE) are shown, which isolate the respective EDP from the flammable fluid source in case of an engine fire signal.</para>
+      </levelledPara>
+
+      <levelledPara id="SSM_RELATED_DATA_HYD">
+        <title>Related Detailed Data</title>
+        <unorderedList>
+          <listItem><para>Detailed Component Descriptions: Refer to AMM Chapter 29-XX-XX for specific components.</para></listItem>
+          <listItem><para>Hydraulic System Maintenance Procedures: Refer to AMM Chapter 29-XX-XX for servicing, testing, and R&I.</para></listItem>
+          <listItem><para>Detailed Piping and Instrumentation Diagrams (P&IDs) or Wiring Diagrams (for pump controls): Refer to WDM Chapter 29-XX-XX or specific system interface DMs.</para></listItem>
+          <listItem><para>Component Maintenance Manuals (CMMs) for individual hydraulic components.</para></listItem>
+        </unorderedList>
+      </levelledPara>
+    </description>
+  </content>
+</dmodule>
