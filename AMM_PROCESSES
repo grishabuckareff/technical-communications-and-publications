@@ -1,1 +1,201 @@
+VHF Communication Transceiver - Functional Test
 
+ATA Chapter: 23 — Communications
+S1000D DMC (Illustrative): B777-A-23-12-11-00-750A-A01A-P
+
+
+This task involves:
+
+    Powering up the selected VHF Communication system.
+    Performing Built-In Test Equipment (BITE) check of the VHF Transceiver.
+    Verifying control panel indications and operation.
+    Conducting a transmit and receive check on specified test frequencies using a Ramp Test Set.
+    Confirming audio clarity and signal strength indications.
+    Verifying communication with Air Traffic Control (ATC) via ground communications (if permitted and coordinated).
+    Recording test results.
+
+
+Engineering Sources Required
+Document	Purpose
+AMM 23-12-11-700-801 (Hypothetical)	Removal and Installation of VHF Transceiver No.1
+AMM 24-XX-XX-XXX-XXX	Circuit Breaker Locations and Safety Procedures
+WDM XX-XX-XX (Relevant Wiring Diagram)	Electrical interface details for power and control.
+Ramp Test Set User Manual [MODEL_XYZ]	Operating instructions for the specific ramp test equipment.
+ARINC Specification 716 (or later)	Technical characteristics for Airborne VHF Communications Transceiver.
+Aircraft Logbook	For recording maintenance actions and test results.
+Key Authoring Considerations
+Factor	Importance
+RF Radiation Safety	Ensure personnel are clear of antenna radiation zones during transmit tests. Post warning placards. (Ref: AMM 20-00-01 Safety Precautions).
+Antenna Clearance	Verify no obstructions are in front of the VHF antenna.
+Test Frequency Coordination	Use only approved test frequencies. Coordinate with local ATC or airport authority if live transmissions are planned to avoid interference.
+Ramp Test Set Calibration	Ensure Ramp Test Set [MODEL_XYZ] has a valid calibration sticker (e.g., within last 12 months).
+Aircraft Power Requirements	Confirm required AC and/or DC electrical buses are energized. Check APU or Ground Power availability and stability.
+Audio Panel Configuration	Ensure correct audio panel selections are made on flight deck to monitor VHF audio.
+BITE Test Interpretation	Familiarity with BITE codes and messages specific to the installed VHF Transceiver model is necessary. (Ref: Vendor CMM XX-XX-XX).
+Recording Discrepancies	Any failures or deviations from expected results during the test must be accurately recorded and reported.
+Required Illustrations
+Type	Content
+VHF Control Panel (Flight Deck)	Callouts for switches, knobs, and displays used during the test.
+VHF Transceiver Location (E/E Bay)	Shows physical location of the transceiver unit and relevant connectors/BITE indicators.
+Ramp Test Set Connection	Diagram showing connection of Ramp Test Set to aircraft antenna port or test port, and power connections.
+Expected BITE Display (Example)	Visual example of a successful BITE test result on the control panel or maintenance interface.
+Antenna Keep-Out Zone Diagram (Safety)	Illustration showing safe distances from the VHF antenna during transmission.
+
+
+<?xml version="1.0" encoding="UTF-8"?>
+<dmodule xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns:xlink="http://www.w3.org/1999/xlink"
+         xsi:noNamespaceSchemaLocation="S1000D_6-0_proced.xsd"> <identAndStatusSection>
+    <dmAddress>
+      <dmIdent>
+        <dmCode modelIdentCode="B777" systemDiffCode="A" 
+                systemCode="23" subSystemCode="12" subSubSystemCode="11" 
+                assyCode="00" disassyCode="00" disassyCodeVariant="A" 
+                infoCode="750" infoCodeVariant="A" itemLocationCode="A"/>
+        <issueInfo issueNumber="001" inWork="00"/>
+        <language languageIsoCode="en" countryIsoCode="US"/>
+      </dmIdent>
+      <dmAddressItems>
+        <dmTitle>
+          <techName>VHF Communication Transceiver No.1</techName>
+          <infoName>Functional Test</infoName>
+        </dmTitle>
+        <issueDate year="2025" month="05" day="09"/>
+      </dmAddressItems>
+    </dmAddress>
+    <dmStatus>
+      <security securityClassification="01"/>
+      <responsiblePartnerCompany><enterpriseName>Boeing Commercial Airplanes</enterpriseName></responsiblePartnerCompany>
+      <originator><enterpriseName>Boeing Commercial Airplanes</enterpriseName></originator>
+      <applic><displayText>Boeing 777-300ER Aircraft</displayText></applic>
+      <brexDmRef><dmRef><dmIdent><dmCode modelIdentCode="S1000D" systemDiffCode="G" systemCode="00" subSystemCode="00" subSubSystemCode="00" assyCode="00" disassyCode="00" disassyCodeVariant="A" infoCode="022" infoCodeVariant="A" itemLocationCode="A"/></dmIdent></dmRef></brexDmRef>
+      <qualityAssurance><firstVerification verificationType="functionalTest"/></qualityAssurance>
+      <skillLevelCode skillLevel="02"/> </dmStatus>
+  </identAndStatusSection>
+
+  <content>
+    <procedure>
+      <preliminaryRqmts>
+        <reqCondGroup>
+          <reqCond id="RC001_TEST">
+            <para>Ensure aircraft electrical power is available and stable (APU or Ground Power). Refer to AMM Chapter 24.</para>
+          </reqCond>
+          <reqCond id="RC002_TEST">
+            <para>Verify Ramp Test Set, Model [MODEL_XYZ], is available and has valid calibration (within last 12 months).</para>
+          </reqCond>
+          <reqCond id="RC003_TEST">
+            <para>Obtain clearance from airport authorities for use of test frequencies if required.</para>
+          </reqCond>
+        </reqCondGroup>
+        <reqSafety>
+          <safetyPrecautionGroup>
+            <warning id="WARN_RF_RADIATION">
+              <para>RF RADIATION HAZARD. During transmit tests, ensure all personnel are clear of the VHF antenna radiation keep-out zones as specified in AMM 20-00-01. Post warning placards.</para>
+              <figureRef internalRefId="FIG_ANTENNA_KOZ"/>
+            </warning>
+            <caution id="CAUT_EQUIP_DAMAGE_POWER">
+              <para>Ensure correct test equipment connections before applying power to prevent damage to aircraft systems or test set.</para>
+            </caution>
+          </safetyPrecautionGroup>
+        </reqSafety>
+        <reqSupportEquips>
+          <supportEquipDescrGroup>
+            <supportEquipDescr id="TE001_RAMP_TEST_SET">
+              <name>Ramp Test Set, VHF Communications</name>
+              <descr>Used for transmit/receive checks and signal quality measurements.</descr>
+              <partOrConfigNumber>[MODEL_XYZ]</partOrConfigNumber>
+              <manufacturerCodeValue>[CAGE_CODE_TEST_SET_MFR]</manufacturerCodeValue>
+              <quantity>1</quantity>
+            </supportEquipDescr>
+          </supportEquipDescrGroup>
+        </reqSupportEquips>
+        <reqSpares><noSpares/></reqSpares>
+        <reqSupplies><noSupplies/></reqSupplies>
+        <refs>
+          <dmRef id="REF_AMM_CH24">
+            <dmIdent><dmCode modelIdentCode="B777" systemDiffCode="A" systemCode="24" infoCode="000"/></dmIdent>
+            <dmAddressItems><dmTitle><techName>Electrical Power</techName><infoName>General</infoName></dmTitle></dmAddressItems>
+          </dmRef>
+          <externalPubRef id="REF_TEST_SET_MANUAL">
+            <externalPubCode>[TEST_SET_MANUAL_ID]</externalPubCode>
+            <externalPubTitle>Ramp Test Set [MODEL_XYZ] User Manual</externalPubTitle>
+          </externalPubRef>
+          <externalPubRef id="REF_ARINC716">
+            <externalPubCode>ARINC 716</externalPubCode>
+            <externalPubTitle>Airborne VHF Communications Transceiver</externalPubTitle>
+          </externalPubRef>
+        </refs>
+      </preliminaryRqmts>
+
+      <mainProcedure>
+        <title>VHF Transceiver No.1 Functional Test</title>
+        <proceduralStep id="TEST_STEP001">
+          <title>System Power-Up and BITE Check</title>
+          <para>On the flight deck, ensure VHF COMM 1 power switch on the [Audio Control Panel / Overhead Panel - specify] is ON. Refer to <figureRef internalRefId="FIG_VHF_CTRL_PNL"/>.</para>
+          <para>Observe the VHF Control Panel for normal power-on indications.</para>
+          <para>Initiate the VHF Transceiver No.1 BITE test as follows:</para>
+          <proceduralStep id="TEST_STEP001_SUB1">
+            <para>[Specific BITE initiation steps, e.g., Press and hold TEST button for 3 seconds].</para>
+          </proceduralStep>
+          <para>Observe BITE results displayed. A successful test is indicated by [Specify indication, e.g., "VHF1 OK" message or green status light]. Refer to <figureRef internalRefId="FIG_BITE_DISPLAY_EX"/>.</para>
+          <para>If BITE indicates a fault, record fault code and refer to Fault Isolation DM <dmRef><dmIdent><dmCode modelIdentCode="B777" systemDiffCode="A" systemCode="23" subSystemCode="12" subSubSystemCode="11" infoCode="500"/></dmIdent></dmRef>.</para>
+        </proceduralStep>
+
+        <proceduralStep id="TEST_STEP002">
+          <title>Transmit/Receive Check with Ramp Test Set</title>
+          <para>Connect the Ramp Test Set <toolRef internalRefId="TE001_RAMP_TEST_SET"/> to the aircraft's No.1 VHF antenna test port. Refer to <figureRef internalRefId="FIG_RAMP_TEST_CONNECT"/> and <externalPubRef internalRefId="REF_TEST_SET_MANUAL"/>.</para>
+          <warning internalRefId="WARN_RF_RADIATION"/> <proceduralStep id="TEST_STEP002_SUB1">
+            <para>On the VHF Control Panel, select test frequency [e.g., 121.5 MHz].</para>
+            <para>Using the Ramp Test Set, initiate a transmission from the aircraft on the selected frequency. Verify power output is within [X dBm +/- Y dB] tolerance.</para>
+          </proceduralStep>
+          <proceduralStep id="TEST_STEP002_SUB2">
+            <para>Using the Ramp Test Set, transmit a test signal to the aircraft on the selected frequency.</para>
+            <para>On the flight deck audio panel, monitor received audio from VHF 1. Verify audio is clear and intelligible. Verify signal strength indication (if available) is normal.</para>
+          </proceduralStep>
+        </proceduralStep>
+
+        <proceduralStep id="TEST_STEP003">
+          <title>ATC Communication Check (Optional and Coordinated)</title>
+          <note><para>This step is to be performed only if authorized and coordinated with local airport/ATC authorities.</para></note>
+          <para>Select an appropriate ground control or clearance delivery frequency on VHF 1.</para>
+          <para>Attempt a brief communication with ATC. Verify clear two-way communication.</para>
+        </proceduralStep>
+        
+        <proceduralStep id="TEST_STEP004">
+          <title>Record Results</title>
+          <para>Record all test steps performed and their results (Pass/Fail, observed values) in the Aircraft Logbook.</para>
+        </proceduralStep>
+      </mainProcedure>
+      
+      <closeUpRqmts>
+        <reqCondGroup>
+          <reqCond id="RC_CU001_TEST">
+            <para>Disconnect Ramp Test Set <toolRef internalRefId="TE001_RAMP_TEST_SET"/>.</para>
+          </reqCond>
+          <reqCond id="RC_CU002_TEST">
+            <para>Return VHF Communication system and aircraft electrical power to normal configuration. Remove any warning placards.</para>
+          </reqCond>
+        </reqCondGroup>
+      </closeUpRqmts>
+    </procedure>
+  </content>
+  
+  <content>
+    <figure id="FIG_ANTENNA_KOZ">
+      <title>VHF Antenna Keep-Out Zone</title>
+      <graphic infoEntityIdent="ICN-B777-A-230000-S-SAF01-A-001A-A"/>
+    </figure>
+    <figure id="FIG_VHF_CTRL_PNL">
+      <title>VHF Control Panel - Flight Deck</title>
+      <graphic infoEntityIdent="ICN-B777-A-231211-D-CTRL1-A-001A-A"/>
+    </figure>
+    <figure id="FIG_BITE_DISPLAY_EX">
+      <title>Example of Successful BITE Display</title>
+      <graphic infoEntityIdent="ICN-B777-A-231211-D-BITE1-A-001A-A"/>
+    </figure>
+    <figure id="FIG_RAMP_TEST_CONNECT">
+      <title>Ramp Test Set Connection to VHF Antenna Port</title>
+      <graphic infoEntityIdent="ICN-B777-A-231211-D-TESTC-A-001A-A"/>
+    </figure>
+  </content>
+</dmodule>
