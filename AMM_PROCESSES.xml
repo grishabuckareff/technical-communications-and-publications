@@ -142,7 +142,7 @@ __________________________________________|_____________________________________
         <reqSupplies><noSupplies/></reqSupplies>
         <refs>
           <dmRef id="REF_AMM_CH24">
-            <dmIdent><dmCode modelIdentCode="B777" systemDiffCode="A" systemCode="24" infoCode="000"/></dmIdent>
+            <dmIdent><dmCode modelIdentCode="" systemDiffCode="A" systemCode="24" infoCode="000"/></dmIdent>
             <dmAddressItems><dmTitle><techName>Electrical Power</techName><infoName>General</infoName></dmTitle></dmAddressItems>
           </dmRef>
           <externalPubRef id="REF_TEST_SET_MANUAL">
@@ -167,7 +167,7 @@ __________________________________________|_____________________________________
             <para>[Specific BITE initiation steps, e.g., Press and hold TEST button for 3 seconds].</para>
           </proceduralStep>
           <para>Observe BITE results displayed. A successful test is indicated by [Specify indication, e.g., "VHF1 OK" message or green status light]. Refer to <figureRef internalRefId="FIG_BITE_DISPLAY_EX"/>.</para>
-          <para>If BITE indicates a fault, record fault code and refer to Fault Isolation DM <dmRef><dmIdent><dmCode modelIdentCode="B777" systemDiffCode="A" systemCode="23" subSystemCode="12" subSubSystemCode="11" infoCode="500"/></dmIdent></dmRef>.</para>
+          <para>If BITE indicates a fault, record fault code and refer to Fault Isolation DM <dmRef><dmIdent><dmCode modelIdentCode="" systemDiffCode="A" systemCode="23" subSystemCode="12" subSubSystemCode="11" infoCode="500"/></dmIdent></dmRef>.</para>
         </proceduralStep>
 
         <proceduralStep id="TEST_STEP002">
@@ -212,19 +212,19 @@ __________________________________________|_____________________________________
   <content>
     <figure id="FIG_ANTENNA_KOZ">
       <title>VHF Antenna Keep-Out Zone</title>
-      <graphic infoEntityIdent="ICN-B777-A-230000-S-SAF01-A-001A-A"/>
+      <graphic infoEntityIdent="ICN-XXXX-A-230000-S-SAF01-A-001A-A"/>
     </figure>
     <figure id="FIG_VHF_CTRL_PNL">
       <title>VHF Control Panel - Flight Deck</title>
-      <graphic infoEntityIdent="ICN-B777-A-231211-D-CTRL1-A-001A-A"/>
+      <graphic infoEntityIdent="ICN-XXXX-A-231211-D-CTRL1-A-001A-A"/>
     </figure>
     <figure id="FIG_BITE_DISPLAY_EX">
       <title>Example of Successful BITE Display</title>
-      <graphic infoEntityIdent="ICN-B777-A-231211-D-BITE1-A-001A-A"/>
+      <graphic infoEntityIdent="ICN-XXXX-A-231211-D-BITE1-A-001A-A"/>
     </figure>
     <figure id="FIG_RAMP_TEST_CONNECT">
       <title>Ramp Test Set Connection to VHF Antenna Port</title>
-      <graphic infoEntityIdent="ICN-B777-A-231211-D-TESTC-A-001A-A"/>
+      <graphic infoEntityIdent="ICN-XXXX-A-231211-D-TESTC-A-001A-A"/>
     </figure>
   </content>
 </dmodule>
