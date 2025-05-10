@@ -22,38 +22,68 @@ This task involves:
 
 
 Engineering Sources Required
-
- Document	Purpose
- AMM XX-XX-XX-XXX-XXX (Access Procedure)	Procedure for removing and installing access panels to the actuator area.
- AMM 20-XX-XX-XXX-XXX (Cleaning Proc.)	Standard aircraft cleaning procedures and approved materials.
- AMM 20-XX-XX-XXX-XXX (Lubrication Proc.)	Standard lubrication procedures and approved lubricants.
- SRM XX-XX-XX (Structural Repair Manual)	Allowable damage limits for actuator mounting structure; corrosion limits.
- CMM XX-XX-XX (Actuator Vendor CMM)	Specific inspection criteria, wear limits, and overhaul information for the actuator.
- Standard Practices Manual	General torquing values (if re-torquing checks are part of inspection), corrosion control information.
- Aircraft Maintenance Log	For recording inspection findings and actions taken.
+__________________________________________________________________________________________________________________________
+ Document                                 |   Purpose
+__________________________________________|_______________________________________________________________________________
+ AMM XX-XX-XX-XXX-XXX (Access Procedure)  |   Procedure for removing and installing access panels to the actuator area.
+__________________________________________|_______________________________________________________________________________
+ AMM 20-XX-XX-XXX-XXX (Cleaning Proc.)    |   Standard aircraft cleaning procedures and approved materials.
+__________________________________________|_______________________________________________________________________________
+ AMM 20-XX-XX-XXX-XXX (Lubrication Proc.) |   Standard lubrication procedures and approved lubricants.
+__________________________________________|_______________________________________________________________________________
+ SRM XX-XX-XX (Structural Repair Manual)  |   Allowable damage limits for actuator mounting structure; corrosion limits.
+__________________________________________|_______________________________________________________________________________
+ CMM XX-XX-XX (Actuator Vendor CMM)       |   Specific inspection criteria, wear limits, and overhaul information for the actuator.
+__________________________________________|_______________________________________________________________________________
+ Standard Practices Manual                |   General torquing values (if re-torquing checks are part of inspection), corrosion control information.
+__________________________________________|_______________________________________________________________________________
+ Aircraft Maintenance Log                 |   For recording inspection findings and actions taken.
+__________________________________________|_______________________________________________________________________________
 
 
 Key Authoring Considerations
+__________________________________________________________________________________________________________________________
+ Factor                                   |   Importance
+__________________________________________|_______________________________________________________________________________
+ Flight Control Safety                    |   Ensure flight controls are safetied/deactivated and tagged out per AMM general procedures before starting work. 
+                                          |   Accidental movement can cause severe injury or damage.
+__________________________________________|_______________________________________________________________________________
+ Hydraulic System Pressure                |   Verify hydraulic system pressure is OFF and residual pressure is bled before disturbing 
+                                          |   any hydraulic connections (even for visual checks near fittings).
+__________________________________________|_______________________________________________________________________________
+ Access & Lighting                        |   Adequate access to all parts of the actuator and sufficient lighting 
+                                          |   (including use of inspection lamps/mirrors) are critical for a thorough inspection.
+__________________________________________|_______________________________________________________________________________
+ Cleanliness                              |   The actuator and surrounding area must be thoroughly cleaned to reveal small defects like cracks or early corrosion.
+__________________________________________|_______________________________________________________________________________
+ Inspection Criteria Definition           |   Clearly define what constitutes "acceptable" vs. "unacceptable" for each inspection check 
+                                          |   (e.g., "no visible cracks," "corrosion not exceeding X depth/area").
+__________________________________________|_______________________________________________________________________________
+ Use of Inspection Tools                  |   Specify correct use of any required tools like mirrors, magnifying glasses, borescopes 
+                                          |   (if internal inspection is required), or dimensional measurement tools.
+__________________________________________|_______________________________________________________________________________
+ Damage Classification/Reporting          |   Procedures for classifying and reporting any found discrepancies 
+                                          |   (e.g., to maintenance control, engineering liaison) must be clear.
+__________________________________________|_______________________________________________________________________________
+ Corrosion Prevention                     |   If protective coatings are disturbed, specify requirements for touch-up.
+__________________________________________|_______________________________________________________________________________
 
-Factor	Importance
-Flight Control Safety	Ensure flight controls are safetied/deactivated and tagged out per AMM general procedures before starting work. Accidental movement can cause severe injury or damage.
-Hydraulic System Pressure	Verify hydraulic system pressure is OFF and residual pressure is bled before disturbing any hydraulic connections (even for visual checks near fittings).
-Access & Lighting	Adequate access to all parts of the actuator and sufficient lighting (including use of inspection lamps/mirrors) are critical for a thorough inspection.
-Cleanliness	The actuator and surrounding area must be thoroughly cleaned to reveal small defects like cracks or early corrosion.
-Inspection Criteria Definition	Clearly define what constitutes "acceptable" vs. "unacceptable" for each inspection check (e.g., "no visible cracks," "corrosion not exceeding X depth/area").
-Use of Inspection Tools	Specify correct use of any required tools like mirrors, magnifying glasses, borescopes (if internal inspection is required), or dimensional measurement tools.
-Damage Classification/Reporting	Procedures for classifying and reporting any found discrepancies (e.g., to maintenance control, engineering liaison) must be clear.
-Corrosion Prevention	If protective coatings are disturbed, specify requirements for touch-up.
-🖼️ Required Illustrations (Conceptual - Generic Types)
-Type	Content
-Actuator Location Diagram	Overall view showing the actuator's installed position on the flight control surface and surrounding structure.
-Detailed Inspection Points (Callouts)	Close-up views of the actuator with callouts to specific areas to be inspected (e.g., rod seals, end bearings, mounting lugs).
-Examples of Damage Types	Visual examples of typical defects to look for (e.g., corrosion types, crack examples, types of hydraulic leaks).
-Dimensional Check Guide (if applicable)	Illustration showing how to correctly place measurement tools (e.g., depth gauge, micrometer) for specified dimensional checks.
-Access Panel Identification	Diagram showing which access panels need to be removed to gain access to the inspection area.
 
-Now, here is the conceptual S1000D Issue 6.0 procedural DM XML for the "Flight Control Surface Actuator - Detailed Inspection" task:
-XML
+Required Illustrations
+__________________________________________________________________________________________________________________________
+ Type                                     |   Content
+__________________________________________|_______________________________________________________________________________
+ Actuator Location Diagram                |   Overall view showing the actuator's installed position on the flight control surface and surrounding structure.
+__________________________________________|_______________________________________________________________________________
+ Detailed Inspection Points (Callouts)    |   Close-up views of the actuator with callouts to specific areas to be inspected (e.g., rod seals, end bearings, mounting lugs).
+__________________________________________|_______________________________________________________________________________
+ Examples of Damage Types                 |   Visual examples of typical defects to look for (e.g., corrosion types, crack examples, types of hydraulic leaks).
+__________________________________________|_______________________________________________________________________________
+ Dimensional Check Guide (if applicable)  |   Illustration showing how to correctly place measurement tools (e.g., depth gauge, micrometer) for specified dimensional checks.
+__________________________________________|_______________________________________________________________________________
+ Access Panel Identification              |   Diagram showing which access panels need to be removed to gain access to the inspection area.
+__________________________________________|_______________________________________________________________________________
+
 
 <?xml version="1.0" encoding="UTF-8"?>
 <dmodule xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -77,12 +107,29 @@ XML
     </dmAddress>
     <dmStatus>
       <security securityClassification="01"/>
-      <responsiblePartnerCompany><enterpriseName>Generic Manufacturer</enterpriseName></responsiblePartnerCompany>
-      <originator><enterpriseName>Generic Manufacturer</enterpriseName></originator>
-      <applic><displayText>All Applicable Configurations</displayText></applic>
-      <brexDmRef><dmRef><dmIdent><dmCode modelIdentCode="S1000D" systemDiffCode="G" systemCode="00" subSystemCode="00" subSubSystemCode="00" assyCode="00" disassyCode="00" disassyCodeVariant="A" infoCode="022" infoCodeVariant="A" itemLocationCode="A"/></dmIdent></dmRef></brexDmRef>
-      <qualityAssurance><firstVerification verificationType="inspection"/></qualityAssurance>
-      <skillLevelCode skillLevel="02"/> </dmStatus>
+      <responsiblePartnerCompany>
+          <enterpriseName>Generic Manufacturer</enterpriseName>
+      </responsiblePartnerCompany>
+      <originator>
+          <enterpriseName>Generic Manufacturer</enterpriseName>
+      </originator>
+      <applic>
+          <displayText>All Applicable Configurations</displayText>
+      </applic>
+      <brexDmRef>
+          <dmRef>
+              <dmIdent>
+                  <dmCode modelIdentCode="S1000D" systemDiffCode="G" systemCode="00" subSystemCode="00" 
+                  subSubSystemCode="00" assyCode="00" disassyCode="00" disassyCodeVariant="A" 
+                  infoCode="022" infoCodeVariant="A" itemLocationCode="A"/>
+              </dmIdent>
+          </dmRef>
+      </brexDmRef>
+      <qualityAssurance>
+          <firstVerification verificationType="inspection"/>
+      </qualityAssurance>
+      <skillLevelCode skillLevel="02"/>
+    </dmStatus>
   </identAndStatusSection>
 
   <content>
