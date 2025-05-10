@@ -1,0 +1,155 @@
+Wire List Data Module
+
+ATA Chapter (Illustrative): 91 — Charts & Tables (often used for WDM supplemental data) or could be system-specific (e.g., 24-WL-01 for Electrical Power Wire List Section 1).
+S1000D DMC (Illustrative & Generic): XXXXXX-A-91-21-11-00A-042A-A
+(ModelIdentCode: XXXXXX (Generic), SystemDiffCode: A, SystemCode: 91 (Charts/Tables), SubSystemCode: 21 (Wiring System Data), SubSubSystemCode: 11 (Wire List), AssyCode: 00A, InfoCode: 042A (List - general tabular data), InfoCodeVariant: A, ItemLocationCode: A)
+Aircraft/Company: Not Specified / Generic Manufacturer
+
+
+This Data Module provides:
+
+    A detailed tabulation of electrical wires within specified wire bundles (harnesses).
+    For each wire, it typically includes:
+        Wire Number / Identifier (including segment and shield information if applicable).
+        Physical characteristics (e.g., gauge, color, material type).
+        Wire Family or Category (if applicable).
+        Calculated or nominal length.
+        Reference to the schematic diagram(s) where the wire is depicted.
+        "From" connection point details (Equipment ID, Terminal/Pin ID, Terminal Type, Splice ID).
+        "To" connection point details (Equipment ID, Terminal/Pin ID, Terminal Type, Splice ID).
+        Specific aircraft configuration effectivity.
+
+
+Data Sources (Conceptual - Generic)
+Document/Source	Purpose
+Master Wiring Diagrams / Schematics	Primary source for wire connectivity, numbers, and diagram references.
+Harness Assembly Drawings	Source for bundle composition, wire lengths, part numbers, and physical routing.
+Connector/Terminal Specifications	Source for terminal types and characteristics.
+System Design Specifications	Source for wire types, gauge requirements, and functional grouping (family).
+Configuration Management Database	Source for aircraft effectivity information for specific wires or bundles.
+WDM/CAD Data Generation Systems	Automated systems used to compile, manage, and export this tabular wiring data.
+
+
+Key Authoring/Data Considerations
+Factor	Importance
+Data Integrity & Accuracy	All From/To connection points, wire numbers, types, and characteristics must be meticulously accurate for troubleshooting and maintenance.
+Effectivity Management	Precise effectivity for each wire or wire variant is critical for correct application.
+Consistency with Schematics	Wire list data must be fully synchronized with the graphical WDM schematics and other related lists (equipment, connector, etc.).
+Wire Numbering Convention	Strict adherence to the established wire numbering and segmentation standard (e.g., including suffixes for segments, shields).
+Bundle/Harness Grouping	Wires must be correctly associated with their respective bundles or harnesses.
+Standardized Terminology	Consistent use of terms for equipment, terminals, and types (e.g., terminal types like 'CRIMP', 'SOLDER', 'LUG').
+Change Management	Robust revision control and update processes are essential for maintaining the accuracy of wiring data throughout the product lifecycle.
+
+
+Related Illustrations (Typically in other WDM DMs or sections - Generic Types)
+Type	Content
+Typical Wiring Schematic Diagram	Example of how wires from this list are depicted graphically, showing connections and components.
+Connector Pin Layout Guide	Standardized illustration showing pin numbering and orientation for common connector types referenced.
+Harness Routing Diagram	Diagram showing the physical path and installation of wire bundles listed.
+Equipment Location Chart	Charts or diagrams showing the physical installation locations of equipment interconnected by these wires.
+
+
+<?xml version="1.0" encoding="UTF-8"?>
+<dmodule xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns:xlink="http://www.w3.org/1999/xlink"
+         xsi:noNamespaceSchemaLocation="S1000D_6-0_descript.xsd"> <identAndStatusSection>
+    <dmAddress>
+      <dmIdent>
+        <dmCode modelIdentCode="XXXXXX" systemDiffCode="A" 
+                systemCode="91" subSystemCode="21" subSubSystemCode="11" 
+                assyCode="00A" disassyCode="00" disassyCodeVariant="A" 
+                infoCode="042A" infoCodeVariant="A" itemLocationCode="A"/> <issueInfo issueNumber="001" inWork="00"/>
+        <language languageIsoCode="en" countryIsoCode="ZZ"/> </dmIdent>
+      <dmAddressItems>
+        <dmTitle>
+          <techName>Wiring System Data</techName>
+          <infoName>Master Wire List - Section 1</infoName>
+        </dmTitle>
+        <issueDate year="2025" month="05" day="09"/>
+      </dmAddressItems>
+    </dmAddress>
+    <dmStatus>
+      <security securityClassification="01"/>
+      <responsiblePartnerCompany><enterpriseName>Generic Manufacturer</enterpriseName></responsiblePartnerCompany>
+      <originator><enterpriseName>Generic Manufacturer</enterpriseName></originator>
+      <applic><displayText>All Applicable Configurations</displayText></applic>
+      <brexDmRef><dmRef><dmIdent><dmCode modelIdentCode="S1000D" systemDiffCode="G" systemCode="00" subSystemCode="00" subSubSystemCode="00" assyCode="00" disassyCode="00" disassyCodeVariant="A" infoCode="022" infoCodeVariant="A" itemLocationCode="A"/></dmIdent></dmRef></brexDmRef>
+      <qualityAssurance><firstVerification verificationType="verified"/></qualityAssurance>
+    </dmStatus>
+  </identAndStatusSection>
+
+  <content>
+    <description>
+      <levelledPara id="LP_WL_INTRO">
+        <title>Wire List - Bundle Group W0010</title>
+        <para>This section details wires contained within bundle group W0010 and its associated sub-bundles.</para>
+      </levelledPara>
+      
+      <table id="TBL_WIRE_LIST_W0010" frame="all">
+        <title>Wire List Details for Bundle Group W0010</title>
+        <tgroup cols="13"> <colspec colname="bundleNo" colwidth="1.0*"/>
+          <colspec colname="bundlePn" colwidth="1.2*"/>
+          <colspec colname="bundleDesc" colwidth="2.0*"/>
+          <colspec colname="wireNo" colwidth="0.8*"/>
+          <colspec colname="gauge" colwidth="0.4*"/>
+          <colspec colname="color" colwidth="0.4*"/>
+          <colspec colname="wireCharType" colwidth="0.4*"/> <colspec colname="family" colwidth="0.5*"/>
+          <colspec colname="lengthFtIn" colwidth="0.7*"/>
+          <colspec colname="diagramRef" colwidth="1.0*"/>
+          <colspec colname="fromDetails" colwidth="2.0*"/>
+          <colspec colname="toDetails" colwidth="2.0*"/>
+          <colspec colname="effectivity" colwidth="1.0*"/>
+          <thead>
+            <row>
+              <entry namest="bundleNo" nameend="bundleDesc" align="center">Bundle Information</entry>
+              <entry namest="wireNo" nameend="effectivity" align="center">Wire Details</entry>
+            </row>
+            <row>
+              <entry>Bundle No.</entry>
+              <entry>Bundle P/N</entry>
+              <entry>Bundle Description</entry>
+              <entry>Wire No.</entry>
+              <entry>GA</entry>
+              <entry>CO</entry>
+              <entry>TY</entry>
+              <entry>Fam</entry>
+              <entry>Length (FT-IN)</entry>
+              <entry>Diagram Ref.</entry>
+              <entry>From (Equip / Term / Type / Splice)</entry>
+              <entry>To (Equip / Term / Type / Splice)</entry>
+              <entry>Effectivity</entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry morerows="2">W0011</entry>
+              <entry morerows="2">GENERIC-PN-W0011</entry>
+              <entry morerows="2">INSTRUMENT PANEL HARNESS - LEFT SIDE</entry>
+              <entry>001A</entry><entry>22</entry><entry>BL</entry><entry>S</entry><entry>P1</entry><entry>5-06</entry><entry>SCHEM-34-22-82</entry>
+              <entry>EQ-D00113 / T40 / TERM</entry><entry>EQ-D04163P / P1 / CONN</entry><entry>001-ALL</entry>
+            </row>
+            <row>
+              <entry>001AZ</entry><entry>22</entry><entry>SH</entry><entry>S</entry><entry>P1</entry><entry>5-07</entry><entry>SCHEM-34-22-82</entry>
+              <entry>EQ-D04163P / J1-SH / SHIELD</entry><entry>GND-SP001 / A / LUG</entry><entry>001-ALL</entry>
+            </row>
+            <row>
+              <entry>002B</entry><entry>20</entry><entry>RD</entry><entry></entry><entry>C2</entry><entry>3-02</entry><entry>SCHEM-24-10-01</entry>
+              <entry>CB-P6-A01 / 1 / TERM</entry><entry>EQ-LIGHT-DIM / J2-B / CONN / SPL-S0012</entry><entry>001-ALL</entry>
+            </row>
+            <row>
+              <entry morerows="1">W0012</entry>
+              <entry morerows="1">GENERIC-PN-W0012</entry>
+              <entry morerows="1">INSTRUMENT PANEL HARNESS - CENTER</entry>
+              <entry>101A</entry><entry>24</entry><entry>GR</entry><entry>T</entry><entry>S3</entry><entry>2-00</entry><entry>SCHEM-31-50-05</entry>
+              <entry>EQ-CLOCK-C / P1-3 / PIN</entry><entry>EQ-DISPLAY-C / M1-X / PIN</entry><entry>ALL</entry>
+            </row>
+            <row>
+              <entry>102B</entry><entry>24</entry><entry>YL</entry><entry>T</entry><entry>S3</entry><entry>2-01</entry><entry>SCHEM-31-50-05</entry>
+              <entry>EQ-CLOCK-C / P1-4 / PIN</entry><entry>EQ-DISPLAY-C / M1-Y / PIN</entry><entry>ALL</entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+    </description>
+  </content>
+</dmodule>
