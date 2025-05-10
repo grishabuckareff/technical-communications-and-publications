@@ -77,7 +77,8 @@ __________________________________________|_____________________________________
         <dmCode modelIdentCode="XXXXXX" systemDiffCode="A" 
                 systemCode="29" subSystemCode="00" subSubSystemCode="00" 
                 assyCode="00A" disassyCode="00" disassyCodeVariant="A" 
-                infoCode="024A" infoCodeVariant="A" itemLocationCode="A"/> <issueInfo issueNumber="001" inWork="00"/>
+                infoCode="024A" infoCodeVariant="A" itemLocationCode="A"/> 
+        <issueInfo issueNumber="001" inWork="00"/>
         <language languageIsoCode="en" countryIsoCode="ZZ"/>
       </dmIdent>
       <dmAddressItems>
