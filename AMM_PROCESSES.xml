@@ -611,49 +611,90 @@ Hydraulic System Reservoir - Fluid Level Check and Replenishment
 
 ATA Chapter (Illustrative): 29 — Hydraulic Power
 S1000D DMC (Illustrative & Generic): XXXXXX-A-29-13-01-00A-615A-A
-(ModelIdentCode: XXXXXX (Generic), SystemDiffCode: A, SystemCode: 29 (Hydraulic Power), SubSystemCode: 13 (Reservoir System), SubSubSystemCode: 01 (Specific Reservoir Assembly), AssyCode: 00A, InfoCode: 615A (Replenish - Scheduled or Unscheduled), InfoCodeVariant: A, ItemLocationCode: A)
 Aircraft/Company: Not Specified / Generic Manufacturer
-🇺🇸 This task involves:
 
-    Locating and gaining access to the specified hydraulic system reservoir servicing panel/point.
-    Performing necessary safety precautions for working with hydraulic systems and fluids.
-    Visually inspecting the reservoir fluid level indicator (e.g., sight glass, float indicator, or electronic display).
-    Interpreting fluid level markings correctly (e.g., considering system temperature, pressurized/depressurized state).
-    If the fluid level is low, connecting approved hydraulic servicing equipment (ground cart).
-    Replenishing the reservoir with the specified type of hydraulic fluid to the correct level.
-    Disconnecting servicing equipment and ensuring no leaks at connection points.
-    Performing a final visual check for leaks around the reservoir and serviced area.
-    Recording the servicing action.
 
-📚 Engineering Sources Required (Conceptual - Generic)
-Document	Purpose
-AMM XX-XX-XX-XXX-XXX (Access Procedure)	Procedure for opening/closing relevant access panels or doors.
-AMM 29-00-00-XXX-XXX (Hydraulic Sys Safety)	General safety precautions for hydraulic system maintenance.
-Material Specification [FLUID_SPEC_NO]	Specification for the approved hydraulic fluid type.
-Hydraulic Servicing Cart Operating Manual	Instructions for the correct and safe operation of the specific hydraulic servicing equipment.
-AMM 12-XX-XX-XXX-XXX (General Servicing)	General aircraft servicing practices and cleanliness standards.
-Aircraft Maintenance Log	For recording servicing actions, fluid type, and quantity added.
-✍️ Key Authoring Considerations
-Factor	Importance
-Hydraulic Fluid Type & Compatibility	CRITICAL: Emphasize using only the EXACT specified hydraulic fluid type (e.g., fire-resistant phosphate ester, mineral-based). Mixing fluid types can cause severe system damage/failure.
-Contamination Control	Strict cleanliness must be maintained throughout the servicing operation. Use clean hoses, filtered fluid from sealed containers, and protect open ports from contamination.
-System State for Level Check	Specify the required aircraft and hydraulic system state for an accurate fluid level check (e.g., system depressurized, actuators in specific positions, fluid temperature stabilized).
-Sight Glass/Indicator Interpretation	Clearly explain how to read the fluid level indicator, including any markings for FULL (HOT/COLD), ADD, or REFILL ranges, and whether the system should be pressurized or not.
-Personal Protective Equipment (PPE)	Mandate use of appropriate PPE (e.g., safety glasses/goggles, chemical-resistant gloves) as hydraulic fluids can be irritants.
-Spill Prevention & Cleanup	Procedures for spill prevention (drip pans) and cleanup of any spilled hydraulic fluid must be included.
-Pressurization/Depressurization	If the system needs to be pressurized for checking or depressurized for filling, these steps must be clearly defined with all associated safety precautions.
-Bleeding Procedures (if applicable)	If there's a risk of introducing air into the system during replenishment, reference or include necessary bleeding procedures.
-Leak Check Post-Servicing	A thorough leak check of the serviced area and connections is mandatory after replenishment.
-🖼️ Required Illustrations (Conceptual - Generic Types)
-Type	Content
-Hydraulic Reservoir Servicing Access Panel	Location of the access panel for the specific reservoir (e.g., Left, Right, Center system).
-Fluid Level Indicator (Sight Glass/Display)	Close-up showing the indicator with clear markings for FULL (HOT/COLD), ADD, REFILL levels. Illustrate correct viewing angle if critical.
-Hydraulic Servicing Cart Connection Point	Diagram showing the correct connection of the servicing cart hose to the reservoir fill/service port, including any special adapters.
-Approved Hydraulic Fluid Container Label (Example)	Example image of the correct hydraulic fluid container label, emphasizing fluid type/specification number.
-PPE for Hydraulic Fluid Handling	Illustrations of required Personal Protective Equipment.
+This task involves:
 
-Now, here is the conceptual S1000D Issue 6.0 procedural DM XML for the "Hydraulic System Reservoir - Fluid Level Check and Replenishment" task:
-XML
+    - Locating and gaining access to the specified hydraulic system reservoir servicing panel/point.
+    - Performing necessary safety precautions for working with hydraulic systems and fluids.
+    - Visually inspecting the reservoir fluid level indicator (e.g., sight glass, float indicator, or electronic display).
+    - Interpreting fluid level markings correctly (e.g., considering system temperature, pressurized/depressurized state).
+    - If the fluid level is low, connecting approved hydraulic servicing equipment (ground cart).
+    - Replenishing the reservoir with the specified type of hydraulic fluid to the correct level.
+    - Disconnecting servicing equipment and ensuring no leaks at connection points.
+    - Performing a final visual check for leaks around the reservoir and serviced area.
+    - Recording the servicing action.
+
+
+Engineering Sources Required (Conceptual - Generic)
+__________________________________________________________________________________________________________________________
+ Document                                 |   Purpose
+__________________________________________|_______________________________________________________________________________
+ AMM XX-XX-XX-XXX-XXX (Access Procedure)  |   Procedure for opening/closing relevant access panels or doors.
+__________________________________________|_______________________________________________________________________________
+ AMM 29-00-00-XXX-XXX                     |
+ (Hydraulic Sys Safety)                   |   General safety precautions for hydraulic system maintenance.
+__________________________________________|_______________________________________________________________________________
+ Material Specification [FLUID_SPEC_NO]   |   Specification for the approved hydraulic fluid type.
+__________________________________________|_______________________________________________________________________________
+ Hydraulic Servicing Cart                 |   Instructions for the correct and safe operation of the specific hydraulic servicing equipment.
+ Operating Manual                         |
+__________________________________________|_______________________________________________________________________________
+ AMM 12-XX-XX-XXX-XXX (General Servicing) |   General aircraft servicing practices and cleanliness standards.
+__________________________________________|_______________________________________________________________________________
+ Aircraft Maintenance Log                 |   For recording servicing actions, fluid type, and quantity added.
+__________________________________________|_______________________________________________________________________________
+
+
+Key Authoring Considerations
+__________________________________________________________________________________________________________________________
+ Factor                                   |   Importance
+__________________________________________|_______________________________________________________________________________
+ Hydraulic Fluid Type & Compatibility     |   CRITICAL: Emphasize using only the EXACT specified hydraulic fluid type 
+                                          |   (e.g., fire-resistant phosphate ester, mineral-based). Mixing fluid types can cause severe system damage/failure.
+__________________________________________|_______________________________________________________________________________
+ Contamination Control                    |   Strict cleanliness must be maintained throughout the servicing operation. 
+                                          |   Use clean hoses, filtered fluid from sealed containers, and protect open ports from contamination.
+__________________________________________|_______________________________________________________________________________
+ System State for Level Check             |   Specify the required aircraft and hydraulic system state for an accurate fluid level check 
+                                          |   (e.g., system depressurized, actuators in specific positions, fluid temperature stabilized).
+__________________________________________|_______________________________________________________________________________
+ Sight Glass/Indicator Interpretation     |   Clearly explain how to read the fluid level indicator, including any markings 
+                                          |   for FULL (HOT/COLD), ADD, or REFILL ranges, and whether the system should be pressurized or not.
+__________________________________________|_______________________________________________________________________________
+ Personal Protective Equipment (PPE)      |   Mandate use of appropriate PPE (e.g., safety glasses/goggles, chemical-resistant gloves) as hydraulic fluids can be irritants.
+__________________________________________|_______________________________________________________________________________
+ Spill Prevention & Cleanup               |   Procedures for spill prevention (drip pans) and cleanup of any spilled hydraulic fluid must be included.
+__________________________________________|_______________________________________________________________________________
+ Pressurization/Depressurization          |   If the system needs to be pressurized for checking or depressurized for filling, 
+                                          |   these steps must be clearly defined with all associated safety precautions.
+__________________________________________|_______________________________________________________________________________
+ Bleeding Procedures (if applicable)      |   If there's a risk of introducing air into the system during replenishment, reference or include necessary bleeding procedures.
+__________________________________________|_______________________________________________________________________________
+ Leak Check Post-Servicing                |   A thorough leak check of the serviced area and connections is mandatory after replenishment.
+__________________________________________|_______________________________________________________________________________
+
+
+Required Illustrations (Conceptual - Generic Types)
+__________________________________________________________________________________________________________________________
+ Type                                     |   Content
+__________________________________________|_______________________________________________________________________________
+ Hydraulic Reservoir Servicing            |   Location of the access panel for the specific reservoir (e.g., Left, Right, Center system).
+ Access Panel                             |
+__________________________________________|_______________________________________________________________________________
+ Fluid Level Indicator                    |   Close-up showing the indicator with clear markings for FULL (HOT/COLD), ADD, REFILL levels. 
+ (Sight Glass/Display)                    |   Illustrate correct viewing angle if critical.
+__________________________________________|_______________________________________________________________________________
+ Hydraulic Servicing Cart                 |   Diagram showing the correct connection of the servicing cart hose to the reservoir fill/service port, including any special adapters.
+ Connection Point                         |
+__________________________________________|_______________________________________________________________________________
+ Approved Hydraulic Fluid                 |   Example image of the correct hydraulic fluid container label, emphasizing fluid type/specification number.
+ Container Label (Example)                |
+__________________________________________|_______________________________________________________________________________
+ PPE for Hydraulic Fluid Handling         |   Illustrations of required Personal Protective Equipment.
+__________________________________________|_______________________________________________________________________________
+
 
 <?xml version="1.0" encoding="UTF-8"?>
 <dmodule xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -677,12 +718,27 @@ XML
     </dmAddress>
     <dmStatus>
       <security securityClassification="01"/>
-      <responsiblePartnerCompany><enterpriseName>Generic Manufacturer</enterpriseName></responsiblePartnerCompany>
-      <originator><enterpriseName>Generic Maintenance Organization</enterpriseName></originator>
-      <applic><displayText>All Aircraft Configurations with Type XYZ Hydraulic System</displayText></applic>
-      <brexDmRef><dmRef><dmIdent><dmCode modelIdentCode="S1000D" systemCode="00" infoCode="022"/></dmIdent></dmRef></brexDmRef>
-      <qualityAssurance><firstVerification verificationType="onAircraft"/></qualityAssurance>
-      <skillLevelCode skillLevel="01"/> </dmStatus>
+      <responsiblePartnerCompany>
+          <enterpriseName>Generic Manufacturer</enterpriseName>
+      </responsiblePartnerCompany>
+      <originator>
+          <enterpriseName>Generic Maintenance Organization</enterpriseName>
+      </originator>
+      <applic>
+          <displayText>All Aircraft Configurations with Type XYZ Hydraulic System</displayText>
+      </applic>
+      <brexDmRef>
+          <dmRef>
+              <dmIdent>
+                  <dmCode modelIdentCode="S1000D" systemCode="00" infoCode="022"/>
+              </dmIdent>
+          </dmRef>
+      </brexDmRef>
+      <qualityAssurance>
+          <firstVerification verificationType="onAircraft"/>
+      </qualityAssurance>
+      <skillLevelCode skillLevel="01"/>
+    </dmStatus>
   </identAndStatusSection>
 
   <content>
