@@ -107,12 +107,29 @@ __________________________________________|_____________________________________
     </dmAddress>
     <dmStatus>
       <security securityClassification="01"/>
-      <responsiblePartnerCompany><enterpriseName>Generic Manufacturer</enterpriseName></responsiblePartnerCompany>
-      <originator><enterpriseName>Generic Manufacturer</enterpriseName></originator>
-      <applic><displayText>All Applicable Configurations</displayText></applic>
-      <brexDmRef><dmRef><dmIdent><dmCode modelIdentCode="S1000D" systemDiffCode="G" systemCode="00" subSystemCode="00" subSubSystemCode="00" assyCode="00" disassyCode="00" disassyCodeVariant="A" infoCode="022" infoCodeVariant="A" itemLocationCode="A"/></dmIdent></dmRef></brexDmRef>
-      <qualityAssurance><firstVerification verificationType="inspection"/></qualityAssurance>
-      <skillLevelCode skillLevel="02"/> </dmStatus>
+      <responsiblePartnerCompany>
+          <enterpriseName>Generic Manufacturer</enterpriseName>
+      </responsiblePartnerCompany>
+      <originator>
+          <enterpriseName>Generic Manufacturer</enterpriseName>
+      </originator>
+      <applic>
+          <displayText>All Applicable Configurations</displayText>
+      </applic>
+      <brexDmRef>
+          <dmRef>
+              <dmIdent>
+                  <dmCode modelIdentCode="S1000D" systemDiffCode="G" systemCode="00" 
+                  subSystemCode="00" subSubSystemCode="00" assyCode="00" disassyCode="00" 
+                  disassyCodeVariant="A" infoCode="022" infoCodeVariant="A" itemLocationCode="A"/>
+              </dmIdent>
+          </dmRef>
+      </brexDmRef>
+      <qualityAssurance>
+          <firstVerification verificationType="inspection"/>
+      </qualityAssurance>
+      <skillLevelCode skillLevel="02"/>
+    </dmStatus>
   </identAndStatusSection>
 
   <content>
@@ -154,9 +171,37 @@ __________________________________________|_____________________________________
             </supplyDescrGroup>
         </reqSupplies>
         <refs>
-          <dmRef id="REF_AMM_GEN_SAFETY"><dmIdent><dmCode modelIdentCode="XXXXXX" systemCode="27" infoCode="000"/></dmIdent><dmAddressItems><dmTitle><infoName>Flight Controls General Safety</infoName></dmTitle></dmAddressItems></dmRef>
-          <dmRef id="REF_CMM_ACTUATOR"><dmIdent><dmCode modelIdentCode="VENDOR" infoCode="CMM" modelIdentCode="ACTUATOR_MODEL_XYZ"/></dmIdent><dmAddressItems><dmTitle><techName>Actuator [ACTUATOR_MODEL_XYZ]</techName><infoName>Component Maintenance Manual</infoName></dmTitle></dmAddressItems></dmRef>
-          <dmRef id="REF_SRM_LIMITS"><dmIdent><dmCode modelIdentCode="XXXXXX" systemCode="51" infoCode="SRM"/></dmIdent><dmAddressItems><dmTitle><infoName>Structural Repair Manual - Damage Limits</infoName></dmTitle></dmAddressItems></dmRef>
+          <dmRef id="REF_AMM_GEN_SAFETY">
+            <dmIdent>
+                <dmCode modelIdentCode="XXXXXX" systemCode="27" infoCode="000"/>
+            </dmIdent>
+              <dmAddressItems>
+                  <dmTitle>
+                      <infoName>Flight Controls General Safety</infoName>
+                  </dmTitle>
+              </dmAddressItems>
+          </dmRef>
+          <dmRef id="REF_CMM_ACTUATOR">
+              <dmIdent>
+                  <dmCode modelIdentCode="VENDOR" infoCode="CMM" modelIdentCode="ACTUATOR_MODEL_XYZ"/>
+              </dmIdent>
+              <dmAddressItems>
+                  <dmTitle>
+                      <techName>Actuator [ACTUATOR_MODEL_XYZ]</techName>
+                      <infoName>Component Maintenance Manual</infoName>
+                  </dmTitle>
+              </dmAddressItems>
+          </dmRef>
+          <dmRef id="REF_SRM_LIMITS">
+              <dmIdent>
+                  <dmCode modelIdentCode="XXXXXX" systemCode="51" infoCode="SRM"/>
+              </dmIdent>
+              <dmAddressItems>
+                  <dmTitle>
+                      <infoName>Structural Repair Manual - Damage Limits</infoName>
+                  </dmTitle>
+              </dmAddressItems>
+          </dmRef>
         </refs>
       </preliminaryRqmts>
 
@@ -165,7 +210,9 @@ __________________________________________|_____________________________________
         <proceduralStep id="INSP_STEP001_CLEAN">
           <title>Clean Inspection Area</title>
           <para>Thoroughly clean the actuator and surrounding mounting structure using approved <supplyRef internalRefId="SUPPLY_CLEANER"/> and <supplyRef internalRefId="SUPPLY_WIPES"/>. Ensure all grease, dirt, and hydraulic fluid residue are removed.</para>
-          <note><para>Refer to AMM 20-XX-XX for standard cleaning procedures.</para></note>
+          <note>
+              <para>Refer to AMM 20-XX-XX for standard cleaning procedures.</para>
+          </note>
         </proceduralStep>
 
         <proceduralStep id="INSP_STEP002_VISUAL_BODY">
@@ -481,5 +528,201 @@ __________________________________________|_____________________________________
       <title>Ramp Test Set Connection to VHF Antenna Port</title>
       <graphic infoEntityIdent="ICN-XXXX-A-231211-D-TESTC-A-001A-A"/>
     </figure>
+  </content>
+</dmodule>
+
+
+
+Hydraulic System Reservoir - Fluid Level Check and Replenishment
+
+ATA Chapter (Illustrative): 29 — Hydraulic Power
+S1000D DMC (Illustrative & Generic): XXXXXX-A-29-13-01-00A-615A-A
+(ModelIdentCode: XXXXXX (Generic), SystemDiffCode: A, SystemCode: 29 (Hydraulic Power), SubSystemCode: 13 (Reservoir System), SubSubSystemCode: 01 (Specific Reservoir Assembly), AssyCode: 00A, InfoCode: 615A (Replenish - Scheduled or Unscheduled), InfoCodeVariant: A, ItemLocationCode: A)
+Aircraft/Company: Not Specified / Generic Manufacturer
+🇺🇸 This task involves:
+
+    Locating and gaining access to the specified hydraulic system reservoir servicing panel/point.
+    Performing necessary safety precautions for working with hydraulic systems and fluids.
+    Visually inspecting the reservoir fluid level indicator (e.g., sight glass, float indicator, or electronic display).
+    Interpreting fluid level markings correctly (e.g., considering system temperature, pressurized/depressurized state).
+    If the fluid level is low, connecting approved hydraulic servicing equipment (ground cart).
+    Replenishing the reservoir with the specified type of hydraulic fluid to the correct level.
+    Disconnecting servicing equipment and ensuring no leaks at connection points.
+    Performing a final visual check for leaks around the reservoir and serviced area.
+    Recording the servicing action.
+
+📚 Engineering Sources Required (Conceptual - Generic)
+Document	Purpose
+AMM XX-XX-XX-XXX-XXX (Access Procedure)	Procedure for opening/closing relevant access panels or doors.
+AMM 29-00-00-XXX-XXX (Hydraulic Sys Safety)	General safety precautions for hydraulic system maintenance.
+Material Specification [FLUID_SPEC_NO]	Specification for the approved hydraulic fluid type.
+Hydraulic Servicing Cart Operating Manual	Instructions for the correct and safe operation of the specific hydraulic servicing equipment.
+AMM 12-XX-XX-XXX-XXX (General Servicing)	General aircraft servicing practices and cleanliness standards.
+Aircraft Maintenance Log	For recording servicing actions, fluid type, and quantity added.
+✍️ Key Authoring Considerations
+Factor	Importance
+Hydraulic Fluid Type & Compatibility	CRITICAL: Emphasize using only the EXACT specified hydraulic fluid type (e.g., fire-resistant phosphate ester, mineral-based). Mixing fluid types can cause severe system damage/failure.
+Contamination Control	Strict cleanliness must be maintained throughout the servicing operation. Use clean hoses, filtered fluid from sealed containers, and protect open ports from contamination.
+System State for Level Check	Specify the required aircraft and hydraulic system state for an accurate fluid level check (e.g., system depressurized, actuators in specific positions, fluid temperature stabilized).
+Sight Glass/Indicator Interpretation	Clearly explain how to read the fluid level indicator, including any markings for FULL (HOT/COLD), ADD, or REFILL ranges, and whether the system should be pressurized or not.
+Personal Protective Equipment (PPE)	Mandate use of appropriate PPE (e.g., safety glasses/goggles, chemical-resistant gloves) as hydraulic fluids can be irritants.
+Spill Prevention & Cleanup	Procedures for spill prevention (drip pans) and cleanup of any spilled hydraulic fluid must be included.
+Pressurization/Depressurization	If the system needs to be pressurized for checking or depressurized for filling, these steps must be clearly defined with all associated safety precautions.
+Bleeding Procedures (if applicable)	If there's a risk of introducing air into the system during replenishment, reference or include necessary bleeding procedures.
+Leak Check Post-Servicing	A thorough leak check of the serviced area and connections is mandatory after replenishment.
+🖼️ Required Illustrations (Conceptual - Generic Types)
+Type	Content
+Hydraulic Reservoir Servicing Access Panel	Location of the access panel for the specific reservoir (e.g., Left, Right, Center system).
+Fluid Level Indicator (Sight Glass/Display)	Close-up showing the indicator with clear markings for FULL (HOT/COLD), ADD, REFILL levels. Illustrate correct viewing angle if critical.
+Hydraulic Servicing Cart Connection Point	Diagram showing the correct connection of the servicing cart hose to the reservoir fill/service port, including any special adapters.
+Approved Hydraulic Fluid Container Label (Example)	Example image of the correct hydraulic fluid container label, emphasizing fluid type/specification number.
+PPE for Hydraulic Fluid Handling	Illustrations of required Personal Protective Equipment.
+
+Now, here is the conceptual S1000D Issue 6.0 procedural DM XML for the "Hydraulic System Reservoir - Fluid Level Check and Replenishment" task:
+XML
+
+<?xml version="1.0" encoding="UTF-8"?>
+<dmodule xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns:xlink="http://www.w3.org/1999/xlink"
+         xsi:noNamespaceSchemaLocation="S1000D_6-0_proced.xsd"> <identAndStatusSection>
+    <dmAddress>
+      <dmIdent>
+        <dmCode modelIdentCode="XXXXXX" systemDiffCode="A" 
+                systemCode="29" subSystemCode="13" subSubSystemCode="01" 
+                assyCode="00A" disassyCode="00" disassyCodeVariant="A" 
+                infoCode="615A" infoCodeVariant="A" itemLocationCode="A"/> <issueInfo issueNumber="001" inWork="00"/>
+        <language languageIsoCode="en" countryIsoCode="ZZ"/>
+      </dmIdent>
+      <dmAddressItems>
+        <dmTitle>
+          <techName>Hydraulic System Reservoir [System Designator, e.g., LEFT]</techName>
+          <infoName>Fluid Level Check and Replenishment</infoName>
+        </dmTitle>
+        <issueDate year="2025" month="05" day="10"/>
+      </dmAddressItems>
+    </dmAddress>
+    <dmStatus>
+      <security securityClassification="01"/>
+      <responsiblePartnerCompany><enterpriseName>Generic Manufacturer</enterpriseName></responsiblePartnerCompany>
+      <originator><enterpriseName>Generic Maintenance Organization</enterpriseName></originator>
+      <applic><displayText>All Aircraft Configurations with Type XYZ Hydraulic System</displayText></applic>
+      <brexDmRef><dmRef><dmIdent><dmCode modelIdentCode="S1000D" systemCode="00" infoCode="022"/></dmIdent></dmRef></brexDmRef>
+      <qualityAssurance><firstVerification verificationType="onAircraft"/></qualityAssurance>
+      <skillLevelCode skillLevel="01"/> </dmStatus>
+  </identAndStatusSection>
+
+  <content>
+    <procedure>
+      <preliminaryRqmts>
+        <reqCondGroup>
+          <reqCond id="RC_SERV001">
+            <para>Aircraft is on the ground with parking brake set and wheels chocked.</para>
+          </reqCond>
+          <reqCond id="RC_SERV002">
+            <para>Ensure the [System Designator] hydraulic system is depressurized. Refer to AMM Task 29-00-00-XXX-XXX (System Depressurization).</para>
+            <note><para>Accurate fluid level check is typically performed with the system depressurized and fluid at ambient temperature, unless otherwise specified by the level indicator markings.</para></note>
+          </reqCond>
+          <reqCond id="RC_SERV003">
+            <para>Ensure all flight controls normally powered by the [System Designator] hydraulic system are in their neutral or specified positions (refer to specific aircraft configuration for details).</para>
+          </reqCond>
+        </reqCondGroup>
+        <reqSafety>
+          <safetyPrecautionGroup>
+            <warning id="WARN_HYD_FLUID_CONTACT">
+              <para>HYDRAULIC FLUID HAZARD. Avoid contact with skin and eyes. Wear approved safety glasses/goggles and chemical-resistant gloves. Refer to Material Safety Data Sheet (MSDS) for [FLUID_SPEC_NO].</para>
+              <figureRef internalRefId="FIG_PPE_HYD"/>
+            </warning>
+            <warning id="WARN_HYD_PRESSURE">
+              <para>RESIDUAL PRESSURE HAZARD. Confirm system is fully depressurized before opening any fill ports or connections. Unexpected release of pressurized fluid can cause injury.</para>
+            </warning>
+            <caution id="CAUT_CONTAMINATION">
+              <para>CONTAMINATION CONTROL. Maintain strict cleanliness when servicing hydraulic systems. Use only approved, clean servicing equipment and new, filtered hydraulic fluid from sealed containers. Contamination can cause severe system damage.</para>
+            </caution>
+          </safetyPrecautionGroup>
+        </reqSafety>
+        <reqSupportEquips>
+          <supportEquipDescrGroup>
+            <supportEquipDescr id="EQUIP_SERV_CART"><name>Hydraulic Servicing Cart</name><descr>Equipped with filter and filled with approved hydraulic fluid type [FLUID_SPEC_NO].</descr><partOrConfigNumber>[CART_MODEL_XYZ]</partOrConfigNumber><quantity>1</quantity></supportEquipDescr>
+            <supportEquipDescr id="EQUIP_DRIP_PAN"><name>Drip Pans</name><quantity>AR</quantity></supportEquipDescr>
+            <supportEquipDescr id="EQUIP_LIGHT"><name>Inspection Lamp</name><quantity>1</quantity></supportEquipDescr>
+          </supportEquipDescrGroup>
+        </reqSupportEquips>
+        <reqSupplies>
+            <supplyDescrGroup>
+                <supplyDescr id="SUPPLY_HYD_FLUID"><name>Hydraulic Fluid, [Fluid Type, e.g., Phosphate Ester Based]</name><partOrConfigNumber>[FLUID_SPEC_NO / MIL-PRF-XXXXX]</partOrConfigNumber><quantity>AR</quantity><descr>Must be from a new, sealed container.</descr><figureRef internalRefId="FIG_FLUID_CONTAINER"/></supplyDescr>
+                <supplyDescr id="SUPPLY_CLEAN_WIPES"><name>Lint-Free Cleaning Wipes</name><quantity>AR</quantity></supplyDescr>
+            </supplyDescrGroup>
+        </reqSupplies>
+        <refs>
+          <dmRef id="REF_AMM_HYD_DEPRESS"><dmIdent><dmCode modelIdentCode="XXXXXX" systemCode="29" infoCode="XXX"/></dmIdent><dmAddressItems><dmTitle><infoName>Hydraulic System Depressurization</infoName></dmTitle></dmAddressItems></dmRef>
+          <externalPubRef id="REF_MSDS_FLUID"><externalPubCode>[FLUID_MSDS_ID]</externalPubCode><externalPubTitle>MSDS for Hydraulic Fluid [FLUID_SPEC_NO]</externalPubTitle></externalPubRef>
+        </refs>
+      </preliminaryRqmts>
+
+      <mainProcedure>
+        <title>Hydraulic Reservoir Fluid Level Check and Replenishment Steps</title>
+        <proceduralStep id="SERV_STEP001_ACCESS">
+          <title>Gain Access and Prepare Area</title>
+          <para>Locate and open the hydraulic reservoir servicing access panel for the [System Designator] system. Refer to <figureRef internalRefId="FIG_SERV_PANEL_LOC"/>.</para>
+          <para>Place drip pans <toolRef internalRefId="EQUIP_DRIP_PAN"/> under the servicing area.</para>
+        </proceduralStep>
+
+        <proceduralStep id="SERV_STEP002_LEVEL_CHECK">
+          <title>Check Fluid Level</title>
+          <para>Visually inspect the fluid level indicator on the [System Designator] hydraulic reservoir. Refer to <figureRef internalRefId="FIG_LEVEL_INDICATOR"/>.</para>
+          <para>Interpret the markings (e.g., FULL-HOT, FULL-COLD, ADD, REFILL) according to the current system condition (depressurized, ambient temperature).</para>
+          <randomAction id="RA_LEVEL_CHECK_OUTCOME">
+            <choice>
+              <if id="IF_LEVEL_OK">
+                <condition><para>Fluid level is within the acceptable range (e.g., between ADD and FULL COLD marks).</para></condition>
+                <then>
+                  <para>No replenishment is required. Proceed to Close-Up Requirements: <internalRef internalRefId="SERV_STEP005_CLOSEUP" internalRefTargetType="step"/>.</para>
+                </then>
+              </if>
+              <else id="ELSE_LEVEL_LOW">
+                <condition><para>Fluid level is below the ADD mark or at REFILL.</para></condition>
+                <then>
+                  <para>Replenishment is required. Proceed to next step: <internalRef internalRefId="SERV_STEP003_CONNECT_CART" internalRefTargetType="step"/>.</para>
+                </then>
+              </else>
+            </choice>
+          </randomAction>
+        </proceduralStep>
+
+        <proceduralStep id="SERV_STEP003_CONNECT_CART">
+          <title>Prepare and Connect Servicing Cart</title>
+          <caution internalRefId="CAUT_CONTAMINATION"/> <para>Ensure the hydraulic servicing cart <toolRef internalRefId="EQUIP_SERV_CART"/> is filled with new, filtered, approved hydraulic fluid <supplyRef internalRefId="SUPPLY_HYD_FLUID"/>.</para>
+          <para>Clean the reservoir fill port and the servicing cart hose nozzle with <supplyRef internalRefId="SUPPLY_CLEAN_WIPES"/>.</para>
+          <para>Connect the servicing cart hose to the [System Designator] reservoir fill port. Refer to <figureRef internalRefId="FIG_CART_CONNECT"/>.</para>
+        </proceduralStep>
+        
+        <proceduralStep id="SERV_STEP004_REPLENISH">
+          <title>Replenish Hydraulic Fluid</title>
+          <caution id="CAUT_OVERFILL"><para>DO NOT OVERFILL the reservoir. Overfilling can lead to system malfunctions or fluid expulsion through vents.</para></caution>
+          <para>Slowly add hydraulic fluid from the servicing cart, continuously monitoring the fluid level indicator.</para>
+          <para>Stop filling when the fluid level reaches the [Specify exact mark, e.g., FULL COLD] mark on the indicator.</para>
+          <para>Disconnect the servicing cart hose. Install the cap on the reservoir fill port. Torque cap to [XX] lb-in (if specified).</para>
+          <para>Perform a visual leak check around the fill port and connections.</para>
+        </proceduralStep>
+
+        <proceduralStep id="SERV_STEP005_CLOSEUP">
+          <title>Close-Up</title>
+          <para>Clean any spilled hydraulic fluid immediately using <supplyRef internalRefId="SUPPLY_CLEAN_WIPES"/>.</para>
+          <para>Remove drip pans.</para>
+          <para>Close and secure the hydraulic reservoir servicing access panel.</para>
+          <para>Record the servicing action, date, fluid type/batch, and quantity added in the Aircraft Maintenance Log.</para>
+          <para>If system was depressurized for servicing, perform system pressurization and operational checks as required by AMM Chapter 29.</para>
+        </proceduralStep>
+      </mainProcedure>
+      
+      </procedure>
+    
+    <figureList>
+        <figure id="FIG_PPE_HYD"><title>Required PPE for Hydraulic Fluid Handling</title><graphic infoEntityIdent="ICN-XXXXXX-S-200000-A-PPE01-A-001A-A"/></figure>
+        <figure id="FIG_SERV_PANEL_LOC"><title>Hydraulic Reservoir Servicing Access Panel</title><graphic infoEntityIdent="ICN-XXXXXX-A-291301-D-LOC01-A-001A-A"/></figure>
+        <figure id="FIG_LEVEL_INDICATOR"><title>Reservoir Fluid Level Indicator Details</title><graphic infoEntityIdent="ICN-XXXXXX-A-291301-D-IND01-A-001A-A"/></figure>
+        <figure id="FIG_CART_CONNECT"><title>Servicing Cart Connection to Reservoir Fill Port</title><graphic infoEntityIdent="ICN-XXXXXX-A-291301-D-CONN1-A-001A-A"/></figure>
+        <figure id="FIG_FLUID_CONTAINER"><title>Approved Hydraulic Fluid Container Example</title><graphic infoEntityIdent="ICN-XXXXXX-A-120000-S-MAT01-A-001A-A"/></figure>
+    </figureList>
   </content>
 </dmodule>
