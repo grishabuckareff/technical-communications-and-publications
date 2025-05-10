@@ -45,19 +45,25 @@ Key Authoring Considerations
 __________________________________________________________________________________________________________________________
  Factor                                   |   Importance
 __________________________________________|_______________________________________________________________________________
- Flight Control Safety                    |   Ensure flight controls are safetied/deactivated and tagged out per AMM general procedures before starting work. Accidental movement can cause severe injury or damage.
+ Flight Control Safety                    |   Ensure flight controls are safetied/deactivated and tagged out per AMM 
+                                          |   general procedures before starting work. Accidental movement can cause severe injury or damage.
 __________________________________________|_______________________________________________________________________________
- Hydraulic System Pressure                |   Verify hydraulic system pressure is OFF and residual pressure is bled before disturbing any hydraulic connections (even for visual checks near fittings).
+ Hydraulic System Pressure                |   Verify hydraulic system pressure is OFF and residual pressure is bled before 
+                                          |   disturbing any hydraulic connections (even for visual checks near fittings).
 __________________________________________|_______________________________________________________________________________
- Access & Lighting                        |   Adequate access to all parts of the actuator and sufficient lighting (including use of inspection lamps/mirrors) are critical for a thorough inspection.
+ Access & Lighting                        |   Adequate access to all parts of the actuator and sufficient lighting 
+                                          |   (including use of inspection lamps/mirrors) are critical for a thorough inspection.
 __________________________________________|_______________________________________________________________________________
  Cleanliness                              |   The actuator and surrounding area must be thoroughly cleaned to reveal small defects like cracks or early corrosion.
 __________________________________________|_______________________________________________________________________________
- Inspection Criteria Definition           |   Clearly define what constitutes "acceptable" vs. "unacceptable" for each inspection check (e.g., "no visible cracks," "corrosion not exceeding X depth/area").
+ Inspection Criteria Definition           |   Clearly define what constitutes "acceptable" vs. "unacceptable" for each inspection check 
+                                          |   (e.g., "no visible cracks," "corrosion not exceeding X depth/area").
 __________________________________________|_______________________________________________________________________________
- Use of Inspection Tools                  |   Specify correct use of any required tools like mirrors, magnifying glasses, borescopes (if internal inspection is required), or dimensional measurement tools.
+ Use of Inspection Tools                  |   Specify correct use of any required tools like mirrors, magnifying glasses, borescopes 
+                                          |   (if internal inspection is required), or dimensional measurement tools.
 __________________________________________|_______________________________________________________________________________
- Damage Classification/Reporting          |   Procedures for classifying and reporting any found discrepancies (e.g., to maintenance control, engineering liaison) must be clear.
+ Damage Classification/Reporting          |   Procedures for classifying and reporting any found discrepancies 
+                                          |   (e.g., to maintenance control, engineering liaison) must be clear.
 __________________________________________|_______________________________________________________________________________
  Corrosion Prevention                     |   If protective coatings are disturbed, specify requirements for touch-up.
 __________________________________________|_______________________________________________________________________________
@@ -285,11 +291,13 @@ Key Authoring Considerations
 __________________________________________________________________________________________________________________________
  Factor                                   |   Importance
 __________________________________________|_______________________________________________________________________________
- RF Radiation Safety                      |   Ensure personnel are clear of antenna radiation zones during transmit tests. Post warning placards. (Ref: AMM 20-00-01 Safety Precautions).
+ RF Radiation Safety                      |   Ensure personnel are clear of antenna radiation zones during transmit tests. 
+                                          |   Post warning placards. (Ref: AMM 20-00-01 Safety Precautions).
 __________________________________________|_______________________________________________________________________________
  Antenna Clearance                        |   Verify no obstructions are in front of the VHF antenna.
 __________________________________________|_______________________________________________________________________________
- Test Frequency Coordination              |   Use only approved test frequencies. Coordinate with local ATC or airport authority if live transmissions are planned to avoid interference.
+ Test Frequency Coordination              |   Use only approved test frequencies. Coordinate with local ATC or airport authority 
+                                          |   if live transmissions are planned to avoid interference.
 __________________________________________|_______________________________________________________________________________
  Ramp Test Set Calibration                |   Ensure Ramp Test Set [MODEL_XYZ] has a valid calibration sticker (e.g., within last 12 months).
 __________________________________________|_______________________________________________________________________________
