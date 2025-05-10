@@ -187,3 +187,167 @@ __________________________________________|_____________________________________
     </description>
   </content>
 </dmodule>
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Ventilation System - Functional Description and Breakdown
+
+ATA Chapter (Illustrative): 21 — Air Conditioning & Pressurization
+S1000D DMC (Illustrative & Generic): XXXXXX-A-21-40-00-00A-040A-A
+Aircraft/Company: Not Specified / Generic Manufacturer
+
+
+This Data Module describes:
+
+    The overall purpose, general functionality, and main operational principles of the aircraft's ventilation system.
+    A hierarchical breakdown of the ventilation system into its major subsystems (e.g., Cabin Air Recirculation, Lavatory and Galley Ventilation, Electronic Equipment Bay Cooling/Ventilation, Cargo Bay Ventilation).
+    The primary function and key components of each identified subsystem.
+    Major interfaces between the ventilation system (and its subsystems) and other aircraft systems (e.g., Air Conditioning Packs, Pressurization Control System, Electrical Power System, Smoke Detection System).
+    Basic operational modes, if applicable (e.g., ground mode, flight mode).
+
+
+Data Sources (Conceptual - Generic)
+
+Document/Source	Purpose
+System Design Specification Document	Core engineering document defining system architecture, performance requirements, and functionality.
+Interface Control Documents (ICDs)	Documents defining the interfaces between the ventilation system and other aircraft systems.
+Component Technical Specifications	Detailed specifications for major components like fans, filters, valves, and sensors.
+Functional Hazard Assessment (FHA)	Analysis identifying system functions, failure modes, and safety implications.
+Aircraft Level System Descriptions	High-level manuals or guides explaining overall aircraft systems integration.
+
+
+Key Authoring/Data Considerations
+
+Factor	Importance
+Clear System Boundaries	Precisely define what is included within the ventilation system and what is considered part of interfacing systems (e.g., where does pack air supply become ventilation air?).
+Accurate Hierarchical Breakdown	The logical breakdown into subsystems and components must be accurate and reflect the system's design.
+Consistent Terminology	Use standardized and consistent names for subsystems, components, and functions throughout the DM and related documentation.
+Functional Accuracy	Descriptions of how each subsystem and component works, and their interactions, must be technically correct.
+Interface Clarity	Clearly describe the inputs from, and outputs to, other aircraft systems.
+Operational Modes	If the system has distinct operational modes (e.g., ground vs. flight, smoke removal mode), these should be described.
+Level of Detail	The description should be detailed enough for understanding but avoid excessive component-level detail unless critical for explaining system function.
+
+
+Related Illustrations (Conceptual - To be referenced within this DM)
+
+Type	Content
+Simplified System Block Diagram	A high-level block diagram showing the major subsystems, components, and primary airflow paths. (This could be its own S1000D Graphic DM).
+Component Location Diagram (General)	General illustration(s) showing the approximate physical locations of major ventilation system components within the aircraft.
+Airflow Path Diagram (Conceptual)	Simplified diagram illustrating typical airflow patterns for different ventilation modes (e.g., fresh air, recirculation, E/E cooling).
+
+
+<?xml version="1.0" encoding="UTF-8"?>
+<dmodule xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns:xlink="http://www.w3.org/1999/xlink"
+         xsi:noNamespaceSchemaLocation="S1000D_6-0_descript.xsd"> <identAndStatusSection>
+    <dmAddress>
+      <dmIdent>
+        <dmCode modelIdentCode="XXXXXX" systemDiffCode="A" 
+                systemCode="21" subSystemCode="40" subSubSystemCode="00" 
+                assyCode="00A" disassyCode="00" disassyCodeVariant="A" 
+                infoCode="040A" infoCodeVariant="A" itemLocationCode="A"/> <issueInfo issueNumber="001" inWork="00"/>
+        <language languageIsoCode="en" countryIsoCode="ZZ"/>
+      </dmIdent>
+      <dmAddressItems>
+        <dmTitle>
+          <techName>Aircraft Ventilation System</techName>
+          <infoName>Functional Description and System Breakdown</infoName>
+        </dmTitle>
+        <issueDate year="2025" month="05" day="10"/>
+      </dmAddressItems>
+    </dmAddress>
+    <dmStatus>
+      <security securityClassification="01"/>
+      <responsiblePartnerCompany><enterpriseName>Generic Airframe Manufacturer</enterpriseName></responsiblePartnerCompany>
+      <originator><enterpriseName>Generic Design Organization</enterpriseName></originator>
+      <applic><displayText>All Aircraft Configurations with Type ABC Ventilation System</displayText></applic>
+      <brexDmRef><dmRef><dmIdent><dmCode modelIdentCode="S1000D" systemDiffCode="G" systemCode="00" infoCode="022"/></dmIdent></dmRef></brexDmRef>
+      <qualityAssurance><firstVerification verificationType="verifiedDeskTop"/></qualityAssurance>
+    </dmStatus>
+  </identAndStatusSection>
+
+  <content>
+    <description>
+      <levelledPara id="SYS_OVERVIEW_VENT">
+        <title>Ventilation System - General Overview and Purpose</title>
+        <figureRef internalRefId="FIG_VENT_SYS_BLOCK_DIAG"/>
+        <para>The aircraft ventilation system is designed to provide a comfortable, safe, and odor-free environment for passengers and crew throughout all phases of flight and ground operations. It achieves this by ensuring adequate air circulation, controlled removal of stale or contaminated air, and providing dedicated cooling airflow to critical electronic equipment.</para>
+        <para>The system operates in close conjunction with the Air Conditioning System (for conditioned air supply) and the Pressurization Control System (for managing overboard air discharge).</para>
+      </levelledPara>
+
+      <levelledPara id="SUBSYS_CABIN_RECIRC">
+        <title>Cabin Air Recirculation Subsystem</title>
+        <para>The Cabin Air Recirculation Subsystem improves air quality and reduces the demand on the air conditioning packs by filtering and re-circulating a significant portion of the cabin air. This contributes to fuel efficiency and overall cabin comfort.</para>
+        <levelledPara id="COMP_RECIRC_FANS">
+          <title>Recirculation Fans</title>
+          <para>Typically, two or more high-capacity, electrically powered recirculation fans are installed. These fans draw air from designated cabin zones (e.g., underfloor or ceiling plenums), pass it through high-efficiency particulate air (HEPA) filters, and then direct it to the air conditioning mixing manifold where it combines with fresh conditioned air from the packs before being distributed to the cabin.</para>
+        </levelledPara>
+        <levelledPara id="COMP_RECIRC_FILTERS">
+          <title>Recirculation Air Filters</title>
+          <para>High-efficiency particulate air (HEPA) filters are installed in the recirculation airflow path to remove airborne particulates, allergens, bacteria, and viruses, thus maintaining high cabin air quality. Filter condition is monitored, and replacement is scheduled per maintenance program.</para>
+        </levelledPara>
+      </levelledPara>
+
+      <levelledPara id="SUBSYS_LAV_GAL_VENT">
+        <title>Lavatory and Galley Ventilation Subsystem</title>
+        <para>This subsystem provides continuous, dedicated extraction of air from all lavatories and galleys to remove odors, moisture, and airborne contaminants directly overboard. This prevents such air from mixing with the main cabin air.</para>
+        <levelledPara id="COMP_EXTRACT_FANS_LG">
+          <title>Extraction Fans (Lavatory/Galley)</title>
+          <para>One or more dedicated, electrically powered extraction fans provide the necessary airflow. These fans typically operate automatically whenever aircraft power is available or specific conditions are met (e.g., cabin differential pressure allows). The extracted air is ducted to an overboard vent port.</para>
+        </levelledPara>
+      </levelledPara>
+
+      <levelledPara id="SUBSYS_EE_COOLING_VENT">
+        <title>Electronic Equipment (E/E) Bay Cooling and Ventilation Subsystem</title>
+        <para>This critical subsystem ensures that all electronic equipment located in the E/E bay(s) is maintained within specified operating temperature limits. It utilizes a combination of supply and exhaust fans to provide forced-air cooling.</para>
+        <levelledPara id="COMP_EE_SUPPLY_FANS">
+          <title>E/E Bay Supply Fans</title>
+          <para>Draw ambient air (from outside or from conditioned cabin air, depending on flight phase and system design) and distribute it across the electronic equipment racks. Multiple fans are often provided for redundancy, with normal and alternate operating modes.</para>
+        </levelledPara>
+        <levelledPara id="COMP_EE_EXHAUST_FANS">
+          <title>E/E Bay Exhaust Fans</title>
+          <para>Extract heated air from the E/E bay. This exhaust air may be vented overboard or, in some flight conditions, used to provide supplemental heating to areas like the forward cargo compartment.</para>
+        </levelledPara>
+        <levelledPara id="COMP_EE_SMOKE_CONTROL_IF">
+          <title>E/E Bay Smoke Detection and Control Interface</title>
+          <para>The E/E bay ventilation system interfaces with the aircraft's smoke detection system. Upon detection of smoke in the E/E bay, the ventilation configuration is automatically modified (e.g., fans shut down, specific valves repositioned) to help isolate and control the smoke source, as per pre-programmed logic.</para>
+        </levelledPara>
+      </levelledPara>
+      
+      <levelledPara id="SUBSYS_CARGO_VENT" applicRefId="APPLIC_CARGO_VENT_INSTALLED">
+        <title>Cargo Bay Ventilation Subsystem (If Installed)</title>
+        <para>Provides ventilation and, in some configurations, temperature control for designated cargo compartments, especially those intended for live animal transport. May utilize dedicated fans, heaters, and interfaces with the main air conditioning and ventilation systems.</para>
+      </levelledPara>
+
+      <levelledPara id="SYS_INTERFACES_VENT">
+        <title>Major System Interfaces</title>
+        <para>The Ventilation System has critical interfaces with the following aircraft systems:</para>
+        <unorderedList>
+          <listItem><para><emphasis>Air Conditioning System (ATA 21-50):</emphasis> Receives conditioned fresh air supply; provides recirculated air to mixing manifolds.</para></listItem>
+          <listItem><para><emphasis>Pressurization Control System (ATA 21-30):</emphasis> Coordinates overboard venting with cabin pressure control to ensure safe and efficient operation of outflow valves.</para></listItem>
+          <listItem><para><emphasis>Electrical Power System (ATA 24-XX):</emphasis> Receives AC and/or DC power for all fans, controllers, and sensors.</para></listItem>
+          <listItem><para><emphasis>Fire and Smoke Detection System (ATA 26-1X):</emphasis> Critical interface for E/E bay ventilation control in case of smoke detection.</para></listItem>
+          <listItem><para><emphasis>Flight Deck Controls & Indications (ATA 21-60/31-XX):</emphasis> Provides system status, control switches, and fault indications to the flight crew.</para></listItem>
+        </unorderedList>
+      </levelledPara>
+      
+    </description>
+    
+    <applicDefs>
+        <applicDef id="APPLIC_CARGO_VENT_INSTALLED">
+            <displayText>Applicable to aircraft equipped with the optional cargo bay ventilation system.</displayText>
+            <applicabilityStatement>
+                <assert applicPropertyIdent="optionalSystem" applicPropertyType="sysattr" applicPropertyValues="CargoVentilationTypeB"/>
+            </applicabilityStatement>
+        </applicDef>
+    </applicDefs>
+    
+    <figureList>
+        <figure id="FIG_VENT_SYS_BLOCK_DIAG">
+            <title>Ventilation System - Simplified Block Diagram</title>
+            <graphic infoEntityIdent="ICN-XXXXXX-A-214000-S-BLK01-A-001A-A"/>
+        </figure>
+    </figureList>
+    
+  </content>
+</dmodule>
