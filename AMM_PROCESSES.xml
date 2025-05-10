@@ -218,25 +218,76 @@ __________________________________________|_____________________________________
         <proceduralStep id="INSP_STEP002_VISUAL_BODY">
           <title>Visual Inspection - Actuator Body and Rod</title>
           <para>Using <toolRef internalRefId="TOOL_INSP_LIGHT"/>, <toolRef internalRefId="TOOL_MIRROR"/>, and <toolRef internalRefId="TOOL_MAGNIFIER"/> as necessary, visually inspect the entire actuator body and exposed portions of the actuator rod for the following. Refer to <figureRef internalRefId="FIG_INSP_POINTS"/> and <figureRef internalRefId="FIG_DAMAGE_EXAMPLES"/>:</para>
-          <proceduralStep id="INSP_STEP002_SUB1_CRACKS"><para><emphasis emphasisType="bold">Cracks or Dents:</emphasis> No visible cracks or dents exceeding limits specified in <dmRef internalRefId="REF_SRM_LIMITS"/> or <dmRef internalRefId="REF_CMM_ACTUATOR"/> are permitted.</para></proceduralStep>
-          <proceduralStep id="INSP_STEP002_SUB2_CORR"><para><emphasis emphasisType="bold">Corrosion:</emphasis> Check for any signs of corrosion, pitting, or flaking. Light surface corrosion may be acceptable if within limits of <dmRef internalRefId="REF_SRM_LIMITS"/>; treat as required.</para></proceduralStep>
-          <proceduralStep id="INSP_STEP002_SUB3_SEALS"><para><emphasis emphasisType="bold">Rod Seals:</emphasis> Inspect rod seals for evidence of excessive leakage, cuts, or deterioration. A slight fluid film on the rod is normal; active dripping is not.</para></proceduralStep>
-          <proceduralStep id="INSP_STEP002_SUB4_FINISH"><para><emphasis emphasisType="bold">Protective Finish:</emphasis> Check condition of paint or protective coating. Minor scratches may be acceptable; address flaking or missing coating per standard repair procedures.</para></proceduralStep>
+          <proceduralStep id="INSP_STEP002_SUB1_CRACKS">
+              <para>
+                  <emphasis emphasisType="bold">Cracks or Dents:</emphasis> 
+                  No visible cracks or dents exceeding limits specified in 
+                  <dmRef internalRefId="REF_SRM_LIMITS"/> 
+                  or 
+                  <dmRef internalRefId="REF_CMM_ACTUATOR"/> 
+                  are permitted.
+              </para>
+          </proceduralStep>
+          <proceduralStep id="INSP_STEP002_SUB2_CORR">
+              <para>
+                  <emphasis emphasisType="bold">Corrosion:</emphasis> 
+                  Check for any signs of corrosion, pitting, or flaking. Light surface corrosion may be acceptable if within limits of 
+                  <dmRef internalRefId="REF_SRM_LIMITS"/>; 
+                  treat as required.
+              </para>
+          </proceduralStep>
+          <proceduralStep id="INSP_STEP002_SUB3_SEALS">
+              <para>
+                  <emphasis emphasisType="bold">Rod Seals:</emphasis> 
+                  Inspect rod seals for evidence of excessive leakage, cuts, or deterioration. A slight fluid film on the rod is normal; active dripping is not.
+              </para>
+          </proceduralStep>
+          <proceduralStep id="INSP_STEP002_SUB4_FINISH">
+              <para>
+                  <emphasis emphasisType="bold">Protective Finish:</emphasis> 
+                  Check condition of paint or protective coating. Minor scratches may be acceptable; address flaking or missing coating per standard repair procedures.
+              </para>
+          </proceduralStep>
         </proceduralStep>
         
         <proceduralStep id="INSP_STEP003_VISUAL_CONNECT">
           <title>Visual Inspection - Connections and Mountings</title>
           <para>Inspect the following:</para>
-          <proceduralStep id="INSP_STEP003_SUB1_HYD"><para><emphasis emphasisType="bold">Hydraulic Lines & Fittings:</emphasis> Check for leaks, chafing, kinks, and security. Ensure no twisting of flexible hoses.</para></proceduralStep>
-          <proceduralStep id="INSP_STEP003_SUB2_ELEC"><para><emphasis emphasisType="bold">Electrical Connectors:</emphasis> Check for security, corrosion, and condition of wiring and backshells. Ensure connectors are properly mated and locked.</para></proceduralStep>
-          <proceduralStep id="INSP_STEP003_SUB3_MOUNT"><para><emphasis emphasisType="bold">Mounting Hardware:</emphasis> Check actuator mounting bolts, nuts, and any associated safety wire or cotter pins for security and proper installation. No looseness permitted.</para></proceduralStep>
-          <proceduralStep id="INSP_STEP003_SUB4_BEARINGS"><para><emphasis emphasisType="bold">Rod End and Pivot Bearings:</emphasis> Check for signs of wear, corrosion, or lack of lubrication. Check for security of attachment.</para></proceduralStep>
+          <proceduralStep id="INSP_STEP003_SUB1_HYD">
+              <para>
+                  <emphasis emphasisType="bold">Hydraulic Lines & Fittings:</emphasis> 
+                  Check for leaks, chafing, kinks, and security. Ensure no twisting of flexible hoses.
+              </para>
+          </proceduralStep>
+          <proceduralStep id="INSP_STEP003_SUB2_ELEC">
+              <para>
+                  <emphasis emphasisType="bold">Electrical Connectors:</emphasis> 
+                  Check for security, corrosion, and condition of wiring and backshells. Ensure connectors are properly mated and locked.
+              </para>
+          </proceduralStep>
+          <proceduralStep id="INSP_STEP003_SUB3_MOUNT">
+              <para>
+                  <emphasis emphasisType="bold">Mounting Hardware:</emphasis> 
+                  Check actuator mounting bolts, nuts, and any associated safety wire or cotter pins for security and proper installation. No looseness permitted.
+              </para>
+          </proceduralStep>
+          <proceduralStep id="INSP_STEP003_SUB4_BEARINGS">
+              <para>
+                  <emphasis emphasisType="bold">Rod End and Pivot Bearings:</emphasis> 
+                  Check for signs of wear, corrosion, or lack of lubrication. Check for security of attachment.
+              </para>
+          </proceduralStep>
         </proceduralStep>
 
-        <proceduralStep id="INSP_STEP004_DIMENSIONAL" applicRefId="APPLIC_DIM_CHECK"> <title>Dimensional Checks (If Required)</title>
+        <proceduralStep id="INSP_STEP004_DIMENSIONAL" applicRefId="APPLIC_DIM_CHECK"> 
+          <title>Dimensional Checks (If Required)</title>
           <para>If specified by CMM or engineering disposition for this actuator type/service life, perform the following dimensional checks using <toolRef internalRefId="TOOL_DEPTH_GAUGE"/> or other specified metrology equipment. Refer to <dmRef internalRefId="REF_CMM_ACTUATOR"/> for tolerances and detailed procedures. Refer to <figureRef internalRefId="FIG_DIM_CHECK_GUIDE"/>.</para>
-          <proceduralStep id="INSP_STEP004_SUB1_PLAY"><para>Check actuator rod end axial and radial play. Record values.</para></proceduralStep>
-          <proceduralStep id="INSP_STEP004_SUB2_BUSHING"><para>Check pivot point bushing wear. Record values.</para></proceduralStep>
+          <proceduralStep id="INSP_STEP004_SUB1_PLAY">
+              <para>Check actuator rod end axial and radial play. Record values.</para>
+          </proceduralStep>
+          <proceduralStep id="INSP_STEP004_SUB2_BUSHING">
+              <para>Check pivot point bushing wear. Record values.</para>
+          </proceduralStep>
         </proceduralStep>
 
         <proceduralStep id="INSP_STEP005_LUBE">
@@ -396,12 +447,29 @@ __________________________________________|_____________________________________
     </dmAddress>
     <dmStatus>
       <security securityClassification="01"/>
-      <responsiblePartnerCompany><enterpriseName></enterpriseName></responsiblePartnerCompany>
-      <originator><enterpriseName></enterpriseName></originator>
-      <applic><displayText></displayText></applic>
-      <brexDmRef><dmRef><dmIdent><dmCode modelIdentCode="S1000D" systemDiffCode="G" systemCode="00" subSystemCode="00" subSubSystemCode="00" assyCode="00" disassyCode="00" disassyCodeVariant="A" infoCode="022" infoCodeVariant="A" itemLocationCode="A"/></dmIdent></dmRef></brexDmRef>
-      <qualityAssurance><firstVerification verificationType="functionalTest"/></qualityAssurance>
-      <skillLevelCode skillLevel="02"/> </dmStatus>
+      <responsiblePartnerCompany>
+          <enterpriseName></enterpriseName>
+      </responsiblePartnerCompany>
+      <originator>
+          <enterpriseName></enterpriseName>
+      </originator>
+      <applic>
+          <displayText></displayText>
+      </applic>
+      <brexDmRef>
+          <dmRef>
+              <dmIdent>
+                  <dmCode modelIdentCode="S1000D" systemDiffCode="G" systemCode="00" 
+                  subSystemCode="00" subSubSystemCode="00" assyCode="00" disassyCode="00" 
+                  disassyCodeVariant="A" infoCode="022" infoCodeVariant="A" itemLocationCode="A"/>
+              </dmIdent>
+          </dmRef>
+      </brexDmRef>
+      <qualityAssurance>
+          <firstVerification verificationType="functionalTest"/>
+      </qualityAssurance>
+      <skillLevelCode skillLevel="02"/>
+    </dmStatus>
   </identAndStatusSection>
 
   <content>
@@ -444,8 +512,14 @@ __________________________________________|_____________________________________
         <reqSupplies><noSupplies/></reqSupplies>
         <refs>
           <dmRef id="REF_AMM_CH24">
-            <dmIdent><dmCode modelIdentCode="" systemDiffCode="A" systemCode="24" infoCode="000"/></dmIdent>
-            <dmAddressItems><dmTitle><techName>Electrical Power</techName><infoName>General</infoName></dmTitle></dmAddressItems>
+            <dmIdent>
+                <dmCode modelIdentCode="" systemDiffCode="A" systemCode="24" infoCode="000"/>
+            </dmIdent>
+            <dmAddressItems>
+                <dmTitle>
+                    <techName>Electrical Power</techName><infoName>General</infoName>
+                </dmTitle>
+            </dmAddressItems>
           </dmRef>
           <externalPubRef id="REF_TEST_SET_MANUAL">
             <externalPubCode>[TEST_SET_MANUAL_ID]</externalPubCode>
