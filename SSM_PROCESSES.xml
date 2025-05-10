@@ -199,41 +199,65 @@ Aircraft/Company: Not Specified / Generic Manufacturer
 
 This Data Module describes:
 
-    The overall purpose, general functionality, and main operational principles of the aircraft's ventilation system.
-    A hierarchical breakdown of the ventilation system into its major subsystems (e.g., Cabin Air Recirculation, Lavatory and Galley Ventilation, Electronic Equipment Bay Cooling/Ventilation, Cargo Bay Ventilation).
-    The primary function and key components of each identified subsystem.
-    Major interfaces between the ventilation system (and its subsystems) and other aircraft systems (e.g., Air Conditioning Packs, Pressurization Control System, Electrical Power System, Smoke Detection System).
-    Basic operational modes, if applicable (e.g., ground mode, flight mode).
+    - The overall purpose, general functionality, and main operational principles of the aircraft's ventilation system.
+    - A hierarchical breakdown of the ventilation system into its major subsystems 
+      (e.g., Cabin Air Recirculation, Lavatory and Galley Ventilation, Electronic Equipment Bay Cooling/Ventilation, Cargo Bay Ventilation).
+    - The primary function and key components of each identified subsystem.
+    - Major interfaces between the ventilation system (and its subsystems) and other aircraft systems 
+      (e.g., Air Conditioning Packs, Pressurization Control System, Electrical Power System, Smoke Detection System).
+    - Basic operational modes, if applicable (e.g., ground mode, flight mode).
 
 
 Data Sources (Conceptual - Generic)
-
-Document/Source	Purpose
-System Design Specification Document	Core engineering document defining system architecture, performance requirements, and functionality.
-Interface Control Documents (ICDs)	Documents defining the interfaces between the ventilation system and other aircraft systems.
-Component Technical Specifications	Detailed specifications for major components like fans, filters, valves, and sensors.
-Functional Hazard Assessment (FHA)	Analysis identifying system functions, failure modes, and safety implications.
-Aircraft Level System Descriptions	High-level manuals or guides explaining overall aircraft systems integration.
+__________________________________________________________________________________________________________________________
+ Document/Source                          |   Purpose
+__________________________________________|_______________________________________________________________________________
+ System Design Specification Document     |   Core engineering document defining system architecture, performance requirements, and functionality.
+__________________________________________|_______________________________________________________________________________
+ Interface Control Documents (ICDs)       |   Documents defining the interfaces between the ventilation system and other aircraft systems.
+__________________________________________|_______________________________________________________________________________
+ Component Technical Specifications       |   Detailed specifications for major components like fans, filters, valves, and sensors.
+__________________________________________|_______________________________________________________________________________
+ Functional Hazard Assessment (FHA)       |   Analysis identifying system functions, failure modes, and safety implications.
+__________________________________________|_______________________________________________________________________________
+ Aircraft Level System Descriptions       |   High-level manuals or guides explaining overall aircraft systems integration.
+__________________________________________|_______________________________________________________________________________
 
 
 Key Authoring/Data Considerations
+__________________________________________________________________________________________________________________________
+ Factor                                   |   Importance
+__________________________________________|_______________________________________________________________________________
+ Clear System Boundaries                  |   Precisely define what is included within the ventilation system and what is considered part of interfacing systems 
+                                          |   (e.g., where does pack air supply become ventilation air?).
+__________________________________________|_______________________________________________________________________________
+ Accurate Hierarchical Breakdown          |   The logical breakdown into subsystems and components must be accurate and reflect the system's design.
+__________________________________________|_______________________________________________________________________________
+ Consistent Terminology                   |   Use standardized and consistent names for subsystems, components, and functions throughout the DM and related documentation.
+__________________________________________|_______________________________________________________________________________
+ Functional Accuracy                      |   Descriptions of how each subsystem and component works, and their interactions, must be technically correct.
+__________________________________________|_______________________________________________________________________________
+ Interface Clarity                        |   Clearly describe the inputs from, and outputs to, other aircraft systems.
+__________________________________________|_______________________________________________________________________________
+ Operational Modes                        |   If the system has distinct operational modes (e.g., ground vs. flight, smoke removal mode), these should be described.
+__________________________________________|_______________________________________________________________________________
+ Level of Detail                          |   The description should be detailed enough for understanding but avoid excessive component-level detail 
+                                          |   unless critical for explaining system function.
+__________________________________________|_______________________________________________________________________________
 
-Factor	Importance
-Clear System Boundaries	Precisely define what is included within the ventilation system and what is considered part of interfacing systems (e.g., where does pack air supply become ventilation air?).
-Accurate Hierarchical Breakdown	The logical breakdown into subsystems and components must be accurate and reflect the system's design.
-Consistent Terminology	Use standardized and consistent names for subsystems, components, and functions throughout the DM and related documentation.
-Functional Accuracy	Descriptions of how each subsystem and component works, and their interactions, must be technically correct.
-Interface Clarity	Clearly describe the inputs from, and outputs to, other aircraft systems.
-Operational Modes	If the system has distinct operational modes (e.g., ground vs. flight, smoke removal mode), these should be described.
-Level of Detail	The description should be detailed enough for understanding but avoid excessive component-level detail unless critical for explaining system function.
 
-
-Related Illustrations (Conceptual - To be referenced within this DM)
-
-Type	Content
-Simplified System Block Diagram	A high-level block diagram showing the major subsystems, components, and primary airflow paths. (This could be its own S1000D Graphic DM).
-Component Location Diagram (General)	General illustration(s) showing the approximate physical locations of major ventilation system components within the aircraft.
-Airflow Path Diagram (Conceptual)	Simplified diagram illustrating typical airflow patterns for different ventilation modes (e.g., fresh air, recirculation, E/E cooling).
+Related Illustrations
+__________________________________________________________________________________________________________________________
+ Type                                     |   Content
+__________________________________________|_______________________________________________________________________________
+ Simplified System Block Diagram          |   A high-level block diagram showing the major subsystems, components, and primary airflow paths. 
+                                          |   (This could be its own S1000D Graphic DM).
+__________________________________________|_______________________________________________________________________________
+ Component Location Diagram (General)     |   General illustration(s) showing the approximate physical locations of major ventilation system components within the aircraft.
+__________________________________________|_______________________________________________________________________________
+ Airflow Path Diagram (Conceptual)        |   Simplified diagram illustrating typical airflow patterns for different ventilation modes 
+                                          |   (e.g., fresh air, recirculation, E/E cooling).
+__________________________________________|_______________________________________________________________________________
 
 
 <?xml version="1.0" encoding="UTF-8"?>
