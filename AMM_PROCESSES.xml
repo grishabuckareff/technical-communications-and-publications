@@ -1001,7 +1001,7 @@ __________________________________________|_____________________________________
 Electrical Connector (Avionics Component) - Cleaning
 
 ATA Chapter (Illustrative): 20 — Standard Practices (as cleaning procedures for electrical components are often standardized) or could be system-specific if unique (e.g., 24-XX-XX for an electrical power system connector).
-S1000D DMC (Illustrative & Generic): XXXXXX-A-20-11-03-00A-650A-A
+S1000D DMC (Illustrative and Generic): XXXXXX-A-20-11-03-00A-650A-A
 Aircraft/Company: Not Specified / Generic Manufacturer
 
 
@@ -1049,7 +1049,7 @@ __________________________________________|_____________________________________
  Electrostatic Discharge (ESD) Safety     |   CRITICAL: This must be the foremost consideration. Mandate use of personal grounding (wrist straps), 
                                           |   grounded work surfaces, and ESD-safe tools. Damage to sensitive avionics can occur from improper ESD handling.
 __________________________________________|_______________________________________________________________________________
- Approved Cleaning Agents & Tools         |   List only approved solvents and prohibit damaging ones (e.g., those leaving residue or attacking plastics/insulation). 
+ Approved Cleaning Agents and Tools       |   List only approved solvents and prohibit damaging ones (e.g., those leaving residue or attacking plastics/insulation). 
                                           |   Specify non-metallic, non-abrasive tools.
 __________________________________________|_______________________________________________________________________________
  Prohibition of Abrasives                 |   Strictly forbid the use of abrasive materials or tools that could damage connector plating, pins, or insulators.
@@ -1350,7 +1350,7 @@ __________________________________________|_____________________________________
 Landing Gear Torque Link - Lubrication
 
 ATA Chapter (Illustrative): 32 — Landing Gear
-S1000D DMC (Illustrative & Generic): XXXXXX-A-32-11-03-00A-631A-A
+S1000D DMC (Illustrative and Generic): XXXXXX-A-32-11-03-00A-631A-A
 Aircraft/Company: Not Specified / Generic Manufacturer
 
 
