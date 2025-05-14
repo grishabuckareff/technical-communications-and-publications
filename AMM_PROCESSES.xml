@@ -548,8 +548,12 @@ __________________________________________|_____________________________________
             </supportEquipDescr>
           </supportEquipDescrGroup>
         </reqSupportEquips>
-        <reqSpares><noSpares/></reqSpares>
-        <reqSupplies><noSupplies/></reqSupplies>
+        <reqSpares>
+            <noSpares/>
+        </reqSpares>
+        <reqSupplies>
+            <noSupplies/>
+        </reqSupplies>
         <refs>
           <dmRef id="REF_AMM_CH24">
             <dmIdent>
@@ -988,6 +992,355 @@ __________________________________________|_____________________________________
         <figure id="FIG_FLUID_CONTAINER">
             <title>Approved Hydraulic Fluid Container Example</title>
             <graphic infoEntityIdent="ICN-XXXXXX-A-120000-S-MAT01-A-001A-A"/>
+        </figure>
+    </figureList>
+  </content>
+</dmodule>
+
+
+Electrical Connector (Avionics Component) - Cleaning
+
+ATA Chapter (Illustrative): 20 — Standard Practices (as cleaning procedures for electrical components are often standardized) or could be system-specific if unique (e.g., 24-XX-XX for an electrical power system connector).
+S1000D DMC (Illustrative & Generic): XXXXXX-A-20-11-03-00A-650A-A
+Aircraft/Company: Not Specified / Generic Manufacturer
+
+
+This task involves:
+
+    - Ensuring all related electrical power to the component and connector is OFF and safetied.
+    - Implementing Electrostatic Discharge (ESD) protection measures.
+    - Gaining access to the specified electrical connector.
+    - Carefully disconnecting the connector halves (if required for thorough cleaning and if permitted by maintenance philosophy).
+    - Applying approved cleaning agents using specified tools (e.g., non-metallic brushes, lint-free swabs) to remove contaminants from connector pins, sockets, and shell.
+    - Using low-pressure, dry, filtered air for drying or removing loose particles.
+    - Visually inspecting the cleaned connector for any remaining contamination, damage (bent pins, cracked insulation), or corrosion.
+    - Reconnecting the connector (if disconnected), ensuring proper alignment and mating.
+    - Verifying electrical bonding of the connector shell (if applicable) after reconnection.
+
+
+Engineering Sources Required
+__________________________________________________________________________________________________________________________
+ Document                                 |   Purpose
+__________________________________________|_______________________________________________________________________________
+ AMM XX-XX-XX-XXX-XXX                     |   Procedure for accessing and potentially disconnecting/reconnecting the specific LRU or connector. 
+ (Component R&amp;I)                      |
+__________________________________________|_______________________________________________________________________________
+ AMM 20-XX-XX-XXX-XXX                     |   Standard procedures for establishing and maintaining an ESD-safe work environment.
+ (ESD Protection Procedures)              |
+__________________________________________|_______________________________________________________________________________
+ AMM 20-XX-XX-XXX-XXX                     |   General approved methods, materials, and precautions for cleaning electrical/avionic components.
+ (Standard Cleaning - Elec.)              |
+__________________________________________|_______________________________________________________________________________
+ Material Specification                   |   Specification for the approved cleaning solvent(s) (e.g., Isopropyl Alcohol, specialized contact cleaner).
+ [SOLVENT_SPEC_ID]                        |
+__________________________________________|_______________________________________________________________________________
+ Safety Data Sheets (SDS)                 |   Safety information for handling, storage, and disposal of approved cleaning agents.
+ for Cleaning Agents                      |
+__________________________________________|_______________________________________________________________________________
+ Component Maintenance Manual             |   May contain specific cleaning instructions or prohibitions for sensitive connectors related to a particular LRU.
+ (CMM - if applicable)                    |
+__________________________________________|_______________________________________________________________________________
+
+
+Key Authoring Considerations
+__________________________________________________________________________________________________________________________
+ Factor                                   |   Importance
+__________________________________________|_______________________________________________________________________________
+ Electrostatic Discharge (ESD) Safety     |   CRITICAL: This must be the foremost consideration. Mandate use of personal grounding (wrist straps), 
+                                          |   grounded work surfaces, and ESD-safe tools. Damage to sensitive avionics can occur from improper ESD handling.
+__________________________________________|_______________________________________________________________________________
+ Approved Cleaning Agents & Tools         |   List only approved solvents and prohibit damaging ones (e.g., those leaving residue or attacking plastics/insulation). 
+                                          |   Specify non-metallic, non-abrasive tools.
+__________________________________________|_______________________________________________________________________________
+ Prohibition of Abrasives                 |   Strictly forbid the use of abrasive materials or tools that could damage connector plating, pins, or insulators.
+__________________________________________|_______________________________________________________________________________
+ Application of Solvents                  |   Specify method (e.g., apply to swab/brush, not directly into unmated connector if it can trap fluid). 
+                                          |   Ensure no pooling of solvent.
+__________________________________________|_______________________________________________________________________________
+ Drying Procedure                         |   Specify adequate drying time or use of low-pressure, filtered, dry air. Ensure no moisture remains before reconnection.
+__________________________________________|_______________________________________________________________________________
+ Avoid Touching Pins/Sockets              |   Emphasize avoiding direct contact with pins/sockets with fingers to prevent contamination from skin oils.
+__________________________________________|_______________________________________________________________________________
+ Connector Mating/Demating Cycles         |   Some connectors have limited mating cycles. If cleaning requires disconnection, 
+                                          |   this should be noted if relevant to the component's lifecycle.
+__________________________________________|_______________________________________________________________________________
+ Inspection Criteria Post-Cleaning        |   Define what a "clean" connector looks like (e.g., no visible residue, debris, corrosion; pins straight and true).
+__________________________________________|_______________________________________________________________________________
+ Ventilation for Solvents                 |   Ensure warnings for adequate ventilation if solvents with strong fumes are used.
+__________________________________________|_______________________________________________________________________________
+
+
+Required Illustrations (Conceptual - Generic Types)
+__________________________________________________________________________________________________________________________
+ Type                                     |   Content
+__________________________________________|_______________________________________________________________________________
+ ESD Protection Setup                     |   Illustration showing correct use of ESD wrist strap, connection to common point ground, and ESD protective mat if applicable.
+__________________________________________|_______________________________________________________________________________
+ Typical Avionics Connector               |   Generic illustration showing key parts of a connector (shell, insert, pins, sockets, keying)
+ (Pins & Sockets)                         |   to aid in identification of areas to clean.
+__________________________________________|_______________________________________________________________________________
+ Approved Cleaning Tools                  |   Images of acceptable tools (e.g., specific types of non-metallic brushes, lint-free swabs, anti-static vacuum).
+__________________________________________|_______________________________________________________________________________
+ Cleaning Application Method (Example)    |   Illustration showing correct application of solvent (e.g., to a swab) and method of cleaning pins/sockets.
+__________________________________________|_______________________________________________________________________________
+ Examples of Contamination vs.            |   Comparative images showing common contaminants (dust, film, corrosion) and a properly cleaned contact surface.
+ Clean Contacts                           |
+__________________________________________|_______________________________________________________________________________
+
+
+<?xml version="1.0" encoding="UTF-8"?>
+<dmodule xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns:xlink="http://www.w3.org/1999/xlink"
+         xsi:noNamespaceSchemaLocation="S1000D_6-0_proced.xsd">
+    <identAndStatusSection>
+        <dmAddress>
+            <dmIdent>
+                <dmCode modelIdentCode="XXXXXX" systemDiffCode="A" 
+                systemCode="20" subSystemCode="11" subSubSystemCode="03" 
+                assyCode="00A" disassyCode="00" disassyCodeVariant="A" 
+                infoCode="650A" infoCodeVariant="A" itemLocationCode="A"/>
+                <issueInfo issueNumber="001" inWork="00"/>
+                <language languageIsoCode="en" countryIsoCode="ZZ"/>
+             </dmIdent>
+            <dmAddressItems>
+              <dmTitle>
+                <techName>Electrical Connector - Avionics Component [Generic Identifier]</techName>
+                <infoName>Cleaning Procedure</infoName>
+              </dmTitle>
+              <issueDate year="2025" month="05" day="14"/>
+            </dmAddressItems>
+        </dmAddress>
+        <dmStatus>
+            <security securityClassification="01"/>
+            <responsiblePartnerCompany>
+                <enterpriseName>Generic Manufacturer</enterpriseName>
+            </responsiblePartnerCompany>
+            <originator>
+                <enterpriseName>Generic Maintenance Organization</enterpriseName>
+            </originator>
+            <applic>
+                <displayText>All Configurations with Connector Type [Generic Connector Series]</displayText>
+            </applic>
+            <brexDmRef>
+                <dmRef>
+                    <dmIdent>
+                        <dmCode modelIdentCode="S1000D" systemCode="00" infoCode="022"/>
+                     </dmIdent>
+                </dmRef>
+            </brexDmRef>
+            <qualityAssurance>
+                <firstVerification verificationType="onAircraft"/>
+            </qualityAssurance>
+            <skillLevelCode skillLevel="02"/>
+        </dmStatus>
+    </identAndStatusSection>
+    <content>
+        <procedure>
+          <preliminaryRqmts>
+            <reqCondGroup>
+              <reqCond id="RC_CLEAN001">
+                <para>Ensure all electrical power to the avionics component [LRU_NAME_OR_ID] and its associated connector [CONNECTOR_DESIGNATOR] is OFF. Open and tag applicable circuit breakers (Refer to AMM Chapter 24-XX-XX).</para>
+              </reqCond>
+            <reqCond id="RC_CLEAN002">
+            <para>Establish ESD (Electrostatic Discharge) protection. Connect personal ESD wrist strap to an approved aircraft ESD ground point. Refer to AMM 20-XX-XX (ESD Protection Procedures) and 
+                <figureRef internalRefId="FIG_ESD_SETUP"/>.
+            </para>
+            </reqCond>
+            <reqCond id="RC_CLEAN003">
+                <para>Ensure adequate lighting and ventilation in the work area.</para>
+            </reqCond>
+        </reqCondGroup>
+        <reqSafety>
+          <safetyPrecautionGroup>
+            <warning id="WARN_ESD_DAMAGE">
+              <para>ELECTROSTATIC DISCHARGE SENSITIVE (ESDS) DEVICE. Failure to observe ESD precautions can cause damage to sensitive electronic components. Always wear a grounded wrist strap and use ESD-safe tools when working near or handling ESDS devices and connectors.</para>
+            </warning>
+            <warning id="WARN_SOLVENT_FUMES">
+              <para>SOLVENT FUMES. Ensure adequate ventilation when using cleaning solvents. Avoid prolonged inhalation of fumes. Refer to Safety Data Sheet (SDS) for [SOLVENT_SPEC_ID].</para>
+            </warning>
+            <caution id="CAUT_EYE_PROTECTION">
+              <para>Wear approved safety glasses or goggles to protect eyes from cleaning solvents and debris.</para>
+            </caution>
+          </safetyPrecautionGroup>
+        </reqSafety>
+        <reqSupportEquips>
+          <supportEquipDescrGroup>
+            <supportEquipDescr id="TOOL_ESD_STRAP">
+                <name>ESD Personal Wrist Strap (Grounded)</name>
+                <quantity>1</quantity>
+            </supportEquipDescr>
+            <supportEquipDescr id="TOOL_BRUSH_NONMETAL">
+                <name>Non-metallic, ESD-safe brush assortment (soft bristles)</name>
+                <quantity>1</quantity>
+                <figureRef internalRefId="FIG_CLEAN_TOOLS"/>
+            </supportEquipDescr>
+            <supportEquipDescr id="TOOL_SWABS_LINTFREE">
+                <name>Lint-free swabs</name>
+                <quantity>AR</quantity>
+            </supportEquipDescr>
+            <supportEquipDescr id="TOOL_AIR_DRY_FILTERED">
+                <name>Low-pressure (max [X] PSI) dry, filtered air source</name>
+                <quantity>1</quantity>
+                <descr>For drying purposes only.</descr>
+            </supportEquipDescr>
+            <supportEquipDescr id="TOOL_INSP_LIGHT_MAG">
+                <name>Inspection Lamp with Magnifier (5x-10x)</name>
+                <quantity>1</quantity>
+            </supportEquipDescr>
+          </supportEquipDescrGroup>
+        </reqSupportEquips>
+        <reqSupplies>
+            <supplyDescrGroup>
+                <supplyDescr id="SUPPLY_SOLVENT_IPA">
+                    <name>Isopropyl Alcohol (IPA), Reagent Grade [SPEC_XYZ]</name>
+                    <partOrConfigNumber>[SOLVENT_SPEC_ID_IPA]</partOrConfigNumber>
+                    <quantity>AR</quantity>
+                    <descr>Or other approved contact cleaning solvent per AMM 20-11-03.</descr>
+                </supplyDescr>
+                <supplyDescr id="SUPPLY_WIPES_LINTFREE">
+                    <name>Lint-Free Wipes, ESD Safe</name>
+                    <quantity>AR</quantity>
+                </supplyDescr>
+            </supplyDescrGroup>
+        </reqSupplies>
+        <refs>
+          <dmRef id="REF_AMM_ESD_PROC">
+              <dmIdent>
+                  <dmCode modelIdentCode="XXXXXX" systemCode="20" infoCode="XXX"/>
+              </dmIdent>
+              <dmAddressItems>
+                  <dmTitle>
+                      <infoName>ESD General Procedures</infoName>
+                  </dmTitle>
+              </dmAddressItems>
+          </dmRef>
+          <dmRef id="REF_AMM_STD_CLEAN">
+              <dmIdent>
+                  <dmCode modelIdentCode="XXXXXX" systemCode="20" subSystemCode="11" subSubSystemCode="03" infoCode="000"/>
+              </dmIdent>
+              <dmAddressItems>
+                  <dmTitle>
+                      <infoName>Standard Cleaning - Electrical Connectors</infoName>
+                  </dmTitle>
+              </dmAddressItems>
+          </dmRef>
+        </refs>
+      </preliminaryRqmts>
+
+      <mainProcedure>
+        <title>Connector Cleaning Steps</title>
+        <proceduralStep id="CLEAN_STEP001_ACCESS">
+          <para>Gain access to connector [CONNECTOR_DESIGNATOR] on LRU [LRU_NAME_OR_ID]. Refer to AMM XX-XX-XX if specific access procedure is required.</para>
+        </proceduralStep>
+
+        <proceduralStep id="CLEAN_STEP002_DISCONNECT" applicRefId="APPLIC_DISCONNECT_NEEDED">
+          <title>Disconnect Connector (If Required)</title>
+          <caution id="CAUT_CONN_DAMAGE">
+              <para>Handle connectors with care. Do not use excessive force. Note connector keying and orientation before disconnection.</para>
+          </caution>
+          <para>Carefully disconnect the two halves of connector [CONNECTOR_DESIGNATOR]. Protect unmated connector halves from damage and contamination if they will be open for an extended period.</para>
+        </proceduralStep>
+        
+        <proceduralStep id="CLEAN_STEP003_CLEANING">
+          <title>Clean Connector Pins, Sockets, and Shell</title>
+          <caution id="CAUT_NO_ABRASIVES">
+              <para>DO NOT use abrasive materials, metal brushes, or tools that could scratch or damage plating on pins, sockets, or connector shells.</para>
+          </caution>
+          <caution id="CAUT_AVOID_TOUCHING">
+              <para>Avoid touching connector pins or socket interiors with bare fingers to prevent contamination.</para>
+          </caution>
+          <proceduralStep id="CLEAN_STEP003_SUB1_SOLVENT">
+            <para>Moisten a 
+                <toolRef internalRefId="TOOL_SWABS_LINTFREE"/> or 
+                <toolRef internalRefId="TOOL_BRUSH_NONMETAL"/> with approved cleaning solvent 
+                <supplyRef internalRefId="SUPPLY_SOLVENT_IPA"/>. 
+                Do not oversaturate. Refer to 
+                <figureRef internalRefId="FIG_CLEAN_APP_METHOD"/>.
+            </para>
+          </proceduralStep>
+          <proceduralStep id="CLEAN_STEP003_SUB2_PINS">
+            <para>Gently clean each pin and socket. For sockets, ensure the swab or brush reaches the bottom of the cavity. Use a fresh swab/brush surface frequently.</para>
+          </proceduralStep>
+          <proceduralStep id="CLEAN_STEP003_SUB3_SHELL">
+            <para>Clean the connector shell interior and mating surfaces, removing any loose debris or residue.</para>
+          </proceduralStep>
+        </proceduralStep>
+
+        <proceduralStep id="CLEAN_STEP004_DRYING">
+          <title>Dry Connector</title>
+          <para>Allow the connector to air dry completely.</para>
+          <para>Alternatively, use low-pressure, dry, filtered air from 
+              <toolRef internalRefId="TOOL_AIR_DRY_FILTERED"/> 
+              to gently dry the connector components. Ensure no moisture remains.</para>
+          <caution id="CAUT_AIR_PRESSURE">
+              <para>Do not exceed [X] PSI when using air for drying to prevent damage to delicate connector components.</para>
+          </caution>
+        </proceduralStep>
+
+        <proceduralStep id="CLEAN_STEP005_INSPECT">
+          <title>Inspect Cleaned Connector</title>
+          <para>Using 
+              <toolRef internalRefId="TOOL_INSP_LIGHT_MAG"/>, 
+              visually inspect connector pins for straightness and integrity. Inspect sockets for roundness and absence of debris. Inspect insulators for cracks or damage. Refer to 
+              <figureRef internalRefId="FIG_CONTAM_VS_CLEAN"/>.
+          </para>
+          <para>Ensure no cleaning residue, lint, or other contaminants are present.</para>
+          <para>If damage or persistent contamination is found, report to supervisor for disposition (e.g., connector replacement may be required).</para>
+        </proceduralStep>
+
+        <proceduralStep id="CLEAN_STEP006_RECONNECT" applicRefId="APPLIC_DISCONNECT_NEEDED">
+          <title>Reconnect Connector (If Disconnected)</title>
+          <caution id="CAUT_CONN_ALIGN">
+              <para>Ensure correct alignment and keying before mating connector halves. Do not force connection. Listen/feel for positive engagement of locking mechanism (if applicable).</para>
+          </caution>
+          <para>Carefully align and mate the two halves of connector [CONNECTOR_DESIGNATOR] until fully seated and locked.</para>
+          <para>Verify electrical bonding of the connector backshell to structure is intact, if applicable (Refer to AMM 20-XX-XX Bonding Checks).</para>
+        </proceduralStep>
+      </mainProcedure>
+      
+      <closeUpRqmts>
+        <reqCondGroup>
+          <reqCond id="RC_CU_CLEAN001">
+            <para>Remove ESD protection equipment.</para>
+          </reqCond>
+          <reqCond id="RC_CU_CLEAN002">
+            <para>Install any access panels removed. Refer to AMM XX-XX-XX.</para>
+          </reqCond>
+          <reqCond id="RC_CU_CLEAN003">
+            <para>Restore electrical power. Remove tags from circuit breakers.</para>
+          </reqCond>
+          <reqCond id="RC_CU_CLEAN004">
+            <para>Perform operational test of the affected LRU/system if required by higher-level maintenance procedures or if cleanliness was suspect for a malfunction.</para>
+          </reqCond>
+          <reqCond id="RC_CU_CLEAN005">
+            <para>Record the cleaning procedure in the Aircraft Maintenance Log.</para>
+          </reqCond>
+        </reqCondGroup>
+      </closeUpRqmts>
+    </procedure>
+    
+    <applicDefs>
+        <applicDef id="APPLIC_DISCONNECT_NEEDED">
+            <displayText>Connector disconnection is required only if visual inspection shows contamination within mating surfaces or if specified by CMM/Engineering.</displayText>
+            </applicDef>
+    </applicDefs>
+
+    <figureList>
+        <figure id="FIG_ESD_SETUP">
+            <title>ESD Protection Setup Example</title>
+            <graphic infoEntityIdent="ICN-XXXXXX-S-200000-A-ESD01-A-001A-A"/>
+        </figure>
+        <figure id="FIG_CLEAN_TOOLS">
+            <title>Approved Non-Metallic Cleaning Brushes and Swabs</title>
+            <graphic infoEntityIdent="ICN-XXXXXX-A-201103-D-TOOL1-A-001A-A"/>
+        </figure>
+        <figure id="FIG_CLEAN_APP_METHOD">
+            <title>Correct Application of Cleaning Solvent</title>
+            <graphic infoEntityIdent="ICN-XXXXXX-A-201103-D-METH1-A-001A-A"/>
+        </figure>
+        <figure id="FIG_CONTAM_VS_CLEAN">
+            <title>Examples of Contaminated and Clean Connector Pins</title>
+            <graphic infoEntityIdent="ICN-XXXXXX-A-201103-S-INSP1-A-001A-A"/>
         </figure>
     </figureList>
   </content>
