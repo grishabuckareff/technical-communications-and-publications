@@ -1436,101 +1436,165 @@ __________________________________________|_____________________________________
 <?xml version="1.0" encoding="UTF-8"?>
 <dmodule xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xmlns:xlink="http://www.w3.org/1999/xlink"
-         xsi:noNamespaceSchemaLocation="S1000D_6-0_proced.xsd"> <identAndStatusSection>
-    <dmAddress>
-      <dmIdent>
-        <dmCode modelIdentCode="XXXXXX" systemDiffCode="A" 
+         xsi:noNamespaceSchemaLocation="S1000D_6-0_proced.xsd">
+    <identAndStatusSection>
+        <dmAddress>
+          <dmIdent>
+            <dmCode modelIdentCode="XXXXXX" systemDiffCode="A" 
                 systemCode="32" subSystemCode="11" subSubSystemCode="03" 
                 assyCode="00A" disassyCode="00" disassyCodeVariant="A" 
                 infoCode="631A" infoCodeVariant="A" itemLocationCode="A"/> <issueInfo issueNumber="001" inWork="00"/>
-        <language languageIsoCode="en" countryIsoCode="ZZ"/>
-      </dmIdent>
-      <dmAddressItems>
-        <dmTitle>
-          <techName>Landing Gear Torque Link Assembly [Generic Identifier, e.g., Main Left]</techName>
-          <infoName>Lubrication</infoName>
-        </dmTitle>
-        <issueDate year="2025" month="05" day="14"/>
-      </dmAddressItems>
-    </dmAddress>
-    <dmStatus>
-      <security securityClassification="01"/>
-      <responsiblePartnerCompany><enterpriseName>Generic Manufacturer</enterpriseName></responsiblePartnerCompany>
-      <originator><enterpriseName>Generic Maintenance Organization</enterpriseName></originator>
-      <applic><displayText>All Configurations with Type [Generic Torque Link Type]</displayText></applic>
-      <brexDmRef><dmRef><dmIdent><dmCode modelIdentCode="S1000D" systemCode="00" infoCode="022"/></dmIdent></dmRef></brexDmRef>
-      <qualityAssurance><firstVerification verificationType="onAircraft"/></qualityAssurance>
-      <skillLevelCode skillLevel="01"/> </dmStatus>
-  </identAndStatusSection>
-
-  <content>
-    <procedure>
-      <preliminaryRqmts>
-        <reqCondGroup>
-          <reqCond id="RC_LUBE001">
-            <para>Ensure aircraft is parked, parking brake set, and wheels are chocked. Refer to AMM Chapter 10-11-05.</para>
-          </reqCond>
-          <reqCond id="RC_LUBE002">
-            <para>If required to relieve load from torque links for proper grease penetration, ensure landing gear ground safety locks/pins are installed. Refer to AMM Chapter 32-00-00 (Jacking or Support instructions may apply for some designs).</para>
-          </reqCond>
-        </reqCondGroup>
-        <reqSafety>
-          <safetyPrecautionGroup>
-            <warning id="WARN_GEAR_SAFETY_PINS">
-              <para>UNEXPECTED LANDING GEAR MOVEMENT CAN CAUSE SEVERE INJURY OR DEATH. Ensure all applicable ground safety locks and pins are installed before working on or around landing gear components.</para>
-            </warning>
-            <caution id="CAUT_LUBE_PPE">
-              <para>GREASE HANDLING. Wear approved safety glasses and gloves when handling lubricants. Refer to Safety Data Sheet (SDS) for [LUBE_SPEC_ID].</para>
-            </caution>
-            <caution id="CAUT_CLEAN_FITTINGS">
-              <para>CONTAMINATION. Thoroughly clean grease fittings and grease gun nozzle before applying lubricant to prevent forcing contaminants into the joint.</para>
-            </caution>
-          </safetyPrecautionGroup>
-        </reqSafety>
-        <reqSupportEquips>
-          <supportEquipDescrGroup>
-            <supportEquipDescr id="TOOL_GREASE_GUN"><name>Grease Gun, Hand Operated</name><descr>Equipped with appropriate nozzle for [TYPE] grease fittings.</descr><quantity>1</quantity></supportEquipDescr>
-            <supportEquipDescr id="TOOL_WIPES_CLEAN"><name>Clean, Lint-Free Wipes</name><quantity>AR</quantity></supportEquipDescr>
-          </supportEquipDescrGroup>
+            <language languageIsoCode="en" countryIsoCode="ZZ"/>
+          </dmIdent>
+          <dmAddressItems>
+            <dmTitle>
+              <techName>Landing Gear Torque Link Assembly [Generic Identifier, e.g., Main Left]</techName>
+              <infoName>Lubrication</infoName>
+            </dmTitle>
+            <issueDate year="2025" month="05" day="14"/>
+          </dmAddressItems>
+        </dmAddress>
+        <dmStatus>
+          <security securityClassification="01"/>
+          <responsiblePartnerCompany>
+              <enterpriseName>Generic Manufacturer</enterpriseName>
+          </responsiblePartnerCompany>
+          <originator>
+              <enterpriseName>Generic Maintenance Organization</enterpriseName>
+          </originator>
+          <applic>
+              <displayText>All Configurations with Type [Generic Torque Link Type]</displayText>
+          </applic>
+          <brexDmRef>
+              <dmRef>
+                  <dmIdent>
+                      <dmCode modelIdentCode="S1000D" systemCode="00" infoCode="022"/>
+                  </dmIdent>
+              </dmRef>
+          </brexDmRef>
+          <qualityAssurance>
+              <firstVerification verificationType="onAircraft"/>
+          </qualityAssurance>
+          <skillLevelCode skillLevel="01"/>
+        </dmStatus>
+      </identAndStatusSection>
+      <content>
+          <procedure>
+              <preliminaryRqmts>
+                <reqCondGroup>
+                  <reqCond id="RC_LUBE001">
+                  <para>Ensure aircraft is parked, parking brake set, and wheels are chocked. Refer to AMM Chapter 10-11-05.</para>
+                </reqCond>
+                <reqCond id="RC_LUBE002">
+                    <para>If required to relieve load from torque links for proper grease penetration, ensure landing gear ground safety locks/pins are installed. Refer to AMM Chapter 32-00-00 (Jacking or Support instructions may apply for some designs).</para>
+                </reqCond>
+            </reqCondGroup>
+            <reqSafety>
+              <safetyPrecautionGroup>
+                <warning id="WARN_GEAR_SAFETY_PINS">
+                    <para>UNEXPECTED LANDING GEAR MOVEMENT CAN CAUSE SEVERE INJURY OR DEATH. Ensure all applicable ground safety locks and pins are installed before working on or around landing gear components.</para>
+                </warning>
+                <caution id="CAUT_LUBE_PPE">
+                  <para>GREASE HANDLING. Wear approved safety glasses and gloves when handling lubricants. Refer to Safety Data Sheet (SDS) for [LUBE_SPEC_ID].</para>
+                </caution>
+                <caution id="CAUT_CLEAN_FITTINGS">
+                  <para>CONTAMINATION. Thoroughly clean grease fittings and grease gun nozzle before applying lubricant to prevent forcing contaminants into the joint.</para>
+                </caution>
+              </safetyPrecautionGroup>
+            </reqSafety>
+            <reqSupportEquips>
+              <supportEquipDescrGroup>
+                <supportEquipDescr id="TOOL_GREASE_GUN">
+                    <name>Grease Gun, Hand Operated</name>
+                    <descr>Equipped with appropriate nozzle for [TYPE] grease fittings.</descr>
+                    <quantity>1</quantity>
+                </supportEquipDescr>
+                <supportEquipDescr id="TOOL_WIPES_CLEAN">
+                    <name>Clean, Lint-Free Wipes</name>
+                    <quantity>AR</quantity>
+                </supportEquipDescr>
+            </supportEquipDescrGroup>
         </reqSupportEquips>
         <reqSupplies>
             <supplyDescrGroup>
-                <supplyDescr id="SUPPLY_GREASE_AERO"><name>Aircraft Grease, [Generic Type, e.g., Extreme Pressure, Water Resistant]</name><partOrConfigNumber>[LUBE_SPEC_ID / MIL-PRF-YYYYY]</partOrConfigNumber><quantity>AR</quantity><descr>Ensure correct lubricant type as specified in AMM 12-XX-XX.</descr><figureRef internalRefId="FIG_GREASE_CONTAINER"/></supplyDescr>
-                <supplyDescr id="SUPPLY_CLEANING_AGENT"><name>Approved Cleaning Solvent (for fittings)</name><partOrConfigNumber>[SOLVENT_SPEC_FOR_FITTINGS]</partOrConfigNumber><quantity>AR</quantity></supplyDescr>
+                <supplyDescr id="SUPPLY_GREASE_AERO">
+                    <name>Aircraft Grease, [Generic Type, e.g., Extreme Pressure, Water Resistant]</name>
+                    <partOrConfigNumber>[LUBE_SPEC_ID / MIL-PRF-YYYYY]</partOrConfigNumber>
+                    <quantity>AR</quantity>
+                    <descr>Ensure correct lubricant type as specified in AMM 12-XX-XX.</descr>
+                    <figureRef internalRefId="FIG_GREASE_CONTAINER"/>
+                </supplyDescr>
+                <supplyDescr id="SUPPLY_CLEANING_AGENT">
+                    <name>Approved Cleaning Solvent (for fittings)</name>
+                    <partOrConfigNumber>[SOLVENT_SPEC_FOR_FITTINGS]</partOrConfigNumber>
+                    <quantity>AR</quantity>
+                </supplyDescr>
             </supplyDescrGroup>
         </reqSupplies>
         <refs>
-          <dmRef id="REF_AMM_LUBE_GENERAL"><dmIdent><dmCode modelIdentCode="XXXXXX" systemCode="12" infoCode="XXX"/></dmIdent><dmAddressItems><dmTitle><infoName>General Lubrication Practices</infoName></dmTitle></dmAddressItems></dmRef>
-          <dmRef id="REF_AMM_GEAR_SAFETY"><dmIdent><dmCode modelIdentCode="XXXXXX" systemCode="32" subSystemCode="00" subSubSystemCode="00" infoCode="910"/></dmIdent><dmAddressItems><dmTitle><infoName>Landing Gear Safety Procedures</infoName></dmTitle></dmAddressItems></dmRef>
+          <dmRef id="REF_AMM_LUBE_GENERAL">
+              <dmIdent>
+                  <dmCode modelIdentCode="XXXXXX" systemCode="12" infoCode="XXX"/>
+              </dmIdent><dmAddressItems>
+                  <dmTitle>
+                      <infoName>General Lubrication Practices</infoName>
+                  </dmTitle>
+              </dmAddressItems>
+          </dmRef>
+          <dmRef id="REF_AMM_GEAR_SAFETY">
+              <dmIdent>
+                  <dmCode modelIdentCode="XXXXXX" systemCode="32" subSystemCode="00" subSubSystemCode="00" infoCode="910"/>
+              </dmIdent>
+              <dmAddressItems>
+                  <dmTitle>
+                      <infoName>Landing Gear Safety Procedures</infoName>
+                  </dmTitle>
+              </dmAddressItems>
+          </dmRef>
         </refs>
       </preliminaryRqmts>
-
       <mainProcedure>
         <title>Torque Link Lubrication Steps</title>
         <proceduralStep id="LUBE_STEP001_ACCESS">
           <title>Access and Identify Lubrication Points</title>
           <para>Gain access to the [Specific Torque Link, e.g., Left Main Landing Gear Upper Torque Link].</para>
-          <para>Identify all lubrication fittings (grease zerks) on the torque link pivot points. Refer to <figureRef internalRefId="FIG_TORQUE_LINK_LUBE_POINTS"/>.</para>
+          <para>Identify all lubrication fittings (grease zerks) on the torque link pivot points. Refer to 
+              <figureRef internalRefId="FIG_TORQUE_LINK_LUBE_POINTS"/>.
+          </para>
         </proceduralStep>
 
         <proceduralStep id="LUBE_STEP002_CLEAN_FITTINGS">
           <title>Clean Lubrication Fittings</title>
-          <para>Thoroughly clean each lubrication fitting and the surrounding area using <supplyRef internalRefId="SUPPLY_CLEANING_AGENT"/> and <toolRef internalRefId="TOOL_WIPES_CLEAN"/>.</para>
+          <para>Thoroughly clean each lubrication fitting and the surrounding area using 
+              <supplyRef internalRefId="SUPPLY_CLEANING_AGENT"/> and
+              <toolRef internalRefId="TOOL_WIPES_CLEAN"/>.
+          </para>
         </proceduralStep>
         
         <proceduralStep id="LUBE_STEP003_APPLY_GREASE">
           <title>Apply Lubricant</title>
-          <caution id="CAUT_CORRECT_LUBE"><para>Ensure only approved lubricant <supplyRef internalRefId="SUPPLY_GREASE_AERO"/> is used. Using incorrect lubricant can cause damage or premature wear.</para></caution>
+          <caution id="CAUT_CORRECT_LUBE">
+              <para>Ensure only approved lubricant 
+                  <supplyRef internalRefId="SUPPLY_GREASE_AERO"/> is used. 
+                  Using incorrect lubricant can cause damage or premature wear.
+              </para>
+          </caution>
           <para>Clean the nozzle of the <toolRef internalRefId="TOOL_GREASE_GUN"/>.</para>
-          <para>Connect the grease gun nozzle to the first lubrication fitting. Refer to <figureRef internalRefId="FIG_GREASE_GUN_APP"/>.</para>
-          <para>Apply grease slowly until fresh grease is observed extruding evenly from around the bushing edges or designated bleed points. Refer to <figureRef internalRefId="FIG_LUBE_VERIFY_VISUAL"/>.</para>
+          <para>Connect the grease gun nozzle to the first lubrication fitting. Refer to 
+              <figureRef internalRefId="FIG_GREASE_GUN_APP"/>.
+          </para>
+          <para>Apply grease slowly until fresh grease is observed extruding evenly from around the bushing edges or designated bleed points. Refer to 
+              <figureRef internalRefId="FIG_LUBE_VERIFY_VISUAL"/>.
+          </para>
           <note><para>Some joints may require a specific number of grease gun strokes if bleed points are not visible. Refer to AMM 12-XX-XX if applicable.</para></note>
           <para>Repeat application for all identified lubrication fittings on the torque link assembly.</para>
         </proceduralStep>
 
         <proceduralStep id="LUBE_STEP004_WIPE_EXCESS">
           <title>Clean Excess Lubricant</title>
-          <para>Carefully wipe off all excess grease from fittings and surrounding areas using <toolRef internalRefId="TOOL_WIPES_CLEAN"/>.</para>
+          <para>Carefully wipe off all excess grease from fittings and surrounding areas using 
+              <toolRef internalRefId="TOOL_WIPES_CLEAN"/>.
+          </para>
           <note><para>Accumulated excess grease can attract dirt and contaminants.</para></note>
         </proceduralStep>
 
@@ -1556,10 +1620,22 @@ __________________________________________|_____________________________________
     </procedure>
     
     <figureList>
-        <figure id="FIG_TORQUE_LINK_LUBE_POINTS"><title>Torque Link Lubrication Points Diagram</title><graphic infoEntityIdent="ICN-XXXXXX-A-321103-D-LUBE1-A-001A-A"/></figure>
-        <figure id="FIG_GREASE_GUN_APP"><title>Correct Grease Gun Application</title><graphic infoEntityIdent="ICN-XXXXXX-A-120000-D-TOOL1-A-001A-A"/></figure>
-        <figure id="FIG_LUBE_VERIFY_VISUAL"><title>Visual Indication of Proper Lubrication</title><graphic infoEntityIdent="ICN-XXXXXX-A-120000-S-LUBE1-A-001A-A"/></figure>
-        <figure id="FIG_GREASE_CONTAINER"><title>Approved Grease Container Example</title><graphic infoEntityIdent="ICN-XXXXXX-A-120000-S-MATG1-A-001A-A"/></figure>
+        <figure id="FIG_TORQUE_LINK_LUBE_POINTS">
+            <title>Torque Link Lubrication Points Diagram</title>
+            <graphic infoEntityIdent="ICN-XXXXXX-A-321103-D-LUBE1-A-001A-A"/>
+        </figure>
+        <figure id="FIG_GREASE_GUN_APP">
+            <title>Correct Grease Gun Application</title>
+            <graphic infoEntityIdent="ICN-XXXXXX-A-120000-D-TOOL1-A-001A-A"/>
+        </figure>
+        <figure id="FIG_LUBE_VERIFY_VISUAL">
+            <title>Visual Indication of Proper Lubrication</title>
+            <graphic infoEntityIdent="ICN-XXXXXX-A-120000-S-LUBE1-A-001A-A"/>
+        </figure>
+        <figure id="FIG_GREASE_CONTAINER">
+            <title>Approved Grease Container Example</title>
+            <graphic infoEntityIdent="ICN-XXXXXX-A-120000-S-MATG1-A-001A-A"/>
+        </figure>
     </figureList>
   </content>
 </dmodule>
